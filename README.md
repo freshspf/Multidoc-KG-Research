@@ -34,6 +34,8 @@
 - 嵌入模型：`all-MiniLM-L6-v2`
 - LLM：OpenAI 兼容 API（GPT-4o）
 
+> **注意**: `Multidoc-KG-new` 是早期原型，已被 `Multidoc-KG-sub` 取代。新开发请用 `sub`。
+
 ### Multidoc-KG-sub — 生物医学知识图谱构建（生产版）
 
 在 `Multidoc-KG-new` 基础上面向生物医学文献的成熟版本。
