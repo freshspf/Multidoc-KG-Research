@@ -1,0 +1,88 @@
+[
+  {
+    "section": "relatedworks",
+    "path": {
+      "section": "relatedworks",
+      "start_entity": "HM3DOVON",
+      "end_entity": "RealWorldScans",
+      "hops": [
+        {
+          "from": "HM3DOVON",
+          "relation": "outperforms",
+          "to": "OVMM",
+          "context": "Our HM3D-OVON benchmark provides a large number of unique objects and categories.",
+          "chunk": "1"
+        },
+        {
+          "from": "OVMM",
+          "relation": "uses",
+          "to": "SyntheticScenes",
+          "context": "OVMM [19] utilizes around 200 synthetic 3D scenes designed by humans.",
+          "chunk": "1"
+        },
+        {
+          "from": "SyntheticScenes",
+          "relation": "comparedWith",
+          "to": "RealWorldScans",
+          "context": "studies such as [21] have demonstrated that navigation agents trained on synthetic scenes exhibit poorer generalization to real-world-like environments.",
+          "chunk": "1"
+        }
+      ]
+    },
+    "question": "Why does the HM3D-OVON benchmark, which outperforms OVMM, provide a more effective tool for training navigation agents?",
+    "options": {
+      "A": "OVMM supports a broader range of synthetic scenes, which unfortunately do not translate effectively to real-world scenarios.",
+      "B": "HM3D-OVON uses real-world scans directly, which are inherently more complex than the synthetic scenes used in OVMM.",
+      "C": "HM3D-OVON and OVMM both utilize synthetic scenes, but HM3D-OVON's scenes are sourced from more recent and accurate data.",
+      "D": "HM3D-OVON incorporates a greater diversity of objects and categories, enhancing generalization compared to OVMM's limited synthetic scenes."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A because HM3D-OVON, which outperforms OVMM, provides a greater variety of unique objects and categories. This variety is crucial for training navigation agents as it helps in better generalization to real-world environments. OVMM, despite using many synthetic scenes, lacks this diversity, which is essential for effective training as indicated by studies showing poor generalization of agents trained on such synthetic environments.",
+    "path_description": "Path: HM3DOVON --[outperforms]--> OVMM --[uses]--> SyntheticScenes --[comparedWith]--> RealWorldScans",
+    "context": "Our HM3D-OVON benchmark provides a large number of unique objects and categories. | OVMM [19] utilizes around 200 synthetic 3D scenes designed by humans. | studies such as [21] have demonstrated that navigation agents trained on synthetic scenes exhibit poorer generalization to real-world-like environments.",
+    "paper_id": "515"
+  },
+  {
+    "section": "conclusion",
+    "path": {
+      "section": "conclusion",
+      "start_entity": "ObjectNavAgent",
+      "end_entity": "EntityFeature",
+      "hops": [
+        {
+          "from": "ObjectNavAgent",
+          "relation": "trainedOn",
+          "to": "HM3D-OVON",
+          "context": "can be used to train an open vocabulary ObjectNav agent...",
+          "chunk": "8"
+        },
+        {
+          "from": "HM3D-OVON",
+          "relation": "provides",
+          "to": "VirtualScans",
+          "context": "181 unique, photo-realistic virtual scans of real-world environments...",
+          "chunk": "8"
+        },
+        {
+          "from": "VirtualScans",
+          "relation": "type",
+          "to": "EntityFeature",
+          "context": "181 unique, photo-realistic virtual scans of real-world environments...",
+          "chunk": "8"
+        }
+      ]
+    },
+    "question": "Which type of data provided by HM3D-OVON is crucial for training an open vocabulary ObjectNav agent to recognize entity features in virtual environments?",
+    "options": {
+      "A": "Textual descriptions of object interactions within the virtual scans",
+      "B": "181 unique, photo-realistic virtual scans that model real-world environments",
+      "C": "Quantitative datasets comprising spatial coordinates of objects",
+      "D": "High-resolution photographs of urban landscapes for enhanced realism"
+    },
+    "correct_answer": "B",
+    "explanation": "HM3D-OVON provides 181 unique, photo-realistic virtual scans of real-world environments, which are essential for training an ObjectNav agent. These virtual scans are specifically utilized to help the agent recognize entity features, which is a requirement for navigating and interacting within virtual environments. Options B, C, and D, although plausible, do not specifically relate to the type of data used for training an ObjectNav agent in recognizing entity features as described in the context.",
+    "path_description": "Path: ObjectNavAgent --[trainedOn]--> HM3D-OVON --[provides]--> VirtualScans --[type]--> EntityFeature",
+    "context": "can be used to train an open vocabulary ObjectNav agent... | 181 unique, photo-realistic virtual scans of real-world environments... | 181 unique, photo-realistic virtual scans of real-world environments...",
+    "paper_id": "515"
+  }
+]

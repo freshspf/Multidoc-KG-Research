@@ -1,0 +1,88 @@
+[
+  {
+    "section": "configurablemixedprecisionarchitecturebasedonibexcore2",
+    "path": {
+      "section": "configurablemixedprecisionarchitecturebasedonibexcore2",
+      "start_entity": "RISCV_ISA_Extension",
+      "end_entity": "ConfigurationMode",
+      "hops": [
+        {
+          "from": "RISCV_ISA_Extension",
+          "relation": "supports",
+          "to": "Mode3",
+          "context": "nn/mac/2b corresponds to Mode-3",
+          "chunk": "4"
+        },
+        {
+          "from": "Mode3",
+          "relation": "basedOn",
+          "to": "Mode2",
+          "context": "Mode-3 is an optimized derivative of Mode-2",
+          "chunk": "4"
+        },
+        {
+          "from": "Mode2",
+          "relation": "type",
+          "to": "ConfigurationMode",
+          "context": "Mode-2 (medium-speed)",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the context of the configurable mixed precision architecture based on the Ibex core, how does nn/mac/2b as Mode-3 relate to Mode-2?",
+    "options": {
+      "A": "Mode-3, represented by nn/mac/2b, is an optimized derivative of Mode-2, which operates at medium speed.",
+      "B": "nn/mac/2b as Mode-3 is a direct, high-speed enhancement of Mode-2, aimed at improving computational power.",
+      "C": "Mode-3, indicated by nn/mac/2b, functions independently of Mode-2 and is focused on data storage enhancements.",
+      "D": "Mode-3, denoted by nn/mac/2b, is a slower, more energy-efficient version of the high-speed Mode-2."
+    },
+    "correct_answer": "A",
+    "explanation": "According to the paper, nn/mac/2b corresponds to Mode-3, which is specifically described as an optimized derivative of Mode-2, operating at medium speed. This indicates that while Mode-3 derives from Mode-2, it carries optimizations that distinguish it from the latter. Options B, C, and D are incorrect as they inaccurately describe the speed, function, and relationship between Mode-3 and Mode-2.",
+    "path_description": "Path: RISCV_ISA_Extension --[supports]--> Mode3 --[basedOn]--> Mode2 --[type]--> ConfigurationMode",
+    "context": "nn/mac/2b corresponds to Mode-3 | Mode-3 is an optimized derivative of Mode-2 | Mode-2 (medium-speed)",
+    "paper_id": "405"
+  },
+  {
+    "section": "configurablemixedprecisionarchitecturebasedonibexcore2",
+    "path": {
+      "section": "configurablemixedprecisionarchitecturebasedonibexcore2",
+      "start_entity": "RISCV_ISA_Extension",
+      "end_entity": "Technique",
+      "hops": [
+        {
+          "from": "RISCV_ISA_Extension",
+          "relation": "supports",
+          "to": "Mode3",
+          "context": "nn/mac/2b corresponds to Mode-3",
+          "chunk": "4"
+        },
+        {
+          "from": "Mode3",
+          "relation": "uses",
+          "to": "SoftSIMD",
+          "context": "if 2-bit precision is used for weights, our third INT2 optimization technique is also applied",
+          "chunk": "4"
+        },
+        {
+          "from": "SoftSIMD",
+          "relation": "type",
+          "to": "Technique",
+          "context": "we apply a soft SIMD technique",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the configurable mixed precision architecture based on the Ibex core, what technique is applied to Mode-3 when using 2-bit precision for weights?",
+    "options": {
+      "A": "A soft SIMD technique is applied, enhancing computational efficiency and precision.",
+      "B": "A hardware-accelerated vector processing technique is implemented to increase speed.",
+      "C": "An INT8 optimization technique is utilized, focusing on maximizing data throughput.",
+      "D": "A binary precision optimization is used to reduce computational complexity."
+    },
+    "correct_answer": "A",
+    "explanation": "The paper mentions that in Mode-3, when 2-bit precision is used for weights, a third INT2 optimization technique, specifically a soft SIMD technique, is applied. This technique is part of the soft SIMD category, which typically aims to enhance computational efficiency and precision in such configurations.",
+    "path_description": "Path: RISCV_ISA_Extension --[supports]--> Mode3 --[uses]--> SoftSIMD --[type]--> Technique",
+    "context": "nn/mac/2b corresponds to Mode-3 | if 2-bit precision is used for weights, our third INT2 optimization technique is also applied | we apply a soft SIMD technique",
+    "paper_id": "405"
+  }
+]

@@ -1,0 +1,52 @@
+[
+  {
+    "id": "introduction",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Introduction",
+      "page_start": 1,
+      "page_end": 1
+    },
+    "text": "3\n5  Over  the past  few decades, global demand for semicon-\n8 ductor products has been steadily increasing, and the semi-\n1\n. conductor  industry has undergone remarkable development\n1 following the trajectory set forth by Moore’s Law. As we inch\n1 closer  to the physical boundaries of device miniaturization,\n4\nthe demands on quality and performance in semiconductor\n2\n: manufacturing processes have intensified unprecedentedly. En-\nv hancing wafer manufacturing yields has emerged as an intri-\ni\ncate and challenging endeavor [1]. In this context, Artificial\nX\nr intelligence is progressively embraced by the semiconductor\na industry, with sundry applications spanning various phases\nof  the semiconductor manufacturing process [2]–[4]. Some\nwork has been done  to suggest practical ways  to address\nthis point. For example, Tsai et al. [5]proposed a wafer map\ndata augmentation and failure pattern recognition method,\nNakazawa et al. [6] proposed a method for wafer map failure\npattern recognition using convolutional neural networks, Hao\net al. [7] proposed deep learning framework for mixed-type\nwafer map defect pattern recognition, and these methods have\nobtained competitive results.\nIn real-world fab production scenarios, vast  amounts of\ndata are generated daily, and it is impractical to label all of\nit manually. Most existing studies have only employed the\nlabeled portion of the dataset, leaving a significant amount of\n\ner with Supcontrast Loss\nrn Recognition\n∗  †\nng Zeng , Xulei Yang\nghai University, Shanghai, China\nh, A*Star, Singapore, Singapore\nunlabeled data unused. Some semi-supervised learning meth-\nods, such as Semi-supervised Clustering [8], Pseudo Label [9],\nand Temporal Ensembling [10] have been used in industry. In\nthis work, we utilize the mean teacher [11] network to leverage\nthis large volume of unlabeled data to enhance our model’s\nperformance. Compared to other Semi-supervised methods,\nthe Mean Teacher offers a more stable teacher model due to\nits moving average mechanism and consistency regularization.\nThis work is also inspired by the recent advancements in the\nfield of contrastive learning [12], particularly its efficiency in\nfeature extraction. Building on this, we propose the integration\nof supervised contrastive learning strategies  into the mean\nteacher semi-supervised learning framework. Our concept  is\nthat by combining the powerful feature extraction capabilities\nof  supervised contrastive  learning with  the  robustness of\nthe mean teacher model, we can more effectively enhance\nthe model’s performance in handling partially labeled data,\nstrengthen the model’s ability to capture key features, and\nimprove its adaptability in a semi-supervised learning envi-\nronment. Through this innovative combination, our approach\nnot only increases  learning efficiency but also brings new\nperspectives and possibilities to the field of semi-supervised\nlearning.\nTo sum up, the contribution of this work lies in three folds:\n• We utilize the mean teacher algorithm with a supervised\ncontrast  learning method,  leveraging a large amount of\nunlabeled data to enhance the performance of the model.\n• To rectify the issue of data imbalance, we have employed\nboth up-sampling and down-sampling techniques.\n• A comprehensive comparison illustrates the efficacy of\nour method on the WM811K dataset."
+  },
+  {
+    "id": "relatedworks",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Related Works",
+      "page_start": 1,
+      "page_end": 1
+    },
+    "text": "A. Recognition Algorithms In Wafer Datasets\nComputer vision and machine  learning  techniques have\ngained prominence in wafer map recognition, addressing its\nchallenges.  Ishida et  al.  [13]  introduced a deep  learning\nframework that autonomously discerns failure pattern charac-\nteristics. Yu et al. [14] leveraged manifold learning for wafer\nmap failure detection and recognition. Meanwhile, Shim et\nal. [15] introduced an iterative active learning-based CNN for\nwafer map pattern recognition, enhancing model performance\nprogressively.  Jaewoong et  al.  [16] proposed a method of\nlearning from single-defect wafer maps  to classify mixed-"
+  },
+  {
+    "id": "proposedmethodology",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Proposed Methodology",
+      "page_start": 2,
+      "page_end": 2
+    },
+    "text": "Wafer map pattern recognition is challenging, and given that\nmany wafer  images are unlabeled, semi-supervised learning\nmethods have become a necessary choice. To effectively\naddress this issue, we adopted the Mean Teacher framework\nwith supervised contrastive loss. Fig. 1 illustrates our proposed\narchitecture for wafer map pattern recognition.\n\nA. Mean Teacher Framework\nMean Teacher  is an advanced semi-supervised  learning\nmethod that has demonstrated outstanding performance and\nimmense potential  in various scenarios, especially in wafer\nmap pattern recognition.\n1) Framework Overview: The underlying principle of the\nMean Teacher algorithm is to ensure prediction consistency\nbetween two distinct neural network instances:  the student\nand the teacher. While the student model undergoes iterative\nupdates during each training epoch, the teacher model’s param-\neters are governed by an Exponential Moving Average (EMA)\nof the student model. This design ensures the teacher model’s\nrelative stability across extensive training epochs. When the\nsame unlabeled data is fed into both networks, we want the\noutputs of both to be as identical as possible so that a large\namount of unlabeled data can be utilized to help with model\ntraining. The ability to utilize large amounts of unlabeled data\nis one of the main advantages of Average Teacher.\n2) Training Strategies:  In the average teacher model,  the\nstudent model and the teacher model are trained using two\ndifferent strategies. In this case, labeled data is used to train\nonly the student model. Subsequently, at each step, a very\nsmall amount of weights from the student model is assigned to\nthe teacher model, called exponential moving average weights.\nIntroducing noise during training allows the model  to learn\nmore universal features, so that  the model can still perform\nwell in real applications when faced with data that is different\nfrom the training set.\nStudent Model Update: A classification loss can be obtained\nby taking the wafer image as input and getting the prediction\nthrough the student model. Then using unlabeled data, a con-\nsistency loss measure is computed by comparing the outputs\nof  the student model and the teacher model, and this  loss\nindicates the difference in prediction between the two models.\nThe two losses were summed and back-propagated to update\nthe parameters of the student model.\nTeacher Model Update and EMA: Concurrently with the\nstudent’s updates,  the  teacher model’s parameters undergo\nevolutionary adjustments governed by the Exponential Moving\nAverage (EMA). Mathematically,  the EMA for  the teacher\nmodel’s parameters at  time t, denoted θteacher(t),  is defined\nas:\nθteacher(t) = α · θteacher(t − 1) + (1 − α) · θstudent(t)  (1)\nWhere α is a decay factor within [0,1]. The adoption of\nEMA ensures a smoother learning trajectory for the teacher\nmodel, with α determining the weightage of past observations.\nThis EMA-driven approach bestows the teacher model with\nenhanced stability and the capability to leverage historical\nlearning.\nB. Supervised Contrastive Learning\nIn our  research, we applied  the concept  of Supervised\nContrastive Learning (SCL)  loss,  as outlined in [27]. We"
+  },
+  {
+    "id": "experiments",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Experiments",
+      "page_start": 3,
+      "page_end": 3
+    },
+    "text": "A. Experimental Settings\nWe conducted experiments on the WM-811K wafer map\ndataset [28], which is a public dataset widely used in semicon-\nductor manufacturing research. It includes 811,457 wafer map\nimages from 46,294 lots, with 172,950 manually labeled, and\ncontains nine patterns. The original dataset has a significant"
+  },
+  {
+    "id": "conclusion",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Conclusion",
+      "page_start": 4,
+      "page_end": 5
+    },
+    "text": "In this work, we presented a simple but efficient approach\nfor wafer defect classification, capitalizing on the strengths\nof  the Mean Teacher framework and supervised contrastive\nloss. Our methodology effectively addresses the intricacies of\nwafer patterns and the challenges stemming from limited la-\nbeled data. Quantitative evaluations corroborated the superior\nperformance of our approach over traditional methods.\n\nREFERENCES [23] T.WangandP.Isola,“Understandingcontrastiverepresentationlearning\nthroughalignmentanduniformityonthehypersphere,”inInternational"
+  }
+]

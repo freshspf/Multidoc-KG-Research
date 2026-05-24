@@ -1,0 +1,88 @@
+[
+  {
+    "section": "quickdesignoverviewofm4",
+    "path": {
+      "section": "quickdesignoverviewofm4",
+      "start_entity": "Wheel",
+      "end_entity": "Specification",
+      "hops": [
+        {
+          "from": "Wheel",
+          "relation": "isAffixedTo",
+          "to": "Leg",
+          "context": "A wheel is affixed to the end of each leg.",
+          "chunk": "1"
+        },
+        {
+          "from": "Leg",
+          "relation": "hasDegreesOfFreedom",
+          "to": "DegreesOfFreedom",
+          "context": "In its design, each leg has 3 DoFs.",
+          "chunk": "1"
+        },
+        {
+          "from": "DegreesOfFreedom",
+          "relation": "type",
+          "to": "Specification",
+          "context": "M4’s body possesses 18 degrees of freedom (DoF).",
+          "chunk": "1"
+        }
+      ]
+    },
+    "question": "In the context of the M4 design as described in the section 'quickdesignoverviewofm4', what specification might directly influence the design choice to affix wheels to the legs?",
+    "options": {
+      "A": "The specification that the entire body should be lightweight to increase the energy efficiency.",
+      "B": "The specification that the wheels should be larger than the legs to enhance speed and agility.",
+      "C": "The specification that each leg should be capable of 360-degree rotation for better maneuverability.",
+      "D": "The specification that each leg should have 3 degrees of freedom to ensure mobility and stability."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A because the specification that each leg should have 3 degrees of freedom is directly linked to the design choice of affixing wheels to the legs, providing necessary mobility and stability. The other options, while plausible, do not directly relate to the reason why wheels are affixed to the legs as per the given knowledge graph path.",
+    "path_description": "Path: Wheel --[isAffixedTo]--> Leg --[hasDegreesOfFreedom]--> DegreesOfFreedom --[type]--> Specification",
+    "context": "A wheel is affixed to the end of each leg. | In its design, each leg has 3 DoFs. | M4’s body possesses 18 degrees of freedom (DoF).",
+    "paper_id": "1716"
+  },
+  {
+    "section": "flightdynamicsmodel",
+    "path": {
+      "section": "flightdynamicsmodel",
+      "start_entity": "StateVector",
+      "end_entity": "Propeller",
+      "hops": [
+        {
+          "from": "StateVector",
+          "relation": "partOf",
+          "to": "HighFidelityModel",
+          "context": "where x is the state vector",
+          "chunk": "2"
+        },
+        {
+          "from": "HighFidelityModel",
+          "relation": "partOf",
+          "to": "M4",
+          "context": "We model the high-fidelity system",
+          "chunk": "2"
+        },
+        {
+          "from": "M4",
+          "relation": "equippedWith",
+          "to": "Propeller",
+          "context": "Each wheel, at its hub, is equipped with a propeller (a thruster)",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the context of a high-fidelity flight dynamics model, how does the state vector relate to the propulsion system of the M4 vehicle?",
+    "options": {
+      "A": "The state vector, as part of the high-fidelity model, indirectly relates to the propeller, which is equipped on each wheel of the M4.",
+      "B": "The state vector measures the output efficiency of each propeller equipped on the M4, providing real-time data on propulsion performance.",
+      "C": "The state vector directly controls the propellers on each wheel of the M4, ensuring precise maneuverability and speed adjustment.",
+      "D": "The state vector, through its connection to the high-fidelity model, physically connects to the propeller's mechanical components in the M4."
+    },
+    "correct_answer": "A",
+    "explanation": "The state vector is a component of the high-fidelity model, which is part of the M4 system that includes propellers equipped on each wheel. The correct answer must reflect the indirect relationship through the model components, as specified in the knowledge graph path, and option A accurately captures this relationship without implying direct control or physical/measurement connections.",
+    "path_description": "Path: StateVector --[partOf]--> HighFidelityModel --[partOf]--> M4 --[equippedWith]--> Propeller",
+    "context": "where x is the state vector | We model the high-fidelity system | Each wheel, at its hub, is equipped with a propeller (a thruster)",
+    "paper_id": "1716"
+  }
+]

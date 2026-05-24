@@ -1,0 +1,131 @@
+[
+  {
+    "section": "receivedbeampatternanalysis2",
+    "path": {
+      "section": "receivedbeampatternanalysis2",
+      "start_entity": "BeamPatternWidth",
+      "end_entity": "RhoCalculation",
+      "hops": [
+        {
+          "from": "BeamPatternWidth",
+          "relation": "hasThreshold",
+          "to": "Rho",
+          "context": "Gnorm h (θ, r), a(φ) has larger value than threshold ρ.",
+          "chunk": "3"
+        },
+        {
+          "from": "Rho",
+          "relation": "calculatedBy",
+          "to": "ErrorFunction",
+          "context": "ρ =  |erf(e^s) + 1|.",
+          "chunk": "3"
+        },
+        {
+          "from": "ErrorFunction",
+          "relation": "usedIn",
+          "to": "RhoCalculation",
+          "context": "ρ =  |erf(e^s) + 1|.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the analysis of received beam patterns, how is the threshold value ρ, used to evaluate Gnorm h (θ, r), a(φ), calculated?",
+    "options": {
+      "A": "The threshold value ρ is directly proportionate to the square root of the sum of the squares of the beam pattern angles.",
+      "B": "The threshold value ρ is determined by the integral of the error function over the surface area of the beam pattern.",
+      "C": "The threshold value ρ is calculated as the absolute value of the error function of e raised to the power s, increased by 1.",
+      "D": "The threshold value ρ is the sum of the Gaussian function values at specified beam pattern intervals."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is derived from the calculation method described in the paper: ρ is the absolute value of the error function (erf) evaluated at e to the power of s, added to 1. The other options describe plausible calculation methods but do not align with the specific method used for ρ in the context given.",
+    "path_description": "Path: BeamPatternWidth --[hasThreshold]--> Rho --[calculatedBy]--> ErrorFunction --[usedIn]--> RhoCalculation",
+    "context": "Gnorm h (θ, r), a(φ) has larger value than threshold ρ. | ρ =  |erf(e^s) + 1|. | ρ =  |erf(e^s) + 1|.",
+    "paper_id": "1883"
+  },
+  {
+    "section": "numericalstimulation3",
+    "path": {
+      "section": "numericalstimulation3",
+      "start_entity": "FarFieldDFTBeamformingVector",
+      "end_entity": "Method",
+      "hops": [
+        {
+          "from": "FarFieldDFTBeamformingVector",
+          "relation": "outperforms",
+          "to": "NearFieldCodeword",
+          "context": "The far-field DFT beamforming vector a(θˆ) outperforms the near-field codeword b(θˆ, rˆ).",
+          "chunk": "8"
+        },
+        {
+          "from": "NearFieldCodeword",
+          "relation": "obtainedVia",
+          "to": "ExhaustiveSearch",
+          "context": "The near-field codeword b(θˆ, rˆ) obtained via the exhaustive search.",
+          "chunk": "8"
+        },
+        {
+          "from": "ExhaustiveSearch",
+          "relation": "type",
+          "to": "Method",
+          "context": "The near-field codeword b(θˆ, rˆ) obtained via the exhaustive search.",
+          "chunk": "8"
+        }
+      ]
+    },
+    "question": "In the context of numerical simulations from the paper section 'numericalstimulation3', which method type is used to obtain the near-field codeword b(θˆ, rˆ) that is outperformed by the far-field DFT beamforming vector a(θˆ)?",
+    "options": {
+      "A": "The near-field codeword b(θˆ, rˆ) is derived using a heuristic optimization approach.",
+      "B": "The near-field codeword b(θˆ, rˆ) is generated via a gradient descent algorithm.",
+      "C": "The near-field codeword b(θˆ, rˆ) is calculated by a random sampling technique.",
+      "D": "The near-field codeword b(θˆ, rˆ) is obtained through an exhaustive search method."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A, as the knowledge path indicates that the near-field codeword b(θˆ, rˆ) is obtained via an exhaustive search, which is a type of method. The other options suggest different methods that were not mentioned in the context of obtaining the near-field codeword.",
+    "path_description": "Path: FarFieldDFTBeamformingVector --[outperforms]--> NearFieldCodeword --[obtainedVia]--> ExhaustiveSearch --[type]--> Method",
+    "context": "The far-field DFT beamforming vector a(θˆ) outperforms the near-field codeword b(θˆ, rˆ). | The near-field codeword b(θˆ, rˆ) obtained via the exhaustive search. | The near-field codeword b(θˆ, rˆ) obtained via the exhaustive search.",
+    "paper_id": "1883"
+  },
+  {
+    "section": "appendixaderivationoftheclosedformexpressionforfr",
+    "path": {
+      "section": "appendixaderivationoftheclosedformexpressionforfr",
+      "start_entity": "ClosedFormExpression",
+      "end_entity": "MathematicalSymbol",
+      "hops": [
+        {
+          "from": "ClosedFormExpression",
+          "relation": "uses",
+          "to": "SubstitutionV",
+          "context": "v = √ȷπαu, so that du = dv/√ȷπα.",
+          "chunk": "10"
+        },
+        {
+          "from": "SubstitutionV",
+          "relation": "relatedTo",
+          "to": "Alpha",
+          "context": "v = √ȷπαu, so that du = dv/√ȷπα.",
+          "chunk": "10"
+        },
+        {
+          "from": "Alpha",
+          "relation": "type",
+          "to": "MathematicalSymbol",
+          "context": "where α > 0 and β are real.",
+          "chunk": "10"
+        }
+      ]
+    },
+    "question": "In the derivation of the closed form expression involving Substitution V, which mathematical symbol is correctly identified and used to indicate a specific type of variable?",
+    "options": {
+      "A": "Delta (δ) is used as a differential element in the expression for du.",
+      "B": "Epsilon (ε) is used as an infinitesimal increment in the derivative dv.",
+      "C": "Alpha (α) is used as a positive real number in the substitution formula for v.",
+      "D": "Beta (β) is used as the integral's upper limit in the substitution formula for v."
+    },
+    "correct_answer": "C",
+    "explanation": "In the context provided, Alpha (α) is specifically mentioned as being greater than 0 and involved in the substitution formula v = √ȷπαu. This demonstrates its use as a positive real number within the mathematical derivation. The other symbols (Beta, Epsilon, Delta) are not mentioned in the given context or incorrectly linked to the formula's components.",
+    "path_description": "Path: ClosedFormExpression --[uses]--> SubstitutionV --[relatedTo]--> Alpha --[type]--> MathematicalSymbol",
+    "context": "v = √ȷπαu, so that du = dv/√ȷπα. | v = √ȷπαu, so that du = dv/√ȷπα. | where α > 0 and β are real.",
+    "paper_id": "1883"
+  }
+]

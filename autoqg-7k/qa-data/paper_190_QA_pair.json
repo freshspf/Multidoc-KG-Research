@@ -1,0 +1,88 @@
+[
+  {
+    "section": "proposedsolution2",
+    "path": {
+      "section": "proposedsolution2",
+      "start_entity": "SemanticKnowledgeVectors",
+      "end_entity": "Parameter",
+      "hops": [
+        {
+          "from": "SemanticKnowledgeVectors",
+          "relation": "updatedDuring",
+          "to": "TrainingProcess",
+          "context": "It is used to update semantic knowledge vectors during the training process.",
+          "chunk": "5"
+        },
+        {
+          "from": "TrainingProcess",
+          "relation": "involvesSelectionOf",
+          "to": "ςmax",
+          "context": "For each batch during training, ς and ϖ are selected, ranging from one to the largest ς and ϖ acceptable to the device, denoted as ςmax and ϖmax.",
+          "chunk": "5"
+        },
+        {
+          "from": "ςmax",
+          "relation": "type",
+          "to": "Parameter",
+          "context": "For each batch during training, ς and ϖ are selected, ranging from one to the largest ς and ϖ acceptable to the device, denoted as ςmax and ϖmax.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the context of updating semantic knowledge vectors during the training process, what is the significance of ςmax?",
+    "options": {
+      "A": "ςmax adjusts the rate at which the semantic knowledge vectors are updated.",
+      "B": "ςmax represents the maximum value of ς that can be selected during each training batch.",
+      "C": "ςmax is a fixed parameter that remains constant throughout the training process.",
+      "D": "ςmax determines the minimum threshold of ς necessary to initiate the training process."
+    },
+    "correct_answer": "B",
+    "explanation": "ςmax is described as the largest value of ς that is acceptable to the device during the training batches, implying it is the upper limit for the selection of ς in each batch, which directly influences the updating of semantic knowledge vectors.",
+    "path_description": "Path: SemanticKnowledgeVectors --[updatedDuring]--> TrainingProcess --[involvesSelectionOf]--> ςmax --[type]--> Parameter",
+    "context": "It is used to update semantic knowledge vectors during the training process. | For each batch during training, ς and ϖ are selected, ranging from one to the largest ς and ϖ acceptable to the device, denoted as ςmax and ϖmax. | For each batch during training, ς and ϖ are selected, ranging from one to the largest ς and ϖ acceptable to the device, denoted as ςmax and ϖmax.",
+    "paper_id": "820"
+  },
+  {
+    "section": "systemmodel2",
+    "path": {
+      "section": "systemmodel2",
+      "start_entity": "Receiver",
+      "end_entity": "Concept",
+      "hops": [
+        {
+          "from": "Receiver",
+          "relation": "includes",
+          "to": "ChannelDecoder",
+          "context": "The receiver includes semantic decoder, channel decoder and semantic knowledge base.",
+          "chunk": "3"
+        },
+        {
+          "from": "ChannelDecoder",
+          "relation": "recovers",
+          "to": "RecoveredFeatures",
+          "context": "the features recovered from y by the channel decoder is denoted as f = Cψ (y).",
+          "chunk": "3"
+        },
+        {
+          "from": "RecoveredFeatures",
+          "relation": "type",
+          "to": "Concept",
+          "context": "the features recovered from y by the channel decoder is denoted as f = Cψ (y).",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In a communication system, if the channel decoder successfully recovers features from a signal 'y', what type of entity is typically represented by these features?",
+    "options": {
+      "A": "These features typically represent the raw data as it was initially transmitted without any encoding.",
+      "B": "These features typically represent the error metrics used to evaluate the transmission quality.",
+      "C": "These features typically represent the physical layer properties like signal strength and noise ratio.",
+      "D": "These features typically represent semantic concepts integral to the original message."
+    },
+    "correct_answer": "D",
+    "explanation": "The recovered features 'f' from the signal 'y' by the channel decoder are typically processed to extract or infer semantic concepts integral to the communication's original message. This aligns with the purpose of the channel decoder in the recovery of meaningful data from the encoded signals.",
+    "path_description": "Path: Receiver --[includes]--> ChannelDecoder --[recovers]--> RecoveredFeatures --[type]--> Concept",
+    "context": "The receiver includes semantic decoder, channel decoder and semantic knowledge base. | the features recovered from y by the channel decoder is denoted as f = Cψ (y). | the features recovered from y by the channel decoder is denoted as f = Cψ (y).",
+    "paper_id": "820"
+  }
+]

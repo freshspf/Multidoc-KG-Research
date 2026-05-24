@@ -1,0 +1,88 @@
+[
+  {
+    "section": "principlesofvulnerability1",
+    "path": {
+      "section": "principlesofvulnerability1",
+      "start_entity": "Solana",
+      "end_entity": "ToolType",
+      "hops": [
+        {
+          "from": "Solana",
+          "relation": "differsFrom",
+          "to": "Ethereum",
+          "context": "The underlying principles of Solana are different from those of Solidity.",
+          "chunk": "4"
+        },
+        {
+          "from": "Ethereum",
+          "relation": "has",
+          "to": "DynamicAnalysisTools",
+          "context": "Ethereum also includes dynamic analysis tools.",
+          "chunk": "4"
+        },
+        {
+          "from": "DynamicAnalysisTools",
+          "relation": "type",
+          "to": "ToolType",
+          "context": "Ethereum also includes dynamic analysis tools.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "Considering the differences in underlying principles between Solana and Ethereum, how does the presence of dynamic analysis tools in Ethereum influence its tool type classification?",
+    "options": {
+      "A": "These tools categorize Ethereum as a blockchain development platform, enhancing vulnerability assessment capabilities.",
+      "B": "Dynamic analysis tools contribute to Ethereum being categorized under a higher risk type due to potential vulnerabilities.",
+      "C": "The dynamic analysis tools classify Ethereum as a more secure blockchain platform compared to platforms without such tools.",
+      "D": "Ethereum is classified as a decentralized finance platform due to the integration of dynamic analysis tools."
+    },
+    "correct_answer": "A",
+    "explanation": "Dynamic analysis tools are used primarily for assessing and improving security and vulnerability management in software development. As Ethereum includes these tools, it is classified as a development platform that focuses on enhancing security protocols, rather than just a financial transaction platform.",
+    "path_description": "Path: Solana --[differsFrom]--> Ethereum --[has]--> DynamicAnalysisTools --[type]--> ToolType",
+    "context": "The underlying principles of Solana are different from those of Solidity. | Ethereum also includes dynamic analysis tools. | Ethereum also includes dynamic analysis tools.",
+    "paper_id": "798"
+  },
+  {
+    "section": "principlesofvulnerability4",
+    "path": {
+      "section": "principlesofvulnerability4",
+      "start_entity": "UnsafeRustCode",
+      "end_entity": "ErrorType",
+      "hops": [
+        {
+          "from": "UnsafeRustCode",
+          "relation": "leadsTo",
+          "to": "MemoryErrors",
+          "context": "For unsafe Rust code, these unsafe operations may lead to problems such as buffer overflows, use-after-free, and uninitialized memory",
+          "chunk": "7"
+        },
+        {
+          "from": "MemoryErrors",
+          "relation": "includes",
+          "to": "UninitializedMemory",
+          "context": "memory errors operations may lead to problems such as buffer overflows, use-after-free, and uninitialized memory",
+          "chunk": "7"
+        },
+        {
+          "from": "UninitializedMemory",
+          "relation": "type",
+          "to": "ErrorType",
+          "context": "memory errors operations may lead to problems such as uninitialized memory",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "In the context of Rust programming, which type of memory error is a direct consequence of writing and executing unsafe Rust code?",
+    "options": {
+      "A": "Memory leaks, which happen when memory is not properly released back to the system after use",
+      "B": "Semantic errors, which occur when code doesn't operate under the rules of the programming language",
+      "C": "Uninitialized memory errors, which occur due to the absence of initial values in memory locations",
+      "D": "Buffer overflow errors, which result from data exceeding its allocated space in memory"
+    },
+    "correct_answer": "C",
+    "explanation": "Following the knowledge graph path from 'UnsafeRustCode' to 'MemoryErrors' and then to 'UninitializedMemory' which is classified as an 'ErrorType', it is clear that uninitialized memory is a specific type of memory error caused by unsafe Rust code. This error happens when memory locations are used before being initialized with a value.",
+    "path_description": "Path: UnsafeRustCode --[leadsTo]--> MemoryErrors --[includes]--> UninitializedMemory --[type]--> ErrorType",
+    "context": "For unsafe Rust code, these unsafe operations may lead to problems such as buffer overflows, use-after-free, and uninitialized memory | memory errors operations may lead to problems such as buffer overflows, use-after-free, and uninitialized memory | memory errors operations may lead to problems such as uninitialized memory",
+    "paper_id": "798"
+  }
+]

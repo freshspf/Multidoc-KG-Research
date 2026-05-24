@@ -1,0 +1,62 @@
+[
+  {
+    "id": "introduction",
+    "metadata": {
+      "lang": "en",
+      "section_title": "INTRODUCTION",
+      "page_start": 1,
+      "page_end": 1
+    },
+    "text": "O\nRecent  years have witnessed a  remarkable  impact  on\nR\n.  research and industry fields due to the impressive capabili-\ns\nties demonstrated by humanoid robots like Atlas [1], Digit\nc\n[  [2], and Optimus [3]. These advancements have promptly\n \n \nincreased focus on the development of humanoid robots\n1\ncapable of executing operational tasks and dynamic motions\nv\n6 such as running,  jumping and flipping. However, the exist-\n5  ing robot platforms still  face limitations of flexibility and\n0  robustness for control. Thus, significant challenges remains\n1  in optimizing the concurrent design of hardware and control\n0\n. models to enhance robot dynamic performance.\n8  This work presents  the design and development of  the\n0\nNING humanoid, an agile and robust  robot platform that\n4\nachieves advanced dynamic performance. The NING hu-\n2\n: manoid combines a tightly integrated co-design based on\nv\ni  the centroidal dynamic model  [4],  [5], high-power-density\nactuators,  and a WB-MPC-based controller. Notably,  the\nX\nr NING humanoid demonstrates stable rough-terrain walking,\na\npush recovery, stair-climbing capabilities in experiments, and\nback-flipping in simulation. The subsequent sections present\nthe hardware design, the control framework, and simulation\nand experiment results."
+  },
+  {
+    "id": "relatedworks",
+    "metadata": {
+      "lang": "en",
+      "section_title": "RELATED WORKS",
+      "page_start": 1,
+      "page_end": 1
+    },
+    "text": "Humanoids which perform extremely dynamic motions\nhighly rely on the actuators. The Atlas performs advanced\nmovements  like backflips with hybrid-hydraulic actuators,\nThis work was supported by the Noetix Robotics company.\nY. Ning and L. Shi are with the Department of Electronic and Com-\nputer Engineering,  the Hong Kong University of  Science  and Tech-\nnology, Clear Water Bay, Hong Kong SAR (email: {yningaa,\neesling}@connect.ust.hk).\nS. Liu, T. Yang,  and L. Zheng are with the Noetix Robotics com-\npany,  Beijing,  China (email: {song.liu, taiwen.yang,\nzhengliang}@noetixrobotics.com).\n\nrent Design and Development of a\ngile Platform\nng, Liang Zheng, and Ling Shi\nFig. 1.  The NING humanoid platform at experimental scenarios.\nwhile the Digit robot utilizes series-elastic actuators (SEAs)\nfor precise torque control. Although these kinds of actuators\ndemonstrate excellent performance, the research and mainte-\nnance cost is significant. Therefore, quasi-direct-drive (QDD)\nactuators are commonly applied in humanoids with low cost,\nhigh power density and smooth backdrivability at limb ends.\nCurrent QDD-based humanoids like the Unitree H1 [6] and\nthe Artemis [7]  from UCLA have already achieved large\nimpact  robustness and athletic capabilities. However,  they\nmay lose agility due to a large size, which may be dangerous\nfor operators and large cost in maintenance.\nFurthermore, the reduced system models, like the Spring-\nloaded-inverted-pendulum (SLIP) model [8] or the centroidal\ndynamic model  [4],  [9],  are commonly used to simplify\nthe complex control  calculation. Criteria shows  that  the\ninertia and mass of limbs and other parts significantly affect\nthe approximation error in robot dynamics [10]. Thus,  the\ndesign principle should concurrently consider the dynamic\nmodel and hardware layout to make the system more agile\nfor control and improve the overall performance.  In terms\nof transmission mechanism,  the Digit robot uses multi-bar\nlinkage [2] which is nonlinear and complicated for control,\nwhile the MIT humanoid employs synchronous belt between\njoints  [11] which may lose some rigidity and affect  the\naccuracy. Motivated by such  limitations, we design and\ndevelop the NING humanoid achieving high-dynamic tasks\nwith more agility, more robustness and low cost."
+  },
+  {
+    "id": "hardwaredesign",
+    "metadata": {
+      "lang": "en",
+      "section_title": "HARDWARE DESIGN",
+      "page_start": 1,
+      "page_end": 1
+    },
+    "text": "and experiment results.\nII. RELATED WORKS\nHumanoids which perform extremely dynamic motions\nhighly rely on the actuators. The Atlas performs advanced\nmovements  like backflips with hybrid-hydraulic actuators,\nThis work was supported by the Noetix Robotics company.\nY. Ning and L. Shi are with the Department of Electronic and Com-\nputer Engineering,  the Hong Kong University of  Science  and Tech-\nnology, Clear Water Bay, Hong Kong SAR (email: {yningaa,\neesling}@connect.ust.hk).\nS. Liu, T. Yang,  and L. Zheng are with the Noetix Robotics com-\npany,  Beijing,  China (email: {song.liu, taiwen.yang,\nzhengliang}@noetixrobotics.com).\n\nrent Design and Development of a\ngile Platform\nng, Liang Zheng, and Ling Shi\nFig. 1.  The NING humanoid platform at experimental scenarios.\nwhile the Digit robot utilizes series-elastic actuators (SEAs)\nfor precise torque control. Although these kinds of actuators\ndemonstrate excellent performance, the research and mainte-\nnance cost is significant. Therefore, quasi-direct-drive (QDD)\nactuators are commonly applied in humanoids with low cost,\nhigh power density and smooth backdrivability at limb ends.\nCurrent QDD-based humanoids like the Unitree H1 [6] and\nthe Artemis [7]  from UCLA have already achieved large\nimpact  robustness and athletic capabilities. However,  they\nmay lose agility due to a large size, which may be dangerous\nfor operators and large cost in maintenance.\nFurthermore, the reduced system models, like the Spring-\nloaded-inverted-pendulum (SLIP) model [8] or the centroidal\ndynamic model  [4],  [9],  are commonly used to simplify\nthe complex control  calculation. Criteria shows  that  the\ninertia and mass of limbs and other parts significantly affect\nthe approximation error in robot dynamics [10]. Thus,  the\ndesign principle should concurrently consider the dynamic\nmodel and hardware layout to make the system more agile\nfor control and improve the overall performance.  In terms\nof transmission mechanism,  the Digit robot uses multi-bar\nlinkage [2] which is nonlinear and complicated for control,\nwhile the MIT humanoid employs synchronous belt between\njoints  [11] which may lose some rigidity and affect  the\naccuracy. Motivated by such  limitations, we design and\ndevelop the NING humanoid achieving high-dynamic tasks\nwith more agility, more robustness and low cost.\nIII. HARDWARE DESIGN\nThe NING humanoid is designed to be robust for continu-\nous impact and perform dynamic locomotion, which weighs\nnear 20 kg and has 18 degree of freedom (DoFs) in total,\n5 per  leg and 4 per arm. An overview of size and joint\narrangement is shown in Fig. 2. The actuators operate at a\nhigh bandwidth as 1kHz through the Ethercat policy. An Intel"
+  },
+  {
+    "id": "controlframework",
+    "metadata": {
+      "lang": "en",
+      "section_title": "CONTROL FRAMEWORK",
+      "page_start": 2,
+      "page_end": 2
+    },
+    "text": "The WB-MPC control framework follows the work of the\nMIT Cheetah [12], [13] and Humanoid [14]. The MPC-based\nlocomotion control uses the enhanced centroidal dynamics\nto predict  the  future states of  the humanoid, while  the\nWBC controller optimizes the current states and output joint\ntorques and accelerations. A simple PD controller is applied\nfor the motors to follow target indices of different actuators.\nThe locomotion MPC problem is formulated as a convex\nquadratic programming (QP) problem using  the  reduced\n\nFig. 3.  Illustrations of back-flipping in simulation and the results of\ndifferent joint torques in each leg.\ncentroidal dynamics to predict step placement of the robot,\nwhile the WBC problem is formulated as a convex QP using\nthe full humanoid model. The WBC objective function is,\n˙  2  d  2  2\nmin ∥Atq¨ +Atq˙ −r˙t∥ +∥u −u∥ +∥τ∥ ,  (1)\nq¨ ,τ,µ\nsubject  to constraints  including discrete  linear dynamics,\nlocomotion tasks regrading to the torse pose and joint angles,\nground contact wrench cone, and actuator and power limits,\nwhere At  is the task Jacobian matrix; r˙t  is the commanded\nd\ntask dynamics; u  and u are the desired and actual reaction\nwrench between the foot and the ground, and τ is the joint\ntorques. By applying an efficient QP solver, qpOASES [15],\nthe WBC problem (1) could be solved in real-time."
+  },
+  {
+    "id": "simulationexperiments",
+    "metadata": {
+      "lang": "en",
+      "section_title": "SIMULATION & EXPERIMENTS",
+      "page_start": 2,
+      "page_end": 2
+    },
+    "text": "The simulation is setup on the MuJoCo [16] platform,\nusing a 3D urdf model with mass and inertia attached on the\ntorso and limb axes. Different dynamic tasks like walking,\nstair-climbing and back-flipping are successfully simulated\nshown in Fig. 3. The online controller is further fine-tuned\nfor real-time implementation.\nIn these experiments,  the NING humanoid could switch\nstates between stable standing and walking. It passes three\ndynamic locomotion scenarios shown as Fig. 1:  traversing\nrough grass  and snow terrains,  performing a push and\nslippery recovery, and climbing slopes at 10 degrees and\nlow stairs. The gait pace could be self-adjusted based on\nthe terrain reaction force feedback for  the robot  to resist\nunknown disturbances."
+  },
+  {
+    "id": "conclusion",
+    "metadata": {
+      "lang": "en",
+      "section_title": "CONCLUSION",
+      "page_start": 2,
+      "page_end": 3
+    },
+    "text": "In conclusion,  to perform dynamic tasks, we design the\nNING humanoid as an agile and robust platform. Based on\nco-design principles, we integrate exceptional QDD actua-\ntors, concentrate inertia at joints based on robot dynamics,\nutilize linear four bar linkage as transmission to improve the\ncontrol flexibility, and implement a WB-MPC controller. The\nsimulation and experiments are conducted to show the per-\nformance of the NING humanoid. We will further augment\nperception-based state estimation and trajectory planning on\nthe platform to achieve more advanced movements.\n\nAPPENDIX D. The demonstration\nA. Specification of the Actuators Thedemonstrationvideolinkisattachedbelow,wherethe\nsimulation and experiment are presented. All the rights are\nreserved by the Noetix company and the authors.\nThe video address: https://youtu.be/uWkuRK9mgyY."
+  }
+]

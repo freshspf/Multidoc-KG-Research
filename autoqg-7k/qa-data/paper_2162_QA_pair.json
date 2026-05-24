@@ -1,0 +1,260 @@
+[
+  {
+    "section": "maximumlikelihoodfitsandthemorefitstrategy3",
+    "path": {
+      "section": "maximumlikelihoodfitsandthemorefitstrategy3",
+      "start_entity": "MoreFit",
+      "end_entity": "Model",
+      "hops": [
+        {
+          "from": "MoreFit",
+          "relation": "implements",
+          "to": "ComputationGraph",
+          "context": "option in MoreFit.",
+          "chunk": "3"
+        },
+        {
+          "from": "ComputationGraph",
+          "relation": "includes",
+          "to": "GaussianModel",
+          "context": "Figure 2 shows the computation graph for signal on top of an exponential background.",
+          "chunk": "3"
+        },
+        {
+          "from": "GaussianModel",
+          "relation": "type",
+          "to": "Model",
+          "context": "a simple model, consisting of a Gaussian",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the context of the 'MoreFit' strategy, which type of model is implicitly included within the computation graph as a fundamental component?",
+    "options": {
+      "A": "A Logistic regression model, often applied for binary classification tasks",
+      "B": "A Linear regression model, commonly used for establishing straight-line relationships in data",
+      "C": "A Polynomial model, frequently employed for fitting non-linear trends in data",
+      "D": "A Gaussian model, typically used to represent signals atop an exponential background"
+    },
+    "correct_answer": "D",
+    "explanation": "The 'MoreFit' strategy implements a computation graph which includes a Gaussian model. This is explicitly mentioned in the context where the Gaussian model is described as a simple model for signal representation on top of an exponential background.",
+    "path_description": "Path: MoreFit --[implements]--> ComputationGraph --[includes]--> GaussianModel --[type]--> Model",
+    "context": "option in MoreFit. | Figure 2 shows the computation graph for signal on top of an exponential background. | a simple model, consisting of a Gaussian",
+    "paper_id": "657"
+  },
+  {
+    "section": "maximumlikelihoodfitsandthemorefitstrategy4",
+    "path": {
+      "section": "maximumlikelihoodfitsandthemorefitstrategy4",
+      "start_entity": "fsig",
+      "end_entity": "MoreFit",
+      "hops": [
+        {
+          "from": "fsig",
+          "relation": "partOf",
+          "to": "parameters",
+          "context": "const double fsig = parameters[2]",
+          "chunk": "4"
+        },
+        {
+          "from": "parameters",
+          "relation": "partOf",
+          "to": "OpenCL_kernel",
+          "context": "__kernel void lh_kernel(__const int nevents, __global const double* data, __global double* output, __global const double* parameters)",
+          "chunk": "4"
+        },
+        {
+          "from": "OpenCL_kernel",
+          "relation": "uses",
+          "to": "MoreFit",
+          "context": "OpenCL kernel to calculate the logarithm of the model given by Eq. 2, by MoreFit without optimisations and MoreFit when automatically optimising parameters.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the context of an OpenCL kernel used for maximum likelihood fits as described in the paper, what specific role does 'fsig' play in the computational process?",
+    "options": {
+      "A": "It serves as a kernel configuration parameter that determines the number of threads per block in the GPU computation.",
+      "B": "It is a function that optimizes the logarithm calculation by adjusting the memory allocation in the GPU.",
+      "C": "It represents an index within the parameters array, specifically used to calculate logarithms in the MoreFit strategy.",
+      "D": "It is a constant value representing a specific model parameter, integral to the logarithm calculations in the MoreFit strategy."
+    },
+    "correct_answer": "D",
+    "explanation": "'fsig' is defined as a constant double value and represents a specific parameter (parameters[2]) within the parameters array used by the OpenCL kernel. This parameter is essential for computing the logarithm of the model, which is a critical part of the MoreFit strategy for maximum likelihood estimation without optimizations and with automatic parameter optimizations.",
+    "path_description": "Path: fsig --[partOf]--> parameters --[partOf]--> OpenCL_kernel --[uses]--> MoreFit",
+    "context": "const double fsig = parameters[2] | __kernel void lh_kernel(__const int nevents, __global const double* data, __global double* output, __global const double* parameters) | OpenCL kernel to calculate the logarithm of the model given by Eq. 2, by MoreFit without optimisations and MoreFit when automatically optimising parameters.",
+    "paper_id": "657"
+  },
+  {
+    "section": "usageandbenchmarking2",
+    "path": {
+      "section": "usageandbenchmarking2",
+      "start_entity": "MoreFit",
+      "end_entity": "Hardware",
+      "hops": [
+        {
+          "from": "MoreFit",
+          "relation": "outperforms",
+          "to": "RooFit",
+          "context": "MoreFit performs well and is faster than RooFit.",
+          "chunk": "7"
+        },
+        {
+          "from": "RooFit",
+          "relation": "implementedIn",
+          "to": "CUDA_GPU",
+          "context": "RooFit CUDA GPU.",
+          "chunk": "7"
+        },
+        {
+          "from": "CUDA_GPU",
+          "relation": "type",
+          "to": "Hardware",
+          "context": "RooFit CUDA GPU.",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "Given the performance hierarchy and implementation details provided, which statement best describes the relationship between MoreFit, RooFit, and CUDA GPUs?",
+    "options": {
+      "A": "CUDA GPUs are less effective when used with MoreFit compared to their implementation in RooFit.",
+      "B": "MoreFit uses CUDA GPUs similarly to RooFit to achieve its superior performance over RooFit.",
+      "C": "RooFit and MoreFit are software tools that do not rely on any form of hardware acceleration like CUDA GPUs.",
+      "D": "RooFit, being slower than MoreFit, utilizes CUDA GPUs to enhance its computational abilities."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A as it accurately reflects the relationships in the knowledge path: MoreFit outperforms RooFit, and RooFit is implemented in CUDA GPUs, which categorizes it under Hardware. This implies RooFit uses CUDA GPUs to try to enhance its performance, though it still underperforms compared to MoreFit.",
+    "path_description": "Path: MoreFit --[outperforms]--> RooFit --[implementedIn]--> CUDA_GPU --[type]--> Hardware",
+    "context": "MoreFit performs well and is faster than RooFit. | RooFit CUDA GPU. | RooFit CUDA GPU.",
+    "paper_id": "657"
+  },
+  {
+    "section": "usageandbenchmarking2",
+    "path": {
+      "section": "usageandbenchmarking2",
+      "start_entity": "MoreFit",
+      "end_entity": "Hardware",
+      "hops": [
+        {
+          "from": "MoreFit",
+          "relation": "outperforms",
+          "to": "RooFit",
+          "context": "MoreFit performs well and is faster than RooFit.",
+          "chunk": "7"
+        },
+        {
+          "from": "RooFit",
+          "relation": "implementedIn",
+          "to": "Legacy_16_Thread",
+          "context": "RooFit legacy 16 thread.",
+          "chunk": "7"
+        },
+        {
+          "from": "Legacy_16_Thread",
+          "relation": "type",
+          "to": "Hardware",
+          "context": "RooFit legacy 16 thread.",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "Given that MoreFit outperforms RooFit, which is implemented on the RooFit legacy 16 thread, what type of system does the RooFit legacy 16 thread represent?",
+    "options": {
+      "A": "A cloud-based platform that leverages distributed computing for simulation",
+      "B": "A type of software framework designed for extensive computational analysis",
+      "C": "A hardware system designed to support multi-threading capabilities for optimization",
+      "D": "A single-threaded software application focusing on basic data processing"
+    },
+    "correct_answer": "C",
+    "explanation": "The question follows the relationship from MoreFit outperforming RooFit, which is implemented on the RooFit legacy 16 thread system. The final hop in the knowledge graph path indicates that RooFit legacy 16 thread is a type of hardware, which aligns with it being a system designed to support multi-threading capabilities, hence Option B is correct.",
+    "path_description": "Path: MoreFit --[outperforms]--> RooFit --[implementedIn]--> Legacy_16_Thread --[type]--> Hardware",
+    "context": "MoreFit performs well and is faster than RooFit. | RooFit legacy 16 thread. | RooFit legacy 16 thread.",
+    "paper_id": "657"
+  },
+  {
+    "section": "appendix3",
+    "path": {
+      "section": "appendix3",
+      "start_entity": "KstarmumuAngularPDF",
+      "end_entity": "TemplateClass",
+      "hops": [
+        {
+          "from": "KstarmumuAngularPDF",
+          "relation": "hasMethod",
+          "to": "Fl",
+          "context": "parameter<evalT>* Fl() const",
+          "chunk": "12"
+        },
+        {
+          "from": "Fl",
+          "relation": "type",
+          "to": "parameter",
+          "context": "parameter<evalT>* Fl",
+          "chunk": "12"
+        },
+        {
+          "from": "parameter",
+          "relation": "type",
+          "to": "TemplateClass",
+          "context": "template <typename kernelT=double, typename evalT=double>",
+          "chunk": "12"
+        }
+      ]
+    },
+    "question": "In the context of the KstarmumuAngularPDF class, what is the primary role of the 'Fl' entity within the template class structure?",
+    "options": {
+      "A": "Fl functions as a method in KstarmumuAngularPDF, returning a pointer to a parameter template instance.",
+      "B": "Fl is used as a namespace within KstarmumuAngularPDF, organizing methods and properties.",
+      "C": "Fl serves as a variable within KstarmumuAngularPDF, storing constant double values for calculations.",
+      "D": "Fl acts primarily as a kernel type within the template class, guiding the computational operations."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A because the 'Fl' entity is described as a method within the KstarmumuAngularPDF, which returns a pointer to a parameter instance specified within a template class. This indicates that 'Fl' is pivotal for obtaining parameter configurations specific to template instances, rather than serving as a kernel type, a variable, or a namespace.",
+    "path_description": "Path: KstarmumuAngularPDF --[hasMethod]--> Fl --[type]--> parameter --[type]--> TemplateClass",
+    "context": "parameter<evalT>* Fl() const | parameter<evalT>* Fl | template <typename kernelT=double, typename evalT=double>",
+    "paper_id": "657"
+  },
+  {
+    "section": "appendix3",
+    "path": {
+      "section": "appendix3",
+      "start_entity": "KstarmumuAngularPDF",
+      "end_entity": "TemplateClass",
+      "hops": [
+        {
+          "from": "KstarmumuAngularPDF",
+          "relation": "hasMethod",
+          "to": "phi",
+          "context": "dimension<evalT>* phi() const",
+          "chunk": "12"
+        },
+        {
+          "from": "phi",
+          "relation": "type",
+          "to": "dimension",
+          "context": "dimension<evalT>* phi",
+          "chunk": "12"
+        },
+        {
+          "from": "dimension",
+          "relation": "type",
+          "to": "TemplateClass",
+          "context": "template <typename kernelT=double, typename evalT=double>",
+          "chunk": "12"
+        }
+      ]
+    },
+    "question": "In the context of the function 'phi' as described in the paper, which option correctly describes the relationship between 'phi', 'dimension', and 'TemplateClass'?",
+    "options": {
+      "A": "The 'phi' function is an independent utility that calculates dimensions, later used to instantiate a generic 'TemplateClass'.",
+      "B": "The 'phi' function serves as a constructor for the 'dimension', which is a static member of the 'TemplateClass' utilized in the kernel.",
+      "C": "The function 'phi' directly modifies the 'dimension' class, which inherits properties from the 'TemplateClass' specialized by 'kernelT'.",
+      "D": "The function 'phi' is a method that returns a pointer to 'dimension', which is a type parameterized by 'evalT' in a 'TemplateClass'."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A because it accurately reflects the relationship and types involved, where 'phi' is a method returning a pointer to 'dimension', parameterized by 'evalT' within a 'TemplateClass', following the paper's details about template parameters and method functionalities.",
+    "path_description": "Path: KstarmumuAngularPDF --[hasMethod]--> phi --[type]--> dimension --[type]--> TemplateClass",
+    "context": "dimension<evalT>* phi() const | dimension<evalT>* phi | template <typename kernelT=double, typename evalT=double>",
+    "paper_id": "657"
+  }
+]

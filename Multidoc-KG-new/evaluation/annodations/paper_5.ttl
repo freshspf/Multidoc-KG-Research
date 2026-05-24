@@ -1,0 +1,310 @@
+# ===== EVALUATION RESULTS =====
+# Evaluation Passed: True
+# Can Proceed to QA Generation: True
+# Timestamp: 20250902_173350
+# ===== KNOWLEDGE GRAPH =====
+
+```turtle
+:ThisPaper :proposes :INBEDDER ;
+    :contextText "we propose INBEDDER that instantiates this embed-via-answering idea by only fine-tuning language models on abstractive question answering tasks." .
+
+:INBEDDER :addresses :InstructionFollowingTextEmbeddings ;
+    :contextText "We address a novel and challenging problem: instruction following of text embeddings and propose a framework, INBEDDER , to handle it by learning to answer user questions given inputs." .
+
+:INBEDDER :basedOn :embed_via_answering ;
+    :contextText "We offer a novel viewpoint, which treats the instruction as a question about the input text and encodes the expected answers ." .
+
+:INBEDDER :finetunedOn :AbstractiveQA_11_200k ;
+    :contextText "INBEDDER fine-tunes the LM on a union of 11abstractive question answering (QA) datasets with ∼200,000 paragraph-question-answer triplets" .
+
+:AbstractiveQA_11_200k :relatedTo :AbstractiveQA ;
+    :contextText "a union of 11abstractive question answering (QA) datasets with ∼200,000 paragraph-question-answer triplets" .
+
+:INBEDDER :uses :StopwordRemoval ;
+    :contextText "We further simplify the answers by removing all the stopwords" .
+
+:INBEDDER :achievesScore "2.89" ;
+    :contextText "resulting in an average answer length of2.89tokens." .
+
+:llama_2_7b_InBedder :basedOn :llama_2_7b ;
+    :contextText "llama-2-7b-InBedder that is our fine-tuned model from llama-2-7b" .
+
+:roberta_large_InBedder :basedOn :roberta_large ;
+    :contextText "roberta-large-I NBEDDER (avg-gen)" .
+
+:opt_1_3b_InBedder :basedOn :opt_1_3b ;
+    :contextText "opt-1.3b-I NBEDDER (1st-gen)" .
+
+:opt_2_7b_InBedder :basedOn :opt_2_7b ;
+    :contextText "opt-2.7b-I NBEDDER (1st-gen)" .
+
+:INBEDDER :developedBy :UC_San_Diego ;
+    :contextText "University of California, San Diego1" .
+
+:INBEDDER :developedBy :Cisco ;
+    :contextText "Cisco2" .
+
+:ThisPaper :publishedIn :ACL_2024 ;
+    :contextText "Proceedings of the 62nd Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers) , pages 459–477 August 11-16, 2024" .
+
+:ThisPaper :implementedIn :GitHub_InBedder ;
+    :contextText "We open source our code, datasets, and model checkpoints to facilitate future research: https://github.com/zhang-yu-wei/InBedder ." .
+
+:avg_gen :outperforms :avg_ppt ;
+    :contextText "It is evident that hidden states derived from generations ( avg-gen ) consistently surpass those from prompts ( avg-ppt )." .
+
+:Re_encoding :outperforms :DirectEncoding ;
+    :contextText "re-encoding consistently outperforms all direct encoding methods, while increasing the sample size |SY|will further boost performance." .
+
+:first_gen :outperforms :avg_gen ;
+    :contextText "in llama-2-7b-InBedder , 1st-gen seems to significantly outperform others." .
+
+:first_gen :resultIn :SingleForwardPassEfficiency ;
+    :contextText "the hidden states corresponding to the first generated token can already effectively follow instructions, which makes it as efficient as traditional embedder methods by only requiring one forward pass of the LM." .
+
+:InstructSTSB :measures :SpearmanCorrelation ;
+    :contextText "We measure the Spearman correlation from cosine similarities." .
+
+:IntentEmotion :measures :HarmonicMeanSuccessRate ;
+    :contextText "We use the harmonic mean of two success rates as our metric." .
+
+:NYTClustering :measures :V_measure ;
+    :contextText "The results are reported using the harmonic mean of the V-measure for both clustering types." .
+
+:AskUbuntuDupQuestions :measures :MAP ;
+    :contextText "We use the “mean average precision (MAP)” as our metric" .
+
+:SciDocsReranking :measures :MAP ;
+    :contextText "We use the “mean average precision (MAP)” as our metric" .
+
+:StackOverflowDupQuestions :measures :MAP ;
+    :contextText "We use the “mean average precision (MAP)” as our metric" .
+
+:TwentyNewsgroupsClustering :measures :V_measure ;
+    :contextText "The first task is a clustering task with V-measure as a metric." .
+
+:FewNerd :measures :DeltaCI ;
+    :contextText "The difference in average performance between correct and incorrect instructions is denoted as ∆ci" .
+
+:FewNerd :measures :DeltaII ;
+    :contextText "the difference in average performance between implicit and incorrect instructions is denoted as ∆ii." .
+
+:llama_2_7b_InBedder :evaluatedOn :InstructSTSB ;
+    :contextText "llama-2-7b-I NBEDDER (1st-gen) 22.07 89.68 64.65 58.80" .
+
+:llama_2_7b_InBedder :achievesScore "22.07" ;
+    :contextText "llama-2-7b-I NBEDDER (1st-gen) 22.07 89.68 64.65 58.80" .
+
+:llama_2_7b_InBedder :evaluatedOn :IntentEmotion ;
+    :contextText "llama-2-7b-I NBEDDER (1st-gen) 22.07 89.68 64.65 58.80" .
+
+:llama_2_7b_InBedder :achievesScore "89.68" ;
+    :contextText "llama-2-7b-I NBEDDER (1st-gen) 22.07 89.68 64.65 58.80" .
+
+:llama_2_7b_InBedder :evaluatedOn :NYTClustering ;
+    :contextText "llama-2-7b-I NBEDDER (1st-gen) 22.07 89.68 64.65 58.80" .
+
+:llama_2_7b_InBedder :achievesScore "64.65" ;
+    :contextText "llama-2-7b-I NBEDDER (1st-gen) 22.07 89.68 64.65 58.80" .
+
+:llama_2_7b_InBedder :achievesScore "58.80" ;
+    :contextText "llama-2-7b-I NBEDDER (1st-gen) 22.07 89.68 64.65 58.80" .
+
+:llama_2_7b_chat :achievesScore "41.76" ;
+    :contextText "llama-2-7b-chat(re-enc) 16.56 79.32 29.41 41.76" .
+
+:llama_2_13b_chat :achievesScore "42.03" ;
+    :contextText "llama-2-13b-chat(re-enc) 19.76 73.60 32.74 42.03" .
+
+:instructor_large :achievesScore "27.63" ;
+    :contextText "instructor-large -15.02 47.96 49.96 27.63" .
+
+:e5_large_v2 :achievesScore "26.77" ;
+    :contextText "e5-large-v2(w/o instruction) 0.00 30.24 50.07 26.77" .
+
+:roberta_large_InBedder :achievesScore "52.35" ;
+    :contextText "roberta-large-I NBEDDER (avg-gen) 14.81 91.07 51.18 52.35" .
+
+:llama_2_7b_w_o_process :achievesScore "52.49" ;
+    :contextText "llama-2-7b-w/o-process(1st-gen) 21.10 83.64 52.72 52.49" .
+
+:opt_2_7b_InBedder :achievesScore "51.47" ;
+    :contextText "opt-2.7b-I NBEDDER (1st-gen) 10.45 84.54 59.43 51.47" .
+
+:roberta_large_alpaca :achievesScore "40.12" ;
+    :contextText "roberta-large-alpaca(avg-gen) 8.43 90.34 21.60 40.12" .
+
+:llama_2_7b_InBedder :outperforms :llama_2_7b_chat ;
+    :contextText "llama-2-7b-I NBEDDER (1st-gen) ... 58.80 ... llama-2-7b-chat(re-enc) ... 41.76" .
+
+:llama_2_7b_InBedder :outperforms :instructor_large ;
+    :contextText "llama-2-7b-I NBEDDER (1st-gen) ... 58.80 ... instructor-large ... 27.63" .
+
+:llama_2_7b_InBedder :outperforms :e5_large_v2 ;
+    :contextText "llama-2-7b-I NBEDDER (1st-gen) ... 58.80 ... e5-large-v2(w/o instruction) ... 26.77" .
+
+:llama_2_7b_InBedder :evaluatedOn :FewNerd ;
+    :contextText "(c) llama-2-7b-I NBEDDER (1st-gen)" .
+
+:llama_2_7b_InBedder :achievesScore "0.21" ;
+    :contextText "ci=0.21, ii=0.18" .
+
+:llama_2_7b_InBedder :achievesScore "0.18" ;
+    :contextText "ci=0.21, ii=0.18" .
+
+:llama_2_7b_chat :achievesScore "0.19" ;
+    :contextText "ci=0.19, ii=0.17" .
+
+:llama_2_7b_chat :achievesScore "0.17" ;
+    :contextText "ci=0.19, ii=0.17" .
+
+:instructor_large :achievesScore "0.02" ;
+    :contextText "ci=0.02, ii=0.01" .
+
+:instructor_large :achievesScore "0.01" ;
+    :contextText "ci=0.02, ii=0.01" .
+
+:llama_2_7b_InBedder :outperforms :instructor_large ;
+    :contextText "INBEDDER shows better robustness and performance overall." .
+
+:llama_2_7b_InBedder :outperforms :llama_2_7b_chat ;
+    :contextText "INBEDDER shows better robustness and performance overall." .
+
+:llama_2_7b_InBedder :evaluatedOn :AskUbuntuDupQuestions ;
+    :contextText "llama-2-7b-I NBEDDER (1st-gen) 60.32 80.61 44.77 52.33 59.51" .
+
+:llama_2_7b_InBedder :achievesScore "60.32" ;
+    :contextText "llama-2-7b-I NBEDDER (1st-gen) 60.32 80.61 44.77 52.33 59.51" .
+
+:llama_2_7b_InBedder :evaluatedOn :SciDocsReranking ;
+    :contextText "llama-2-7b-I NBEDDER (1st-gen) 60.32 80.61 44.77 52.33 59.51" .
+
+:llama_2_7b_InBedder :achievesScore "80.61" ;
+    :contextText "llama-2-7b-I NBEDDER (1st-gen) 60.32 80.61 44.77 52.33 59.51" .
+
+:llama_2_7b_InBedder :evaluatedOn :StackOverflowDupQuestions ;
+    :contextText "llama-2-7b-I NBEDDER (1st-gen) 60.32 80.61 44.77 52.33 59.51" .
+
+:llama_2_7b_InBedder :achievesScore "44.77" ;
+    :contextText "llama-2-7b-I NBEDDER (1st-gen) 60.32 80.61 44.77 52.33 59.51" .
+
+:llama_2_7b_InBedder :evaluatedOn :TwentyNewsgroupsClustering ;
+    :contextText "llama-2-7b-I NBEDDER (1st-gen) 60.32 80.61 44.77 52.33 59.51" .
+
+:llama_2_7b_InBedder :achievesScore "52.33" ;
+    :contextText "llama-2-7b-I NBEDDER (1st-gen) 60.32 80.61 44.77 52.33 59.51" .
+
+:llama_2_7b_InBedder :achievesScore "59.51" ;
+    :contextText "llama-2-7b-I NBEDDER (1st-gen) 60.32 80.61 44.77 52.33 59.51" .
+
+:instructor_large :achievesScore "62.33" ;
+    :contextText "instructor-large 63.48 81.83 50.50 53.51 62.33" .
+
+:e5_large_v2 :achievesScore "60.35" ;
+    :contextText "e5-large-v2(w/o instruction) 59.01 83.84 50.60 47.94 60.35" .
+
+:llama_2_7b_w_o_process :achievesScore "59.86" ;
+    :contextText "llama-2-7b-w/o-process(1st-gen) 61.25 83.13 44.39 50.68 59.86" .
+
+:llama_2_7b_InBedder :comparedWith :instructor_large ;
+    :contextText "our INBEDDER has a close performance to state-of-the-art embedders E5 (Wang et al., 2022) and Instructor (Su et al., 2023)" .
+
+:llama_2_7b_InBedder :comparedWith :e5_large_v2 ;
+    :contextText "our INBEDDER has a close performance to state-of-the-art embedders E5 (Wang et al., 2022) and Instructor (Su et al., 2023)" .
+
+:INBEDDER :uses :AutoregressiveObjective ;
+    :contextText "We then fine-tune the LM with an autoregressive objective." .
+
+:INBEDDER :uses :PromptPattern ;
+    :contextText "we always employ the same pattern to feed the inputs to the models, i.e. “### Input:\n{input}\n\n### Instruction:\n{instruction}\n\n### Response:”." .
+
+:llama_2_7b_chat :uses :PromptPattern ;
+    :contextText "For llama-2 chat models, we provide an extra prefix to induce shorter answers: “Your task is to give an answer according to the instruction and input. Please keep your answer short.”." .
+
+:llama_2_7b_chat :configuration "max generation length 40" ;
+    :contextText "At test time, we allow the maximum generation length to be 40forllama-2 chat models" .
+
+:INBEDDER :configuration "max generation length 3" ;
+    :contextText "and 3 for our INBEDDER ." .
+
+:Re_encoding :uses :e5_large_v2 ;
+    :contextText "We consistently use e5-large-v2 (Wang et al., 2022) as our re-encoder." .
+
+:INBEDDER :uses :MaxPromptLen512 ;
+    :contextText "Lastly, we set the maximum prompt length to be 512(including instruction, input, and the tokens in the pattern)." .
+
+:INBEDDER :achievesScore "66.69" ;
+    :contextText "1024 66.69" .
+
+:INBEDDER :achievesScore "58.80" ;
+    :contextText "512 58.80" .
+
+:llama_2_7b_InBedder :outperforms :llama_2_7b_w_o_process ;
+    :contextText "without pre-processing, the performance will be significantly degraded on instruction-awareness according to llama-2-w/o-process" .
+
+:INBEDDER :improves :InstructionAwarenessPerformance ;
+    :contextText "INBEDDER demonstrates significantly improved instruction-following capabilities according to our proposed instruction awareness tests" .
+
+:INBEDDER :appliedTo :LLMs ;
+    :contextText "compatible with both large language models (LLMs)" .
+
+:INBEDDER :appliedTo :EncoderBasedLMs ;
+    :contextText "and smaller encoder-based LMs such as RoBERTa." .
+
+:INBEDDER :resultIn :InterpretableClusters ;
+    :contextText "our qualitative analysis of clustering outcomes ... demonstrates a high degree of interpretability." .
+
+:FilteringUninformativeTokens :improves :InstructionAwarenessPerformance ;
+    :contextText "filtering hidden states associated with uninformative contents can marginally improve performance." .
+
+:IncreasingSampleSize :improves :Re_encoding ;
+    :contextText "increasing the sample size |SY|will further boost performance." .
+
+:AnswersSideHiddenStates :outperforms :PromptSideHiddenStates ;
+    :contextText "answers speak louder ... hidden states derived from generations ( avg-gen ) consistently surpass those from prompts ( avg-ppt )." .
+
+:ThisPaper :proposes :InstructionAwarenessTests ;
+    :contextText "we introduce a suite of tasks aimed at testing the ability of embedders to be instruction-aware" .
+
+:ThisPaper :proposes :InstructionRobustnessTests ;
+    :contextText "we introduce an evaluation task specifically designed to assess the robustness of embedding models to various instructions." .
+
+:INBEDDER :uses :Tf_idf ;
+    :contextText "we employ Term Frequency-Inverse Document Frequency (Tf-idf) to vectorize these Kdocuments" .
+
+:INBEDDER :limitations :EfficiencyForLargeScaleRetrieval ;
+    :contextText "Our model is not sufficiently efficient for large-scale retrieval tasks." .
+
+:INBEDDER :appliedTo :QueryDependentReranking ;
+    :contextText "one possible solution is to first select the most similar candidates and then use INBEDDER as a query-dependent reranker." .
+
+:roberta_large_InBedder :uses :MaskTokenPredictionLoss ;
+    :contextText "For masked language modeling-based roberta-large, we adapt our framework by appending mask tokens ... and then training with mask token prediction loss." .
+
+:INBEDDER :notTrainedWith :ContrastiveObjective ;
+    :contextText "even though it was not trained with a contrastive objective as in the state-of-the-art sentence transformers." .
+
+:INBEDDER :trainedForEpochs "1" ;
+    :contextText "We consistently train for 1epoch" .
+
+:INBEDDER :uses "2×10−5 learning rate" ;
+    :contextText "with a learning rate of 2×10−5." .
+
+:llama_2_7b_chat :uses :RLHF ;
+    :contextText "llama-2 chat models (Touvron et al., 2023b) that are fine-tuned with RLHF" .
+
+:INBEDDER :appliedTo :llama_2_7b ;
+    :contextText "when applied to both large language mod- els (LLMs) (e.g., llama-2-7b )" .
+
+:InstructionAwarenessAvg :relatedTo :InstructionAwarenessTests ;
+    :contextText "Instruction awareness tests performance (aver- aged over 3 datasets)" .
+
+:GenericTasksAvg :relatedTo :MTEB ;
+    :contextText "We choose a subset of tasks from the original MTEB (Muennighoff et al., 2023) benchmark" .
+
+:INBEDDER :outperforms :TraditionalTextEmbedders ;
+    :contextText "outperforms both traditional sentence transformers and aggregated embeddings from LLMs on instruction-awareness tests, and instruction robustness tests" .
+
+:INBEDDER :comparedWith :E5_and_Instructor ;
+    :contextText "achieves close performance on traditional generic tasks." .
+```

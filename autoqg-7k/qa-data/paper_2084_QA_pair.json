@@ -1,0 +1,131 @@
+[
+  {
+    "section": "experiments1",
+    "path": {
+      "section": "experiments1",
+      "start_entity": "MMVTT",
+      "end_entity": "Dataset",
+      "hops": [
+        {
+          "from": "MMVTT",
+          "relation": "outperforms",
+          "to": "LSTM",
+          "context": "From the results, we can see that our proposed network outperforms all baselines (Resnet, LSTM, ViT and ExViT) in both last-10-epoch-average and maximum classification accuracy in most cases, especially in bimodal classification.",
+          "chunk": "6"
+        },
+        {
+          "from": "LSTM",
+          "relation": "trainedOn",
+          "to": "VTireBimodalData",
+          "context": "All three networks are trained on the multimodal dataset with a learning rate of 2e-5 for 80 epochs.",
+          "chunk": "6"
+        },
+        {
+          "from": "VTireBimodalData",
+          "relation": "type",
+          "to": "Dataset",
+          "context": "We collect tactile and visual data from the tire’s contact with 12 different terrains to validate the effectiveness of bimodal tires and multimodal sensing networks.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "Which dataset was used for training the LSTM network that MMVTT outperformed in terms of classification accuracy?",
+    "options": {
+      "A": "A dataset comprising tactile and visual data from the tire's interaction with diverse terrains.",
+      "B": "A unimodal dataset focusing solely on visual data collected from urban environments.",
+      "C": "A synthetic dataset generated through simulations of tire and terrain interactions.",
+      "D": "A commercial vehicle dataset containing performance metrics but no sensory data."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A. The LSTM was trained on the VTireBimodalData, which is described as a dataset containing tactile and visual data from the tire's contact with various terrains. This fits the description of a dataset comprising tactile and visual data collected from diverse terrains, as opposed to the other options which do not align with bimodal data from tire interactions.",
+    "path_description": "Path: MMVTT --[outperforms]--> LSTM --[trainedOn]--> VTireBimodalData --[type]--> Dataset",
+    "context": "From the results, we can see that our proposed network outperforms all baselines (Resnet, LSTM, ViT and ExViT) in both last-10-epoch-average and maximum classification accuracy in most cases, especially in bimodal classification. | All three networks are trained on the multimodal dataset with a learning rate of 2e-5 for 80 epochs. | We collect tactile and visual data from the tire’s contact with 12 different terrains to validate the effectiveness of bimodal tires and multimodal sensing networks.",
+    "paper_id": "4"
+  },
+  {
+    "section": "experiments2",
+    "path": {
+      "section": "experiments2",
+      "start_entity": "TerrainImages",
+      "end_entity": "Material",
+      "hops": [
+        {
+          "from": "TerrainImages",
+          "relation": "partOf",
+          "to": "SmokeSceneData",
+          "context": "We capture 150 images for each terrain",
+          "chunk": "7"
+        },
+        {
+          "from": "SmokeSceneData",
+          "relation": "uses",
+          "to": "EPE",
+          "context": "data for the smoke scene was collected using a lens wrapped in a semi-transparent film (0.5mm thickness Expanded polyethylene (EPE) material)",
+          "chunk": "7"
+        },
+        {
+          "from": "EPE",
+          "relation": "type",
+          "to": "Material",
+          "context": "0.5mm thickness Expanded polyethylene (EPE) material",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "In the context of capturing data for the smoke scene, why was a lens wrapped in a semi-transparent film of 0.5mm thickness Expanded polyethylene (EPE) material used?",
+    "options": {
+      "A": "To protect the lens from environmental factors such as dust and moisture during extensive outdoor shoots.",
+      "B": "To increase the transparency and reduce the weight of the camera setup for easier handling during image capture.",
+      "C": "To enhance the color saturation and contrast of the smoke in the images by modifying light transmission.",
+      "D": "To reduce the intensity of light entering the lens, thereby capturing clearer terrain images under varied lighting conditions."
+    },
+    "correct_answer": "D",
+    "explanation": "The use of a lens wrapped in a semi-transparent film of 0.5mm thickness Expanded polyethylene (EPE) material helps to reduce the intensity of light entering the lens. This modification is crucial for capturing clearer images under varied lighting conditions, which is especially important in terrain imaging as part of smoke scene data collection.",
+    "path_description": "Path: TerrainImages --[partOf]--> SmokeSceneData --[uses]--> EPE --[type]--> Material",
+    "context": "We capture 150 images for each terrain | data for the smoke scene was collected using a lens wrapped in a semi-transparent film (0.5mm thickness Expanded polyethylene (EPE) material) | 0.5mm thickness Expanded polyethylene (EPE) material",
+    "paper_id": "4"
+  },
+  {
+    "section": "experiments1",
+    "path": {
+      "section": "experiments1",
+      "start_entity": "MMVTT",
+      "end_entity": "Dataset",
+      "hops": [
+        {
+          "from": "MMVTT",
+          "relation": "outperforms",
+          "to": "ViT",
+          "context": "From the results, we can see that our proposed network outperforms all baselines (Resnet, LSTM, ViT and ExViT) in both last-10-epoch-average and maximum classification accuracy in most cases, especially in bimodal classification.",
+          "chunk": "6"
+        },
+        {
+          "from": "ViT",
+          "relation": "trainedOn",
+          "to": "VTireBimodalData",
+          "context": "All three networks are trained on the multimodal dataset with a learning rate of 2e-5 for 80 epochs.",
+          "chunk": "6"
+        },
+        {
+          "from": "VTireBimodalData",
+          "relation": "type",
+          "to": "Dataset",
+          "context": "We collect tactile and visual data from the tire’s contact with 12 different terrains to validate the effectiveness of bimodal tires and multimodal sensing networks.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "Which dataset type was primarily used to train the Vision Transformer (ViT) that was outperformed by the MMVTT in bimodal classification tasks?",
+    "options": {
+      "A": "A publicly available dataset commonly used for training automotive visual recognition systems",
+      "B": "A unimodal dataset focusing solely on visual data from urban environments",
+      "C": "A dataset comprising tactile and visual data collected from tire contact with various terrains",
+      "D": "A synthetic dataset generated to simulate tire interactions in controlled laboratory settings"
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A. The knowledge graph path indicates that the ViT was trained on a bimodal dataset (VTireBimodalData), which, according to the context, comprises tactile and visual data from the tire's contact with different terrains. This is specifically referred to as a dataset type used to train the ViT, confirming that it is a bimodal dataset involving real-world sensory data from tires.",
+    "path_description": "Path: MMVTT --[outperforms]--> ViT --[trainedOn]--> VTireBimodalData --[type]--> Dataset",
+    "context": "From the results, we can see that our proposed network outperforms all baselines (Resnet, LSTM, ViT and ExViT) in both last-10-epoch-average and maximum classification accuracy in most cases, especially in bimodal classification. | All three networks are trained on the multimodal dataset with a learning rate of 2e-5 for 80 epochs. | We collect tactile and visual data from the tire’s contact with 12 different terrains to validate the effectiveness of bimodal tires and multimodal sensing networks.",
+    "paper_id": "4"
+  }
+]

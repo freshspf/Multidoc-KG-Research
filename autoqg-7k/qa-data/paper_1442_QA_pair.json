@@ -1,0 +1,131 @@
+[
+  {
+    "section": "introduction",
+    "path": {
+      "section": "introduction",
+      "start_entity": "LamenessScale",
+      "end_entity": "Scale",
+      "hops": [
+        {
+          "from": "LamenessScale",
+          "relation": "measures",
+          "to": "Irregularity",
+          "context": "This scale from 0 to 5 shows irregularity from 0 to 1 and lameness from 1.5 to 5.",
+          "chunk": "0"
+        },
+        {
+          "from": "Irregularity",
+          "relation": "measuredBy",
+          "to": "LamenessScale",
+          "context": "This scale from 0 to 5 shows irregularity from 0 to 1 and lameness from 1.5 to 5.",
+          "chunk": "0"
+        },
+        {
+          "from": "LamenessScale",
+          "relation": "type",
+          "to": "Scale",
+          "context": "abnormalities classified as irregularity or lameness according to a widely used lameness scale developed by the AAEP.",
+          "chunk": "0"
+        }
+      ]
+    },
+    "question": "In the AAEP-developed lameness scale, what is the specific range that categorizes a horse's movement as 'lameness'?",
+    "options": {
+      "A": "Lameness in horses is categorized from 0 to 1.5 using this scale.",
+      "B": "The scale measures lameness from 2 to 5, distinguishing it clearly from irregularity.",
+      "C": "Irregularities are measured from 0 to 1 on the scale, hence lameness starts from 1 onwards.",
+      "D": "The lameness is categorized from a range of 1.5 to 5 on the scale."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A, as the context from the paper specifies that the scale shows lameness from 1.5 to 5. Options B, C, and D are incorrect because they either misrepresent the given range for lameness or incorrectly state the boundaries.",
+    "path_description": "Path: LamenessScale --[measures]--> Irregularity --[measuredBy]--> LamenessScale --[type]--> Scale",
+    "context": "This scale from 0 to 5 shows irregularity from 0 to 1 and lameness from 1.5 to 5. | This scale from 0 to 5 shows irregularity from 0 to 1 and lameness from 1.5 to 5. | abnormalities classified as irregularity or lameness according to a widely used lameness scale developed by the AAEP.",
+    "paper_id": "1540"
+  },
+  {
+    "section": "materialsandmethods2",
+    "path": {
+      "section": "materialsandmethods2",
+      "start_entity": "Veterinarians",
+      "end_entity": "Second",
+      "hops": [
+        {
+          "from": "Veterinarians",
+          "relation": "validate",
+          "to": "StrideSegmentation",
+          "context": "Through plotting the distribution of trot stride lengths in Fig. 3, and by questioning veterinarians, we established that one second sufficiently covers the majority of real-world stride durations.",
+          "chunk": "2"
+        },
+        {
+          "from": "StrideSegmentation",
+          "relation": "uses",
+          "to": "Timestamp",
+          "context": "Rather than using generic overlapping frames, we employed stride segmentation with a maximum stride length of 100 timestamps.",
+          "chunk": "2"
+        },
+        {
+          "from": "Timestamp",
+          "relation": "measuredIn",
+          "to": "Second",
+          "context": "maximum stride length of 100 timestamps (1 second at 100 Hz).",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the context of validating stride segmentation in veterinary applications, what unit measurement is essential for interpreting the maximum stride length of 100 timestamps?",
+    "options": {
+      "A": "Seconds, as it provides a clear measurement to analyze stride lengths in real-world applications.",
+      "B": "Meters, as they directly measure the physical distance covered during the stride.",
+      "C": "Hertz, since it indicates the number of strides taken per second.",
+      "D": "Milliseconds, which offers a more granular time measurement than seconds."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A, seconds. As per the context, the stride segmentation validated by veterinarians used timestamps measured in seconds. The maximum stride length was set at 100 timestamps, equating to one second, given the frequency of 100 Hz. This unit is essential for comprehensively analyzing stride lengths as opposed to meters or milliseconds, which do not align with the described method in the paper.",
+    "path_description": "Path: Veterinarians --[validate]--> StrideSegmentation --[uses]--> Timestamp --[measuredIn]--> Second",
+    "context": "Through plotting the distribution of trot stride lengths in Fig. 3, and by questioning veterinarians, we established that one second sufficiently covers the majority of real-world stride durations. | Rather than using generic overlapping frames, we employed stride segmentation with a maximum stride length of 100 timestamps. | maximum stride length of 100 timestamps (1 second at 100 Hz).",
+    "paper_id": "1540"
+  },
+  {
+    "section": "results1",
+    "path": {
+      "section": "results1",
+      "start_entity": "ConfusionMatrix",
+      "end_entity": "Gait",
+      "hops": [
+        {
+          "from": "ConfusionMatrix",
+          "relation": "appliedTo",
+          "to": "TrotGait",
+          "context": "Confusion matrix of the 1D CNN model on trot strides.",
+          "chunk": "3"
+        },
+        {
+          "from": "TrotGait",
+          "relation": "outperforms",
+          "to": "CanterGait",
+          "context": "surpassing the performance observed for the canter.",
+          "chunk": "3"
+        },
+        {
+          "from": "CanterGait",
+          "relation": "type",
+          "to": "Gait",
+          "context": "surpassing the performance observed for the canter.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the application of a confusion matrix to analyze a 1D CNN model's performance on different equine gaits, which gait demonstrated superior performance compared to the others?",
+    "options": {
+      "A": "The canter gait demonstrated superior performance compared to the trot gait.",
+      "B": "The gallop gait demonstrated superior performance compared to the trot and canter gaits.",
+      "C": "The trot gait demonstrated superior performance compared to the canter gait.",
+      "D": "The walk gait demonstrated superior performance compared to the trot and canter gaits."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A. According to the knowledge path, a confusion matrix was applied to the trot gait, which outperformed the canter gait as analyzed using the 1D CNN model. The path indicates a specific comparison between trot and canter gaits where trot is superior, making other gaits irrelevant in this context.",
+    "path_description": "Path: ConfusionMatrix --[appliedTo]--> TrotGait --[outperforms]--> CanterGait --[type]--> Gait",
+    "context": "Confusion matrix of the 1D CNN model on trot strides. | surpassing the performance observed for the canter. | surpassing the performance observed for the canter.",
+    "paper_id": "1540"
+  }
+]

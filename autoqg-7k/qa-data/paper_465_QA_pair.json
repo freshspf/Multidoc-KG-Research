@@ -1,0 +1,88 @@
+[
+  {
+    "section": "methodology3",
+    "path": {
+      "section": "methodology3",
+      "start_entity": "PhishingAccount",
+      "end_entity": "Entity",
+      "hops": [
+        {
+          "from": "PhishingAccount",
+          "relation": "uses",
+          "to": "Transaction",
+          "context": "Typically, phishing accounts tend to mask their malicious behaviour by disguising multiple normal transactions",
+          "chunk": "4"
+        },
+        {
+          "from": "Transaction",
+          "relation": "relatedTo",
+          "to": "Account",
+          "context": "even if only one transaction in the account is related to fraud, the account itself may be potentially risky",
+          "chunk": "4"
+        },
+        {
+          "from": "Account",
+          "relation": "type",
+          "to": "Entity",
+          "context": "even if only one transaction in the account is related to fraud, the account itself may be potentially risky",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the context of cybersecurity, how does the type of entity associated with an account influence its risk assessment when phishing is suspected?",
+    "options": {
+      "A": "Accounts linked to multiple normal transactions are not considered risky even if connected to a phishing account.",
+      "B": "Accounts that engage in both normal and fraudulent transactions are scrutinized irrespective of the entity type.",
+      "C": "If the account conducts a single fraudulent transaction, it is classified as a high-risk entity regardless of other activities.",
+      "D": "The type of entity is irrelevant; only the number of transactions determines the account's risk level."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A, as the context suggests that even a single fraudulent transaction related to a phishing account makes the entire account potentially risky. This implies that the account is considered a high-risk entity. Options B, C, and D are misleading because they either underestimate the impact of a single fraudulent transaction or misinterpret the role of entity type in risk assessment.",
+    "path_description": "Path: PhishingAccount --[uses]--> Transaction --[relatedTo]--> Account --[type]--> Entity",
+    "context": "Typically, phishing accounts tend to mask their malicious behaviour by disguising multiple normal transactions | even if only one transaction in the account is related to fraud, the account itself may be potentially risky | even if only one transaction in the account is related to fraud, the account itself may be potentially risky",
+    "paper_id": "1319"
+  },
+  {
+    "section": "methodology3",
+    "path": {
+      "section": "methodology3",
+      "start_entity": "Token",
+      "end_entity": "Entity",
+      "hops": [
+        {
+          "from": "Token",
+          "relation": "generatedFrom",
+          "to": "TextData",
+          "context": "tokenizing the text into subword units",
+          "chunk": "4"
+        },
+        {
+          "from": "TextData",
+          "relation": "generatedFrom",
+          "to": "TransactionRecord",
+          "context": "When generating text data, we process the transaction records of each account",
+          "chunk": "4"
+        },
+        {
+          "from": "TransactionRecord",
+          "relation": "type",
+          "to": "Entity",
+          "context": "When generating text data, we process the transaction records of each account",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the process of generating text data from transaction records, what does the final entity type represent in the context of the methodology described?",
+    "options": {
+      "A": "The final entity type represents the specific account associated with the transaction records.",
+      "B": "The final entity type represents the transaction record's individual transaction details.",
+      "C": "The final entity type represents the subword units used to tokenize the text data.",
+      "D": "The final entity type represents the overall financial status of the business involved."
+    },
+    "correct_answer": "A",
+    "explanation": "The pathway from tokenizing text to generating text data from transaction records ultimately leads to the entity type, which in this context represents the specific account related to those transaction records. This is derived by understanding that the entity type is a classification or identifier in the data generation process, directly tied to the source of the transaction records.",
+    "path_description": "Path: Token --[generatedFrom]--> TextData --[generatedFrom]--> TransactionRecord --[type]--> Entity",
+    "context": "tokenizing the text into subword units | When generating text data, we process the transaction records of each account | When generating text data, we process the transaction records of each account",
+    "paper_id": "1319"
+  }
+]

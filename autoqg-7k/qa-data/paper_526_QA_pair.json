@@ -1,0 +1,303 @@
+[
+  {
+    "section": "overviewofspecificationawarestm2",
+    "path": {
+      "section": "overviewofspecificationawarestm2",
+      "start_entity": "T3",
+      "end_entity": "Transaction",
+      "hops": [
+        {
+          "from": "T3",
+          "relation": "waitsFor",
+          "to": "T2",
+          "context": "In contrast, Figure 2b illustrates par while T3 waits for T2 to commit, due to conflict",
+          "chunk": "2"
+        },
+        {
+          "from": "T2",
+          "relation": "executesSequentiallyWith",
+          "to": "T3",
+          "context": "Sequential execution in preset order T1→T2 →T3",
+          "chunk": "2"
+        },
+        {
+          "from": "T3",
+          "relation": "type",
+          "to": "Transaction",
+          "context": "In contrast, Figure 2b illustrates par while T3 waits for T2 to commit, due to conflict",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the context of specification-aware STM, what is the reason T3 must wait for T2 before proceeding based on the described relationship?",
+    "options": {
+      "A": "T3 waits for T2 to commit because there is a sequential execution order established, which avoids conflicts.",
+      "B": "T3 waits because it needs data modified by T2, which could lead to a deadlock if not managed properly.",
+      "C": "T3 precedes T2 in execution, thus T2's completion is necessary for T3 to avoid data inconsistency.",
+      "D": "T3 and T2 operate independently, and the waiting is just a regular check for system integrity."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A because the context indicates that T3 waits for T2 due to a preset sequential execution order (T1→T2→T3), which is designed to avoid conflicts in transaction execution. Options B, C, and D are incorrect as they either misrepresent the sequence order or introduce irrelevant reasons such as system integrity checks or deadlock risks not mentioned in the given context.",
+    "path_description": "Path: T3 --[waitsFor]--> T2 --[executesSequentiallyWith]--> T3 --[type]--> Transaction",
+    "context": "In contrast, Figure 2b illustrates par while T3 waits for T2 to commit, due to conflict | Sequential execution in preset order T1→T2 →T3 | In contrast, Figure 2b illustrates par while T3 waits for T2 to commit, due to conflict",
+    "paper_id": "1499"
+  },
+  {
+    "section": "blocktransactionalexecutionfromconflictspecifications",
+    "path": {
+      "section": "blocktransactionalexecutionfromconflictspecifications",
+      "start_entity": "Read_Operation",
+      "end_entity": "TM_Implementation",
+      "hops": [
+        {
+          "from": "Read_Operation",
+          "relation": "partOf",
+          "to": "Transaction",
+          "context": "For each transaction Tk, a TM implementation must support the t-operation readk(X).",
+          "chunk": "3"
+        },
+        {
+          "from": "Transaction",
+          "relation": "conflictsWith",
+          "to": "Transaction",
+          "context": "We say that transactions Ti and Tj conflict if there exists a common account X in Dset(Ti) and Dset(Tj) such that X is contained within Wset(Ti) or Wset(Tj).",
+          "chunk": "3"
+        },
+        {
+          "from": "Transaction",
+          "relation": "partOf",
+          "to": "TM_Implementation",
+          "context": "A transaction is a sequence of transactional operations on a set of objects, provided by a TM implementation.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In a transactional memory system, how does the TM implementation ensure that the read operation in a transaction Tk does not lead to a conflict?",
+    "options": {
+      "A": "By ensuring every transaction reads from a unique set of accounts that no other transactions write to.",
+      "B": "By allowing any transactions to execute concurrently if they operate on the same set of objects.",
+      "C": "By blocking transactions that share a common account X in their write sets from executing concurrently.",
+      "D": "By permitting all transactions to read from the same account X as long as they do not write to it."
+    },
+    "correct_answer": "C",
+    "explanation": "According to the context, a TM implementation must manage conflicts between transactions, which occur when two transactions share a common account X in their write sets. To prevent conflicts and ensure correct execution, the TM implementation blocks such conflicting transactions from executing concurrently, as stated in option A.",
+    "path_description": "Path: Read_Operation --[partOf]--> Transaction --[conflictsWith]--> Transaction --[partOf]--> TM_Implementation",
+    "context": "For each transaction Tk, a TM implementation must support the t-operation readk(X). | We say that transactions Ti and Tj conflict if there exists a common account X in Dset(Ti) and Dset(Tj) such that X is contained within Wset(Ti) or Wset(Tj). | A transaction is a sequence of transactional operations on a set of objects, provided by a TM implementation.",
+    "paper_id": "1499"
+  },
+  {
+    "section": "experiments3",
+    "path": {
+      "section": "experiments3",
+      "start_entity": "saSupraSTM",
+      "end_entity": "Dataset",
+      "hops": [
+        {
+          "from": "saSupraSTM",
+          "relation": "outperforms",
+          "to": "PEVM",
+          "context": "tps is 356k for saSupraSTM, 238k for saBlockSTM...",
+          "chunk": "6"
+        },
+        {
+          "from": "PEVM",
+          "relation": "evaluatedOn",
+          "to": "RealWorldEthereumTransactions",
+          "context": "and PEVM, respectively, compared to sequential increased from 411k to 454k.",
+          "chunk": "6"
+        },
+        {
+          "from": "RealWorldEthereumTransactions",
+          "relation": "type",
+          "to": "Dataset",
+          "context": "Testing on Real-World Ethereum Transactions...",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "Which dataset was used to evaluate the performance of saSupraSTM and PEVM, where saSupraSTM outperformed PEVM?",
+    "options": {
+      "A": "The dataset consisted of generalized blockchain transactions not specific to any platform.",
+      "B": "Real-Time Trading Transactions on various cryptocurrencies including Bitcoin and Ethereum.",
+      "C": "A synthetic dataset designed to simulate Ethereum transaction patterns and behaviors.",
+      "D": "The dataset used was Real-World Ethereum Transactions, which involves actual transaction data."
+    },
+    "correct_answer": "D",
+    "explanation": "According to the knowledge path, saSupraSTM outperformed PEVM when evaluated on Real-World Ethereum Transactions, which is specified as a type of dataset in the context provided.",
+    "path_description": "Path: saSupraSTM --[outperforms]--> PEVM --[evaluatedOn]--> RealWorldEthereumTransactions --[type]--> Dataset",
+    "context": "tps is 356k for saSupraSTM, 238k for saBlockSTM... | and PEVM, respectively, compared to sequential increased from 411k to 454k. | Testing on Real-World Ethereum Transactions...",
+    "paper_id": "1499"
+  },
+  {
+    "section": "experiments3",
+    "path": {
+      "section": "experiments3",
+      "start_entity": "saSupraSTM",
+      "end_entity": "RealWorldEthereumTransactions",
+      "hops": [
+        {
+          "from": "saSupraSTM",
+          "relation": "outperforms",
+          "to": "saBlockSTM",
+          "context": "tps is 356k for saSupraSTM, 238k for saBlockSTM...",
+          "chunk": "6"
+        },
+        {
+          "from": "saBlockSTM",
+          "relation": "outperforms",
+          "to": "PEVM",
+          "context": "tps is 356k for saSupraSTM, 238k for saBlockSTM...",
+          "chunk": "6"
+        },
+        {
+          "from": "PEVM",
+          "relation": "evaluatedOn",
+          "to": "RealWorldEthereumTransactions",
+          "context": "and PEVM, respectively, compared to sequential increased from 411k to 454k.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the evaluation of transaction processing systems on real-world Ethereum transactions, which system demonstrated the highest throughput?",
+    "options": {
+      "A": "Sequential processing was the most efficient, handling up to 454k transactions per second (tps).",
+      "B": "saSupraSTM demonstrated the highest throughput with 356k transactions per second (tps).",
+      "C": "PEVM outperformed other systems with a throughput increase from 411k to 454k transactions per second (tps).",
+      "D": "saBlockSTM showed superior performance with a throughput of 454k transactions per second (tps)."
+    },
+    "correct_answer": "B",
+    "explanation": "According to the provided context, saSupraSTM outperformed both saBlockSTM and PEVM in terms of throughput, achieving 356k transactions per second. The other options either misinterpret the data or incorrectly assign the highest throughput to other systems.",
+    "path_description": "Path: saSupraSTM --[outperforms]--> saBlockSTM --[outperforms]--> PEVM --[evaluatedOn]--> RealWorldEthereumTransactions",
+    "context": "tps is 356k for saSupraSTM, 238k for saBlockSTM... | tps is 356k for saSupraSTM, 238k for saBlockSTM... | and PEVM, respectively, compared to sequential increased from 411k to 454k.",
+    "paper_id": "1499"
+  },
+  {
+    "section": "experiments3",
+    "path": {
+      "section": "experiments3",
+      "start_entity": "saSupraSTM",
+      "end_entity": "Dataset",
+      "hops": [
+        {
+          "from": "saSupraSTM",
+          "relation": "outperforms",
+          "to": "saBlockSTM",
+          "context": "tps is 356k for saSupraSTM, 238k for saBlockSTM...",
+          "chunk": "6"
+        },
+        {
+          "from": "saBlockSTM",
+          "relation": "evaluatedOn",
+          "to": "RealWorldEthereumTransactions",
+          "context": "tps is 356k for saSupraSTM, 238k for saBlockSTM...",
+          "chunk": "6"
+        },
+        {
+          "from": "RealWorldEthereumTransactions",
+          "relation": "type",
+          "to": "Dataset",
+          "context": "Testing on Real-World Ethereum Transactions...",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "Which statement best describes the performance comparison of saSupraSTM and saBlockSTM when evaluated on a dataset of Real-World Ethereum Transactions?",
+    "options": {
+      "A": "Neither saSupraSTM nor saBlockSTM were able to process any transactions in the Real-World Ethereum Transactions dataset.",
+      "B": "saBlockSTM outperforms saSupraSTM with a higher transactions per second rate when evaluated on Real-World Ethereum Transactions.",
+      "C": "saSupraSTM and saBlockSTM have the same performance metrics when evaluated on Real-World Ethereum Transactions.",
+      "D": "saSupraSTM outperforms saBlockSTM with a higher transactions per second rate when evaluated on Real-World Ethereum Transactions."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is derived from the knowledge path and context given. The path indicates that saSupraSTM outperforms saBlockSTM, and both are evaluated on a dataset from Real-World Ethereum Transactions. The context specifies that saSupraSTM has a transactions per second rate of 356k compared to 238k for saBlockSTM, thus confirming that saSupraSTM had a higher performance metric on this dataset.",
+    "path_description": "Path: saSupraSTM --[outperforms]--> saBlockSTM --[evaluatedOn]--> RealWorldEthereumTransactions --[type]--> Dataset",
+    "context": "tps is 356k for saSupraSTM, 238k for saBlockSTM... | tps is 356k for saSupraSTM, 238k for saBlockSTM... | Testing on Real-World Ethereum Transactions...",
+    "paper_id": "1499"
+  },
+  {
+    "section": "experiments5",
+    "path": {
+      "section": "experiments5",
+      "start_entity": "MoveVM_p2p_transfer_workload",
+      "end_entity": "Model",
+      "hops": [
+        {
+          "from": "MoveVM_p2p_transfer_workload",
+          "relation": "evaluatedOn",
+          "to": "Sequential",
+          "context": "Performance is tested on peer-to-peer (p2p) transactions, ions in the Move ecosystem.",
+          "chunk": "8"
+        },
+        {
+          "from": "Sequential",
+          "relation": "outperforms",
+          "to": "BlockSTM",
+          "context": "to overhead, sequential execution outperforms Sequential latency BlockSTM latency",
+          "chunk": "8"
+        },
+        {
+          "from": "BlockSTM",
+          "relation": "type",
+          "to": "Model",
+          "context": "st the state-of-the-art BlockSTM and sequential",
+          "chunk": "8"
+        }
+      ]
+    },
+    "question": "In the context of peer-to-peer transactions within the Move ecosystem, which model type demonstrates superior performance due to reduced latency compared to BlockSTM?",
+    "options": {
+      "A": "Parallel execution model, although not specifically mentioned, generally known for efficiency in other contexts.",
+      "B": "Adaptive execution model, which adjusts based on transaction load but is not evaluated in this context.",
+      "C": "BlockSTM model, renowned for its robust transaction handling but with higher latency.",
+      "D": "Sequential execution model, which has a design focused on minimizing overhead and latency."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A because the paper specifically mentions that under the conditions of peer-to-peer transactions in the Move ecosystem, the Sequential execution model outperforms the state-of-the-art BlockSTM model by having reduced latency, attributed to its lower overhead. Options B, C, and D are incorrect as B is specifically outperformed according to the paper, and C and D are not mentioned in this context.",
+    "path_description": "Path: MoveVM_p2p_transfer_workload --[evaluatedOn]--> Sequential --[outperforms]--> BlockSTM --[type]--> Model",
+    "context": "Performance is tested on peer-to-peer (p2p) transactions, ions in the Move ecosystem. | to overhead, sequential execution outperforms Sequential latency BlockSTM latency | st the state-of-the-art BlockSTM and sequential",
+    "paper_id": "1499"
+  },
+  {
+    "section": "experiments5",
+    "path": {
+      "section": "experiments5",
+      "start_entity": "MoveVM_p2p_transfer_workload",
+      "end_entity": "Model",
+      "hops": [
+        {
+          "from": "MoveVM_p2p_transfer_workload",
+          "relation": "evaluatedOn",
+          "to": "saSupraSTM_tps",
+          "context": "Performance is tested on peer-to-peer (p2p) transactions, ions in the Move ecosystem.",
+          "chunk": "8"
+        },
+        {
+          "from": "saSupraSTM_tps",
+          "relation": "outperforms",
+          "to": "Sequential_tps",
+          "context": "saSupraSTM and saBlockSTM have throughput that better with 16 and 32 threads with 100 accounts",
+          "chunk": "8"
+        },
+        {
+          "from": "Sequential_tps",
+          "relation": "type",
+          "to": "Model",
+          "context": "In this case, due Sequential tps BlockSTM tps saSupraSTM tps saBlockSTM tps",
+          "chunk": "8"
+        }
+      ]
+    },
+    "question": "In the context of evaluating peer-to-peer transaction performance in the Move ecosystem, which statement correctly describes the throughput comparison?",
+    "options": {
+      "A": "saSupraSTM's throughput performance is outperformed by saBlockSTM's throughput when tested with 16 and 32 threads using 100 accounts.",
+      "B": "Sequential's throughput performance outperforms saSupraSTM's throughput when tested with 16 and 32 threads using 100 accounts.",
+      "C": "saBlockSTM's throughput performance outperforms Sequential's throughput when tested with 16 and 32 threads using 100 accounts.",
+      "D": "saSupraSTM's throughput performance outperforms Sequential's throughput when tested with 16 and 32 threads using 100 accounts."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A, as the knowledge path indicates that saSupraSTM's transactions per second (tps) outperforms Sequential's tps, and this evaluation is based on a test with 16 and 32 threads with 100 accounts in the Move ecosystem. Options B, C, and D are misleading because they either incorrectly reverse the performance relationship or incorrectly suggest the comparison between saSupraSTM and saBlockSTM.",
+    "path_description": "Path: MoveVM_p2p_transfer_workload --[evaluatedOn]--> saSupraSTM_tps --[outperforms]--> Sequential_tps --[type]--> Model",
+    "context": "Performance is tested on peer-to-peer (p2p) transactions, ions in the Move ecosystem. | saSupraSTM and saBlockSTM have throughput that better with 16 and 32 threads with 100 accounts | In this case, due Sequential tps BlockSTM tps saSupraSTM tps saBlockSTM tps",
+    "paper_id": "1499"
+  }
+]

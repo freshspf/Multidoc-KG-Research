@@ -1,0 +1,303 @@
+[
+  {
+    "section": "introduction1",
+    "path": {
+      "section": "introduction1",
+      "start_entity": "SumOfSquaresPrograms",
+      "end_entity": "FunctionType",
+      "hops": [
+        {
+          "from": "SumOfSquaresPrograms",
+          "relation": "appliedTo",
+          "to": "ControlLawDesign",
+          "context": "Sum-of-squares programs are used in the numerical design for control laws.",
+          "chunk": "0"
+        },
+        {
+          "from": "ControlLawDesign",
+          "relation": "uses",
+          "to": "ControlLyapunovFunction",
+          "context": "Control laws are designed using control Lyapunov functions obtained via backstepping.",
+          "chunk": "0"
+        },
+        {
+          "from": "ControlLyapunovFunction",
+          "relation": "type",
+          "to": "FunctionType",
+          "context": "Control Lyapunov functions are obtained via backstepping.",
+          "chunk": "0"
+        }
+      ]
+    },
+    "question": "In the context of designing control laws for dynamic systems, which type of function is specifically utilized in the numerical design process through sum-of-squares programs?",
+    "options": {
+      "A": "Hamiltonian functions that define the total energy of a system",
+      "B": "Stochastic Lyapunov functions, commonly applied in probability-driven control scenarios",
+      "C": "Quadratic cost functions, which are used extensively in linear quadratic regulator (LQR) problems",
+      "D": "Control Lyapunov functions that are typically obtained via backstepping techniques"
+    },
+    "correct_answer": "D",
+    "explanation": "The question follows the path described where SumOfSquaresPrograms are applied to ControlLawDesign, which uses ControlLyapunovFunction, identified as a FunctionType. The correct answer is A, as it directly refers to Control Lyapunov functions, which are obtained via backstepping and applied in the numerical design through sum-of-squares programs, as stated in the paper.",
+    "path_description": "Path: SumOfSquaresPrograms --[appliedTo]--> ControlLawDesign --[uses]--> ControlLyapunovFunction --[type]--> FunctionType",
+    "context": "Sum-of-squares programs are used in the numerical design for control laws. | Control laws are designed using control Lyapunov functions obtained via backstepping. | Control Lyapunov functions are obtained via backstepping.",
+    "paper_id": "380"
+  },
+  {
+    "section": "mainresults2",
+    "path": {
+      "section": "mainresults2",
+      "start_entity": "alpha",
+      "end_entity": "SOSPolynomial",
+      "hops": [
+        {
+          "from": "alpha",
+          "relation": "comparedWith",
+          "to": "V",
+          "context": "for all x, α(|x|) ≤ V (x) ≤ α(|x|)",
+          "chunk": "7"
+        },
+        {
+          "from": "V",
+          "relation": "relatedTo",
+          "to": "sAlpha2",
+          "context": "α2(|x|) − V (x) = sα2(x)",
+          "chunk": "7"
+        },
+        {
+          "from": "sAlpha2",
+          "relation": "type",
+          "to": "SOSPolynomial",
+          "context": "α2(|x|) − V (x) = sα2(x)",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "In the relationships established between functions and types in the section 'mainresults2', which statement accurately describes the type of sAlpha2?",
+    "options": {
+      "A": "sAlpha2 is a product of alpha and V, indicating its type as a QuadraticFunction.",
+      "B": "sAlpha2 is a sum of two variables, suggesting its type is a LinearFunction.",
+      "C": "sAlpha2 represents a difference between two functions and is typed as an SOSPolynomial.",
+      "D": "sAlpha2 is an integration of V over alpha, classifying it as a ContinuousFunction."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A because the knowledge graph and the provided context indicate that sAlpha2, denoted as α2(|x|) − V (x), represents the difference between two specific functions. This difference is explicitly classified in the knowledge graph as an SOSPolynomial.",
+    "path_description": "Path: alpha --[comparedWith]--> V --[relatedTo]--> sAlpha2 --[type]--> SOSPolynomial",
+    "context": "for all x, α(|x|) ≤ V (x) ≤ α(|x|) | α2(|x|) − V (x) = sα2(x) | α2(|x|) − V (x) = sα2(x)",
+    "paper_id": "380"
+  },
+  {
+    "section": "mainresults3",
+    "path": {
+      "section": "mainresults3",
+      "start_entity": "VectorX",
+      "end_entity": "PolynomialMatrixH",
+      "hops": [
+        {
+          "from": "VectorX",
+          "relation": "partOf",
+          "to": "Assumption3",
+          "context": "if we take the vector x = (x1, . . . , xn) as a part of exists some H such that Assumption 3 holds.",
+          "chunk": "8"
+        },
+        {
+          "from": "Assumption3",
+          "relation": "specifies",
+          "to": "FunctionLibraryZ",
+          "context": "In Assumption 3, we recover Z = Zˆ if we set conditions of Assumption 3 on the choice of Zˆ and H.",
+          "chunk": "8"
+        },
+        {
+          "from": "FunctionLibraryZ",
+          "relation": "definedBy",
+          "to": "PolynomialMatrixH",
+          "context": "For function library Z, there exists a polynomial matrix H such that Z(x) = H(x)Zˆ(x) for all x.",
+          "chunk": "8"
+        }
+      ]
+    },
+    "question": "In the context of the relationships specified in Assumption 3, which statement accurately describes the role of Polynomial Matrix H?",
+    "options": {
+      "A": "Polynomial Matrix H acts independently of Function Library Z, providing an alternative to vector x.",
+      "B": "Polynomial Matrix H specifies the initial conditions needed for Assumption 3 to hold for any vector x.",
+      "C": "Polynomial Matrix H defines the transformation function Z(x) in terms of Zˆ(x) for all x.",
+      "D": "Polynomial Matrix H acts as an input vector for Function Library Z, modifying the vector x."
+    },
+    "correct_answer": "C",
+    "explanation": "According to the path and context, Polynomial Matrix H is defined by the relationship in Function Library Z such that Z(x) = H(x)Zˆ(x) for all x. This implies that H defines how Z is transformed into Zˆ, which aligns with option A. The other options do not correctly represent the relationship described in the paper.",
+    "path_description": "Path: VectorX --[partOf]--> Assumption3 --[specifies]--> FunctionLibraryZ --[definedBy]--> PolynomialMatrixH",
+    "context": "if we take the vector x = (x1, . . . , xn) as a part of exists some H such that Assumption 3 holds. | In Assumption 3, we recover Z = Zˆ if we set conditions of Assumption 3 on the choice of Zˆ and H. | For function library Z, there exists a polynomial matrix H such that Z(x) = H(x)Zˆ(x) for all x.",
+    "paper_id": "380"
+  },
+  {
+    "section": "mainresults2",
+    "path": {
+      "section": "mainresults2",
+      "start_entity": "V",
+      "end_entity": "sAlpha2",
+      "hops": [
+        {
+          "from": "V",
+          "relation": "relatedTo",
+          "to": "alpha",
+          "context": "for all x, α(|x|) ≤ V (x) ≤ α(|x|)",
+          "chunk": "7"
+        },
+        {
+          "from": "alpha",
+          "relation": "comparedWith",
+          "to": "V",
+          "context": "for all x, α(|x|) ≤ V (x) ≤ α(|x|)",
+          "chunk": "7"
+        },
+        {
+          "from": "V",
+          "relation": "relatedTo",
+          "to": "sAlpha2",
+          "context": "α2(|x|) − V (x) = sα2(x)",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "In the context of the relationships established between V, alpha, and sAlpha2, which statement accurately describes their mathematical relationship?",
+    "options": {
+      "A": "For all x, the function alpha of the absolute value of x bounds V(x) from both above and below.",
+      "B": "For all x, the difference between alpha2 of the absolute value of x and V(x) equals V(x).",
+      "C": "For all x, the function V(x) equals the sum of alpha of the absolute value of x and sAlpha2(x).",
+      "D": "For all x, the function V(x) is always greater than alpha of the absolute value of x and less than sAlpha2(x)."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A, as the provided equations from the paper clearly state that alpha(|x|) is both a lower and upper bound for V(x), meaning V(x) must lie between alpha(|x|) and alpha(|x|). The other options incorrectly describe the relationships among V, alpha, and sAlpha2.",
+    "path_description": "Path: V --[relatedTo]--> alpha --[comparedWith]--> V --[relatedTo]--> sAlpha2",
+    "context": "for all x, α(|x|) ≤ V (x) ≤ α(|x|) | for all x, α(|x|) ≤ V (x) ≤ α(|x|) | α2(|x|) − V (x) = sα2(x)",
+    "paper_id": "380"
+  },
+  {
+    "section": "mainresults5",
+    "path": {
+      "section": "mainresults5",
+      "start_entity": "DesignParameter",
+      "end_entity": "Assumption",
+      "hops": [
+        {
+          "from": "DesignParameter",
+          "relation": "enables",
+          "to": "UltimateGoal",
+          "context": "it is sensible to select Ξ since an ultimate goal is that b in (4.14) is positive.",
+          "chunk": "10"
+        },
+        {
+          "from": "UltimateGoal",
+          "relation": "basedOn",
+          "to": "Assumption3",
+          "context": "unbounded by Assumption 3.",
+          "chunk": "10"
+        },
+        {
+          "from": "Assumption3",
+          "relation": "type",
+          "to": "Assumption",
+          "context": "unbounded by Assumption 3.",
+          "chunk": "10"
+        }
+      ]
+    },
+    "question": "Why is the design parameter Ξ selected in the context of ensuring that b in equation (4.14) is positive?",
+    "options": {
+      "A": "Because it restricts the variability of b, ensuring stability as derived from the bounded implications of Assumption 3.",
+      "B": "Because it indirectly affects the value of b by modifying parameters not directly linked to Assumption 3.",
+      "C": "Because it directly correlates with the minimization of b, aligning with the finite constraints posed by Assumption 3.",
+      "D": "Because it enables the ultimate goal of a positive b, which is premised on the unbounded nature of Assumption 3."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A because the design parameter Ξ is selected to enable the ultimate goal of making b positive, and this goal is based on the unbounded nature described in Assumption 3. The other options incorrectly characterize the relationship between the design parameter, the goal, and the nature of Assumption 3.",
+    "path_description": "Path: DesignParameter --[enables]--> UltimateGoal --[basedOn]--> Assumption3 --[type]--> Assumption",
+    "context": "it is sensible to select Ξ since an ultimate goal is that b in (4.14) is positive. | unbounded by Assumption 3. | unbounded by Assumption 3.",
+    "paper_id": "380"
+  },
+  {
+    "section": "numericalillustration1",
+    "path": {
+      "section": "numericalillustration1",
+      "start_entity": "YALMIP",
+      "end_entity": "MatrixQBar",
+      "hops": [
+        {
+          "from": "YALMIP",
+          "relation": "usedToConstruct",
+          "to": "MatrixABar",
+          "context": "solved in (3.8) by YALMIP [25] and obtain matrices A¯ , B¯ and",
+          "chunk": "13"
+        },
+        {
+          "from": "MatrixABar",
+          "relation": "relatedTo",
+          "to": "MatrixZBar",
+          "context": "thus, ζ¯ and Q¯ in (3.9)",
+          "chunk": "13"
+        },
+        {
+          "from": "MatrixZBar",
+          "relation": "relatedTo",
+          "to": "MatrixQBar",
+          "context": "thus, ζ¯ and Q¯ in (3.9)",
+          "chunk": "13"
+        }
+      ]
+    },
+    "question": "In the process of solving matrix equations using YALMIP as described in 'numericalillustration1' section, how is MatrixQBar conceptually linked to YALMIP?",
+    "options": {
+      "A": "MatrixQBar is a byproduct of the relational transformation between MatrixABar and MatrixZBar, which are constructed by YALMIP.",
+      "B": "MatrixQBar is directly constructed by YALMIP using the parameters defined in MatrixABar and MatrixZBar.",
+      "C": "MatrixQBar is an initial condition in YALMIP for constructing MatrixABar, which indirectly influences MatrixZBar.",
+      "D": "MatrixQBar is an unrelated matrix in YALMIP, used independently of MatrixABar and MatrixZBar."
+    },
+    "correct_answer": "B",
+    "explanation": "MatrixQBar is derived through a series of relationships starting with matrices constructed by YALMIP (MatrixABar), which relates to MatrixZBar, and subsequently leads to MatrixQBar. This shows a direct conceptual linkage where the construction of MatrixABar and its relationship with MatrixZBar culminates in the establishment of MatrixQBar.",
+    "path_description": "Path: YALMIP --[usedToConstruct]--> MatrixABar --[relatedTo]--> MatrixZBar --[relatedTo]--> MatrixQBar",
+    "context": "solved in (3.8) by YALMIP [25] and obtain matrices A¯ , B¯ and | thus, ζ¯ and Q¯ in (3.9) | thus, ζ¯ and Q¯ in (3.9)",
+    "paper_id": "380"
+  },
+  {
+    "section": "numericalillustration1",
+    "path": {
+      "section": "numericalillustration1",
+      "start_entity": "YALMIP",
+      "end_entity": "Matrix",
+      "hops": [
+        {
+          "from": "YALMIP",
+          "relation": "usedToConstruct",
+          "to": "MatrixABar",
+          "context": "solved in (3.8) by YALMIP [25] and obtain matrices A¯ , B¯ and",
+          "chunk": "13"
+        },
+        {
+          "from": "MatrixABar",
+          "relation": "relatedTo",
+          "to": "MatrixQBar",
+          "context": "thus, ζ¯ and Q¯ in (3.9)",
+          "chunk": "13"
+        },
+        {
+          "from": "MatrixQBar",
+          "relation": "type",
+          "to": "Matrix",
+          "context": "thus, ζ¯ and Q¯ in (3.9)",
+          "chunk": "13"
+        }
+      ]
+    },
+    "question": "In the process described in 'numericalillustration1', what is the role of YALMIP in relation to the Matrix QBar?",
+    "options": {
+      "A": "YALMIP directly constructs MatrixQBar, which is unrelated to MatrixABar but still considered a type of matrix.",
+      "B": "YALMIP is utilized to analyze the properties of MatrixQBar, indirectly influencing the construction of MatrixABar.",
+      "C": "YALMIP modifies the characteristics of MatrixQBar, making it a special case of MatrixABar.",
+      "D": "YALMIP is a tool used to construct MatrixABar, which is directly related to MatrixQBar, classified as a type of matrix."
+    },
+    "correct_answer": "D",
+    "explanation": "YALMIP is used to solve a problem resulting in the construction of MatrixABar. MatrixABar is then related to MatrixQBar, which is specifically identified as a type of matrix. The question tests the understanding of the transition from using a tool (YALMIP) to construct one matrix (MatrixABar) that is related to another matrix (MatrixQBar) which is identified as a matrix type.",
+    "path_description": "Path: YALMIP --[usedToConstruct]--> MatrixABar --[relatedTo]--> MatrixQBar --[type]--> Matrix",
+    "context": "solved in (3.8) by YALMIP [25] and obtain matrices A¯ , B¯ and | thus, ζ¯ and Q¯ in (3.9) | thus, ζ¯ and Q¯ in (3.9)",
+    "paper_id": "380"
+  }
+]

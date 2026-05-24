@@ -1,0 +1,92 @@
+[
+  {
+    "id": "introduction",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Introduction",
+      "page_start": 1,
+      "page_end": 1
+    },
+    "text": "D\n. Hyperledger Fabric (HLF) is an open-source permissioned\ns blockchain platform that has been evaluated in various indus-\nc\n[ try and corporate scenarios [1]. Unlike public blockchains,\n \n  such as Bitcoin and Ethereum, based on anonymous par-\n1 ticipation, HLF focuses on the network among entities that\nv\nshare common goals but may lack full  trust  in each other\n5\ndue to business competition. Thus, this blockchain platform\n5\n7 requires the identification of every participant in the network\n8 organized into private communication channels.\n0 HLF offers identifiable nodes, varying security levels for\n.\n2 transaction execution with endorsement  policies,  and an\n0 architecture that executes-orders-validates transactions with\n5\nmodular ordering for both Crash Fault Tolerance  (CFT)\n2\n: and Byzantine Fault Tolerance (BFT) models [1]. The HLF\nv perform better than Bitcoin and Ethereum’s order-execute-\ni\nmodel while bolstering security [2].\nX\nr Typically,  transactions carried out on permissioned net-\na works are not linked to consumption of gas or monetary cost.\nThere is no charge for a transaction to be executed, which\nfacilitates its use in private environments [3], requiring higher\nthroughput and lower latency at the lowest possible financial\ncost. However, quantifying the resources necessary for these\napplications’ provision and full utilization has become an\nimportant task related to the performance evaluation process.\nPerformance in the context of blockchain is a key factor\nused  to demonstrate  the viability of  adopting  this  tech-\nnology.  It has become a relevant  research topic in recent\nyears, with studies focused on performance modeling and\nmeasurement  [2],  [4]–[11]. However, due to the volatility\n\ng and Evaluation of\nn Analysis Based on\nEndorsement Policies\nancisco A. Silva, and Andre´ Soares\n´ı (UFPI), Picos - PI, Brazil\nndre.soares}@ufpi.edu.br\nof  this  research field, most works need  to consider  the\nnew versions and readjustments introduced in the context of\nthese platforms and how these changes impact  the service\nprovisioning performance.\nAlso, some of  these works,  like [12], do not provide a\nmodel validation, while others, such as [2], do not provide\ngeneralizable performance results, attaining it  to their ex-\nperimental environment. This paper uses measurement and\nmodeling to compose a generalizable performance evaluation\nframework within the scope of HLF 2.5 and beyond.\nThis work offers two main contributions: (i) a generalized\nperformance model  representing the HLF transaction flow\nand (ii) a performance evaluation through case studies to\nvalidate and demonstrate  the  feasibility of  the proposed\nmodel. The results allow HLF service providers to adjust\nparameters according  to  their  infrastructure,  focusing on\nthroughput,  latency, and resource utilization. Furthermore,\nwe evaluate the impact of endorsement policy and distribute\nendorsement on these metrics, enabling organizations that do\nnot share mutual trust to enjoy the benefits of blockchains.\nThe next  sections are organized as follows: Section II"
+  },
+  {
+    "id": "relatedworks",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Related Works",
+      "page_start": 1,
+      "page_end": 1
+    },
+    "text": "tion of blockchains. Section IV introduces the base model and\ndiscusses its applications. Section III provides an overview of\nthe transaction flow within the Hyperledger Fabric platform.\nSection V describes the experimental study and the validation\nprocess of the proposed model for the HLF platform. Section\nVI presents a set of case studies and derivations of  the\nproposed model, as well as the main results obtained in each\nevaluation scenario. Finally, Section VII summarizes our final\nconsiderations, limitations, and future works.\nII. RELATED WORKS\nThe Hyperledger Fabric platform has been extensively\ndiscussed  in previous  research,  focusing on performance\nmetrics. This paper seeks to update the state of the art and\nfill gaps left by existing studies.\nIn [7], we introduced models to assess the use of compu-\ntational resources in the context of HLF. Using Continuous\nTime Markov Chains (CTMCs) and Stochastic Petri Nets\n(SPNs), we demonstrated  the effectiveness of  these  for-\nmalisms in modeling and evaluating HLF-based applications,\nparticularly in detecting infrastructure bottlenecks. However,\nthe model proposed in this paper extends the scope of the"
+  },
+  {
+    "id": "architecture",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Architecture",
+      "page_start": 2,
+      "page_end": 2
+    },
+    "text": "Figure 1 demonstrates the transaction flow in the network\nthrough a process subdivided into four  stages: proposal,\nendorsement, ordering, and commit. The figure also shows\nnetwork components, such as the client and gateway, where\ntransactions are submitted to the blockchain, and peers that\nmust maintain consistent replicas of the blockchain.\npeer[0].org[1]\n2\n1  4\nendorsing\nClient  Gateway  commit\nlegend\npeer[i].org[n]  node\nOrderer\nblock\nblockchain\nordering  3\nphase\n block\nFig. 1: Hyperledger Fabric - Transaction Flow\n1) From version 2.5 of HLF, the flow begins with the client\napplication sending a  transaction proposal  to a gateway,\nwhich acts as an intermediary between the client and the\npeers; 2) Endorsing peers will simulate the transactions and\ndetermine if they meet  the pre-established requirements in\nthe application’s smart contract, which is a self-executing\ncontract with business rules directly written into code; 3)\n\nThe  transaction  is  then forwarded  to  the ordering peers\n(orderer), who will insert it into a block together with other\ntransactions; 4) The generated block is subsequently persisted\non the blockchain through the commit process.\nA transaction in HLF consists of read and write operations\nthat change the values of data objects  in the blockchain.\nTransactions can range from creating a new data object  to\ntransferring the account owner of objects.  In turn,  the en-\ndorsing phase checks whether transaction operations lead to\na consistent state of the blockchain by just simulating a given\ntransaction. For example, it is common for the simulation to\nverify whether the sender indeed owns the goods and that the\nrecipient exists in a transaction transferring goods between\naccounts. It is also common for endorsing peers to belong to\ndifferent geographically distributed organizations (org) that\ndo not have mutual trust in each other.\nThe endorsed transaction returns to the gateway, and it\nwill be forwarded to the orderers responsible for managing\nnew blocks. Blocks have a predefined size and a maximum\nwait  time to be formed (batch timeout). Once transactions\nare ordered into a block,  this block will be sent  to the\ncommitters nodes, which will process and insert it into their\nreplicates of the blockchain to ensure integrity, consistency,\nand immutability of data objects. Note that endorsing and\ncommit phases can execute in the same network node, as\nshown  in Figure 1,  or be separated  into distinct  nodes\ndepending on the blockchain governance model."
+  },
+  {
+    "id": "proposedmodel",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Proposed Model",
+      "page_start": 2,
+      "page_end": 2
+    },
+    "text": "Figure 2 presents the proposed model based on the high-\nlevel transaction flow of the HLF platform defined in Figure\n1. All transitions in the model follow single-server semantics\nand exponential distribution with distinct times.\nTransaction flow in the model begins with triggering the\nArrival  transition, depicted in gray at  the top left of  the\nmodel. The first highlighted area composed by a rectangle\nformed by dashed green  lines  emphasizes  the activities\noccurring within the gateway.\nTransactions arriving through Arrival are directed to the\nG1 location, symbolizing the gateway in the HLF environ-\nment, with G1 connected to the GQ (gateway queue) location\nthrough the TPT (transaction posted) transition. Transactions\nexceeding the gateway capacity are discarded. Transactions\nentering the gateway proceed to the intermediate state IS1\nvia the timed TPT transition and are directed towards the\nendorsing peers through the BF1 transition.\nThe endorsing peers and their respective capacities are rep-\nresented by the locations E1, E2, E1Q, and E2Q. A garbage\ncollector mechanism, TGC, is present in all endorsing peers,\nreducing the probability of transaction starvation within the\nsystem and the waste of computational resources generated\nby software aging.\nAfter  endorsement,  the  transaction  reaches  the  ST\n(Stamped Transaction) state through the average endorse-\nment  time represented by the E1T and E2T transitions. A\ntransaction in the modeled environment receives endorsement\nfrom two peers, meaning the ST location will have up to"
+  },
+  {
+    "id": "experimentalmethodologyandvalidation",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Experimental Methodology and Validation",
+      "page_start": 3,
+      "page_end": 3
+    },
+    "text": "The experiments  to validate the base model were con-\nducted using the basic network of Hyperledger Fabric. The\nbasic network, maintained by the HLF developers, enables\nuser creation, verification, and transfer of assets. The focus\nof the experiments was exclusively on asset creation trans-\nactions due to their higher resource demand than querying\noperations and transferring goods between accounts.\nThe setup of the experimental environment included a full\nnode with two endorsing peers and one orderer deployed\nin Docker containers. The test machine had four physical\ncores, 8 GB of RAM, and 80 GB of storage. The software\nconsisted of Ubuntu 22.04, Hyperledger Fabric 2.5,  and\nDocker 24. The orderer, also a Docker container, organized\ntransactions into blocks and ensured their distribution and\npersistence in the network. A command-line interface (CLI)\nin a separate container facilitated the interaction between the\nclient application and the blockchain network through the\ncontainer containing the gateway.\nIn the validation process of the proposed model, the client\napplication,  developed in TypeScript,  sent  an average of\n10 transactions per second (tps) to the platform’s gateway.\nThe client  sent  the  transactions  to the system following"
+  },
+  {
+    "id": "casestudies1",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Case Studies",
+      "page_start": 4,
+      "page_end": 4
+    },
+    "text": "resource exhaustion, even with a low arrival rate. Thus, the\ntransaction arrival rate was adjusted to ensure the execution\nof all phases in the model, including the times required for\nforming partial and complete blocks.\nMeasurements were carried out in the environment, and the\nobtained data were used to evaluate the proposed model. The\nexperimental evaluation involved submitting 400 transactions\nto the real  system. The average  times obtained for each\nstage were then used to validate the proposed model through\n400 simulations. The Mercury tool  [13] was used for  the\nsimulations, which focused on latency as the key metric. The\nmeasured results indicated an average latency of 1131 ms\nwith a standard deviation of 408 ms. An average latency of\n1110 ms with a standard deviation of 18 ms for the simulated\nresults.\nA two-sample  t-test was conducted,  resulting  in a p-\nvalue of 0.3. With a significance level α of 0.05,  the test\nindicated no statistically significant difference between the\nresults obtained through model evaluation and experiments.\nTherefore, with 95% confidence,  there is no evidence to\nreject the hypothesis that the proposed base model accurately\nrepresents the system.\nVI. CASE STUDIES\nThe reference data for the model are the average times for\neach factor obtained experimentally through measurement.\nTable I summarizes these values, which will serve as input\nparameters in the model.\nTABLE I: Input Values for the Model and Their Variations\nFactor  Baseline  Range {min,max}\nArrival Rate (λ)  10/s  {5, 18}\nBlock Timeout (BT)  2000 ms  {1000, 3000}\nEndorsement Time (E1T and E2T)  160 ms  {80, 240}\nOrdering Time (OT)  15ms  {7.5, 22.5}\nCommit Time (CT)  1150 ms  {575, 1725}\nTransaction Posting Time (TPT)  10 ms  {5, 15}\nCapacity Sizes (E1Q, E2Q, GQ)  10  {5, 15}\nBlock Size (BQ)  10  {5, 50}\nA. Latency, Throughput, and Utilization\nThe first analyzed metric is latency, derived from Little’s\nLaw [14], which describes the relationship between the av-\nerage number of pending transactions in a system and its re-\nspective arrival rate. We calculate the latency for the proposed\nmodel according to Equation (1), where P(m(Place) = i) is\nthe probability of i markings in the place.\nn\n(cid:88)\nE(Place) =  P(m(Place) = i) × i,  (1)\ni=1\nFigure 3a shows how the arrival rate influences latency.\nIt  is observed that an increase in the arrival rate results in\n\nan increase in latency, from 1110 ms for a rate of 10 tps to\n20000 ms for a rate of 100 tps.\nFigure 3b demonstrates the effect of queue parameters on\nlatency. Block size (BQ) stands out, as larger blocks may\ndelay filling and processing new blocks.\nFigure 3c highlights the influence of timing parameters on\nlatency. The endorsement time (ET) has the most significant\nimpact. Other times, even with variations above or below,\nhave a lesser impact on this metric.\nThe throughput metric measures the number of transac-\ntions carried out over a period of time [2]. This paper focuses\non the number of transactions persisted on the blockchain\nper second. Throughput can be calculated using Equation\n2, with E(Place) representing transactions in O1 and C1,\nand t(Transition) indicating the time associated with the CT\ntransition (commit time).\nE(Place)\nThroughput =  (2)\nt(Transition)\nThe arrival rate constantly impacts the system’s through-\nput. Meanwhile, Figure 4a shows that  the negative impact\nof block size (BQ) on throughput  is greater  than that of\nother queues in the system, and this is intensified by the\nmaximum time until a block is completed (BT), as can be\nseen in Figure 4b, the greater the value of BT, the lower the\nsystem’s throughput.\nSmaller  blocks  result  in higher  throughput,  a finding\npreviously confirmed in [12] and now supported by a refined\nmodel and a new version of Fabric that includes a gateway\nand a set of intermediate states that increase precision and\nimprove the accuracy of the obtained results. Transactions\nprocessed quickly flow more efficiently between endorse-\nment, ordering, and commit.\nThe utilization metric quantifies the expected number of\nmarkings in a specific place E(Place) [15], divided by the\ntotal capacity of another location directly related to the first,\nfor example, the gateway (G1) and its corresponding queue\n(GQ). The combination of locations in modeling effectively\ncharacterizes a resource queue, as shown in Equation 3.\nE(Place)\nUtilization =  (3)\nResource Capacity\nWe focus on utilizing the gateway that receives requests\nfrom clients and endorsers. As the gateway is a single point\nof failure, since there is only one gateway in the assessed\nenvironment, it is natural to be overloaded. Figure 5a shows\nthat the system becomes overloaded with arrival rates below\n5 transactions per second, and upon reaching a rate of 20\ntps, the gateway utilization reaches 95%.\nFigure 5c presents the factors related to time and their\nimpact on the utilization."
+  },
+  {
+    "id": "casestudies2",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Case Studies",
+      "page_start": 4,
+      "page_end": 4
+    },
+    "text": "The BT has a significant effect;\nthe shorter the time for block formation, the lower the system\nutilization, which indicates that ordering impacts the gateway\nmore than the arrival of new transactions from the client.\nFurthermore, Figure 5b confirms the impact of ordering on\nthe gateway by showing that very large blocks (BQ) reduce\nthe system utilization. Therefore, more efficient orderers are."
+  },
+  {
+    "id": "conclusion",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Conclusion",
+      "page_start": 5,
+      "page_end": 5
+    },
+    "text": "This work presented a detailed analysis of  the perfor-\nmance of Hyperledger Fabric, employing measurement and\nmodeling to identify systemic bottlenecks. The emphasis\nwas on latency,  throughput  (TPS), and utilization metrics.\nThe experiments focused on the endorsement, ordering, and"
+  },
+  {
+    "id": "acknowledgement",
+    "metadata": {
+      "lang": "en",
+      "section_title": "ACKNOWLEDGEMENT",
+      "page_start": 6,
+      "page_end": 6
+    },
+    "text": "This work was carried out with financial support from the\nNational Council for Scientific and Technological Develop-\nment  (CNPq) under process PDPG-POSDOC-AUXPE No.\n88881.830176/2023-01."
+  }
+]

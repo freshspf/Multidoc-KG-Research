@@ -1,0 +1,389 @@
+[
+  {
+    "section": "iintroduction2",
+    "path": {
+      "section": "iintroduction2",
+      "start_entity": "ThisPaper",
+      "end_entity": "SoftwareIssue",
+      "hops": [
+        {
+          "from": "ThisPaper",
+          "relation": "proposes",
+          "to": "Study",
+          "context": "In this paper, we propose a study to fill this gap.",
+          "chunk": "1"
+        },
+        {
+          "from": "Study",
+          "relation": "analyzes",
+          "to": "DockerfileSmells",
+          "context": "First, we want to analyze the survivability of Dockerfile smells, to check how developers fix them.",
+          "chunk": "1"
+        },
+        {
+          "from": "DockerfileSmells",
+          "relation": "type",
+          "to": "SoftwareIssue",
+          "context": "Still, there is no clear evidence showing that developers fix Dockerfile smells.",
+          "chunk": "1"
+        }
+      ]
+    },
+    "question": "What type of software issue does the study proposed in this paper specifically aim to analyze in Dockerfile smells?",
+    "options": {
+      "A": "The study examines the compatibility problems emerging from Dockerfile smells.",
+      "B": "The study targets the performance degradation issues caused by Dockerfile smells.",
+      "C": "The study investigates the security vulnerabilities introduced by Dockerfile smells.",
+      "D": "The study focuses on the survivability of Dockerfile smells and their resolution by developers."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A because the study proposed in the paper focuses on analyzing the survivability of Dockerfile smells, specifically looking into how developers fix these issues, as described in the context from the paper. The other options, while plausible types of software issues, do not directly relate to the specific focus of survivability and developer resolution of Dockerfile smells mentioned in the paper.",
+    "path_description": "Path: ThisPaper --[proposes]--> Study --[analyzes]--> DockerfileSmells --[type]--> SoftwareIssue",
+    "context": "In this paper, we propose a study to fill this gap. | First, we want to analyze the survivability of Dockerfile smells, to check how developers fix them. | Still, there is no clear evidence showing that developers fix Dockerfile smells.",
+    "paper_id": "131"
+  },
+  {
+    "section": "iiiresearchquestions2",
+    "path": {
+      "section": "iiiresearchquestions2",
+      "start_entity": "PullRequest",
+      "end_entity": "SoftwareFeature",
+      "hops": [
+        {
+          "from": "PullRequest",
+          "relation": "relatedTo",
+          "to": "FixCommit",
+          "context": "We will mark a fix as informed if the commit message, the possibly related pull request, or the issue possibly fixed with the commit explicitly report that the aim of the modification was to remove the smell actually removed.",
+          "chunk": "5"
+        },
+        {
+          "from": "FixCommit",
+          "relation": "addresses",
+          "to": "VersionPinning",
+          "context": "An actual fix would consist of the addition of a version to the package.",
+          "chunk": "5"
+        },
+        {
+          "from": "VersionPinning",
+          "relation": "type",
+          "to": "SoftwareFeature",
+          "context": "The package wget lacks of version pinning (left).",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In a software development context, if a fix commit aims to address the issue of version pinning in the 'wget' package, what is most likely the nature of this modification?",
+    "options": {
+      "A": "The modification involves removing version numbers from dependencies to ensure the latest versions are used.",
+      "B": "The modification involves renaming the 'wget' package to reflect a more current version of the software.",
+      "C": "The modification involves adding explicit version numbers to dependencies within the 'wget' package.",
+      "D": "The modification involves restructuring the entire codebase of the 'wget' package to enhance performance."
+    },
+    "correct_answer": "C",
+    "explanation": "As per the context, a fix for the issue of version pinning typically involves adding explicit version numbers to dependencies. This ensures that a specific and controlled version of the dependency is used, preventing potential conflicts or unexpected behavior that could arise from using different or updated versions automatically.",
+    "path_description": "Path: PullRequest --[relatedTo]--> FixCommit --[addresses]--> VersionPinning --[type]--> SoftwareFeature",
+    "context": "We will mark a fix as informed if the commit message, the possibly related pull request, or the issue possibly fixed with the commit explicitly report that the aim of the modification was to remove the smell actually removed. | An actual fix would consist of the addition of a version to the package. | The package wget lacks of version pinning (left).",
+    "paper_id": "131"
+  },
+  {
+    "section": "iiiresearchquestions2",
+    "path": {
+      "section": "iiiresearchquestions2",
+      "start_entity": "Evaluator",
+      "end_entity": "SoftwareFeature",
+      "hops": [
+        {
+          "from": "Evaluator",
+          "relation": "discusses",
+          "to": "FixCommit",
+          "context": "The evaluators will discuss conflicts for both the aspects evaluated.",
+          "chunk": "5"
+        },
+        {
+          "from": "FixCommit",
+          "relation": "addresses",
+          "to": "VersionPinning",
+          "context": "An actual fix would consist of the addition of a version to the package.",
+          "chunk": "5"
+        },
+        {
+          "from": "VersionPinning",
+          "relation": "type",
+          "to": "SoftwareFeature",
+          "context": "The package wget lacks of version pinning (left).",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the context of software version control, if an evaluator discusses conflicts about a fix commit that addresses a specific software feature, what feature is most likely being addressed?",
+    "options": {
+      "A": "The feature being addressed is likely dependency resolution, which automatically manages software libraries.",
+      "B": "The feature being addressed is likely version pinning, which involves specifying package versions.",
+      "C": "The feature being addressed is likely code refactoring, which improves code structure without changing behavior.",
+      "D": "The feature being addressed is likely continuous integration, which automates code tests and builds."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A, as the knowledge path outlines a fix commit specifically addressing the issue of version pinning, a software feature that involves specifying versions of packages to ensure stability and compatibility. Options B, C, and D, while plausible features in software development, do not directly relate to the specific issue highlighted in the path from the knowledge graph.",
+    "path_description": "Path: Evaluator --[discusses]--> FixCommit --[addresses]--> VersionPinning --[type]--> SoftwareFeature",
+    "context": "The evaluators will discuss conflicts for both the aspects evaluated. | An actual fix would consist of the addition of a version to the package. | The package wget lacks of version pinning (left).",
+    "paper_id": "131"
+  },
+  {
+    "section": "ivstudycontext1",
+    "path": {
+      "section": "ivstudycontext1",
+      "start_entity": "Eng_et_al",
+      "end_entity": "DockerfileSmell",
+      "hops": [
+        {
+          "from": "Eng_et_al",
+          "relation": "found",
+          "to": "VersionPinningSmells",
+          "context": "the authors found that smells related to version pinning (i.e., DL3006, DL3008, DL3013 and DL3016) are the most prevalent",
+          "chunk": "6"
+        },
+        {
+          "from": "VersionPinningSmells",
+          "relation": "includes",
+          "to": "DL3008",
+          "context": "smells related to version pinning (i.e., DL3006, DL3008, DL3013 and DL3016)",
+          "chunk": "6"
+        },
+        {
+          "from": "DL3008",
+          "relation": "type",
+          "to": "DockerfileSmell",
+          "context": "smells related to version pinning (i.e., DL3006, DL3008, DL3013 and DL3016)",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the study by Eng et al., which specific Dockerfile smell type, related to version pinning, is included under the category of VersionPinningSmells?",
+    "options": {
+      "A": "DL3013, which focuses on the secure management of user permissions in Dockerfiles",
+      "B": "DL3016, which addresses the use of latest tags in version specification",
+      "C": "DL3006, which requires the specification of precise base images",
+      "D": "DL3008, which emphasizes the importance of specifying version numbers in Dockerfiles"
+    },
+    "correct_answer": "D",
+    "explanation": "According to the knowledge graph path and context provided, DL3008 is explicitly mentioned as a type of DockerfileSmell under the category of VersionPinningSmells. This smell is directly associated with the need for specifying version numbers in Dockerfiles, making it the correct answer.",
+    "path_description": "Path: Eng_et_al --[found]--> VersionPinningSmells --[includes]--> DL3008 --[type]--> DockerfileSmell",
+    "context": "the authors found that smells related to version pinning (i.e., DL3006, DL3008, DL3013 and DL3016) are the most prevalent | smells related to version pinning (i.e., DL3006, DL3008, DL3013 and DL3016) | smells related to version pinning (i.e., DL3006, DL3008, DL3013 and DL3016)",
+    "paper_id": "131"
+  },
+  {
+    "section": "ivstudycontext2",
+    "path": {
+      "section": "ivstudycontext2",
+      "start_entity": "InformedFix",
+      "end_entity": "Package",
+      "hops": [
+        {
+          "from": "InformedFix",
+          "relation": "reportedBy",
+          "to": "Commit",
+          "context": "We will mark a fix as informed if the commit message, the possibly related pull request, or the issue possibly fixed with the commit explicitly report that the aim of the modification was to remove the smell actually removed.",
+          "chunk": "7"
+        },
+        {
+          "from": "Commit",
+          "relation": "removes",
+          "to": "wget",
+          "context": "Instead, in the commit, the package gets simply removed.",
+          "chunk": "7"
+        },
+        {
+          "from": "wget",
+          "relation": "type",
+          "to": "Package",
+          "context": "The package wget lacks of version pinning (left).",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "In the context of software development, what does it imply when a commit labeled as an 'InformedFix' leads to the removal of the 'wget' package?",
+    "options": {
+      "A": "The action was taken to reduce the overall size of the software by removing larger, less frequently used packages like 'wget'.",
+      "B": "The commit is part of a larger effort to clean up code by removing unnecessary packages, improving the software structure.",
+      "C": "The commit aims to address specific issues reported with 'wget', such as version pinning, to enhance package management and stability.",
+      "D": "The removal of 'wget' signifies an unintentional action, likely due to an error in understanding the dependencies within the project."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is B. According to the given context, an 'InformedFix' explicitly reports the aim of the modification, which in this case was to remove the 'wget' package due to specific issues such as a lack of version pinning. This directly addresses a known problem rather than being an unintentional or arbitrary removal.",
+    "path_description": "Path: InformedFix --[reportedBy]--> Commit --[removes]--> wget --[type]--> Package",
+    "context": "We will mark a fix as informed if the commit message, the possibly related pull request, or the issue possibly fixed with the commit explicitly report that the aim of the modification was to remove the smell actually removed. | Instead, in the commit, the package gets simply removed. | The package wget lacks of version pinning (left).",
+    "paper_id": "131"
+  },
+  {
+    "section": "ivstudycontext2",
+    "path": {
+      "section": "ivstudycontext2",
+      "start_entity": "InformedFix",
+      "end_entity": "VersionPinning",
+      "hops": [
+        {
+          "from": "InformedFix",
+          "relation": "reportedBy",
+          "to": "Commit",
+          "context": "We will mark a fix as informed if the commit message, the possibly related pull request, or the issue possibly fixed with the commit explicitly report that the aim of the modification was to remove the smell actually removed.",
+          "chunk": "7"
+        },
+        {
+          "from": "Commit",
+          "relation": "removes",
+          "to": "wget",
+          "context": "Instead, in the commit, the package gets simply removed.",
+          "chunk": "7"
+        },
+        {
+          "from": "wget",
+          "relation": "lacks",
+          "to": "VersionPinning",
+          "context": "The package wget lacks of version pinning (left).",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "In the context of software development, what was the primary aim of the commit that led to the removal of the wget package?",
+    "options": {
+      "A": "The commit was intended to refactor the codebase by replacing wget with a more efficient package.",
+      "B": "The main aim was to upgrade the wget package to a newer version that includes enhanced security features.",
+      "C": "The removal of the wget package was primarily aimed to address the lack of version pinning in wget.",
+      "D": "The goal was to clean up the codebase by removing unnecessary dependencies, including the wget package."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A because, according to the knowledge path, the commit that removed wget was reported to be aimed at addressing the issue of wget lacking version pinning. This indicates that the primary intention behind the commit was to remove the smell (problem) actually removed, which was the absence of version pinning in wget.",
+    "path_description": "Path: InformedFix --[reportedBy]--> Commit --[removes]--> wget --[lacks]--> VersionPinning",
+    "context": "We will mark a fix as informed if the commit message, the possibly related pull request, or the issue possibly fixed with the commit explicitly report that the aim of the modification was to remove the smell actually removed. | Instead, in the commit, the package gets simply removed. | The package wget lacks of version pinning (left).",
+    "paper_id": "131"
+  },
+  {
+    "section": "vexecutionplan2",
+    "path": {
+      "section": "vexecutionplan2",
+      "start_entity": "FixCommits",
+      "end_entity": "SoftwareDevelopmentActivity",
+      "hops": [
+        {
+          "from": "FixCommits",
+          "relation": "summarizedBy",
+          "to": "Authors",
+          "context": "At the end, we will summarize the total number of fix commits and the percentage of actual fix commits.",
+          "chunk": "9"
+        },
+        {
+          "from": "Authors",
+          "relation": "evaluate",
+          "to": "FixCommits",
+          "context": "At least two of the authors will independently evaluate each instance.",
+          "chunk": "9"
+        },
+        {
+          "from": "FixCommits",
+          "relation": "type",
+          "to": "SoftwareDevelopmentActivity",
+          "context": "At the end, we will summarize the total number of fix commits and the percentage of actual fix commits.",
+          "chunk": "9"
+        }
+      ]
+    },
+    "question": "In the context of software development activities, what is the most likely role of authors in relation to fix commits as described in the 'vexecutionplan2' section?",
+    "options": {
+      "A": "Authors are primarily responsible for creating and committing code changes to the software repository.",
+      "B": "Authors independently evaluate each instance to determine if they qualify as actual fix commits.",
+      "C": "Authors compile and summarize the documentation related to fix commits for annual reports.",
+      "D": "Authors coordinate with the software development team to manage project timelines and deliverables."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A because the context mentions that at least two authors will independently evaluate each instance, implying that their role is to assess and confirm the nature of the fix commits, ensuring they are actual fixes. Options B, C, and D, while plausible roles within a software development context, do not specifically align with the responsibilities outlined in the provided section of the paper.",
+    "path_description": "Path: FixCommits --[summarizedBy]--> Authors --[evaluate]--> FixCommits --[type]--> SoftwareDevelopmentActivity",
+    "context": "At the end, we will summarize the total number of fix commits and the percentage of actual fix commits. | At least two of the authors will independently evaluate each instance. | At the end, we will summarize the total number of fix commits and the percentage of actual fix commits.",
+    "paper_id": "131"
+  },
+  {
+    "section": "vilimitationschallengesandmitigations2",
+    "path": {
+      "section": "vilimitationschallengesandmitigations2",
+      "start_entity": "We",
+      "end_entity": "EntityType",
+      "hops": [
+        {
+          "from": "We",
+          "relation": "willRelease",
+          "to": "ResearchResults",
+          "context": "We will publicly release the results of our research (i.e., the collected data and our tool for fixing Dockerfile smells) to foster future research in this field.",
+          "chunk": "13"
+        },
+        {
+          "from": "ResearchResults",
+          "relation": "includes",
+          "to": "CollectedData",
+          "context": "We will publicly release the results of our research (i.e., the collected data and our tool for fixing Dockerfile smells) to foster future research in this field.",
+          "chunk": "13"
+        },
+        {
+          "from": "CollectedData",
+          "relation": "type",
+          "to": "EntityType",
+          "context": "We will publicly release the results of our research (i.e., the collected data and our tool for fixing Dockerfile smells) to foster future research in this field.",
+          "chunk": "13"
+        }
+      ]
+    },
+    "question": "What type of entity is primarily included in the research results that will be publicly released to foster future research on fixing Dockerfile smells?",
+    "options": {
+      "A": "The entity type primarily included is analytical models and algorithms.",
+      "B": "The entity type primarily included is qualitative interview transcripts.",
+      "C": "The entity type primarily included is quantitative experimental data.",
+      "D": "The entity type primarily included is software tools developed for research."
+    },
+    "correct_answer": "D",
+    "explanation": "The context mentions that along with collected data, a tool for fixing Dockerfile smells will be released. This indicates that the primary entity type included in the research results is the software tools developed during the research.",
+    "path_description": "Path: We --[willRelease]--> ResearchResults --[includes]--> CollectedData --[type]--> EntityType",
+    "context": "We will publicly release the results of our research (i.e., the collected data and our tool for fixing Dockerfile smells) to foster future research in this field. | We will publicly release the results of our research (i.e., the collected data and our tool for fixing Dockerfile smells) to foster future research in this field. | We will publicly release the results of our research (i.e., the collected data and our tool for fixing Dockerfile smells) to foster future research in this field.",
+    "paper_id": "131"
+  },
+  {
+    "section": "vilimitationschallengesandmitigations2",
+    "path": {
+      "section": "vilimitationschallengesandmitigations2",
+      "start_entity": "Results",
+      "end_entity": "DockerArtifacts",
+      "hops": [
+        {
+          "from": "Results",
+          "relation": "willHelp",
+          "to": "Researchers",
+          "context": "Our results will help researchers interested in supporting tools for improving code quality of Docker artifacts.",
+          "chunk": "13"
+        },
+        {
+          "from": "Researchers",
+          "relation": "interestedIn",
+          "to": "CodeQuality",
+          "context": "Our results will help researchers interested in supporting tools for improving code quality of Docker artifacts.",
+          "chunk": "13"
+        },
+        {
+          "from": "CodeQuality",
+          "relation": "of",
+          "to": "DockerArtifacts",
+          "context": "Our results will help researchers interested in supporting tools for improving code quality of Docker artifacts.",
+          "chunk": "13"
+        }
+      ]
+    },
+    "question": "Which statement best describes the primary focus of researchers as supported by the results mentioned in the section 'vilimitationschallengesandmitigations2'?",
+    "options": {
+      "A": "Researchers are primarily interested in decreasing the computational resources used by Docker artifacts.",
+      "B": "Researchers are mainly engaged in creating user-friendly interfaces for Docker artifact management.",
+      "C": "Researchers are primarily interested in evaluating the security vulnerabilities in Docker artifacts.",
+      "D": "Researchers are primarily focused on developing tools to enhance the code quality of Docker artifacts."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A because the knowledge path indicates that the results will assist researchers who are interested in tools for improving code quality specifically of Docker artifacts. Options B, C, and D mention other aspects (security, interfaces, and resources) which are not directly linked to the primary interest of improving code quality as per the context provided.",
+    "path_description": "Path: Results --[willHelp]--> Researchers --[interestedIn]--> CodeQuality --[of]--> DockerArtifacts",
+    "context": "Our results will help researchers interested in supporting tools for improving code quality of Docker artifacts. | Our results will help researchers interested in supporting tools for improving code quality of Docker artifacts. | Our results will help researchers interested in supporting tools for improving code quality of Docker artifacts.",
+    "paper_id": "131"
+  }
+]

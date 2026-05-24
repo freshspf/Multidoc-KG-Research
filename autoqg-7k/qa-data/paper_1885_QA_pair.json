@@ -1,0 +1,217 @@
+[
+  {
+    "section": "fvq20kdataset2",
+    "path": {
+      "section": "fvq20kdataset2",
+      "start_entity": "SubjectiveDataProcessing",
+      "end_entity": "ZScores",
+      "hops": [
+        {
+          "from": "SubjectiveDataProcessing",
+          "relation": "appliedTo",
+          "to": "FVQ-20K",
+          "context": "We first perform outlier detection and subject rejection on all the 20,000 videos based on the guidelines provided by ITU-BT.500.",
+          "chunk": "5"
+        },
+        {
+          "from": "FVQ-20K",
+          "relation": "hasAnnotationType",
+          "to": "MOS",
+          "context": "contains 20,000 diverse face videos with high-quality MOS annotations.",
+          "chunk": "5"
+        },
+        {
+          "from": "MOS",
+          "relation": "calculatedFrom",
+          "to": "ZScores",
+          "context": "Finally, the rescaled Z-scores are averaged over subjects to obtain the mean opinion scores (MOSs).",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the FVQ-20K dataset, after applying subjective data processing techniques and before calculating Z-scores, what type of annotation is primarily used to assess video quality?",
+    "options": {
+      "A": "Mean Opinion Scores (MOS) annotations, which are averaged from rescaled Z-scores.",
+      "B": "Objective Quality Metrics, which are directly derived from video analysis algorithms.",
+      "C": "Viewer impression scores, which are subjective evaluations collected from individual viewers.",
+      "D": "Subjective annotations processed by outlier detection and subject rejection."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A, as the context explains that MOS annotations are utilized in the FVQ-20K dataset. These annotations are derived by averaging the rescaled Z-scores over subjects, following the subjective data processing like outlier detection and subject rejection. This sequence aligns with the knowledge path from SubjectiveDataProcessing to FVQ-20K to MOS to ZScores.",
+    "path_description": "Path: SubjectiveDataProcessing --[appliedTo]--> FVQ-20K --[hasAnnotationType]--> MOS --[calculatedFrom]--> ZScores",
+    "context": "We first perform outlier detection and subject rejection on all the 20,000 videos based on the guidelines provided by ITU-BT.500. | contains 20,000 diverse face videos with high-quality MOS annotations. | Finally, the rescaled Z-scores are averaged over subjects to obtain the mean opinion scores (MOSs).",
+    "paper_id": "855"
+  },
+  {
+    "section": "fvq20kdataset2",
+    "path": {
+      "section": "fvq20kdataset2",
+      "start_entity": "CelebV-HQ",
+      "end_entity": "ZScores",
+      "hops": [
+        {
+          "from": "CelebV-HQ",
+          "relation": "integratedInto",
+          "to": "FVQ-20K",
+          "context": "Specifically, we merge the CelebV-HQ dataset and the CelebV-Text dataset, and obtain a total of 104,218 face videos.",
+          "chunk": "5"
+        },
+        {
+          "from": "FVQ-20K",
+          "relation": "hasAnnotationType",
+          "to": "MOS",
+          "context": "contains 20,000 diverse face videos with high-quality MOS annotations.",
+          "chunk": "5"
+        },
+        {
+          "from": "MOS",
+          "relation": "calculatedFrom",
+          "to": "ZScores",
+          "context": "Finally, the rescaled Z-scores are averaged over subjects to obtain the mean opinion scores (MOSs).",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the integration of the CelebV-HQ dataset into FVQ-20K, which type of data transformation is applied to compute the mean opinion scores (MOSs)?",
+    "options": {
+      "A": "Conversion of pixel intensity to grayscale values before averaging for MOS.",
+      "B": "Raw video quality ratings are directly used to compute the MOS.",
+      "C": "Subjective impressions are tallied and normalized for the final MOS.",
+      "D": "Rescaled Z-scores are averaged over subjects to derive the MOS."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct process described in the paper involves rescaling Z-scores and averaging them over subjects to obtain MOSs. The other options, while related to data processing or video analysis, do not accurately describe the method used for computing MOSs in the FVQ-20K dataset from the CelebV-HQ dataset.",
+    "path_description": "Path: CelebV-HQ --[integratedInto]--> FVQ-20K --[hasAnnotationType]--> MOS --[calculatedFrom]--> ZScores",
+    "context": "Specifically, we merge the CelebV-HQ dataset and the CelebV-Text dataset, and obtain a total of 104,218 face videos. | contains 20,000 diverse face videos with high-quality MOS annotations. | Finally, the rescaled Z-scores are averaged over subjects to obtain the mean opinion scores (MOSs).",
+    "paper_id": "855"
+  },
+  {
+    "section": "fvq20kdataset1",
+    "path": {
+      "section": "fvq20kdataset1",
+      "start_entity": "FVQ-Rater",
+      "end_entity": "FVQ-20K",
+      "hops": [
+        {
+          "from": "FVQ-Rater",
+          "relation": "proposes",
+          "to": "FVQ-Rater",
+          "context": "We propose FVQ-Rater, a novel LMM-based FVQA method",
+          "chunk": "4"
+        },
+        {
+          "from": "FVQ-Rater",
+          "relation": "proposes",
+          "to": "FVQ-Rater",
+          "context": "We propose FVQ-Rater, a novel LMM-based FVQA method",
+          "chunk": "4"
+        },
+        {
+          "from": "FVQ-Rater",
+          "relation": "evaluatedOn",
+          "to": "FVQ-20K",
+          "context": "Extensive experiments on both FVQ-20K and CFVQA datasets",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "Which of the following best describes the role of the FVQ-20K dataset in the development of the FVQ-Rater?",
+    "options": {
+      "A": "FVQ-20K served as a training dataset to enhance the algorithmic structure of FVQ-Rater.",
+      "B": "FVQ-20K was primarily utilized to provide a comparative analysis against the CFVQA dataset.",
+      "C": "FVQ-20K was used as a primary dataset to evaluate the performance of the FVQ-Rater.",
+      "D": "FVQ-20K was referenced for theoretical support in the conceptualization of FVQ-Rater."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A because the knowledge graph path indicates that FVQ-Rater, after being proposed twice as a novel method, was evaluated on the FVQ-20K dataset. This suggests that FVQ-20K was primarily used to assess and validate the performance of the newly developed FVQ-Rater.",
+    "path_description": "Path: FVQ-Rater --[proposes]--> FVQ-Rater --[proposes]--> FVQ-Rater --[evaluatedOn]--> FVQ-20K",
+    "context": "We propose FVQ-Rater, a novel LMM-based FVQA method | We propose FVQ-Rater, a novel LMM-based FVQA method | Extensive experiments on both FVQ-20K and CFVQA datasets",
+    "paper_id": "855"
+  },
+  {
+    "section": "conclusion1",
+    "path": {
+      "section": "conclusion1",
+      "start_entity": "FVQ-Rater",
+      "end_entity": "SocialMediaPlatform",
+      "hops": [
+        {
+          "from": "FVQ-Rater",
+          "relation": "evaluatedOn",
+          "to": "FVQ-20K",
+          "context": "Extensive experiments on both FVQ-20K and CFVQA datasets demonstrate the superiority of our FVQ-Rater method.",
+          "chunk": "10"
+        },
+        {
+          "from": "FVQ-20K",
+          "relation": "collectedFrom",
+          "to": "TikTok",
+          "context": "The face videos in the FVQ-20K dataset are collected from two popular social media platforms, i.e., TikTok [23] and YouTube [72].",
+          "chunk": "10"
+        },
+        {
+          "from": "TikTok",
+          "relation": "type",
+          "to": "SocialMediaPlatform",
+          "context": "The face videos in the FVQ-20K dataset are collected from two popular social media platforms, i.e., TikTok [23] and YouTube [72].",
+          "chunk": "10"
+        }
+      ]
+    },
+    "question": "Which of the following statements accurately reflects the relationship between the FVQ-Rater method and the platforms from which data was collected for the FVQ-20K dataset?",
+    "options": {
+      "A": "FVQ-20K dataset deployment for FVQ-Rater involved data exclusively from professional video hosting services, not social media.",
+      "B": "The FVQ-Rater exclusively utilized data from YouTube for its evaluations, ignoring other social media platforms.",
+      "C": "FVQ-Rater used FVQ-20K dataset collected specifically from Twitter, focusing on analyzing trends in social media.",
+      "D": "The FVQ-Rater method was evaluated using the FVQ-20K dataset, which includes data from the social media platform TikTok."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A as it correctly identifies TikTok as one of the social media platforms from which data was collected for the FVQ-20K dataset, which was then evaluated by the FVQ-Rater method. The other options are incorrect as they either misidentify the social media platforms or incorrectly describe the data sources used for the FVQ-20K dataset.",
+    "path_description": "Path: FVQ-Rater --[evaluatedOn]--> FVQ-20K --[collectedFrom]--> TikTok --[type]--> SocialMediaPlatform",
+    "context": "Extensive experiments on both FVQ-20K and CFVQA datasets demonstrate the superiority of our FVQ-Rater method. | The face videos in the FVQ-20K dataset are collected from two popular social media platforms, i.e., TikTok [23] and YouTube [72]. | The face videos in the FVQ-20K dataset are collected from two popular social media platforms, i.e., TikTok [23] and YouTube [72].",
+    "paper_id": "855"
+  },
+  {
+    "section": "conclusion2",
+    "path": {
+      "section": "conclusion2",
+      "start_entity": "ScoringInterface",
+      "end_entity": "Entity",
+      "hops": [
+        {
+          "from": "ScoringInterface",
+          "relation": "appearsAfter",
+          "to": "FaceVideos",
+          "context": "And the scoring interface only appears after each video has finished playing.",
+          "chunk": "11"
+        },
+        {
+          "from": "FaceVideos",
+          "relation": "playedOn",
+          "to": "GraphicalUserInterface",
+          "context": "The face videos are played in full screen.",
+          "chunk": "11"
+        },
+        {
+          "from": "GraphicalUserInterface",
+          "relation": "type",
+          "to": "Entity",
+          "context": "The subjective experiments are conducted on the graphical user interface (GUI) shown in Figure C.",
+          "chunk": "11"
+        }
+      ]
+    },
+    "question": "What is the sequence of user interface events when conducting subjective experiments with face videos according to the paper's conclusion?",
+    "options": {
+      "A": "The scoring interface is initialized first, then face videos are played on a graphical user interface.",
+      "B": "Graphical user interfaces display scoring interfaces before playing face videos in a minimized window.",
+      "C": "Face videos and scoring interfaces are simultaneously displayed on different graphical user interfaces.",
+      "D": "Face videos are played in full screen on a graphical user interface, followed by the scoring interface."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct sequence, as per the knowledge graph path, starts with face videos being played in full screen (FaceVideos --[playedOn]--> GraphicalUserInterface), followed by the appearance of the scoring interface after each video ends (ScoringInterface --[appearsAfter]--> FaceVideos). This is confirmed by the context in the paper where it states the scoring interface only appears after each video has finished playing on the GUI.",
+    "path_description": "Path: ScoringInterface --[appearsAfter]--> FaceVideos --[playedOn]--> GraphicalUserInterface --[type]--> Entity",
+    "context": "And the scoring interface only appears after each video has finished playing. | The face videos are played in full screen. | The subjective experiments are conducted on the graphical user interface (GUI) shown in Figure C.",
+    "paper_id": "855"
+  }
+]

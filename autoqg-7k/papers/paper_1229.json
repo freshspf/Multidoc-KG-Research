@@ -1,0 +1,52 @@
+[
+  {
+    "id": "introduction",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Introduction",
+      "page_start": 2,
+      "page_end": 2
+    },
+    "text": "2  Look-Up Table Method\n3  LUT Creation\n4  Closure Tests\n5  Conclusions and Outlook\n1  Introduction\nHybrid silicon pixel modules are at the core of the\nexperiments at the CERN Large Hadron Collider\nproduced by LHC pp collisions can displace Si at\nband gap. These deep states are responsible at ma\nthe change in operational voltage and decrease\ncold, adjusting sensor bias voltage and readout el\nhit efficiency despite the declining charge colle\nhave simulated events mimicking the evolution of\nradiation damage fluence. TheATLAS collaborati\nalgorithms [4] - the so called radiation damage di\nfield maps simulated using TCAD1 tools can repr\nsize) at % level of agreement with data [5].\nThe LHC accelerator will be upgraded to\ninstantaneous luminosity increasing by a factor o\nto integrate over 10 years a dataset ten times lar\nThe large increase in instantaneous luminosity wi\nhits rates, in particular for the detector closest to\ndamage doses and fluence will increase too, by a\ncollaboration is preparing an upgraded pixel dete\ncapable to assure the same if not even better per\nmuch harsher environment.\nThe high luminosity phase of LHCwill impos\nFor example, despite the great performance of t\nabandoned because it will be too demanding in te\n1Technology Computer Aided Design\n2https://hilumilhc.web.cern.ch/content/hl-lhc-project\n– 1\n\n1\n2\n2\n3\n4\ntracking detectors in High Energy Physics (HEP)\n(LHC), see for example [1, 2]. The fast hadrons\noms and hence create deep states in the Si energy\ncroscopic level of the increase of leakage current,\nof signal amplitude [3]. Operating the detector\nectronics thresholds and calibrations assure high\nction efficiency (CCE).  It  is also important  to\nCCE with the accumulation of luminosity, hence\non developed and, sinceLHCRun 3, implemented\ngitizer - that starting from precise sensor electric\noduce the evolution of cluster properties (charge,\na High Luminosity machine (HL-LHC) 2 with\nf 3-5 with respect to LHC Run 3, with the goal\nger than the one expected at the end of Run 3.\nll translate into much larger events, particles and\nthe interaction point, the pixel detector; radiation\nlmost a factor 10. For these reasons the ATLAS\nctor, the Inner Tracker (ITk) Pixel Detector [6],\nformance of the original Pixel Detector but in a\ne severe constraints also on computing resources.\nhe radiation damage digitizer, it will have to be\nrms of computing resources during the HL-LHC\n–"
+  },
+  {
+    "id": "lookuptablemethod",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Look-Up Table Method",
+      "page_start": 3,
+      "page_end": 3
+    },
+    "text": "In the original ATLAS radiation damage digitizer\nparticles are drifted towards the collecting electro\ntheir movement based on electric field maps and m\npixel electrodes is then calculated using the Ram\nalgorithm makes very precise predictions but it i\nwithout radiation damage). In the new proposed a\nbe replaced by scalar values, stored in so called L\nat depth 𝑧 inside the sensor bulk the final signal am\n(𝑥𝑝𝑟𝑜𝑝, 𝑦𝑝𝑟𝑜𝑝, 𝑧𝑝𝑟𝑜𝑝) will be calculate using three\nin 𝑧 and one for the tangent of Lorentz angle 𝜃𝐿𝐴(\ndepth 𝑧. The signal amplitude and the propagated\n𝑞𝑖𝑛𝑑 = 𝐶𝐶𝐸(𝑧) ∗ 𝑞 ,\n𝑥𝑝𝑟𝑜𝑝 = 𝑥 + [tan(𝜃𝐿𝐴(\n𝑑𝑖 𝑓 𝑓\n𝑦𝑝𝑟𝑜𝑝 = 𝑦 + Δ  𝑦\n𝑧𝑝𝑟𝑜𝑝 = 𝑧 + Δ𝑧(𝑧),\n𝑑𝑖 𝑓 𝑓\nwhere Δ  𝑥, 𝑦 is a Gaussian-distributed ran\ndiffusion. More details on the method can be foun"
+  },
+  {
+    "id": "lutcreation",
+    "metadata": {
+      "lang": "en",
+      "section_title": "LUT Creation",
+      "page_start": 3,
+      "page_end": 3
+    },
+    "text": "In order to create the three LUTs it is necessary to\nby ionising particles in pixel detectors.  In this w\n2\nMC simulation framework [10]. Within Allpix\nbe simulated with great detail, thanks to the possib\nprocesses, from charge deposition to signal digiti\npropagation.\n2\nUsing Allpix  it was possible to simulate eve\nµ  2\nwith a pitch of 50×50 150 m . The electric field\nthat included radiation damage effects correspo\nTCADmodel for radiation damage [11] developed\npotential map was calculated too using TCAD to\nfor a bias voltage of Vbias = 400 V.\n– 2\n\nor the radiation damage digitizer is presented. Its\niver precise predictions in terms of cluster charge\non damage. The algorithm is based on Look-Up\nTCAD and MC simulations (section 3). The new\nre tests (section 4). Section 5 will end the article.\ngroupes of charge carriers produced by ionising\ndes, calculating their final position by integrating\nobility function; the signal amplitude on different\no theorem [7, 8]. As said in the introduction this\ns significantly slower than the standard one (i.e.\nlgorithm the complicate dynamics of carriers will\nook-Up Tables (LUTs). For a charge 𝑞 deposited\nplitude 𝑞𝑖𝑛𝑑 and its final (“propagated”) position\nLUTs, one for the 𝐶𝐶𝐸, one for the free path Δ𝑧\n𝑧); all LUTs will indeed depend on the deposition\nposition are calculated as detailed in eq. 2.1:\n𝑑𝑖 𝑓 𝑓\n𝑧)) · Δ𝑧(𝑧)] + Δ  𝑥\n(2.1)\ndom number added to simulate the effect 𝑥, 𝑦 of\nd in ref. [9].\nhave a precise simulation of the signals created\n2\nork the task was accomplished using the Allpix\nthe response to radiation of silicon detectors can\nility of controlling in a modular way all involved\nzation and construction, including charge carrier\nnts for a 150 µm thick n-on-p planar pixel sensors\nprofile map was taken from a TCAD simulation\n15  2\nnding to a fluence Φ of 1 × 10  neq/cm ;  the\nby the LHCb collaboration was used. The Ramo\nols. The resulting LUTs are reported in Figure 1\n–"
+  },
+  {
+    "id": "closuretests",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Closure Tests",
+      "page_start": 4,
+      "page_end": 4
+    },
+    "text": "Lacking experimental data from irradiated pixel m\nin order to validate the LUTmethod and ingredien\n– 3\n\nCluster charge (detector1)\ns  cclluusstteerr__cchhaarrggee  cclluusstteerr__cchhaarrggee\nre  EEnnttrriieess      11002222  EEnnttrriieess      11002299\nts 0.15\nu  MMeeaann          1199..1155  MMeeaann          1177..1199\nlc  SSttdd  DDeevv           55..990077  SSttdd  DDeevv           55..444488\n0.1\nLUT\nFS\n0.05\n0\n0  10  20  30  40  50\ncluster charge [ke]\nCluster size in X (detector1)\ns  cclluusstteerr__ssiizzee__xx  cclluusstteerr__ssiizzee__xx\nre  EEnnttrriieess      11002222  EEnnttrriieess      11002299\nts\nu  MMeeaann          22..007788  MMeeaann          22..110088\nlc  SSttdd  DDeevv              00..6655  SSttdd  DDeevv        00..77994422\n1\n10- 1\nLUT\nFS\n10- 2\n10- 3\n0  5  10  15\ncluster size x [px]\nCluster size in Y (detector1)\ns  cclluusstteerr__ssiizzee__yy  cclluusstteerr__ssiizzee__yy\nre  EEnnttrriieess      11002222  EEnnttrriieess      11002299\nts\nu  MMeeaann          44..000022  MMeeaann          44..006622\nlc  SSttdd  DDeevv        00..55332277  SSttdd  DDeevv        00..99117744\n1\n10- 1\nLUT\nFS\n10- 2\n10- 3\n0  5  10  15\ncluster size y [px]\nµ  µ  2\nxels,  (150 m thick, 50×50 150 m , Φ = 1 ×\ntangent of Lorentz ange; (bottom) average free\n1.  (top) cluster charge; (mid) transverse cluster\nnal screening of holes in the region between pixel\nm the pixel the free path is reduced to half; the\ners produced at the backside.\nodules, a series of closures tests were conducted\nts. In particular, a comparison of events simulated\n–"
+  },
+  {
+    "id": "conclusionsandoutlook",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Conclusions and Outlook",
+      "page_start": 5,
+      "page_end": 6
+    },
+    "text": "Radiation damage is the limiting effect of pixe\nthis paper a novel algorithm to include these effe\nClosures tests indicate it is quite precise in reprod\na preliminary test on computing performance the\n3𝜂 = − ln(tan(𝜃/2)), where 𝜃 is the polar angle with resp\n– 4\n\nones was performed. The distribution of cluster\nsverse and parallel to the magnetic field - were\nils in [9]. Here the results of a closure test for the\norted. The module was tilted at different angles\nthe data-taking conditions in ATLAS. In figure 1\nth projections of cluster size. LUT based events\n% larger than FS ones; this will be investigated.\nory.\nues. A relative difference 𝜖 as been calculated as:\n𝑇 − ⟨𝑂⟩𝐹𝑆\n(4.1)\n⟩𝐹𝑆\nion of observable 𝑂 which is either cluster cluster\n𝑆𝑋,𝑌 . Results are reported in figure 2.\n               \nreliminary\n0.8  1  1.2  1.4\nη\nen LUT and FS events at different 𝜂 values. For\ntween mean values of the observable distribution\nevents.\ner size is at a few % level which is extremely\nUT than FS events. At 𝜂 = 1.4 the agreement for\nar to what reported in [9] for a different simulated\nl detector performance at hadron colliders.  In\ncts in MC simulated events has been discussed.\nucing cluster properties like charge and size.  In\nproduction of simulated events using the LUT\nect to the direction of the beam\n–\n\nmethod was as fast as the basic version, i.e. witho\nalgorithmic complexity of the LUT algorithm is b\nAcknowledgments\nThe authors want to thank Jeff Dandoy from Ca\nhelping us in optimising the algorithm."
+  }
+]

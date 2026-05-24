@@ -1,0 +1,217 @@
+[
+  {
+    "section": "basics2",
+    "path": {
+      "section": "basics2",
+      "start_entity": "R",
+      "end_entity": "Complexity",
+      "hops": [
+        {
+          "from": "R",
+          "relation": "usedIn",
+          "to": "GSA",
+          "context": "by GSA of C.",
+          "chunk": "2"
+        },
+        {
+          "from": "GSA",
+          "relation": "stores",
+          "to": "nLog2",
+          "context": "size n log2(3 + 2  2) + o(n) bits can be built",
+          "chunk": "2"
+        },
+        {
+          "from": "nLog2",
+          "relation": "type",
+          "to": "Complexity",
+          "context": "size n log2(3 + 2  2) + o(n) bits can be built",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the context of constructing a Generalized Suffix Array (GSA) for a string of length n, what type of complexity does the storage size n log2(3 + 2  2) + o(n) bits represent?",
+    "options": {
+      "A": "This storage size represents a linear time complexity for constructing the GSA.",
+      "B": "This storage size represents a sublinear space complexity for the GSA.",
+      "C": "This storage size represents a logarithmic space complexity for the GSA.",
+      "D": "This storage size represents a polynomial time complexity for constructing the GSA."
+    },
+    "correct_answer": "B",
+    "explanation": "The storage size n log2(3 + 2  2) + o(n) bits implies an increase in storage that is less than linear with respect to the input size but more than constant, fitting the description of a sublinear space complexity.",
+    "path_description": "Path: R --[usedIn]--> GSA --[stores]--> nLog2 --[type]--> Complexity",
+    "context": "by GSA of C. | size n log2(3 + 2  2) + o(n) bits can be built | size n log2(3 + 2  2) + o(n) bits can be built",
+    "paper_id": "223"
+  },
+  {
+    "section": "compressedmatchingstatistics2",
+    "path": {
+      "section": "compressedmatchingstatistics2",
+      "start_entity": "CMS",
+      "end_entity": "Substring",
+      "hops": [
+        {
+          "from": "CMS",
+          "relation": "evaluatedOn",
+          "to": "S",
+          "context": "It is well known that the matching statistics of S",
+          "chunk": "4"
+        },
+        {
+          "from": "S",
+          "relation": "hasSubstring",
+          "to": "U",
+          "context": "For position i of S, let U 6= ε be the m",
+          "chunk": "4"
+        },
+        {
+          "from": "U",
+          "relation": "type",
+          "to": "Substring",
+          "context": "For position i of S, let U 6= ε be the m",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the context of compressed matching statistics as described in the section 'compressedmatchingstatistics2', what does the evaluation of CMS on string S primarily determine?",
+    "options": {
+      "A": "The total number of substrings in S, each evaluated independently of its position.",
+      "B": "The frequency of substring U within string S, highlighting repetitive sequences.",
+      "C": "The shortest substring U at position i of S, establishing the minimal necessary length.",
+      "D": "The longest substring U at position i of S, such that U is not an empty string."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A. The evaluation of CMS on string S determines the longest substring U at a specific position i where U is not an empty string (ε). This aligns with the knowledge graph path where CMS is evaluated on S, S has a substring U, and the type of U is a Substring. Options B, C, and D are incorrect as they discuss either the shortest substring, frequency of substring, or total count of substrings, none of which directly relate to the longest non-empty substring at a specific position as per the described evaluation.",
+    "path_description": "Path: CMS --[evaluatedOn]--> S --[hasSubstring]--> U --[type]--> Substring",
+    "context": "It is well known that the matching statistics of S | For position i of S, let U 6= ε be the m | For position i of S, let U 6= ε be the m",
+    "paper_id": "223"
+  },
+  {
+    "section": "compressedmatchingstatistics2",
+    "path": {
+      "section": "compressedmatchingstatistics2",
+      "start_entity": "S",
+      "end_entity": "SuffixArray",
+      "hops": [
+        {
+          "from": "S",
+          "relation": "hasSubstring",
+          "to": "U",
+          "context": "For position i of S, let U 6= ε be the m",
+          "chunk": "4"
+        },
+        {
+          "from": "U",
+          "relation": "occursIn",
+          "to": "SAR",
+          "context": "ip(i) = max{j | U occurs in SAR[j]",
+          "chunk": "4"
+        },
+        {
+          "from": "SAR",
+          "relation": "type",
+          "to": "SuffixArray",
+          "context": "To this end, we define the insert point of i",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the context of suffix arrays and string matching, if U is a non-empty substring of string S, and U occurs in SAR at position j, which of the following best describes the significance of the insert point ip(i) for position i of S?",
+    "options": {
+      "A": "ip(i) corresponds to the count of different substrings U within S, used to calculate the density of U in S.",
+      "B": "ip(i) denotes the average position of occurrences of U across different SAR, providing a statistical measure of distribution.",
+      "C": "ip(i) represents the maximum j such that U occurs at SAR[j], indicating U's maximal suffix position in S.",
+      "D": "ip(i) is the minimal j for which substring U does not appear in SAR[j], hence showing where U could potentially begin."
+    },
+    "correct_answer": "C",
+    "explanation": "The insert point ip(i) for position i of S is defined as the maximum index j where the substring U occurs in the suffix array SAR[j]. This indicates the farthest position in the suffix array where U can be found, reflecting U's last occurring position in the string S relative to its suffixes.",
+    "path_description": "Path: S --[hasSubstring]--> U --[occursIn]--> SAR --[type]--> SuffixArray",
+    "context": "For position i of S, let U 6= ε be the m | ip(i) = max{j | U occurs in SAR[j] | To this end, we define the insert point of i",
+    "paper_id": "223"
+  },
+  {
+    "section": "comparingtwosuffixesviatheenhancedcms",
+    "path": {
+      "section": "comparingtwosuffixesviatheenhancedcms",
+      "start_entity": "Prop12",
+      "end_entity": "Method",
+      "hops": [
+        {
+          "from": "Prop12",
+          "relation": "provedBy",
+          "to": "Lemma10",
+          "context": "We will prove Prop. 12 via two lemmas.",
+          "chunk": "6"
+        },
+        {
+          "from": "Lemma10",
+          "relation": "uses",
+          "to": "CMS",
+          "context": "CMS of the collection C w.r.t. R to define a in C (Prop. 12)",
+          "chunk": "6"
+        },
+        {
+          "from": "CMS",
+          "relation": "type",
+          "to": "Method",
+          "context": "CMS of the collection C w.r.t. R to define a in C (Prop. 12)",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the context of comparing two suffixes via the enhanced CMS, as outlined in Lemma 10, which methodological approach is primarily utilized?",
+    "options": {
+      "A": "Analytical Comparative Strategy, which involves direct comparison of suffix attributes",
+      "B": "Binary Search Method, used for quickly identifying the position of an element in a sorted array",
+      "C": "Sequential Access Method, focusing on accessing elements in a linear order",
+      "D": "CMS, which stands for Collection Method Selection, is used to define an element in a collection"
+    },
+    "correct_answer": "D",
+    "explanation": "According to the knowledge path, Lemma 10, which proves Proposition 12, uses the CMS method. CMS (Collection Method Selection) is crucial in defining elements within a collection as part of the approach to comparing two suffixes.",
+    "path_description": "Path: Prop12 --[provedBy]--> Lemma10 --[uses]--> CMS --[type]--> Method",
+    "context": "We will prove Prop. 12 via two lemmas. | CMS of the collection C w.r.t. R to define a in C (Prop. 12) | CMS of the collection C w.r.t. R to define a in C (Prop. 12)",
+    "paper_id": "223"
+  },
+  {
+    "section": "implementationdetails",
+    "path": {
+      "section": "implementationdetails",
+      "start_entity": "Phase3",
+      "end_entity": "LogarithmicTimeComplexity",
+      "hops": [
+        {
+          "from": "Phase3",
+          "relation": "uses",
+          "to": "eCMS",
+          "context": "In Phase 3, identifying the S...",
+          "chunk": "8"
+        },
+        {
+          "from": "eCMS",
+          "relation": "partOf",
+          "to": "Phase3",
+          "context": "In Phase 3, identifying the S...",
+          "chunk": "8"
+        },
+        {
+          "from": "Phase3",
+          "relation": "hasOverallTimeComplexity",
+          "to": "LogarithmicTimeComplexity",
+          "context": "Altogether, logN",
+          "chunk": "8"
+        }
+      ]
+    },
+    "question": "In the context of the implementation details outlined in Phase 3, what is the overall time complexity of the eCMS component?",
+    "options": {
+      "A": "The overall time complexity of the eCMS component is constant, suggesting all operations complete in the same time regardless of input size.",
+      "B": "The overall time complexity of the eCMS component is linear, which typically involves computations proportional to 'n'.",
+      "C": "The overall time complexity of the eCMS component is polynomial, often denoted as 'n^k', where k is a constant.",
+      "D": "The overall time complexity of the eCMS component is logarithmic, indicated by 'logN'."
+    },
+    "correct_answer": "D",
+    "explanation": "The question follows the knowledge path from Phase 3, which uses the eCMS component. It is indicated in the context that the eCMS, as part of Phase 3, has an overall time complexity described by 'logN', which denotes a logarithmic time complexity.",
+    "path_description": "Path: Phase3 --[uses]--> eCMS --[partOf]--> Phase3 --[hasOverallTimeComplexity]--> LogarithmicTimeComplexity",
+    "context": "In Phase 3, identifying the S... | In Phase 3, identifying the S... | Altogether, logN",
+    "paper_id": "223"
+  }
+]

@@ -1,0 +1,88 @@
+[
+  {
+    "section": "methodology4",
+    "path": {
+      "section": "methodology4",
+      "start_entity": "CorrelatedFeatureRepresentation",
+      "end_entity": "TransactionRanking",
+      "hops": [
+        {
+          "from": "CorrelatedFeatureRepresentation",
+          "relation": "inputInto",
+          "to": "LayerNormalization",
+          "context": "Subsequently, the obtained correlated feature representation is fed into a Layer Normalization (Layer Norm) layer...",
+          "chunk": "6"
+        },
+        {
+          "from": "LayerNormalization",
+          "relation": "outputs",
+          "to": "AssociationScore",
+          "context": "The output of each Layer Norm layer is utilized as the association score corresponding to the respective transaction.",
+          "chunk": "6"
+        },
+        {
+          "from": "AssociationScore",
+          "relation": "usedFor",
+          "to": "TransactionRanking",
+          "context": "Ultimately, the candidate transactions are ranked by their association scores...",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the methodology described for transaction ranking, how is the association score that is used to rank transactions derived?",
+    "options": {
+      "A": "The association score is calculated through a Layer Normalization layer, which processes correlated feature representations.",
+      "B": "The association score is derived by summing up all features after applying a standard normalization to each transaction.",
+      "C": "The association score is directly computed from the raw transaction data without any preprocessing or normalization.",
+      "D": "The association score is the result of a complex machine learning algorithm that predicts scores based on past transaction data."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A as the paper describes a process where the correlated feature representation is input into a Layer Normalization layer, and the output from this layer is used as the association score for ranking transactions. Options B, C, and D are incorrect as they do not follow the described process of using Layer Normalization output as the association score.",
+    "path_description": "Path: CorrelatedFeatureRepresentation --[inputInto]--> LayerNormalization --[outputs]--> AssociationScore --[usedFor]--> TransactionRanking",
+    "context": "Subsequently, the obtained correlated feature representation is fed into a Layer Normalization (Layer Norm) layer... | The output of each Layer Norm layer is utilized as the association score corresponding to the respective transaction. | Ultimately, the candidate transactions are ranked by their association scores...",
+    "paper_id": "1593"
+  },
+  {
+    "section": "experiments2",
+    "path": {
+      "section": "experiments2",
+      "start_entity": "CodeBERT",
+      "end_entity": "Model",
+      "hops": [
+        {
+          "from": "CodeBERT",
+          "relation": "usedIn",
+          "to": "ABCTRACER",
+          "context": "When utilizing CodeBERT as the pre-training model, ABCTRACER achieves 91.75% accuracy in bidirectional tracing.",
+          "chunk": "8"
+        },
+        {
+          "from": "ABCTRACER",
+          "relation": "outperforms",
+          "to": "CONNECTOR",
+          "context": "Our proposed ABCTRACER demonstrates superior comprehensive capabilities in cross-chain transaction tracing tasks compared to rule-based methods like CONNECTOR.",
+          "chunk": "8"
+        },
+        {
+          "from": "CONNECTOR",
+          "relation": "type",
+          "to": "Model",
+          "context": "Our proposed ABCTRACER demonstrates superior comprehensive capabilities in cross-chain transaction tracing tasks compared to rule-based methods like CONNECTOR...",
+          "chunk": "8"
+        }
+      ]
+    },
+    "question": "What type of model is CONNECTOR, considering its performance in comparison to ABCTRACER, which is based on CodeBERT and excels in bidirectional tracing?",
+    "options": {
+      "A": "CONNECTOR is a rule-based model that is outperformed by ABCTRACER in cross-chain transaction tracing tasks.",
+      "B": "CONNECTOR is a hybrid model combining rule-based methods with neural networks, slightly underperforming against ABCTRACER.",
+      "C": "CONNECTOR is a neural network model that surpasses ABCTRACER in accuracy and efficiency.",
+      "D": "CONNECTOR is a machine learning toolkit that provides basic functionalities similar to ABCTRACER."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A because the context clearly states that CONNECTOR is a rule-based method which is outperformed by ABCTRACER, a model using CodeBERT. The other options are incorrect as they do not match the description provided in the context about CONNECTOR's type and performance comparison.",
+    "path_description": "Path: CodeBERT --[usedIn]--> ABCTRACER --[outperforms]--> CONNECTOR --[type]--> Model",
+    "context": "When utilizing CodeBERT as the pre-training model, ABCTRACER achieves 91.75% accuracy in bidirectional tracing. | Our proposed ABCTRACER demonstrates superior comprehensive capabilities in cross-chain transaction tracing tasks compared to rule-based methods like CONNECTOR. | Our proposed ABCTRACER demonstrates superior comprehensive capabilities in cross-chain transaction tracing tasks compared to rule-based methods like CONNECTOR...",
+    "paper_id": "1593"
+  }
+]

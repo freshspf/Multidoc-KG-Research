@@ -1,0 +1,82 @@
+[
+  {
+    "id": "introduction",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Introduction",
+      "page_start": 1,
+      "page_end": 1
+    },
+    "text": "c\n[  Clustering  is  a  fundamental  technique  in data mining\n \n  and machine  learning [1], with applications spanning bio-\n1 informatics [2] image segmentation [3], social networks [4],\nv\nand financial markets  [5]. Among various clustering tech-\n4\nniques including hierarchical [6], density-based [7] and model-\n9\n5 based methods [8], there are approaches that leverage graph-\n8 ical models to capture similarities between data points [9].\n0 Spectral graph clustering [10]  is an early example of such\n.\n5 methods, utilizing heuristic similarity graphs to represent data\n0 relationships. A more advanced approach involves  learning\n5\ngraphs  from data under a Gaussian Markov random field\n2\n: (GMRF) model. The Graphical LASSO (GLASSO) [11] was a\nv foundational method in this area, later enhanced by introducing\ni\nLaplacian structural constraints to the graph learning problem\nX\nr [12]–[16].\na  A more advanced approach in graph-based clustering in-\ncorporates spectral  constraints  into graph learning to infer\nspecific structures,  such as k-component graphs, which ex-\nplicitly represent clusters [17], [18]. However, these methods\noften struggle  to accurately model  data with heavy-tailed\ndistributions, which are prevalent  in real-world applications\nlike financial markets. Consequently,  recent efforts have fo-\ncused on generalizing k-component graph learning methods to\nhandle heavy-tailed distributions [19]–[21]. Another category\nof methods for clustering introduces k-component bipartite\ngraph structures,  comprising  two  types of  nodes:  cluster\ncenters and their members [22], [23]. While effective,  these\napproaches  typically require additional data for  the center\n1\n\nata via a Bipartite Graph\nture\nnd Daniel P. Palomar\nScience and Technology\nt.hk, palomar@ust.hk\nnodes to learn the graph. This dependency on center node\ndata, however, poses challenges in applications where such\ndata is unavailable.\nIn this paper, we propose a graph learning method for data\nclustering based on a bipartite graph structure. Our method\nis designed to handle scenarios with incomplete information\nabout  the center nodes and is  robust  to heavy-tailed data\ndistributions, making it suitable for a wide range of real-world\napplications.\nA. Notations\nVectors and matrices are respectively denoted with bold\nlowercase and uppercase letters.  (e.g., x and X). The i-th\nelement of a vector x is denoted by xi. Also Xi,j denotes\nthe (i, j)-th element of X. The notation xi1:i2  is defined as\nxi  :i ≜ [xi  , . . . , xi  ]. We use ∥x∥ to denote the ℓ2 norm of\n1  2  1  2\na vector and ∥X∥F to denote the Frobenius norm of a matrix.\nDiagonal  elements of X are shown with diag(X), while\nDiag(x) is a diagonal matrix with x on its main diagonal. The\n∗\nnotation det  also represents the generalized determinant."
+  },
+  {
+    "id": "problemformulation",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Problem Formulation",
+      "page_start": 1,
+      "page_end": 1
+    },
+    "text": "Consider a weighted undirected graph with p vertices, where\nRp\neach node represents an element of a signal x ∈  , and\nthe weights of the edges encode the relationships between the\nelements. Suppose we have n measurements of x, represented\nRp×n\nas the columns of X = [x1, . . . , xn] ∈  . The problem we\ninvestigate in this paper is to learn an undirected k-component\nbipartite graph for clustering the data into k clusters. In this\ngraph structure, inspired by [23], one class of nodes represents\nthe centers of the clusters, while the other class represents the\nmembers (to be clustered). Assume we divide the nodes into\nk centers and r members, where r + k = p. Let Bi,j ≥ 0 be\nthe weight of the edge connecting the member i ∈ {1, · · · , r}\nto the center j ∈ {1, · · · , k}. Then,  the Laplacian matrix of\nthe graph can be expressed as\n(cid:104) Diag(B1k)  −B  (cid:105)\nL =  ⊤  ⊤  ,  (1)\n−B  Diag(B 1r)\nRr×k\nwhere B ∈  +  . The weight Bi,j models the probability of\nmember node i being within cluster j, Hence, the sum of each\nrow of B equals one.\nNext, we consider a stochastic approach to learning such\ngraph structure from data.  In specific, we assume xis are\ndrawn from a zero-mean multivariate Student-t distribution as\n⊤  −(ν+p)/2\n(cid:18)  (cid:19)\n∗  1/2  xi Lxi\np(xi) ∝ det (L)  1 +  ,  ν > 2.\nν"
+  },
+  {
+    "id": "proposedmethod",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Proposed Method",
+      "page_start": 2,
+      "page_end": 2
+    },
+    "text": "(cid:104)  Ir  −B  (cid:105)\nBy relaxing the constraint L =  ⊤  ⊤  ,  the\n−B Diag(B 1r)\naugmented Lagrangian function yields as\nn\n(cid:18)  (cid:19)\np + ν (cid:88)  hi + tr(BGi(A))\nLρ(A, B, L) =  log  1 +\nn  ν\ni=1\nρ (cid:13)  (cid:104)  (cid:105)(cid:13)2\n∗  Ir  −B\n− log det (L) +  (cid:13)L −  ⊤  ⊤  (cid:13)\n(cid:13)  −B Diag(B 1r) (cid:13)\n2  F\n(cid:104)  Ir  −B  (cid:105)\n+ ⟨L −  ⊤  ⊤  ,Y⟩\n−B Diag(B 1r)\n(4)\nNow, we use a variant of the ADMM method [24] to solve\nproblem (3) by alternating minimization of the augmented La-\ngrangian function. Here, we have 3 update steps corresponding\nto the primal variables L, B, and A, and one update step for\nthe dual variable Y. These are given as follows:\n2\n\nA. L update step:\nThe update step for L is obtained by solving the following\nsubproblem\n(cid:13)  (cid:104)  l  (cid:105)  (cid:13)2\nl+1  ρ  Ir  −B  1  l\nL  = argmin  (cid:13)L −  l⊤  l⊤  + Y (cid:13)\n2 (cid:13)  −B  Diag(B  1r)  ρ  (cid:13)\nF\nL⪰0,  ∗\n− log det (L)\nrank(L)=p−k\nThe closed-form solution to this is given as\n1  (cid:16)  2  (cid:17)\nl+1  l  l  l  1/2  l⊤\nL  =  U Σ + (Σ + 4ρI)  U  ,  (5)\n2ρ\nl\nwith Σ being a diagonal matrix having the largest p − k\n(cid:104)  l  (cid:105)\nIr  −B  l\neigenvalues of ρ  l⊤  l⊤  −Y with corresponding\n−B  Diag(B  1r)\nl\neigenvectors U .\nB. B update step:\nThe subproblem associated with the update step of B is\nformulated as follows:\nl+1\nB  =  argmin  fB(B)\nB≥0, B1k=1r\n(cid:16)  l  (cid:17)\np+ν (cid:80)  hi+tr(BGi(A ))  (6)\nfB(B) =  n  i log  1 +  ν  +\n(cid:13)  (cid:104)  (cid:105)  (cid:13)2\nρ  l+1  Ir  −B  1  l\n(cid:13)L  −  ⊤  ⊤  + Y (cid:13)  .\n2 (cid:13)  −B Diag(B 1r)  ρ  (cid:13)\nF\nThis problem does not admit a closed-form solution. Thus, we\nfirst simplify the problem using the majorization-minimization\n(MM) technique [25]. For this, we need to find a (smooth) ma-\nS  l\njorization function fB(B; B ) with the following properties:\nS  l  l\nfB(B; B ) > fB(B),  ∀B ̸= B\nS  l  l  l  (7)\nfB(B ; B ) = fB(B ),\nl\nwhere B is a constant matrix.\nLemma 1. The function fB(B) in (6) can be majorized as\nS  l  l  2  ρ ⊤  ⊤  l\nfB(B; B ) = tr(BH ) + ρ ∥B∥F + 21r BB 1r +C(B )\n(8)\nwhere\nl  l  (cid:0)  l⊤  l  l  ⊤(cid:1)\nH = P + ρ Mrk +Mkr − diag(M )r+1:p1r  ,\nl\nl  p + ν (cid:88)  Gi(A )\nP =  ,\nl  l\nn  hi + tr (B Gi(A )) + ν\ni\n(cid:104)  l  l  (cid:105)  1\nl  Mrr Mrk  l+1  l\nM =  l  l  = L  + Y .\nMkr Mkk  ρ\nProof. See Appendix A.\nUsing this lemma,  the upperbounded problem can be ex-\npressed as\nl+1  S  l\nB  =  argmin  fB(B; B ).\n(9)\nB≥0, B1k=1r\nTo solve this, we use the projected gradient descent (PGD)\nmethod [26] with the the step-size µ as:\nm+1  (cid:0) m  S  m  l (cid:1)\nB  = PSrow B − µ∇fB(B ; B )  ,\n(10)\nS  m  l  l⊤  m  ⊤ m\n∇fB(B ; B ) = H + 2ρB + ρ1r1r B ."
+  },
+  {
+    "id": "numericalresults",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Numerical Results",
+      "page_start": 3,
+      "page_end": 3
+    },
+    "text": "In this part, we present numerical results to evaluate the per-\nformance of our proposed method for clustering heavy-tailed\ndata. For  this purpose, we utilize real-world financial data,\nspecifically the log-returns of S&P 500 stocks. Our experiment\nfocuses on a subset of 100 stocks, divided into k = 8 clusters\ncorresponding to financial sectors, with ground-truth cluster\n1\nlabels defined by the GICS classification standard . The log-\nreturns of these stocks are calculated over a 1000-day period\nfrom January 2016 to January 2020. The resulting data matrix\n˜  Rr×n\nX ∈  consists of r = 100 rows (stocks) and n = 1000\ncolumns (days).\nTo assess  clustering performance, we employ accuracy\n(ACC), purity [28], modularity (MOD) [29], adjusted Rand\nindex (ARI) [30], and Calinski-Harabasz index (CHI) [31].\nAccuracy and purity measure the ratio of true-positive labels\nto p. Accuracy considers the optimal alignment of  inferred\ncluster labels to ground truth across all k! permutations, while\npurity considers the majority label within each cluster as the\nground truth. ARI, on the other hand, quantifies the similarity\nbetween the true and inferred cluster labels. Modularity also\nmeasures how disjoint the nodes with different labels are. The\nCalinski-Harabasz index (CHI) is a reference-free criterion that\nmeasures the ratio of  the between-cluster separation to the\nwithin-cluster separation.\nTo run our method, we first obtain ν by fitting a multivariate\nStudent-t distribution to the data using the fitHeavyTail R\n2\npackage . We then consider two cases for initialization of A.\n0\nIn the first case, A is sampled from a random uniform U[0, 1]\n0\ndistribution.  In the other case,  the entries of A are drawn\n0\nfrom the normal distribution N(0, 1). We later normalize A\nso that each column has unit sum. The augmented data matrix\n(cid:104)  (cid:105)⊤\n˜ ⊤  ˜ ⊤\nis then constructed as X = X  X A  . Using this, we\n1\nhttps://www.msci.com/our-solutions/indexes/gics\n2\nhttps://CRAN.R-project.org/package/fitHeavyTail"
+  },
+  {
+    "id": "conclusion",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Conclusion",
+      "page_start": 4,
+      "page_end": 4
+    },
+    "text": "In this paper, we addressed the problem of learning bipartite\nk-component  graphs  for  clustering data with heavy-tailed\ndistributions, which are common in financial markets. Unlike\n4\n\nBMY\nBCINF\nALL  DUKAEP\nD AECEMS\nGAON  DTE AWK  AVY\nIZ  ATO  BLL  APD\nCNP  CE\nCME  CPRTCTAS  CBRE\nAECSBOE  COST  ALB DD\nAMCR  ADM ALLE\nCOTY  AOS\nCL  CLX  CPB  CHRW\nBIIBALXN  CAG  CL  CF BA\nCOST  CHD  BMY  CHD  AME\nCLX  COG  CSX\nAMGNABBV  DOV\nDE\nAIG  CVXAPABKR  CMI\nAJG  AFL  CAT\nAON  CB  AIZ  COP\nCINFALL\nCBOE\nCME\nCOTY\nd [18]  (c) Fingraph method [27]\nCOTY\nADM\nCBOE\nCERN  CLX  AIZ  AFL\nDVADHRCTAS  CHD  CBCPRT  ALL  AIG\nCSX  BIO  CTAS  ALLE\nCAH  A  CL  CINF\nCHRW ALGN  CVS\nCPRT  ABC  CPB  AJG\nAONCME\nCOPBEN\nBACBLK  APA  DAL\nAMP  Consumer Staples\nCOF  C BKR  Energy\nRE\nBK  AXPCVX  AAL  Financials\nDFS AIG  CFG  CBRE  Health Care\nCMA  CF  Industrials\nAPD  Materials\nCE  DD  Real Estate\nUtilities\n0  0\nom uniform A .  (f) Proposed method with random normal A .\ng-returns of 100 stocks in S&P500 index (including k = 8 sectors).\nexisting methods that rely on access to data for both cluster\ncenters and members in a bipartite graph model, our proposed\napproach addresses  this  limitation by jointly inferring the\nconnections and the center nodes of  the graph. Numerical\nexperiments highlight the efficiency of the proposed method\nin clustering heavy-tailed data, particularly data from financial\nmarkets.\nAPPENDIX A\nPROOF OF LEMMA 1\nFor simplicity in presentation, let us omit the superscript of\n1\nthe variables. Let M= L+ ρY, m = diag(M), mr = m1:r,\nand mk = mr+1:p. Then, we may write\n(cid:68)  (cid:104)  Ir  −B  (cid:105)(cid:69)\nM,  ⊤  ⊤\n−B Diag(B 1r)\n⊤  ⊤  ⊤ ⊤\n= mr 1r − ⟨Mrk, B⟩ − ⟨Mkr, B ⟩ +mk B 1r\n⊤  (cid:0)(cid:0)  ⊤  ⊤(cid:1)  (cid:1)\n= mr 1r − tr Mrk +Mkr −mk1r  B ,  (19)\nand\n(cid:13)(cid:104)  (cid:105)(cid:13)2\nIr  −B  2  ⊤  ⊤\n(cid:13)  ⊤  ⊤  (cid:13) = r + 2 ∥B∥ + 1 BB 1r.  (20)\n(cid:13) −B Diag(B 1r) (cid:13)  F  r\nF\nThus, fB(B) in problem (6), can be simplified as\n2  ρ ⊤  ⊤\nfB(B) =tr(BR) + ρ ∥B∥F + 1r BB 1r\n2\n(cid:18)  (cid:19)\np + ν (cid:88)  hi + tr(BGi(A))\n+  log  1 +  ,\nn  ν\ni\n(cid:0)  ⊤  ⊤(cid:1)\nwhere R = ρ Mrk +Mkr −mk1r  ."
+  },
+  {
+    "id": "appendixaproofoflemma",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Appendix A: Proof of Lemma ??",
+      "page_start": 4,
+      "page_end": 4
+    },
+    "text": "PROOF OF LEMMA 1\nFor simplicity in presentation, let us omit the superscript of\n1\nthe variables. Let M= L+ ρY, m = diag(M), mr = m1:r,\nand mk = mr+1:p. Then, we may write\n(cid:68)  (cid:104)  Ir  −B  (cid:105)(cid:69)\nM,  ⊤  ⊤\n−B Diag(B 1r)\n⊤  ⊤  ⊤ ⊤\n= mr 1r − ⟨Mrk, B⟩ − ⟨Mkr, B ⟩ +mk B 1r\n⊤  (cid:0)(cid:0)  ⊤  ⊤(cid:1)  (cid:1)\n= mr 1r − tr Mrk +Mkr −mk1r  B ,  (19)\nand\n(cid:13)(cid:104)  (cid:105)(cid:13)2\nIr  −B  2  ⊤  ⊤\n(cid:13)  ⊤  ⊤  (cid:13) = r + 2 ∥B∥ + 1 BB 1r.  (20)\n(cid:13) −B Diag(B 1r) (cid:13)  F  r\nF\nThus, fB(B) in problem (6), can be simplified as\n2  ρ ⊤  ⊤\nfB(B) =tr(BR) + ρ ∥B∥F + 1r BB 1r\n2\n(cid:18)  (cid:19)\np + ν (cid:88)  hi + tr(BGi(A))\n+  log  1 +  ,\nn  ν\ni\n(cid:0)  ⊤  ⊤(cid:1)\nwhere R = ρ Mrk +Mkr −mk1r  ."
+  },
+  {
+    "id": "appendixbsimplexprojectionoperator",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Appendix B: Simplex Projection Operator",
+      "page_start": 5,
+      "page_end": 5
+    },
+    "text": "Now, using the logarithmic inequality, log(x) ≤ x − whereA andC(A )areconstant.Hence,f (A)in(13)can\n0 0 A\n1, ∀x>0, one can find an upperbound as follows: be majorized as\n(cid:18) (cid:19)\np+ n ν (cid:88) log 1+ h i +tr(B ν G i (A)) ≤tr(BP 0 )+C(B 0 ), g A (A;A 0 )= p+ n ν (cid:88) g ( g A i (A )+ ) ν = (cid:88) k g aj (a j ;A 0 ),\ni i 0\ni j=1\nwith\nwhere\nP 0 = p+ n ν (cid:88) h i +tr( G B 0 i ( G A i ) (A))+ν . g aj (a j ;A 0 )= b j a⊤ j S˜ 0 a j −2b⊤ j S˜ 0 a j +c j (A 0 ), (26)\ni\nand\nand C(B ) being a constant term. Thus, we may propose a\n0\nmajorization function for f B (B) as S˜ = p+ν (cid:88) S˜ i . (27)\nρ 0 n h +tr(BG (A ))+ν\nfS(B;B )=tr(BH)+ρ∥B∥2 + 1⊤BB⊤1 +C(B ), i i i 0\nB 0 F 2 r r 0\nChoosing A =Al, one yields (14).\nwhere H = P +R. Thus, one can obtain (8) by choosing 0\n0 0\nB\n0"
+  },
+  {
+    "id": "appendixcproofoflemma",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Appendix C: Proof of Lemma ??",
+      "page_start": 5,
+      "page_end": 6
+    },
+    "text": "Now, using the logarithmic inequality, log(x) ≤ x − whereA andC(A )areconstant.Hence,f (A)in(13)can\n0 0 A\n1, ∀x>0, one can find an upperbound as follows: be majorized as\n(cid:18) (cid:19)\np+ n ν (cid:88) log 1+ h i +tr(B ν G i (A)) ≤tr(BP 0 )+C(B 0 ), g A (A;A 0 )= p+ n ν (cid:88) g ( g A i (A )+ ) ν = (cid:88) k g aj (a j ;A 0 ),\ni i 0\ni j=1\nwith\nwhere\nP 0 = p+ n ν (cid:88) h i +tr( G B 0 i ( G A i ) (A))+ν . g aj (a j ;A 0 )= b j a⊤ j S˜ 0 a j −2b⊤ j S˜ 0 a j +c j (A 0 ), (26)\ni\nand\nand C(B ) being a constant term. Thus, we may propose a\n0\nmajorization function for f B (B) as S˜ = p+ν (cid:88) S˜ i . (27)\nρ 0 n h +tr(BG (A ))+ν\nfS(B;B )=tr(BH)+ρ∥B∥2 + 1⊤BB⊤1 +C(B ), i i i 0\nB 0 F 2 r r 0\nChoosing A =Al, one yields (14).\nwhere H = P +R. Thus, one can obtain (8) by choosing 0\n0 0\nB\n0\n\n"
+  }
+]

@@ -1,0 +1,62 @@
+[
+  {
+    "id": "introduction",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Introduction",
+      "page_start": 1,
+      "page_end": 1
+    },
+    "text": "5\n7\nAmorphous molecular solids are disordered organ\n0\n.  organic optoelectronics. Their mechanical flexibilit\n0  alternatives to inorganic semiconductors [22, 14, 1\n1  amorphous solids, which lead to different networ\n4\nrates [13]. The influence of packing structure on\n2\n:  interest in computationally simulating these mate\nv  [13, 6] to enhance our understanding of the correla\ni\npacking and optoelectronic properties. This can inf\nX  of organic electronics devices.\nr\na  Having the ability to generate amorphous solids in a\nsampling from the multi-molecule Boltzmann dist\noptimally packed configurations. There have bee\nsample from Boltzmann distributions or their emu\nup to larger systems (such as amorphous clusters) i\nis to be performed at the all-atom (AA) level. In th\nrepresentations are used to collapse amino acids in\nsize while still retaining higher-level structural feat\nin their coarse-grained representations, and other\ntheir all-atom structure [12, 4, 24, 10].\n\nolecular Clusters with\nant Flow Matching\nui Qu  Cheol Woo Park\nlay America Lab  Samsung Display America Lab\nwan Lee  Rafael Gómez-Bombarelli\nlay America Lab  Massachusetts Institute of Technology\nrafagb@mit.edu\nract\nising alternative to inorganic semiconduc-\nand solution processability. The packing\nial role in determining their electronic\nenhancing the efficiency of devices like\nbtaining these optoelectronic properties\nics (MD) simulations to generate a con-\nbe computationally expensive due to the\nances have focused on using generative\ns Boltzmann generators, to improve the\nwe developed a dual-scale flow matching\nce into coarse-grained and all-atom stages\nency of standard flow matching samplers.\ns method on a dataset of Y6 molecular\ns, and we benchmark its efficiency and\ning methods.\nic systems with several applications in the field of\ny and solution processability make them attractive\n9]. Different molecules tend to pack differently in\nk extensivity, electronic properties, and transport\noptoelectronic properties has led to significant\nrials with molecular dynamics (MD) simulations\ntions between structural design and corresponding\norm better design strategies for the next generation\ncomputationally efficient manner can enable faster\nribution, as well as property-guided generation of\nn several works developing efficient methods to\nlated (non re-weighted) versions [17, 11]. Scaling\ns however computationally expensive if generation\ne field of protein generation, coarse-grained (CG)\nto single beads, which drastically reduces system\nures. There have been works that generate proteins\nworks that back-map coarse-grained proteins into"
+  },
+  {
+    "id": "background",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Background",
+      "page_start": 2,
+      "page_end": 2
+    },
+    "text": "Conditional Flow Matching (CFM). This is a n\nflows (CNFs) efficiently in a simulation free manne\nvector field vθ(x, t) transforms an easy-to-sample\ndistribution p1. Parameters θ are learned through t\nLCFM = E\nt∼U[0,1],z∼p0(x0)p1(x1\nWe chose the probability path definition to be pt(\nu(x|z) = x1 − x0 as the conditional vector field.\nto predict x1 rather than x1 − x0, and parameteriz\nnetwork (TFN) [23] layers. We present a comparis\nHarmonic Prior. Besides the standard gaussian pr\ngeneration tasks is the harmonic prior. The harmon\nwithin the flow-matching framework by Stark et a\nprior distribution p0(x0) is interpreted as a Boltzm\nT\n−E(x)  −x Hx\nfunction, i.e., p0(x0) ∝ e  = e  , where\nWe need to have the bond connectivity informatio"
+  },
+  {
+    "id": "methods",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Methods",
+      "page_start": 2,
+      "page_end": 2
+    },
+    "text": "grained and all-atom resolutions. Moreover, we sh\ncompute at the coarse-grained resolution, one ca\nwithout sacrificing accuracy, paving the way for m\ndemonstrative example, in this work, we used a da\n5 Y6 [25] molecules that we obtained fromMD s\nfor our experiments, we pre-defined a mapping sc\nbeads (see Figure 1(a)). With gains in efficiency o\nlarger systems in the future that are more represen\nchoices of coarse-graining mappings.\n2  Background\nConditional Flow Matching (CFM). This is a n\nflows (CNFs) efficiently in a simulation free manne\nvector field vθ(x, t) transforms an easy-to-sample\ndistribution p1. Parameters θ are learned through t\nLCFM = E\nt∼U[0,1],z∼p0(x0)p1(x1\nWe chose the probability path definition to be pt(\nu(x|z) = x1 − x0 as the conditional vector field.\nto predict x1 rather than x1 − x0, and parameteriz\nnetwork (TFN) [23] layers. We present a comparis\nHarmonic Prior. Besides the standard gaussian pr\ngeneration tasks is the harmonic prior. The harmon\nwithin the flow-matching framework by Stark et a\nprior distribution p0(x0) is interpreted as a Boltzm\nT\n−E(x)  −x Hx\nfunction, i.e., p0(x0) ∝ e  = e  , where\nWe need to have the bond connectivity informatio\n3 Methods\n3.1 Model\nDual-Scale CFM. This method decomposes the\ntwo sequential steps of predicting coarse-grained\nRN×3\ncoordinates x1 ∈  , where M and N are dime\nrespectively. Two separate vector field networks (\ngrained bead positions c1, and 2) vϕ(x, t|ˆc1) to\npredicted bead positions ˆc1. Separate priors p0(c0\nact on different input dimensionalities.\nTraining and Inference. Both flows are trained us\nfields being substituted in. To be precise, the two o\nLCG = E\nt∼U[0,1],z∼p0(c0)p1(c1)\nLAA = E\nt∼U[0,1],z∼p0(x0)p1(x1),x\nvϕ was trained using the ground-truth coarse-gra\npredicted coordinates ˆc1, which decoupled the tw\nODE solver to integrate from t = 0 to 1 for eac\nthe bead positions were obtained with ˆc1 = vθ(c\nwith ct+∆t = ct +∆t(ˆc1 − c0). Similarly, for th\nxt +∆t(xˆ1 − x0) were used. A total of 40 integr\nprior sample c0 to all-atom target x1.\n2\n\now matching method that improves accuracy of\nning and inference into different stages for coarse-\now that by performing a majority of the inference\nn reduce the time taken for inference integration\nore efficient generation of larger systems. As a\ntaset of amorphously packed clusters consisting of\nimulations. As the coarse-grained representation\nheme that collapses the 505 atoms system into 65\nbtained from this method, we plan to scale up to\ntative of thin films in devices, as well as test other\new paradigm of training continuous normalizing\nr [3, 2, 15]. An ODE parameterized by a learnable\nprior distribution p0, into the more complex target\nhe regression objective\n2\n),x∼pt(x|z)||vθ(x, t) − u(x|z)||  ,  (1)\n2\nx|z) = N(x|tx1 + (1 − t)x0, σ ) , which gives\nSimilar to work by Stark et al. [20], we trained vθ\ned vθ by SE(3) equivariant refinement tensor field\non against other parameterizations in Section A.1.\nior, another common choice for prior in molecule\nic prior was introduced in Jing et al. [9] and used\nl. [20] as a more chemically plausible prior. The\nann distribution with a quadratic potential energy\n2\nH is chosen such that E(x) = Σi,j∈E ||xi −xj||  .\nn E a-priori to sample from the harmonic prior.\ntask of predicting all-atom coordinates x1, into\nRM×3\ncoordinates c1 ∈  , and predicting all-atom\nnsions of coarse-grained and all-atom coordinates\nVFNs) are learned: 1) vθ(c, t) to generate coarse-\ngenerate all-atom positions x1 conditioned on\n) and p0(x0) are used for the two flows since they\ning Eq. 1 with the relevant distributions and vector\nbjectives are:\n2\n,c∼pt(c|z)||vθ(c, t) − u(c|z)||  ,  (2)\n2\n∼pt(x|z)||vϕ(x, t|c1) − u(x|z)||  ,  (3)\nined coordinates c1 as the condition instead of\no flows. Inference was performed using an Euler\nh of the two flows. For the coarse-grained flow,\n, t), and an integration timestep was performed\ne all-atom flow, xˆ1 = vϕ(x, t|ˆc1), and xt+∆t =\nation steps were taken to go from coarse-grained"
+  },
+  {
+    "id": "resultsanddiscussion",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Results and Discussion",
+      "page_start": 3,
+      "page_end": 3
+    },
+    "text": "We evaluated generated samples on 3 metrics (show\ncapabilities, we measured Jensen Shannon Diverge\n3\n\nb\nd influence of CG:AA ratio on metrics. (a) Our\nal Y6 molecule consisting of 13 beads identified\ns, and inference time on test data generation as a\ntio, we observed a noticeable decreasing trend in\nes.\nCG/AA\nd predictors vθ/ϕ also take atom features f\ns on features and their data-types are provided in\nof all-atom atoms and coarse-grained beads, based\nt within rings have restricted degrees of freedom.\no define a means of collapsing the atom features\nCG  CG\neatures f  and b  of coarse-grained beads so\ne flow vθ.\nCG  (cid:76)  AA  (cid:76)\nith fi  =  j∈B(i) fj  , where  denotes an\ned either the elementwise Mean or OR operations\ne did not include String atom features as input\neads to be the averaged coordinates of all atoms\nivariant node features to vθ.\nbeads based on connectivity of atoms within the\nads had a bond connecting them in the all-atom\ns with the corresponding bond features.\nt al. [13] to simulate an amorphous morphology\nptimization of the Y6 molecular structure using\nKMOL [16] to pack 5 structures in a cubic box\nrce field [18] was used via the LigParGen server\n, cooled to room temperature (300 K) at 10 K/ns,\n. All MD simulations were performed under the\nsing GROMACS 2023 [1]. We saved 301 frames\n10 split into train, validation and test datasets. We\nodic boundary conditions (PBC) and also removed\n05 atoms in total in the all-atom representation.\nn in Table 1). To evaluate distributional matching\nnce (JSD) between distributions of generated and"
+  },
+  {
+    "id": "conclusions",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Conclusions",
+      "page_start": 4,
+      "page_end": 5
+    },
+    "text": "In this work, we developed a dual-scale flow ma\nflow matching-based samplers in accuracy as we\ndataset of amorphous Y6 clusters. Moreover, it i\nCG:AA during inference integration to large values\nboosting inference speed. While we tested on cl\nto larger clusters in the future whose packing prop\noptoelectronic devices. We also plan on testing the\nperformance since we tested a single pre-defined s\n\n"
+  },
+  {
+    "id": "appendixsupplementalmaterial",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Appendix / supplemental material",
+      "page_start": 6,
+      "page_end": 6
+    },
+    "text": "A.1  Choice of VFN architecture\nOur choice of VFN architecture was based on a\nTable 2). We observed that using TFN as the VF\nlengths and angles, as well as across gaussian and\nTable 2: Bond length and angle distributions com\nand Attentive FP with Gaussian and Harmonic pri\nCV  Prior\nGAUSSIAN\nBOND LENGTH\nHARMONIC\nGAUSSIAN\nBOND ANGLE\nHARMONIC\nA.2  Graph Featurization\nTable 3: Atom and Bond Features.  Features e\nrespective data types used for featurization. Same\nFeature Name\nATOMIC_NUM\nCHIRALITY\nDEGREE\nNUMRING\nIMPLICIT_VALEN\nFORMAL_CHARG\nNUMH\nHYBRIDIZATION\nIS_AROMATIC\nIS_IN_RING5\nIS_IN_RING6\nBOND_TYPE\nBOND_STEREO\nIS_CONJUGATED\n6\n\n, L. Li, K. Kohlhoff, and P. Riley. Tensor field\niant neural networks for 3d point clouds.  arXiv\nlly transferable generative backmapping of coarse-\n01569, 2023.\n. Yip, T.-K. Lau, X. Lu, C. Zhu, H. Peng, P. A.\nr cell with over 15% efficiency using fused-ring\n3(4):1140–1151, 2019.\ncomparison of various architectures (shown in\nN achieved best JSD performance across bond\nharmonic prior choices.\nparison. JSD comparison between TFN, EGNN,\nors across the two collective variables (CV).\nTFN  EGNN  Attentive FP\n0.656  0.791  0.959\n0.629  0.781  0.894\n0.631  0.732  0.908\n0.606  0.770  0.868\nxtracted for atoms and bonds, along with their\nas was used by Stark et al. [20].\nDatatype\nInteger\nString\nInteger\nInteger\nCE  Integer\nE  Integer\nInteger\nString\nBoolean\nBoolean\nBoolean\nString\nString\nBoolean"
+  }
+]

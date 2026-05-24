@@ -1,0 +1,82 @@
+[
+  {
+    "id": "introduction",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Introduction",
+      "page_start": 1,
+      "page_end": 1
+    },
+    "text": "Mass spectrometry-based proteomics  is a high-powered  tool  that ena-\nbles  the  qualitative  and  quantitative  characterisation  of  thousands  of \npeptides and proteins in biological samples across various experimental \nconditions.  However, the existence of several computational platforms \nfor processing raw proteomics data along with their different output for-\nmats  require advanced knowledge  for obtaining  final  interpretable  re-\nsults. \nTo address this issue several approaches have been developed. The soft-\nware Perseus (Tyanova et al., 2016) provides a graphical user interface \n \n\nBioinformatics, YYYY, 0–0 \ndoi: 10.1093/Bioinformatics /xxxxx \nnce Access Publication Date: DD Month YYYY \nApplication Note \n shiny application for wide \nstream analysis.  \n1  1\nérrez-Blázquez , María Luisa Hernáez  and \n University of Madrid (UCM), Plaza de Ramón y Cajal s/n \nmacy, Complutense University of Madrid (UCM), Plaza de \nhy (LC-MS/MS) is a powerful technique for the characterisa-\nilable for processing the raw proteomics data, each produce \nd interpretable results a difficult task. We present TraianProt, \nthat enables the analysis of both label-free and labeled data \nspectrometry mode supporting different computational plat-\nnd Proteome Discoverer output formats. TraianProt provides \ns allowing the user to perform a complete downstream anal-\nxpression analysis,  functional analysis and protein-protein \nquality, customisable graphs such as heatmap, volcano plot, \nghts from proteomic data without any programming skills. \n in R. Its code and documentation are available on GitHub \nlong with a step-by-step tutorial incorporated in the reposi-\nle at Bioinformatics online. \nfor   the  analysis  of  both   label-based  and   label-free  methods  for \nMaxQuant (Cox J et al, 2008) data output format.  \n \nOther software tools are developed as R-Shiny apps for example ProVi-\nsion (Gallant JL et al, 2020) a web-based proteomics data analysis plat-\nform  for downstream analysis of MaxQuant output, and LFQ-Analyst \n(Shah AD et al, 2020)  which enables the automatic analysis of label-\nfree data of MaxQuant (Cox J et al, 2008) and MSFragger (Kong A.T et \nal, 2017) data output format. Moreover, the existence of other software \ntools such as MSstats (Choi M et al, 2014) or Tidyproteomics (Jones J \net al, 2023) allows the automatization of many data processing steps but \n1 "
+  },
+  {
+    "id": "description",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Description",
+      "page_start": 2,
+      "page_end": 2
+    },
+    "text": "TraianProt is a tool created using the R Shiny package and designed with \npackages  such  as  shinywidgets,  shinydashboard  and  shinyjs  with  the \naim of creating a user-friendly experience. The modules that constitute \nthe application are illustrated in Figure 1. \n \nThe  first module addresses the  file input section which  requires a table \ncontaining the identified proteins along with their corresponding intensity \nvalues as well as any additional information such as the number of pep-\ntides or peptide spectrum matches (PSMs) identified. The required data \nFig. 1 Summarization of the various modules that comprise the TraianProt applicatio\nas the platform, label type, quantification type, and organism, with the intensity colum\nmodule, data can be filtered, normalized, and imputed using various methods, the o\nmodule. The Differential analysis module enables the execution of hypothesis tests \ntheir relative abundance. Differentially abundant proteins can be visualized through th\nfor the execution of functional enrichment analysis within the Functional Analysis mod\nare displayed in the Interaction analysis module as a result of the protein-protein inter\n\ntables  include  the  proteingroups.txt  file  from  MaxQuant,  the  com-\nbined_protein.tsv  file  from MSFragger,  the  output  file  from  Proteome \nDiscoverer  or  Proteoscape  and  the  report.pg_matrix.tsv  file  from DIA-\nNN. Additionally, for  DIA-NN output files, Traianprot extracts the num-\nber of peptides and unique peptides for each protein identified in the ex-\nperiment from the report.tsv file that must be located in the same direc-\ntory. Additional parameters indicating the computational platform, the la-\nbel type, the organism and the quantification mode are required. Intensity \nor spectral count columns are extracted using regular expressions which \ndefine  the  samples  for  each  condition  in  the  experiment which  sets  the \nlack of need for a metadata file. The pre-processing section allows users \nto filter out proteins by valid values per group, only proteins identified in \na minimal number of replicates are kept for the analysis. In addition, pro-\nteins can be filtered according to the number of unique peptides identified. \nSample intensities are log2 transformed and several options are displayed \nin the Normalisation section: no normalisation, mean, median, trimMean \nand variance stabilization normalisation (vsn).  \nFinally, several imputation options for missing values are displayed in the \nImputation section: no imputation, randomized sampling from a normal \ndistribution and K-Nearest-Neighbour imputation.  \nThe  pre-processing  step  is  reactive  allowing  changes  to  automatically \npropagate through subsequent steps in the app. The Venn Diagram section \nallows users to plot a publication-ready Venn diagram.   \nThe Quality control module covers a group of plots that describe the na-\nture of data, such as boxplot, Q-Q plots, histograms, pre and post-imputa-\ntion plots, dispersion plots, scatter, correlation and principal component \nanalysis plots all of them can be downloaded in publication-ready format \n(.tiff).  \n \nThe Differential analysis module enables users to perform paired or un-\npaired two-sample t-tests. Users can choose between the base R Student´s \nt-test function or the t-test function approach from the limma (Ritchie ME \net al, 2015) package. In case the limma approach is selected, a PSMs cor-\nrection using the DEqMS (Zhu Y et al 2020) package can be applied to \nn. In the initial step, quantification matrices are uploaded, specifying parameters such \nns selected for each group to enable subsequent comparisons. Within the Pre-processing \nutcomes of which can be assessed through the plots generated in the Quality Control \nwith several options obtaining a list of proteins that exhibit an increase or decrease in \ne plots generated in the Differential analysis plots module, and are subsequently utilized \nule. Finally, networks illustrating associations between differentially abundant proteins \naction analysis.  \n2 \n "
+  },
+  {
+    "id": "conclusion",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Conclusion",
+      "page_start": 3,
+      "page_end": 3
+    },
+    "text": " \nTraianProt  is  an  open  source  web-based,  user-friendly  platform  de-\nsigned  for  proteomics  data  analysis  supporting  output  formats  from \nleading computational platforms. Its primary aim is to facilitate the ex-\ntraction  of  interpretable  results  from  proteomic  data  by  performing \ndownstream analyses and generating high-quality, customisable graphs \nand statistics in a dynamic environment. The platform allows users to \nrevisit  the analysis and adjust parameters  to achieve the most optimal \noutcomes  and makes  it  accessible  for new users by not  requiring  any \nprogramming knowledge. This platform  is  freely available  in  the  fol-\nlowing Github repository: \nhttps://github.com/SamueldelaCamaraFuentes/TraianProt  \n "
+  },
+  {
+    "id": "acknowledgements",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Acknowledgements",
+      "page_start": 3,
+      "page_end": 3
+    },
+    "text": "This work was granted by PID2021-124062NB-I00 (C.G.) funded by \nSpanish Ministry of Science and Innovation/ State Research Agency \n10.13039/501100011033. S.C.F. was supported by PTA2022-022414-I \nfrom the Spanish Ministry of Science and Innovation and the State \n \n\nResearch Agency, along with REACT-UE ANTICIPA-CM from the \nCommunity of Madrid. \nAuthor contributions. \nSamuel de la Cámara-Fuentes (Conceptualization, Methodology, Soft-\nware,  Investigation, Visualization, Writing–original  draft, Writing-re-\nview & editing), Dolores Gutiérrez-Blázquez (Methodology, Investiga-\ntion, Writing-review & editing) Maria Luisa Hernáez (Methodology, In-\nvestigation, Writing-review & editing), Concha Gil (Conceptualization, \nMethodology, Supervision, Visualization, Writing–original draft, Writ-\ning-review & editing) \nSupplementary data. \nSupplementary data is available in Bioinformatics online. \nC  onflict of interests \nConflict of Interest: none declared. "
+  },
+  {
+    "id": "thisworkwasgrantedbypid2021124062nbi00cgfundedbyspanishministryofscienceandinnovationstateresearchagency1013039501100011033scfwassupportedbypta2022022414ifromthespanishministryofscienceandinnovationandth",
+    "metadata": {
+      "lang": "en",
+      "section_title": "This work was granted by PID2021-124062NB-I00 (C.G.) funded by Spanish Ministry of Science and Innovation/ State Research Agency 10.13039/501100011033. S.C.F. was supported by PTA2022-022414-I from the Spanish Ministry of Science and Innovation and th...",
+      "page_start": 3,
+      "page_end": 3
+    },
+    "text": "Spanish Ministry of Science and Innovation/ State Research Agency \n10.13039/501100011033. S.C.F. was supported by PTA2022-022414-I \nfrom the Spanish Ministry of Science and Innovation and the State \n \n\nResearch Agency, along with REACT-UE ANTICIPA-CM from the \nCommunity of Madrid. "
+  },
+  {
+    "id": "authorcontributions",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Author contributions.",
+      "page_start": 3,
+      "page_end": 3
+    },
+    "text": "Samuel de la Cámara-Fuentes (Conceptualization, Methodology, Soft-\nware,  Investigation, Visualization, Writing–original  draft, Writing-re-\nview & editing), Dolores Gutiérrez-Blázquez (Methodology, Investiga-\ntion, Writing-review & editing) Maria Luisa Hernáez (Methodology, In-\nvestigation, Writing-review & editing), Concha Gil (Conceptualization, \nMethodology, Supervision, Visualization, Writing–original draft, Writ-\ning-review & editing) \nSupplementary data. \nSupplementary data is available in Bioinformatics online. \nC  onflict of interests \nConflict of Interest: none declared. "
+  },
+  {
+    "id": "supplementarydata",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Supplementary data.",
+      "page_start": 3,
+      "page_end": 3
+    },
+    "text": "Supplementary data is available in Bioinformatics online. \nC  onflict of interests \nConflict of Interest: none declared. "
+  },
+  {
+    "id": "conflictofinterests",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Conflict of interests",
+      "page_start": 3,
+      "page_end": 3
+    },
+    "text": "achieve a more accurate variance estimation. The inherent dependence of \nprotein variance on the number of PSMs or peptides used for quantifica-\ntion is taken into account by this method. Users can specify a log2 fold \nchange threshold a p-value or adjusted p-value threshold and whether ex-\nclusive proteins (proteins exhibiting absence or presence, being quantified \nexclusively in one of the studied conditions) have to be included in the \ndifferentially abundant protein list. \nThe statistical analysis is fully reactive as well which allows statistical \nchanges to propagate to the next sections.  A resulting dataframe com-\nposed  by  differentially  abundant  proteins  including  non-differentially \nabundant proteins and containing several statistical metrics such as fold \nchange values, p-value/ adjusted p-value etc is displayed in a data table \nthat can be exported as a csv file for further analysis.  \n \nDifferentially abundant proteins can be visualized as volcano plot and \nheatmap plot in the Differential analysis plot module, these plots can be \nexported  in  various  file  formats,  including  publication-ready  format \n(.tiff).  \nThe Functional Analysis module performs  functional enrichment anal-\nysis of differentially abundant proteins using the gprofiler2 (Raudverse \nU et al, 2019) R package.  \nUsers can select the organism of the experiment establishing a threshold \nfor significant results. The output of gprofiler2 constituted by a data ta-\nble  containing  biological  terms  and  pathways  is  displayed  in  various \nplots including a dot plot, a bar plot of terms and a Manhattan plot. Pa-\nrameters such as the number of terms to display in the plot, the font size \nand the title can be customized. These plots can be also exported in var-\nious file formats, including  publication-ready format (.tiff).  Addition-\nally,  a downloadable output  table with data  sources,  term names,     p-\nvalues and other columns is displayed. \nThe Interaction analysis module performs a protein-protein interaction \nanalysis  using  the  STRINGdb  (Szklarczyk D  et  al,  2023)  R  package \nwhere users need to specify the NCBI taxonomy identifier of the organ-\nism on which  the  experiment has been  performed  along with  a  score \nthreshold.  A  network  illustrating  both  direct  (physical)  and  indirect \n(functional) associations between differentially abundant proteins is dis-\nplayed. One network is shown for proteins with increased abundance, \nand another for proteins with decreased abundance.   \n3   Conclusion \n \nTraianProt  is  an  open  source  web-based,  user-friendly  platform  de-\nsigned  for  proteomics  data  analysis  supporting  output  formats  from \nleading computational platforms. Its primary aim is to facilitate the ex-\ntraction  of  interpretable  results  from  proteomic  data  by  performing \ndownstream analyses and generating high-quality, customisable graphs \nand statistics in a dynamic environment. The platform allows users to \nrevisit  the analysis and adjust parameters  to achieve the most optimal \noutcomes  and makes  it  accessible  for new users by not  requiring  any \nprogramming knowledge. This platform  is  freely available  in  the  fol-\nlowing Github repository: \nhttps://github.com/SamueldelaCamaraFuentes/TraianProt  \n \nAcknowledgements \nThis work was granted by PID2021-124062NB-I00 (C.G.) funded by \nSpanish Ministry of Science and Innovation/ State Research Agency \n10.13039/501100011033. S.C.F. was supported by PTA2022-022414-I \nfrom the Spanish Ministry of Science and Innovation and the State \n \n\nResearch Agency, along with REACT-UE ANTICIPA-CM from the \nCommunity of Madrid. \nAuthor contributions. \nSamuel de la Cámara-Fuentes (Conceptualization, Methodology, Soft-\nware,  Investigation, Visualization, Writing–original  draft, Writing-re-\nview & editing), Dolores Gutiérrez-Blázquez (Methodology, Investiga-\ntion, Writing-review & editing) Maria Luisa Hernáez (Methodology, In-\nvestigation, Writing-review & editing), Concha Gil (Conceptualization, \nMethodology, Supervision, Visualization, Writing–original draft, Writ-\ning-review & editing) \nSupplementary data. \nSupplementary data is available in Bioinformatics online. \nC  onflict of interests \nConflict of Interest: none declared. "
+  }
+]

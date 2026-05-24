@@ -1,0 +1,62 @@
+[
+  {
+    "id": "introduction",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Introduction",
+      "page_start": 1,
+      "page_end": 1
+    },
+    "text": "9\n1 Weed management  is considered essential  in agriculture,\n.\n4 directly influencing crop productivity, resource efficiency and\n0 environmental  sustainability [1],  [2].  In orchards,  effective\n5 weed management  is particularly critical, as weeds compete\n2\n: with trees for water and nutrients, reduce yields, and increase\nv vulnerability to pests and diseases[3].\ni\nThe three primary methods utilized in weed management\nX\nr in orchards are mowing,  tillage, and chemical spraying via\na herbicides, each offering distinct advantages and challenges.\nMowing is typically performed using mechanical mowers or\ntrimmers to cut weeds to a manageable height, maintaining\nground cover. Tillage involves the use of plows, harrows, or\nrotary tillers to physically disrupt  the soil, uprooting weeds\nand  incorporating organic matter. Chemical  spraying with\nherbicides  is  implemented  through  the use of  specialized\nequipment  such as boom sprayers or handheld applicators,\nallowing precise application of selective or non-selective weed\nkillers to manage weed species.\n\nD MANAGEMENT\nDS USING SENTINEL-2\nSCOPE DATA\n1  1,2\n, Dimitrios Bormpoudakis , Ilias Tsoumas  ,\n3  1\nndros Tsitouras  and Charalampos Kontoes\nnal Observatory of Athens, Athens, Greece\nniversity & Research, The Netherlands\nltural Organization (ELGO) “DIMITRA”, Larissa, Greece\nTraditionally, weed management practices — such as mow-\ning, mechanical  tilling, and chemical spraying — are moni-\ntored through field surveys or manual records. Furtherhmore,\nUnmanned Aerial Vehicles (UAVs) equipped with multispec-\ntral  sensors have emerged as a promising  tool  for weed\nmanagement  tasks, enabling the efficient collection of high-\nresolution spatial and spectral data [4, 5]. However, both field\nsurveys and UAV-based methods may incur high costs and/or\nlegal/safety concerns (over UAV flights) present a significant\nbarrier to widespread adoption and scalability.\nEarth observation data have revolutionized agriculture mon-\nitoring, providing temporal and spatial insights in vegetation\n[6]. Satellite imagery enables the capture of precise variations\nin vegetation health and coverage. The Sentinel-2 constellation\nis widely used for ground-soil monitoring due to its high\ntemporal resolution and multi-spectral capabilities. However,\nits limited spatial resolution can pose challenges for various\napplications,  such as detailed weed management mapping,\nparticularly in orchards where the overlapping tree crowns and\nground pixels complicate accurate analysis and classification.\nPlanetScope imagery [7], with its higher spatial and temporal\nresolution,  has been demonstrated  in various  applications\nto overcome the limitations of mid-resolution satellites like\nSentinel-2. Its finer spatial detail enables more accurate dis-\ncrimination within fields,  reducing the prevalence of mixed\npixel (mixel) issues [8]. Studies have shown that EO imagery,\ncombined with advanced ML techniques, can facilitate precise\nmapping and classification of agricultural practices [9–12].\nIn this study, we propose a novel ML-based approach to\nmonitor and classify four distinct weed management methods\n— Mowing, Tillage, Chemical  spraying and No practice -\nutilizing multi-source EO data. By leveraging the spectral and\ntemporal capabilities of Sentinel-2 and PlanetScope imagery,\nour methodology aims  to provide an automated,  scalable\nsolution for assessing and differentiating these methods  in\norchards. This approach not only reduces reliance on tradi-\ntional labor-intensive on-ground monitoring but also provides a\nuseful mapping tool for agro-ecosystem researchers, Common"
+  },
+  {
+    "id": "datacollection",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Data Collection",
+      "page_start": 2,
+      "page_end": 2
+    },
+    "text": "A. Point Dataset\nData were collected from two agronomists by field visits in\nthe region of Thessaly, Greece as depicted in Fig. 1 using\nthe Survey123 mobile application that can be accessed via\ncell phone. The yellow points on the map represent the fields\nwhere we identified that one of the three aforementioned weed\nmanagement methods was implemented in a period spanning\n4 months (May-August) in 2024. In addition to the method,\nwe also identified the orchard type of each inspected field.\nBefore proceeding to field identification and the extraction\nof satellite images, we conducted a preliminary exploratory\ndata analysis to better understand the composition and char-\nacteristics of the dataset. More specifically, as shown in Table\nI,  there is a class imbalance, as Mowing class occupies the\nmajority of  the weed management methods  (61%), while\nthe rest of the classes - Tillage, Chemical-spraying and No\npractise- represent 39% of the whole dataset - 14%, 13% and\n12% respectively.  In Table I,  it  is clear that for all orchard\ntypes the majority of weed management practices implemented\nin the respective fields is Mowing.\nB. Satellite Dataset\nFor  the purpose of our analysis, we used two satellite\nsystems, Sentinel-2 and PlanetScope. Sentinel-2, operated by\nthe European Space Agency (ESA), provides multispectral\nimagery with a spatial  resolution of up to 10 meters, and\na temporal  resolution of 5 days. PlanetScope, operated by\n\nPlanetLabs,  offers daily multispectral  imagery at  a higher\nspatial  resolution of 3 meters,  allowing for more detailed\nobservations at the field level. For the PlanetScope data anal-\nysis, we utilized the Surface Reflectance (SR) 8-band product,\nwhich is optimized to reduce the variability of spectral bands\ndue to atmospheric effects. Table II summarizes the bands\nextracted from the images of each satellite.\nC. Feature Extraction\nIn addition to the spectral bands obtained from the satellite\ncollections, we calculated the Normalized Difference Vege-\ntation Index (NDVI) as an extra feature for each satellite,\nas shown in eq.1 and eq.2,  for Sentinel-2 and PlanetScope\nrespectively. To capture temporal dynamics, we also calculated\nfor all features, the first-order differences(equation 3) and rates\nof change(equation 4), where xi represent the value of feature\nx at the time i, and ti+1 − ti, represent the days passed from\nlast observation.\nB08 −B04\nNDV IS2 =  (1)\nB08 +B04\nB08 −B06\nNDV IPS8B =  (2)\nB08 +B06\n∆xi = xi+1 − xi  (3)\nxi+1 − xi\nROC =  (4)\nti+1 − ti\nTABLE II\nSPECTRAL BANDS OF SENTINEL-2,AND PLANETSCOPE-8B\nSatellite System  Band Description\nBand 1 - Coastal Aerosol\nBand 2 - Blue\nBand 3 - Green\nBand 4 - Red\nSentinel-2\nBand 5 - Red Edge 1\nBand 6 - Red Edge 2\nBand 7 - Red Edge 3\nBand 8 - Near-Infrared (NIR)\nBand 8A - Narrow Near-Infrared (Narrow NIR)\nBand 9 - Water Vapour\nBand 10 - Shortwaved Infrared\nBand 11 - Shortwaved Infrared 1 (SWIR1)\nBand 12 - Shortwaved Infrared 2 (SWIR2)\nBand 1 - Coastal Blue\nBand 2 - Blue\nBand 3 - Green I\nBand 4 - Green\nPlanetScope-8B\nBand 5 - Yellow\nBand 6 - Red\nBand 7 - Red Edge\nBand 8 - Near Infrared (NIR)"
+  },
+  {
+    "id": "methodology",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Methodology",
+      "page_start": 2,
+      "page_end": 2
+    },
+    "text": "Our methodology pipeline consists of several steps that are\nsummarized in Fig. 2. The goal of our approach, is to predict\nwhich weed management method has been implemented in a\nfield within the past 4 months, based on its historical satellite\n4-months time series observations, which will serve as the"
+  },
+  {
+    "id": "resultsanddiscussion",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Results and Discussion",
+      "page_start": 3,
+      "page_end": 3
+    },
+    "text": "Table  III provides performance metrics of  the finetuned\nmodels for  the parcel-based classification, evaluated on the\nreserved test set, across the four classes: Mowing (Class 0),\nTillage (Class 1), Chemical-spraying (Class 2) and No practice\n(Class 3).\nModels trained on Sentinel-2 data demonstrated generally\nlower performance compared to PlanetScope data, likely due\nto to its lower spatial resolution. Mowing achieved the highest\nF1 score on all Sentinel-2-trained models,  suggesting that\nmowing practice implementation impacts the field more dis-\ntinctly, making it easier for the models to identify, as Random\nForest model suggests. However, the rest of the practices, were\nmore challenging to classify, possible because the effects of\nthese practices are more subtle and harder to detect through\nSentinel-2 resolution.\nPlanetScope data models performed noticeably better than\nSentinel-2, as the higher spatial resolution (3m) allowed for\na more detailed discrimination of  the field-level  features."
+  },
+  {
+    "id": "conclusionfuturework",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Conclusion & Future Work",
+      "page_start": 4,
+      "page_end": 4
+    },
+    "text": "The  study explores  the utilization of  satellite  imagery\nand machine  learning to map weed management methods\nin orchards. Our findings, demonstrate the potential of high\nresolution PlanetScope imagery for this task, outperforming\nSentinel-2. While challenges remain, such as class imbalance\nand subtle impact of some methods though satellite imagery,\nthe results highlight the potential effectiveness of EO data in\nweed management applications on larger scale. Future research\nshould focus on data enrichment,  in order  to include more\nweed management methods, applying innovative feature en-\ngineering techniques, such as pixel-filtering for tree canopies,\nutilizing more advanced machine learning models and testing\ndata fusion strategies,  to further enhance classification accu-\nracy. In addition, satellite data fusion could be employed, in\norder to combine the advantages of the both satellites."
+  },
+  {
+    "id": "acknowledgements",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Acknowledgements",
+      "page_start": 4,
+      "page_end": 5
+    },
+    "text": "This work was supported by the project ”Climaca” (ID:\n16196) which is carried out within the framework of  the\nNational Recovery and Resilience Plan Greece 2.0, funded by\nthe European Union – NextGenerationEU. This study includes\nthe use of PlanetScope imagery provided through the agree-\nment between Wageningen University & Research (WUR) and\nPlanet Labs PBC. The data were used under the “Education\nand Research Rights”  license for noncommercial  scientific\n\nresearch. Planet Labs PBC is gratefully acknowledged as the\nsource of the satellite imagery."
+  }
+]

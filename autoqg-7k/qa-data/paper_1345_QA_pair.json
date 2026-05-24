@@ -1,0 +1,217 @@
+[
+  {
+    "section": "method1",
+    "path": {
+      "section": "method1",
+      "start_entity": "ZeroShotMDENetwork",
+      "end_entity": "SyntheticDataset",
+      "hops": [
+        {
+          "from": "ZeroShotMDENetwork",
+          "relation": "usedIn",
+          "to": "PatchRefineOnce",
+          "context": "we estimate a coarse depth map Dc by feeding a resized version of I into a pretrained zero-shot MDE network Ψ.",
+          "chunk": "2"
+        },
+        {
+          "from": "PatchRefineOnce",
+          "relation": "proposes",
+          "to": "BiasFreeMasking",
+          "context": "Grouped Patch Consistency Training (GPCT) and Bias Free Masking (BFM), which are the key contributions of our paper, are described in Sec. 3.2 and Sec. 3.3, respectively.",
+          "chunk": "2"
+        },
+        {
+          "from": "BiasFreeMasking",
+          "relation": "uses",
+          "to": "SyntheticDataset",
+          "context": "To utilize dense GT depth when training depth refinement models for fine-grained details, we use a synthetic dataset.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the method described, how is the Bias Free Masking technique specifically utilized in the context of improving depth map refinement?",
+    "options": {
+      "A": "Bias Free Masking integrates feedback from user studies to iteratively refine depth maps based on visual realism.",
+      "B": "Bias Free Masking employs real-world images to directly correct biases in the initially estimated coarse depth maps.",
+      "C": "Bias Free Masking applies natural scene statistics to adjust the depth perception in zero-shot MDE networks.",
+      "D": "Bias Free Masking uses a synthetic dataset to train depth refinement models for enhancing fine-grained details in depth maps."
+    },
+    "correct_answer": "D",
+    "explanation": "Bias Free Masking, as part of the Patch Refine Once strategy, utilizes a synthetic dataset specifically for training depth refinement models. This approach aims to enhance fine-grained details in depth maps, leveraging synthetic data to provide dense ground truth depth, which is crucial for refining the depth predictions.",
+    "path_description": "Path: ZeroShotMDENetwork --[usedIn]--> PatchRefineOnce --[proposes]--> BiasFreeMasking --[uses]--> SyntheticDataset",
+    "context": "we estimate a coarse depth map Dc by feeding a resized version of I into a pretrained zero-shot MDE network Ψ. | Grouped Patch Consistency Training (GPCT) and Bias Free Masking (BFM), which are the key contributions of our paper, are described in Sec. 3.2 and Sec. 3.3, respectively. | To utilize dense GT depth when training depth refinement models for fine-grained details, we use a synthetic dataset.",
+    "paper_id": "1903"
+  },
+  {
+    "section": "method2",
+    "path": {
+      "section": "method2",
+      "start_entity": "MBFM",
+      "end_entity": "Variable",
+      "hops": [
+        {
+          "from": "MBFM",
+          "relation": "formedBy",
+          "to": "Medge",
+          "context": "the BFM that denotes the reliable mask is constructed as MBFM = Medge∪ ∼ Munreliable",
+          "chunk": "3"
+        },
+        {
+          "from": "Medge",
+          "relation": "formedBy",
+          "to": "Ec",
+          "context": "We define the edge mask as Medge = Ec ∩ Egt",
+          "chunk": "3"
+        },
+        {
+          "from": "Ec",
+          "relation": "type",
+          "to": "Variable",
+          "context": "Ec = dilate(edge(Dc))",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the construction of the reliable mask MBFM, what is the critical role of the element Ec in relation to Medge?",
+    "options": {
+      "A": "Ec, through its expansion by edge(Dc), eliminates the need for intersection with Egt in forming Medge.",
+      "B": "Ec adds structural integrity to MBFM by directly dilating Dc without intersecting with other elements.",
+      "C": "Ec, formed by the dilation of edge(Dc), intersects with Egt to form the edge mask Medge.",
+      "D": "Ec reduces the complexity of MBFM by simplifying the union and intersection processes involved."
+    },
+    "correct_answer": "C",
+    "explanation": "The element Ec, which is formed by the dilation of edge(Dc), plays a critical role by intersecting with Egt to form the edge mask Medge. This intersection is fundamental in defining the boundaries of Medge, which is used in constructing the reliable mask MBFM.",
+    "path_description": "Path: MBFM --[formedBy]--> Medge --[formedBy]--> Ec --[type]--> Variable",
+    "context": "the BFM that denotes the reliable mask is constructed as MBFM = Medge∪ ∼ Munreliable | We define the edge mask as Medge = Ec ∩ Egt | Ec = dilate(edge(Dc))",
+    "paper_id": "1903"
+  },
+  {
+    "section": "experiments",
+    "path": {
+      "section": "experiments",
+      "start_entity": "PRO",
+      "end_entity": "Dataset",
+      "hops": [
+        {
+          "from": "PRO",
+          "relation": "outperforms",
+          "to": "PatchFusion",
+          "context": "Comparison of PatchFusion, PatchRefiner, and PRO (Ours) in terms of Consistency Error (CE).",
+          "chunk": "4"
+        },
+        {
+          "from": "PatchFusion",
+          "relation": "trainedOn",
+          "to": "UnrealStereo4K",
+          "context": "PRO, PatchFusion, and PatchRefiner are (re)trained based on DA2.",
+          "chunk": "4"
+        },
+        {
+          "from": "UnrealStereo4K",
+          "relation": "type",
+          "to": "Dataset",
+          "context": "UnrealStereo4K dataset is a synthetic dataset comprising of stereo images with 4K resolution (2,160×3,840) and pixel-wise GT disparity labels.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "Which of the following best describes the relationship and training context of PRO in comparison to PatchFusion, considering their performance on a specific type of dataset?",
+    "options": {
+      "A": "PRO and PatchFusion are not directly comparable as PRO is trained on UnrealStereo4K, while PatchFusion uses a different, unspecified dataset.",
+      "B": "PRO and PatchFusion have similar performance metrics, and both utilize the RealStereo4K dataset, which contains real-world high-resolution images.",
+      "C": "PatchFusion outperforms PRO, and both are trained on DA1, focusing their experiments on the NaturalStereo4K dataset, a natural scenery dataset.",
+      "D": "PRO outperforms PatchFusion, and both are retrained on the DA2, used for experiments on the UnrealStereo4K dataset, a synthetic dataset."
+    },
+    "correct_answer": "D",
+    "explanation": "PRO outperforming PatchFusion and the retraining of both models on DA2 are explicitly mentioned. Furthermore, their experiments involved the UnrealStereo4K dataset, which is described as a synthetic dataset with high-resolution stereo images and ground-truth disparity labels. This makes option A the correct answer, capturing all aspects of the relationship and training context.",
+    "path_description": "Path: PRO --[outperforms]--> PatchFusion --[trainedOn]--> UnrealStereo4K --[type]--> Dataset",
+    "context": "Comparison of PatchFusion, PatchRefiner, and PRO (Ours) in terms of Consistency Error (CE). | PRO, PatchFusion, and PatchRefiner are (re)trained based on DA2. | UnrealStereo4K dataset is a synthetic dataset comprising of stereo images with 4K resolution (2,160×3,840) and pixel-wise GT disparity labels.",
+    "paper_id": "1903"
+  },
+  {
+    "section": "qualitativeresults",
+    "path": {
+      "section": "qualitativeresults",
+      "start_entity": "BoostingDepth",
+      "end_entity": "PRO",
+      "hops": [
+        {
+          "from": "BoostingDepth",
+          "relation": "comparedWith",
+          "to": "PatchFusion",
+          "context": "Additional qualitative comparisons of BoostingDepth with PatchFusion on UHRSD and internet images.",
+          "chunk": "7"
+        },
+        {
+          "from": "PatchFusion",
+          "relation": "comparedWith",
+          "to": "PatchRefiner",
+          "context": "Additional qualitative comparisons of PatchFusion with PatchRefiner on UHRSD and internet images.",
+          "chunk": "7"
+        },
+        {
+          "from": "PatchRefiner",
+          "relation": "comparedWith",
+          "to": "PRO",
+          "context": "Additional qualitative comparisons of PatchRefiner with PRO on UHRSD and internet images.",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "In the context of qualitative comparisons on UHRSD and internet images, which algorithm was compared directly with PRO?",
+    "options": {
+      "A": "None of the above, as PRO was not compared with any algorithms in the sequence.",
+      "B": "BoostingDepth, as it initiated the sequence of comparisons ending with PRO.",
+      "C": "PatchFusion, given its central role in the sequence but not directly with PRO.",
+      "D": "PatchRefiner, as it was the last in the sequence of comparisons leading to PRO."
+    },
+    "correct_answer": "D",
+    "explanation": "Following the 3-hop path in the knowledge graph, PatchRefiner was compared directly with PRO. The path indicates a sequence of comparisons starting from BoostingDepth to PatchFusion, then PatchFusion to PatchRefiner, and finally PatchRefiner to PRO.",
+    "path_description": "Path: BoostingDepth --[comparedWith]--> PatchFusion --[comparedWith]--> PatchRefiner --[comparedWith]--> PRO",
+    "context": "Additional qualitative comparisons of BoostingDepth with PatchFusion on UHRSD and internet images. | Additional qualitative comparisons of PatchFusion with PatchRefiner on UHRSD and internet images. | Additional qualitative comparisons of PatchRefiner with PRO on UHRSD and internet images.",
+    "paper_id": "1903"
+  },
+  {
+    "section": "qualitativeresults",
+    "path": {
+      "section": "qualitativeresults",
+      "start_entity": "PatchFusion",
+      "end_entity": "Model",
+      "hops": [
+        {
+          "from": "PatchFusion",
+          "relation": "comparedWith",
+          "to": "PatchRefiner",
+          "context": "Additional qualitative comparisons of PatchFusion with PatchRefiner on UHRSD and internet images.",
+          "chunk": "7"
+        },
+        {
+          "from": "PatchRefiner",
+          "relation": "comparedWith",
+          "to": "PRO",
+          "context": "Additional qualitative comparisons of PatchRefiner with PRO on UHRSD and internet images.",
+          "chunk": "7"
+        },
+        {
+          "from": "PRO",
+          "relation": "type",
+          "to": "Model",
+          "context": "Additional qualitative comparisons of PRO on UHRSD and internet images.",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "In the context of qualitative comparisons on UHRSD and internet images, how does the relationship between PatchFusion, PatchRefiner, and PRO evolve according to their model type?",
+    "options": {
+      "A": "PatchFusion is compared with PatchRefiner, which is then compared with PRO, all categorized under the same model type.",
+      "B": "PatchRefiner serves as a standalone model without any comparisons with either PatchFusion or PRO in the qualitative analysis.",
+      "C": "PatchFusion directly compares with PRO without any intermediate comparison with PatchRefiner in the model hierarchy.",
+      "D": "PRO is an initial model that influences the development of PatchRefiner and PatchFusion, which are not compared with each other."
+    },
+    "correct_answer": "A",
+    "explanation": "The question leverages the provided path where PatchFusion is compared with PatchRefiner, and PatchRefiner is then compared with PRO. Finally, PRO is identified as a model, suggesting all are related in the same model category based on their comparisons.",
+    "path_description": "Path: PatchFusion --[comparedWith]--> PatchRefiner --[comparedWith]--> PRO --[type]--> Model",
+    "context": "Additional qualitative comparisons of PatchFusion with PatchRefiner on UHRSD and internet images. | Additional qualitative comparisons of PatchRefiner with PRO on UHRSD and internet images. | Additional qualitative comparisons of PRO on UHRSD and internet images.",
+    "paper_id": "1903"
+  }
+]

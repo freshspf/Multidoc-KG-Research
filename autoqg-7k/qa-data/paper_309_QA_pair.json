@@ -1,0 +1,131 @@
+[
+  {
+    "section": "preliminaries2",
+    "path": {
+      "section": "preliminaries2",
+      "start_entity": "Proposer",
+      "end_entity": "ConsensusMechanism",
+      "hops": [
+        {
+          "from": "Proposer",
+          "relation": "partOf",
+          "to": "Ethereum",
+          "context": "Proposers of the block get larger rewards for publishing an accepted block.",
+          "chunk": "3"
+        },
+        {
+          "from": "Ethereum",
+          "relation": "uses",
+          "to": "NakamotoConsensus",
+          "context": "Ethereum uses Nakamoto consensus as its consensus mechanism.",
+          "chunk": "3"
+        },
+        {
+          "from": "NakamotoConsensus",
+          "relation": "type",
+          "to": "ConsensusMechanism",
+          "context": "Ethereum uses Nakamoto consensus as its consensus mechanism.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "Which of the following statements accurately describes the relationship between Ethereum's consensus mechanism and the role of proposers in the blockchain?",
+    "options": {
+      "A": "Proposers are part of Ethereum's structure, which uses Nakamoto Consensus, a type of consensus mechanism, to reward proposers for block publication.",
+      "B": "Proposers in Ethereum are rewarded based on the Proof of Stake model, which is unrelated to the Nakamoto Consensus mechanism.",
+      "C": "Ethereum uses proposers as a secondary verification layer in the Nakamoto Consensus, primarily for managing transaction histories.",
+      "D": "Proposers in Ethereum have no role in consensus but are involved only in creating transaction blocks for miners to validate."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A because it accurately describes the relationship and roles within Ethereum's blockchain system. Proposers are indeed a part of Ethereum, which uses Nakamoto Consensus—a type of consensus mechanism—as per the knowledge path. The proposers are rewarded for publishing accepted blocks, aligning with the internal mechanism of Nakamoto Consensus.",
+    "path_description": "Path: Proposer --[partOf]--> Ethereum --[uses]--> NakamotoConsensus --[type]--> ConsensusMechanism",
+    "context": "Proposers of the block get larger rewards for publishing an accepted block. | Ethereum uses Nakamoto consensus as its consensus mechanism. | Ethereum uses Nakamoto consensus as its consensus mechanism.",
+    "paper_id": "721"
+  },
+  {
+    "section": "preliminaries2",
+    "path": {
+      "section": "preliminaries2",
+      "start_entity": "EVM",
+      "end_entity": "ConsensusMechanism",
+      "hops": [
+        {
+          "from": "EVM",
+          "relation": "partOf",
+          "to": "Ethereum",
+          "context": "Ethereum as a blockchain is a virtual machine known as Ethereum Virtual Machine (EVM).",
+          "chunk": "3"
+        },
+        {
+          "from": "Ethereum",
+          "relation": "uses",
+          "to": "ProofOfStake",
+          "context": "In PoS-based blockchains, participants interested in publishing their block must stake some of their blockchain’s native token.",
+          "chunk": "3"
+        },
+        {
+          "from": "ProofOfStake",
+          "relation": "type",
+          "to": "ConsensusMechanism",
+          "context": "We discuss both PoW and PoS in the following sections.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "How does the transition of Ethereum's consensus mechanism to Proof of Stake (PoS) influence the role of Ethereum Virtual Machine (EVM)?",
+    "options": {
+      "A": "Proof of Stake leads to the EVM being used primarily for executing smart contracts, without any changes to block validation.",
+      "B": "The Proof of Stake model eliminates the need for EVM, as block creation does not require computational power.",
+      "C": "This transition makes the EVM entirely responsible for managing and distributing the staking rewards to the validators.",
+      "D": "The transition changes the EVM's functionality to require validators to stake tokens to participate in block validation."
+    },
+    "correct_answer": "D",
+    "explanation": "The transition to Proof of Stake (PoS) changes the role of Ethereum Virtual Machine (EVM) in that while the EVM still processes smart contracts, under PoS, participants (validators) also need to stake tokens to engage in the consensus process, including block validation. The other options are incorrect as they either misrepresent the EVM's role under PoS or inaccurately describe its functionality.",
+    "path_description": "Path: EVM --[partOf]--> Ethereum --[uses]--> ProofOfStake --[type]--> ConsensusMechanism",
+    "context": "Ethereum as a blockchain is a virtual machine known as Ethereum Virtual Machine (EVM). | In PoS-based blockchains, participants interested in publishing their block must stake some of their blockchain’s native token. | We discuss both PoW and PoS in the following sections.",
+    "paper_id": "721"
+  },
+  {
+    "section": "mevlandscapeinethereum202",
+    "path": {
+      "section": "mevlandscapeinethereum202",
+      "start_entity": "Relay",
+      "end_entity": "Entity",
+      "hops": [
+        {
+          "from": "Relay",
+          "relation": "communicatesWith",
+          "to": "Proposer",
+          "context": "ith the proposer via relays.",
+          "chunk": "8"
+        },
+        {
+          "from": "Proposer",
+          "relation": "receivesBlockFrom",
+          "to": "Relay",
+          "context": "elay releases the block to the proposer to publish.",
+          "chunk": "8"
+        },
+        {
+          "from": "Relay",
+          "relation": "type",
+          "to": "Entity",
+          "context": "e relay and the escrow to propagate the respective block to",
+          "chunk": "8"
+        }
+      ]
+    },
+    "question": "In the Ethereum MEV landscape, how does the relay function in the process of block propagation to the proposer?",
+    "options": {
+      "A": "The relay modifies the block data before sending it to the proposer, ensuring data integrity and security.",
+      "B": "The relay acts as an intermediary storage for blocks before they are accessed by the proposer for verification.",
+      "C": "The relay communicates with the proposer to receive and subsequently release the block for publishing.",
+      "D": "The relay receives external inputs from entities to facilitate faster block propagation to the proposer."
+    },
+    "correct_answer": "C",
+    "explanation": "The relay serves as a communication bridge between entities and the proposer. It receives blocks from entities (as suggested by its type) and communicates these blocks to the proposer for publishing. Options B, C, and D are incorrect as they describe roles and functions not supported by the given context or the standard operations of a relay in Ethereum's MEV landscape.",
+    "path_description": "Path: Relay --[communicatesWith]--> Proposer --[receivesBlockFrom]--> Relay --[type]--> Entity",
+    "context": "ith the proposer via relays. | elay releases the block to the proposer to publish. | e relay and the escrow to propagate the respective block to",
+    "paper_id": "721"
+  }
+]

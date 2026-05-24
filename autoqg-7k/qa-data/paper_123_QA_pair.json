@@ -1,0 +1,88 @@
+[
+  {
+    "section": "dataaccessindosns2",
+    "path": {
+      "section": "dataaccessindosns2",
+      "start_entity": "ServerA",
+      "end_entity": "DataSystem",
+      "hops": [
+        {
+          "from": "ServerA",
+          "relation": "hosts",
+          "to": "User",
+          "context": "the instance ServerA creates an account on ServerA, this server is",
+          "chunk": "5"
+        },
+        {
+          "from": "User",
+          "relation": "maintainsDataThrough",
+          "to": "PDS",
+          "context": "users can maintain their data repository through PDS",
+          "chunk": "5"
+        },
+        {
+          "from": "PDS",
+          "relation": "type",
+          "to": "DataSystem",
+          "context": "users can maintain their data repository through PDS",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the context of data management within ServerA, how can users ensure the continuity and integrity of their personal data?",
+    "options": {
+      "A": "By using a cloud storage service that periodically syncs with ServerA to backup data automatically.",
+      "B": "By directly storing their data on ServerA without the need for an intermediate data management system.",
+      "C": "By maintaining their data through a Personal Data System (PDS), which is a type of Data System hosted on ServerA.",
+      "D": "By creating multiple accounts on ServerA to diversify the locations of their data storage."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A. According to the paper's context and the knowledge graph path, ServerA hosts User, who maintains data through a Personal Data System (PDS). PDS is categorized as a type of Data System, indicating that it is a structured arrangement for data handling and storage, directly hosted on ServerA.",
+    "path_description": "Path: ServerA --[hosts]--> User --[maintainsDataThrough]--> PDS --[type]--> DataSystem",
+    "context": "the instance ServerA creates an account on ServerA, this server is | users can maintain their data repository through PDS | users can maintain their data repository through PDS",
+    "paper_id": "1589"
+  },
+  {
+    "section": "societalchallengesofdosns3",
+    "path": {
+      "section": "societalchallengesofdosns3",
+      "start_entity": "DataSynchronization",
+      "end_entity": "Protocol",
+      "hops": [
+        {
+          "from": "DataSynchronization",
+          "relation": "appliedTo",
+          "to": "Mastodon",
+          "context": "Data Synchronization. Synchronizing data across decentralized platforms like Mastodon is inherently unreliable",
+          "chunk": "15"
+        },
+        {
+          "from": "Mastodon",
+          "relation": "uses",
+          "to": "ATProtocol",
+          "context": "relays that cross Mastodon read Bluesky posts via AT Protocol",
+          "chunk": "15"
+        },
+        {
+          "from": "ATProtocol",
+          "relation": "type",
+          "to": "Protocol",
+          "context": "relays that cross Mastodon read Bluesky posts via AT Protocol",
+          "chunk": "15"
+        }
+      ]
+    },
+    "question": "How does Mastodon ensure data synchronization across its decentralized network according to the specific protocol type mentioned?",
+    "options": {
+      "A": "Mastodon employs the Secure Data Protocol, a type specialized for encrypted data transfer across decentralized servers.",
+      "B": "Mastodon utilizes the General Synchronization Protocol, designed for time-aligned data sharing on decentralized platforms.",
+      "C": "Mastodon uses the AT Protocol, which is a type of protocol that allows reading of Bluesky posts across different relays.",
+      "D": "Mastodon relies on the Basic Data Transfer Protocol, used primarily for simple data operations in non-centralized networks."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A, as the knowledge path indicates Mastodon applies Data Synchronization using the AT Protocol, which is specifically categorized as a protocol type that facilitates the reading of Bluesky posts across different relays.",
+    "path_description": "Path: DataSynchronization --[appliedTo]--> Mastodon --[uses]--> ATProtocol --[type]--> Protocol",
+    "context": "Data Synchronization. Synchronizing data across decentralized platforms like Mastodon is inherently unreliable | relays that cross Mastodon read Bluesky posts via AT Protocol | relays that cross Mastodon read Bluesky posts via AT Protocol",
+    "paper_id": "1589"
+  }
+]

@@ -1,0 +1,131 @@
+[
+  {
+    "section": "crosschainvalidationofresultsofsmartcontract1",
+    "path": {
+      "section": "crosschainvalidationofresultsofsmartcontract1",
+      "start_entity": "CrossChainValidation",
+      "end_entity": "LongestChainBlock",
+      "hops": [
+        {
+          "from": "CrossChainValidation",
+          "relation": "involves",
+          "to": "SmartContractValidation",
+          "context": "Cross-chain validation involves the verification of data or smart contracts from other blockchains.",
+          "chunk": "4"
+        },
+        {
+          "from": "SmartContractValidation",
+          "relation": "uses",
+          "to": "BLValidation",
+          "context": "In the block level validation, it is just to check whether the block is correct (such as whether it is in the longest chain of blocks) and trust the block without running the smart contract.",
+          "chunk": "4"
+        },
+        {
+          "from": "BLValidation",
+          "relation": "deemsValid",
+          "to": "LongestChainBlock",
+          "context": "A block in the longest chain is deemed valid, and its associated data, including transactions and smart contract results, is considered valid as well.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "How does the process of cross-chain validation in blockchain technology confirm the validity of a smart contract's results?",
+    "options": {
+      "A": "By comparing the smart contract results with similar contracts on the same blockchain for inconsistencies.",
+      "B": "By individually running the smart contract code again on the validating blockchain to ensure results match.",
+      "C": "By ensuring that the transaction fees associated with the smart contract are in line with network standards.",
+      "D": "By checking if the block containing the smart contract results is part of the longest chain and confirming its integrity."
+    },
+    "correct_answer": "D",
+    "explanation": "In the described cross-chain validation process, the validity of a smart contract's results is confirmed by verifying that the block containing these results belongs to the longest chain of blocks. This method relies on the assumption that blocks in the longest chain are correct and that their data, including smart contract results, can be trusted without re-executing the contract.",
+    "path_description": "Path: CrossChainValidation --[involves]--> SmartContractValidation --[uses]--> BLValidation --[deemsValid]--> LongestChainBlock",
+    "context": "Cross-chain validation involves the verification of data or smart contracts from other blockchains. | In the block level validation, it is just to check whether the block is correct (such as whether it is in the longest chain of blocks) and trust the block without running the smart contract. | A block in the longest chain is deemed valid, and its associated data, including transactions and smart contract results, is considered valid as well.",
+    "paper_id": "917"
+  },
+  {
+    "section": "crosschainconfirmationwithproofforresultsofcrosschainsmartcontract2",
+    "path": {
+      "section": "crosschainconfirmationwithproofforresultsofcrosschainsmartcontract2",
+      "start_entity": "ProducerBlockchain",
+      "end_entity": "Blockchain",
+      "hops": [
+        {
+          "from": "ProducerBlockchain",
+          "relation": "ensuresSecurityLevelEquivalentTo",
+          "to": "ProducerBlockchain",
+          "context": "This approach ensures an equivalent level of security as the original blockchain (the producer blockchain).",
+          "chunk": "8"
+        },
+        {
+          "from": "ProducerBlockchain",
+          "relation": "ensuresSecurityLevelEquivalentTo",
+          "to": "ProducerBlockchain",
+          "context": "This approach ensures an equivalent level of security as the original blockchain (the producer blockchain).",
+          "chunk": "8"
+        },
+        {
+          "from": "ProducerBlockchain",
+          "relation": "type",
+          "to": "Blockchain",
+          "context": "This approach ensures an equivalent level of security as the original blockchain (the producer blockchain).",
+          "chunk": "8"
+        }
+      ]
+    },
+    "question": "In the context of cross-chain smart contracts, if multiple producer blockchains ensure a security level equivalent to each other, what is the classification of these producer blockchains?",
+    "options": {
+      "A": "They are classified as a decentralized network with equivalent security protocols.",
+      "B": "They are each classified as independent nodes with distinct security protocols.",
+      "C": "They are considered as a single blockchain operating in multiple instances.",
+      "D": "They are classified under different types with varying levels of security measures."
+    },
+    "correct_answer": "C",
+    "explanation": "The knowledge path suggests that multiple producer blockchains ensure security levels equivalent to each other, implying that they function similarly to a single blockchain, but are operational as multiple instances. This classification highlights the unified security approach while maintaining separate operational instances.",
+    "path_description": "Path: ProducerBlockchain --[ensuresSecurityLevelEquivalentTo]--> ProducerBlockchain --[ensuresSecurityLevelEquivalentTo]--> ProducerBlockchain --[type]--> Blockchain",
+    "context": "This approach ensures an equivalent level of security as the original blockchain (the producer blockchain). | This approach ensures an equivalent level of security as the original blockchain (the producer blockchain). | This approach ensures an equivalent level of security as the original blockchain (the producer blockchain).",
+    "paper_id": "917"
+  },
+  {
+    "section": "verification1",
+    "path": {
+      "section": "verification1",
+      "start_entity": "CCValidationWithoutMining",
+      "end_entity": "ProofOfWork",
+      "hops": [
+        {
+          "from": "CCValidationWithoutMining",
+          "relation": "partOf",
+          "to": "Blockchain1",
+          "context": "One node was dedicated solely to cross-chain smart contract validation without engaging in mining operations, labeled as CCValidationWithoutMining.",
+          "chunk": "10"
+        },
+        {
+          "from": "Blockchain1",
+          "relation": "comparedWith",
+          "to": "Blockchain2",
+          "context": "We conducted a comparison of resource utilization between two blockchains, denoted as blockchain1 and blockchain2.",
+          "chunk": "10"
+        },
+        {
+          "from": "Blockchain2",
+          "relation": "uses",
+          "to": "ProofOfWork",
+          "context": "Both blockchains utilize the Proof of Work (PoW) consensus algorithm and synchronize their transactions and blocks.",
+          "chunk": "10"
+        }
+      ]
+    },
+    "question": "Considering the relationship between cross-chain smart contract validation and mining, which statement is most accurate regarding the resource utilization comparison between blockchain1 and blockchain2?",
+    "options": {
+      "A": "Both blockchain1 and blockchain2, which utilize the Proof of Work consensus algorithm, showed similar resource utilization patterns.",
+      "B": "Blockchain1, not engaging in cross-chain smart contract validation, demonstrated higher resource utilization than blockchain2.",
+      "C": "Blockchain2, which does not use the Proof of Work consensus algorithm, demonstrated higher resource utilization than blockchain1.",
+      "D": "Blockchain1, utilizing a different consensus algorithm from blockchain2, showed lower resource utilization in comparison."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A because both blockchain1 and blockchain2 use the Proof of Work (PoW) consensus algorithm as indicated in the provided context. This suggests that they would have similar resource utilization patterns. Options B and C are incorrect as they contradict the information that both blockchains use PoW. Option D is misleading because it incorrectly states that blockchain1 does not engage in cross-chain smart contract validation which is not discussed in the context concerning resource utilization comparison.",
+    "path_description": "Path: CCValidationWithoutMining --[partOf]--> Blockchain1 --[comparedWith]--> Blockchain2 --[uses]--> ProofOfWork",
+    "context": "One node was dedicated solely to cross-chain smart contract validation without engaging in mining operations, labeled as CCValidationWithoutMining. | We conducted a comparison of resource utilization between two blockchains, denoted as blockchain1 and blockchain2. | Both blockchains utilize the Proof of Work (PoW) consensus algorithm and synchronize their transactions and blocks.",
+    "paper_id": "917"
+  }
+]

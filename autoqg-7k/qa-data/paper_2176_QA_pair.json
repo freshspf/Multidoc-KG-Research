@@ -1,0 +1,88 @@
+[
+  {
+    "section": "problemformulation",
+    "path": {
+      "section": "problemformulation",
+      "start_entity": "Model",
+      "end_entity": "Receiver",
+      "hops": [
+        {
+          "from": "Model",
+          "relation": "optimizes",
+          "to": "RT",
+          "context": "This model’s purpose is to optimise the SUs’ network rate.",
+          "chunk": "2"
+        },
+        {
+          "from": "RT",
+          "relation": "achievedAt",
+          "to": "SU-Rx",
+          "context": "where RT represents the total achievable rate at the SU-Rx in the t time slot.",
+          "chunk": "2"
+        },
+        {
+          "from": "SU-Rx",
+          "relation": "type",
+          "to": "Receiver",
+          "context": "where RT represents the total achievable rate at the SU-Rx in the t time slot.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In a model optimizing the network rate for secondary users (SUs), what does RT represent in the context of achieving optimization at the SU-Rx receiver?",
+    "options": {
+      "A": "RT represents the minimum required rate to maintain connectivity at the SU-Rx receiver.",
+      "B": "RT signifies the total achievable rate at the SU-Rx receiver during a specific time slot.",
+      "C": "RT indicates the maximum bandwidth capacity available at the SU-Rx receiver without time constraints.",
+      "D": "RT is the average rate of data transfer achieved by the SU-Rx receiver over multiple time slots."
+    },
+    "correct_answer": "B",
+    "explanation": "According to the knowledge path and the context provided in the paper, RT stands for the total achievable rate at the SU-Rx (Secondary User Receiver) in a specific time slot, t. This definition directly supports the model’s goal of optimizing network rates for SUs, correlating with the 'optimizes' and 'achievedAt' relationships mentioned in the knowledge graph path.",
+    "path_description": "Path: Model --[optimizes]--> RT --[achievedAt]--> SU-Rx --[type]--> Receiver",
+    "context": "This model’s purpose is to optimise the SUs’ network rate. | where RT represents the total achievable rate at the SU-Rx in the t time slot. | where RT represents the total achievable rate at the SU-Rx in the t time slot.",
+    "paper_id": "925"
+  },
+  {
+    "section": "conclusions",
+    "path": {
+      "section": "conclusions",
+      "start_entity": "TimeSwitchingFactor",
+      "end_entity": "EnergySource",
+      "hops": [
+        {
+          "from": "TimeSwitchingFactor",
+          "relation": "decidedBy",
+          "to": "SUTransmitter",
+          "context": "It was also observed that the SU transmitter needs to decide on the value of the time switching factor depending on the objective of the system.",
+          "chunk": "7"
+        },
+        {
+          "from": "SUTransmitter",
+          "relation": "extractsEnergyFrom",
+          "to": "RFSignals",
+          "context": "The SU transmitter extracts energy from the RF signals emitted by the PU transmitters.",
+          "chunk": "7"
+        },
+        {
+          "from": "RFSignals",
+          "relation": "type",
+          "to": "EnergySource",
+          "context": "The SU transmitter extracts energy from the RF signals emitted by the PU transmitters.",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "In a system where a Secondary User (SU) transmitter is involved, what determines the appropriate value of the time switching factor?",
+    "options": {
+      "A": "The geographical location of the SU transmitter relative to the Primary User transmitters.",
+      "B": "The frequency at which the SU transmitter operates during normal conditions.",
+      "C": "The type of energy source used by the SU transmitter, which in this case is RF signals from Primary User transmitters.",
+      "D": "The amount of data needing transmission by the SU transmitter to a remote server."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A. The time switching factor for the SU transmitter is decided based on the type of energy source, which the SU transmitter extracts from RF signals emitted by PU transmitters. These RF signals act as an energy source, and their type directly influences the decision on the time switching factor value to optimize energy extraction.",
+    "path_description": "Path: TimeSwitchingFactor --[decidedBy]--> SUTransmitter --[extractsEnergyFrom]--> RFSignals --[type]--> EnergySource",
+    "context": "It was also observed that the SU transmitter needs to decide on the value of the time switching factor depending on the objective of the system. | The SU transmitter extracts energy from the RF signals emitted by the PU transmitters. | The SU transmitter extracts energy from the RF signals emitted by the PU transmitters.",
+    "paper_id": "925"
+  }
+]

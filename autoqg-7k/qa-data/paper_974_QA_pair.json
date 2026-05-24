@@ -1,0 +1,131 @@
+[
+  {
+    "section": "introduction",
+    "path": {
+      "section": "introduction",
+      "start_entity": "M20K",
+      "end_entity": "ProcessorType",
+      "hops": [
+        {
+          "from": "M20K",
+          "relation": "usedIn",
+          "to": "FPGA",
+          "context": "These consist of a large amount of registers (which can be easily mapped to the large number of embedded M20K memories in the FPGA).",
+          "chunk": "0"
+        },
+        {
+          "from": "FPGA",
+          "relation": "suitedFor",
+          "to": "SIMT",
+          "context": "At first glance, the FPGA would seem to be well suited to the construction of SIMT processors such as GPGPUs.",
+          "chunk": "0"
+        },
+        {
+          "from": "SIMT",
+          "relation": "type",
+          "to": "ProcessorType",
+          "context": "At first glance, the FPGA would seem to be well suited to the construction of SIMT processors such as GPGPUs.",
+          "chunk": "0"
+        }
+      ]
+    },
+    "question": "Why are FPGAs considered suitable for constructing SIMT processors, specifically in relation to the type of memory they incorporate?",
+    "options": {
+      "A": "FPGAs primarily utilize volatile SRAM, which speeds up the computation processes typical in SIMD architectures.",
+      "B": "FPGAs have an integrated ARM processor that helps in managing the SIMT processor's multithreading capabilities.",
+      "C": "FPGAs contain a large number of M20K memory blocks, which align well with the high register requirements of SIMT processors.",
+      "D": "FPGAs are integrated with high-speed GPU units that inherently support SIMT architectures for parallel processing."
+    },
+    "correct_answer": "C",
+    "explanation": "FPGAs are suitable for SIMT processors because they contain M20K memory blocks, which can map directly to the large register requirements typical of SIMT architectures like those found in GPGPUs. This alignment is crucial for the processor type's efficiency and performance.",
+    "path_description": "Path: M20K --[usedIn]--> FPGA --[suitedFor]--> SIMT --[type]--> ProcessorType",
+    "context": "These consist of a large amount of registers (which can be easily mapped to the large number of embedded M20K memories in the FPGA). | At first glance, the FPGA would seem to be well suited to the construction of SIMT processors such as GPGPUs. | At first glance, the FPGA would seem to be well suited to the construction of SIMT processors such as GPGPUs.",
+    "paper_id": "2045"
+  },
+  {
+    "section": "introduction",
+    "path": {
+      "section": "introduction",
+      "start_entity": "FPGA",
+      "end_entity": "TFLOPS",
+      "hops": [
+        {
+          "from": "FPGA",
+          "relation": "suitedFor",
+          "to": "SIMT",
+          "context": "At first glance, the FPGA would seem to be well suited to the construction of SIMT processors such as GPGPUs.",
+          "chunk": "0"
+        },
+        {
+          "from": "SIMT",
+          "relation": "similarTo",
+          "to": "GPGPU",
+          "context": "At first glance, the FPGA would seem to be well suited to the construction of SIMT processors such as GPGPUs.",
+          "chunk": "0"
+        },
+        {
+          "from": "GPGPU",
+          "relation": "hasPerformanceMetric",
+          "to": "TFLOPS",
+          "context": "current FPGAs have similar levels of IEEE754 floating point density – 10 to 20 TFLOPS – to current GPGPUs.",
+          "chunk": "0"
+        }
+      ]
+    },
+    "question": "Why are FPGAs considered suitable for constructing SIMT processors similar to GPGPUs in terms of performance metrics?",
+    "options": {
+      "A": "FPGAs can be programmed to perform at lower power consumption than GPGPUs, making them more efficient.",
+      "B": "Both FPGAs and GPGPUs have similar IEEE754 floating point density, ranging approximately 10 to 20 TFLOPS.",
+      "C": "FPGAs are more complex to program compared to GPGPUs, which simplifies the development process.",
+      "D": "GPGPUs are generally cheaper and more available than FPGAs, offering superior performance."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A because the context specifically states that current FPGAs and GPGPUs have similar levels of IEEE754 floating point density, which is around 10 to 20 TFLOPS. This similarity in performance metrics is why FPGAs are considered suitable for constructing SIMT processors similar to GPGPUs.",
+    "path_description": "Path: FPGA --[suitedFor]--> SIMT --[similarTo]--> GPGPU --[hasPerformanceMetric]--> TFLOPS",
+    "context": "At first glance, the FPGA would seem to be well suited to the construction of SIMT processors such as GPGPUs. | At first glance, the FPGA would seem to be well suited to the construction of SIMT processors such as GPGPUs. | current FPGAs have similar levels of IEEE754 floating point density – 10 to 20 TFLOPS – to current GPGPUs.",
+    "paper_id": "2045"
+  },
+  {
+    "section": "bankedmemoryarchitecturesforsoftsimt1",
+    "path": {
+      "section": "bankedmemoryarchitecturesforsoftsimt1",
+      "start_entity": "WriteBandwidth",
+      "end_entity": "ReadPorts",
+      "hops": [
+        {
+          "from": "WriteBandwidth",
+          "relation": "identifiedAsBottleneckIn",
+          "to": "eGPU",
+          "context": "The write bandwidth was found to be a significant performance bottleneck.",
+          "chunk": "2"
+        },
+        {
+          "from": "eGPU",
+          "relation": "uses",
+          "to": "MultiPortMemory",
+          "context": "The eGPU originally avoided bank conflicts by using a multi-port memory.",
+          "chunk": "2"
+        },
+        {
+          "from": "MultiPortMemory",
+          "relation": "hasComponent",
+          "to": "ReadPorts",
+          "context": "The eGPU originally avoided bank conflicts by using a multi-port memory, with 4 read ports.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "Why was the write bandwidth identified as a significant bottleneck in the eGPU architecture described in the section on banked memory architectures for soft SIMT?",
+    "options": {
+      "A": "The eGPU's reliance on multi-port memory with multiple read ports did not adequately address the high write demands.",
+      "B": "The eGPU used a single-port memory system, which led to frequent bank conflicts and reduced write efficiency.",
+      "C": "The increased number of read ports in the eGPU's memory architecture reduced the overall write capacity.",
+      "D": "The eGPU's multi-port memory had excessive read ports which directly increased write bandwidth."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A because the eGPU, while using a multi-port memory design to avoid bank conflicts, originally did not address the high demand for write bandwidth. This setup had multiple read ports, which suggests it was optimized for reading operations rather than writing, thus identifying write bandwidth as a bottleneck.",
+    "path_description": "Path: WriteBandwidth --[identifiedAsBottleneckIn]--> eGPU --[uses]--> MultiPortMemory --[hasComponent]--> ReadPorts",
+    "context": "The write bandwidth was found to be a significant performance bottleneck. | The eGPU originally avoided bank conflicts by using a multi-port memory. | The eGPU originally avoided bank conflicts by using a multi-port memory, with 4 read ports.",
+    "paper_id": "2045"
+  }
+]

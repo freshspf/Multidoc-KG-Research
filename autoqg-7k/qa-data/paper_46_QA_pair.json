@@ -1,0 +1,131 @@
+[
+  {
+    "section": "abstract",
+    "path": {
+      "section": "abstract",
+      "start_entity": "AIMCode",
+      "end_entity": "System",
+      "hops": [
+        {
+          "from": "AIMCode",
+          "relation": "developedBy",
+          "to": "AlignmentInMemory",
+          "context": "Our code is available at https://github.com/safaad/aim.",
+          "chunk": "0"
+        },
+        {
+          "from": "AlignmentInMemory",
+          "relation": "outperforms",
+          "to": "ServerGradeMultiThreadedCPUSystems",
+          "context": "can substantially outperform server-grade multi-threaded CPU systems running at full-scale when performing sequence alignment.",
+          "chunk": "0"
+        },
+        {
+          "from": "ServerGradeMultiThreadedCPUSystems",
+          "relation": "type",
+          "to": "System",
+          "context": "can substantially outperform server-grade multi-threaded CPU systems...",
+          "chunk": "0"
+        }
+      ]
+    },
+    "question": "Which system type is primarily outperformed by the AlignmentInMemory's AIMCode in sequence alignment tasks?",
+    "options": {
+      "A": "Basic single-threaded CPU systems used primarily in personal computing",
+      "B": "Consumer-grade GPU systems typically used for gaming and graphic design",
+      "C": "Advanced distributed computing systems used for large-scale data processing",
+      "D": "Server-grade multi-threaded CPU systems designed for high-performance tasks"
+    },
+    "correct_answer": "D",
+    "explanation": "The question tests understanding of the specific type of system that the AIMCode, developed by AlignmentInMemory, outperforms. According to the context, AIMCode substantially outperforms server-grade multi-threaded CPU systems when performing sequence alignment, making option A correct. The other options list different system types that are not mentioned in the provided context as being outperformed in this specific task.",
+    "path_description": "Path: AIMCode --[developedBy]--> AlignmentInMemory --[outperforms]--> ServerGradeMultiThreadedCPUSystems --[type]--> System",
+    "context": "Our code is available at https://github.com/safaad/aim. | can substantially outperform server-grade multi-threaded CPU systems running at full-scale when performing sequence alignment. | can substantially outperform server-grade multi-threaded CPU systems...",
+    "paper_id": "233"
+  },
+  {
+    "section": "systemandmethods1",
+    "path": {
+      "section": "systemandmethods1",
+      "start_entity": "UPMEM",
+      "end_entity": "SequenceAlignmentAlgorithms",
+      "hops": [
+        {
+          "from": "UPMEM",
+          "relation": "supports",
+          "to": "DPU",
+          "context": "An UPMEM system consists of a set of UPMEM DIMM modules plugged alongside main memory and acting as parallel co-processors to the host CPU.",
+          "chunk": "2"
+        },
+        {
+          "from": "DPU",
+          "relation": "partOf",
+          "to": "UPMEM",
+          "context": "An UPMEM module is a DDR4-2400 DIMM with 16 PIM-enabled chips, where each chip consists of eight general-purpose processing PIM cores called DRAM Processing Units (DPUs).",
+          "chunk": "2"
+        },
+        {
+          "from": "UPMEM",
+          "relation": "optimizedFor",
+          "to": "SequenceAlignmentAlgorithms",
+          "context": "Sequence alignment algorithms are well-suited for such a system because there are usually a few computations performed for each data element accessed from the intermediate data structures.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "Why are sequence alignment algorithms particularly well-suited for an UPMEM system featuring DPUs?",
+    "options": {
+      "A": "Because there are usually a few computations performed for each data element accessed from the intermediate data structures.",
+      "B": "Because the algorithms require extensive graphical processing unit (GPU) usage which DPUs can substitute efficiently.",
+      "C": "Because there are many computations performed for each data element accessed from the intermediate data structures.",
+      "D": "Because sequence alignment algorithms involve simple, repetitive tasks that benefit from the parallel processing offered by multiple DPUs."
+    },
+    "correct_answer": "A",
+    "explanation": "Sequence alignment algorithms are particularly well-suited for the UPMEM system because the nature of these algorithms involves a few computations for each data element accessed. This matches the efficiency of DPUs in handling such tasks as they are integrated into the UPMEM module, designed to perform parallel processing efficiently.",
+    "path_description": "Path: UPMEM --[supports]--> DPU --[partOf]--> UPMEM --[optimizedFor]--> SequenceAlignmentAlgorithms",
+    "context": "An UPMEM system consists of a set of UPMEM DIMM modules plugged alongside main memory and acting as parallel co-processors to the host CPU. | An UPMEM module is a DDR4-2400 DIMM with 16 PIM-enabled chips, where each chip consists of eight general-purpose processing PIM cores called DRAM Processing Units (DPUs). | Sequence alignment algorithms are well-suited for such a system because there are usually a few computations performed for each data element accessed from the intermediate data structures.",
+    "paper_id": "233"
+  },
+  {
+    "section": "evaluation1",
+    "path": {
+      "section": "evaluation1",
+      "start_entity": "WFA-Adaptive",
+      "end_entity": "MemoryType",
+      "hops": [
+        {
+          "from": "WFA-Adaptive",
+          "relation": "variantOf",
+          "to": "Wavefront-Algorithm",
+          "context": "WFA-adaptive, a heuristic variant of WFA, reduces the number of the spanned diagonals.",
+          "chunk": "4"
+        },
+        {
+          "from": "Wavefront-Algorithm",
+          "relation": "implementedIn",
+          "to": "WRAM",
+          "context": "In the implementations that only use WRAM for intermediate alignment data structures.",
+          "chunk": "4"
+        },
+        {
+          "from": "WRAM",
+          "relation": "type",
+          "to": "MemoryType",
+          "context": "In the implementation that only uses WRAM for intermediate alignment data structures.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "What is the nature of the memory utilized in the implementation of the WFA-Adaptive algorithm when it manages alignment data structures?",
+    "options": {
+      "A": "SRAM, which is primarily used for cache memory, is utilized for intermediate alignment data structures in WFA-Adaptive.",
+      "B": "DRAM, commonly used for temporary data storage, is utilized for intermediate alignment data structures in WFA-Adaptive.",
+      "C": "WRAM, as a specific type of memory, is utilized for storing intermediate alignment data structures in WFA-Adaptive.",
+      "D": "Flash memory, typically used for long-term storage, is utilized for intermediate alignment data structures in WFA-Adaptive."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A because the knowledge path indicates that Wavefront-Algorithm, specifically the WFA-Adaptive variant, is implemented in WRAM, which is used for intermediate alignment data structures according to the context provided.",
+    "path_description": "Path: WFA-Adaptive --[variantOf]--> Wavefront-Algorithm --[implementedIn]--> WRAM --[type]--> MemoryType",
+    "context": "WFA-adaptive, a heuristic variant of WFA, reduces the number of the spanned diagonals. | In the implementations that only use WRAM for intermediate alignment data structures. | In the implementation that only uses WRAM for intermediate alignment data structures.",
+    "paper_id": "233"
+  }
+]

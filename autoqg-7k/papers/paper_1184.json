@@ -1,0 +1,42 @@
+[
+  {
+    "id": "introduction",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Introduction",
+      "page_start": 1,
+      "page_end": 1
+    },
+    "text": "Tendon-driven Continuum Robots (TDCRs) are promis-\ning candidates for applications  in confined spaces due to\ntheir shape, compliance, and miniaturization capability. Non-\n4\nparallel tendon routing for TDCRs have shown definite ad-\n2\nvantages including segments with higher degrees of freedom,\n0\n2  larger workspace and higher dexterity [1]. However, most\n \nworks have focused on parallel tendons to achieve constant-\np\ne curvature shapes, which yields analytically simple kinematics\nS but overly restricts the design possibilities.\n \nWe believe this under-utilization of general tendon rout-\n0\n2  ing can be attributed to the lack of a general kinematic\n \n  model  that  estimates  shape  from only  tendon geometry\n]\nand displacements. Cosserat rod-based models are capable\nO of modeling general  tendon routing [2], but  they require\nR accurate tendon tension measurements and extensive system\n.\ns  identification, hindering their usability for design purposes.\nc\nRecent attempts in developing a kinematic model, e.g.[3],\n[\n \n  are limited to simple scenarios like actuation with a single\n1  tendon or tendons on perpendicular planes. Moreover, model\nv  formulations are often disconnected from hardware, making\n5\ndesigns challenging to build under manufacturing constraints.\n6\nOur first contribution is a novel design for TDCRs based\n1\n3 on a synovial  universal  joint module, which provides a\n1 mechanically discretized and feasible design space. Based\n.\n9 on the design, our second contribution is the formulation\n0 and evaluation of an optimization-based kinematic model,\n4 capable of handling actuation of multiple general  routed\n2\n:  tendons. Lastly, we present an example application of our\nv design for gaited locomotion, demonstrating our method’s\ni\npotential for an unified model-based design pipeline.\nX\nr"
+  },
+  {
+    "id": "mechanicaldesign",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Mechanical Design",
+      "page_start": 1,
+      "page_end": 1
+    },
+    "text": "Various discrete-jointed TDCR designs (e.g. revolute, uni-\nversal, spherical) have been proposed in literature, among\nwhich universal  joints  show an  ideal  trade off between\ndexterity and torsional  stiffness  [4]. However,  traditional\nuniversal  joints are difficult  to integrate into TDCRs due\nto the center channel being blocked and high part count.\nWe mitigate these major disadvantages by proposing a novel\nsynovial universal  joint with an open center-channel  for\nbackbone/tendon/tool access and simple geometry for minia-\nturization, shown in Fig. 1. The geometry is parametrically\ngoverned by the desired inner diameter, outer diameter, and\nAll authors are with the Continuum Robotics Laboratory, Department of\nMathematical and Computational Sciences, University of Toronto, Missis-\nsauga, ON L5L 1C6, Canada (cshentu@cs.toronto.edu)\n\nriven Continuum Robot:\nd Locomotion in Narrow Tubes\nJessica Burgner-Kahrs\nDesired Bending\nLimit\nInner/Outer \nDiameter\nCustomizable\nBackbone/Tendo/Tool \nChannels\nSynovial \nUniversal \nNotches for   Joint\nAssembly\nModular, Parametric   Discretized   Simplified \nGeometry  Design Space Robot State\nFig. 1.  The synovial universal-jointed TDCR design restricts robot motion\nto achieve torsional rigidity and efficient state representation through a set of\ndiscrete joint angels. The modules’ geometry is parametrically determined\nby tube dimensions and joint angle limits.\nbending angle limit. It is designed to be laser-cut from a tube\nfor low-cost production regardless of its size.\nRigid links with grooves are placed between universal\njoints. Their modular design allows flexibility in terms of\nlength, diameter, and customizable tendon channels. They\ncan be made with rapid prototyping techniques  to allow\niterative, application-specific designs while reusing the same\nset of universal joints."
+  },
+  {
+    "id": "kinematicsmodeling",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Kinematics Modeling",
+      "page_start": 1,
+      "page_end": 1
+    },
+    "text": "An inherent benefit of our proposed design is  that  it\nsimplifies the robot shape to a chain of rigid links connected\nby universal joints. For a robot with n joints, we define the\nR2n\nstate as its joint angles q ∈  . The robot geometry is\nRn\ndescribed by its link lengths ℓ ∈  , and relative tendon\nR3×(2n+1)\nway points p¯i ∈  for each tendon i with respect\nto the previous joint (3D coordinates for 2 way points at each\nlink and 1 extra way point at the base). Note this is a geo-\nmetrically exact representation instead of an approximation\nas in other rigid-body-based model formulations.\nWe adopt two assumptions used in the constant-curvature\nmodel: 1)  the robot’s bending stiffness  is symmetric and\nuniform, which holds for TDCRs with isotropic backbone(s)\nof  constant  cross-section;  2) we neglect  external  forces\nincluding gravity as they are either insignificant (e.g. low de-\nformation due to gravity) or cannot be measured effectively\nso are treated as disturbances instead.\nBesides that, we allow general  tendon routing along the\nrobot and assume 3)  tendons have zero bending-stiffness,\nwhich holds for common tendon materials. Our state rep-\nresentation q also assumes 4) the robot is torsionally rigid,\nwhich is guaranteed by the mechanical design."
+  },
+  {
+    "id": "tendondrivenlocomotion",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Tendon-driven Locomotion",
+      "page_start": 2,
+      "page_end": 2
+    },
+    "text": "We show an example application of our model by de-\nsigning a tethered TDCR that bends into helical shapes with\ndesired pitch angle when actuated. This tendon configuration\nenables a helical rolling gait, making the prototype (15mm\ndiameter) capable of locomotion in a narrow tube (21mm\ninner diameter), shown in Fig. 3.\nTime = 0s  60s  120s  180s\nFig. 3.  A tethered, universal-jointed TDCR climbing up a sloped rubber\ntube  through helical  rolling gait  at 0.33Hz with three actuators. The\naccompanying video provides additional visual aid.\nThis tendon-driven snake-like robot forms an interesting\ncomparison with intrinsically actuated snake robots [5] —\nIt achieves a pre-defined locomotion gait with significantly\nless actuators, but loses independent joint actuation. Tendon\nactuation also allows such designs to be miniaturized, light-\nweight,  low-cost,  and  inherently compliant, making  this\napproach attractive for search and rescue applications.  In\nfuture works, we will evaluate the model on more complex\ntendon routings, and improve the computational performance\nof the model for real-time applications."
+  }
+]

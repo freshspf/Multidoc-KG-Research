@@ -1,0 +1,1485 @@
+2026-01-25 16:04:46 - [core.vector_store] - DEBUG - Logger initialized: core.vector_store, log file: logs/run_20260125_160446.log
+2026-01-25 16:04:46 - [agents.extraction] - DEBUG - Logger initialized: agents.extraction, log file: logs/run_20260125_160446.log
+2026-01-25 16:04:46 - [agents.grounding] - DEBUG - Logger initialized: agents.grounding, log file: logs/run_20260125_160446.log
+2026-01-25 16:04:46 - [agents.validation] - DEBUG - Logger initialized: agents.validation, log file: logs/run_20260125_160446.log
+2026-01-25 16:04:46 - [agents.evolution] - DEBUG - Logger initialized: agents.evolution, log file: logs/run_20260125_160446.log
+2026-01-25 16:04:46 - [agents.offline_refactoring] - DEBUG - Logger initialized: agents.offline_refactoring, log file: logs/run_20260125_160446.log
+2026-01-25 16:04:46 - [data_loader] - DEBUG - Logger initialized: data_loader, log file: logs/run_20260125_160446.log
+2026-01-25 16:04:46 - [__main__] - DEBUG - Logger initialized: __main__, log file: logs/run_20260125_160446.log
+2026-01-25 16:04:46 - [__main__] - INFO - ======================================================================
+2026-01-25 16:04:46 - [__main__] - INFO - Multidoc-KG: 完整流水线 + 领域本体分析
+2026-01-25 16:04:46 - [__main__] - INFO - ======================================================================
+2026-01-25 16:04:46 - [__main__] - INFO - 
+2026-01-25 16:04:46 - [__main__] - INFO - Phase 1: 初始化组件
+2026-01-25 16:04:46 - [__main__] - INFO - --------------------------------------------------
+2026-01-25 16:04:46 - [data_loader] - INFO - Initialized with directory: data/preprocess/data
+2026-01-25 16:04:46 - [data_loader] - INFO - Found 4 JSON files
+2026-01-25 16:04:46 - [data_loader] - DEBUG - Loaded paper: 1_10.1109_ACCESS.2018.2825378
+2026-01-25 16:04:46 - [data_loader] - DEBUG -   - Sections: 9
+2026-01-25 16:04:46 - [data_loader] - DEBUG -   - Content length: 32747 chars
+2026-01-25 16:04:46 - [data_loader] - DEBUG - Loaded paper: 1_10.1109_ACCESS.2018.2827023
+2026-01-25 16:04:46 - [data_loader] - DEBUG -   - Sections: 7
+2026-01-25 16:04:46 - [data_loader] - DEBUG -   - Content length: 18114 chars
+2026-01-25 16:04:46 - [data_loader] - DEBUG - Loaded paper: 1_10.1109_ACCESS.2018.2853628
+2026-01-25 16:04:46 - [data_loader] - DEBUG -   - Sections: 8
+2026-01-25 16:04:46 - [data_loader] - DEBUG -   - Content length: 24876 chars
+2026-01-25 16:04:46 - [data_loader] - DEBUG - Loaded paper: 1_10.1109_ACCESS.2019.2919324
+2026-01-25 16:04:46 - [data_loader] - DEBUG -   - Sections: 24
+2026-01-25 16:04:46 - [data_loader] - DEBUG -   - Content length: 104513 chars
+2026-01-25 16:04:46 - [data_loader] - INFO - Successfully loaded 4 papers
+2026-01-25 16:04:46 - [__main__] - INFO - 将处理前 2 篇论文
+2026-01-25 16:04:46 - [core.vector_store] - DEBUG - Initializing with model: all-MiniLM-L6-v2
+2026-01-25 16:04:53 - [core.vector_store] - INFO - Initialized with embedding dimension: 384
+2026-01-25 16:04:53 - [agents.extraction] - INFO - Initialized with Ontology-Guided Extraction
+2026-01-25 16:04:53 - [agents.extraction] - DEBUG - Ontology classes: Task, Method, Metric, Dataset, Tool, Finding, Concept
+2026-01-25 16:04:53 - [agents.grounding] - INFO - Initialized
+2026-01-25 16:04:53 - [agents.validation] - INFO - Initialized
+2026-01-25 16:04:53 - [agents.evolution] - INFO - Initialized
+2026-01-25 16:04:53 - [agents.offline_refactoring] - INFO - Initialized
+2026-01-25 16:04:53 - [agents.offline_refactoring] - DEBUG - Ontology classes: Task, Method, Metric, Dataset, Tool, Finding, Concept
+2026-01-25 16:04:53 - [__main__] - INFO - 
+2026-01-25 16:04:53 - [__main__] - INFO - Phase 2: 知识抽取流水线
+2026-01-25 16:04:53 - [__main__] - INFO - --------------------------------------------------
+2026-01-25 16:04:53 - [__main__] - INFO - 
+2026-01-25 16:04:53 - [__main__] - INFO - >>> Paper 1/2: 1_10.1109_ACCESS.2018.2825378
+2026-01-25 16:04:53 - [__main__] - INFO -     Title: INTRODUCTION...
+2026-01-25 16:04:53 - [agents.extraction] - INFO - Processing paper: 1_10.1109_ACCESS.2018.2825378 - INTRODUCTION
+2026-01-25 16:04:53 - [agents.extraction] - DEBUG - Split paper into 5 chunks
+2026-01-25 16:04:53 - [agents.extraction] - DEBUG - Extracting claims from chunk 1 (7348 chars)...
+2026-01-25 16:05:19 - [agents.extraction] - DEBUG - Cleaned response preview: {
+  "claims": [
+    {
+      "subject": "Brain-Computer Interface",
+      "subject_type": "Concept",
+      "relation": "directly bridges",
+      "objec...
+2026-01-25 16:05:19 - [agents.extraction] - INFO - Successfully extracted 8 claims from chunk 1
+2026-01-25 16:05:19 - [agents.extraction] - DEBUG - Entity type distribution: Concept:10, Method:1, Metric:1, Task:1, Tool:3
+2026-01-25 16:05:19 - [agents.extraction] - DEBUG - Extracting claims from chunk 2 (5840 chars)...
+2026-01-25 16:05:25 - [agents.extraction] - DEBUG - Cleaned response preview: {"claims": [
+  {
+    "subject": "Wearable SSVEP-Based BCI System",
+    "subject_type": "Tool",
+    "relation": "used for",
+    "object": "Quadcopter C...
+2026-01-25 16:05:25 - [agents.extraction] - INFO - Successfully extracted 8 claims from chunk 2
+2026-01-25 16:05:25 - [agents.extraction] - DEBUG - Entity type distribution: Concept:6, Dataset:3, Method:1, Task:3, Tool:3
+2026-01-25 16:05:25 - [agents.extraction] - DEBUG - Extracting claims from chunk 3 (7100 chars)...
+2026-01-25 16:05:31 - [agents.extraction] - DEBUG - Cleaned response preview: {
+  "claims": [
+    {
+      "subject": "Quadcopter",
+      "subject_type": "Concept",
+      "relation": "has",
+      "object": "head along the facing ...
+2026-01-25 16:05:31 - [agents.extraction] - INFO - Successfully extracted 10 claims from chunk 3
+2026-01-25 16:05:31 - [agents.extraction] - DEBUG - Entity type distribution: Concept:10, Method:1, Metric:5, Task:3, Tool:1
+2026-01-25 16:05:31 - [agents.extraction] - DEBUG - Extracting claims from chunk 4 (7915 chars)...
+2026-01-25 16:05:37 - [agents.extraction] - DEBUG - Cleaned response preview: {
+    "claims": [
+        {
+            "subject": "BCI system",
+            "subject_type": "Method",
+            "relation": "consumes more time com...
+2026-01-25 16:05:37 - [agents.extraction] - INFO - Successfully extracted 7 claims from chunk 4
+2026-01-25 16:05:37 - [agents.extraction] - DEBUG - Entity type distribution: Finding:6, Method:5, Metric:1, Tool:2
+2026-01-25 16:05:37 - [agents.extraction] - DEBUG - Extracting claims from chunk 5 (4517 chars)...
+2026-01-25 16:05:44 - [agents.extraction] - DEBUG - Cleaned response preview: {
+    "claims": [
+        {
+            "subject": "SSVEP-based BCI system",
+            "subject_type": "Tool",
+            "relation": "constructed ...
+2026-01-25 16:05:44 - [agents.extraction] - INFO - Successfully extracted 7 claims from chunk 5
+2026-01-25 16:05:44 - [agents.extraction] - DEBUG - Entity type distribution: Concept:3, Finding:2, Method:1, Metric:2, Task:1, Tool:5
+2026-01-25 16:05:44 - [agents.extraction] - INFO - Total extracted 40 claims from paper 1_10.1109_ACCESS.2018.2825378
+2026-01-25 16:05:44 - [agents.grounding] - INFO - Processing 40 claims for grounding
+2026-01-25 16:05:44 - [agents.grounding] - DEBUG - Resolving subject: 'Brain-Computer Interface'
+2026-01-25 16:05:44 - [core.vector_store] - DEBUG - Index is empty, no results for query: 'Brain-Computer Interface'
+2026-01-25 16:05:44 - [core.vector_store] - DEBUG - Added entity: 'Brain-Computer Interface' (ID: ent_bee085d5), Total entities: 1
+2026-01-25 16:05:44 - [agents.grounding] - DEBUG - Created New Entity: 'Brain-Computer Interface' (ID: ent_bee085d5)
+2026-01-25 16:05:44 - [agents.grounding] - DEBUG - Resolving object: 'brain and external environment'
+2026-01-25 16:05:44 - [core.vector_store] - DEBUG - Search for 'brain and external environment' returned 1 results
+2026-01-25 16:05:47 - [agents.grounding] - DEBUG - LLM Judge response for 'brain and external environment': {"decision": "merge", "id": "ent_bee085d5", "reasoning": "The target entity 'brain and external environment' refers to the direct interaction between the brain and its surroundings, which is precisely...
+2026-01-25 16:05:47 - [agents.grounding] - INFO - Merging entity 'brain and external environment' -> 'Brain-Computer Interface' (ID: ent_bee085d5)
+2026-01-25 16:05:47 - [agents.grounding] - DEBUG - Resolving subject: 'Unmanned aerial vehicle'
+2026-01-25 16:05:47 - [core.vector_store] - DEBUG - Search for 'Unmanned aerial vehicle' returned 1 results
+2026-01-25 16:05:47 - [core.vector_store] - DEBUG - Added entity: 'Unmanned aerial vehicle' (ID: ent_dd9e1dd9), Total entities: 2
+2026-01-25 16:05:47 - [agents.grounding] - DEBUG - Created New Entity: 'Unmanned aerial vehicle' (ID: ent_dd9e1dd9)
+2026-01-25 16:05:47 - [agents.grounding] - DEBUG - Resolving object: 'broad application prospects'
+2026-01-25 16:05:47 - [core.vector_store] - DEBUG - Search for 'broad application prospects' returned 2 results
+2026-01-25 16:05:47 - [core.vector_store] - DEBUG - Added entity: 'broad application prospects' (ID: ent_25d33b83), Total entities: 3
+2026-01-25 16:05:47 - [agents.grounding] - DEBUG - Created New Entity: 'broad application prospects' (ID: ent_25d33b83)
+2026-01-25 16:05:47 - [agents.grounding] - DEBUG - Resolving subject: 'SSVEP-based BCI'
+2026-01-25 16:05:47 - [core.vector_store] - DEBUG - Search for 'SSVEP-based BCI' returned 3 results
+2026-01-25 16:05:49 - [agents.grounding] - DEBUG - LLM Judge response for 'SSVEP-based BCI': {
+  "decision": "new",
+  "reasoning": "The target entity 'SSVEP-based BCI' refers specifically to a type of Brain-Computer Interface utilizing Steady-State Visual Evoked Potentials, which is a distinc...
+2026-01-25 16:05:49 - [core.vector_store] - DEBUG - Added entity: 'SSVEP-based BCI' (ID: ent_43a68dbb), Total entities: 4
+2026-01-25 16:05:49 - [agents.grounding] - DEBUG - Created New Entity: 'SSVEP-based BCI' (ID: ent_43a68dbb) [LLM decided not to merge]
+2026-01-25 16:05:49 - [agents.grounding] - DEBUG - Resolving object: 'Middendorf et al.'
+2026-01-25 16:05:49 - [core.vector_store] - DEBUG - Search for 'Middendorf et al.' returned 4 results
+2026-01-25 16:05:49 - [core.vector_store] - DEBUG - Added entity: 'Middendorf et al.' (ID: ent_cd3866ce), Total entities: 5
+2026-01-25 16:05:49 - [agents.grounding] - DEBUG - Created New Entity: 'Middendorf et al.' (ID: ent_cd3866ce)
+2026-01-25 16:05:49 - [agents.grounding] - DEBUG - Resolving subject: 'Quadcopter BCI control'
+2026-01-25 16:05:49 - [core.vector_store] - DEBUG - Search for 'Quadcopter BCI control' returned 5 results
+2026-01-25 16:05:49 - [core.vector_store] - DEBUG - Added entity: 'Quadcopter BCI control' (ID: ent_2f8dd041), Total entities: 6
+2026-01-25 16:05:49 - [agents.grounding] - DEBUG - Created New Entity: 'Quadcopter BCI control' (ID: ent_2f8dd041)
+2026-01-25 16:05:49 - [agents.grounding] - DEBUG - Resolving object: 'Lafleur et al.'
+2026-01-25 16:05:49 - [core.vector_store] - DEBUG - Search for 'Lafleur et al.' returned 5 results
+2026-01-25 16:05:49 - [core.vector_store] - DEBUG - Added entity: 'Lafleur et al.' (ID: ent_b1455382), Total entities: 7
+2026-01-25 16:05:49 - [agents.grounding] - DEBUG - Created New Entity: 'Lafleur et al.' (ID: ent_b1455382)
+2026-01-25 16:05:49 - [agents.grounding] - DEBUG - Resolving subject: 'SSVEP'
+2026-01-25 16:05:49 - [core.vector_store] - DEBUG - Search for 'SSVEP' returned 5 results
+2026-01-25 16:05:51 - [agents.grounding] - DEBUG - LLM Judge response for 'SSVEP': {
+  "decision": "merge",
+  "id": "ent_43a68dbb",
+  "reasoning": "SSVEP (Steady-state visual evoked potential) is closely related to its application in brain-computer interfaces, referred to in the can...
+2026-01-25 16:05:51 - [agents.grounding] - INFO - Merging entity 'SSVEP' -> 'SSVEP-based BCI' (ID: ent_43a68dbb)
+2026-01-25 16:05:51 - [agents.grounding] - DEBUG - Resolving object: 'distinct advantages'
+2026-01-25 16:05:51 - [core.vector_store] - DEBUG - Search for 'distinct advantages' returned 5 results
+2026-01-25 16:05:51 - [core.vector_store] - DEBUG - Added entity: 'distinct advantages' (ID: ent_061536bd), Total entities: 8
+2026-01-25 16:05:51 - [agents.grounding] - DEBUG - Created New Entity: 'distinct advantages' (ID: ent_061536bd)
+2026-01-25 16:05:51 - [agents.grounding] - DEBUG - Resolving subject: 'SSVEP'
+2026-01-25 16:05:51 - [core.vector_store] - DEBUG - Search for 'SSVEP' returned 5 results
+2026-01-25 16:05:54 - [agents.grounding] - DEBUG - LLM Judge response for 'SSVEP': ```json
+{"decision": "merge", "id": "ent_43a68dbb", "reasoning": "SSVEP stands for Steady-State Visual Evoked Potential, which is commonly used in Brain-Computer Interfaces (BCI). The context mentioni...
+2026-01-25 16:05:54 - [agents.grounding] - INFO - Merging entity 'SSVEP' -> 'SSVEP-based BCI' (ID: ent_43a68dbb)
+2026-01-25 16:05:54 - [agents.grounding] - DEBUG - Resolving object: 'information transfer rate of up to 5.32 bits/s'
+2026-01-25 16:05:54 - [core.vector_store] - DEBUG - Search for 'information transfer rate of up to 5.32 bits/s' returned 5 results
+2026-01-25 16:05:54 - [core.vector_store] - DEBUG - Added entity: 'information transfer rate of up to 5.32 bits/s' (ID: ent_5371c903), Total entities: 9
+2026-01-25 16:05:54 - [agents.grounding] - DEBUG - Created New Entity: 'information transfer rate of up to 5.32 bits/s' (ID: ent_5371c903)
+2026-01-25 16:05:54 - [agents.grounding] - DEBUG - Resolving subject: 'EEG acquisition device'
+2026-01-25 16:05:54 - [core.vector_store] - DEBUG - Search for 'EEG acquisition device' returned 5 results
+2026-01-25 16:05:56 - [agents.grounding] - DEBUG - LLM Judge response for 'EEG acquisition device': {
+  "decision": "new",
+  "reasoning": "The target entity 'EEG acquisition device' specifically refers to a tool used for capturing EEG signals. The candidate entity 'Brain-Computer Interface' represen...
+2026-01-25 16:05:56 - [core.vector_store] - DEBUG - Added entity: 'EEG acquisition device' (ID: ent_15c97783), Total entities: 10
+2026-01-25 16:05:56 - [agents.grounding] - DEBUG - Created New Entity: 'EEG acquisition device' (ID: ent_15c97783) [LLM decided not to merge]
+2026-01-25 16:05:56 - [agents.grounding] - DEBUG - Resolving object: 'Emotiv Epoc'
+2026-01-25 16:05:56 - [core.vector_store] - DEBUG - Search for 'Emotiv Epoc' returned 5 results
+2026-01-25 16:05:56 - [core.vector_store] - DEBUG - Added entity: 'Emotiv Epoc' (ID: ent_6567e11a), Total entities: 11
+2026-01-25 16:05:56 - [agents.grounding] - DEBUG - Created New Entity: 'Emotiv Epoc' (ID: ent_6567e11a)
+2026-01-25 16:05:56 - [agents.grounding] - DEBUG - Resolving subject: 'HTC VIVE'
+2026-01-25 16:05:56 - [core.vector_store] - DEBUG - Search for 'HTC VIVE' returned 5 results
+2026-01-25 16:05:56 - [core.vector_store] - DEBUG - Added entity: 'HTC VIVE' (ID: ent_3b40ae88), Total entities: 12
+2026-01-25 16:05:56 - [agents.grounding] - DEBUG - Created New Entity: 'HTC VIVE' (ID: ent_3b40ae88)
+2026-01-25 16:05:56 - [agents.grounding] - DEBUG - Resolving object: 'for displaying a 3D virtual scene'
+2026-01-25 16:05:56 - [core.vector_store] - DEBUG - Search for 'for displaying a 3D virtual scene' returned 5 results
+2026-01-25 16:05:56 - [core.vector_store] - DEBUG - Added entity: 'for displaying a 3D virtual scene' (ID: ent_63343721), Total entities: 13
+2026-01-25 16:05:56 - [agents.grounding] - DEBUG - Created New Entity: 'for displaying a 3D virtual scene' (ID: ent_63343721)
+2026-01-25 16:05:56 - [agents.grounding] - DEBUG - Resolving subject: 'Wearable SSVEP-Based BCI System'
+2026-01-25 16:05:56 - [core.vector_store] - DEBUG - Search for 'Wearable SSVEP-Based BCI System' returned 5 results
+2026-01-25 16:05:59 - [agents.grounding] - DEBUG - LLM Judge response for 'Wearable SSVEP-Based BCI System': {
+  "decision": "different",
+  "reasoning": "The target entity 'Wearable SSVEP-Based BCI System' specifically refers to a wearable system used for controlling devices like quadcopters, whereas the can...
+2026-01-25 16:05:59 - [agents.grounding] - WARNING - Invalid decision value: different
+2026-01-25 16:05:59 - [core.vector_store] - DEBUG - Added entity: 'Wearable SSVEP-Based BCI System' (ID: ent_24b607b7), Total entities: 14
+2026-01-25 16:05:59 - [agents.grounding] - DEBUG - Created New Entity: 'Wearable SSVEP-Based BCI System' (ID: ent_24b607b7) [LLM decided not to merge]
+2026-01-25 16:05:59 - [agents.grounding] - DEBUG - Resolving object: 'Quadcopter Control'
+2026-01-25 16:05:59 - [core.vector_store] - DEBUG - Search for 'Quadcopter Control' returned 5 results
+2026-01-25 16:06:01 - [agents.grounding] - DEBUG - LLM Judge response for 'Quadcopter Control': {"decision": "new", "reasoning": "The target entity 'Quadcopter Control' refers broadly to controlling quadcopters, whereas the candidate entity 'Quadcopter BCI control' specifies control via a Brain-...
+2026-01-25 16:06:01 - [core.vector_store] - DEBUG - Added entity: 'Quadcopter Control' (ID: ent_ef7bd5af), Total entities: 15
+2026-01-25 16:06:01 - [agents.grounding] - DEBUG - Created New Entity: 'Quadcopter Control' (ID: ent_ef7bd5af) [LLM decided not to merge]
+2026-01-25 16:06:01 - [agents.grounding] - DEBUG - Resolving subject: 'AR Drone 2.0'
+2026-01-25 16:06:01 - [core.vector_store] - DEBUG - Search for 'AR Drone 2.0' returned 5 results
+2026-01-25 16:06:04 - [agents.grounding] - DEBUG - LLM Judge response for 'AR Drone 2.0': {"decision": "new", "reasoning": "The target entity 'AR Drone 2.0' refers to a specific quadcopter model, whereas the candidate entity 'Unmanned aerial vehicle' describes a broad category of devices. ...
+2026-01-25 16:06:04 - [core.vector_store] - DEBUG - Added entity: 'AR Drone 2.0' (ID: ent_194dc6fa), Total entities: 16
+2026-01-25 16:06:04 - [agents.grounding] - DEBUG - Created New Entity: 'AR Drone 2.0' (ID: ent_194dc6fa) [LLM decided not to merge]
+2026-01-25 16:06:04 - [agents.grounding] - DEBUG - Resolving object: 'physical navigation experiment'
+2026-01-25 16:06:04 - [core.vector_store] - DEBUG - Search for 'physical navigation experiment' returned 5 results
+2026-01-25 16:06:04 - [core.vector_store] - DEBUG - Added entity: 'physical navigation experiment' (ID: ent_30054d2c), Total entities: 17
+2026-01-25 16:06:04 - [agents.grounding] - DEBUG - Created New Entity: 'physical navigation experiment' (ID: ent_30054d2c)
+2026-01-25 16:06:04 - [agents.grounding] - DEBUG - Resolving subject: 'Experiment I'
+2026-01-25 16:06:04 - [core.vector_store] - DEBUG - Search for 'Experiment I' returned 5 results
+2026-01-25 16:06:04 - [core.vector_store] - DEBUG - Added entity: 'Experiment I' (ID: ent_fc67dfbc), Total entities: 18
+2026-01-25 16:06:04 - [agents.grounding] - DEBUG - Created New Entity: 'Experiment I' (ID: ent_fc67dfbc)
+2026-01-25 16:06:04 - [agents.grounding] - DEBUG - Resolving object: 'head movement law'
+2026-01-25 16:06:04 - [core.vector_store] - DEBUG - Search for 'head movement law' returned 5 results
+2026-01-25 16:06:04 - [core.vector_store] - DEBUG - Added entity: 'head movement law' (ID: ent_9f47ad62), Total entities: 19
+2026-01-25 16:06:04 - [agents.grounding] - DEBUG - Created New Entity: 'head movement law' (ID: ent_9f47ad62)
+2026-01-25 16:06:04 - [agents.grounding] - DEBUG - Resolving subject: 'Experiment II'
+2026-01-25 16:06:04 - [core.vector_store] - DEBUG - Search for 'Experiment II' returned 5 results
+2026-01-25 16:06:06 - [agents.grounding] - DEBUG - LLM Judge response for 'Experiment II': {
+  "decision": "new",
+  "reasoning": "The target entity 'Experiment II' is a distinct phase or version of an experiment, focusing on navigation performance. The candidate 'Experiment I' appears to be...
+2026-01-25 16:06:06 - [core.vector_store] - DEBUG - Added entity: 'Experiment II' (ID: ent_a40b9b99), Total entities: 20
+2026-01-25 16:06:06 - [agents.grounding] - DEBUG - Created New Entity: 'Experiment II' (ID: ent_a40b9b99) [LLM decided not to merge]
+2026-01-25 16:06:06 - [agents.grounding] - DEBUG - Resolving object: 'navigation performance of the system'
+2026-01-25 16:06:06 - [core.vector_store] - DEBUG - Search for 'navigation performance of the system' returned 5 results
+2026-01-25 16:06:08 - [agents.grounding] - DEBUG - LLM Judge response for 'navigation performance of the system': {
+  "decision": "new",
+  "reasoning": "The target entity 'navigation performance of the system' refers specifically to assessing how well the system performs in navigation, which is likely related to ...
+2026-01-25 16:06:08 - [core.vector_store] - DEBUG - Added entity: 'navigation performance of the system' (ID: ent_c82f1484), Total entities: 21
+2026-01-25 16:06:08 - [agents.grounding] - DEBUG - Created New Entity: 'navigation performance of the system' (ID: ent_c82f1484) [LLM decided not to merge]
+2026-01-25 16:06:08 - [agents.grounding] - DEBUG - Resolving subject: 'Experiment I'
+2026-01-25 16:06:08 - [core.vector_store] - DEBUG - Search for 'Experiment I' returned 5 results
+2026-01-25 16:06:08 - [agents.grounding] - INFO - Merging entity 'Experiment I' -> 'Experiment I' (ID: ent_fc67dfbc)
+2026-01-25 16:06:08 - [agents.grounding] - DEBUG - Resolving object: 'EEG signal and head pose data'
+2026-01-25 16:06:08 - [core.vector_store] - DEBUG - Search for 'EEG signal and head pose data' returned 5 results
+2026-01-25 16:06:11 - [agents.grounding] - DEBUG - LLM Judge response for 'EEG signal and head pose data': {
+  "decision": "new",
+  "reasoning": "The target entity 'EEG signal and head pose data' refers to specific types of data, whereas the candidate entities refer to a device and a system (Brain-Computer...
+2026-01-25 16:06:11 - [core.vector_store] - DEBUG - Added entity: 'EEG signal and head pose data' (ID: ent_d597ebfa), Total entities: 22
+2026-01-25 16:06:11 - [agents.grounding] - DEBUG - Created New Entity: 'EEG signal and head pose data' (ID: ent_d597ebfa) [LLM decided not to merge]
+2026-01-25 16:06:11 - [agents.grounding] - DEBUG - Resolving subject: 'Method'
+2026-01-25 16:06:11 - [core.vector_store] - DEBUG - Search for 'Method' returned 5 results
+2026-01-25 16:06:11 - [core.vector_store] - DEBUG - Added entity: 'Method' (ID: ent_d19dfb82), Total entities: 23
+2026-01-25 16:06:11 - [agents.grounding] - DEBUG - Created New Entity: 'Method' (ID: ent_d19dfb82)
+2026-01-25 16:06:11 - [agents.grounding] - DEBUG - Resolving object: 'transitional state from a steady state'
+2026-01-25 16:06:11 - [core.vector_store] - DEBUG - Search for 'transitional state from a steady state' returned 5 results
+2026-01-25 16:06:11 - [core.vector_store] - DEBUG - Added entity: 'transitional state from a steady state' (ID: ent_f98123b8), Total entities: 24
+2026-01-25 16:06:11 - [agents.grounding] - DEBUG - Created New Entity: 'transitional state from a steady state' (ID: ent_f98123b8)
+2026-01-25 16:06:11 - [agents.grounding] - DEBUG - Resolving subject: 'Quacopter'
+2026-01-25 16:06:11 - [core.vector_store] - DEBUG - Search for 'Quacopter' returned 5 results
+2026-01-25 16:06:11 - [core.vector_store] - DEBUG - Added entity: 'Quacopter' (ID: ent_fa69efad), Total entities: 25
+2026-01-25 16:06:11 - [agents.grounding] - DEBUG - Created New Entity: 'Quacopter' (ID: ent_fa69efad)
+2026-01-25 16:06:11 - [agents.grounding] - DEBUG - Resolving object: 'direction that corresponds to the stimulus'
+2026-01-25 16:06:11 - [core.vector_store] - DEBUG - Search for 'direction that corresponds to the stimulus' returned 5 results
+2026-01-25 16:06:11 - [core.vector_store] - DEBUG - Added entity: 'direction that corresponds to the stimulus' (ID: ent_bb5b3f0c), Total entities: 26
+2026-01-25 16:06:11 - [agents.grounding] - DEBUG - Created New Entity: 'direction that corresponds to the stimulus' (ID: ent_bb5b3f0c)
+2026-01-25 16:06:11 - [agents.grounding] - DEBUG - Resolving subject: 'Transitional state'
+2026-01-25 16:06:11 - [core.vector_store] - DEBUG - Search for 'Transitional state' returned 5 results
+2026-01-25 16:06:15 - [agents.grounding] - DEBUG - LLM Judge response for 'Transitional state': {
+  "decision": "merge",
+  "id": "ent_f98123b8",
+  "reasoning": "The target entity 'Transitional state' refers to a phase between steady states, which aligns semantically with the candidate entity des...
+2026-01-25 16:06:15 - [agents.grounding] - INFO - Merging entity 'Transitional state' -> 'transitional state from a steady state' (ID: ent_f98123b8)
+2026-01-25 16:06:15 - [agents.grounding] - DEBUG - Resolving object: 'hover'
+2026-01-25 16:06:15 - [core.vector_store] - DEBUG - Search for 'hover' returned 5 results
+2026-01-25 16:06:15 - [core.vector_store] - DEBUG - Added entity: 'hover' (ID: ent_ea5234df), Total entities: 27
+2026-01-25 16:06:15 - [agents.grounding] - DEBUG - Created New Entity: 'hover' (ID: ent_ea5234df)
+2026-01-25 16:06:15 - [agents.grounding] - DEBUG - Resolving subject: 'Quadcopter'
+2026-01-25 16:06:15 - [core.vector_store] - DEBUG - Search for 'Quadcopter' returned 5 results
+2026-01-25 16:06:18 - [agents.grounding] - DEBUG - LLM Judge response for 'Quadcopter': ```json
+{"decision": "new", "reasoning": "The target entity 'Quadcopter' refers to a general category of unmanned aerial vehicles with four rotors. The candidate entities are either specific types or ...
+2026-01-25 16:06:18 - [core.vector_store] - DEBUG - Added entity: 'Quadcopter' (ID: ent_26403a25), Total entities: 28
+2026-01-25 16:06:18 - [agents.grounding] - DEBUG - Created New Entity: 'Quadcopter' (ID: ent_26403a25) [LLM decided not to merge]
+2026-01-25 16:06:18 - [agents.grounding] - DEBUG - Resolving object: 'head along the facing line'
+2026-01-25 16:06:18 - [core.vector_store] - DEBUG - Search for 'head along the facing line' returned 5 results
+2026-01-25 16:06:20 - [agents.grounding] - DEBUG - LLM Judge response for 'head along the facing line': {
+  "decision": "new",
+  "reasoning": "The target entity 'head along the facing line' refers to the positioning of the quadcopter's head, while 'head movement law' likely pertains to guidelines or pri...
+2026-01-25 16:06:20 - [core.vector_store] - DEBUG - Added entity: 'head along the facing line' (ID: ent_4ac795b6), Total entities: 29
+2026-01-25 16:06:20 - [agents.grounding] - DEBUG - Created New Entity: 'head along the facing line' (ID: ent_4ac795b6) [LLM decided not to merge]
+2026-01-25 16:06:20 - [agents.grounding] - DEBUG - Resolving subject: 'Yaw angle'
+2026-01-25 16:06:20 - [core.vector_store] - DEBUG - Search for 'Yaw angle' returned 5 results
+2026-01-25 16:06:20 - [core.vector_store] - DEBUG - Added entity: 'Yaw angle' (ID: ent_282bdee2), Total entities: 30
+2026-01-25 16:06:20 - [agents.grounding] - DEBUG - Created New Entity: 'Yaw angle' (ID: ent_282bdee2)
+2026-01-25 16:06:20 - [agents.grounding] - DEBUG - Resolving object: 'search process'
+2026-01-25 16:06:20 - [core.vector_store] - DEBUG - Search for 'search process' returned 5 results
+2026-01-25 16:06:20 - [core.vector_store] - DEBUG - Added entity: 'search process' (ID: ent_c4ad29cb), Total entities: 31
+2026-01-25 16:06:20 - [agents.grounding] - DEBUG - Created New Entity: 'search process' (ID: ent_c4ad29cb)
+2026-01-25 16:06:20 - [agents.grounding] - DEBUG - Resolving subject: 'EEG signal processing'
+2026-01-25 16:06:20 - [core.vector_store] - DEBUG - Search for 'EEG signal processing' returned 5 results
+2026-01-25 16:06:23 - [agents.grounding] - DEBUG - LLM Judge response for 'EEG signal processing': {
+  "decision": "new",
+  "reasoning": "The target entity 'EEG signal processing' refers specifically to the techniques and methods used to analyze EEG data, which can include software and algorithms, ...
+2026-01-25 16:06:23 - [core.vector_store] - DEBUG - Added entity: 'EEG signal processing' (ID: ent_4570740a), Total entities: 32
+2026-01-25 16:06:23 - [agents.grounding] - DEBUG - Created New Entity: 'EEG signal processing' (ID: ent_4570740a) [LLM decided not to merge]
+2026-01-25 16:06:23 - [agents.grounding] - DEBUG - Resolving object: 'customized mixed program between C++ and Matlab'
+2026-01-25 16:06:23 - [core.vector_store] - DEBUG - Search for 'customized mixed program between C++ and Matlab' returned 5 results
+2026-01-25 16:06:23 - [core.vector_store] - DEBUG - Added entity: 'customized mixed program between C++ and Matlab' (ID: ent_9370dc54), Total entities: 33
+2026-01-25 16:06:23 - [agents.grounding] - DEBUG - Created New Entity: 'customized mixed program between C++ and Matlab' (ID: ent_9370dc54)
+2026-01-25 16:06:23 - [agents.grounding] - DEBUG - Resolving subject: 'Raw signal'
+2026-01-25 16:06:23 - [core.vector_store] - DEBUG - Search for 'Raw signal' returned 5 results
+2026-01-25 16:06:23 - [core.vector_store] - DEBUG - Added entity: 'Raw signal' (ID: ent_43677081), Total entities: 34
+2026-01-25 16:06:23 - [agents.grounding] - DEBUG - Created New Entity: 'Raw signal' (ID: ent_43677081)
+2026-01-25 16:06:23 - [agents.grounding] - DEBUG - Resolving object: '2-43 Hz'
+2026-01-25 16:06:23 - [core.vector_store] - DEBUG - Search for '2-43 Hz' returned 5 results
+2026-01-25 16:06:23 - [core.vector_store] - DEBUG - Added entity: '2-43 Hz' (ID: ent_c31fbbd7), Total entities: 35
+2026-01-25 16:06:23 - [agents.grounding] - DEBUG - Created New Entity: '2-43 Hz' (ID: ent_c31fbbd7)
+2026-01-25 16:06:23 - [agents.grounding] - DEBUG - Resolving subject: 'Canonical Correlation Analysis'
+2026-01-25 16:06:23 - [core.vector_store] - DEBUG - Search for 'Canonical Correlation Analysis' returned 5 results
+2026-01-25 16:06:23 - [core.vector_store] - DEBUG - Added entity: 'Canonical Correlation Analysis' (ID: ent_0c8c3685), Total entities: 36
+2026-01-25 16:06:23 - [agents.grounding] - DEBUG - Created New Entity: 'Canonical Correlation Analysis' (ID: ent_0c8c3685)
+2026-01-25 16:06:23 - [agents.grounding] - DEBUG - Resolving object: 'SSVEP recognition'
+2026-01-25 16:06:23 - [core.vector_store] - DEBUG - Search for 'SSVEP recognition' returned 5 results
+2026-01-25 16:06:26 - [agents.grounding] - DEBUG - LLM Judge response for 'SSVEP recognition': {
+  "decision": "different",
+  "reasoning": "The target entity 'SSVEP recognition' refers specifically to the process of identifying Steady-State Visual Evoked Potential. Both candidate entities are r...
+2026-01-25 16:06:26 - [agents.grounding] - WARNING - Invalid decision value: different
+2026-01-25 16:06:26 - [core.vector_store] - DEBUG - Added entity: 'SSVEP recognition' (ID: ent_0a64d4f5), Total entities: 37
+2026-01-25 16:06:26 - [agents.grounding] - DEBUG - Created New Entity: 'SSVEP recognition' (ID: ent_0a64d4f5) [LLM decided not to merge]
+2026-01-25 16:06:26 - [agents.grounding] - DEBUG - Resolving subject: 'Mean accuracy'
+2026-01-25 16:06:26 - [core.vector_store] - DEBUG - Search for 'Mean accuracy' returned 5 results
+2026-01-25 16:06:26 - [core.vector_store] - DEBUG - Added entity: 'Mean accuracy' (ID: ent_62be1196), Total entities: 38
+2026-01-25 16:06:26 - [agents.grounding] - DEBUG - Created New Entity: 'Mean accuracy' (ID: ent_62be1196)
+2026-01-25 16:06:26 - [agents.grounding] - DEBUG - Resolving object: '78%'
+2026-01-25 16:06:26 - [core.vector_store] - DEBUG - Search for '78%' returned 5 results
+2026-01-25 16:06:26 - [core.vector_store] - DEBUG - Added entity: '78%' (ID: ent_5b9faac4), Total entities: 39
+2026-01-25 16:06:26 - [agents.grounding] - DEBUG - Created New Entity: '78%' (ID: ent_5b9faac4)
+2026-01-25 16:06:26 - [agents.grounding] - DEBUG - Resolving subject: 'Transitional duration'
+2026-01-25 16:06:26 - [core.vector_store] - DEBUG - Search for 'Transitional duration' returned 5 results
+2026-01-25 16:06:26 - [core.vector_store] - DEBUG - Added entity: 'Transitional duration' (ID: ent_90a4dc60), Total entities: 40
+2026-01-25 16:06:26 - [agents.grounding] - DEBUG - Created New Entity: 'Transitional duration' (ID: ent_90a4dc60)
+2026-01-25 16:06:26 - [agents.grounding] - DEBUG - Resolving object: '0.73 s'
+2026-01-25 16:06:26 - [core.vector_store] - DEBUG - Search for '0.73 s' returned 5 results
+2026-01-25 16:06:26 - [core.vector_store] - DEBUG - Added entity: '0.73 s' (ID: ent_462e49e3), Total entities: 41
+2026-01-25 16:06:26 - [agents.grounding] - DEBUG - Created New Entity: '0.73 s' (ID: ent_462e49e3)
+2026-01-25 16:06:26 - [agents.grounding] - DEBUG - Resolving subject: 'Success rate'
+2026-01-25 16:06:26 - [core.vector_store] - DEBUG - Search for 'Success rate' returned 5 results
+2026-01-25 16:06:26 - [core.vector_store] - DEBUG - Added entity: 'Success rate' (ID: ent_068a20fd), Total entities: 42
+2026-01-25 16:06:26 - [agents.grounding] - DEBUG - Created New Entity: 'Success rate' (ID: ent_068a20fd)
+2026-01-25 16:06:26 - [agents.grounding] - DEBUG - Resolving object: '83.3%'
+2026-01-25 16:06:26 - [core.vector_store] - DEBUG - Search for '83.3%' returned 5 results
+2026-01-25 16:06:28 - [agents.grounding] - DEBUG - LLM Judge response for '83.3%': {
+  "decision": "new",
+  "reasoning": "The target entity '83.3%' refers to a success rate in a test scenario, while the candidate entities '78%' and '0.73 s' refer to a percentage value and a time mea...
+2026-01-25 16:06:28 - [core.vector_store] - DEBUG - Added entity: '83.3%' (ID: ent_cf948c7a), Total entities: 43
+2026-01-25 16:06:28 - [agents.grounding] - DEBUG - Created New Entity: '83.3%' (ID: ent_cf948c7a) [LLM decided not to merge]
+2026-01-25 16:06:28 - [agents.grounding] - DEBUG - Resolving subject: 'Time efficiency'
+2026-01-25 16:06:28 - [core.vector_store] - DEBUG - Search for 'Time efficiency' returned 5 results
+2026-01-25 16:06:28 - [core.vector_store] - DEBUG - Added entity: 'Time efficiency' (ID: ent_7e26fce7), Total entities: 44
+2026-01-25 16:06:28 - [agents.grounding] - DEBUG - Created New Entity: 'Time efficiency' (ID: ent_7e26fce7)
+2026-01-25 16:06:28 - [agents.grounding] - DEBUG - Resolving object: '0.64'
+2026-01-25 16:06:28 - [core.vector_store] - DEBUG - Search for '0.64' returned 5 results
+2026-01-25 16:06:31 - [agents.grounding] - DEBUG - LLM Judge response for '0.64': {
+  "decision": "new",
+  "reasoning": "The target entity '0.64' refers to time efficiency, while the candidate '0.73 s' represents a specific time duration in seconds. These are different concepts, as...
+2026-01-25 16:06:31 - [core.vector_store] - DEBUG - Added entity: '0.64' (ID: ent_e47cd5b7), Total entities: 45
+2026-01-25 16:06:31 - [agents.grounding] - DEBUG - Created New Entity: '0.64' (ID: ent_e47cd5b7) [LLM decided not to merge]
+2026-01-25 16:06:31 - [agents.grounding] - DEBUG - Resolving subject: 'Information transfer rate'
+2026-01-25 16:06:31 - [core.vector_store] - DEBUG - Search for 'Information transfer rate' returned 5 results
+2026-01-25 16:06:33 - [agents.grounding] - DEBUG - LLM Judge response for 'Information transfer rate': {"decision": "merge", "id": "ent_5371c903", "reasoning": "The target entity 'Information transfer rate' refers to a concept that measures how much information is transferred over time, which matches t...
+2026-01-25 16:06:33 - [agents.grounding] - INFO - Merging entity 'Information transfer rate' -> 'information transfer rate of up to 5.32 bits/s' (ID: ent_5371c903)
+2026-01-25 16:06:33 - [agents.grounding] - DEBUG - Resolving object: '4.6 bits/min'
+2026-01-25 16:06:33 - [core.vector_store] - DEBUG - Search for '4.6 bits/min' returned 5 results
+2026-01-25 16:06:36 - [agents.grounding] - DEBUG - LLM Judge response for '4.6 bits/min': {
+  "decision": "new",
+  "reasoning": "The target entity '4.6 bits/min' refers to a rate per minute, while the candidate entity '5.32 bits/s' refers to a rate per second. These represent different uni...
+2026-01-25 16:06:36 - [core.vector_store] - DEBUG - Added entity: '4.6 bits/min' (ID: ent_3a30e557), Total entities: 46
+2026-01-25 16:06:36 - [agents.grounding] - DEBUG - Created New Entity: '4.6 bits/min' (ID: ent_3a30e557) [LLM decided not to merge]
+2026-01-25 16:06:36 - [agents.grounding] - DEBUG - Resolving subject: 'BCI system'
+2026-01-25 16:06:36 - [core.vector_store] - DEBUG - Search for 'BCI system' returned 5 results
+2026-01-25 16:06:39 - [agents.grounding] - DEBUG - LLM Judge response for 'BCI system': {
+  "decision": "new",
+  "reasoning": "The target entity 'BCI system' refers broadly to a navigational system using Brain-Computer Interface technology, which does not specifically match any of the ca...
+2026-01-25 16:06:39 - [core.vector_store] - DEBUG - Added entity: 'BCI system' (ID: ent_755e01c8), Total entities: 47
+2026-01-25 16:06:39 - [agents.grounding] - DEBUG - Created New Entity: 'BCI system' (ID: ent_755e01c8) [LLM decided not to merge]
+2026-01-25 16:06:39 - [agents.grounding] - DEBUG - Resolving object: 'keyboard'
+2026-01-25 16:06:39 - [core.vector_store] - DEBUG - Search for 'keyboard' returned 5 results
+2026-01-25 16:06:39 - [core.vector_store] - DEBUG - Added entity: 'keyboard' (ID: ent_b12ff7a2), Total entities: 48
+2026-01-25 16:06:39 - [agents.grounding] - DEBUG - Created New Entity: 'keyboard' (ID: ent_b12ff7a2)
+2026-01-25 16:06:39 - [agents.grounding] - DEBUG - Resolving subject: 'BCI navigation'
+2026-01-25 16:06:39 - [core.vector_store] - DEBUG - Search for 'BCI navigation' returned 5 results
+2026-01-25 16:06:41 - [agents.grounding] - DEBUG - LLM Judge response for 'BCI navigation': {
+  "decision": "new",
+  "reasoning": "The target entity 'BCI navigation' refers specifically to navigation applications using BCI technology. Although 'Quadcopter BCI control' (similarity score: 0.76...
+2026-01-25 16:06:41 - [core.vector_store] - DEBUG - Added entity: 'BCI navigation' (ID: ent_7e307466), Total entities: 49
+2026-01-25 16:06:41 - [agents.grounding] - DEBUG - Created New Entity: 'BCI navigation' (ID: ent_7e307466) [LLM decided not to merge]
+2026-01-25 16:06:41 - [agents.grounding] - DEBUG - Resolving object: '0.64'
+2026-01-25 16:06:41 - [core.vector_store] - DEBUG - Search for '0.64' returned 5 results
+2026-01-25 16:06:41 - [agents.grounding] - INFO - Merging entity '0.64' -> '0.64' (ID: ent_e47cd5b7)
+2026-01-25 16:06:41 - [agents.grounding] - DEBUG - Resolving subject: 'asynchronous BCI'
+2026-01-25 16:06:41 - [core.vector_store] - DEBUG - Search for 'asynchronous BCI' returned 5 results
+2026-01-25 16:06:44 - [agents.grounding] - DEBUG - LLM Judge response for 'asynchronous BCI': {
+  "decision": "new",
+  "reasoning": "The target entity 'asynchronous BCI' refers to a specific type of brain-computer interface that operates without fixed schedules, offering autonomy and practical...
+2026-01-25 16:06:44 - [core.vector_store] - DEBUG - Added entity: 'asynchronous BCI' (ID: ent_cb64039b), Total entities: 50
+2026-01-25 16:06:44 - [agents.grounding] - DEBUG - Created New Entity: 'asynchronous BCI' (ID: ent_cb64039b) [LLM decided not to merge]
+2026-01-25 16:06:44 - [agents.grounding] - DEBUG - Resolving object: 'synchronous BCI'
+2026-01-25 16:06:44 - [core.vector_store] - DEBUG - Search for 'synchronous BCI' returned 5 results
+2026-01-25 16:06:46 - [agents.grounding] - DEBUG - LLM Judge response for 'synchronous BCI': {
+  "decision": "new",
+  "reasoning": "The target entity 'synchronous BCI' refers to a specific type of brain-computer interface characterized by scheduled or timed interactions. None of the candidate...
+2026-01-25 16:06:46 - [core.vector_store] - DEBUG - Added entity: 'synchronous BCI' (ID: ent_530cc657), Total entities: 51
+2026-01-25 16:06:46 - [agents.grounding] - DEBUG - Created New Entity: 'synchronous BCI' (ID: ent_530cc657) [LLM decided not to merge]
+2026-01-25 16:06:46 - [agents.grounding] - DEBUG - Resolving subject: 'HMD'
+2026-01-25 16:06:46 - [core.vector_store] - DEBUG - Search for 'HMD' returned 5 results
+2026-01-25 16:06:46 - [core.vector_store] - DEBUG - Added entity: 'HMD' (ID: ent_3ac16e08), Total entities: 52
+2026-01-25 16:06:46 - [agents.grounding] - DEBUG - Created New Entity: 'HMD' (ID: ent_3ac16e08)
+2026-01-25 16:06:46 - [agents.grounding] - DEBUG - Resolving object: 'providing immersive experience'
+2026-01-25 16:06:46 - [core.vector_store] - DEBUG - Search for 'providing immersive experience' returned 5 results
+2026-01-25 16:06:48 - [agents.grounding] - DEBUG - LLM Judge response for 'providing immersive experience': {
+  "decision": "new",
+  "reasoning": "The target entity 'providing immersive experience' is broader and refers to the overall engagement and feel provided by a device, whereas the candidate entity 'f...
+2026-01-25 16:06:48 - [core.vector_store] - DEBUG - Added entity: 'providing immersive experience' (ID: ent_dcf79aec), Total entities: 53
+2026-01-25 16:06:48 - [agents.grounding] - DEBUG - Created New Entity: 'providing immersive experience' (ID: ent_dcf79aec) [LLM decided not to merge]
+2026-01-25 16:06:48 - [agents.grounding] - DEBUG - Resolving subject: 'Ng et al.'
+2026-01-25 16:06:48 - [core.vector_store] - DEBUG - Search for 'Ng et al.' returned 5 results
+2026-01-25 16:06:52 - [agents.grounding] - DEBUG - LLM Judge response for 'Ng et al.': {
+  "decision": "new",
+  "reasoning": "The target entity 'Ng et al.' has a distinct provenance and research focus related to visual-evoked amplitude, which does not semantically match the candidates '...
+2026-01-25 16:06:52 - [core.vector_store] - DEBUG - Added entity: 'Ng et al.' (ID: ent_1ea40c7f), Total entities: 54
+2026-01-25 16:06:52 - [agents.grounding] - DEBUG - Created New Entity: 'Ng et al.' (ID: ent_1ea40c7f) [LLM decided not to merge]
+2026-01-25 16:06:52 - [agents.grounding] - DEBUG - Resolving object: 'visual-evoked amplitude increases with more distant proximity'
+2026-01-25 16:06:52 - [core.vector_store] - DEBUG - Search for 'visual-evoked amplitude increases with more distant proximity' returned 5 results
+2026-01-25 16:06:52 - [core.vector_store] - DEBUG - Added entity: 'visual-evoked amplitude increases with more distant proximity' (ID: ent_8ca24c0c), Total entities: 55
+2026-01-25 16:06:52 - [agents.grounding] - DEBUG - Created New Entity: 'visual-evoked amplitude increases with more distant proximity' (ID: ent_8ca24c0c)
+2026-01-25 16:06:52 - [agents.grounding] - DEBUG - Resolving subject: 'Chien et al.'
+2026-01-25 16:06:52 - [core.vector_store] - DEBUG - Search for 'Chien et al.' returned 5 results
+2026-01-25 16:06:55 - [agents.grounding] - DEBUG - LLM Judge response for 'Chien et al.': ```json
+{"decision": "new", "reasoning": "The target entity 'Chien et al.' does not match semantically or textually with any of the candidate entities 'Ng et al.', 'Middendorf et al.', or 'Lafleur et ...
+2026-01-25 16:06:55 - [core.vector_store] - DEBUG - Added entity: 'Chien et al.' (ID: ent_8fa6c470), Total entities: 56
+2026-01-25 16:06:55 - [agents.grounding] - DEBUG - Created New Entity: 'Chien et al.' (ID: ent_8fa6c470) [LLM decided not to merge]
+2026-01-25 16:06:55 - [agents.grounding] - DEBUG - Resolving object: 'higher SNR of SSVEP with small disparity angles'
+2026-01-25 16:06:55 - [core.vector_store] - DEBUG - Search for 'higher SNR of SSVEP with small disparity angles' returned 5 results
+2026-01-25 16:06:57 - [agents.grounding] - DEBUG - LLM Judge response for 'higher SNR of SSVEP with small disparity angles': {
+  "decision": "new",
+  "reasoning": "The target entity 'higher SNR of SSVEP with small disparity angles' specifically refers to a phenomenon where SSVEP signal-to-noise ratio is affected by small di...
+2026-01-25 16:06:57 - [core.vector_store] - DEBUG - Added entity: 'higher SNR of SSVEP with small disparity angles' (ID: ent_bd3392c5), Total entities: 57
+2026-01-25 16:06:57 - [agents.grounding] - DEBUG - Created New Entity: 'higher SNR of SSVEP with small disparity angles' (ID: ent_bd3392c5) [LLM decided not to merge]
+2026-01-25 16:06:57 - [agents.grounding] - DEBUG - Resolving subject: 'HMD'
+2026-01-25 16:06:57 - [core.vector_store] - DEBUG - Search for 'HMD' returned 5 results
+2026-01-25 16:06:57 - [agents.grounding] - INFO - Merging entity 'HMD' -> 'HMD' (ID: ent_3ac16e08)
+2026-01-25 16:06:57 - [agents.grounding] - DEBUG - Resolving object: 'high portability; powerful computational ability'
+2026-01-25 16:06:57 - [core.vector_store] - DEBUG - Search for 'high portability; powerful computational ability' returned 5 results
+2026-01-25 16:06:57 - [core.vector_store] - DEBUG - Added entity: 'high portability; powerful computational ability' (ID: ent_2c8bda6d), Total entities: 58
+2026-01-25 16:06:57 - [agents.grounding] - DEBUG - Created New Entity: 'high portability; powerful computational ability' (ID: ent_2c8bda6d)
+2026-01-25 16:06:57 - [agents.grounding] - DEBUG - Resolving subject: 'SSVEP-based BCI system'
+2026-01-25 16:06:57 - [core.vector_store] - DEBUG - Search for 'SSVEP-based BCI system' returned 5 results
+2026-01-25 16:07:00 - [agents.grounding] - DEBUG - LLM Judge response for 'SSVEP-based BCI system': {"decision": "new", "reasoning": "The target entity 'SSVEP-based BCI system' refers to a specific type of BCI system that is based on SSVEP (Steady State Visual Evoked Potential). None of the candidat...
+2026-01-25 16:07:00 - [core.vector_store] - DEBUG - Added entity: 'SSVEP-based BCI system' (ID: ent_8bb55ce7), Total entities: 59
+2026-01-25 16:07:00 - [agents.grounding] - DEBUG - Created New Entity: 'SSVEP-based BCI system' (ID: ent_8bb55ce7) [LLM decided not to merge]
+2026-01-25 16:07:00 - [agents.grounding] - DEBUG - Resolving object: 'wearable HMD as the display device'
+2026-01-25 16:07:00 - [core.vector_store] - DEBUG - Search for 'wearable HMD as the display device' returned 5 results
+2026-01-25 16:07:00 - [core.vector_store] - DEBUG - Added entity: 'wearable HMD as the display device' (ID: ent_f8cdc50a), Total entities: 60
+2026-01-25 16:07:00 - [agents.grounding] - DEBUG - Created New Entity: 'wearable HMD as the display device' (ID: ent_f8cdc50a)
+2026-01-25 16:07:00 - [agents.grounding] - DEBUG - Resolving subject: 'SSVEP-based BCI system'
+2026-01-25 16:07:00 - [core.vector_store] - DEBUG - Search for 'SSVEP-based BCI system' returned 5 results
+2026-01-25 16:07:00 - [agents.grounding] - INFO - Merging entity 'SSVEP-based BCI system' -> 'SSVEP-based BCI system' (ID: ent_8bb55ce7)
+2026-01-25 16:07:00 - [agents.grounding] - DEBUG - Resolving object: 'navigation of a flight under physical 3D space'
+2026-01-25 16:07:00 - [core.vector_store] - DEBUG - Search for 'navigation of a flight under physical 3D space' returned 5 results
+2026-01-25 16:07:03 - [agents.grounding] - DEBUG - LLM Judge response for 'navigation of a flight under physical 3D space': ```json
+{
+  "decision": "new",
+  "reasoning": "The target entity 'navigation of a flight under physical 3D space' focuses specifically on the concept of navigating a flight within a physical 3D enviro...
+2026-01-25 16:07:03 - [core.vector_store] - DEBUG - Added entity: 'navigation of a flight under physical 3D space' (ID: ent_55d07ae5), Total entities: 61
+2026-01-25 16:07:03 - [agents.grounding] - DEBUG - Created New Entity: 'navigation of a flight under physical 3D space' (ID: ent_55d07ae5) [LLM decided not to merge]
+2026-01-25 16:07:03 - [agents.grounding] - DEBUG - Resolving subject: 'HMD usage'
+2026-01-25 16:07:03 - [core.vector_store] - DEBUG - Search for 'HMD usage' returned 5 results
+2026-01-25 16:07:06 - [agents.grounding] - DEBUG - LLM Judge response for 'HMD usage': {
+  "decision": "merge",
+  "id": "ent_f8cdc50a",
+  "reasoning": "The target entity 'HMD usage' and the candidate 'wearable HMD as the display device' share semantic meaning related to the application ...
+2026-01-25 16:07:06 - [agents.grounding] - INFO - Merging entity 'HMD usage' -> 'wearable HMD as the display device' (ID: ent_f8cdc50a)
+2026-01-25 16:07:06 - [agents.grounding] - DEBUG - Resolving object: 'a reliable approach for BCI use'
+2026-01-25 16:07:06 - [core.vector_store] - DEBUG - Search for 'a reliable approach for BCI use' returned 5 results
+2026-01-25 16:07:08 - [agents.grounding] - DEBUG - LLM Judge response for 'a reliable approach for BCI use': {
+  "decision": "new",
+  "reasoning": "The target entity 'a reliable approach for BCI use' refers specifically to a method or strategy for using BCI, not a type or system of BCI itself. The candidate ...
+2026-01-25 16:07:08 - [core.vector_store] - DEBUG - Added entity: 'a reliable approach for BCI use' (ID: ent_5298e747), Total entities: 62
+2026-01-25 16:07:08 - [agents.grounding] - DEBUG - Created New Entity: 'a reliable approach for BCI use' (ID: ent_5298e747) [LLM decided not to merge]
+2026-01-25 16:07:08 - [agents.grounding] - DEBUG - Resolving subject: 'online accuracy in experiment I'
+2026-01-25 16:07:08 - [core.vector_store] - DEBUG - Search for 'online accuracy in experiment I' returned 5 results
+2026-01-25 16:07:10 - [agents.grounding] - DEBUG - LLM Judge response for 'online accuracy in experiment I': {
+  "decision": "new",
+  "reasoning": "The target entity 'online accuracy in experiment I' refers to a specific context and measurement within an experiment, whereas 'mean accuracy' is a general stati...
+2026-01-25 16:07:10 - [core.vector_store] - DEBUG - Added entity: 'online accuracy in experiment I' (ID: ent_4764a5f2), Total entities: 63
+2026-01-25 16:07:10 - [agents.grounding] - DEBUG - Created New Entity: 'online accuracy in experiment I' (ID: ent_4764a5f2) [LLM decided not to merge]
+2026-01-25 16:07:10 - [agents.grounding] - DEBUG - Resolving object: '78%'
+2026-01-25 16:07:10 - [core.vector_store] - DEBUG - Search for '78%' returned 5 results
+2026-01-25 16:07:10 - [agents.grounding] - INFO - Merging entity '78%' -> '78%' (ID: ent_5b9faac4)
+2026-01-25 16:07:10 - [agents.grounding] - DEBUG - Resolving subject: 'ITR proposed in this work'
+2026-01-25 16:07:10 - [core.vector_store] - DEBUG - Search for 'ITR proposed in this work' returned 5 results
+2026-01-25 16:07:10 - [core.vector_store] - DEBUG - Added entity: 'ITR proposed in this work' (ID: ent_3fa07db7), Total entities: 64
+2026-01-25 16:07:10 - [agents.grounding] - DEBUG - Created New Entity: 'ITR proposed in this work' (ID: ent_3fa07db7)
+2026-01-25 16:07:10 - [agents.grounding] - DEBUG - Resolving object: 'an amended metric from Fitt’s Law'
+2026-01-25 16:07:10 - [core.vector_store] - DEBUG - Search for 'an amended metric from Fitt’s Law' returned 5 results
+2026-01-25 16:07:10 - [core.vector_store] - DEBUG - Added entity: 'an amended metric from Fitt’s Law' (ID: ent_21dbeb6f), Total entities: 65
+2026-01-25 16:07:10 - [agents.grounding] - DEBUG - Created New Entity: 'an amended metric from Fitt’s Law' (ID: ent_21dbeb6f)
+2026-01-25 16:07:10 - [agents.grounding] - DEBUG - Resolving subject: 'SSVEP-based BCI'
+2026-01-25 16:07:10 - [core.vector_store] - DEBUG - Search for 'SSVEP-based BCI' returned 5 results
+2026-01-25 16:07:10 - [agents.grounding] - INFO - Merging entity 'SSVEP-based BCI' -> 'SSVEP-based BCI' (ID: ent_43a68dbb)
+2026-01-25 16:07:10 - [agents.grounding] - DEBUG - Resolving object: 'experimental setup and operational burden'
+2026-01-25 16:07:10 - [core.vector_store] - DEBUG - Search for 'experimental setup and operational burden' returned 5 results
+2026-01-25 16:07:10 - [core.vector_store] - DEBUG - Added entity: 'experimental setup and operational burden' (ID: ent_9fb5aa72), Total entities: 66
+2026-01-25 16:07:10 - [agents.grounding] - DEBUG - Created New Entity: 'experimental setup and operational burden' (ID: ent_9fb5aa72)
+2026-01-25 16:07:10 - [agents.grounding] - DEBUG - Resolving subject: 'SSVEP-based BCI'
+2026-01-25 16:07:10 - [core.vector_store] - DEBUG - Search for 'SSVEP-based BCI' returned 5 results
+2026-01-25 16:07:10 - [agents.grounding] - INFO - Merging entity 'SSVEP-based BCI' -> 'SSVEP-based BCI' (ID: ent_43a68dbb)
+2026-01-25 16:07:10 - [agents.grounding] - DEBUG - Resolving object: 'portable and practical'
+2026-01-25 16:07:10 - [core.vector_store] - DEBUG - Search for 'portable and practical' returned 5 results
+2026-01-25 16:07:10 - [core.vector_store] - DEBUG - Added entity: 'portable and practical' (ID: ent_5e3c9e67), Total entities: 67
+2026-01-25 16:07:10 - [agents.grounding] - DEBUG - Created New Entity: 'portable and practical' (ID: ent_5e3c9e67)
+2026-01-25 16:07:10 - [agents.grounding] - INFO - Grounded 40 claims
+2026-01-25 16:07:10 - [agents.validation] - INFO - Processing 40 claims for validation
+2026-01-25 16:07:11 - [agents.validation] - DEBUG - Validating claim: 'Brain-Computer Interface directly bridges brain and external...'
+2026-01-25 16:07:14 - [agents.validation] - DEBUG - LLM response preview: {
+  "valid": true,
+  "type": "new",
+  "confidence": 0.95,
+  "reasoning": "The claim about Brain-Computer Interface (BCI) is logically consistent as BC...
+2026-01-25 16:07:14 - [agents.validation] - DEBUG - VALIDATED: Type=new, Confidence=0.95
+2026-01-25 16:07:14 - [agents.validation] - DEBUG - Validating claim: 'Unmanned aerial vehicle has broad application prospects...'
+2026-01-25 16:07:18 - [agents.validation] - DEBUG - LLM response preview: {
+  "valid": true,
+  "type": "new",
+  "confidence": 0.9,
+  "reasoning": "Unmanned aerial vehicles (UAVs), commonly known as drones, are widely known t...
+2026-01-25 16:07:18 - [agents.validation] - DEBUG - VALIDATED: Type=new, Confidence=0.90
+2026-01-25 16:07:18 - [agents.validation] - DEBUG - Validating claim: 'SSVEP-based BCI was used by Middendorf et al....'
+2026-01-25 16:07:20 - [agents.validation] - DEBUG - LLM response preview: {
+  "valid": true,
+  "type": "new",
+  "confidence": 0.9,
+  "reasoning": "The claim introduces Middendorf et al. using SSVEP-based BCI for a flight sim...
+2026-01-25 16:07:20 - [agents.validation] - DEBUG - VALIDATED: Type=new, Confidence=0.90
+2026-01-25 16:07:20 - [agents.validation] - DEBUG - Validating claim: 'Quadcopter BCI control was achieved by Lafleur et al....'
+2026-01-25 16:07:22 - [agents.validation] - DEBUG - LLM response preview: ```json
+{
+  "valid": true,
+  "type": "new",
+  "confidence": 0.9,
+  "reasoning": "The claim introduces the concept of quadcopter BCI control as achieve...
+2026-01-25 16:07:22 - [agents.validation] - DEBUG - VALIDATED: Type=new, Confidence=0.90
+2026-01-25 16:07:23 - [agents.validation] - DEBUG - Validating claim: 'SSVEP holds distinct advantages...'
+2026-01-25 16:07:25 - [agents.validation] - DEBUG - LLM response preview: {
+  "valid": true,
+  "type": "new",
+  "confidence": 0.9,
+  "reasoning": "The claim refers to Steady-state Visual Evoked Potential (SSVEP), indicating ...
+2026-01-25 16:07:25 - [agents.validation] - DEBUG - VALIDATED: Type=new, Confidence=0.90
+2026-01-25 16:07:25 - [agents.validation] - DEBUG - Validating claim: 'SSVEP achieved information transfer rate of up to 5.32 bits/...'
+2026-01-25 16:07:29 - [agents.validation] - DEBUG - LLM response preview: {
+  "valid": true,
+  "type": "new",
+  "confidence": 0.9,
+  "reasoning": "The claim regarding the information transfer rate achieved by SSVEP is logica...
+2026-01-25 16:07:29 - [agents.validation] - DEBUG - VALIDATED: Type=new, Confidence=0.90
+2026-01-25 16:07:29 - [agents.validation] - DEBUG - Validating claim: 'EEG acquisition device was Emotiv Epoc...'
+2026-01-25 16:07:32 - [agents.validation] - DEBUG - LLM response preview: {
+  "valid": true,
+  "type": "new",
+  "confidence": 0.9,
+  "reasoning": "The claim is consistent with the evidence provided. The Emotiv Epoc is a know...
+2026-01-25 16:07:32 - [agents.validation] - DEBUG - VALIDATED: Type=new, Confidence=0.90
+2026-01-25 16:07:32 - [agents.validation] - DEBUG - Validating claim: 'HTC VIVE used for displaying a 3D virtual scene...'
+2026-01-25 16:07:33 - [agents.validation] - DEBUG - LLM response preview: {
+  "valid": true,
+  "type": "new",
+  "confidence": 0.95,
+  "reasoning": "The claim regarding HTC VIVE being used to display a 3D virtual scene is con...
+2026-01-25 16:07:33 - [agents.validation] - DEBUG - VALIDATED: Type=new, Confidence=0.95
+2026-01-25 16:07:33 - [agents.validation] - DEBUG - Validating claim: 'Wearable SSVEP-Based BCI System used for Quadcopter Control...'
+2026-01-25 16:07:36 - [agents.validation] - DEBUG - LLM response preview: {
+  "valid": true,
+  "type": "new",
+  "confidence": 0.9,
+  "reasoning": "The claim about a wearable SSVEP-based BCI system for quadcopter control indi...
+2026-01-25 16:07:36 - [agents.validation] - DEBUG - VALIDATED: Type=new, Confidence=0.90
+2026-01-25 16:07:36 - [agents.validation] - DEBUG - Validating claim: 'AR Drone 2.0 used in physical navigation experiment...'
+2026-01-25 16:07:38 - [agents.validation] - DEBUG - LLM response preview: ```json
+{
+  "valid": true,
+  "type": "new",
+  "confidence": 0.9,
+  "reasoning": "The claim involves the use of AR Drone 2.0 in a physical navigation e...
+2026-01-25 16:07:38 - [agents.validation] - DEBUG - VALIDATED: Type=new, Confidence=0.90
+2026-01-25 16:07:38 - [agents.validation] - DEBUG - Validating claim: 'Experiment I investigated head movement law...'
+2026-01-25 16:07:41 - [agents.validation] - DEBUG - LLM response preview: {
+  "valid": true,
+  "type": "new",
+  "confidence": 0.9,
+  "reasoning": "The claim is logically consistent as it references an experiment investigatin...
+2026-01-25 16:07:41 - [agents.validation] - DEBUG - VALIDATED: Type=new, Confidence=0.90
+2026-01-25 16:07:41 - [agents.validation] - DEBUG - Validating claim: 'Experiment II investigated navigation performance of the sys...'
+2026-01-25 16:07:43 - [agents.validation] - DEBUG - LLM response preview: {
+  "valid": true,
+  "type": "new",
+  "confidence": 0.9,
+  "reasoning": "The claim and the evidence provided are logically consistent with each other,...
+2026-01-25 16:07:43 - [agents.validation] - DEBUG - VALIDATED: Type=new, Confidence=0.90
+2026-01-25 16:07:43 - [agents.validation] - DEBUG - Validating claim: 'Experiment I recorded EEG signal and head pose data...'
+2026-01-25 16:07:46 - [agents.validation] - DEBUG - LLM response preview: ```json
+{
+  "valid": true,
+  "type": "new",
+  "confidence": 0.8,
+  "reasoning": "The claim about recording EEG signal and head pose data is supported ...
+2026-01-25 16:07:46 - [agents.validation] - DEBUG - VALIDATED: Type=new, Confidence=0.80
+2026-01-25 16:07:46 - [agents.validation] - DEBUG - Validating claim: 'Method isolates transitional state from a steady state...'
+2026-01-25 16:07:48 - [agents.validation] - DEBUG - LLM response preview: ```json
+{
+  "valid": true,
+  "type": "new",
+  "confidence": 0.8,
+  "reasoning": "The claim does not contradict established knowledge, as there is no e...
+2026-01-25 16:07:48 - [agents.validation] - DEBUG - VALIDATED: Type=new, Confidence=0.80
+2026-01-25 16:07:48 - [agents.validation] - DEBUG - Validating claim: 'Quacopter flies along direction that corresponds to the stim...'
+2026-01-25 16:07:51 - [agents.validation] - DEBUG - LLM response preview: {
+  "valid": true,
+  "type": "new",
+  "confidence": 0.9,
+  "reasoning": "The claim describes a quadcopter responding to a stimulus by flying in a spec...
+2026-01-25 16:07:51 - [agents.validation] - DEBUG - VALIDATED: Type=new, Confidence=0.90
+2026-01-25 16:07:51 - [agents.validation] - DEBUG - Validating claim: 'Transitional state translated into hover...'
+2026-01-25 16:07:53 - [agents.validation] - DEBUG - LLM response preview: ```json
+{
+  "valid": true,
+  "type": "new",
+  "confidence": 0.9,
+  "reasoning": "The claim describes a process where a transitional state is translate...
+2026-01-25 16:07:53 - [agents.validation] - DEBUG - VALIDATED: Type=new, Confidence=0.90
+2026-01-25 16:07:53 - [agents.validation] - DEBUG - Validating claim: 'Quadcopter has head along the facing line...'
+2026-01-25 16:07:55 - [agents.validation] - DEBUG - LLM response preview: {
+  "valid": true,
+  "type": "new",
+  "confidence": 0.9,
+  "reasoning": "The claim describes an observation related to the orientation of a quadcopter...
+2026-01-25 16:07:55 - [agents.validation] - DEBUG - VALIDATED: Type=new, Confidence=0.90
+2026-01-25 16:07:55 - [agents.validation] - DEBUG - Validating claim: 'Yaw angle should be controlled in search process...'
+2026-01-25 16:07:58 - [agents.validation] - DEBUG - LLM response preview: {
+  "valid": true,
+  "type": "new",
+  "confidence": 0.9,
+  "reasoning": "The claim about controlling the yaw angle in a search process is logically co...
+2026-01-25 16:07:58 - [agents.validation] - DEBUG - VALIDATED: Type=new, Confidence=0.90
+2026-01-25 16:07:58 - [agents.validation] - DEBUG - Validating claim: 'EEG signal processing implemented by customized mixed progra...'
+2026-01-25 16:08:01 - [agents.validation] - DEBUG - LLM response preview: ```json
+{
+  "valid": true,
+  "type": "new",
+  "confidence": 0.95,
+  "reasoning": "The claim describes a specific implementation detail involving progr...
+2026-01-25 16:08:01 - [agents.validation] - DEBUG - VALIDATED: Type=new, Confidence=0.95
+2026-01-25 16:08:01 - [agents.validation] - DEBUG - Validating claim: 'Raw signal filtered to 2-43 Hz...'
+2026-01-25 16:08:03 - [agents.validation] - DEBUG - LLM response preview: ```json
+{
+  "valid": true,
+  "type": "new",
+  "confidence": 0.95,
+  "reasoning": "The claim describes a common data processing technique where a raw s...
+2026-01-25 16:08:03 - [agents.validation] - DEBUG - VALIDATED: Type=new, Confidence=0.95
+2026-01-25 16:08:03 - [agents.validation] - DEBUG - Validating claim: 'Canonical Correlation Analysis used for SSVEP recognition...'
+2026-01-25 16:08:06 - [agents.validation] - DEBUG - LLM response preview: ```json
+{
+  "valid": true,
+  "type": "new",
+  "confidence": 0.9,
+  "reasoning": "Canonical Correlation Analysis (CCA) is a statistical method often us...
+2026-01-25 16:08:06 - [agents.validation] - DEBUG - VALIDATED: Type=new, Confidence=0.90
+2026-01-25 16:08:06 - [agents.validation] - DEBUG - Validating claim: 'Mean accuracy is 78%...'
+2026-01-25 16:08:08 - [agents.validation] - DEBUG - LLM response preview: {
+  "valid": true,
+  "type": "new",
+  "confidence": 0.9,
+  "reasoning": "The claim about the mean accuracy being 78% is supported by the evidence stat...
+2026-01-25 16:08:08 - [agents.validation] - DEBUG - VALIDATED: Type=new, Confidence=0.90
+2026-01-25 16:08:08 - [agents.validation] - DEBUG - Validating claim: 'Transitional duration is 0.73 s...'
+2026-01-25 16:08:09 - [agents.validation] - DEBUG - LLM response preview: {
+  "valid": true,
+  "type": "new",
+  "confidence": 0.9,
+  "reasoning": "The claim specifies a transitional duration of 0.73 seconds, and there is no ...
+2026-01-25 16:08:09 - [agents.validation] - DEBUG - VALIDATED: Type=new, Confidence=0.90
+2026-01-25 16:08:09 - [agents.validation] - DEBUG - Validating claim: 'Success rate is 83.3%...'
+2026-01-25 16:08:11 - [agents.validation] - DEBUG - LLM response preview: ```json
+{
+  "valid": true,
+  "type": "new",
+  "confidence": 0.9,
+  "reasoning": "The claim of an 83.3% success rate is logically consistent with the g...
+2026-01-25 16:08:11 - [agents.validation] - DEBUG - VALIDATED: Type=new, Confidence=0.90
+2026-01-25 16:08:11 - [agents.validation] - DEBUG - Validating claim: 'Time efficiency is 0.64...'
+2026-01-25 16:08:13 - [agents.validation] - DEBUG - LLM response preview: {
+  "valid": true,
+  "type": "new",
+  "confidence": 0.9,
+  "reasoning": "The claim presents a specific measure of time efficiency (0.64) without refer...
+2026-01-25 16:08:13 - [agents.validation] - DEBUG - VALIDATED: Type=new, Confidence=0.90
+2026-01-25 16:08:13 - [agents.validation] - DEBUG - Validating claim: 'Information transfer rate is 4.6 bits/min...'
+2026-01-25 16:08:15 - [agents.validation] - DEBUG - LLM response preview: ```json
+{
+  "valid": true,
+  "type": "new",
+  "confidence": 0.9,
+  "reasoning": "The claim about the information transfer rate being 4.6 bits/min is l...
+2026-01-25 16:08:15 - [agents.validation] - DEBUG - VALIDATED: Type=new, Confidence=0.90
+2026-01-25 16:08:15 - [agents.validation] - DEBUG - Validating claim: 'BCI system consumes more time compared to keyboard...'
+2026-01-25 16:08:18 - [agents.validation] - DEBUG - LLM response preview: {
+  "valid": true,
+  "type": "new",
+  "confidence": 0.9,
+  "reasoning": "The claim provides evidence that supports the idea that BCI systems take more...
+2026-01-25 16:08:18 - [agents.validation] - DEBUG - VALIDATED: Type=new, Confidence=0.90
+2026-01-25 16:08:18 - [agents.validation] - DEBUG - Validating claim: 'BCI navigation has time efficiency of 0.64...'
+2026-01-25 16:08:20 - [agents.validation] - DEBUG - LLM response preview: {
+  "valid": true,
+  "type": "new",
+  "confidence": 0.9,
+  "reasoning": "The claim is consistent with the provided evidence, which states that the ave...
+2026-01-25 16:08:20 - [agents.validation] - DEBUG - VALIDATED: Type=new, Confidence=0.90
+2026-01-25 16:08:20 - [agents.validation] - DEBUG - Validating claim: 'asynchronous BCI provides more autonomy compared to synchron...'
+2026-01-25 16:08:23 - [agents.validation] - DEBUG - LLM response preview: {
+  "valid": true,
+  "type": "new",
+  "confidence": 0.95,
+  "reasoning": "The claim logically compares asynchronous and synchronous Brain-Computer Int...
+2026-01-25 16:08:23 - [agents.validation] - DEBUG - VALIDATED: Type=new, Confidence=0.95
+2026-01-25 16:08:23 - [agents.validation] - DEBUG - Validating claim: 'HMD engages subject better by providing immersive experience...'
+2026-01-25 16:08:26 - [agents.validation] - DEBUG - LLM response preview: {
+  "valid": true,
+  "type": "new",
+  "confidence": 0.9,
+  "reasoning": "The claim that HMD (Head-Mounted Display) engages subjects better by providin...
+2026-01-25 16:08:26 - [agents.validation] - DEBUG - VALIDATED: Type=new, Confidence=0.90
+2026-01-25 16:08:26 - [agents.validation] - DEBUG - Validating claim: 'Ng et al. found visual-evoked amplitude increases with more ...'
+2026-01-25 16:08:28 - [agents.validation] - DEBUG - LLM response preview: {
+  "valid": true,
+  "type": "new",
+  "confidence": 0.9,
+  "reasoning": "The claim presents a specific finding from Ng et al. about visual-evoked ampl...
+2026-01-25 16:08:28 - [agents.validation] - DEBUG - VALIDATED: Type=new, Confidence=0.90
+2026-01-25 16:08:28 - [agents.validation] - DEBUG - Validating claim: 'Chien et al. found higher SNR of SSVEP with small disparity ...'
+2026-01-25 16:08:30 - [agents.validation] - DEBUG - LLM response preview: {
+  "valid": true,
+  "type": "new",
+  "confidence": 0.9,
+  "reasoning": "The claim is based on a specific study by Chien et al. which examined the eff...
+2026-01-25 16:08:30 - [agents.validation] - DEBUG - VALIDATED: Type=new, Confidence=0.90
+2026-01-25 16:08:30 - [agents.validation] - DEBUG - Validating claim: 'HMD has advantages high portability; powerful computational ...'
+2026-01-25 16:08:33 - [agents.validation] - DEBUG - LLM response preview: {
+  "valid": true,
+  "type": "new",
+  "confidence": 0.9,
+  "reasoning": "The claim suggests that HMDs have high portability and powerful computational...
+2026-01-25 16:08:33 - [agents.validation] - DEBUG - VALIDATED: Type=new, Confidence=0.90
+2026-01-25 16:08:33 - [agents.validation] - DEBUG - Validating claim: 'SSVEP-based BCI system constructed with wearable HMD as the ...'
+2026-01-25 16:08:35 - [agents.validation] - DEBUG - LLM response preview: {
+  "valid": true,
+  "type": "new",
+  "confidence": 0.9,
+  "reasoning": "The claim describes a new application of steady-state visually evoked potenti...
+2026-01-25 16:08:35 - [agents.validation] - DEBUG - VALIDATED: Type=new, Confidence=0.90
+2026-01-25 16:08:35 - [agents.validation] - DEBUG - Validating claim: 'SSVEP-based BCI system enables navigation of a flight under ...'
+2026-01-25 16:08:37 - [agents.validation] - DEBUG - LLM response preview: ```json
+{
+  "valid": true,
+  "type": "new",
+  "confidence": 0.9,
+  "reasoning": "The claim suggests that an SSVEP-based BCI system, which utilizes Ste...
+2026-01-25 16:08:37 - [agents.validation] - DEBUG - VALIDATED: Type=new, Confidence=0.90
+2026-01-25 16:08:37 - [agents.validation] - DEBUG - Validating claim: 'HMD usage is a reliable approach for BCI use...'
+2026-01-25 16:08:39 - [agents.validation] - DEBUG - LLM response preview: {
+  "valid": true,
+  "type": "new",
+  "confidence": 0.9,
+  "reasoning": "The claim that Head-Mounted Display (HMD) usage is a reliable approach for Br...
+2026-01-25 16:08:39 - [agents.validation] - DEBUG - VALIDATED: Type=new, Confidence=0.90
+2026-01-25 16:08:39 - [agents.validation] - DEBUG - Validating claim: 'online accuracy in experiment I achieved 78%...'
+2026-01-25 16:08:42 - [agents.validation] - DEBUG - LLM response preview: {
+  "valid": true,
+  "type": "new",
+  "confidence": 0.9,
+  "reasoning": "The claim is logically consistent and well-formed. It states the result of an...
+2026-01-25 16:08:42 - [agents.validation] - DEBUG - VALIDATED: Type=new, Confidence=0.90
+2026-01-25 16:08:42 - [agents.validation] - DEBUG - Validating claim: 'ITR proposed in this work is an amended metric from Fitt’s L...'
+2026-01-25 16:08:46 - [agents.validation] - DEBUG - LLM response preview: {
+  "valid": true,
+  "type": "new",
+  "confidence": 0.9,
+  "reasoning": "The claim introduces a new metric related to Fitts' Law, specifically for asy...
+2026-01-25 16:08:46 - [agents.validation] - DEBUG - VALIDATED: Type=new, Confidence=0.90
+2026-01-25 16:08:46 - [agents.validation] - DEBUG - Validating claim: 'SSVEP-based BCI simplified experimental setup and operationa...'
+2026-01-25 16:08:49 - [agents.validation] - DEBUG - LLM response preview: {
+  "valid": true,
+  "type": "new",
+  "confidence": 0.9,
+  "reasoning": "The claim presents a potentially new development regarding SSVEP-based BCIs. ...
+2026-01-25 16:08:49 - [agents.validation] - DEBUG - VALIDATED: Type=new, Confidence=0.90
+2026-01-25 16:08:49 - [agents.validation] - DEBUG - Validating claim: 'SSVEP-based BCI is portable and practical...'
+2026-01-25 16:08:52 - [agents.validation] - DEBUG - LLM response preview: {
+  "valid": true,
+  "type": "new",
+  "confidence": 0.9,
+  "reasoning": "The claim is logically consistent as it describes the improvements made to SS...
+2026-01-25 16:08:52 - [agents.validation] - DEBUG - VALIDATED: Type=new, Confidence=0.90
+2026-01-25 16:08:52 - [agents.validation] - INFO - Validated 40 claims, rejected 0
+2026-01-25 16:08:52 - [agents.evolution] - INFO - Processing 40 claims for graph evolution
+2026-01-25 16:08:55 - [agents.evolution] - INFO - Successfully wrote 40 claims to graph
+2026-01-25 16:08:55 - [__main__] - INFO -     Summary: 40 extracted -> 40 validated -> 40 written
+2026-01-25 16:08:55 - [__main__] - INFO - 
+2026-01-25 16:08:55 - [__main__] - INFO - >>> Paper 2/2: 1_10.1109_ACCESS.2018.2827023
+2026-01-25 16:08:55 - [__main__] - INFO -     Title: INTRODUCTION...
+2026-01-25 16:08:55 - [agents.extraction] - INFO - Processing paper: 1_10.1109_ACCESS.2018.2827023 - INTRODUCTION
+2026-01-25 16:08:55 - [agents.extraction] - DEBUG - Split paper into 3 chunks
+2026-01-25 16:08:55 - [agents.extraction] - DEBUG - Extracting claims from chunk 1 (6866 chars)...
+2026-01-25 16:09:02 - [agents.extraction] - DEBUG - Cleaned response preview: {
+    "claims": [
+        {
+            "subject": "Sense of touch",
+            "subject_type": "Concept",
+            "relation": "influences",
+    ...
+2026-01-25 16:09:02 - [agents.extraction] - INFO - Successfully extracted 12 claims from chunk 1
+2026-01-25 16:09:02 - [agents.extraction] - DEBUG - Entity type distribution: Concept:18, Metric:1, Tool:5
+2026-01-25 16:09:02 - [agents.extraction] - DEBUG - Extracting claims from chunk 2 (6744 chars)...
+2026-01-25 16:09:10 - [agents.extraction] - DEBUG - Cleaned response preview: {
+    "claims": [
+        {
+            "subject": "EEG data",
+            "subject_type": "Dataset",
+            "relation": "were preprocessed using...
+2026-01-25 16:09:10 - [agents.extraction] - INFO - Successfully extracted 12 claims from chunk 2
+2026-01-25 16:09:10 - [agents.extraction] - DEBUG - Entity type distribution: Concept:18, Dataset:2, Method:1, Metric:2, Tool:1
+2026-01-25 16:09:10 - [agents.extraction] - DEBUG - Extracting claims from chunk 3 (4485 chars)...
+2026-01-25 16:09:19 - [agents.extraction] - DEBUG - Cleaned response preview: {
+    "claims": [
+        {
+            "subject": "Right frontal gamma correlations",
+            "subject_type": "Finding",
+            "relation": ...
+2026-01-25 16:09:19 - [agents.extraction] - INFO - Successfully extracted 9 claims from chunk 3
+2026-01-25 16:09:19 - [agents.extraction] - DEBUG - Entity type distribution: Concept:13, Finding:3, Method:1, Metric:1
+2026-01-25 16:09:19 - [agents.extraction] - INFO - Total extracted 33 claims from paper 1_10.1109_ACCESS.2018.2827023
+2026-01-25 16:09:19 - [agents.grounding] - INFO - Processing 33 claims for grounding
+2026-01-25 16:09:19 - [agents.grounding] - DEBUG - Resolving subject: 'Sense of touch'
+2026-01-25 16:09:19 - [core.vector_store] - DEBUG - Search for 'Sense of touch' returned 5 results
+2026-01-25 16:09:19 - [core.vector_store] - DEBUG - Added entity: 'Sense of touch' (ID: ent_3f90275c), Total entities: 68
+2026-01-25 16:09:19 - [agents.grounding] - DEBUG - Created New Entity: 'Sense of touch' (ID: ent_3f90275c)
+2026-01-25 16:09:19 - [agents.grounding] - DEBUG - Resolving object: 'decision-making process'
+2026-01-25 16:09:19 - [core.vector_store] - DEBUG - Search for 'decision-making process' returned 5 results
+2026-01-25 16:09:19 - [core.vector_store] - DEBUG - Added entity: 'decision-making process' (ID: ent_4b3aeecb), Total entities: 69
+2026-01-25 16:09:19 - [agents.grounding] - DEBUG - Created New Entity: 'decision-making process' (ID: ent_4b3aeecb)
+2026-01-25 16:09:19 - [agents.grounding] - DEBUG - Resolving subject: 'Touch'
+2026-01-25 16:09:19 - [core.vector_store] - DEBUG - Search for 'Touch' returned 5 results
+2026-01-25 16:09:22 - [agents.grounding] - DEBUG - LLM Judge response for 'Touch': {
+  "decision": "different",
+  "reasoning": "The target entity 'Touch' in the context refers to the act of touching that influences impulse purchasing, which is likely related to consumer behavior or ...
+2026-01-25 16:09:22 - [agents.grounding] - WARNING - Invalid decision value: different
+2026-01-25 16:09:22 - [core.vector_store] - DEBUG - Added entity: 'Touch' (ID: ent_c380d9b4), Total entities: 70
+2026-01-25 16:09:22 - [agents.grounding] - DEBUG - Created New Entity: 'Touch' (ID: ent_c380d9b4) [LLM decided not to merge]
+2026-01-25 16:09:22 - [agents.grounding] - DEBUG - Resolving object: 'impulse purchasing'
+2026-01-25 16:09:22 - [core.vector_store] - DEBUG - Search for 'impulse purchasing' returned 5 results
+2026-01-25 16:09:22 - [core.vector_store] - DEBUG - Added entity: 'impulse purchasing' (ID: ent_ef5c0e59), Total entities: 71
+2026-01-25 16:09:22 - [agents.grounding] - DEBUG - Created New Entity: 'impulse purchasing' (ID: ent_ef5c0e59)
+2026-01-25 16:09:22 - [agents.grounding] - DEBUG - Resolving subject: 'Biosemi system'
+2026-01-25 16:09:22 - [core.vector_store] - DEBUG - Search for 'Biosemi system' returned 5 results
+2026-01-25 16:09:22 - [core.vector_store] - DEBUG - Added entity: 'Biosemi system' (ID: ent_a1828df1), Total entities: 72
+2026-01-25 16:09:22 - [agents.grounding] - DEBUG - Created New Entity: 'Biosemi system' (ID: ent_a1828df1)
+2026-01-25 16:09:22 - [agents.grounding] - DEBUG - Resolving object: '64-channel EEG data'
+2026-01-25 16:09:22 - [core.vector_store] - DEBUG - Search for '64-channel EEG data' returned 5 results
+2026-01-25 16:09:24 - [agents.grounding] - DEBUG - LLM Judge response for '64-channel EEG data': ```json
+{"decision": "different", "reasoning": "The target entity '64-channel EEG data' refers specifically to a dataset or instance of data recorded using a particular configuration of an EEG system....
+2026-01-25 16:09:24 - [agents.grounding] - WARNING - Invalid decision value: different
+2026-01-25 16:09:24 - [core.vector_store] - DEBUG - Added entity: '64-channel EEG data' (ID: ent_e4092902), Total entities: 73
+2026-01-25 16:09:24 - [agents.grounding] - DEBUG - Created New Entity: '64-channel EEG data' (ID: ent_e4092902) [LLM decided not to merge]
+2026-01-25 16:09:24 - [agents.grounding] - DEBUG - Resolving subject: 'TMS 320 F 28335 digital signal processor controller'
+2026-01-25 16:09:24 - [core.vector_store] - DEBUG - Search for 'TMS 320 F 28335 digital signal processor controller' returned 5 results
+2026-01-25 16:09:24 - [core.vector_store] - DEBUG - Added entity: 'TMS 320 F 28335 digital signal processor controller' (ID: ent_3650b9a0), Total entities: 74
+2026-01-25 16:09:24 - [agents.grounding] - DEBUG - Created New Entity: 'TMS 320 F 28335 digital signal processor controller' (ID: ent_3650b9a0)
+2026-01-25 16:09:24 - [agents.grounding] - DEBUG - Resolving object: 'moment of dial rotation'
+2026-01-25 16:09:24 - [core.vector_store] - DEBUG - Search for 'moment of dial rotation' returned 5 results
+2026-01-25 16:09:24 - [core.vector_store] - DEBUG - Added entity: 'moment of dial rotation' (ID: ent_6f40067b), Total entities: 75
+2026-01-25 16:09:24 - [agents.grounding] - DEBUG - Created New Entity: 'moment of dial rotation' (ID: ent_6f40067b)
+2026-01-25 16:09:24 - [agents.grounding] - DEBUG - Resolving subject: 'Task completion event'
+2026-01-25 16:09:24 - [core.vector_store] - DEBUG - Search for 'Task completion event' returned 5 results
+2026-01-25 16:09:24 - [core.vector_store] - DEBUG - Added entity: 'Task completion event' (ID: ent_fedfca8f), Total entities: 76
+2026-01-25 16:09:24 - [agents.grounding] - DEBUG - Created New Entity: 'Task completion event' (ID: ent_fedfca8f)
+2026-01-25 16:09:24 - [agents.grounding] - DEBUG - Resolving object: 'E-Prime software'
+2026-01-25 16:09:24 - [core.vector_store] - DEBUG - Search for 'E-Prime software' returned 5 results
+2026-01-25 16:09:24 - [core.vector_store] - DEBUG - Added entity: 'E-Prime software' (ID: ent_03c1e106), Total entities: 77
+2026-01-25 16:09:24 - [agents.grounding] - DEBUG - Created New Entity: 'E-Prime software' (ID: ent_03c1e106)
+2026-01-25 16:09:24 - [agents.grounding] - DEBUG - Resolving subject: 'DSP embedded system'
+2026-01-25 16:09:24 - [core.vector_store] - DEBUG - Search for 'DSP embedded system' returned 5 results
+2026-01-25 16:09:24 - [core.vector_store] - DEBUG - Added entity: 'DSP embedded system' (ID: ent_b06a569c), Total entities: 78
+2026-01-25 16:09:24 - [agents.grounding] - DEBUG - Created New Entity: 'DSP embedded system' (ID: ent_b06a569c)
+2026-01-25 16:09:24 - [agents.grounding] - DEBUG - Resolving object: 'dial knob'
+2026-01-25 16:09:24 - [core.vector_store] - DEBUG - Search for 'dial knob' returned 5 results
+2026-01-25 16:09:24 - [core.vector_store] - DEBUG - Added entity: 'dial knob' (ID: ent_e066cdda), Total entities: 79
+2026-01-25 16:09:24 - [agents.grounding] - DEBUG - Created New Entity: 'dial knob' (ID: ent_e066cdda)
+2026-01-25 16:09:24 - [agents.grounding] - DEBUG - Resolving subject: 'Haptic dial interface system'
+2026-01-25 16:09:24 - [core.vector_store] - DEBUG - Search for 'Haptic dial interface system' returned 5 results
+2026-01-25 16:09:27 - [agents.grounding] - DEBUG - LLM Judge response for 'Haptic dial interface system': {"decision": "new", "reasoning": "The target entity 'Haptic dial interface system' refers to a specific type of system focusing on haptic feedback, while the candidate entity 'dial knob' is a general ...
+2026-01-25 16:09:27 - [core.vector_store] - DEBUG - Added entity: 'Haptic dial interface system' (ID: ent_22cf50f7), Total entities: 80
+2026-01-25 16:09:27 - [agents.grounding] - DEBUG - Created New Entity: 'Haptic dial interface system' (ID: ent_22cf50f7) [LLM decided not to merge]
+2026-01-25 16:09:27 - [agents.grounding] - DEBUG - Resolving object: 'haptic preferences'
+2026-01-25 16:09:27 - [core.vector_store] - DEBUG - Search for 'haptic preferences' returned 5 results
+2026-01-25 16:09:29 - [agents.grounding] - DEBUG - LLM Judge response for 'haptic preferences': {
+  "decision": "different",
+  "reasoning": "The target entity 'haptic preferences' refers to user preferences related to haptic feedback, which is a distinct concept from 'haptic dial interface syste...
+2026-01-25 16:09:29 - [agents.grounding] - WARNING - Invalid decision value: different
+2026-01-25 16:09:29 - [core.vector_store] - DEBUG - Added entity: 'haptic preferences' (ID: ent_a6c3daa1), Total entities: 81
+2026-01-25 16:09:29 - [agents.grounding] - DEBUG - Created New Entity: 'haptic preferences' (ID: ent_a6c3daa1) [LLM decided not to merge]
+2026-01-25 16:09:29 - [agents.grounding] - DEBUG - Resolving subject: 'Profile A'
+2026-01-25 16:09:29 - [core.vector_store] - DEBUG - Search for 'Profile A' returned 5 results
+2026-01-25 16:09:29 - [core.vector_store] - DEBUG - Added entity: 'Profile A' (ID: ent_7edad61c), Total entities: 82
+2026-01-25 16:09:29 - [agents.grounding] - DEBUG - Created New Entity: 'Profile A' (ID: ent_7edad61c)
+2026-01-25 16:09:29 - [agents.grounding] - DEBUG - Resolving object: 'smallest value of Av'
+2026-01-25 16:09:29 - [core.vector_store] - DEBUG - Search for 'smallest value of Av' returned 5 results
+2026-01-25 16:09:29 - [core.vector_store] - DEBUG - Added entity: 'smallest value of Av' (ID: ent_92d92738), Total entities: 83
+2026-01-25 16:09:29 - [agents.grounding] - DEBUG - Created New Entity: 'smallest value of Av' (ID: ent_92d92738)
+2026-01-25 16:09:29 - [agents.grounding] - DEBUG - Resolving subject: 'Profile D'
+2026-01-25 16:09:29 - [core.vector_store] - DEBUG - Search for 'Profile D' returned 5 results
+2026-01-25 16:09:31 - [agents.grounding] - DEBUG - LLM Judge response for 'Profile D': {
+  "decision": "new",
+  "reasoning": "The context provides evidence that Profile D has distinct characteristics, such as specific values for Av and 's,' which are not mentioned in the description or ...
+2026-01-25 16:09:31 - [core.vector_store] - DEBUG - Added entity: 'Profile D' (ID: ent_aec40644), Total entities: 84
+2026-01-25 16:09:31 - [agents.grounding] - DEBUG - Created New Entity: 'Profile D' (ID: ent_aec40644) [LLM decided not to merge]
+2026-01-25 16:09:31 - [agents.grounding] - DEBUG - Resolving object: 'largest value of Av'
+2026-01-25 16:09:31 - [core.vector_store] - DEBUG - Search for 'largest value of Av' returned 5 results
+2026-01-25 16:09:34 - [agents.grounding] - DEBUG - LLM Judge response for 'largest value of Av': {"decision": "new", "reasoning": "The target entity 'largest value of Av' represents a different concept than the candidate entity 'smallest value of Av'. They refer to opposite values of the same var...
+2026-01-25 16:09:34 - [core.vector_store] - DEBUG - Added entity: 'largest value of Av' (ID: ent_87479ff8), Total entities: 85
+2026-01-25 16:09:34 - [agents.grounding] - DEBUG - Created New Entity: 'largest value of Av' (ID: ent_87479ff8) [LLM decided not to merge]
+2026-01-25 16:09:34 - [agents.grounding] - DEBUG - Resolving subject: 'Haptic preference score (HPS)'
+2026-01-25 16:09:34 - [core.vector_store] - DEBUG - Search for 'Haptic preference score (HPS)' returned 5 results
+2026-01-25 16:09:37 - [agents.grounding] - DEBUG - LLM Judge response for 'Haptic preference score (HPS)': {
+  "decision": "new",
+  "reasoning": "The target entity 'Haptic preference score (HPS)' refers to a specific metric used to quantify satisfaction on a defined scale. The candidate entity 'haptic pref...
+2026-01-25 16:09:37 - [core.vector_store] - DEBUG - Added entity: 'Haptic preference score (HPS)' (ID: ent_a077467b), Total entities: 86
+2026-01-25 16:09:37 - [agents.grounding] - DEBUG - Created New Entity: 'Haptic preference score (HPS)' (ID: ent_a077467b) [LLM decided not to merge]
+2026-01-25 16:09:37 - [agents.grounding] - DEBUG - Resolving object: '1 to 5'
+2026-01-25 16:09:37 - [core.vector_store] - DEBUG - Search for '1 to 5' returned 5 results
+2026-01-25 16:09:37 - [core.vector_store] - DEBUG - Added entity: '1 to 5' (ID: ent_5c6ed452), Total entities: 87
+2026-01-25 16:09:37 - [agents.grounding] - DEBUG - Created New Entity: '1 to 5' (ID: ent_5c6ed452)
+2026-01-25 16:09:37 - [agents.grounding] - DEBUG - Resolving subject: 'Experimental protocol'
+2026-01-25 16:09:37 - [core.vector_store] - DEBUG - Search for 'Experimental protocol' returned 5 results
+2026-01-25 16:09:37 - [core.vector_store] - DEBUG - Added entity: 'Experimental protocol' (ID: ent_0c7a3bae), Total entities: 88
+2026-01-25 16:09:37 - [agents.grounding] - DEBUG - Created New Entity: 'Experimental protocol' (ID: ent_0c7a3bae)
+2026-01-25 16:09:37 - [agents.grounding] - DEBUG - Resolving object: 'six runs'
+2026-01-25 16:09:37 - [core.vector_store] - DEBUG - Search for 'six runs' returned 5 results
+2026-01-25 16:09:37 - [core.vector_store] - DEBUG - Added entity: 'six runs' (ID: ent_c2a61975), Total entities: 89
+2026-01-25 16:09:37 - [agents.grounding] - DEBUG - Created New Entity: 'six runs' (ID: ent_c2a61975)
+2026-01-25 16:09:37 - [agents.grounding] - DEBUG - Resolving subject: 'Each run'
+2026-01-25 16:09:37 - [core.vector_store] - DEBUG - Search for 'Each run' returned 5 results
+2026-01-25 16:09:40 - [agents.grounding] - DEBUG - LLM Judge response for 'Each run': {"decision": "new", "reasoning": "The target entity 'Each run' refers to individual experimental runs involving trials and scenarios, whereas 'six runs' likely refers to a different concept, possibly ...
+2026-01-25 16:09:40 - [core.vector_store] - DEBUG - Added entity: 'Each run' (ID: ent_ffd8d8a2), Total entities: 90
+2026-01-25 16:09:40 - [agents.grounding] - DEBUG - Created New Entity: 'Each run' (ID: ent_ffd8d8a2) [LLM decided not to merge]
+2026-01-25 16:09:40 - [agents.grounding] - DEBUG - Resolving object: '16 trials'
+2026-01-25 16:09:40 - [core.vector_store] - DEBUG - Search for '16 trials' returned 5 results
+2026-01-25 16:09:40 - [core.vector_store] - DEBUG - Added entity: '16 trials' (ID: ent_d3a387f0), Total entities: 91
+2026-01-25 16:09:40 - [agents.grounding] - DEBUG - Created New Entity: '16 trials' (ID: ent_d3a387f0)
+2026-01-25 16:09:40 - [agents.grounding] - DEBUG - Resolving subject: 'EEG data'
+2026-01-25 16:09:40 - [core.vector_store] - DEBUG - Search for 'EEG data' returned 5 results
+2026-01-25 16:09:43 - [agents.grounding] - DEBUG - LLM Judge response for 'EEG data': ```json
+{"decision": "new", "reasoning": "The target entity 'EEG data' is a broad term that refers to the raw data collected from EEG recordings. None of the candidate entities specifically match this...
+2026-01-25 16:09:43 - [core.vector_store] - DEBUG - Added entity: 'EEG data' (ID: ent_5926f79a), Total entities: 92
+2026-01-25 16:09:43 - [agents.grounding] - DEBUG - Created New Entity: 'EEG data' (ID: ent_5926f79a) [LLM decided not to merge]
+2026-01-25 16:09:43 - [agents.grounding] - DEBUG - Resolving object: 'EEGLAB'
+2026-01-25 16:09:43 - [core.vector_store] - DEBUG - Search for 'EEGLAB' returned 5 results
+2026-01-25 16:09:43 - [core.vector_store] - DEBUG - Added entity: 'EEGLAB' (ID: ent_8a0d9271), Total entities: 93
+2026-01-25 16:09:43 - [agents.grounding] - DEBUG - Created New Entity: 'EEGLAB' (ID: ent_8a0d9271)
+2026-01-25 16:09:43 - [agents.grounding] - DEBUG - Resolving subject: 'Epoching'
+2026-01-25 16:09:43 - [core.vector_store] - DEBUG - Search for 'Epoching' returned 5 results
+2026-01-25 16:09:43 - [core.vector_store] - DEBUG - Added entity: 'Epoching' (ID: ent_12cd2df0), Total entities: 94
+2026-01-25 16:09:43 - [agents.grounding] - DEBUG - Created New Entity: 'Epoching' (ID: ent_12cd2df0)
+2026-01-25 16:09:43 - [agents.grounding] - DEBUG - Resolving object: 'haptic profiles and common average reference methods'
+2026-01-25 16:09:43 - [core.vector_store] - DEBUG - Search for 'haptic profiles and common average reference methods' returned 5 results
+2026-01-25 16:09:45 - [agents.grounding] - DEBUG - LLM Judge response for 'haptic profiles and common average reference methods': {
+  "decision": "new",
+  "reasoning": "The target entity 'haptic profiles and common average reference methods' involves specific techniques related to haptic profiles and reference methods, which are...
+2026-01-25 16:09:45 - [core.vector_store] - DEBUG - Added entity: 'haptic profiles and common average reference methods' (ID: ent_55e0d5b5), Total entities: 95
+2026-01-25 16:09:45 - [agents.grounding] - DEBUG - Created New Entity: 'haptic profiles and common average reference methods' (ID: ent_55e0d5b5) [LLM decided not to merge]
+2026-01-25 16:09:45 - [agents.grounding] - DEBUG - Resolving subject: 'Spectral power'
+2026-01-25 16:09:45 - [core.vector_store] - DEBUG - Search for 'Spectral power' returned 5 results
+2026-01-25 16:09:45 - [core.vector_store] - DEBUG - Added entity: 'Spectral power' (ID: ent_fd3f99c0), Total entities: 96
+2026-01-25 16:09:45 - [agents.grounding] - DEBUG - Created New Entity: 'Spectral power' (ID: ent_fd3f99c0)
+2026-01-25 16:09:45 - [agents.grounding] - DEBUG - Resolving object: 'subtracting the baseline mean from every time point within an epoch and dividing this by the baseline standard deviation'
+2026-01-25 16:09:45 - [core.vector_store] - DEBUG - Search for 'subtracting the baseline mean from every time point within an epoch and dividing this by the baseline standard deviation' returned 5 results
+2026-01-25 16:09:45 - [core.vector_store] - DEBUG - Added entity: 'subtracting the baseline mean from every time point within an epoch and dividing this by the baseline standard deviation' (ID: ent_cc8f231b), Total entities: 97
+2026-01-25 16:09:45 - [agents.grounding] - DEBUG - Created New Entity: 'subtracting the baseline mean from every time point within an epoch and dividing this by the baseline standard deviation' (ID: ent_cc8f231b)
+2026-01-25 16:09:45 - [agents.grounding] - DEBUG - Resolving subject: 'Gamma-band oscillations'
+2026-01-25 16:09:45 - [core.vector_store] - DEBUG - Search for 'Gamma-band oscillations' returned 5 results
+2026-01-25 16:09:45 - [core.vector_store] - DEBUG - Added entity: 'Gamma-band oscillations' (ID: ent_2dd69ac2), Total entities: 98
+2026-01-25 16:09:45 - [agents.grounding] - DEBUG - Created New Entity: 'Gamma-band oscillations' (ID: ent_2dd69ac2)
+2026-01-25 16:09:45 - [agents.grounding] - DEBUG - Resolving object: 'haptic preferences'
+2026-01-25 16:09:45 - [core.vector_store] - DEBUG - Search for 'haptic preferences' returned 5 results
+2026-01-25 16:09:45 - [agents.grounding] - INFO - Merging entity 'haptic preferences' -> 'haptic preferences' (ID: ent_a6c3daa1)
+2026-01-25 16:09:45 - [agents.grounding] - DEBUG - Resolving subject: 'Gamma band of 30-50 Hz'
+2026-01-25 16:09:45 - [core.vector_store] - DEBUG - Search for 'Gamma band of 30-50 Hz' returned 5 results
+2026-01-25 16:09:48 - [agents.grounding] - DEBUG - LLM Judge response for 'Gamma band of 30-50 Hz': {
+  "decision": "merge",
+  "id": "ent_2dd69ac2",
+  "reasoning": "The target entity 'Gamma band of 30-50 Hz' refers to a specific frequency range within gamma-band oscillations, which are known to enco...
+2026-01-25 16:09:48 - [agents.grounding] - INFO - Merging entity 'Gamma band of 30-50 Hz' -> 'Gamma-band oscillations' (ID: ent_2dd69ac2)
+2026-01-25 16:09:48 - [agents.grounding] - DEBUG - Resolving object: 'visual valence'
+2026-01-25 16:09:49 - [core.vector_store] - DEBUG - Search for 'visual valence' returned 5 results
+2026-01-25 16:09:49 - [core.vector_store] - DEBUG - Added entity: 'visual valence' (ID: ent_6d8c5678), Total entities: 99
+2026-01-25 16:09:49 - [agents.grounding] - DEBUG - Created New Entity: 'visual valence' (ID: ent_6d8c5678)
+2026-01-25 16:09:49 - [agents.grounding] - DEBUG - Resolving subject: 'Frontal alpha-band oscillations'
+2026-01-25 16:09:49 - [core.vector_store] - DEBUG - Search for 'Frontal alpha-band oscillations' returned 5 results
+2026-01-25 16:09:50 - [agents.grounding] - DEBUG - LLM Judge response for 'Frontal alpha-band oscillations': {
+  "decision": "new",
+  "reasoning": "Frontal alpha-band oscillations and gamma-band oscillations refer to different types of neural oscillations, characterized by different frequency ranges and pote...
+2026-01-25 16:09:51 - [core.vector_store] - DEBUG - Added entity: 'Frontal alpha-band oscillations' (ID: ent_2bbd4abf), Total entities: 100
+2026-01-25 16:09:51 - [agents.grounding] - DEBUG - Created New Entity: 'Frontal alpha-band oscillations' (ID: ent_2bbd4abf) [LLM decided not to merge]
+2026-01-25 16:09:51 - [agents.grounding] - DEBUG - Resolving object: 'affective valence'
+2026-01-25 16:09:51 - [core.vector_store] - DEBUG - Search for 'affective valence' returned 5 results
+2026-01-25 16:09:53 - [agents.grounding] - DEBUG - LLM Judge response for 'affective valence': {
+  "decision": "new",
+  "reasoning": "The target entity 'affective valence' relates to emotional evaluation or response, often linked to emotional states and measurements of positivity or negativity....
+2026-01-25 16:09:53 - [core.vector_store] - DEBUG - Added entity: 'affective valence' (ID: ent_97c64de2), Total entities: 101
+2026-01-25 16:09:53 - [agents.grounding] - DEBUG - Created New Entity: 'affective valence' (ID: ent_97c64de2) [LLM decided not to merge]
+2026-01-25 16:09:53 - [agents.grounding] - DEBUG - Resolving subject: 'Beta-band oscillations'
+2026-01-25 16:09:53 - [core.vector_store] - DEBUG - Search for 'Beta-band oscillations' returned 5 results
+2026-01-25 16:09:56 - [agents.grounding] - DEBUG - LLM Judge response for 'Beta-band oscillations': ```json
+{"decision": "new", "reasoning": "Beta-band oscillations are distinct from gamma-band and frontal alpha-band oscillations as they pertain to different frequency ranges and are associated with ...
+2026-01-25 16:09:56 - [core.vector_store] - DEBUG - Added entity: 'Beta-band oscillations' (ID: ent_e047282a), Total entities: 102
+2026-01-25 16:09:56 - [agents.grounding] - DEBUG - Created New Entity: 'Beta-band oscillations' (ID: ent_e047282a) [LLM decided not to merge]
+2026-01-25 16:09:56 - [agents.grounding] - DEBUG - Resolving object: 'emotional and cognitive processes'
+2026-01-25 16:09:56 - [core.vector_store] - DEBUG - Search for 'emotional and cognitive processes' returned 5 results
+2026-01-25 16:09:58 - [agents.grounding] - DEBUG - LLM Judge response for 'emotional and cognitive processes': {
+  "decision": "new",
+  "reasoning": "The target entity 'emotional and cognitive processes' encompasses a broader scope, including both emotional and cognitive aspects. The candidate entity 'affectiv...
+2026-01-25 16:09:58 - [core.vector_store] - DEBUG - Added entity: 'emotional and cognitive processes' (ID: ent_12de27fd), Total entities: 103
+2026-01-25 16:09:58 - [agents.grounding] - DEBUG - Created New Entity: 'emotional and cognitive processes' (ID: ent_12de27fd) [LLM decided not to merge]
+2026-01-25 16:09:58 - [agents.grounding] - DEBUG - Resolving subject: 'Haptic preference scores (HPS)'
+2026-01-25 16:09:58 - [core.vector_store] - DEBUG - Search for 'Haptic preference scores (HPS)' returned 5 results
+2026-01-25 16:10:01 - [agents.grounding] - DEBUG - LLM Judge response for 'Haptic preference scores (HPS)': ```json
+{"decision": "merge", "id": "ent_a6c3daa1", "reasoning": "The target entity 'Haptic preference scores (HPS)' closely aligns with 'haptic preferences' as both refer to the evaluation or scoring...
+2026-01-25 16:10:01 - [agents.grounding] - INFO - Merging entity 'Haptic preference scores (HPS)' -> 'haptic preferences' (ID: ent_a6c3daa1)
+2026-01-25 16:10:01 - [agents.grounding] - DEBUG - Resolving object: 'haptic profiles B and C'
+2026-01-25 16:10:01 - [core.vector_store] - DEBUG - Search for 'haptic profiles B and C' returned 5 results
+2026-01-25 16:10:04 - [agents.grounding] - DEBUG - LLM Judge response for 'haptic profiles B and C': {
+  "decision": "new",
+  "reasoning": "The target entity 'haptic profiles B and C' refers specifically to certain categories or examples of haptic profiles, which are distinct from the broader or diff...
+2026-01-25 16:10:04 - [core.vector_store] - DEBUG - Added entity: 'haptic profiles B and C' (ID: ent_f492afa1), Total entities: 104
+2026-01-25 16:10:04 - [agents.grounding] - DEBUG - Created New Entity: 'haptic profiles B and C' (ID: ent_f492afa1) [LLM decided not to merge]
+2026-01-25 16:10:04 - [agents.grounding] - DEBUG - Resolving subject: 'Response times'
+2026-01-25 16:10:04 - [core.vector_store] - DEBUG - Search for 'Response times' returned 5 results
+2026-01-25 16:10:04 - [core.vector_store] - DEBUG - Added entity: 'Response times' (ID: ent_d835a23c), Total entities: 105
+2026-01-25 16:10:04 - [agents.grounding] - DEBUG - Created New Entity: 'Response times' (ID: ent_d835a23c)
+2026-01-25 16:10:04 - [agents.grounding] - DEBUG - Resolving object: 'HPS = 1 or HPS = 5'
+2026-01-25 16:10:05 - [core.vector_store] - DEBUG - Search for 'HPS = 1 or HPS = 5' returned 5 results
+2026-01-25 16:10:05 - [core.vector_store] - DEBUG - Added entity: 'HPS = 1 or HPS = 5' (ID: ent_a3855c33), Total entities: 106
+2026-01-25 16:10:05 - [agents.grounding] - DEBUG - Created New Entity: 'HPS = 1 or HPS = 5' (ID: ent_a3855c33)
+2026-01-25 16:10:05 - [agents.grounding] - DEBUG - Resolving subject: 'Gamma band oscillations'
+2026-01-25 16:10:05 - [core.vector_store] - DEBUG - Search for 'Gamma band oscillations' returned 5 results
+2026-01-25 16:10:08 - [agents.grounding] - DEBUG - LLM Judge response for 'Gamma band oscillations': ```json
+{"decision": "merge", "id": "ent_2dd69ac2", "reasoning": "The target entity 'Gamma band oscillations' refers to the same concept as the candidate entity 'Gamma-band oscillations', focusing on ...
+2026-01-25 16:10:08 - [agents.grounding] - INFO - Merging entity 'Gamma band oscillations' -> 'Gamma-band oscillations' (ID: ent_2dd69ac2)
+2026-01-25 16:10:08 - [agents.grounding] - DEBUG - Resolving object: 'cognitive processes'
+2026-01-25 16:10:08 - [core.vector_store] - DEBUG - Search for 'cognitive processes' returned 5 results
+2026-01-25 16:10:12 - [agents.grounding] - DEBUG - LLM Judge response for 'cognitive processes': {"decision": "new", "reasoning": "The target entity 'cognitive processes' refers to a broad category associated with mental processes like attention and recognition. The candidate 'emotional and cogni...
+2026-01-25 16:10:12 - [core.vector_store] - DEBUG - Added entity: 'cognitive processes' (ID: ent_e5be3045), Total entities: 107
+2026-01-25 16:10:12 - [agents.grounding] - DEBUG - Created New Entity: 'cognitive processes' (ID: ent_e5be3045) [LLM decided not to merge]
+2026-01-25 16:10:12 - [agents.grounding] - DEBUG - Resolving subject: 'Gamma band oscillations'
+2026-01-25 16:10:12 - [core.vector_store] - DEBUG - Search for 'Gamma band oscillations' returned 5 results
+2026-01-25 16:10:15 - [agents.grounding] - DEBUG - LLM Judge response for 'Gamma band oscillations': {
+  "decision": "merge",
+  "id": "ent_2dd69ac2",
+  "reasoning": "Gamma band oscillations are a specific type of brain wave activity related to high-frequency oscillations, matching semantically with '...
+2026-01-25 16:10:15 - [agents.grounding] - INFO - Merging entity 'Gamma band oscillations' -> 'Gamma-band oscillations' (ID: ent_2dd69ac2)
+2026-01-25 16:10:15 - [agents.grounding] - DEBUG - Resolving object: 'sensory-cognitive dynamics and emotions'
+2026-01-25 16:10:15 - [core.vector_store] - DEBUG - Search for 'sensory-cognitive dynamics and emotions' returned 5 results
+2026-01-25 16:10:18 - [agents.grounding] - DEBUG - LLM Judge response for 'sensory-cognitive dynamics and emotions': ```json
+{"decision": "new", "reasoning": "The target entity 'sensory-cognitive dynamics and emotions' includes a specific focus on sensory dynamics and their correlation with emotions, which are not e...
+2026-01-25 16:10:18 - [core.vector_store] - DEBUG - Added entity: 'sensory-cognitive dynamics and emotions' (ID: ent_2f59b302), Total entities: 108
+2026-01-25 16:10:18 - [agents.grounding] - DEBUG - Created New Entity: 'sensory-cognitive dynamics and emotions' (ID: ent_2f59b302) [LLM decided not to merge]
+2026-01-25 16:10:18 - [agents.grounding] - DEBUG - Resolving subject: 'Gamma band oscillations'
+2026-01-25 16:10:18 - [core.vector_store] - DEBUG - Search for 'Gamma band oscillations' returned 5 results
+2026-01-25 16:10:20 - [agents.grounding] - DEBUG - LLM Judge response for 'Gamma band oscillations': {
+  "decision": "merge",
+  "id": "ent_2dd69ac2",
+  "reasoning": "Gamma band oscillations and Gamma-band oscillations are referring to the same concept related to brain waves, specifically in the conte...
+2026-01-25 16:10:20 - [agents.grounding] - INFO - Merging entity 'Gamma band oscillations' -> 'Gamma-band oscillations' (ID: ent_2dd69ac2)
+2026-01-25 16:10:20 - [agents.grounding] - DEBUG - Resolving object: 'object recognition and perception processing'
+2026-01-25 16:10:20 - [core.vector_store] - DEBUG - Search for 'object recognition and perception processing' returned 5 results
+2026-01-25 16:10:20 - [core.vector_store] - DEBUG - Added entity: 'object recognition and perception processing' (ID: ent_a6735218), Total entities: 109
+2026-01-25 16:10:20 - [agents.grounding] - DEBUG - Created New Entity: 'object recognition and perception processing' (ID: ent_a6735218)
+2026-01-25 16:10:20 - [agents.grounding] - DEBUG - Resolving subject: 'Right frontal gamma correlations'
+2026-01-25 16:10:20 - [core.vector_store] - DEBUG - Search for 'Right frontal gamma correlations' returned 5 results
+2026-01-25 16:10:20 - [core.vector_store] - DEBUG - Added entity: 'Right frontal gamma correlations' (ID: ent_f8a8cd72), Total entities: 110
+2026-01-25 16:10:20 - [agents.grounding] - DEBUG - Created New Entity: 'Right frontal gamma correlations' (ID: ent_f8a8cd72)
+2026-01-25 16:10:20 - [agents.grounding] - DEBUG - Resolving object: 'haptic preferences'
+2026-01-25 16:10:20 - [core.vector_store] - DEBUG - Search for 'haptic preferences' returned 5 results
+2026-01-25 16:10:20 - [agents.grounding] - INFO - Merging entity 'haptic preferences' -> 'haptic preferences' (ID: ent_a6c3daa1)
+2026-01-25 16:10:20 - [agents.grounding] - DEBUG - Resolving subject: 'Prefrontal cortex'
+2026-01-25 16:10:20 - [core.vector_store] - DEBUG - Search for 'Prefrontal cortex' returned 5 results
+2026-01-25 16:10:23 - [agents.grounding] - DEBUG - LLM Judge response for 'Prefrontal cortex': ```json
+{
+  "decision": "new",
+  "reasoning": "The prefrontal cortex is a specific region of the brain, while 'cognitive processes' refers to a broad range of mental operations. Although the prefronta...
+2026-01-25 16:10:23 - [core.vector_store] - DEBUG - Added entity: 'Prefrontal cortex' (ID: ent_b6139268), Total entities: 111
+2026-01-25 16:10:23 - [agents.grounding] - DEBUG - Created New Entity: 'Prefrontal cortex' (ID: ent_b6139268) [LLM decided not to merge]
+2026-01-25 16:10:23 - [agents.grounding] - DEBUG - Resolving object: 'decision-making'
+2026-01-25 16:10:23 - [core.vector_store] - DEBUG - Search for 'decision-making' returned 5 results
+2026-01-25 16:10:25 - [agents.grounding] - DEBUG - LLM Judge response for 'decision-making': {"decision": "new", "reasoning": "The target entity 'decision-making' refers broadly to the cognitive process, while the candidate entity 'decision-making process' implies a structured or procedural a...
+2026-01-25 16:10:25 - [core.vector_store] - DEBUG - Added entity: 'decision-making' (ID: ent_197261b4), Total entities: 112
+2026-01-25 16:10:25 - [agents.grounding] - DEBUG - Created New Entity: 'decision-making' (ID: ent_197261b4) [LLM decided not to merge]
+2026-01-25 16:10:25 - [agents.grounding] - DEBUG - Resolving subject: 'Prefrontal cortex'
+2026-01-25 16:10:25 - [core.vector_store] - DEBUG - Search for 'Prefrontal cortex' returned 5 results
+2026-01-25 16:10:25 - [agents.grounding] - INFO - Merging entity 'Prefrontal cortex' -> 'Prefrontal cortex' (ID: ent_b6139268)
+2026-01-25 16:10:25 - [agents.grounding] - DEBUG - Resolving object: 'critical role in tactile decision processing'
+2026-01-25 16:10:25 - [core.vector_store] - DEBUG - Search for 'critical role in tactile decision processing' returned 5 results
+2026-01-25 16:10:28 - [agents.grounding] - DEBUG - LLM Judge response for 'critical role in tactile decision processing': {"decision": "new", "reasoning": "The target entity refers to the prefrontal cortex's involvement in tactile decision processing, which is a specific cognitive function. The candidate entity 'haptic p...
+2026-01-25 16:10:28 - [core.vector_store] - DEBUG - Added entity: 'critical role in tactile decision processing' (ID: ent_b55570e6), Total entities: 113
+2026-01-25 16:10:28 - [agents.grounding] - DEBUG - Created New Entity: 'critical role in tactile decision processing' (ID: ent_b55570e6) [LLM decided not to merge]
+2026-01-25 16:10:28 - [agents.grounding] - DEBUG - Resolving subject: 'Right side of the prefrontal lobe'
+2026-01-25 16:10:28 - [core.vector_store] - DEBUG - Search for 'Right side of the prefrontal lobe' returned 5 results
+2026-01-25 16:10:30 - [agents.grounding] - DEBUG - LLM Judge response for 'Right side of the prefrontal lobe': {"decision": "new", "reasoning": "The target entity 'Right side of the prefrontal lobe' specifies a particular region within the prefrontal cortex but does not exactly match either candidate. 'Prefron...
+2026-01-25 16:10:30 - [core.vector_store] - DEBUG - Added entity: 'Right side of the prefrontal lobe' (ID: ent_8ddd007a), Total entities: 114
+2026-01-25 16:10:30 - [agents.grounding] - DEBUG - Created New Entity: 'Right side of the prefrontal lobe' (ID: ent_8ddd007a) [LLM decided not to merge]
+2026-01-25 16:10:30 - [agents.grounding] - DEBUG - Resolving object: 'feeling-of-knowing judgments'
+2026-01-25 16:10:30 - [core.vector_store] - DEBUG - Search for 'feeling-of-knowing judgments' returned 5 results
+2026-01-25 16:10:33 - [agents.grounding] - DEBUG - LLM Judge response for 'feeling-of-knowing judgments': ```json
+{"decision": "new", "reasoning": "The target entity 'feeling-of-knowing judgments' refers to a cognitive process related to metacognition, specifically the ability to judge whether one knows o...
+2026-01-25 16:10:33 - [core.vector_store] - DEBUG - Added entity: 'feeling-of-knowing judgments' (ID: ent_e2897506), Total entities: 115
+2026-01-25 16:10:33 - [agents.grounding] - DEBUG - Created New Entity: 'feeling-of-knowing judgments' (ID: ent_e2897506) [LLM decided not to merge]
+2026-01-25 16:10:33 - [agents.grounding] - DEBUG - Resolving subject: 'Right frontal gamma oscillation'
+2026-01-25 16:10:33 - [core.vector_store] - DEBUG - Search for 'Right frontal gamma oscillation' returned 5 results
+2026-01-25 16:10:35 - [agents.grounding] - DEBUG - LLM Judge response for 'Right frontal gamma oscillation': {
+  "decision": "new",
+  "reasoning": "The target entity 'Right frontal gamma oscillation' refers specifically to gamma oscillations located in the right frontal areas, which is distinct from 'Gamma-b...
+2026-01-25 16:10:35 - [core.vector_store] - DEBUG - Added entity: 'Right frontal gamma oscillation' (ID: ent_9b447416), Total entities: 116
+2026-01-25 16:10:35 - [agents.grounding] - DEBUG - Created New Entity: 'Right frontal gamma oscillation' (ID: ent_9b447416) [LLM decided not to merge]
+2026-01-25 16:10:35 - [agents.grounding] - DEBUG - Resolving object: 'right frontal areas'
+2026-01-25 16:10:35 - [core.vector_store] - DEBUG - Search for 'right frontal areas' returned 5 results
+2026-01-25 16:10:38 - [agents.grounding] - DEBUG - LLM Judge response for 'right frontal areas': ```json
+{
+  "decision": "merge",
+  "id": "ent_9b447416",
+  "reasoning": "The target entity 'right frontal areas' refers to a location relevant to 'right frontal gamma oscillation', which aligns semant...
+2026-01-25 16:10:38 - [agents.grounding] - INFO - Merging entity 'right frontal areas' -> 'Right frontal gamma oscillation' (ID: ent_9b447416)
+2026-01-25 16:10:38 - [agents.grounding] - DEBUG - Resolving subject: 'Haptic profiles'
+2026-01-25 16:10:38 - [core.vector_store] - DEBUG - Search for 'Haptic profiles' returned 5 results
+2026-01-25 16:10:40 - [agents.grounding] - DEBUG - LLM Judge response for 'Haptic profiles': ```json
+{"decision": "merge", "id": "ent_a077467b", "reasoning": "The context mentions 'haptic profiles' providing different 'HPSs', which aligns with 'Haptic preference score (HPS)'. This suggests th...
+2026-01-25 16:10:40 - [agents.grounding] - INFO - Merging entity 'Haptic profiles' -> 'Haptic preference score (HPS)' (ID: ent_a077467b)
+2026-01-25 16:10:40 - [agents.grounding] - DEBUG - Resolving object: 'different HPSs'
+2026-01-25 16:10:40 - [core.vector_store] - DEBUG - Search for 'different HPSs' returned 5 results
+2026-01-25 16:10:42 - [agents.grounding] - DEBUG - LLM Judge response for 'different HPSs': {
+  "decision": "new",
+  "reasoning": "The target entity 'different HPSs' refers to varied haptic profiles provided to participants, whereas the candidate entity 'HPS = 1 or HPS = 5' suggests specific...
+2026-01-25 16:10:42 - [core.vector_store] - DEBUG - Added entity: 'different HPSs' (ID: ent_db53d75a), Total entities: 117
+2026-01-25 16:10:42 - [agents.grounding] - DEBUG - Created New Entity: 'different HPSs' (ID: ent_db53d75a) [LLM decided not to merge]
+2026-01-25 16:10:42 - [agents.grounding] - DEBUG - Resolving subject: 'Response times'
+2026-01-25 16:10:42 - [core.vector_store] - DEBUG - Search for 'Response times' returned 5 results
+2026-01-25 16:10:42 - [agents.grounding] - INFO - Merging entity 'Response times' -> 'Response times' (ID: ent_d835a23c)
+2026-01-25 16:10:42 - [agents.grounding] - DEBUG - Resolving object: 'very satisfied or very dissatisfied'
+2026-01-25 16:10:42 - [core.vector_store] - DEBUG - Search for 'very satisfied or very dissatisfied' returned 5 results
+2026-01-25 16:10:42 - [core.vector_store] - DEBUG - Added entity: 'very satisfied or very dissatisfied' (ID: ent_cbd2f218), Total entities: 118
+2026-01-25 16:10:42 - [agents.grounding] - DEBUG - Created New Entity: 'very satisfied or very dissatisfied' (ID: ent_cbd2f218)
+2026-01-25 16:10:42 - [agents.grounding] - DEBUG - Resolving subject: 'Frontal gamma band oscillations'
+2026-01-25 16:10:43 - [core.vector_store] - DEBUG - Search for 'Frontal gamma band oscillations' returned 5 results
+2026-01-25 16:10:45 - [agents.grounding] - DEBUG - LLM Judge response for 'Frontal gamma band oscillations': {"decision": "new", "reasoning": "The target entity 'Frontal gamma band oscillations' specifically refers to oscillations in the frontal region, which is not exactly the same as any given candidate. T...
+2026-01-25 16:10:45 - [core.vector_store] - DEBUG - Added entity: 'Frontal gamma band oscillations' (ID: ent_62d46dd4), Total entities: 119
+2026-01-25 16:10:45 - [agents.grounding] - DEBUG - Created New Entity: 'Frontal gamma band oscillations' (ID: ent_62d46dd4) [LLM decided not to merge]
+2026-01-25 16:10:45 - [agents.grounding] - DEBUG - Resolving object: 'HPS'
+2026-01-25 16:10:45 - [core.vector_store] - DEBUG - Search for 'HPS' returned 5 results
+2026-01-25 16:10:48 - [agents.grounding] - DEBUG - LLM Judge response for 'HPS': {
+  "decision": "new",
+  "reasoning": "The target entity 'HPS' lacks sufficient context to determine if it matches any specific meaning, such as hypothesis scores or a different measurement. The candi...
+2026-01-25 16:10:48 - [core.vector_store] - DEBUG - Added entity: 'HPS' (ID: ent_e1e30fe6), Total entities: 120
+2026-01-25 16:10:48 - [agents.grounding] - DEBUG - Created New Entity: 'HPS' (ID: ent_e1e30fe6) [LLM decided not to merge]
+2026-01-25 16:10:48 - [agents.grounding] - DEBUG - Resolving subject: 'EEG-based haptic preference measurement technique'
+2026-01-25 16:10:48 - [core.vector_store] - DEBUG - Search for 'EEG-based haptic preference measurement technique' returned 5 results
+2026-01-25 16:10:50 - [agents.grounding] - DEBUG - LLM Judge response for 'EEG-based haptic preference measurement technique': ```json
+{"decision": "new", "reasoning": "The target entity 'EEG-based haptic preference measurement technique' involves a specific application of EEG in measuring haptic preferences, which is distinc...
+2026-01-25 16:10:50 - [core.vector_store] - DEBUG - Added entity: 'EEG-based haptic preference measurement technique' (ID: ent_17eb4fe4), Total entities: 121
+2026-01-25 16:10:50 - [agents.grounding] - DEBUG - Created New Entity: 'EEG-based haptic preference measurement technique' (ID: ent_17eb4fe4) [LLM decided not to merge]
+2026-01-25 16:10:50 - [agents.grounding] - DEBUG - Resolving object: 'novel'
+2026-01-25 16:10:50 - [core.vector_store] - DEBUG - Search for 'novel' returned 5 results
+2026-01-25 16:10:50 - [core.vector_store] - DEBUG - Added entity: 'novel' (ID: ent_99b0c32f), Total entities: 122
+2026-01-25 16:10:50 - [agents.grounding] - DEBUG - Created New Entity: 'novel' (ID: ent_99b0c32f)
+2026-01-25 16:10:50 - [agents.grounding] - INFO - Grounded 33 claims
+2026-01-25 16:10:50 - [agents.validation] - INFO - Processing 33 claims for validation
+2026-01-25 16:10:50 - [agents.validation] - DEBUG - Validating claim: 'Sense of touch influences decision-making process...'
+2026-01-25 16:10:52 - [agents.validation] - DEBUG - LLM response preview: {
+  "valid": true,
+  "type": "new",
+  "confidence": 0.9,
+  "reasoning": "The claim that the sense of touch influences decision-making is supported by ...
+2026-01-25 16:10:52 - [agents.validation] - DEBUG - VALIDATED: Type=new, Confidence=0.90
+2026-01-25 16:10:52 - [agents.validation] - DEBUG - Validating claim: 'Touch influences impulse purchasing...'
+2026-01-25 16:10:54 - [agents.validation] - DEBUG - LLM response preview: {
+  "valid": true,
+  "type": "new",
+  "confidence": 0.8,
+  "reasoning": "The claim introduces a study by Peck and Childers, suggesting that touch infl...
+2026-01-25 16:10:54 - [agents.validation] - DEBUG - VALIDATED: Type=new, Confidence=0.80
+2026-01-25 16:10:54 - [agents.validation] - DEBUG - Validating claim: 'Biosemi system records 64-channel EEG data...'
+2026-01-25 16:10:56 - [agents.validation] - DEBUG - LLM response preview: {
+  "valid": true,
+  "type": "new",
+  "confidence": 0.9,
+  "reasoning": "The claim is consistent and well-formed as it provides specific details about...
+2026-01-25 16:10:56 - [agents.validation] - DEBUG - VALIDATED: Type=new, Confidence=0.90
+2026-01-25 16:10:56 - [agents.validation] - DEBUG - Validating claim: 'TMS 320 F 28335 digital signal processor controller detects ...'
+2026-01-25 16:10:58 - [agents.validation] - DEBUG - LLM response preview: {
+  "valid": true,
+  "type": "new",
+  "confidence": 0.9,
+  "reasoning": "The claim about the TMS 320 F 28335 digital signal processor detecting the mo...
+2026-01-25 16:10:58 - [agents.validation] - DEBUG - VALIDATED: Type=new, Confidence=0.90
+2026-01-25 16:10:58 - [agents.validation] - DEBUG - Validating claim: 'Task completion event is sent to E-Prime software...'
+2026-01-25 16:11:00 - [agents.validation] - DEBUG - LLM response preview: {
+  "valid": true,
+  "type": "new",
+  "confidence": 0.9,
+  "reasoning": "The claim appears logically consistent as the evidence states that a task com...
+2026-01-25 16:11:00 - [agents.validation] - DEBUG - VALIDATED: Type=new, Confidence=0.90
+2026-01-25 16:11:00 - [agents.validation] - DEBUG - Validating claim: 'DSP embedded system controls dial knob...'
+2026-01-25 16:11:03 - [agents.validation] - DEBUG - LLM response preview: {
+  "valid": true,
+  "type": "new",
+  "confidence": 0.95,
+  "reasoning": "The claim states that a DSP embedded system controls a dial knob in a washin...
+2026-01-25 16:11:03 - [agents.validation] - DEBUG - VALIDATED: Type=new, Confidence=0.95
+2026-01-25 16:11:03 - [agents.validation] - DEBUG - Validating claim: 'Haptic dial interface system evaluates haptic preferences...'
+2026-01-25 16:11:06 - [agents.validation] - DEBUG - LLM response preview: {
+  "valid": true,
+  "type": "new",
+  "confidence": 0.9,
+  "reasoning": "The claim refers to a 'haptic dial interface system' used for evaluating hapt...
+2026-01-25 16:11:06 - [agents.validation] - DEBUG - VALIDATED: Type=new, Confidence=0.90
+2026-01-25 16:11:06 - [agents.validation] - DEBUG - Validating claim: 'Profile A has smallest value of Av...'
+2026-01-25 16:11:09 - [agents.validation] - DEBUG - LLM response preview: ```json
+{
+  "valid": true,
+  "type": "new",
+  "confidence": 0.9,
+  "reasoning": "The new claim is logically consistent with the evidence provided. Pro...
+2026-01-25 16:11:09 - [agents.validation] - DEBUG - VALIDATED: Type=new, Confidence=0.90
+2026-01-25 16:11:09 - [agents.validation] - DEBUG - Validating claim: 'Profile D has largest value of Av...'
+2026-01-25 16:11:11 - [agents.validation] - DEBUG - LLM response preview: {
+  "valid": true,
+  "type": "new",
+  "confidence": 0.9,
+  "reasoning": "The claim and the evidence provided are consistent with each other. Although ...
+2026-01-25 16:11:11 - [agents.validation] - DEBUG - VALIDATED: Type=new, Confidence=0.90
+2026-01-25 16:11:11 - [agents.validation] - DEBUG - Validating claim: 'Haptic preference score (HPS) is on a scale of 1 to 5...'
+2026-01-25 16:11:13 - [agents.validation] - DEBUG - LLM response preview: {
+  "valid": true,
+  "type": "new",
+  "confidence": 0.9,
+  "reasoning": "The new claim provides a description of the haptic preference score (HPS) bei...
+2026-01-25 16:11:13 - [agents.validation] - DEBUG - VALIDATED: Type=new, Confidence=0.90
+2026-01-25 16:11:13 - [agents.validation] - DEBUG - Validating claim: 'Experimental protocol consists of six runs...'
+2026-01-25 16:11:16 - [agents.validation] - DEBUG - LLM response preview: ```json
+{
+  "valid": true,
+  "type": "new",
+  "confidence": 0.9,
+  "reasoning": "The claim that the experimental protocol consists of six runs is dire...
+2026-01-25 16:11:16 - [agents.validation] - DEBUG - VALIDATED: Type=new, Confidence=0.90
+2026-01-25 16:11:16 - [agents.validation] - DEBUG - Validating claim: 'Each run has 16 trials...'
+2026-01-25 16:11:20 - [agents.validation] - DEBUG - LLM response preview: {
+  "valid": true,
+  "type": "new",
+  "confidence": 0.9,
+  "reasoning": "The claim is consistent with the evidence provided, which specifies the struc...
+2026-01-25 16:11:20 - [agents.validation] - DEBUG - VALIDATED: Type=new, Confidence=0.90
+2026-01-25 16:11:20 - [agents.validation] - DEBUG - Validating claim: 'EEG data were preprocessed using EEGLAB...'
+2026-01-25 16:11:22 - [agents.validation] - DEBUG - LLM response preview: ```json
+{
+  "valid": true,
+  "type": "new",
+  "confidence": 0.95,
+  "reasoning": "The claim is logically consistent, citing a commonly used tool (EEGL...
+2026-01-25 16:11:22 - [agents.validation] - DEBUG - VALIDATED: Type=new, Confidence=0.95
+2026-01-25 16:11:22 - [agents.validation] - DEBUG - Validating claim: 'Epoching was employed based on haptic profiles and common av...'
+2026-01-25 16:11:24 - [agents.validation] - DEBUG - LLM response preview: {
+  "valid": true,
+  "type": "new",
+  "confidence": 0.9,
+  "reasoning": "The claim introduces a new concept involving epoching based on haptic profile...
+2026-01-25 16:11:24 - [agents.validation] - DEBUG - VALIDATED: Type=new, Confidence=0.90
+2026-01-25 16:11:24 - [agents.validation] - DEBUG - Validating claim: 'Spectral power was normalized by subtracting the baseline me...'
+2026-01-25 16:11:27 - [agents.validation] - DEBUG - LLM response preview: ```json
+{
+  "valid": true,
+  "type": "new",
+  "confidence": 0.9,
+  "reasoning": "The claim outlines a method of normalization for spectral power using...
+2026-01-25 16:11:27 - [agents.validation] - DEBUG - VALIDATED: Type=new, Confidence=0.90
+2026-01-25 16:11:27 - [agents.validation] - DEBUG - Validating claim: 'Gamma-band oscillations were related to haptic preferences...'
+2026-01-25 16:11:30 - [agents.validation] - DEBUG - LLM response preview: {
+  "valid": true,
+  "type": "new",
+  "confidence": 0.8,
+  "reasoning": "The claim is exploring a potential relationship between gamma-band oscillatio...
+2026-01-25 16:11:30 - [agents.validation] - DEBUG - VALIDATED: Type=new, Confidence=0.80
+2026-01-25 16:11:30 - [agents.validation] - DEBUG - Validating claim: 'Gamma band of 30-50 Hz has been shown to vary with visual va...'
+2026-01-25 16:11:32 - [agents.validation] - DEBUG - LLM response preview: {
+  "valid": true,
+  "type": "new",
+  "confidence": 0.9,
+  "reasoning": "The claim presents a specific frequency range within the gamma band and assoc...
+2026-01-25 16:11:32 - [agents.validation] - DEBUG - VALIDATED: Type=new, Confidence=0.90
+2026-01-25 16:11:32 - [agents.validation] - DEBUG - Validating claim: 'Frontal alpha-band oscillations have been implicated in affe...'
+2026-01-25 16:11:35 - [agents.validation] - DEBUG - LLM response preview: {
+  "valid": true,
+  "type": "new",
+  "confidence": 0.9,
+  "reasoning": "The claim is presented with references indicating studies or evidence support...
+2026-01-25 16:11:35 - [agents.validation] - DEBUG - VALIDATED: Type=new, Confidence=0.90
+2026-01-25 16:11:35 - [agents.validation] - DEBUG - Validating claim: 'Beta-band oscillations reflect emotional and cognitive proce...'
+2026-01-25 16:11:37 - [agents.validation] - DEBUG - LLM response preview: {
+  "valid": true,
+  "type": "new",
+  "confidence": 0.9,
+  "reasoning": "Beta-band oscillations have been studied in neuroscience for their role in va...
+2026-01-25 16:11:37 - [agents.validation] - DEBUG - VALIDATED: Type=new, Confidence=0.90
+2026-01-25 16:11:37 - [agents.validation] - DEBUG - Validating claim: 'Haptic preference scores (HPS) were higher for haptic profil...'
+2026-01-25 16:11:40 - [agents.validation] - DEBUG - LLM response preview: ```json
+{
+  "valid": true,
+  "type": "new",
+  "confidence": 0.95,
+  "reasoning": "The claim is logically consistent as it specifies that HPSs for hapt...
+2026-01-25 16:11:40 - [agents.validation] - DEBUG - VALIDATED: Type=new, Confidence=0.95
+2026-01-25 16:11:40 - [agents.validation] - DEBUG - Validating claim: 'Response times were shorter when participants selected HPS =...'
+2026-01-25 16:11:43 - [agents.validation] - DEBUG - LLM response preview: {
+  "valid": true,
+  "type": "new",
+  "confidence": 0.95,
+  "reasoning": "The claim is supported by evidence from a repeated measures one-way ANOVA, i...
+2026-01-25 16:11:43 - [agents.validation] - DEBUG - VALIDATED: Type=new, Confidence=0.95
+2026-01-25 16:11:43 - [agents.validation] - DEBUG - Validating claim: 'Gamma band oscillations are related to cognitive processes...'
+2026-01-25 16:11:45 - [agents.validation] - DEBUG - LLM response preview: {
+  "valid": true,
+  "type": "new",
+  "confidence": 1.0,
+  "reasoning": "The claim that gamma band oscillations are related to cognitive processes is ...
+2026-01-25 16:11:45 - [agents.validation] - DEBUG - VALIDATED: Type=new, Confidence=1.00
+2026-01-25 16:11:45 - [agents.validation] - DEBUG - Validating claim: 'Gamma band oscillations are correlated with sensory-cognitiv...'
+2026-01-25 16:11:48 - [agents.validation] - DEBUG - LLM response preview: {
+  "valid": true,
+  "type": "new",
+  "confidence": 0.9,
+  "reasoning": "Gamma band oscillations have been widely studied in neuroscience and are know...
+2026-01-25 16:11:48 - [agents.validation] - DEBUG - VALIDATED: Type=new, Confidence=0.90
+2026-01-25 16:11:48 - [agents.validation] - DEBUG - Validating claim: 'Gamma band oscillations are associated with object recogniti...'
+2026-01-25 16:11:50 - [agents.validation] - DEBUG - LLM response preview: {
+  "valid": true,
+  "type": "new",
+  "confidence": 0.9,
+  "reasoning": "Gamma band oscillations are widely researched in neuroscience, commonly linke...
+2026-01-25 16:11:50 - [agents.validation] - DEBUG - VALIDATED: Type=new, Confidence=0.90
+2026-01-25 16:11:50 - [agents.validation] - DEBUG - Validating claim: 'Right frontal gamma correlations associated with haptic pref...'
+2026-01-25 16:11:53 - [agents.validation] - DEBUG - LLM response preview: {
+  "valid": true,
+  "type": "new",
+  "confidence": 0.9,
+  "reasoning": "The claim pertains to an observation in neuroscience involving gamma band act...
+2026-01-25 16:11:53 - [agents.validation] - DEBUG - VALIDATED: Type=new, Confidence=0.90
+2026-01-25 16:11:53 - [agents.validation] - DEBUG - Validating claim: 'Prefrontal cortex related to decision-making...'
+2026-01-25 16:11:55 - [agents.validation] - DEBUG - LLM response preview: {
+  "valid": true,
+  "type": "new",
+  "confidence": 1.0,
+  "reasoning": "The claim that the prefrontal cortex is related to decision-making is consist...
+2026-01-25 16:11:55 - [agents.validation] - DEBUG - VALIDATED: Type=new, Confidence=1.00
+2026-01-25 16:11:55 - [agents.validation] - DEBUG - Validating claim: 'Prefrontal cortex plays critical role in tactile decision pr...'
+2026-01-25 16:11:58 - [agents.validation] - DEBUG - LLM response preview: {
+  "valid": true,
+  "type": "new",
+  "confidence": 0.9,
+  "reasoning": "The claim that the prefrontal cortex plays a critical role in tactile decisio...
+2026-01-25 16:11:58 - [agents.validation] - DEBUG - VALIDATED: Type=new, Confidence=0.90
+2026-01-25 16:11:58 - [agents.validation] - DEBUG - Validating claim: 'Right side of the prefrontal lobe associated with feeling-of...'
+2026-01-25 16:12:01 - [agents.validation] - DEBUG - LLM response preview: {
+  "valid": true,
+  "type": "new",
+  "confidence": 0.8,
+  "reasoning": "The claim does not directly conflict with existing knowledge as there is no h...
+2026-01-25 16:12:01 - [agents.validation] - DEBUG - VALIDATED: Type=new, Confidence=0.80
+2026-01-25 16:12:01 - [agents.validation] - DEBUG - Validating claim: 'Right frontal gamma oscillation located in right frontal are...'
+2026-01-25 16:12:03 - [agents.validation] - DEBUG - LLM response preview: {
+  "valid": true,
+  "type": "new",
+  "confidence": 0.9,
+  "reasoning": "The claim is about a specific scientific observation that locates the source ...
+2026-01-25 16:12:03 - [agents.validation] - DEBUG - VALIDATED: Type=new, Confidence=0.90
+2026-01-25 16:12:03 - [agents.validation] - DEBUG - Validating claim: 'Haptic profiles provide different HPSs...'
+2026-01-25 16:12:06 - [agents.validation] - DEBUG - LLM response preview: {
+  "valid": true,
+  "type": "new",
+  "confidence": 0.9,
+  "reasoning": "The claim introduces the concept of haptic profiles and their provision of di...
+2026-01-25 16:12:06 - [agents.validation] - DEBUG - VALIDATED: Type=new, Confidence=0.90
+2026-01-25 16:12:06 - [agents.validation] - DEBUG - Validating claim: 'Response times shorter with very satisfied or very dissatisf...'
+2026-01-25 16:12:09 - [agents.validation] - DEBUG - LLM response preview: {
+  "valid": true,
+  "type": "new",
+  "confidence": 0.9,
+  "reasoning": "The claim presents new information without conflicting with existing knowledg...
+2026-01-25 16:12:09 - [agents.validation] - DEBUG - VALIDATED: Type=new, Confidence=0.90
+2026-01-25 16:12:09 - [agents.validation] - DEBUG - Validating claim: 'Frontal gamma band oscillations correlated with HPS...'
+2026-01-25 16:12:13 - [agents.validation] - DEBUG - LLM response preview: ```json
+{
+  "valid": true,
+  "type": "new",
+  "confidence": 0.9,
+  "reasoning": "The claim introduces a correlation between frontal gamma band oscilla...
+2026-01-25 16:12:13 - [agents.validation] - DEBUG - VALIDATED: Type=new, Confidence=0.90
+2026-01-25 16:12:13 - [agents.validation] - DEBUG - Validating claim: 'EEG-based haptic preference measurement technique developed ...'
+2026-01-25 16:12:16 - [agents.validation] - DEBUG - LLM response preview: {
+  "valid": true,
+  "type": "new",
+  "confidence": 0.95,
+  "reasoning": "The claim about developing a novel EEG-based haptic preference measurement t...
+2026-01-25 16:12:16 - [agents.validation] - DEBUG - VALIDATED: Type=new, Confidence=0.95
+2026-01-25 16:12:16 - [agents.validation] - INFO - Validated 33 claims, rejected 0
+2026-01-25 16:12:16 - [agents.evolution] - INFO - Processing 33 claims for graph evolution
+2026-01-25 16:12:18 - [agents.evolution] - INFO - Successfully wrote 33 claims to graph
+2026-01-25 16:12:18 - [__main__] - INFO -     Summary: 33 extracted -> 33 validated -> 33 written
+2026-01-25 16:12:18 - [__main__] - INFO - 
+2026-01-25 16:12:18 - [__main__] - INFO - 流水线统计:
+2026-01-25 16:12:18 - [__main__] - INFO -   - 论文处理数: 2
+2026-01-25 16:12:18 - [__main__] - INFO -   - 声明抽取总数: 73
+2026-01-25 16:12:18 - [__main__] - INFO -   - 声明接地总数: 73
+2026-01-25 16:12:18 - [__main__] - INFO -   - 声明验证通过: 73
+2026-01-25 16:12:18 - [__main__] - INFO -   - 声明写入图谱: 73
+2026-01-25 16:12:18 - [__main__] - INFO - 
+2026-01-25 16:12:18 - [__main__] - INFO - Phase 3: 离线重构（Offline Refactoring）
+2026-01-25 16:12:18 - [__main__] - INFO - --------------------------------------------------
+2026-01-25 16:12:18 - [__main__] - INFO - 重构前: 136 节点, 202 关系
+2026-01-25 16:12:18 - [__main__] - INFO - 重构前: 2 组同义词, 0 个类型冲突
+2026-01-25 16:12:18 - [agents.offline_refactoring] - INFO - ============================================================
+2026-01-25 16:12:18 - [agents.offline_refactoring] - INFO - Starting Refactoring Pipeline
+2026-01-25 16:12:18 - [agents.offline_refactoring] - INFO - ============================================================
+2026-01-25 16:12:18 - [agents.offline_refactoring] - INFO - >>> Step 1: Garbage Collection
+2026-01-25 16:12:18 - [agents.offline_refactoring] - DEBUG - Running garbage collection...
+2026-01-25 16:12:18 - [agents.offline_refactoring] - INFO - >>> Step 2: Type Conflict Resolution
+2026-01-25 16:12:18 - [agents.offline_refactoring] - DEBUG - Checking for type conflicts...
+2026-01-25 16:12:18 - [agents.offline_refactoring] - INFO - No type conflicts found
+2026-01-25 16:12:18 - [agents.offline_refactoring] - INFO - >>> Step 3: Synonym Merging
+2026-01-25 16:12:18 - [agents.offline_refactoring] - DEBUG - Searching for synonym entities...
+2026-01-25 16:12:18 - [agents.offline_refactoring] - INFO - Found 2 synonym groups
+2026-01-25 16:12:18 - [agents.offline_refactoring] - DEBUG - Merging group: 'SSVEP-based BCI'
+2026-01-25 16:12:18 - [agents.offline_refactoring] - DEBUG -   Primary: ent_43a68dbb (rels: 5)
+2026-01-25 16:12:18 - [agents.offline_refactoring] - DEBUG -   Secondary: ent_43a68dbb (rels: 5)
+2026-01-25 16:12:19 - [agents.offline_refactoring] - INFO - Merged synonym: ent_43a68dbb into ent_43a68dbb
+2026-01-25 16:12:19 - [agents.offline_refactoring] - DEBUG - Merging group: '0.64'
+2026-01-25 16:12:19 - [agents.offline_refactoring] - DEBUG -   Primary: ent_e47cd5b7 (rels: 2)
+2026-01-25 16:12:19 - [agents.offline_refactoring] - DEBUG -   Secondary: ent_e47cd5b7 (rels: 2)
+2026-01-25 16:12:19 - [agents.offline_refactoring] - INFO - Merged synonym: ent_e47cd5b7 into ent_e47cd5b7
+2026-01-25 16:12:19 - [agents.offline_refactoring] - INFO - Synonym merges completed: 2
+2026-01-25 16:12:19 - [agents.offline_refactoring] - INFO - ============================================================
+2026-01-25 16:12:19 - [agents.offline_refactoring] - INFO - Refactoring Complete
+2026-01-25 16:12:19 - [agents.offline_refactoring] - INFO - ============================================================
+2026-01-25 16:12:19 - [agents.offline_refactoring] - INFO - Refactoring Report:
+  - Garbage collected: 0 nodes
+  - Type conflicts resolved: 0
+  - Synonyms merged: 2
+  - Errors: 0
+2026-01-25 16:12:19 - [__main__] - INFO - 重构后: 131 节点, 190 关系
+2026-01-25 16:12:19 - [__main__] - INFO - 
+2026-01-25 16:12:19 - [__main__] - INFO - Phase 4: 生成《领域本体与上下位词分析报告》
+2026-01-25 16:12:19 - [__main__] - INFO - --------------------------------------------------
+2026-01-25 16:12:19 - [__main__] - INFO - 报告已保存至: reports/ontology_analysis_report.md
+2026-01-25 16:12:19 - [__main__] - INFO - 
+2026-01-25 16:12:19 - [__main__] - INFO - ======================================================================
+2026-01-25 16:12:19 - [__main__] - INFO - 报告摘要
+2026-01-25 16:12:19 - [__main__] - INFO - ======================================================================
+2026-01-25 16:12:19 - [__main__] - INFO - 
+2026-01-25 16:12:19 - [__main__] - INFO - 本体类型分布:
+2026-01-25 16:12:19 - [__main__] - INFO -   - Task: 8 个实体
+2026-01-25 16:12:19 - [__main__] - INFO -   - Method: 10 个实体
+2026-01-25 16:12:19 - [__main__] - INFO -   - Metric: 10 个实体
+2026-01-25 16:12:19 - [__main__] - INFO -   - Dataset: 4 个实体
+2026-01-25 16:12:19 - [__main__] - INFO -   - Tool: 16 个实体
+2026-01-25 16:12:19 - [__main__] - INFO -   - Finding: 11 个实体
+2026-01-25 16:12:19 - [__main__] - INFO -   - Concept: 65 个实体
+2026-01-25 16:12:19 - [__main__] - INFO - 
+2026-01-25 16:12:19 - [__main__] - INFO - 核心概念 (Top 10):
+2026-01-25 16:12:19 - [__main__] - INFO -   1. Unmanned aerial vehicle (Concept, 0 关系)
+2026-01-25 16:12:19 - [__main__] - INFO -   2. broad application prospects (Concept, 0 关系)
+2026-01-25 16:12:19 - [__main__] - INFO -   3. Middendorf et al. (Concept, 0 关系)
+2026-01-25 16:12:19 - [__main__] - INFO -   4. Quadcopter BCI control (Task, 0 关系)
+2026-01-25 16:12:19 - [__main__] - INFO -   5. Lafleur et al. (Concept, 0 关系)
+2026-01-25 16:12:19 - [__main__] - INFO -   6. distinct advantages (Concept, 0 关系)
+2026-01-25 16:12:19 - [__main__] - INFO -   7. information transfer rate of up to 5.32 bits/s (Metric, 0 关系)
+2026-01-25 16:12:19 - [__main__] - INFO -   8. EEG acquisition device (Tool, 0 关系)
+2026-01-25 16:12:19 - [__main__] - INFO -   9. Emotiv Epoc (Tool, 0 关系)
+2026-01-25 16:12:19 - [__main__] - INFO -   10. Brain-Computer Interface (Concept, 0 关系)
+2026-01-25 16:12:19 - [__main__] - INFO - 
+2026-01-25 16:12:19 - [__main__] - INFO - 完整报告已保存至: reports/ontology_analysis_report.md
+2026-01-25 16:12:19 - [__main__] - INFO - 
+2026-01-25 16:12:19 - [__main__] - INFO - ======================================================================
+2026-01-25 16:12:19 - [__main__] - INFO - 流程完成！
+2026-01-25 16:12:19 - [__main__] - INFO - ======================================================================

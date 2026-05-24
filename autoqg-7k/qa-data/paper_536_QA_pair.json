@@ -1,0 +1,131 @@
+[
+  {
+    "section": "biologicalknowledge",
+    "path": {
+      "section": "biologicalknowledge",
+      "start_entity": "CyclebaseV3",
+      "end_entity": "CellCyclePhase",
+      "hops": [
+        {
+          "from": "CyclebaseV3",
+          "relation": "providesInformationAbout",
+          "to": "CellCycle",
+          "context": "Version 3.0 of Cyclebase includes new mRNA and protein expression data, and integrates cell cycle phenotype information from high-content screens and model organism databases.",
+          "chunk": "2"
+        },
+        {
+          "from": "CellCycle",
+          "relation": "consistsOf",
+          "to": "G2Phase",
+          "context": "The cell cycle consists of a sequence of four phases: G1, S, G2, and M.",
+          "chunk": "2"
+        },
+        {
+          "from": "G2Phase",
+          "relation": "type",
+          "to": "CellCyclePhase",
+          "context": "The cell cycle consists of a sequence of four phases: G1, S, G2, and M.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "Which specific type of cell cycle phase does CyclebaseV3 provide detailed information on, particularly concerning mRNA and protein expression data?",
+    "options": {
+      "A": "The G1 phase, which is the first phase of growth in the cell cycle sequence.",
+      "B": "The S phase, which involves DNA synthesis and replication in the cell cycle sequence.",
+      "C": "The G2 phase, which is a preparatory phase preceding mitosis in the cell cycle sequence.",
+      "D": "The M phase, which is the phase where cell division occurs in the cell cycle sequence."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A because the knowledge graph path from CyclebaseV3 to CellCycle, and then to G2Phase, specifies that CyclebaseV3 provides information about the G2 phase, which is defined as a preparatory phase preceding mitosis in the cell cycle.",
+    "path_description": "Path: CyclebaseV3 --[providesInformationAbout]--> CellCycle --[consistsOf]--> G2Phase --[type]--> CellCyclePhase",
+    "context": "Version 3.0 of Cyclebase includes new mRNA and protein expression data, and integrates cell cycle phenotype information from high-content screens and model organism databases. | The cell cycle consists of a sequence of four phases: G1, S, G2, and M. | The cell cycle consists of a sequence of four phases: G1, S, G2, and M.",
+    "paper_id": "48"
+  },
+  {
+    "section": "method3",
+    "path": {
+      "section": "method3",
+      "start_entity": "ProteinComplexCoverage",
+      "end_entity": "Algorithm2",
+      "hops": [
+        {
+          "from": "ProteinComplexCoverage",
+          "relation": "measures",
+          "to": "PathwayCohesion",
+          "context": "way participate in protein complex coverage.",
+          "chunk": "5"
+        },
+        {
+          "from": "PathwayCohesion",
+          "relation": "evaluatedUsing",
+          "to": "CoverageRatio",
+          "context": "Cohesion within the pathway, appreciating interactions together, beyond temporality.",
+          "chunk": "5"
+        },
+        {
+          "from": "CoverageRatio",
+          "relation": "usedIn",
+          "to": "Algorithm2",
+          "context": "threshold given by the coverage ratio cv.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the context of evaluating pathway cohesion in Method3, how is the Coverage Ratio specifically used?",
+    "options": {
+      "A": "The Coverage Ratio is used to modify the interactions within the pathway, improving temporal analysis.",
+      "B": "The Coverage Ratio directly influences the structure of ProteinComplexCoverage for better pathway analysis.",
+      "C": "The Coverage Ratio provides a quantitative measure of temporal interactions within Algorithm2.",
+      "D": "The Coverage Ratio is a threshold used to determine the effectiveness of Algorithm2 in assessing pathway cohesion."
+    },
+    "correct_answer": "D",
+    "explanation": "The Coverage Ratio is used as a threshold in Algorithm2 to evaluate pathway cohesion, which is facilitated by measuring ProteinComplexCoverage and its impact on PathwayCohesion. None of the other options accurately reflect the role of the Coverage Ratio in this specific context.",
+    "path_description": "Path: ProteinComplexCoverage --[measures]--> PathwayCohesion --[evaluatedUsing]--> CoverageRatio --[usedIn]--> Algorithm2",
+    "context": "way participate in protein complex coverage. | Cohesion within the pathway, appreciating interactions together, beyond temporality. | threshold given by the coverage ratio cv.",
+    "paper_id": "48"
+  },
+  {
+    "section": "method3",
+    "path": {
+      "section": "method3",
+      "start_entity": "CoverageRatio",
+      "end_entity": "Equation4",
+      "hops": [
+        {
+          "from": "CoverageRatio",
+          "relation": "usedIn",
+          "to": "Algorithm2",
+          "context": "threshold given by the coverage ratio cv.",
+          "chunk": "5"
+        },
+        {
+          "from": "Algorithm2",
+          "relation": "implements",
+          "to": "PriorityQueue",
+          "context": "to rank the pathways in a priority queue.",
+          "chunk": "5"
+        },
+        {
+          "from": "PriorityQueue",
+          "relation": "orderedBy",
+          "to": "Equation4",
+          "context": "Equation 4.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the context of Algorithm2, how does the coverage ratio 'cv' specifically influence the ordering within the PriorityQueue?",
+    "options": {
+      "A": "It adjusts the computational complexity of Algorithm2, indirectly affecting the sorting in the PriorityQueue.",
+      "B": "It acts as a scaling factor for the values computed by Equation 4, thus changing their order in the queue.",
+      "C": "It provides a normalization constant for Equation 4, but does not affect the order in the PriorityQueue.",
+      "D": "It sets a threshold that determines the ranking of pathways by their coverage values in Equation 4."
+    },
+    "correct_answer": "D",
+    "explanation": "The coverage ratio 'cv' serves as a threshold value in Equation 4, which is used to rank pathways within the PriorityQueue in Algorithm2. This threshold determines how pathways are ordered based on their coverage values, aligning with the defined relationships and functions in the knowledge graph path.",
+    "path_description": "Path: CoverageRatio --[usedIn]--> Algorithm2 --[implements]--> PriorityQueue --[orderedBy]--> Equation4",
+    "context": "threshold given by the coverage ratio cv. | to rank the pathways in a priority queue. | Equation 4.",
+    "paper_id": "48"
+  }
+]

@@ -1,0 +1,174 @@
+[
+  {
+    "section": "signalmodelandbackground",
+    "path": {
+      "section": "signalmodelandbackground",
+      "start_entity": "NAH",
+      "end_entity": "Condition",
+      "hops": [
+        {
+          "from": "NAH",
+          "relation": "solves",
+          "to": "Kirchhoff-HelmholtzIntegral",
+          "context": "The goal of NAH is to reconstruct the normal velocity of a sound source from measured near-field pressure data, typically by solving the inverse Kirchhoff-Helmholtz (KH) integral.",
+          "chunk": "3"
+        },
+        {
+          "from": "Kirchhoff-HelmholtzIntegral",
+          "relation": "satisfies",
+          "to": "SommerfeldRadiationCondition",
+          "context": "while satisfying the Sommerfeld radiation condition.",
+          "chunk": "3"
+        },
+        {
+          "from": "SommerfeldRadiationCondition",
+          "relation": "type",
+          "to": "Condition",
+          "context": "while satisfying the Sommerfeld radiation condition.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the context of Nearfield Acoustic Holography (NAH), how does the Kirchhoff-Helmholtz Integral contribute to satisfying the Sommerfeld Radiation Condition?",
+    "options": {
+      "A": "It provides a condition for the unidirectional propagation of spherical waves at an infinite distance.",
+      "B": "It reconstructs the sound field based on near-field data, which inherently includes the radiation condition.",
+      "C": "It mathematically formulates the normal velocity of a sound source, ensuring energy conservation in the far-field.",
+      "D": "It directly measures the near-field pressure, facilitating the calculation of far-field patterns."
+    },
+    "correct_answer": "C",
+    "explanation": "The Kirchhoff-Helmholtz Integral is crucial in NAH for mathematically formulating the normal velocity of a sound source from measured near-field pressure data. This process inherently satisfies the Sommerfeld Radiation Condition, which is about ensuring that the energy radiates away without reflecting back, implying energy conservation in the far-field.",
+    "path_description": "Path: NAH --[solves]--> Kirchhoff-HelmholtzIntegral --[satisfies]--> SommerfeldRadiationCondition --[type]--> Condition",
+    "context": "The goal of NAH is to reconstruct the normal velocity of a sound source from measured near-field pressure data, typically by solving the inverse Kirchhoff-Helmholtz (KH) integral. | while satisfying the Sommerfeld radiation condition. | while satisfying the Sommerfeld radiation condition.",
+    "paper_id": "425"
+  },
+  {
+    "section": "validationofproposedmethod2",
+    "path": {
+      "section": "validationofproposedmethod2",
+      "start_entity": "PINN-SFD",
+      "end_entity": "Metric",
+      "hops": [
+        {
+          "from": "PINN-SFD",
+          "relation": "outperforms",
+          "to": "C-ESM",
+          "context": "In these two cases, both PINN-SFD, Nv = 0 and Nv = 3 outperform C-ESM, with the difference being more evident when examining the phase.",
+          "chunk": "7"
+        },
+        {
+          "from": "C-ESM",
+          "relation": "evaluatedOn",
+          "to": "NMSE",
+          "context": "The mean NMSE and NCC values of the reconstructed actual source velocity field for each dataset, obtained using C-ESM, PINN-SFD (Nv = 0 and Nv = 3), are presented in Table II.",
+          "chunk": "7"
+        },
+        {
+          "from": "NMSE",
+          "relation": "type",
+          "to": "Metric",
+          "context": "The performance of the proposed network is assessed by two metrics: the Normalized Mean Square Error (NMSE) (defined in dB) and the Normalized Cross Correlation (NCC).",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "In the evaluation of the performance of PINN-SFD and C-ESM in the context of actual source velocity field reconstruction, which metric, defined in dB, is primarily used to demonstrate that PINN-SFD outperforms C-ESM?",
+    "options": {
+      "A": "Peak Signal-to-Noise Ratio (PSNR) is utilized as the main metric for performance evaluation.",
+      "B": "Normalized Mean Square Error (NMSE) is the primary metric used to measure performance differences.",
+      "C": "Coefficient of Variation (CoV) is the main metric used to assess performance discrepancies.",
+      "D": "Mean Absolute Error (MAE) is the critical metric used to determine performance superiority."
+    },
+    "correct_answer": "B",
+    "explanation": "The paper specifically states that the performance of PINN-SFD and C-ESM is assessed using two metrics, with NMSE (Normalized Mean Square Error) being one of them, defined in dB. This metric is used to demonstrate the difference in performance between PINN-SFD and C-ESM, showing that PINN-SFD outperforms C-ESM. The other options are incorrect as they are not mentioned in the context of the assessment for these models.",
+    "path_description": "Path: PINN-SFD --[outperforms]--> C-ESM --[evaluatedOn]--> NMSE --[type]--> Metric",
+    "context": "In these two cases, both PINN-SFD, Nv = 0 and Nv = 3 outperform C-ESM, with the difference being more evident when examining the phase. | The mean NMSE and NCC values of the reconstructed actual source velocity field for each dataset, obtained using C-ESM, PINN-SFD (Nv = 0 and Nv = 3), are presented in Table II. | The performance of the proposed network is assessed by two metrics: the Normalized Mean Square Error (NMSE) (defined in dB) and the Normalized Cross Correlation (NCC).",
+    "paper_id": "425"
+  },
+  {
+    "section": "validationofproposedmethod3",
+    "path": {
+      "section": "validationofproposedmethod3",
+      "start_entity": "C-ESM",
+      "end_entity": "Dataset",
+      "hops": [
+        {
+          "from": "C-ESM",
+          "relation": "comparedWith",
+          "to": "PINN-SFD",
+          "context": "Before the 15th mode, C-ESM shows significant fluctuations and much lower accuracy compared to both PINN-SFD, Nv = 0 and Nv = 3.",
+          "chunk": "8"
+        },
+        {
+          "from": "PINN-SFD",
+          "relation": "evaluatedOn",
+          "to": "RectangularPlate",
+          "context": "PINN-SFD for Nv = 0 and Nv = 3 has higher reconstruction ability for complex vibrational patterns, such as violin top plate modes 2–30 and free rectangular plate modes 15–30.",
+          "chunk": "8"
+        },
+        {
+          "from": "RectangularPlate",
+          "relation": "type",
+          "to": "Dataset",
+          "context": "violin top plates have more complex vibrational patterns than rectangular plates, due to their irregular shape and orthotropic wood properties.",
+          "chunk": "8"
+        }
+      ]
+    },
+    "question": "In the context of evaluating the performance of C-ESM and PINN-SFD on different datasets, why might PINN-SFD display superior reconstruction ability for modes 15-30 on a rectangular plate?",
+    "options": {
+      "A": "Rectangular plates have more complex vibrational patterns than violin top plates, enhancing PINN-SFD's effectiveness.",
+      "B": "C-ESM has higher accuracy for lower mode numbers and shows significant fluctuations before the 15th mode.",
+      "C": "PINN-SFD has been specifically optimized for higher mode numbers in rectangular plates, unlike C-ESM.",
+      "D": "PINN-SFD is less effective than C-ESM in handling the simpler vibrational patterns of rectangular plates."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is B because, according to the provided context, C-ESM shows significant fluctuations and much lower accuracy compared to PINN-SFD before the 15th mode. This implies that for modes beyond the 15th mode, PINN-SFD would naturally show superior performance due to the decrease in C-ESM's accuracy and stability in earlier modes.",
+    "path_description": "Path: C-ESM --[comparedWith]--> PINN-SFD --[evaluatedOn]--> RectangularPlate --[type]--> Dataset",
+    "context": "Before the 15th mode, C-ESM shows significant fluctuations and much lower accuracy compared to both PINN-SFD, Nv = 0 and Nv = 3. | PINN-SFD for Nv = 0 and Nv = 3 has higher reconstruction ability for complex vibrational patterns, such as violin top plate modes 2–30 and free rectangular plate modes 15–30. | violin top plates have more complex vibrational patterns than rectangular plates, due to their irregular shape and orthotropic wood properties.",
+    "paper_id": "425"
+  },
+  {
+    "section": "validationofproposedmethod3",
+    "path": {
+      "section": "validationofproposedmethod3",
+      "start_entity": "PINN-SFD",
+      "end_entity": "Model",
+      "hops": [
+        {
+          "from": "PINN-SFD",
+          "relation": "outperforms",
+          "to": "C-ESM",
+          "context": "PINN-SFD for Nv = 3 generally outperforms C-ESM for highly complex patterns in the violin dataset, such as modes 31–48.",
+          "chunk": "8"
+        },
+        {
+          "from": "C-ESM",
+          "relation": "comparedWith",
+          "to": "PINN-SFD",
+          "context": "Before the 15th mode, C-ESM shows significant fluctuations and much lower accuracy compared to both PINN-SFD, Nv = 0 and Nv = 3.",
+          "chunk": "8"
+        },
+        {
+          "from": "PINN-SFD",
+          "relation": "type",
+          "to": "Model",
+          "context": "Before the 15th mode, C-ESM shows significant fluctuations and much lower accuracy compared to both PINN-SFD, Nv = 0 and Nv = 3.",
+          "chunk": "8"
+        }
+      ]
+    },
+    "question": "In the context of evaluating pattern complexity on the violin dataset, how does the performance of PINN-SFD (Nv = 3) compared to C-ESM before and after the 15th mode?",
+    "options": {
+      "A": "C-ESM maintains consistent performance throughout all modes, overshadowing PINN-SFD (Nv = 3) especially beyond the 15th mode.",
+      "B": "After the 15th mode, C-ESM surpasses both configurations of PINN-SFD, particularly in the handling of complex patterns like modes 31-48.",
+      "C": "Before the 15th mode, both PINN-SFD configurations show higher performance, while after mode 15, PINN-SFD (Nv = 3) significantly outperforms C-ESM.",
+      "D": "Before the 15th mode, C-ESM outperforms PINN-SFD (Nv = 3), but struggles with higher modes due to increased pattern complexity."
+    },
+    "correct_answer": "C",
+    "explanation": "PINN-SFD (Nv = 3) is noted for outperforming C-ESM in complex pattern areas, specifically modes 31-48, and also shows higher accuracy compared to C-ESM before the 15th mode. Thus, PINN-SFD (Nv = 3) maintains superior performance both before and after the 15th mode.",
+    "path_description": "Path: PINN-SFD --[outperforms]--> C-ESM --[comparedWith]--> PINN-SFD --[type]--> Model",
+    "context": "PINN-SFD for Nv = 3 generally outperforms C-ESM for highly complex patterns in the violin dataset, such as modes 31–48. | Before the 15th mode, C-ESM shows significant fluctuations and much lower accuracy compared to both PINN-SFD, Nv = 0 and Nv = 3. | Before the 15th mode, C-ESM shows significant fluctuations and much lower accuracy compared to both PINN-SFD, Nv = 0 and Nv = 3.",
+    "paper_id": "425"
+  }
+]

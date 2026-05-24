@@ -1,0 +1,88 @@
+[
+  {
+    "section": "appendix2",
+    "path": {
+      "section": "appendix2",
+      "start_entity": "DaxingAirportStation",
+      "end_entity": "TransportationLine",
+      "hops": [
+        {
+          "from": "DaxingAirportStation",
+          "relation": "providesServiceTo",
+          "to": "BeijingNewAirport",
+          "context": "stations around Beijing New Airport, such as Daxing Airport Station and Daxing Airport North Station",
+          "chunk": "11"
+        },
+        {
+          "from": "BeijingNewAirport",
+          "relation": "connectedBy",
+          "to": "Line8",
+          "context": "operational lines near Beijing New Airport, including Line 8, Line S1",
+          "chunk": "11"
+        },
+        {
+          "from": "Line8",
+          "relation": "type",
+          "to": "TransportationLine",
+          "context": "operational lines near Beijing New Airport, including Line 8, Line S1",
+          "chunk": "11"
+        }
+      ]
+    },
+    "question": "Which of the following statements accurately describes the transportation connection involving Daxing Airport Station according to the knowledge graph?",
+    "options": {
+      "A": "Daxing Airport Station is directly connected to Line S1, which is a part of the Beijing New Airport's express service.",
+      "B": "Daxing Airport Station provides service to Beijing New Airport, predominantly through Line S1, a commercial line.",
+      "C": "Daxing Airport Station provides service to Beijing New Airport, which is connected by Line 8, a transportation line.",
+      "D": "Daxing Airport Station is an independent entity not linked to any specific transportation line at Beijing New Airport."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A, as the knowledge graph outlines a connection where Daxing Airport Station provides service to Beijing New Airport, which is subsequently connected by Line 8, categorized as a transportation line. The other options are false or misleading interpretations of the connections described in the knowledge graph.",
+    "path_description": "Path: DaxingAirportStation --[providesServiceTo]--> BeijingNewAirport --[connectedBy]--> Line8 --[type]--> TransportationLine",
+    "context": "stations around Beijing New Airport, such as Daxing Airport Station and Daxing Airport North Station | operational lines near Beijing New Airport, including Line 8, Line S1 | operational lines near Beijing New Airport, including Line 8, Line S1",
+    "paper_id": "1428"
+  },
+  {
+    "section": "appendix1",
+    "path": {
+      "section": "appendix1",
+      "start_entity": "DataPreprocessingPipeline",
+      "end_entity": "Tool",
+      "hops": [
+        {
+          "from": "DataPreprocessingPipeline",
+          "relation": "uses",
+          "to": "MapCollectionAndExtraction",
+          "context": "Our data preprocessing pipeline involves several sophisticated steps to ensure high-quality planning maps for annotation and model training.",
+          "chunk": "10"
+        },
+        {
+          "from": "MapCollectionAndExtraction",
+          "relation": "uses",
+          "to": "PDFParsers",
+          "context": "We employed PDF parsers with custom configurations to extract high-resolution visual content.",
+          "chunk": "10"
+        },
+        {
+          "from": "PDFParsers",
+          "relation": "type",
+          "to": "Tool",
+          "context": "We employed PDF parsers with custom configurations to extract high-resolution visual content.",
+          "chunk": "10"
+        }
+      ]
+    },
+    "question": "In the context of a data preprocessing pipeline designed for planning map annotation and model training, what role do PDF parsers play?",
+    "options": {
+      "A": "PDF parsers are used to enhance the resolution of visual content extracted from planning maps.",
+      "B": "PDF parsers are utilized to translate textual content from planning maps into multiple languages.",
+      "C": "PDF parsers assist in the geographical analysis of data points extracted from planning maps.",
+      "D": "PDF parsers primarily function to reduce the file size of planning maps for easier handling."
+    },
+    "correct_answer": "A",
+    "explanation": "PDF parsers, as part of the data preprocessing pipeline, are specifically employed with custom configurations to extract high-resolution visual content from planning maps. This is essential for accurate annotation and effective model training. The other options, although plausible, do not align with the stated role of PDF parsers in the provided context.",
+    "path_description": "Path: DataPreprocessingPipeline --[uses]--> MapCollectionAndExtraction --[uses]--> PDFParsers --[type]--> Tool",
+    "context": "Our data preprocessing pipeline involves several sophisticated steps to ensure high-quality planning maps for annotation and model training. | We employed PDF parsers with custom configurations to extract high-resolution visual content. | We employed PDF parsers with custom configurations to extract high-resolution visual content.",
+    "paper_id": "1428"
+  }
+]

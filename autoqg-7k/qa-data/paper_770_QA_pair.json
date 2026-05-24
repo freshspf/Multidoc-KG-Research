@@ -1,0 +1,131 @@
+[
+  {
+    "section": "correctionlayerapproach2",
+    "path": {
+      "section": "correctionlayerapproach2",
+      "start_entity": "CL",
+      "end_entity": "DatasetSubset",
+      "hops": [
+        {
+          "from": "CL",
+          "relation": "implementedIn",
+          "to": "CNN",
+          "context": "To evaluate proposed CL, we chose the CNN architecture from [40].",
+          "chunk": "4"
+        },
+        {
+          "from": "CNN",
+          "relation": "evaluatedOn",
+          "to": "TD",
+          "context": "The performance on SD, TD before as well as TD after CL training is illustrated in Fig. 6 for all positions of the CL in between existing DNN layers.",
+          "chunk": "4"
+        },
+        {
+          "from": "TD",
+          "relation": "type",
+          "to": "DatasetSubset",
+          "context": "Here, the data is split into SD and TD, such that a pre-trained model from the SD can be evaluated and then fine-tuned on the TD.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the context of evaluating the Correction Layer (CL) in the 'correctionlayerapproach2' section, which type of dataset was used to assess the performance of a Convolutional Neural Network (CNN) after implementing the CL?",
+    "options": {
+      "A": "A completely new Validation Dataset (VD) not previously mentioned in the training or testing phases.",
+      "B": "A subset of the Training Dataset (TD) used to fine-tune the model after initial evaluation.",
+      "C": "A subset of the Source Dataset (SD) used to initially train the CNN before implementing the CL.",
+      "D": "A generic, unrelated dataset not specifically designed for evaluating neural networks."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A. According to the path and context provided, the CNN, after having the Correction Layer implemented, was evaluated on a subset of the Training Dataset (TD). The path specifically mentions that the TD was used for evaluating the CNN, and it was split into different subsets, which means the subset used post-CL implementation is part of the TD, not the SD or any other unrelated dataset.",
+    "path_description": "Path: CL --[implementedIn]--> CNN --[evaluatedOn]--> TD --[type]--> DatasetSubset",
+    "context": "To evaluate proposed CL, we chose the CNN architecture from [40]. | The performance on SD, TD before as well as TD after CL training is illustrated in Fig. 6 for all positions of the CL in between existing DNN layers. | Here, the data is split into SD and TD, such that a pre-trained model from the SD can be evaluated and then fine-tuned on the TD.",
+    "paper_id": "1434"
+  },
+  {
+    "section": "correctionlayerapproach2",
+    "path": {
+      "section": "correctionlayerapproach2",
+      "start_entity": "CL",
+      "end_entity": "DatasetSubset",
+      "hops": [
+        {
+          "from": "CL",
+          "relation": "implementedIn",
+          "to": "CNN",
+          "context": "To evaluate proposed CL, we chose the CNN architecture from [40].",
+          "chunk": "4"
+        },
+        {
+          "from": "CNN",
+          "relation": "evaluatedOn",
+          "to": "SD",
+          "context": "The performance on SD, TD before as well as TD after CL training is illustrated in Fig. 6 for all positions of the CL in between existing DNN layers.",
+          "chunk": "4"
+        },
+        {
+          "from": "SD",
+          "relation": "type",
+          "to": "DatasetSubset",
+          "context": "Here, the data is split into SD and TD, such that a pre-trained model from the SD can be evaluated and then fine-tuned on the TD.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the evaluation of the Correction Layer (CL) using the CNN architecture, what role does the subset DatasetSubset (SD) primarily serve?",
+    "options": {
+      "A": "SD serves as the initial training set where the pre-trained model is first evaluated.",
+      "B": "SD functions as a separate test set to compare the performance of models before and after applying CL.",
+      "C": "SD is utilized as the validation set to finalize the parameters of the CNN after fine-tuning on TD.",
+      "D": "SD acts as a secondary training set used only after the TD to refine the accuracy of the model."
+    },
+    "correct_answer": "A",
+    "explanation": "The SD (Dataset Subset) is described as the initial set where the pre-trained model is first evaluated, prior to further training and fine-tuning on the TD (another dataset subset). This setup allows for an assessment of the model's performance with and without the additional training provided by the CL within the CNN architecture.",
+    "path_description": "Path: CL --[implementedIn]--> CNN --[evaluatedOn]--> SD --[type]--> DatasetSubset",
+    "context": "To evaluate proposed CL, we chose the CNN architecture from [40]. | The performance on SD, TD before as well as TD after CL training is illustrated in Fig. 6 for all positions of the CL in between existing DNN layers. | Here, the data is split into SD and TD, such that a pre-trained model from the SD can be evaluated and then fine-tuned on the TD.",
+    "paper_id": "1434"
+  },
+  {
+    "section": "hardwarecomplexity",
+    "path": {
+      "section": "hardwarecomplexity",
+      "start_entity": "Baseline_HW_Architecture",
+      "end_entity": "HardwareComponent",
+      "hops": [
+        {
+          "from": "Baseline_HW_Architecture",
+          "relation": "consistsOf",
+          "to": "Activation_Memory",
+          "context": "The baseline HW architecture consists of activation memory, weight memory, a vector PE and control/multiplexing logic for activation routing.",
+          "chunk": "5"
+        },
+        {
+          "from": "Activation_Memory",
+          "relation": "splitInto",
+          "to": "Shift_Registers",
+          "context": "In the reference architecture, the activation memory and weight memory is split into shift registers and SRAM respectively.",
+          "chunk": "5"
+        },
+        {
+          "from": "Shift_Registers",
+          "relation": "type",
+          "to": "HardwareComponent",
+          "context": "In the reference architecture, the activation memory and weight memory is split into shift registers and SRAM respectively.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the baseline hardware architecture described, how is the activation memory primarily configured to facilitate data handling and component integration?",
+    "options": {
+      "A": "Activation memory utilizes a complex system of linked list structures to manage data flow efficiently.",
+      "B": "Activation memory is divided into multiple vector processing elements to increase computational power.",
+      "C": "Activation memory is entirely stored in SRAM to enhance random access capabilities and speed.",
+      "D": "Activation memory is segmented into shift registers, optimizing the sequential data access and processing."
+    },
+    "correct_answer": "D",
+    "explanation": "The activation memory in the baseline hardware architecture is split into shift registers, as indicated in the paper. This configuration is particularly effective for optimizing sequential data access and processing within the hardware component structure.",
+    "path_description": "Path: Baseline_HW_Architecture --[consistsOf]--> Activation_Memory --[splitInto]--> Shift_Registers --[type]--> HardwareComponent",
+    "context": "The baseline HW architecture consists of activation memory, weight memory, a vector PE and control/multiplexing logic for activation routing. | In the reference architecture, the activation memory and weight memory is split into shift registers and SRAM respectively. | In the reference architecture, the activation memory and weight memory is split into shift registers and SRAM respectively.",
+    "paper_id": "1434"
+  }
+]

@@ -1,0 +1,88 @@
+[
+  {
+    "section": "methodologyofadversarialattacks",
+    "path": {
+      "section": "methodologyofadversarialattacks",
+      "start_entity": "AdversarialImage",
+      "end_entity": "Software",
+      "hops": [
+        {
+          "from": "AdversarialImage",
+          "relation": "createdFrom",
+          "to": "StopSignAsset",
+          "context": "Once the adversarial images are created, the material instance of the stop sign must be updated to reference the adversarial image instead.",
+          "chunk": "3"
+        },
+        {
+          "from": "StopSignAsset",
+          "relation": "editedUsing",
+          "to": "GIMP",
+          "context": "After exporting the texture, it is opened in GIMP (GNU Image Manipulation Program) and edited to the desired adversarial attack.",
+          "chunk": "3"
+        },
+        {
+          "from": "GIMP",
+          "relation": "type",
+          "to": "Software",
+          "context": "After exporting the texture, it is opened in GIMP (GNU Image Manipulation Program).",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the process of creating an adversarial image for a stop sign, which software is specifically utilized for editing the texture to achieve the desired adversarial effect?",
+    "options": {
+      "A": "Adobe Photoshop, widely recognized for its advanced photo editing tools and features.",
+      "B": "Microsoft Paint, noted for its simplicity and basic graphic editing tools.",
+      "C": "Autodesk 3ds Max, commonly used for 3D modeling, animation, and rendering.",
+      "D": "GIMP (GNU Image Manipulation Program), a software known for its capabilities in image editing."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is GIMP (GNU Image Manipulation Program) as specified in the provided paper context. GIMP is used to open and edit the texture of a stop sign to create an adversarial image. The other software options, while popular for various graphic tasks, are not mentioned in the context of this specific adversarial image creation process.",
+    "path_description": "Path: AdversarialImage --[createdFrom]--> StopSignAsset --[editedUsing]--> GIMP --[type]--> Software",
+    "context": "Once the adversarial images are created, the material instance of the stop sign must be updated to reference the adversarial image instead. | After exporting the texture, it is opened in GIMP (GNU Image Manipulation Program) and edited to the desired adversarial attack. | After exporting the texture, it is opened in GIMP (GNU Image Manipulation Program).",
+    "paper_id": "1152"
+  },
+  {
+    "section": "methodologyofadversarialattacks",
+    "path": {
+      "section": "methodologyofadversarialattacks",
+      "start_entity": "AdversarialImage",
+      "end_entity": "Percentage",
+      "hops": [
+        {
+          "from": "AdversarialImage",
+          "relation": "createdFrom",
+          "to": "StopSignAsset",
+          "context": "Once the adversarial images are created, the material instance of the stop sign must be updated to reference the adversarial image instead.",
+          "chunk": "3"
+        },
+        {
+          "from": "StopSignAsset",
+          "relation": "hasDetectionRate",
+          "to": "DetectionRate75Percent",
+          "context": "Initially, the object detection performance is tested on a non-attacked stop sign image, achieving a detection rate of 75%.",
+          "chunk": "3"
+        },
+        {
+          "from": "DetectionRate75Percent",
+          "relation": "type",
+          "to": "Percentage",
+          "context": "achieving a detection rate of 75%.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the study of adversarial attacks on object detection systems, what is the initial detection rate of a non-adversarial stop sign image?",
+    "options": {
+      "A": "The initial detection rate for a non-adversarial stop sign image is reported to be 90%.",
+      "B": "The initial detection rate for a non-adversarial stop sign image is reported to be 85%.",
+      "C": "The initial detection rate for a non-adversarial stop sign image is reported to be 75%.",
+      "D": "The initial detection rate for a non-adversarial stop sign image is reported to be 50%."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is derived from the given information in the paper that initially, the object detection performance on a non-attacked stop sign image achieves a detection rate of 75%. This data point is directly linked to the entity 'DetectionRate75Percent' in the knowledge graph.",
+    "path_description": "Path: AdversarialImage --[createdFrom]--> StopSignAsset --[hasDetectionRate]--> DetectionRate75Percent --[type]--> Percentage",
+    "context": "Once the adversarial images are created, the material instance of the stop sign must be updated to reference the adversarial image instead. | Initially, the object detection performance is tested on a non-attacked stop sign image, achieving a detection rate of 75%. | achieving a detection rate of 75%.",
+    "paper_id": "1152"
+  }
+]

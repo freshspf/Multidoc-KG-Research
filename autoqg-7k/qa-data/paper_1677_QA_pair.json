@@ -1,0 +1,217 @@
+[
+  {
+    "section": "openairinterfaceintegrationwithrffrontendandrandomaccessimplementation",
+    "path": {
+      "section": "openairinterfaceintegrationwithrffrontendandrandomaccessimplementation",
+      "start_entity": "OAI",
+      "end_entity": "Function",
+      "hops": [
+        {
+          "from": "OAI",
+          "relation": "uses",
+          "to": "USRP",
+          "context": "While deploying an end-to-end fully programmable 5G network that leverages open-source 5G protocol stacks, such as OAI and SDRs, along with amplifiers.",
+          "chunk": "2"
+        },
+        {
+          "from": "USRP",
+          "relation": "controlledBy",
+          "to": "FPGA_ATR_Function",
+          "context": "The GPIO pins on the USRPs are controlled by the FPGA’s Automatic Transmit/Receive (ATR) function.",
+          "chunk": "2"
+        },
+        {
+          "from": "FPGA_ATR_Function",
+          "relation": "type",
+          "to": "Function",
+          "context": "The GPIO pins on the USRPs are controlled by the FPGA’s Automatic Transmit/Receive (ATR) function.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the context of implementing a 5G network using Open Air Interface, how does the FPGA's ATR function influence the operation of USRPs?",
+    "options": {
+      "A": "The FPGA's ATR function directly processes the 5G signal protocols for the USRPs without using other components.",
+      "B": "The FPGA's ATR function increases the computational efficiency of the USRP by offloading processing tasks.",
+      "C": "The FPGA's ATR function utilizes GPIO pins to manage the transmission and reception modes of the USRPs.",
+      "D": "The FPGA's ATR function enhances the data encryption capabilities of the USRP in a 5G network."
+    },
+    "correct_answer": "C",
+    "explanation": "The FPGA's Automatic Transmit/Receive (ATR) function controls the General Purpose Input/Output (GPIO) pins on the USRPs, which are used to switch between transmit and receive modes, thereby managing how the USRPs operate in terms of signal transmission and reception. The other options, although plausible, do not directly relate to the control of USRPs by the ATR function.",
+    "path_description": "Path: OAI --[uses]--> USRP --[controlledBy]--> FPGA_ATR_Function --[type]--> Function",
+    "context": "While deploying an end-to-end fully programmable 5G network that leverages open-source 5G protocol stacks, such as OAI and SDRs, along with amplifiers. | The GPIO pins on the USRPs are controlled by the FPGA’s Automatic Transmit/Receive (ATR) function. | The GPIO pins on the USRPs are controlled by the FPGA’s Automatic Transmit/Receive (ATR) function.",
+    "paper_id": "357"
+  },
+  {
+    "section": "openairinterfaceintegrationwithrffrontendandrandomaccessimplementation",
+    "path": {
+      "section": "openairinterfaceintegrationwithrffrontendandrandomaccessimplementation",
+      "start_entity": "OAI",
+      "end_entity": "set_gpio_attr",
+      "hops": [
+        {
+          "from": "OAI",
+          "relation": "uses",
+          "to": "USRP",
+          "context": "While deploying an end-to-end fully programmable 5G network that leverages open-source 5G protocol stacks, such as OAI and SDRs, along with amplifiers.",
+          "chunk": "2"
+        },
+        {
+          "from": "USRP",
+          "relation": "uses",
+          "to": "USRP_Interface_Module",
+          "context": "The USRP interface, specifically usrp_lib.cpp, is a software module that sits between the PHY layer and the SDR RF front-end.",
+          "chunk": "2"
+        },
+        {
+          "from": "USRP_Interface_Module",
+          "relation": "calls",
+          "to": "set_gpio_attr",
+          "context": "The USRP interface module makes the set_gpio_attr() API function call to UHD to configure the Data Direction Register (DDR) to set specific GPIO pins as outputs using the DDR attribute.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the process of setting up a 5G network using OAI and SDRs, how does the USRP interface module contribute to interfacing with the RF front-end?",
+    "options": {
+      "A": "The USRP interface module uses the set_gpio_attr() API function to configure GPIO pins as outputs to manage the Data Direction Register.",
+      "B": "The USRP interface module facilitates direct power control over the SDR RF front-end, adjusting output without involving the GPIO.",
+      "C": "The USRP interface module primarily increases the processing speed of data between the PHY layer and SDR RF front-end without manipulating GPIO settings.",
+      "D": "The USRP interface module simplifies the user interface for the SDR RF front-end by automating the signal modulation and demodulation processes."
+    },
+    "correct_answer": "A",
+    "explanation": "The USRP interface module uses the set_gpio_attr() function to specifically set GPIO pins as outputs by configuring the Data Direction Register (DDR). This is essential for interfacing with the RF front-end in a programmable 5G network, ensuring proper configuration and control of hardware components.",
+    "path_description": "Path: OAI --[uses]--> USRP --[uses]--> USRP_Interface_Module --[calls]--> set_gpio_attr",
+    "context": "While deploying an end-to-end fully programmable 5G network that leverages open-source 5G protocol stacks, such as OAI and SDRs, along with amplifiers. | The USRP interface, specifically usrp_lib.cpp, is a software module that sits between the PHY layer and the SDR RF front-end. | The USRP interface module makes the set_gpio_attr() API function call to UHD to configure the Data Direction Register (DDR) to set specific GPIO pins as outputs using the DDR attribute.",
+    "paper_id": "357"
+  },
+  {
+    "section": "leveragingfulldlandulslotsfor5grandomaccess",
+    "path": {
+      "section": "leveragingfulldlandulslotsfor5grandomaccess",
+      "start_entity": "RRC_Configuration",
+      "end_entity": "TransmissionMethod",
+      "hops": [
+        {
+          "from": "RRC_Configuration",
+          "relation": "modifiedFor",
+          "to": "msg3",
+          "context": "Therefore, we modify the RRC configuration to add a new k2 entry to the push-TimeDomainAllocationList such that msg3 will be transmitted in a UL slot instead.",
+          "chunk": "5"
+        },
+        {
+          "from": "msg3",
+          "relation": "scheduledOn",
+          "to": "PUSCH",
+          "context": "UE is scheduled to transmit msg3 on PUSCH a number of slots after the last symbol of msg2 is received.",
+          "chunk": "5"
+        },
+        {
+          "from": "PUSCH",
+          "relation": "type",
+          "to": "TransmissionMethod",
+          "context": "UE is scheduled to transmit msg3 on PUSCH a number of slots after the last symbol of msg2 is received.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the context of 5G random access procedures, why is the RRC configuration modified to include a new k2 entry in the push-TimeDomainAllocationList?",
+    "options": {
+      "A": "To enable msg3 to be transmitted simultaneously with msg2, using the same transmission method and slot.",
+      "B": "To delay the transmission of msg3 until a downlink slot is available, using an alternative transmission method.",
+      "C": "To facilitate the direct transmission of msg3 on PRACH instead of PUSCH, reducing latency.",
+      "D": "To ensure that msg3 is transmitted in an uplink slot, leveraging the PUSCH transmission method for improved efficiency."
+    },
+    "correct_answer": "D",
+    "explanation": "The RRC configuration is modified to include a new k2 entry in the push-TimeDomainAllocationList specifically to schedule msg3 to be transmitted in an uplink slot on PUSCH. This modification is intended to use the PUSCH transmission method due to its suitability for uplink transmissions, thereby enhancing the efficiency of the 5G random access process.",
+    "path_description": "Path: RRC_Configuration --[modifiedFor]--> msg3 --[scheduledOn]--> PUSCH --[type]--> TransmissionMethod",
+    "context": "Therefore, we modify the RRC configuration to add a new k2 entry to the push-TimeDomainAllocationList such that msg3 will be transmitted in a UL slot instead. | UE is scheduled to transmit msg3 on PUSCH a number of slots after the last symbol of msg2 is received. | UE is scheduled to transmit msg3 on PUSCH a number of slots after the last symbol of msg2 is received.",
+    "paper_id": "357"
+  },
+  {
+    "section": "leveragingfulldlandulslotsfor5grandomaccess",
+    "path": {
+      "section": "leveragingfulldlandulslotsfor5grandomaccess",
+      "start_entity": "msg3",
+      "end_entity": "OFDMSymbols",
+      "hops": [
+        {
+          "from": "msg3",
+          "relation": "scheduledAfter",
+          "to": "msg2",
+          "context": "UE is scheduled to transmit msg3 on PUSCH a number of slots after the last symbol of msg2 is received.",
+          "chunk": "5"
+        },
+        {
+          "from": "msg2",
+          "relation": "scheduledIn",
+          "to": "FullDLSlot",
+          "context": "approach that schedules msg2 in a full DL slot, specifically the last DL slot in the TDD period.",
+          "chunk": "5"
+        },
+        {
+          "from": "FullDLSlot",
+          "relation": "contains",
+          "to": "OFDMSymbols",
+          "context": "The full DL slot has all 14 OFDM symbols which gives the flexibility of scheduling msg2 with more OFDM symbols...",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In a 5G TDD communication setup, how does the scheduling of msg2 in a full DL slot impact the transmission of msg3?",
+    "options": {
+      "A": "Msg3 is transmitted before msg2 to prioritize its scheduling within the full DL slot.",
+      "B": "Msg3 is immediately transmitted after msg2 within the same DL slot to utilize the remaining OFDM symbols.",
+      "C": "Msg3 and msg2 are simultaneously transmitted in the full DL slot to maximize data throughput.",
+      "D": "Msg3 is scheduled on PUSCH a number of slots after msg2, benefiting from the complete OFDM symbols in the full DL slot."
+    },
+    "correct_answer": "D",
+    "explanation": "Msg3 is scheduled on PUSCH a number of slots after the last symbol of msg2 is received, which is facilitated by the full scheduling of msg2 in a full DL slot containing all 14 OFDM symbols. This setup allows for a structured and efficient scheduling, leveraging the full capacity of the DL slot.",
+    "path_description": "Path: msg3 --[scheduledAfter]--> msg2 --[scheduledIn]--> FullDLSlot --[contains]--> OFDMSymbols",
+    "context": "UE is scheduled to transmit msg3 on PUSCH a number of slots after the last symbol of msg2 is received. | approach that schedules msg2 in a full DL slot, specifically the last DL slot in the TDD period. | The full DL slot has all 14 OFDM symbols which gives the flexibility of scheduling msg2 with more OFDM symbols...",
+    "paper_id": "357"
+  },
+  {
+    "section": "evaluationofmsg2andmsg3startsymbolsandlengthvalueson5grandomaccessprocedure1",
+    "path": {
+      "section": "evaluationofmsg2andmsg3startsymbolsandlengthvalueson5grandomaccessprocedure1",
+      "start_entity": "msg3",
+      "end_entity": "OFDMSymbol",
+      "hops": [
+        {
+          "from": "msg3",
+          "relation": "scheduledAfter",
+          "to": "msg2",
+          "context": "As per 3GPP specification 38.214 [25], UE is scheduled to transmit msg3 on PUSCH a number of slots after the last symbol of msg2 is received.",
+          "chunk": "6"
+        },
+        {
+          "from": "msg2",
+          "relation": "scheduledIn",
+          "to": "FullDLSlot",
+          "context": "To solve the 5G random access problem, we propose an approach that schedules msg2 in a full DL slot.",
+          "chunk": "6"
+        },
+        {
+          "from": "FullDLSlot",
+          "relation": "contains",
+          "to": "OFDMSymbol",
+          "context": "The full DL slot has all 14 OFDM symbols which gives the flexibility of scheduling msg2 with more OFDM symbols than the special slot can provide.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the context of 5G random access procedures, how does the scheduling of msg2 in a full DL slot, as opposed to a special slot, impact the transmission of msg3?",
+    "options": {
+      "A": "It restricts the timing of msg3 transmission due to reduced flexibility in OFDM symbol allocation in full DL slots.",
+      "B": "It limits the number of OFDM symbols available for msg2, thus directly decreasing the efficiency of msg3 transmission.",
+      "C": "It has no impact on msg3 scheduling as msg2 and msg3 are scheduled independently in different types of slots.",
+      "D": "It allows msg3 to be scheduled more flexibly since full DL slots contain all 14 OFDM symbols, providing more scheduling options."
+    },
+    "correct_answer": "D",
+    "explanation": "The full DL slot contains all 14 OFDM symbols, which provides more flexibility in scheduling msg2 within those symbols. This flexibility in turn allows msg3, which is scheduled a number of slots after msg2, to be more easily accommodated, enhancing the overall efficiency and flexibility of the transmission process.",
+    "path_description": "Path: msg3 --[scheduledAfter]--> msg2 --[scheduledIn]--> FullDLSlot --[contains]--> OFDMSymbol",
+    "context": "As per 3GPP specification 38.214 [25], UE is scheduled to transmit msg3 on PUSCH a number of slots after the last symbol of msg2 is received. | To solve the 5G random access problem, we propose an approach that schedules msg2 in a full DL slot. | The full DL slot has all 14 OFDM symbols which gives the flexibility of scheduling msg2 with more OFDM symbols than the special slot can provide.",
+    "paper_id": "357"
+  }
+]

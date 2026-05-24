@@ -1,0 +1,475 @@
+[
+  {
+    "section": "tratto1",
+    "path": {
+      "section": "tratto1",
+      "start_entity": "MolinelliEtAl",
+      "end_entity": "OracleEvaluator",
+      "hops": [
+        {
+          "from": "MolinelliEtAl",
+          "relation": "developedBy",
+          "to": "Tratto",
+          "context": "Molinelli et al. discusses the state-of-the-art approaches to generate oracles.",
+          "chunk": "5"
+        },
+        {
+          "from": "Tratto",
+          "relation": "integrates",
+          "to": "NeuralModule",
+          "context": "Tratto integrates a symbolic and a neural module to generate test oracles token by token.",
+          "chunk": "5"
+        },
+        {
+          "from": "NeuralModule",
+          "relation": "features",
+          "to": "OracleEvaluator",
+          "context": "The neural module comprises modes: Oracle evaluator and Token selector.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "What is the primary function of the Oracle Evaluator in the neural module developed by Molinelli et al. and integrated within Tratto?",
+    "options": {
+      "A": "It assists in debugging the neural module by identifying performance issues.",
+      "B": "It selects the optimal tokens for constructing test oracles in real-time.",
+      "C": "It provides a symbolic analysis of tokens to enhance oracle generation.",
+      "D": "It evaluates the performance of generated test oracles token by token."
+    },
+    "correct_answer": "D",
+    "explanation": "The Oracle Evaluator, as part of the neural module discussed by Molinelli et al. and integrated into Tratto, is primarily used to evaluate the performance of generated test oracles token by token. This module's primary purpose is to ensure the effectiveness and correctness of the oracles produced, which is not related to selecting tokens, debugging, or performing symbolic analysis.",
+    "path_description": "Path: MolinelliEtAl --[developedBy]--> Tratto --[integrates]--> NeuralModule --[features]--> OracleEvaluator",
+    "context": "Molinelli et al. discusses the state-of-the-art approaches to generate oracles. | Tratto integrates a symbolic and a neural module to generate test oracles token by token. | The neural module comprises modes: Oracle evaluator and Token selector.",
+    "paper_id": "623"
+  },
+  {
+    "section": "tratto1",
+    "path": {
+      "section": "tratto1",
+      "start_entity": "MolinelliEtAl",
+      "end_entity": "Model",
+      "hops": [
+        {
+          "from": "MolinelliEtAl",
+          "relation": "developedBy",
+          "to": "Tratto",
+          "context": "Molinelli et al. discusses the state-of-the-art approaches to generate oracles.",
+          "chunk": "5"
+        },
+        {
+          "from": "Tratto",
+          "relation": "outperforms",
+          "to": "GPT4",
+          "context": "Tratto derives the precondition 'series >= 0' and does not generate wrong oracles like GPT4.",
+          "chunk": "5"
+        },
+        {
+          "from": "GPT4",
+          "relation": "type",
+          "to": "Model",
+          "context": "GPT4 [40], a large language model (LLM) trained on natural language and code, correctly generates the precondition.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "Which of the following best describes the relationship and capabilities among Molinelli et al.'s Tratto, GPT4, and the task of generating oracles?",
+    "options": {
+      "A": "Molinelli et al.'s Tratto and GPT4 both fail at generating correct oracles, often producing incorrect preconditions.",
+      "B": "GPT4, being a more advanced model than Tratto, generates more accurate and reliable oracles consistently.",
+      "C": "Tratto, developed by Molinelli et al., outperforms GPT4 by not generating incorrect oracles and deriving precise preconditions.",
+      "D": "Tratto and GPT4 are both types of models developed by Molinelli et al. that excel equally in generating oracles."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A because it accurately reflects the relationship and capabilities described in the paper: Tratto, which was developed by Molinelli et al., outperforms GPT4 by not generating incorrect oracles and deriving more accurate preconditions. Options B, C, and D are incorrect; B and C provide inaccurate capabilities of the models, and D erroneously claims that both models were developed by Molinelli et al. and are equally effective.",
+    "path_description": "Path: MolinelliEtAl --[developedBy]--> Tratto --[outperforms]--> GPT4 --[type]--> Model",
+    "context": "Molinelli et al. discusses the state-of-the-art approaches to generate oracles. | Tratto derives the precondition 'series >= 0' and does not generate wrong oracles like GPT4. | GPT4 [40], a large language model (LLM) trained on natural language and code, correctly generates the precondition.",
+    "paper_id": "623"
+  },
+  {
+    "section": "evaluation2",
+    "path": {
+      "section": "evaluation2",
+      "start_entity": "Tratto",
+      "end_entity": "Dataset",
+      "hops": [
+        {
+          "from": "Tratto",
+          "relation": "uses",
+          "to": "TokenSelector",
+          "context": "evaluator and a Token selector. Both are based o",
+          "chunk": "11"
+        },
+        {
+          "from": "TokenSelector",
+          "relation": "finetunedOn",
+          "to": "GuavaOracles",
+          "context": "and the Token selector is fine-tuned on the respective 162,874 token samp",
+          "chunk": "11"
+        },
+        {
+          "from": "GuavaOracles",
+          "relation": "type",
+          "to": "Dataset",
+          "context": "We set aside the Guava oracles (4,865) for fine-tuning",
+          "chunk": "11"
+        }
+      ]
+    },
+    "question": "What specific role does the Guava Oracles dataset play in the evaluation of the Tratto system according to the paper's evaluation2 section?",
+    "options": {
+      "A": "The Guava Oracles dataset is used for fine-tuning the Token Selector that is part of the Tratto system.",
+      "B": "The Guava Oracles dataset is employed for testing the final output of the Tratto system after deployment.",
+      "C": "The Guava Oracles dataset serves as a model validation set during the evaluation process of the Tratto system.",
+      "D": "The Guava Oracles dataset is used for training the primary algorithm within the Tratto system."
+    },
+    "correct_answer": "A",
+    "explanation": "The Guava Oracles dataset is specifically mentioned as being set aside for fine-tuning the Token Selector in the Tratto system. This indicates its role in refining the Token Selector's ability to accurately select relevant tokens, rather than for training, validating, or testing the overall system.",
+    "path_description": "Path: Tratto --[uses]--> TokenSelector --[finetunedOn]--> GuavaOracles --[type]--> Dataset",
+    "context": "evaluator and a Token selector. Both are based o | and the Token selector is fine-tuned on the respective 162,874 token samp | We set aside the Guava oracles (4,865) for fine-tuning",
+    "paper_id": "623"
+  },
+  {
+    "section": "evaluation3",
+    "path": {
+      "section": "evaluation3",
+      "start_entity": "Tratto",
+      "end_entity": "Model",
+      "hops": [
+        {
+          "from": "Tratto",
+          "relation": "outperforms",
+          "to": "GPT4",
+          "context": "Tratto in terms of accuracy (73% for Tratto, 24% for GPT4).",
+          "chunk": "12"
+        },
+        {
+          "from": "GPT4",
+          "relation": "outperforms",
+          "to": "Jdoctor",
+          "context": "GPT4 generates a higher number of correct oracles compared to Jdoctor.",
+          "chunk": "12"
+        },
+        {
+          "from": "Jdoctor",
+          "relation": "type",
+          "to": "Model",
+          "context": "Jdoctor outperforms other approaches such as To...",
+          "chunk": "12"
+        }
+      ]
+    },
+    "question": "Which model type demonstrates the highest accuracy in generating correct oracles according to the evaluation3 section?",
+    "options": {
+      "A": "Jdoctor, while it outperforms other approaches, has a lower correct oracle generation rate than GPT4.",
+      "B": "Tratto, achieving a 73% accuracy rate, significantly outperforms GPT4 in terms of correct oracle generation.",
+      "C": "GPT4, despite generating a higher number of correct oracles than Jdoctor, has an overall accuracy of 24%.",
+      "D": "Other approaches outperform Jdoctor in generating correct oracles, although specifics are not provided in the evaluation."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A because, according to the knowledge path and the context provided, Tratto not only outperforms GPT4 but also achieves a much higher accuracy rate of 73%, making it the model type with the highest accuracy in generating correct oracles.",
+    "path_description": "Path: Tratto --[outperforms]--> GPT4 --[outperforms]--> Jdoctor --[type]--> Model",
+    "context": "Tratto in terms of accuracy (73% for Tratto, 24% for GPT4). | GPT4 generates a higher number of correct oracles compared to Jdoctor. | Jdoctor outperforms other approaches such as To...",
+    "paper_id": "623"
+  },
+  {
+    "section": "evaluation4",
+    "path": {
+      "section": "evaluation4",
+      "start_entity": "Tratto",
+      "end_entity": "Jdoctor",
+      "hops": [
+        {
+          "from": "Tratto",
+          "relation": "comparedWith",
+          "to": "GPT4",
+          "context": "Tratto is compared with GPT4 in terms of performance metrics.",
+          "chunk": "13"
+        },
+        {
+          "from": "GPT4",
+          "relation": "outperforms",
+          "to": "Tratto",
+          "context": "GPT4 outperforms Tratto in terms of recall (100% for GPT4, 67% for Tratto).",
+          "chunk": "13"
+        },
+        {
+          "from": "Tratto",
+          "relation": "comparedWith",
+          "to": "Jdoctor",
+          "context": "Tratto is compared with Jdoctor in terms of performance metrics.",
+          "chunk": "13"
+        }
+      ]
+    },
+    "question": "Which model demonstrated a higher recall percentage when compared directly with Tratto, based on the evaluations mentioned in the section 'evaluation4'?",
+    "options": {
+      "A": "Tratto outperformed GPT4 with a recall rate of 67% against GPT4's 50%.",
+      "B": "Jdoctor demonstrated a 75% recall, which was higher than Tratto's performance metrics.",
+      "C": "Both GPT4 and Jdoctor had a lower recall rate than Tratto in these evaluations.",
+      "D": "GPT4 showed a higher recall percentage at 100%, compared to Tratto's 67% recall."
+    },
+    "correct_answer": "D",
+    "explanation": "According to the knowledge path and context from the section 'evaluation4', GPT4 outperforms Tratto in terms of recall, with GPT4 achieving a 100% recall rate compared to Tratto's 67%. No data was provided for Jdoctor's specific recall rate in comparison to Tratto, making A the correct answer.",
+    "path_description": "Path: Tratto --[comparedWith]--> GPT4 --[outperforms]--> Tratto --[comparedWith]--> Jdoctor",
+    "context": "Tratto is compared with GPT4 in terms of performance metrics. | GPT4 outperforms Tratto in terms of recall (100% for GPT4, 67% for Tratto). | Tratto is compared with Jdoctor in terms of performance metrics.",
+    "paper_id": "623"
+  },
+  {
+    "section": "evaluation6",
+    "path": {
+      "section": "evaluation6",
+      "start_entity": "Tratto",
+      "end_entity": "Dataset",
+      "hops": [
+        {
+          "from": "Tratto",
+          "relation": "outperforms",
+          "to": "Jdoctor",
+          "context": "Tratto generates significantly more oracles than Jdoctor.",
+          "chunk": "15"
+        },
+        {
+          "from": "Jdoctor",
+          "relation": "evaluatedOn",
+          "to": "ISSTA083",
+          "context": "Jdoctor evaluated on ISSTA083 dataset.",
+          "chunk": "15"
+        },
+        {
+          "from": "ISSTA083",
+          "relation": "type",
+          "to": "Dataset",
+          "context": "Results for all approaches on ground-truth dataset ISSTA083.",
+          "chunk": "15"
+        }
+      ]
+    },
+    "question": "Considering the comparative performance of the tools Tratto and Jdoctor on the ISSTA083 dataset, what is a correct statement about their functionalities?",
+    "options": {
+      "A": "Jdoctor outperforms Tratto in the number of oracles generated, based on evaluations using the ISSTA083 dataset.",
+      "B": "Jdoctor produces more reliable oracles than Tratto when evaluated using the ISSTA083 dataset.",
+      "C": "Tratto outperforms Jdoctor in generating more oracles as evaluated on the ISSTA083 dataset.",
+      "D": "Tratto and Jdoctor have equal performance in terms of oracle generation on the ISSTA083 dataset."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A, as the given context explicitly states that Tratto generates significantly more oracles than Jdoctor. Both tools were evaluated on the ISSTA083 dataset, which is a ground-truth dataset. Therefore, it can be concluded that Tratto outperforms Jdoctor in this specific aspect on the mentioned dataset.",
+    "path_description": "Path: Tratto --[outperforms]--> Jdoctor --[evaluatedOn]--> ISSTA083 --[type]--> Dataset",
+    "context": "Tratto generates significantly more oracles than Jdoctor. | Jdoctor evaluated on ISSTA083 dataset. | Results for all approaches on ground-truth dataset ISSTA083.",
+    "paper_id": "623"
+  },
+  {
+    "section": "evaluation4",
+    "path": {
+      "section": "evaluation4",
+      "start_entity": "Tratto",
+      "end_entity": "Model",
+      "hops": [
+        {
+          "from": "Tratto",
+          "relation": "outperforms",
+          "to": "Jdoctor",
+          "context": "Tratto outperforms Jdoctor in terms of F1-score (61% for Tratto, 25% for Jdoctor).",
+          "chunk": "13"
+        },
+        {
+          "from": "Jdoctor",
+          "relation": "comparedWith",
+          "to": "GPT4",
+          "context": "Jdoctor is compared with GPT4 in terms of performance metrics.",
+          "chunk": "13"
+        },
+        {
+          "from": "GPT4",
+          "relation": "type",
+          "to": "Model",
+          "context": "GPT4 is mentioned multiple times as a model being evaluated.",
+          "chunk": "13"
+        }
+      ]
+    },
+    "question": "Which statement correctly reflects the hierarchical relationship and performance evaluations discussed in the evaluation4 section of the paper?",
+    "options": {
+      "A": "GPT4, being a different type of entity compared to Tratto and Jdoctor, shows superior performance in all metrics.",
+      "B": "Tratto, having a higher F1-score than Jdoctor, indirectly suggests it might perform better than GPT4.",
+      "C": "Since GPT4 is a model and Jdoctor outperforms it, Tratto, with a lower F1-score than Jdoctor, is less effective.",
+      "D": "Jdoctor, compared directly with Tratto, shows superior performance metrics over GPT4 in the evaluation."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A because it appropriately uses the information that Tratto has a higher F1-score than Jdoctor and recognizes that Jdoctor is compared with GPT4 in performance metrics, suggesting a possibility (though not confirmed in the text) that Tratto might perform better than GPT4. The other options either misrepresent the relationships or incorrectly interpret the performance comparisons.",
+    "path_description": "Path: Tratto --[outperforms]--> Jdoctor --[comparedWith]--> GPT4 --[type]--> Model",
+    "context": "Tratto outperforms Jdoctor in terms of F1-score (61% for Tratto, 25% for Jdoctor). | Jdoctor is compared with GPT4 in terms of performance metrics. | GPT4 is mentioned multiple times as a model being evaluated.",
+    "paper_id": "623"
+  },
+  {
+    "section": "evaluation7",
+    "path": {
+      "section": "evaluation7",
+      "start_entity": "Molinelli",
+      "end_entity": "Model",
+      "hops": [
+        {
+          "from": "Molinelli",
+          "relation": "developedBy",
+          "to": "Tratto",
+          "context": "Molinelli et al.",
+          "chunk": "16"
+        },
+        {
+          "from": "Tratto",
+          "relation": "outperforms",
+          "to": "Jdoctor",
+          "context": "Tratto achieves an F1-score significantly higher than Jdoctor.",
+          "chunk": "16"
+        },
+        {
+          "from": "Jdoctor",
+          "relation": "type",
+          "to": "Model",
+          "context": "Tratto achieves an F1-score significantly higher than Jdoctor and GPT4.",
+          "chunk": "16"
+        }
+      ]
+    },
+    "question": "What best describes the relationship between Tratto and Jdoctor, based on the development and performance outlined by Molinelli et al.?",
+    "options": {
+      "A": "Jdoctor developed Tratto, which subsequently achieved lower performance metrics compared to Molinelli.",
+      "B": "Tratto and Jdoctor, both developed by Molinelli, perform equally in terms of F1-score metrics.",
+      "C": "Jdoctor outperforms Tratto in F1-score metrics, despite being a less advanced model type.",
+      "D": "Tratto was developed by Molinelli and outperforms Jdoctor, which is a type of diagnostic model."
+    },
+    "correct_answer": "D",
+    "explanation": "According to the paper, Tratto was developed by Molinelli and achieves a significantly higher F1-score than Jdoctor, which is described as a type of model. This information confirms that Tratto outperforms Jdoctor, establishing a direct developer-performance relationship.",
+    "path_description": "Path: Molinelli --[developedBy]--> Tratto --[outperforms]--> Jdoctor --[type]--> Model",
+    "context": "Molinelli et al. | Tratto achieves an F1-score significantly higher than Jdoctor. | Tratto achieves an F1-score significantly higher than Jdoctor and GPT4.",
+    "paper_id": "623"
+  },
+  {
+    "section": "evaluation7",
+    "path": {
+      "section": "evaluation7",
+      "start_entity": "Molinelli",
+      "end_entity": "oracles",
+      "hops": [
+        {
+          "from": "Molinelli",
+          "relation": "developedBy",
+          "to": "Tratto",
+          "context": "Molinelli et al.",
+          "chunk": "16"
+        },
+        {
+          "from": "Tratto",
+          "relation": "outperforms",
+          "to": "GPT4",
+          "context": "Tratto achieves an F1-score significantly higher than GPT4.",
+          "chunk": "16"
+        },
+        {
+          "from": "GPT4",
+          "relation": "evaluatedOn",
+          "to": "oracles",
+          "context": "Tratto can generate a high number of oracles.",
+          "chunk": "16"
+        }
+      ]
+    },
+    "question": "Which statement best describes the relationship between Tratto, GPT4, and oracles according to the research conducted by Molinelli et al.?",
+    "options": {
+      "A": "While GPT4 outperforms Tratto in most tasks, it is less effective in generating oracles as evaluated by Molinelli et al.",
+      "B": "GPT4, developed by Molinelli et al., outperforms Tratto in generating a high number of oracles.",
+      "C": "Tratto was developed by Molinelli et al. and demonstrated superior performance to GPT4 in generating a high number of oracles.",
+      "D": "Tratto and GPT4, both developed by Molinelli et al., have similar capabilities in generating oracles."
+    },
+    "correct_answer": "C",
+    "explanation": "The paper specifies that Tratto, developed by Molinelli et al., not only outperforms GPT4 but also excels in generating a high number of oracles. This indicates that Tratto is particularly effective in this area compared to GPT4, aligning with the correct answer A.",
+    "path_description": "Path: Molinelli --[developedBy]--> Tratto --[outperforms]--> GPT4 --[evaluatedOn]--> oracles",
+    "context": "Molinelli et al. | Tratto achieves an F1-score significantly higher than GPT4. | Tratto can generate a high number of oracles.",
+    "paper_id": "623"
+  },
+  {
+    "section": "evaluation7",
+    "path": {
+      "section": "evaluation7",
+      "start_entity": "Molinelli",
+      "end_entity": "Model",
+      "hops": [
+        {
+          "from": "Molinelli",
+          "relation": "developedBy",
+          "to": "Tratto",
+          "context": "Molinelli et al.",
+          "chunk": "16"
+        },
+        {
+          "from": "Tratto",
+          "relation": "outperforms",
+          "to": "GPT4",
+          "context": "Tratto achieves an F1-score significantly higher than GPT4.",
+          "chunk": "16"
+        },
+        {
+          "from": "GPT4",
+          "relation": "type",
+          "to": "Model",
+          "context": "Tratto achieves an F1-score significantly higher than Jdoctor and GPT4.",
+          "chunk": "16"
+        }
+      ]
+    },
+    "question": "Given the performance comparison in the paper, which statement best describes the relationship between Tratto and GPT4 in terms of their type?",
+    "options": {
+      "A": "Tratto is a dataset used to train GPT4, which is a model, indicating a dependency relationship.",
+      "B": "GPT4 is an older version of the Tratto model, which has been significantly optimized in recent updates.",
+      "C": "Tratto is a software tool and GPT4 is a model, which means they are fundamentally different in architecture.",
+      "D": "Both Tratto and GPT4 are models, but Tratto outperforms GPT4 in terms of the F1-score."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A because the path indicates that Tratto, developed by Molinelli, outperforms GPT4, and both are categorized under the type 'Model'. Thus, while both are models, Tratto has a higher F1-score than GPT4, making it superior in performance but not fundamentally different in type or category.",
+    "path_description": "Path: Molinelli --[developedBy]--> Tratto --[outperforms]--> GPT4 --[type]--> Model",
+    "context": "Molinelli et al. | Tratto achieves an F1-score significantly higher than GPT4. | Tratto achieves an F1-score significantly higher than Jdoctor and GPT4.",
+    "paper_id": "623"
+  },
+  {
+    "section": "threatstovalidity",
+    "path": {
+      "section": "threatstovalidity",
+      "start_entity": "Tratto",
+      "end_entity": "Entity",
+      "hops": [
+        {
+          "from": "Tratto",
+          "relation": "outperforms",
+          "to": "Jdoctor",
+          "context": "Mutation score of test suites: Tratto 28%, Jdoctor 22%.",
+          "chunk": "18"
+        },
+        {
+          "from": "Jdoctor",
+          "relation": "evaluatedOn",
+          "to": "Dataset",
+          "context": "the predictions by Tratto, Jdoctor and GPT4.",
+          "chunk": "18"
+        },
+        {
+          "from": "Dataset",
+          "relation": "type",
+          "to": "Entity",
+          "context": "The datasets used in our experiments are based on an automatically generated dataset.",
+          "chunk": "18"
+        }
+      ]
+    },
+    "question": "Considering the performance evaluated on a particular type of dataset, which tool achieved a higher mutation score when tested on entity-based datasets?",
+    "options": {
+      "A": "Jdoctor achieved a higher mutation score with 28% when evaluated on entity-based datasets.",
+      "B": "Tratto achieved a higher mutation score with 28% when evaluated on entity-based datasets.",
+      "C": "GPT4 achieved a higher mutation score with 28% when evaluated on entity-based datasets.",
+      "D": "Jdoctor and GPT4 both achieved higher mutation scores with 22% when evaluated on entity-based datasets."
+    },
+    "correct_answer": "B",
+    "explanation": "The question follows the knowledge graph path from Tratto to Jdoctor evaluated on a Dataset of type Entity. According to the context, Tratto outperforms Jdoctor with a mutation score of 28% compared to Jdoctor's 22% on the entity-based dataset.",
+    "path_description": "Path: Tratto --[outperforms]--> Jdoctor --[evaluatedOn]--> Dataset --[type]--> Entity",
+    "context": "Mutation score of test suites: Tratto 28%, Jdoctor 22%. | the predictions by Tratto, Jdoctor and GPT4. | The datasets used in our experiments are based on an automatically generated dataset.",
+    "paper_id": "623"
+  }
+]

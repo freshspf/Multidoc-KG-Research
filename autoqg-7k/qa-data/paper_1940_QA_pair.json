@@ -1,0 +1,131 @@
+[
+  {
+    "section": "colt2",
+    "path": {
+      "section": "colt2",
+      "start_entity": "CoLT-132K",
+      "end_entity": "SampleType",
+      "hops": [
+        {
+          "from": "CoLT-132K",
+          "relation": "contains",
+          "to": "SingleLine",
+          "context": "CoLT-132K contains three completion scenarios: (ii) Single line.",
+          "chunk": "4"
+        },
+        {
+          "from": "SingleLine",
+          "relation": "hasSamples",
+          "to": "TestingSamples",
+          "context": "Each completion scenario under a language has 1,000 testing samples.",
+          "chunk": "4"
+        },
+        {
+          "from": "TestingSamples",
+          "relation": "type",
+          "to": "SampleType",
+          "context": "Each completion scenario under a language has 1,000 testing samples.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the CoLT-132K dataset, what type of samples does the 'Single Line' completion scenario specifically contain?",
+    "options": {
+      "A": "Samples designed for evaluating multi-line code functionalities",
+      "B": "Samples that are used for testing purposes in syntax evaluation",
+      "C": "Samples aimed for syntax evaluation in single line code challenges",
+      "D": "Samples that are used for training purposes in syntax evaluation"
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A, as the knowledge path indicates that the 'Single Line' scenario under CoLT-132K contains 'TestingSamples', which are further characterized as being used for testing purposes in syntax evaluation. Options B, C, and D are misleading because they either imply incorrect usage (training) or misinterpret the sample type (multi-line functionalities or single line challenges).",
+    "path_description": "Path: CoLT-132K --[contains]--> SingleLine --[hasSamples]--> TestingSamples --[type]--> SampleType",
+    "context": "CoLT-132K contains three completion scenarios: (ii) Single line. | Each completion scenario under a language has 1,000 testing samples. | Each completion scenario under a language has 1,000 testing samples.",
+    "paper_id": "263"
+  },
+  {
+    "section": "colt3",
+    "path": {
+      "section": "colt3",
+      "start_entity": "ReinforcementLearning",
+      "end_entity": "UniformSampling",
+      "hops": [
+        {
+          "from": "ReinforcementLearning",
+          "relation": "appliedTo",
+          "to": "aiXcoder-7B-v2",
+          "context": "Reinforcement Learning (RL).",
+          "chunk": "5"
+        },
+        {
+          "from": "aiXcoder-7B-v2",
+          "relation": "trainedOn",
+          "to": "CoLT-132K",
+          "context": "aiXcoder-7B-v2: Training LLMs to Fully Utilize the Long Context in Repository-level Code.",
+          "chunk": "5"
+        },
+        {
+          "from": "CoLT-132K",
+          "relation": "improves",
+          "to": "UniformSampling",
+          "context": "To mitigate potential data imbalance, we implement uniform sampling across all repositories.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "How does the application of Reinforcement Learning in aiXcoder-7B-v2, which was trained on CoLT-132K, effectively address the challenge of data imbalance?",
+    "options": {
+      "A": "Through the deployment of advanced neural network architectures that automatically correct imbalances.",
+      "B": "Through the implementation of cost-sensitive learning algorithms that prioritize minority classes.",
+      "C": "By utilizing uniform sampling strategies across all repositories to ensure equitable data representation.",
+      "D": "By increasing the volume of data from underrepresented repositories to balance the dataset."
+    },
+    "correct_answer": "C",
+    "explanation": "The question is a test of understanding the complete path from Reinforcement Learning application, through training aiXcoder-7B-v2 on CoLT-132K, to the implementation of uniform sampling to handle data imbalance. Uniform sampling is a method that equally represents all data sources, thus mitigating issues related to data imbalance.",
+    "path_description": "Path: ReinforcementLearning --[appliedTo]--> aiXcoder-7B-v2 --[trainedOn]--> CoLT-132K --[improves]--> UniformSampling",
+    "context": "Reinforcement Learning (RL). | aiXcoder-7B-v2: Training LLMs to Fully Utilize the Long Context in Repository-level Code. | To mitigate potential data imbalance, we implement uniform sampling across all repositories.",
+    "paper_id": "263"
+  },
+  {
+    "section": "studydesign",
+    "path": {
+      "section": "studydesign",
+      "start_entity": "aiXcoder-CoLT",
+      "end_entity": "Model",
+      "hops": [
+        {
+          "from": "aiXcoder-CoLT",
+          "relation": "comparedWith",
+          "to": "Code-Llama-7B",
+          "context": "Then we compare it to existing SOTA LLMs on multiple benchmarks.",
+          "chunk": "7"
+        },
+        {
+          "from": "Code-Llama-7B",
+          "relation": "finetunedOn",
+          "to": "CoLT",
+          "context": "Besides the aiXcoder-7B, we apply CoLT to other two popular LLMs (i.e., DeepSeek-Coder-6.7B and Code Llama-7B).",
+          "chunk": "7"
+        },
+        {
+          "from": "CoLT",
+          "relation": "type",
+          "to": "Model",
+          "context": "To evaluate the effectiveness of CoLT, we conduct a large-scale study.",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "What type of model was the Code-Llama-7B fine-tuned on to evaluate its comparative performance against aiXcoder-CoLT in the study?",
+    "options": {
+      "A": "Code-Llama-7B was fine-tuned on a language modeling transformer architecture known as CoLT.",
+      "B": "Code-Llama-7B utilized a fine-tuning process based on a regression analysis model from statistical computing.",
+      "C": "Code-Llama-7B was fine-tuned using a neural network specifically designed for code completion tasks.",
+      "D": "Code-Llama-7B was adapted to a convolutional neural network model for image recognition tasks."
+    },
+    "correct_answer": "A",
+    "explanation": "The question requires understanding the relationships in the path, which indicates that Code-Llama-7B was fine-tuned on CoLT (a model). The terminology and names in the options are aligned with the context, but only option A correctly identifies CoLT as the type of model used for fine-tuning Code-Llama-7B, which is consistent with the path described.",
+    "path_description": "Path: aiXcoder-CoLT --[comparedWith]--> Code-Llama-7B --[finetunedOn]--> CoLT --[type]--> Model",
+    "context": "Then we compare it to existing SOTA LLMs on multiple benchmarks. | Besides the aiXcoder-7B, we apply CoLT to other two popular LLMs (i.e., DeepSeek-Coder-6.7B and Code Llama-7B). | To evaluate the effectiveness of CoLT, we conduct a large-scale study.",
+    "paper_id": "263"
+  }
+]

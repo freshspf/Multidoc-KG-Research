@@ -1,0 +1,174 @@
+[
+  {
+    "section": "introduction",
+    "path": {
+      "section": "introduction",
+      "start_entity": "FedAvg",
+      "end_entity": "DataType",
+      "hops": [
+        {
+          "from": "FedAvg",
+          "relation": "usedIn",
+          "to": "CentralizedFederatedLearning",
+          "context": "In the initial federated learning aggregation algorithm, FedAvg",
+          "chunk": "0"
+        },
+        {
+          "from": "CentralizedFederatedLearning",
+          "relation": "failsOn",
+          "to": "NonIID_Data",
+          "context": "centralized federated learning fails to meet the model training needs of each training client due to inconsistent local training data distributions",
+          "chunk": "0"
+        },
+        {
+          "from": "NonIID_Data",
+          "relation": "type",
+          "to": "DataType",
+          "context": "the non-IID problem in federated learning",
+          "chunk": "0"
+        }
+      ]
+    },
+    "question": "In the context of federated learning, why does the FedAvg algorithm underperform when used in centralized federated learning configurations with non-IID data?",
+    "options": {
+      "A": "Because FedAvg requires identical distribution of data across all nodes to function optimally, which is not the case with non-IID data.",
+      "B": "Due to the algorithm's inability to efficiently synchronize data across all decentralized nodes.",
+      "C": "FedAvg lacks the computational power to process large volumes of data in real-time, leading to delays and errors.",
+      "D": "Because non-IID data represents diverse data types which FedAvg is not designed to handle effectively in a centralized model."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A because the non-IID nature of the data means that the data types are varied and not identically distributed across different clients in a centralized federated learning setup, which FedAvg fails to address. This affects the algorithm's performance as it is not designed to handle such diverse data types effectively in a centralized model.",
+    "path_description": "Path: FedAvg --[usedIn]--> CentralizedFederatedLearning --[failsOn]--> NonIID_Data --[type]--> DataType",
+    "context": "In the initial federated learning aggregation algorithm, FedAvg | centralized federated learning fails to meet the model training needs of each training client due to inconsistent local training data distributions | the non-IID problem in federated learning",
+    "paper_id": "773"
+  },
+  {
+    "section": "methods1",
+    "path": {
+      "section": "methods1",
+      "start_entity": "BFLN",
+      "end_entity": "Metric",
+      "hops": [
+        {
+          "from": "BFLN",
+          "relation": "comprises",
+          "to": "PAA",
+          "context": "which comprises two main components: the prototype-based aggregation algorithm (PAA)",
+          "chunk": "3"
+        },
+        {
+          "from": "PAA",
+          "relation": "uses",
+          "to": "PearsonCorrelationCoefficient",
+          "context": "Additionally, we use Pearson correlation coefficient instead of cosine similarity",
+          "chunk": "3"
+        },
+        {
+          "from": "PearsonCorrelationCoefficient",
+          "relation": "type",
+          "to": "Metric",
+          "context": "we use Pearson correlation coefficient instead of cosine similarity",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the context of the paper's methods section discussing the BFLN model, what type of measurement does the prototype-based aggregation algorithm (PAA) primarily utilize?",
+    "options": {
+      "A": "Cosine similarity to assess the effectiveness of the aggregation algorithm",
+      "B": "Euclidean distance to determine the closeness of data points in a vector space",
+      "C": "Jaccard index to measure the overlap between sample sets within the model",
+      "D": "Pearson correlation coefficient as a metric to evaluate similarity between prototypes"
+    },
+    "correct_answer": "D",
+    "explanation": "The BFLN model comprises the prototype-based aggregation algorithm (PAA) which uses the Pearson correlation coefficient as a measurement type. The Pearson correlation coefficient is specifically mentioned as being used instead of cosine similarity, indicating its role as a metric in this context.",
+    "path_description": "Path: BFLN --[comprises]--> PAA --[uses]--> PearsonCorrelationCoefficient --[type]--> Metric",
+    "context": "which comprises two main components: the prototype-based aggregation algorithm (PAA) | Additionally, we use Pearson correlation coefficient instead of cosine similarity | we use Pearson correlation coefficient instead of cosine similarity",
+    "paper_id": "773"
+  },
+  {
+    "section": "methods2",
+    "path": {
+      "section": "methods2",
+      "start_entity": "GlobalModels",
+      "end_entity": "Entity",
+      "hops": [
+        {
+          "from": "GlobalModels",
+          "relation": "returnedTo",
+          "to": "LocalTrainingClients",
+          "context": "These global models are then returned to the local training clients within the cluster for the next round of model training.",
+          "chunk": "4"
+        },
+        {
+          "from": "LocalTrainingClients",
+          "relation": "addedTo",
+          "to": "PackingQueue",
+          "context": "Leveraging the partition results from spectral clustering in PAA, we select local training clients closest to the centroids of each cluster and add them to the packing queue.",
+          "chunk": "4"
+        },
+        {
+          "from": "PackingQueue",
+          "relation": "type",
+          "to": "Entity",
+          "context": "Leveraging the partition results from spectral clustering in PAA, we select local training clients closest to the centroids of each cluster and add them to the packing queue.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the context of managing model training within a distributed system, what is the primary purpose of adding selected local training clients to the packing queue?",
+    "options": {
+      "A": "To reduce the computational load on the central server by distributing tasks among various nodes.",
+      "B": "To facilitate a backup of the current state of the model before proceeding to the next training phase.",
+      "C": "To optimize the distribution of entities across the new model training round by leveraging spectral clustering results.",
+      "D": "To increase the security of the data by segregating it into different clusters based on their sensitivity."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer, A, follows from the knowledge path where global models are returned to local training clients for further training, and these clients are selected based on their proximity to cluster centroids (from spectral clustering results) and added to the packing queue. This process aims to optimize the entity distribution for the next training round.",
+    "path_description": "Path: GlobalModels --[returnedTo]--> LocalTrainingClients --[addedTo]--> PackingQueue --[type]--> Entity",
+    "context": "These global models are then returned to the local training clients within the cluster for the next round of model training. | Leveraging the partition results from spectral clustering in PAA, we select local training clients closest to the centroids of each cluster and add them to the packing queue. | Leveraging the partition results from spectral clustering in PAA, we select local training clients closest to the centroids of each cluster and add them to the packing queue.",
+    "paper_id": "773"
+  },
+  {
+    "section": "experiments2",
+    "path": {
+      "section": "experiments2",
+      "start_entity": "CACC",
+      "end_entity": "Dataset",
+      "hops": [
+        {
+          "from": "CACC",
+          "relation": "appliedTo",
+          "to": "BFLN",
+          "context": "In BFLN, we propose CACC, which includes an incentive mechanism for personalized federated learning.",
+          "chunk": "6"
+        },
+        {
+          "from": "BFLN",
+          "relation": "achievesLessImprovementOn",
+          "to": "SVHN",
+          "context": "Compared to the CIFAR10 and CIFAR100 datasets, the accuracy improvement of the BFLN model on the SVHN dataset is less pronounced.",
+          "chunk": "6"
+        },
+        {
+          "from": "SVHN",
+          "relation": "type",
+          "to": "Dataset",
+          "context": "In the SVHN dataset, with a training data bias of 0.1, BFLN achieves the best results with 7 clusters.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the context of personalized federated learning using the BFLN model, why does the SVHN dataset show less pronounced accuracy improvements compared to CIFAR10 and CIFAR100?",
+    "options": {
+      "A": "SVHN requires a different federated learning approach than what BFLN with CACC offers, as it involves non-image data.",
+      "B": "The SVHN dataset inherently has a higher initial accuracy, making further improvements more challenging compared to CIFAR datasets.",
+      "C": "SVHN's larger and more diverse image set compared to CIFAR10 and CIFAR100 complicates the clustering process in BFLN.",
+      "D": "The incentive mechanism in CACC is less effective on datasets with a simpler structure like SVHN, which predominantly contains numeric data."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A because the SVHN dataset, being simpler and more uniform (focused on numeric data), likely responds differently to the incentive mechanisms proposed in CACC for BFLN, which might be tailored to handle more complex data structures like those in CIFAR10 and CIFAR100.",
+    "path_description": "Path: CACC --[appliedTo]--> BFLN --[achievesLessImprovementOn]--> SVHN --[type]--> Dataset",
+    "context": "In BFLN, we propose CACC, which includes an incentive mechanism for personalized federated learning. | Compared to the CIFAR10 and CIFAR100 datasets, the accuracy improvement of the BFLN model on the SVHN dataset is less pronounced. | In the SVHN dataset, with a training data bias of 0.1, BFLN achieves the best results with 7 clusters.",
+    "paper_id": "773"
+  }
+]

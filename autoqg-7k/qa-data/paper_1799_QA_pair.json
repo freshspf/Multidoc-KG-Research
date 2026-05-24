@@ -1,0 +1,174 @@
+[
+  {
+    "section": "microarchitecture2",
+    "path": {
+      "section": "microarchitecture2",
+      "start_entity": "DataBufferFIFO",
+      "end_entity": "MainCores",
+      "hops": [
+        {
+          "from": "DataBufferFIFO",
+          "relation": "partOf",
+          "to": "SystemInterconnect",
+          "context": "consists of Data Buffer FIFO to buffer data",
+          "chunk": "3"
+        },
+        {
+          "from": "SystemInterconnect",
+          "relation": "establishesLinks",
+          "to": "CheckerCores",
+          "context": "and their associated checker cores",
+          "chunk": "3"
+        },
+        {
+          "from": "CheckerCores",
+          "relation": "associatedWith",
+          "to": "MainCores",
+          "context": "and their associated checker cores",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In a computer system architecture described in the 'microarchitecture2' section, how does the Data Buffer FIFO contribute to the function of the Main Cores?",
+    "options": {
+      "A": "It stores data temporarily which is used exclusively by Checker Cores, without any interaction or linkage to the Main Cores.",
+      "B": "It directly transfers buffered data to the Main Cores, bypassing the System Interconnect and Checker Cores, increasing processing speed.",
+      "C": "It buffers data which is then used by the System Interconnect to link Checker Cores with Main Cores, facilitating data integrity checks.",
+      "D": "It acts independently of the System Interconnect and Checker Cores, focusing solely on data caching for external devices."
+    },
+    "correct_answer": "C",
+    "explanation": "The Data Buffer FIFO is a component of the System Interconnect that buffers data. This buffered data is crucial for the function of the System Interconnect, which establishes links between Checker Cores and Main Cores. The Checker Cores, associated with the Main Cores, likely use this data to perform integrity checks, thus contributing indirectly to the function of the Main Cores.",
+    "path_description": "Path: DataBufferFIFO --[partOf]--> SystemInterconnect --[establishesLinks]--> CheckerCores --[associatedWith]--> MainCores",
+    "context": "consists of Data Buffer FIFO to buffer data | and their associated checker cores | and their associated checker cores",
+    "paper_id": "224"
+  },
+  {
+    "section": "microarchitecture1",
+    "path": {
+      "section": "microarchitecture1",
+      "start_entity": "CheckpointControl",
+      "end_entity": "RocketCore",
+      "hops": [
+        {
+          "from": "CheckpointControl",
+          "relation": "partOf",
+          "to": "RegisterCheckpointManagementUnits",
+          "context": "Checkpoint Control (CPC) includes an instruction counter and a privilege-level mode monitor.",
+          "chunk": "2"
+        },
+        {
+          "from": "RegisterCheckpointManagementUnits",
+          "relation": "partOf",
+          "to": "FlexStep",
+          "context": "A. Register Checkpoint Management Units (RCPM) consists of the Checkpoint Control (CPC) and Architectural State Snapshot (ASS) units.",
+          "chunk": "2"
+        },
+        {
+          "from": "FlexStep",
+          "relation": "implementedIn",
+          "to": "RocketCore",
+          "context": "For demonstration, we used the Rocket core as a case study to implement our framework and evaluate its effectiveness.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the context of the FlexStep microarchitecture as implemented in the Rocket Core, which component directly contains the Checkpoint Control responsible for monitoring privilege-level modes?",
+    "options": {
+      "A": "Rocket Core primarily integrates Checkpoint Control within its computational units separate from FlexStep.",
+      "B": "Architectural State Snapshot units directly encompass the Checkpoint Control and are part of FlexStep's core structure.",
+      "C": "The FlexStep microarchitecture includes the Register Checkpoint Management Units, which in turn contains the Checkpoint Control.",
+      "D": "FlexStep's main structure incorporates an instruction counter separate from the Register Checkpoint Management Units."
+    },
+    "correct_answer": "C",
+    "explanation": "The question requires understanding the hierarchical structure from the knowledge graph path. Checkpoint Control (CPC) is part of Register Checkpoint Management Units (RCPM), which itself is part of FlexStep as implied in the path. The correct answer is A because it accurately reflects the relationship that Checkpoint Control, which includes a privilege-level mode monitor, is contained within the Register Checkpoint Management Units, and these units are components of the FlexStep architecture implemented in the Rocket Core.",
+    "path_description": "Path: CheckpointControl --[partOf]--> RegisterCheckpointManagementUnits --[partOf]--> FlexStep --[implementedIn]--> RocketCore",
+    "context": "Checkpoint Control (CPC) includes an instruction counter and a privilege-level mode monitor. | A. Register Checkpoint Management Units (RCPM) consists of the Checkpoint Control (CPC) and Architectural State Snapshot (ASS) units. | For demonstration, we used the Rocket core as a case study to implement our framework and evaluate its effectiveness.",
+    "paper_id": "224"
+  },
+  {
+    "section": "newisaandoskerneladdons",
+    "path": {
+      "section": "newisaandoskerneladdons",
+      "start_entity": "CheckerThread",
+      "end_entity": "ASS",
+      "hops": [
+        {
+          "from": "CheckerThread",
+          "relation": "implementedIn",
+          "to": "CheckerCore",
+          "context": "Algorithm 2: Customised checker thread.",
+          "chunk": "4"
+        },
+        {
+          "from": "CheckerCore",
+          "relation": "enters",
+          "to": "CheckerThread",
+          "context": "For the checker core, if the next task is a verification task, it will switch its checking state to busy (Al. 1: line 27) and enter a checker thread.",
+          "chunk": "4"
+        },
+        {
+          "from": "CheckerThread",
+          "relation": "storesDataIn",
+          "to": "ASS",
+          "context": "Similar to the regular context switch, the record is used to store current architectural registers data in ASS for restoration after the check is completed (Al. 2: line 4).",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the context of the customised checker thread described in the section 'newisaandoskerneladdons', what is the primary role of the ASS in relation to the CheckerThread?",
+    "options": {
+      "A": "To facilitate communication between the CheckerCore and CheckerThread during the checking state transition.",
+      "B": "To enhance the performance of the CheckerCore by managing its task scheduling and resource allocation.",
+      "C": "To store current architectural registers data for restoration after the verification task is completed.",
+      "D": "To provide a backup storage solution for data lost during the context switch into the CheckerThread."
+    },
+    "correct_answer": "C",
+    "explanation": "The ASS (Architectural State Store) primarily functions to store the current architectural registers data. This storage is crucial for the restoration of the system state after the verification task handled by the CheckerThread is completed. This is explicitly described in the context where it mentions the record used to store data in ASS for restoration post-check.",
+    "path_description": "Path: CheckerThread --[implementedIn]--> CheckerCore --[enters]--> CheckerThread --[storesDataIn]--> ASS",
+    "context": "Algorithm 2: Customised checker thread. | For the checker core, if the next task is a verification task, it will switch its checking state to busy (Al. 1: line 27) and enter a checker thread. | Similar to the regular context switch, the record is used to store current architectural registers data in ASS for restoration after the check is completed (Al. 2: line 4).",
+    "paper_id": "224"
+  },
+  {
+    "section": "newisaandoskerneladdons",
+    "path": {
+      "section": "newisaandoskerneladdons",
+      "start_entity": "CheckerThread",
+      "end_entity": "VerificationResult",
+      "hops": [
+        {
+          "from": "CheckerThread",
+          "relation": "implementedIn",
+          "to": "CheckerCore",
+          "context": "Algorithm 2: Customised checker thread.",
+          "chunk": "4"
+        },
+        {
+          "from": "CheckerCore",
+          "relation": "enters",
+          "to": "CheckerThread",
+          "context": "For the checker core, if the next task is a verification task, it will switch its checking state to busy (Al. 1: line 27) and enter a checker thread.",
+          "chunk": "4"
+        },
+        {
+          "from": "CheckerThread",
+          "relation": "returns",
+          "to": "VerificationResult",
+          "context": "Lastly, the verification result is returned by the result (Al. 2: lines 5 - 7).",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the context of the 'newisaandoskerneladdons' section discussing Algorithm 2, what sequence correctly represents the process flow from initiating a verification task to obtaining a result?",
+    "options": {
+      "A": "CheckerThread implements CheckerCore, which enters another CheckerThread and CheckerCore returns directly without a VerificationResult.",
+      "B": "CheckerCore enters CheckerThread after changing its state to busy, then CheckerThread implements CheckerCore, finally returning a VerificationResult.",
+      "C": "CheckerCore, upon receiving a task, marks itself as busy and enters CheckerThread, which subsequently returns a VerificationResult.",
+      "D": "CheckerThread is implemented in CheckerCore, which then enters CheckerThread and returns a VerificationResult."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct sequence as per the knowledge graph and the context from the paper involves the CheckerThread being implemented in the CheckerCore. Post-implementation, the CheckerCore enters the CheckerThread, and following this entry, the CheckerThread returns a VerificationResult. This sequence is accurately reflected in option A.",
+    "path_description": "Path: CheckerThread --[implementedIn]--> CheckerCore --[enters]--> CheckerThread --[returns]--> VerificationResult",
+    "context": "Algorithm 2: Customised checker thread. | For the checker core, if the next task is a verification task, it will switch its checking state to busy (Al. 1: line 27) and enter a checker thread. | Lastly, the verification result is returned by the result (Al. 2: lines 5 - 7).",
+    "paper_id": "224"
+  }
+]

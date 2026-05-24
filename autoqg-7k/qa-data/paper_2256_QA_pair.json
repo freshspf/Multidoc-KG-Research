@@ -1,0 +1,45 @@
+[
+  {
+    "section": "experiments",
+    "path": {
+      "section": "experiments",
+      "start_entity": "ResNet50",
+      "end_entity": "ArtifactCategory",
+      "hops": [
+        {
+          "from": "ResNet50",
+          "relation": "outperforms",
+          "to": "EfficientNetB3",
+          "context": "ResNet-50 achieved the highest mean per label accuracy at 94.14%, demonstrating its strong ability.",
+          "chunk": "3"
+        },
+        {
+          "from": "EfficientNetB3",
+          "relation": "on",
+          "to": "Label4",
+          "context": "It outperforms the others at 95.31 percent for label 4.",
+          "chunk": "3"
+        },
+        {
+          "from": "Label4",
+          "relation": "type",
+          "to": "ArtifactCategory",
+          "context": "L1, 2, 3, and 4 indicates Label 1, 2, 3, and 4 in the table.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the context of the study 'experiments', why does ResNet50 outperform EfficientNetB3 specifically for Label4 in terms of accuracy?",
+    "options": {
+      "A": "Label4 is less complex and thus easier for networks like ResNet50 to achieve higher accuracies compared to EfficientNetB3.",
+      "B": "EfficientNetB3 is not compatible with the type of data represented by Label4, leading to lower performance metrics.",
+      "C": "EfficientNetB3 generally performs better on all labels except for Label4 due to its advanced scaling technique.",
+      "D": "ResNet50 is specifically optimized for higher performance in categories that are classified as artifacts."
+    },
+    "correct_answer": "D",
+    "explanation": "Given that label 4 pertains to an 'ArtifactCategory', and ResNet50 shows superior performance on this label, it suggests that ResNet50 may be more adept at handling types represented by Label4, which correlates with artifacts. This specialization in handling artifacts leads to its higher performance on Label4 compared to EfficientNetB3.",
+    "path_description": "Path: ResNet50 --[outperforms]--> EfficientNetB3 --[on]--> Label4 --[type]--> ArtifactCategory",
+    "context": "ResNet-50 achieved the highest mean per label accuracy at 94.14%, demonstrating its strong ability. | It outperforms the others at 95.31 percent for label 4. | L1, 2, 3, and 4 indicates Label 1, 2, 3, and 4 in the table.",
+    "paper_id": "83"
+  }
+]

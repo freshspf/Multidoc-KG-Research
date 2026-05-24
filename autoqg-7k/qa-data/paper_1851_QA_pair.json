@@ -1,0 +1,217 @@
+[
+  {
+    "section": "experiments7",
+    "path": {
+      "section": "experiments7",
+      "start_entity": "RT-ART",
+      "end_entity": "Model",
+      "hops": [
+        {
+          "from": "RT-ART",
+          "relation": "evaluatedOn",
+          "to": "ReleaseTagW",
+          "context": "RT-CBT RT-ART RT-RT RT-FT Release 4XX 5XX 4XX 5XX 4XX 5XX 4XX 5XX",
+          "chunk": "10"
+        },
+        {
+          "from": "ReleaseTagW",
+          "relation": "relatedTo",
+          "to": "RT-CBT",
+          "context": "Releases tagged with D, W, and M, denote daily, weekly, and monthly releases, respectively.",
+          "chunk": "10"
+        },
+        {
+          "from": "RT-CBT",
+          "relation": "type",
+          "to": "Model",
+          "context": "RT-CBT RT-ART RT-RT RT-FT",
+          "chunk": "10"
+        }
+      ]
+    },
+    "question": "In the context of evaluating RT-ART on different release tags, which model type is associated with RT-CBT when linked via ReleaseTagW?",
+    "options": {
+      "A": "RT-CBT is associated with a monthly release model, aimed at extensive validation processes.",
+      "B": "RT-CBT is associated with a daily release model, prioritizing rapid testing cycles.",
+      "C": "RT-CBT is associated with a weekly release model, focusing on cumulative behavioral traits.",
+      "D": "RT-CBT is not directly associated with any model type but traces its lineage to external factors."
+    },
+    "correct_answer": "C",
+    "explanation": "Following the knowledge path, RT-ART is evaluated on ReleaseTagW, which is related to RT-CBT. RT-CBT is categorized under the Model type. As 'W' in ReleaseTagW denotes weekly releases, RT-CBT, in this context, is associated with a model type that supports or is adapted for weekly release cycles.",
+    "path_description": "Path: RT-ART --[evaluatedOn]--> ReleaseTagW --[relatedTo]--> RT-CBT --[type]--> Model",
+    "context": "RT-CBT RT-ART RT-RT RT-FT Release 4XX 5XX 4XX 5XX 4XX 5XX 4XX 5XX | Releases tagged with D, W, and M, denote daily, weekly, and monthly releases, respectively. | RT-CBT RT-ART RT-RT RT-FT",
+    "paper_id": "107"
+  },
+  {
+    "section": "experiments7",
+    "path": {
+      "section": "experiments7",
+      "start_entity": "RT-ART",
+      "end_entity": "ReleaseTagD",
+      "hops": [
+        {
+          "from": "RT-ART",
+          "relation": "evaluatedOn",
+          "to": "ReleaseTagW",
+          "context": "RT-CBT RT-ART RT-RT RT-FT Release 4XX 5XX 4XX 5XX 4XX 5XX 4XX 5XX",
+          "chunk": "10"
+        },
+        {
+          "from": "ReleaseTagW",
+          "relation": "relatedTo",
+          "to": "RT-CBT",
+          "context": "Releases tagged with D, W, and M, denote daily, weekly, and monthly releases, respectively.",
+          "chunk": "10"
+        },
+        {
+          "from": "RT-CBT",
+          "relation": "evaluatedOn",
+          "to": "ReleaseTagD",
+          "context": "RT-CBT RT-ART RT-RT RT-FT Release 4XX 5XX 4XX 5XX 4XX 5XX 4XX 5XX",
+          "chunk": "10"
+        }
+      ]
+    },
+    "question": "In the context of software release cycles evaluated in the paper's experiments7 section, which release frequency corresponds to the tag evaluated both on RT-ART and RT-CBT?",
+    "options": {
+      "A": "ReleaseTagW, indicating weekly releases, is the tag evaluated on both RT-ART and RT-CBT.",
+      "B": "ReleaseTagY, indicating yearly releases, is the tag evaluated on both RT-ART and RT-CBT.",
+      "C": "ReleaseTagD, indicating daily releases, is the tag evaluated on both RT-ART and RT-CBT.",
+      "D": "ReleaseTagM, indicating monthly releases, is the tag evaluated on both RT-ART and RT-CBT."
+    },
+    "correct_answer": "C",
+    "explanation": "The knowledge graph path indicates that ReleaseTagW is related to RT-CBT and RT-CBT is evaluated on ReleaseTagD. From the context, we know that ReleaseTagD represents daily releases. Therefore, it is the tag that is evaluated on both RT-ART and RT-CBT, making option A the correct answer.",
+    "path_description": "Path: RT-ART --[evaluatedOn]--> ReleaseTagW --[relatedTo]--> RT-CBT --[evaluatedOn]--> ReleaseTagD",
+    "context": "RT-CBT RT-ART RT-RT RT-FT Release 4XX 5XX 4XX 5XX 4XX 5XX 4XX 5XX | Releases tagged with D, W, and M, denote daily, weekly, and monthly releases, respectively. | RT-CBT RT-ART RT-RT RT-FT Release 4XX 5XX 4XX 5XX 4XX 5XX 4XX 5XX",
+    "paper_id": "107"
+  },
+  {
+    "section": "experiments7",
+    "path": {
+      "section": "experiments7",
+      "start_entity": "RT-FT",
+      "end_entity": "Model",
+      "hops": [
+        {
+          "from": "RT-FT",
+          "relation": "evaluatedOn",
+          "to": "ReleaseTagD",
+          "context": "RT-CBT RT-ART RT-RT RT-FT Release 4XX 5XX 4XX 5XX 4XX 5XX 4XX 5XX",
+          "chunk": "10"
+        },
+        {
+          "from": "ReleaseTagD",
+          "relation": "relatedTo",
+          "to": "RT-CBT",
+          "context": "Releases tagged with D, W, and M, denote daily, weekly, and monthly releases, respectively.",
+          "chunk": "10"
+        },
+        {
+          "from": "RT-CBT",
+          "relation": "type",
+          "to": "Model",
+          "context": "RT-CBT RT-ART RT-RT RT-FT",
+          "chunk": "10"
+        }
+      ]
+    },
+    "question": "In the context of the model evaluation process described, if a model type RT-CBT is evaluated on a ReleaseTagD related to RT-FT, what does the tag 'D' in ReleaseTagD most likely signify?",
+    "options": {
+      "A": "The 'D' in ReleaseTagD represents a model that is evaluated daily.",
+      "B": "The 'D' in ReleaseTagD indicates the model was released and evaluated weekly.",
+      "C": "The 'D' in ReleaseTagD means the model uses data collected monthly for evaluation.",
+      "D": "The 'D' in ReleaseTagD specifies that the model is deployed annually for performance checks."
+    },
+    "correct_answer": "A",
+    "explanation": "According to the paper, release tags such as D, W, and M represent daily, weekly, and monthly releases, respectively. Therefore, the 'D' in ReleaseTagD most likely signifies a daily evaluation cycle for the model, aligning with the internal knowledge that RT-CBT (a type of model) is evaluated on these cycles.",
+    "path_description": "Path: RT-FT --[evaluatedOn]--> ReleaseTagD --[relatedTo]--> RT-CBT --[type]--> Model",
+    "context": "RT-CBT RT-ART RT-RT RT-FT Release 4XX 5XX 4XX 5XX 4XX 5XX 4XX 5XX | Releases tagged with D, W, and M, denote daily, weekly, and monthly releases, respectively. | RT-CBT RT-ART RT-RT RT-FT",
+    "paper_id": "107"
+  },
+  {
+    "section": "experiments12",
+    "path": {
+      "section": "experiments12",
+      "start_entity": "RESTest-ART",
+      "end_entity": "Model",
+      "hops": [
+        {
+          "from": "RESTest-ART",
+          "relation": "outperforms",
+          "to": "RESTest-FT",
+          "context": "While RESTest-ART managed to outperform RESTest-FT, on the other hand, was unable to surpass any of the tools.",
+          "chunk": "15"
+        },
+        {
+          "from": "RESTest-FT",
+          "relation": "outperformedBy",
+          "to": "RESTest-RT",
+          "context": "RESTest-FT, it falls short when compared to RESTest-RT.",
+          "chunk": "15"
+        },
+        {
+          "from": "RESTest-RT",
+          "relation": "type",
+          "to": "Model",
+          "context": "RESTest-RT, and RESTest-FT.",
+          "chunk": "15"
+        }
+      ]
+    },
+    "question": "Based on the comparative performance analysis in 'experiments12' section, which of the following statements correctly describes the hierarchy of effectiveness among RESTest models?",
+    "options": {
+      "A": "All RESTest models demonstrated equal performance in the experiments.",
+      "B": "RESTest-ART is less effective than RESTest-FT, which itself is less effective than RESTest-RT.",
+      "C": "RESTest-FT outperforms RESTest-RT, which in turn is more effective than RESTest-ART.",
+      "D": "RESTest-RT is more effective than both RESTest-FT and RESTest-ART, which outperformed RESTest-FT."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct reasoning path is that RESTest-ART outperformed RESTest-FT, but both were outperformed by RESTest-RT; thus RESTest-RT is the most effective, followed by RESTest-ART and then RESTest-FT.",
+    "path_description": "Path: RESTest-ART --[outperforms]--> RESTest-FT --[outperformedBy]--> RESTest-RT --[type]--> Model",
+    "context": "While RESTest-ART managed to outperform RESTest-FT, on the other hand, was unable to surpass any of the tools. | RESTest-FT, it falls short when compared to RESTest-RT. | RESTest-RT, and RESTest-FT.",
+    "paper_id": "107"
+  },
+  {
+    "section": "experiments8",
+    "path": {
+      "section": "experiments8",
+      "start_entity": "RT-RT",
+      "end_entity": "Study",
+      "hops": [
+        {
+          "from": "RT-RT",
+          "relation": "usedIn",
+          "to": "RQ1",
+          "context": "RT-CBT  RT-ART  RT-RT  RT-F",
+          "chunk": "11"
+        },
+        {
+          "from": "RQ1",
+          "relation": "evaluatedOn",
+          "to": "RESTAPITesting",
+          "context": "Figure 4: RQ1 results: Boxplot representing the median number of unique failures detected by each tool across all releases.",
+          "chunk": "11"
+        },
+        {
+          "from": "RESTAPITesting",
+          "relation": "type",
+          "to": "Study",
+          "context": "REST API Testing in DevOps: A Study on an Evolving He",
+          "chunk": "11"
+        }
+      ]
+    },
+    "question": "In the context of the experiments conducted in the study on REST API Testing in DevOps, what does RQ1 primarily evaluate?",
+    "options": {
+      "A": "The general performance of REST APIs across various development environments and programming languages.",
+      "B": "The role of manual versus automated testing methods in the detection of common bugs in REST APIs.",
+      "C": "The effectiveness of different regression testing techniques in identifying unique failures in REST API Testing.",
+      "D": "The impact of REST API Testing on the overall speed of software development in a DevOps setting."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A because the knowledge path indicates that RQ1 (Research Question 1) uses RT-RT and is evaluated on REST API Testing, specifically focusing on the study of different testing techniques' effectiveness in detecting unique failures, as evidenced by the boxplot showing median numbers of unique failures detected by each tool.",
+    "path_description": "Path: RT-RT --[usedIn]--> RQ1 --[evaluatedOn]--> RESTAPITesting --[type]--> Study",
+    "context": "RT-CBT  RT-ART  RT-RT  RT-F | Figure 4: RQ1 results: Boxplot representing the median number of unique failures detected by each tool across all releases. | REST API Testing in DevOps: A Study on an Evolving He",
+    "paper_id": "107"
+  }
+]

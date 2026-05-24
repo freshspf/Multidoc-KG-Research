@@ -1,0 +1,88 @@
+[
+  {
+    "section": "proposedapproach1",
+    "path": {
+      "section": "proposedapproach1",
+      "start_entity": "ClosedLoopSlewController",
+      "end_entity": "Model",
+      "hops": [
+        {
+          "from": "ClosedLoopSlewController",
+          "relation": "usedIn",
+          "to": "DataCollection",
+          "context": "Closed-loop slew controller, with static arm.",
+          "chunk": "2"
+        },
+        {
+          "from": "DataCollection",
+          "relation": "partOf",
+          "to": "SlewActuatorModel",
+          "context": "1) Data Collection: We aimed to excite the slew motor’s main modes and explore the relevant state space.",
+          "chunk": "2"
+        },
+        {
+          "from": "SlewActuatorModel",
+          "relation": "type",
+          "to": "Model",
+          "context": "A. Slew Actuator Model",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the context of designing a slew actuator model, how does the closed-loop slew controller primarily contribute to the model's development?",
+    "options": {
+      "A": "It adjusts the slew motor's output in real-time based on feedback from external sensors.",
+      "B": "It directly modifies the static arm configuration to enhance model accuracy and performance.",
+      "C": "It functions primarily to reduce computational load by simplifying the data collection process.",
+      "D": "It is used in data collection to excite the slew motor's main modes and explore the relevant state space."
+    },
+    "correct_answer": "D",
+    "explanation": "The closed-loop slew controller is used in data collection, specifically to excite the slew motor’s main modes and explore the relevant state space. This step is critical in developing the slew actuator model, as it helps understand the dynamics that the model needs to capture.",
+    "path_description": "Path: ClosedLoopSlewController --[usedIn]--> DataCollection --[partOf]--> SlewActuatorModel --[type]--> Model",
+    "context": "Closed-loop slew controller, with static arm. | 1) Data Collection: We aimed to excite the slew motor’s main modes and explore the relevant state space. | A. Slew Actuator Model",
+    "paper_id": "600"
+  },
+  {
+    "section": "systemdescription",
+    "path": {
+      "section": "systemdescription",
+      "start_entity": "SlewJoint",
+      "end_entity": "BrakingSystem",
+      "hops": [
+        {
+          "from": "SlewJoint",
+          "relation": "uses",
+          "to": "HydraulicMotor",
+          "context": "while the slew joint uses a hydraulic motor to rotate freely.",
+          "chunk": "1"
+        },
+        {
+          "from": "HydraulicMotor",
+          "relation": "equippedWith",
+          "to": "BinaryBrakingSystem",
+          "context": "This motor presents a binary braking system to slow down rotations more aggressively.",
+          "chunk": "1"
+        },
+        {
+          "from": "BinaryBrakingSystem",
+          "relation": "type",
+          "to": "BrakingSystem",
+          "context": "This motor presents a binary braking system to slow down rotations more aggressively.",
+          "chunk": "1"
+        }
+      ]
+    },
+    "question": "How does the slew joint in the described system manage to control the speed of its rotations?",
+    "options": {
+      "A": "By utilizing an electromagnetic braking system connected directly to the hydraulic motor for gradual deceleration.",
+      "B": "By employing a friction-based braking system within the motor to reduce the speed as needed.",
+      "C": "By incorporating a manual braking system in the hydraulic motor that allows for variable braking force.",
+      "D": "By using a hydraulic motor equipped with a binary braking system designed to slow down rotations aggressively."
+    },
+    "correct_answer": "D",
+    "explanation": "The question requires understanding the relationship and functionality between the slew joint, hydraulic motor, and braking system. The correct option A is supported by the knowledge path indicating the slew joint uses a hydraulic motor which is equipped with a binary braking system, described as aggressively slowing down rotations. Options B, C, and D are incorrect as they mention different types of braking systems not supported by the information given in the context.",
+    "path_description": "Path: SlewJoint --[uses]--> HydraulicMotor --[equippedWith]--> BinaryBrakingSystem --[type]--> BrakingSystem",
+    "context": "while the slew joint uses a hydraulic motor to rotate freely. | This motor presents a binary braking system to slow down rotations more aggressively. | This motor presents a binary braking system to slow down rotations more aggressively.",
+    "paper_id": "600"
+  }
+]

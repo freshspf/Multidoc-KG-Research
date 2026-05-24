@@ -1,0 +1,260 @@
+[
+  {
+    "section": "systemdesign2",
+    "path": {
+      "section": "systemdesign2",
+      "start_entity": "W",
+      "end_entity": "GainSummand",
+      "hops": [
+        {
+          "from": "W",
+          "relation": "calculatedFrom",
+          "to": "Ri",
+          "context": "The weighted score is calculated as follows: W := Ri · (cid:80) r · j=1 Cj · Rj.",
+          "chunk": "4"
+        },
+        {
+          "from": "Ri",
+          "relation": "updatedBy",
+          "to": "Gi",
+          "context": "Based on the current reputation, a gain summand Gi is added.",
+          "chunk": "4"
+        },
+        {
+          "from": "Gi",
+          "relation": "type",
+          "to": "GainSummand",
+          "context": "Based on the current reputation, a gain summand Gi is added.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the context of the weighted score calculation system described in systemdesign2, how does the updated gain summand Gi affect the final calculation of W?",
+    "options": {
+      "A": "Gi has no direct impact on W but serves as a scalar for the final output after all Ri and Cj calculations are complete.",
+      "B": "Gi is a component that directly influences the calculation of W by adjusting the sum of Ri based on its current value.",
+      "C": "Gi indirectly alters W by modifying the coefficients Cj, which in turn affect the multiplication with Ri.",
+      "D": "Gi is added to the sum of products of Rj and Cj, thus directly affecting the calculation of W by updating Ri."
+    },
+    "correct_answer": "D",
+    "explanation": "From the provided information, Gi is updated based on Ri and contributes directly to the computation of W by being added to the accumulated sum of the product of Rj and Cj, as indicated in the calculation formula W := Ri · (cid:80) r · j=1 Cj · Rj. Thus, it directly influences W by updating the value of Ri.",
+    "path_description": "Path: W --[calculatedFrom]--> Ri --[updatedBy]--> Gi --[type]--> GainSummand",
+    "context": "The weighted score is calculated as follows: W := Ri · (cid:80) r · j=1 Cj · Rj. | Based on the current reputation, a gain summand Gi is added. | Based on the current reputation, a gain summand Gi is added.",
+    "paper_id": "1167"
+  },
+  {
+    "section": "systemdesign2",
+    "path": {
+      "section": "systemdesign2",
+      "start_entity": "PaperSelection",
+      "end_entity": "Gi",
+      "hops": [
+        {
+          "from": "PaperSelection",
+          "relation": "uses",
+          "to": "W",
+          "context": "Paper selection. Papers that receive a score above a predefined threshold for acceptance are accepted directly.",
+          "chunk": "4"
+        },
+        {
+          "from": "W",
+          "relation": "calculatedFrom",
+          "to": "Ri",
+          "context": "The weighted score is calculated as follows: W := Ri · (cid:80) r · j=1 Cj · Rj.",
+          "chunk": "4"
+        },
+        {
+          "from": "Ri",
+          "relation": "updatedBy",
+          "to": "Gi",
+          "context": "Based on the current reputation, a gain summand Gi is added.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the paper selection process described, how is the final adjusted score for a paper determined?",
+    "options": {
+      "A": "The final score is determined by dividing the initial score (Ri) by the sum of component scores (Cj · Rj) and subtracting the gain summand (Gi).",
+      "B": "The final score is determined by taking the average of the initial score (Ri) and component scores (Cj · Rj) before adding the gain summand (Gi).",
+      "C": "The final score is determined by multiplying the initial score (Ri) by the sum of all component scores (Cj · Rj) and adding the gain summand (Gi).",
+      "D": "The final score is determined by summing up the initial score (Ri) with each component score (Cj) and then adding the gain summand (Gi)."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct process involves computing the weighted score by multiplying the initial score (Ri) with the sum of component scores (Cj · Rj) and then adding a gain summand (Gi) to update this calculation. This aligns with the described formula W := Ri · (cid:80) r · j=1 Cj · Rj and the addition of Gi.",
+    "path_description": "Path: PaperSelection --[uses]--> W --[calculatedFrom]--> Ri --[updatedBy]--> Gi",
+    "context": "Paper selection. Papers that receive a score above a predefined threshold for acceptance are accepted directly. | The weighted score is calculated as follows: W := Ri · (cid:80) r · j=1 Cj · Rj. | Based on the current reputation, a gain summand Gi is added.",
+    "paper_id": "1167"
+  },
+  {
+    "section": "systemdesign3",
+    "path": {
+      "section": "systemdesign3",
+      "start_entity": "CosineSimilarityDetection",
+      "end_entity": "Process",
+      "hops": [
+        {
+          "from": "CosineSimilarityDetection",
+          "relation": "resultIn",
+          "to": "SimilarityScore",
+          "context": "The output of cosine similarity detection is bounded by σ(TS, TP ) ∈ [0, 1].",
+          "chunk": "5"
+        },
+        {
+          "from": "SimilarityScore",
+          "relation": "measures",
+          "to": "ReviewerKnowledgeAdjustment",
+          "context": "With this measurement, we adjust the punishment based on the knowledge of the reviewer of the field.",
+          "chunk": "5"
+        },
+        {
+          "from": "ReviewerKnowledgeAdjustment",
+          "relation": "type",
+          "to": "Process",
+          "context": "With this measurement, we adjust the punishment based on the knowledge of the reviewer of the field.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the context of system design, how does the cosine similarity score inform the adjustment process for reviewer punishment?",
+    "options": {
+      "A": "The cosine similarity score measures the alignment between theoretical and practical aspects of a review, adjusting its visibility in the system.",
+      "B": "The cosine similarity score assesses reviewer bias by comparing peer review scores, adjusting future review assignment loads.",
+      "C": "The cosine similarity score, ranging from 0 to 1, directly influences the degree of punishment based on the reviewer's knowledge of the field.",
+      "D": "The cosine similarity score is used to determine the relevance of the submitted review, which indirectly adjusts the reviewer's credibility score."
+    },
+    "correct_answer": "C",
+    "explanation": "The cosine similarity score, by falling within a range of 0 to 1, quantifies the degree of similarity. This score is then used to adjust the punishment of the reviewer based on their knowledge of the field, as indicated by the knowledge graph path: CosineSimilarityDetection --[resultIn]--> SimilarityScore --[measures]--> ReviewerKnowledgeAdjustment --[type]--> Process. The correct answer is thus the one that directly connects the similarity score to the adjustment of punishment relative to the reviewer's field knowledge.",
+    "path_description": "Path: CosineSimilarityDetection --[resultIn]--> SimilarityScore --[measures]--> ReviewerKnowledgeAdjustment --[type]--> Process",
+    "context": "The output of cosine similarity detection is bounded by σ(TS, TP ) ∈ [0, 1]. | With this measurement, we adjust the punishment based on the knowledge of the reviewer of the field. | With this measurement, we adjust the punishment based on the knowledge of the reviewer of the field.",
+    "paper_id": "1167"
+  },
+  {
+    "section": "systemdesign2",
+    "path": {
+      "section": "systemdesign2",
+      "start_entity": "PaperSelection",
+      "end_entity": "CompetenceScore",
+      "hops": [
+        {
+          "from": "PaperSelection",
+          "relation": "uses",
+          "to": "W",
+          "context": "Paper selection. Papers that receive a score above a predefined threshold for acceptance are accepted directly.",
+          "chunk": "4"
+        },
+        {
+          "from": "W",
+          "relation": "calculatedFrom",
+          "to": "Cj",
+          "context": "The weighted score is calculated as follows: W := Ri · (cid:80) r · j=1 Cj · Rj.",
+          "chunk": "4"
+        },
+        {
+          "from": "Cj",
+          "relation": "type",
+          "to": "CompetenceScore",
+          "context": "The weighted score is calculated as follows: W := Ri · (cid:80) r · j=1 Cj · Rj.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the paper selection process described, how does the type of 'Cj' directly influence the final decision on paper acceptance?",
+    "options": {
+      "A": "Cj refers to the cost of publishing each paper, which when reduced, indirectly raises the weighted score W.",
+      "B": "Cj is the category of the journal, and prestigious journal categories lead to a higher weighted score W and possible acceptance.",
+      "C": "Cj stands for the count of citations each paper has, and a higher citation count directly increases the weighted score W.",
+      "D": "Cj represents different competence scores, which are multiplied with reviewer scores to calculate W, influencing the acceptance threshold."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A because 'Cj' refers to Competence Score as per the knowledge graph. It is multiplied by reviewer scores (Rj) in the formula for calculating the weighted score (W), which determines if a paper meets the acceptance threshold.",
+    "path_description": "Path: PaperSelection --[uses]--> W --[calculatedFrom]--> Cj --[type]--> CompetenceScore",
+    "context": "Paper selection. Papers that receive a score above a predefined threshold for acceptance are accepted directly. | The weighted score is calculated as follows: W := Ri · (cid:80) r · j=1 Cj · Rj. | The weighted score is calculated as follows: W := Ri · (cid:80) r · j=1 Cj · Rj.",
+    "paper_id": "1167"
+  },
+  {
+    "section": "analysis1",
+    "path": {
+      "section": "analysis1",
+      "start_entity": "UserI",
+      "end_entity": "Author",
+      "hops": [
+        {
+          "from": "UserI",
+          "relation": "comparedWith",
+          "to": "UserJ",
+          "context": "To show that, let us consider users i, and j, and let us recall punishment factors for playing honestly and faulty.",
+          "chunk": "6"
+        },
+        {
+          "from": "UserJ",
+          "relation": "type",
+          "to": "User",
+          "context": "To show that, let us consider users i, and j, and let us recall punishment factors for playing honestly and faulty.",
+          "chunk": "6"
+        },
+        {
+          "from": "User",
+          "relation": "assumedToBe",
+          "to": "Author",
+          "context": "Based on this assumption, we considered a user to be both an author and a reviewer, eventually.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the context of the paper's analysis1 section, what role is user j assumed to fulfill when considering the comparison between user i and user j regarding punishment factors?",
+    "options": {
+      "A": "User j is assumed to be an author who might also have responsibilities as a reviewer.",
+      "B": "User j is assumed to be solely a reviewer without any authoring responsibilities.",
+      "C": "User j is considered a third-party observer not involved in the authoring or reviewing processes.",
+      "D": "User j is assumed to be a participant in the study with no influence over the content."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A, because the knowledge graph path indicates that UserJ (user j) is compared with UserI (user i) and then categorized under the type 'User' who is assumed to be an 'Author.' The context section further elaborates that the user is considered to be both an author and a reviewer, supporting the choice of user j being an author with reviewer responsibilities.",
+    "path_description": "Path: UserI --[comparedWith]--> UserJ --[type]--> User --[assumedToBe]--> Author",
+    "context": "To show that, let us consider users i, and j, and let us recall punishment factors for playing honestly and faulty. | To show that, let us consider users i, and j, and let us recall punishment factors for playing honestly and faulty. | Based on this assumption, we considered a user to be both an author and a reviewer, eventually.",
+    "paper_id": "1167"
+  },
+  {
+    "section": "conclusion",
+    "path": {
+      "section": "conclusion",
+      "start_entity": "ThisPaper",
+      "end_entity": "Method",
+      "hops": [
+        {
+          "from": "ThisPaper",
+          "relation": "proposes",
+          "to": "SelfIncentivizedCrossVenueInclusivePeerReviewSystem",
+          "context": "This paper introduced a self-incentivized, cross-venue, and inclusive peer review system.",
+          "chunk": "10"
+        },
+        {
+          "from": "SelfIncentivizedCrossVenueInclusivePeerReviewSystem",
+          "relation": "evaluatedBy",
+          "to": "TheoreticalReasoning",
+          "context": "We discussed how our system behaves in the presence of faulty behaviors through theoretical reasoning.",
+          "chunk": "10"
+        },
+        {
+          "from": "TheoreticalReasoning",
+          "relation": "type",
+          "to": "Method",
+          "context": "We discussed how our system behaves in the presence of faulty behaviors through theoretical reasoning.",
+          "chunk": "10"
+        }
+      ]
+    },
+    "question": "What method is primarily used in this paper to evaluate the proposed self-incentivized, cross-venue, and inclusive peer review system's performance in the presence of faulty behaviors?",
+    "options": {
+      "A": "User surveys from various stakeholders within the academic community.",
+      "B": "Theoretical reasoning to understand the system's resilience and adaptability.",
+      "C": "Experimental simulations using artificially generated data sets.",
+      "D": "Empirical analysis based on real-world data from multiple academic conferences."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is 'Theoretical reasoning to understand the system's resilience and adaptability.' This is directly mentioned in the provided context from the paper's conclusion, where the evaluation of the system in the presence of faulty behaviors through theoretical reasoning is discussed.",
+    "path_description": "Path: ThisPaper --[proposes]--> SelfIncentivizedCrossVenueInclusivePeerReviewSystem --[evaluatedBy]--> TheoreticalReasoning --[type]--> Method",
+    "context": "This paper introduced a self-incentivized, cross-venue, and inclusive peer review system. | We discussed how our system behaves in the presence of faulty behaviors through theoretical reasoning. | We discussed how our system behaves in the presence of faulty behaviors through theoretical reasoning.",
+    "paper_id": "1167"
+  }
+]

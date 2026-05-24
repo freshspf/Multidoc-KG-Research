@@ -1,0 +1,88 @@
+[
+  {
+    "section": "experiments1",
+    "path": {
+      "section": "experiments1",
+      "start_entity": "SimulationEnvironment",
+      "end_entity": "RobotConfiguration",
+      "hops": [
+        {
+          "from": "SimulationEnvironment",
+          "relation": "evaluatedOn",
+          "to": "UnicycleRobot",
+          "context": "We evaluate our method on a simulated unicycle robot with varying parameters.",
+          "chunk": "4"
+        },
+        {
+          "from": "UnicycleRobot",
+          "relation": "hasConfiguration",
+          "to": "LowInertiaRobot",
+          "context": "The low-inertia robot has minimal mass m = 1 and maximal control gains kthrottle = 1000, ksteer = π/4.",
+          "chunk": "4"
+        },
+        {
+          "from": "LowInertiaRobot",
+          "relation": "type",
+          "to": "RobotConfiguration",
+          "context": "The low-inertia robot has minimal mass m = 1 and maximal control gains kthrottle = 1000, ksteer = π/4.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the context of evaluating a simulated environment, what is a characteristic configuration of a unicycle robot classified as a low-inertia robot?",
+    "options": {
+      "A": "A robot with negligible mass and extreme control gains, like mass m = 0.5 and control gains kthrottle = 2000, ksteer = π",
+      "B": "A robot with minimal mass and maximal control gains, specifically mass m = 1 and control gains kthrottle = 1000, ksteer = π/4.",
+      "C": "A robot with moderate mass and balanced control gains, such as mass m = 50 and control gains kthrottle = 500, ksteer = π/8.",
+      "D": "A robot with substantial mass and minimal control gains, particularly mass m = 100 and control gains kthrottle = 10, ksteer = π/2."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is based on the specific configuration of the low-inertia robot described in the paper. It mentions a minimal mass of m = 1 and maximal control gains of kthrottle = 1000, ksteer = π/4, which precisely matches option A. The other options introduce different values for mass and control gains that do not align with the described configuration, making them incorrect.",
+    "path_description": "Path: SimulationEnvironment --[evaluatedOn]--> UnicycleRobot --[hasConfiguration]--> LowInertiaRobot --[type]--> RobotConfiguration",
+    "context": "We evaluate our method on a simulated unicycle robot with varying parameters. | The low-inertia robot has minimal mass m = 1 and maximal control gains kthrottle = 1000, ksteer = π/4. | The low-inertia robot has minimal mass m = 1 and maximal control gains kthrottle = 1000, ksteer = π/4.",
+    "paper_id": "509"
+  },
+  {
+    "section": "experiments4",
+    "path": {
+      "section": "experiments4",
+      "start_entity": "NavigationTasks",
+      "end_entity": "Method",
+      "hops": [
+        {
+          "from": "NavigationTasks",
+          "relation": "evaluatedOn",
+          "to": "ProposedModel",
+          "context": "To evaluate the planning performance, we generate 150 navigation tasks, similar to the above prediction tasks, but with an additional randomly sampled target position p∗ ∈ [0.1, 0.9) for the robot.",
+          "chunk": "7"
+        },
+        {
+          "from": "ProposedModel",
+          "relation": "uses",
+          "to": "Calibration",
+          "context": "Additionally, we evaluate the influence of calibration, by either collecting 10 additional calibration transitions for each planning task setup, or not collecting any calibration transition (C = {}), giving four variants in total.",
+          "chunk": "7"
+        },
+        {
+          "from": "Calibration",
+          "relation": "type",
+          "to": "Method",
+          "context": "In case the model is calibrated, we additionally collect a small trajectory for each trajectory to be predicted, consisting of 10 transitions, starting from the same initial state x0, but with different random actions.",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "In the context of evaluating navigation tasks using the proposed model as described in the paper section 'experiments4', how does the calibration method specifically influence the model's performance?",
+    "options": {
+      "A": "The calibration method consists of changing the robot's physical components based on task performance feedback.",
+      "B": "The calibration method requires adjusting the model parameters based on the outcomes of the navigation tasks.",
+      "C": "The calibration method involves collecting additional calibration transitions for each planning task, enhancing the model's precision in navigation.",
+      "D": "The calibration method includes the use of historical data from previous experiments to adjust the model's predictions."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A because the paper specifies that calibration involves either collecting additional transitions for each setup or not collecting any, impacting the model's precision as these transitions are used to adapt the model to each task.",
+    "path_description": "Path: NavigationTasks --[evaluatedOn]--> ProposedModel --[uses]--> Calibration --[type]--> Method",
+    "context": "To evaluate the planning performance, we generate 150 navigation tasks, similar to the above prediction tasks, but with an additional randomly sampled target position p∗ ∈ [0.1, 0.9) for the robot. | Additionally, we evaluate the influence of calibration, by either collecting 10 additional calibration transitions for each planning task setup, or not collecting any calibration transition (C = {}), giving four variants in total. | In case the model is calibrated, we additionally collect a small trajectory for each trajectory to be predicted, consisting of 10 transitions, starting from the same initial state x0, but with different random actions.",
+    "paper_id": "509"
+  }
+]

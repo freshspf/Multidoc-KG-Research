@@ -1,0 +1,88 @@
+[
+  {
+    "section": "materialsandmethods1",
+    "path": {
+      "section": "materialsandmethods1",
+      "start_entity": "LDCTGrandChallengeDatabase",
+      "end_entity": "DeepLearningModel",
+      "hops": [
+        {
+          "from": "LDCTGrandChallengeDatabase",
+          "relation": "usedForTraining",
+          "to": "DeepLearningDenoisers",
+          "context": "The DL denoisers were trained using normal- and quarter-dose CT image pairs from six patients (L096, L143, L192, L291, L286, L333) provided in the 2016 Low-Dose CT (LDCT) Grand Challenge database [8].",
+          "chunk": "1"
+        },
+        {
+          "from": "DeepLearningDenoisers",
+          "relation": "includes",
+          "to": "GAN",
+          "context": "Our deep learning denoisers’ group consisted of Generative Adversarial Networks (GAN) [5].",
+          "chunk": "1"
+        },
+        {
+          "from": "GAN",
+          "relation": "type",
+          "to": "DeepLearningModel",
+          "context": "Our deep learning denoisers’ group consisted of Generative Adversarial Networks (GAN) [5].",
+          "chunk": "1"
+        }
+      ]
+    },
+    "question": "Which type of deep learning model was employed in the development of denoisers for reducing noise in low-dose CT images as described in the 2016 LDCT Grand Challenge database?",
+    "options": {
+      "A": "Recurrent Neural Networks were employed, commonly used for processing sequential data.",
+      "B": "Convolutional Neural Networks were used, typically utilized for image recognition tasks.",
+      "C": "Support Vector Machines were used, which are primarily used for classification tasks.",
+      "D": "Generative Adversarial Networks were used, which are a subtype of deep learning models."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A because the paper specifies that Generative Adversarial Networks (GANs) were part of the deep learning denoisers used. GANs are a type of deep learning model, fitting the knowledge graph path from the LDCT Grand Challenge Database to Deep Learning Denoisers, which includes GANs categorized under Deep Learning Models.",
+    "path_description": "Path: LDCTGrandChallengeDatabase --[usedForTraining]--> DeepLearningDenoisers --[includes]--> GAN --[type]--> DeepLearningModel",
+    "context": "The DL denoisers were trained using normal- and quarter-dose CT image pairs from six patients (L096, L143, L192, L291, L286, L333) provided in the 2016 Low-Dose CT (LDCT) Grand Challenge database [8]. | Our deep learning denoisers’ group consisted of Generative Adversarial Networks (GAN) [5]. | Our deep learning denoisers’ group consisted of Generative Adversarial Networks (GAN) [5].",
+    "paper_id": "890"
+  },
+  {
+    "section": "introduction",
+    "path": {
+      "section": "introduction",
+      "start_entity": "ThisStudy",
+      "end_entity": "Metric",
+      "hops": [
+        {
+          "from": "ThisStudy",
+          "relation": "investigates",
+          "to": "ImageQualityOfDenoisedCTImages",
+          "context": "This study investigates the image quality of denoised CT images",
+          "chunk": "0"
+        },
+        {
+          "from": "ImageQualityOfDenoisedCTImages",
+          "relation": "measuredBy",
+          "to": "PSNR",
+          "context": "denoised CT images using task-agnostic metrics like PSNR",
+          "chunk": "0"
+        },
+        {
+          "from": "PSNR",
+          "relation": "type",
+          "to": "Metric",
+          "context": "denoised CT images using task-agnostic metrics like PSNR",
+          "chunk": "0"
+        }
+      ]
+    },
+    "question": "In the context of evaluating denoised CT images, which metric mentioned in the study primarily measures image quality through a task-agnostic approach?",
+    "options": {
+      "A": "Contrast-to-Noise Ratio (CNR), which focuses on the contrast between different regions in an image.",
+      "B": "Structural Similarity Index (SSIM), which evaluates image quality based on perceived changes in structural information.",
+      "C": "Total Variation (TV), which measures the smoothness of an image.",
+      "D": "Peak Signal-to-Noise Ratio (PSNR), which provides a quantitative measure of reconstruction accuracy."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is Peak Signal-to-Noise Ratio (PSNR), as the study specifically investigates the image quality of denoised CT images using task-agnostic metrics like PSNR, which measures the image's overall reconstruction accuracy by comparing it to its original state, making it a metric that does not depend on the specific task but rather the general quality.",
+    "path_description": "Path: ThisStudy --[investigates]--> ImageQualityOfDenoisedCTImages --[measuredBy]--> PSNR --[type]--> Metric",
+    "context": "This study investigates the image quality of denoised CT images | denoised CT images using task-agnostic metrics like PSNR | denoised CT images using task-agnostic metrics like PSNR",
+    "paper_id": "890"
+  }
+]

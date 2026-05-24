@@ -1,0 +1,174 @@
+[
+  {
+    "section": "algorithmforkernelcomputation1",
+    "path": {
+      "section": "algorithmforkernelcomputation1",
+      "start_entity": "Qk",
+      "end_entity": "Function",
+      "hops": [
+        {
+          "from": "Qk",
+          "relation": "usedIn",
+          "to": "Mi",
+          "context": "Let Qk(j) denote the set of all j-sets of {1, . . . , k} (subsets of indices). For θ ∈ Qk(j) and a k-mer α, let α|θ be the j-mer obtained by selecting the characters at the j indices in θ.",
+          "chunk": "2"
+        },
+        {
+          "from": "Mi",
+          "relation": "computedBy",
+          "to": "Im",
+          "context": "where Ii = Im(α, β) when d(α, β) = i and Mi(X, Y ) is the number of pairs of k-mers (α, β) such that d(α, β) = i, where α ∈ X and β ∈ Y.",
+          "chunk": "2"
+        },
+        {
+          "from": "Im",
+          "relation": "type",
+          "to": "Function",
+          "context": "where Im(α, γ) = 1, if α belongs to the set of k-mers that differ from γ by at most m mismatches, i.e. the Hamming distance between α and γ, d(α, γ) ≤ m.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the context of k-mer analysis, how does the function Im(α, γ) = 1 relate to the computation of Mi(X, Y)?",
+    "options": {
+      "A": "Im(α, γ) = 1 indicates that α and γ are identical k-mers, which directly increments the value of Mi(X, Y) for every matching pair found.",
+      "B": "Im(α, γ) = 1 signifies that the k-mer α is within a Hamming distance of m from γ, which contributes to the count Mi(X, Y) by assessing pairs (α, β) where d(α, β) = i.",
+      "C": "Im(α, γ) = 1 implies that α and γ share the same j-indices, which is used to calculate Mi(X, Y) by determining the frequency of matching indices.",
+      "D": "Im(α, γ) = 1 shows that α and γ are complementary k-mers, essential for computing Mi(X, Y) by identifying pairs with complementary mismatches."
+    },
+    "correct_answer": "B",
+    "explanation": "Im(α, γ) = 1 implies that the k-mer α differs from γ by at most m mismatches (i.e., their Hamming distance is ≤ m). This function is used to evaluate whether pairs of k-mers (α, β) from sets X and Y respectively, have a specific mismatch distance, i, which is the condition checked in Mi(X, Y). Thus, knowing the value from Im helps in determining the count of such pairs, contributing to the computation of Mi(X, Y).",
+    "path_description": "Path: Qk --[usedIn]--> Mi --[computedBy]--> Im --[type]--> Function",
+    "context": "Let Qk(j) denote the set of all j-sets of {1, . . . , k} (subsets of indices). For θ ∈ Qk(j) and a k-mer α, let α|θ be the j-mer obtained by selecting the characters at the j indices in θ. | where Ii = Im(α, β) when d(α, β) = i and Mi(X, Y ) is the number of pairs of k-mers (α, β) such that d(α, β) = i, where α ∈ X and β ∈ Y. | where Im(α, γ) = 1, if α belongs to the set of k-mers that differ from γ by at most m mismatches, i.e. the Hamming distance between α and γ, d(α, γ) ≤ m.",
+    "paper_id": "249"
+  },
+  {
+    "section": "orderedminimizerwithkernelandigomkig",
+    "path": {
+      "section": "orderedminimizerwithkernelandigomkig",
+      "start_entity": "InformationGainLogic",
+      "end_entity": "BiologicalSequence",
+      "hops": [
+        {
+          "from": "InformationGainLogic",
+          "relation": "appliedTo",
+          "to": "sminimizer",
+          "context": "The information gain logic is then applied on sminimizer to get the top amino acid.",
+          "chunk": "6"
+        },
+        {
+          "from": "sminimizer",
+          "relation": "createdFrom",
+          "to": "k-mers",
+          "context": "After getting the minimizers, we concat them to make a single sequence (sminimizer).",
+          "chunk": "6"
+        },
+        {
+          "from": "k-mers",
+          "relation": "type",
+          "to": "BiologicalSequence",
+          "context": "In this setting, we first compute the set of minimizers from the k-mers (where m = 3 and k = 9) for a given sequence as performed in Section 4 (see Figure 2 for an example).",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the process described in the section 'orderedminimizerwithkernelandigomkig', which statement best describes the role of Information Gain Logic when applied to sminimizer?",
+    "options": {
+      "A": "It assists in determining the optimal number of k-mers to be used in constructing the sminimizer.",
+      "B": "It modifies the original biological sequence to enhance the effectiveness of the sminimizer.",
+      "C": "It is used to select the most informative amino acid sequence from the concatenated sminimizer.",
+      "D": "It computes the overall biological activity of the k-mers before creating the sminimizer."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A because, according to the context, the Information Gain Logic is applied to the sminimizer specifically to identify and select the top amino acid, indicating its use in extracting the most informative part of the sequence from the concatenated minimizers. Options B, C, and D do not correspond directly to the described function of Information Gain Logic in the provided context.",
+    "path_description": "Path: InformationGainLogic --[appliedTo]--> sminimizer --[createdFrom]--> k-mers --[type]--> BiologicalSequence",
+    "context": "The information gain logic is then applied on sminimizer to get the top amino acid. | After getting the minimizers, we concat them to make a single sequence (sminimizer). | In this setting, we first compute the set of minimizers from the k-mers (where m = 3 and k = 9) for a given sequence as performed in Section 4 (see Figure 2 for an example).",
+    "paper_id": "249"
+  },
+  {
+    "section": "orderedminimizerwithkernelomk",
+    "path": {
+      "section": "orderedminimizerwithkernelomk",
+      "start_entity": "M-mers",
+      "end_entity": "Problem",
+      "hops": [
+        {
+          "from": "M-mers",
+          "relation": "partOf",
+          "to": "K-mers",
+          "context": "Given a k-mer, an m-mer ∈ k-mer is a sub-sequence, which is lexicographically smallest both in forward and reverse order of the k-mer.",
+          "chunk": "4"
+        },
+        {
+          "from": "K-mers",
+          "relation": "addresses",
+          "to": "RedundancyProblem",
+          "context": "One problem with the k-mers is that there could be a lot of similar k-mers in a sequence that may not add any value to boost the predictive performance of the underlying machine learning (ML) algorithms.",
+          "chunk": "4"
+        },
+        {
+          "from": "RedundancyProblem",
+          "relation": "type",
+          "to": "Problem",
+          "context": "One problem with the k-mers is that there could be a lot of similar k-mers in a sequence that may not add any value to boost the predictive performance of the underlying machine learning (ML) algorithms.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "How do m-mers, as part of k-mers, address the redundancy problem in machine learning algorithms?",
+    "options": {
+      "A": "M-mers extend the length of k-mers, ensuring a wider range of data is available for algorithm training.",
+      "B": "M-mers increase the diversity of k-mers by adding variations, thereby enhancing the learning model's performance.",
+      "C": "They increase the computational complexity required to process k-mers, indirectly addressing redundancy issues.",
+      "D": "By being the lexicographically smallest sub-sequence in both forward and reverse order, they reduce sequence redundancy."
+    },
+    "correct_answer": "D",
+    "explanation": "M-mers are defined as the smallest sub-sequence of k-mers in both forward and reverse order, effectively reducing redundancy by selecting the most representative sequences and discarding similar or less informative k-mers. This directly addresses the redundancy problem in machine learning algorithms by enhancing the quality of the input data without adding unnecessary complexity.",
+    "path_description": "Path: M-mers --[partOf]--> K-mers --[addresses]--> RedundancyProblem --[type]--> Problem",
+    "context": "Given a k-mer, an m-mer ∈ k-mer is a sub-sequence, which is lexicographically smallest both in forward and reverse order of the k-mer. | One problem with the k-mers is that there could be a lot of similar k-mers in a sequence that may not add any value to boost the predictive performance of the underlying machine learning (ML) algorithms. | One problem with the k-mers is that there could be a lot of similar k-mers in a sequence that may not add any value to boost the predictive performance of the underlying machine learning (ML) algorithms.",
+    "paper_id": "249"
+  },
+  {
+    "section": "orderedminimizerwithkernelandigomkig",
+    "path": {
+      "section": "orderedminimizerwithkernelandigomkig",
+      "start_entity": "VectorRepresentation",
+      "end_entity": "ApproximateKernelAlgorithm",
+      "hops": [
+        {
+          "from": "VectorRepresentation",
+          "relation": "resultFrom",
+          "to": "KernelPCA",
+          "context": "to get the vector representation followed by classification/clustering methods.",
+          "chunk": "6"
+        },
+        {
+          "from": "KernelPCA",
+          "relation": "appliedTo",
+          "to": "KernelMatrix",
+          "context": "Then kernel PCA [32] is applied for non-kernel classifiers.",
+          "chunk": "6"
+        },
+        {
+          "from": "KernelMatrix",
+          "relation": "computedBy",
+          "to": "ApproximateKernelAlgorithm",
+          "context": "Those top amino acids as given as input to the approximate kernel algorithm for the computation of kernel matrix.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "How is the kernel matrix computed in the context of obtaining a vector representation for classification/clustering methods in the orderedminimizerwithkernelandigomkig section?",
+    "options": {
+      "A": "The kernel matrix is computed by first applying Kernel PCA and then using a linear transformation on the resulting vectors.",
+      "B": "The kernel matrix is computed by applying an approximate kernel algorithm on top amino acids after performing Kernel PCA.",
+      "C": "Vector representation directly computes the kernel matrix using standard PCA before any classification or clustering.",
+      "D": "Kernel PCA computes the kernel matrix using an exact kernel algorithm based on all amino acids involved."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct path from the knowledge graph indicates that Kernel PCA is applied first, followed by the computation of the kernel matrix using an approximate kernel algorithm on the top amino acids. This is consistent with the approach outlined in the provided section of the paper where after Kernel PCA, the top amino acids are input to the approximate kernel algorithm for this purpose.",
+    "path_description": "Path: VectorRepresentation --[resultFrom]--> KernelPCA --[appliedTo]--> KernelMatrix --[computedBy]--> ApproximateKernelAlgorithm",
+    "context": "to get the vector representation followed by classification/clustering methods. | Then kernel PCA [32] is applied for non-kernel classifiers. | Those top amino acids as given as input to the approximate kernel algorithm for the computation of kernel matrix.",
+    "paper_id": "249"
+  }
+]

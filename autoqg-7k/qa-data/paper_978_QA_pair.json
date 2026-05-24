@@ -1,0 +1,174 @@
+[
+  {
+    "section": "introduction",
+    "path": {
+      "section": "introduction",
+      "start_entity": "UnmannedVehicles",
+      "end_entity": "Sensors",
+      "hops": [
+        {
+          "from": "UnmannedVehicles",
+          "relation": "subjectTo",
+          "to": "ActuatorFaults",
+          "context": "During the mission, these robots may be subject to actuators or sensors faults",
+          "chunk": "0"
+        },
+        {
+          "from": "ActuatorFaults",
+          "relation": "type",
+          "to": "Fault",
+          "context": "the surrounding environment, actuator faults represent the most common issue in operations involving modern underwater robots",
+          "chunk": "0"
+        },
+        {
+          "from": "Fault",
+          "relation": "affects",
+          "to": "Sensors",
+          "context": "In words, a fault amounts to an undesired change in the dynamics of a signal of a sensor or an actuator",
+          "chunk": "0"
+        }
+      ]
+    },
+    "question": "In unmanned underwater robot operations, which type of common fault could lead to an undesired change in the dynamics of a sensor signal?",
+    "options": {
+      "A": "Software malfunctions in the central processing unit affecting sensor output",
+      "B": "Battery failures impacting the overall power supply to the sensors and actuators",
+      "C": "Actuator faults leading to undesired changes in sensor signal dynamics",
+      "D": "Sensor faults induced directly by environmental interference with signal transmission"
+    },
+    "correct_answer": "C",
+    "explanation": "The question follows the knowledge graph path from unmanned vehicles being subject to actuator faults, which are a type of fault, and these faults affecting sensors. The correct answer is B because it identifies actuator faults as the cause of undesired changes in sensor signal dynamics, which aligns with the described relationship in the knowledge path.",
+    "path_description": "Path: UnmannedVehicles --[subjectTo]--> ActuatorFaults --[type]--> Fault --[affects]--> Sensors",
+    "context": "During the mission, these robots may be subject to actuators or sensors faults | the surrounding environment, actuator faults represent the most common issue in operations involving modern underwater robots | In words, a fault amounts to an undesired change in the dynamics of a signal of a sensor or an actuator",
+    "paper_id": "1475"
+  },
+  {
+    "section": "problemformulationandpreliminaries1",
+    "path": {
+      "section": "problemformulationandpreliminaries1",
+      "start_entity": "UncertainModel",
+      "end_entity": "Fault",
+      "hops": [
+        {
+          "from": "UncertainModel",
+          "relation": "basedOn",
+          "to": "ControlAffineNonlinearModel",
+          "context": "we reformulate the stabilisation of (2) as the uncertain model: x(t + 1) = A(t)x(t) +B(t)u(t)",
+          "chunk": "1"
+        },
+        {
+          "from": "ControlAffineNonlinearModel",
+          "relation": "addresses",
+          "to": "TotalFault",
+          "context": "Finally, ϕi = 0 denotes the total fault of actuator i",
+          "chunk": "1"
+        },
+        {
+          "from": "TotalFault",
+          "relation": "type",
+          "to": "Fault",
+          "context": "Finally, ϕi = 0 denotes the total fault of actuator i",
+          "chunk": "1"
+        }
+      ]
+    },
+    "question": "In the context of control systems, how does the uncertain model based on a control affine nonlinear model address the concept of faults?",
+    "options": {
+      "A": "It utilizes linear approximation techniques to mitigate partial faults and enhance system resilience.",
+      "B": "The uncertain model uses predictive maintenance strategies to preemptively address faults before they occur.",
+      "C": "It primarily focuses on detecting faults in sensors rather than actuators to ensure system stability.",
+      "D": "The uncertain model predicts system behavior when a total fault occurs in an actuator, leading to a shutdown."
+    },
+    "correct_answer": "D",
+    "explanation": "The uncertain model, based on a control affine nonlinear model, addresses faults by predicting how the system behaves under a total fault condition in an actuator, which typically leads to a shutdown or failure in the system's operation. This is indicated by the model's formulation, which considers the state of actuator faults.",
+    "path_description": "Path: UncertainModel --[basedOn]--> ControlAffineNonlinearModel --[addresses]--> TotalFault --[type]--> Fault",
+    "context": "we reformulate the stabilisation of (2) as the uncertain model: x(t + 1) = A(t)x(t) +B(t)u(t) | Finally, ϕi = 0 denotes the total fault of actuator i | Finally, ϕi = 0 denotes the total fault of actuator i",
+    "paper_id": "1475"
+  },
+  {
+    "section": "casestudypftcforahovercapableauv1",
+    "path": {
+      "section": "casestudypftcforahovercapableauv1",
+      "start_entity": "KIS-sat",
+      "end_entity": "Hardware",
+      "hops": [
+        {
+          "from": "KIS-sat",
+          "relation": "appliedTo",
+          "to": "IS-satController",
+          "context": "resulting in the following feedback gain KIS−sat.",
+          "chunk": "6"
+        },
+        {
+          "from": "IS-satController",
+          "relation": "testedOn",
+          "to": "LaptopComputer",
+          "context": "The experiments are run on a laptop computer with four 1.90GHz cores and 16 GB of RAM.",
+          "chunk": "6"
+        },
+        {
+          "from": "LaptopComputer",
+          "relation": "type",
+          "to": "Hardware",
+          "context": "The experiments are run on a laptop computer with four 1.90GHz cores and 16 GB of RAM.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the context of the feedback gain KIS-sat applied to IS-satController for a hover capable AUV, which hardware specification is most relevant to the testing process?",
+    "options": {
+      "A": "A tablet with two 1.40GHz cores and 8 GB of RAM was used to run the experiments.",
+      "B": "A desktop computer with eight 2.50GHz cores and 32 GB of RAM was used to run the experiments.",
+      "C": "A server with twelve 3.00GHz cores and 64 GB of RAM was used to run the experiments.",
+      "D": "A laptop computer with four 1.90GHz cores and 16 GB of RAM was used to run the experiments."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is 'A' because the context specifically mentions that the experiments for testing the IS-satController, which was applied to KIS-sat for a hover capable AUV, were run on a laptop computer with four 1.90GHz cores and 16 GB of RAM. This detail directly matches the hardware specification required for the testing process as described in the paper.",
+    "path_description": "Path: KIS-sat --[appliedTo]--> IS-satController --[testedOn]--> LaptopComputer --[type]--> Hardware",
+    "context": "resulting in the following feedback gain KIS−sat. | The experiments are run on a laptop computer with four 1.90GHz cores and 16 GB of RAM. | The experiments are run on a laptop computer with four 1.90GHz cores and 16 GB of RAM.",
+    "paper_id": "1475"
+  },
+  {
+    "section": "casestudypftcforahovercapableauv4",
+    "path": {
+      "section": "casestudypftcforahovercapableauv4",
+      "start_entity": "MPC",
+      "end_entity": "Controller",
+      "hops": [
+        {
+          "from": "MPC",
+          "relation": "outperforms",
+          "to": "KIS-sat",
+          "context": "whilst the regulation of x4 is much faster for the MPC controller with respect to our proposed approach",
+          "chunk": "9"
+        },
+        {
+          "from": "KIS-sat",
+          "relation": "outperforms",
+          "to": "MPC",
+          "context": "the MPC approach behaves rather poorly compared to IS-sat",
+          "chunk": "9"
+        },
+        {
+          "from": "MPC",
+          "relation": "type",
+          "to": "Controller",
+          "context": "both KIS−sat and MPC are capable of satisfactory performance in tracking the sine signals on x1, x2",
+          "chunk": "9"
+        }
+      ]
+    },
+    "question": "In the context of comparing different control strategies for a hover-capable AUV, how does the MPC controller's performance in signal tracking compare to that of KIS-sat?",
+    "options": {
+      "A": "MPC controller excels in tracking sine signals across all variables compared to KIS-sat and other traditional controllers.",
+      "B": "Both MPC and KIS-sat controllers demonstrate equal performance in tracking the sine signals on x1, x2, and x4.",
+      "C": "KIS-sat controller shows quicker regulation on x4 than the MPC controller, leading to better overall performance.",
+      "D": "The MPC controller, though quick in regulating x4, performs poorly in comparison to KIS-sat for signal tracking."
+    },
+    "correct_answer": "D",
+    "explanation": "The question focuses on the comparison of the MPC controller to the KIS-sat controller in the context of tracking performance. The correct answer, A, reflects the paper's indication that while the MPC is faster in regulating x4, it is inferior to KIS-sat in overall performance in signal tracking.",
+    "path_description": "Path: MPC --[outperforms]--> KIS-sat --[outperforms]--> MPC --[type]--> Controller",
+    "context": "whilst the regulation of x4 is much faster for the MPC controller with respect to our proposed approach | the MPC approach behaves rather poorly compared to IS-sat | both KIS−sat and MPC are capable of satisfactory performance in tracking the sine signals on x1, x2",
+    "paper_id": "1475"
+  }
+]

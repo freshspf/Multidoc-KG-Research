@@ -1,0 +1,131 @@
+[
+  {
+    "section": "inputmodels",
+    "path": {
+      "section": "inputmodels",
+      "start_entity": "HADES",
+      "end_entity": "RegisterX",
+      "hops": [
+        {
+          "from": "HADES",
+          "relation": "expects",
+          "to": "PSG",
+          "context": "The tool expects the processor under verification to be described by a so-called processor structure graph (PSG in short) which represents the internal structure of the processor.",
+          "chunk": "1"
+        },
+        {
+          "from": "PSG",
+          "relation": "includes",
+          "to": "AccumulatorArchitecture",
+          "context": "An example of a simple PSG is depicted in Figure 1. It shows a part of a simple microprocessor with an accumulator architecture with two architectural registers: X (a memory index register) and A (an accumulator).",
+          "chunk": "1"
+        },
+        {
+          "from": "AccumulatorArchitecture",
+          "relation": "hasRegister",
+          "to": "RegisterX",
+          "context": "It shows a part of a simple microprocessor with an accumulator architecture with two architectural registers: X (a memory index register) and A (an accumulator).",
+          "chunk": "1"
+        }
+      ]
+    },
+    "question": "In the context of the processor structure graph (PSG) utilized by the HADES tool, what specific role does Register X play within an accumulator architecture?",
+    "options": {
+      "A": "Register X operates as a program counter, managing the sequence of executed instructions.",
+      "B": "Register X serves as the primary data storage, temporarily holding data being processed.",
+      "C": "Register X acts as a memory index register, instrumental in addressing memory locations.",
+      "D": "Register X functions as an arithmetic logic unit, performing fundamental computational tasks."
+    },
+    "correct_answer": "C",
+    "explanation": "According to the context provided, Register X is specifically identified as a memory index register within an accumulator architecture as part of a simple microprocessor's PSG. It plays a crucial role in addressing memory locations, which is essential for the processor's operation. Options B, C, and D describe roles that do not align with the specified function of Register X in the described architecture.",
+    "path_description": "Path: HADES --[expects]--> PSG --[includes]--> AccumulatorArchitecture --[hasRegister]--> RegisterX",
+    "context": "The tool expects the processor under verification to be described by a so-called processor structure graph (PSG in short) which represents the internal structure of the processor. | An example of a simple PSG is depicted in Figure 1. It shows a part of a simple microprocessor with an accumulator architecture with two architectural registers: X (a memory index register) and A (an accumulator). | It shows a part of a simple microprocessor with an accumulator architecture with two architectural registers: X (a memory index register) and A (an accumulator).",
+    "paper_id": "90"
+  },
+  {
+    "section": "theverificationapproachofhades",
+    "path": {
+      "section": "theverificationapproachofhades",
+      "start_entity": "A_Smrcka",
+      "end_entity": "Model",
+      "hops": [
+        {
+          "from": "A_Smrcka",
+          "relation": "developedBy",
+          "to": "HADES",
+          "context": "L. Charva´t, A. Smrcˇka, and T. Vojnar identifies its destination by activating the appropriate early auto-increment of register X can be performed",
+          "chunk": "2"
+        },
+        {
+          "from": "HADES",
+          "relation": "proposes",
+          "to": "PSG",
+          "context": "converted into a PSG.",
+          "chunk": "2"
+        },
+        {
+          "from": "PSG",
+          "relation": "type",
+          "to": "Model",
+          "context": "converted into a PSG.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the verification approach of HADES described by L. Charvat, A. Smrcka, and T. Vojnar, how is the PSG model conceptually utilized?",
+    "options": {
+      "A": "As a type of model developed by HADES to simulate the early auto-increment of register X",
+      "B": "To demonstrate deficiencies in existing auto-increment methodologies for register X",
+      "C": "As a replacement for traditional verification methods in simulating processor activities",
+      "D": "To provide a standard protocol for all types of register increments in computational models"
+    },
+    "correct_answer": "A",
+    "explanation": "HADES proposes the PSG, which is a type of model. According to the context, this model simulates specific activities like the early auto-increment of register X, as developed by A. Smrcka and discussed in the verification approach of HADES.",
+    "path_description": "Path: A_Smrcka --[developedBy]--> HADES --[proposes]--> PSG --[type]--> Model",
+    "context": "L. Charva´t, A. Smrcˇka, and T. Vojnar identifies its destination by activating the appropriate early auto-increment of register X can be performed | converted into a PSG. | converted into a PSG.",
+    "paper_id": "90"
+  },
+  {
+    "section": "hadesimplementation",
+    "path": {
+      "section": "hadesimplementation",
+      "start_entity": "HADES",
+      "end_entity": "Representation",
+      "hops": [
+        {
+          "from": "HADES",
+          "relation": "reads",
+          "to": "RTL",
+          "context": "HADES reads in an RTL description of internal PSG representation.",
+          "chunk": "3"
+        },
+        {
+          "from": "RTL",
+          "relation": "describes",
+          "to": "PSG",
+          "context": "HADES reads in an RTL description of internal PSG representation.",
+          "chunk": "3"
+        },
+        {
+          "from": "PSG",
+          "relation": "type",
+          "to": "Representation",
+          "context": "HADES reads in an RTL description of internal PSG representation.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "What is the primary function of HADES in the context of the given knowledge graph path?",
+    "options": {
+      "A": "HADES translates PSG into RTL for the purpose of optimizing graphical representations.",
+      "B": "HADES converts internal PSG representations into external RTL descriptions for storage.",
+      "C": "HADES reads RTL to understand the internal PSG representation, aiding in its processing.",
+      "D": "HADES interprets RTL to modify external PSG representations for enhanced system performance."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is C as the knowledge path indicates that HADES reads RTL which describes an internal PSG representation. This process is essential for HADES to understand and process the PSG information internally, rather than translating or converting it for external use or optimization of graphical representations.",
+    "path_description": "Path: HADES --[reads]--> RTL --[describes]--> PSG --[type]--> Representation",
+    "context": "HADES reads in an RTL description of internal PSG representation. | HADES reads in an RTL description of internal PSG representation. | HADES reads in an RTL description of internal PSG representation.",
+    "paper_id": "90"
+  }
+]

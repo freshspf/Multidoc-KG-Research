@@ -1,0 +1,88 @@
+[
+  {
+    "section": "introduction",
+    "path": {
+      "section": "introduction",
+      "start_entity": "SeedAndExtendApproach",
+      "end_entity": "GapAffineApproximateStringMatching",
+      "hops": [
+        {
+          "from": "SeedAndExtendApproach",
+          "relation": "uses",
+          "to": "KmerMatching",
+          "context": "Seed-and-extend approach involves using kmer-matching to first find candidate locations for each read.",
+          "chunk": "0"
+        },
+        {
+          "from": "KmerMatching",
+          "relation": "resultIn",
+          "to": "CandidateLocations",
+          "context": "Using kmer-matching to first find candidate locations for each read.",
+          "chunk": "0"
+        },
+        {
+          "from": "CandidateLocations",
+          "relation": "alignedUsing",
+          "to": "GapAffineApproximateStringMatching",
+          "context": "Each query is aligned to its set of candidates using gap-affine approximate string matching.",
+          "chunk": "0"
+        }
+      ]
+    },
+    "question": "In the seed-and-extend approach for sequence alignment, what is the correct order of methods applied after identifying candidate locations using kmer matching?",
+    "options": {
+      "A": "After candidate locations are identified, they are typically stored without further processing until manual review.",
+      "B": "Candidate locations are immediately confirmed as accurate without further alignment processes.",
+      "C": "The candidate locations are processed by gap-affine approximate string matching to align each query.",
+      "D": "Following kmer matching, the next step involves applying a heuristic search to refine the candidate locations."
+    },
+    "correct_answer": "C",
+    "explanation": "In the seed-and-extend approach, after using kmer matching to identify candidate locations, each query is aligned to its set of candidates using gap-affine approximate string matching. This method follows directly in the sequence and is essential for aligning sequences with potential gaps and mismatches.",
+    "path_description": "Path: SeedAndExtendApproach --[uses]--> KmerMatching --[resultIn]--> CandidateLocations --[alignedUsing]--> GapAffineApproximateStringMatching",
+    "context": "Seed-and-extend approach involves using kmer-matching to first find candidate locations for each read. | Using kmer-matching to first find candidate locations for each read. | Each query is aligned to its set of candidates using gap-affine approximate string matching.",
+    "paper_id": "462"
+  },
+  {
+    "section": "introduction",
+    "path": {
+      "section": "introduction",
+      "start_entity": "KmerMatching",
+      "end_entity": "Algorithm",
+      "hops": [
+        {
+          "from": "KmerMatching",
+          "relation": "resultIn",
+          "to": "CandidateLocations",
+          "context": "Using kmer-matching to first find candidate locations for each read.",
+          "chunk": "0"
+        },
+        {
+          "from": "CandidateLocations",
+          "relation": "alignedUsing",
+          "to": "GapAffineApproximateStringMatching",
+          "context": "Each query is aligned to its set of candidates using gap-affine approximate string matching.",
+          "chunk": "0"
+        },
+        {
+          "from": "GapAffineApproximateStringMatching",
+          "relation": "type",
+          "to": "Algorithm",
+          "context": "Each query is aligned to its set of candidates using gap-affine approximate string matching.",
+          "chunk": "0"
+        }
+      ]
+    },
+    "question": "In the context of DNA sequencing, if kmer matching identifies candidate locations for each read, which algorithm would most likely be used next to align these reads to their respective candidate locations?",
+    "options": {
+      "A": "Monte Carlo methods are likely to be applied right after candidate locations are determined by kmer matching.",
+      "B": "Heuristic search algorithms are often used to align reads directly after candidate locations are pinpointed using kmer matching.",
+      "C": "Gap-affine approximate string matching is typically utilized following the identification of candidate locations through kmer matching.",
+      "D": "Dynamic programming algorithms are generally employed immediately after the candidate locations are identified by the reads."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A because the paper describes using kmer matching to find candidate locations, followed by aligning each query to its set of candidates using gap-affine approximate string matching. This indicates that the algorithm used after identifying candidate locations via kmer matching is gap-affine approximate string matching.",
+    "path_description": "Path: KmerMatching --[resultIn]--> CandidateLocations --[alignedUsing]--> GapAffineApproximateStringMatching --[type]--> Algorithm",
+    "context": "Using kmer-matching to first find candidate locations for each read. | Each query is aligned to its set of candidates using gap-affine approximate string matching. | Each query is aligned to its set of candidates using gap-affine approximate string matching.",
+    "paper_id": "462"
+  }
+]

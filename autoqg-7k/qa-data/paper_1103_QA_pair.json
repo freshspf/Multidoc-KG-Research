@@ -1,0 +1,45 @@
+[
+  {
+    "section": "catheterizationtoolsstaticmodel",
+    "path": {
+      "section": "catheterizationtoolsstaticmodel",
+      "start_entity": "WorldReferenceFrame",
+      "end_entity": "InteractionWithAnatomy",
+      "hops": [
+        {
+          "from": "WorldReferenceFrame",
+          "relation": "definedBy",
+          "to": "SingleToolModel",
+          "context": "We define a world reference frame W = {O, x0, y0, z0}.",
+          "chunk": "1"
+        },
+        {
+          "from": "SingleToolModel",
+          "relation": "basedOn",
+          "to": "StaticEquilibriumModel",
+          "context": "A. Single Tool Model Following [18], we describe each tool using infinitesimal segments each assumed to shape as an arc of a circle.",
+          "chunk": "1"
+        },
+        {
+          "from": "StaticEquilibriumModel",
+          "relation": "treats",
+          "to": "InteractionWithAnatomy",
+          "context": "We model each tool’s static equilibrium independently, as described in Section II-A, and treat the interaction between tools (Section II-B) and with the anatomy (Section II-C) as constraints to the static equilibrium of each tool.",
+          "chunk": "1"
+        }
+      ]
+    },
+    "question": "In the context of catheterization tools' static models, how does the Single Tool Model's assumption about tool segments influence the interaction with anatomy?",
+    "options": {
+      "A": "The assumption that each tool segment is linear simplifies the computation of interaction forces between tools and anatomy.",
+      "B": "Assuming each tool segment is flexible enhances the adaptability of the model when multiple tools are used simultaneously.",
+      "C": "Modeling each tool segment as rigid improves the accuracy of predicting anatomical responses to tool manipulation.",
+      "D": "The assumption of arc-shaped segments allows for more precise modeling of constraints when tools interact with anatomy."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A because the model describes each tool using infinitesimal segments assumed as arcs of a circle, which affects how the tools' interactions with anatomy are modeled. This assumption allows for precise modeling of the constraints that occur during tool-anatomy interactions, crucial for maintaining static equilibrium.",
+    "path_description": "Path: WorldReferenceFrame --[definedBy]--> SingleToolModel --[basedOn]--> StaticEquilibriumModel --[treats]--> InteractionWithAnatomy",
+    "context": "We define a world reference frame W = {O, x0, y0, z0}. | A. Single Tool Model Following [18], we describe each tool using infinitesimal segments each assumed to shape as an arc of a circle. | We model each tool’s static equilibrium independently, as described in Section II-A, and treat the interaction between tools (Section II-B) and with the anatomy (Section II-C) as constraints to the static equilibrium of each tool.",
+    "paper_id": "1218"
+  }
+]

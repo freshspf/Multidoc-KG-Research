@@ -1,0 +1,52 @@
+[
+  {
+    "id": "introduction",
+    "metadata": {
+      "lang": "en",
+      "section_title": "INTRODUCTION",
+      "page_start": 1,
+      "page_end": 1
+    },
+    "text": " \n \nIndoor  inspection has been a critical  problem for  in-\n1\nfrastructure maintenance. While manual inspection is often\nv\n4 hazardous or inefficient, Unmanned Aerial Vehicles (UAVs)\n9 have become increasingly popular  in such scenes due to\n2  their agility and potential to navigate complex environments.\n9\nTo achieve high-quality inspection and reconstruction, UAVs\n0\n. must plan and execute trajectories that provide complete and\n4\nconsistent coverage of target surfaces, even with environmen-\n0\ntal complexity and operational constraints.\n5\n2  Existing UAV inspection methods typically rely on refer-\n:\nence maps that define the inspection target [1][2][3], which\nv\ni can be utilized to plan global coverage trajectories that aim\nX  to minimize flight  time while ensuring complete surface\nr\nvisibility. However,  these prior maps can be outdated or\na\nincomplete due to the unmodeled static or dynamic obsta-\ncles such as temporary structures, pieces of equipment, or\nhuman workers. Such discrepancies may not only introduce\nnavigational challenges but also result  in occluded or un-\nreachable viewpoints, leading to coverage gaps and degraded\nreconstruction quality.\nTo address these limitations, this work proposes a hierar-\nchical planning framework for partially unknown indoor en-\nvironments. Based on our previous work on tunnel inspection\n[4], our system integrates a segment-based global viewpoint\nplanner for coverage planning and a local planner that adapts\nHanyu Jin, Zhefan Xu, Haoyu Shen, Xinming Han, Kanlong Ye, and\nKenji  Shimada  are with  the Department  of Mechanical  Engineering,\nCarnegie Mellon University, 5000 Forbes Ave, Pittsburgh, PA, 15213, USA.\nhanyujin@andrew.cmu.edu\n\nUAV-Based Surface Inspection in\nndoor Environments\ning Han, Kanlong Ye, and Kenji Shimada\nFig. 1.  A UAV performing autonomous inspection in a tunnel-like indoor\nenvironment using the proposed method.\nthe UAV trajectory and viewing angle in real  time. This\nintegration enables the UAV to preserve inspection quality\nin environments with unforeseen obstacles. Figure 1 shows\nthe deployment of our framework in tunnel wall inspection.\nThe main contributions of this work include:\n• Surface Inspection Framework: We introduce a UAV\ninspection framework that  integrates global coverage\nplanning with local adaptability to enable efficient and\ncomplete UAV inspection in partially unknown indoor\nenvironments.\n• Segment-based Global Coverage Planning: We de-\nvelop a segment-based viewpoint generation and se-\nquencing method for efficient global coverage planning.\n•  Inspection-oriented Local Adaptive Planning: We\ndevelop a local planner that adapts both trajectory and\nview angle to maximize coverage under environmental\nuncertainty."
+  },
+  {
+    "id": "relatedwork",
+    "metadata": {
+      "lang": "en",
+      "section_title": "RELATED WORK",
+      "page_start": 1,
+      "page_end": 1
+    },
+    "text": "Autonomous UAV inspection methods can be broadly\ncategorized by their reliance on prior environmental  infor-\nmation. Mapless approaches do not  require prebuilt maps\nand adapt online to unknown environments. Chen et al. [5]\nproposed a crack detection system using a Sliding Window\nMethod (SWM) to generate trajectories from real-time im-\nages. An explore-then-exploit system in [6] conducts online\n3D mapping before planning safe coverage paths. Similarly,\nin [7], exploration and inspection are conducted simultane-\nously using heterogeneous UAV. While these methods ensure\nup-to-date environmental awareness, they often suffer from\nlonger execution times and lack global optimization, leading\nto redundant or inefficient coverage.\nIn contrast, map-based approaches assume access  to a\nreference model and solve the coverage path planning (CPP)\nproblem through two stages: viewpoint generation and path\noptimization. FC-Planner  [1] samples viewpoints along a\ngeometric skeleton to reduce redundancy, while ASSCPP [8]"
+  },
+  {
+    "id": "methodology",
+    "metadata": {
+      "lang": "en",
+      "section_title": "METHODOLOGY",
+      "page_start": 2,
+      "page_end": 2
+    },
+    "text": "Figure 2 shows an overview of the proposed framework.\nProvided by a reference map MR, the goal is to efficiently\nachieve the full coverage of MR using the onboard RGB-\nD camera for surface inspection. Localization is updated\nusing LiDAR Inertial Odometry (LIO) [16], and perception\nfor both static and dynamic obstacles  is provided by the\nonboard perception module that takes the RGB-D image and\nLiDAR point cloud as inputs [17]. The proposed planning\nmethod consists of two parts: a global planner for inspection\nviewpoint generation (Sec.  III-A) and a local planner for\ncollision-free trajectory generation (Sec. III-B).\nA. Segment-based Global Planner\nThe proposed global planner, as demonstrated in Alg. 1,\ntakes a reference map MR as input and outputs a sequence\nof optimized viewpoints  to maximize surface  inspection\ncoverage and efficiency.\n\nThe process begins with geometric segmentation of MR\nusing the Region Growing method (Line 2), producing a\nset of segments S. This segmentation clusters the environ-\nment based on surface normals and curvature,  facilitating\nthe subsequent generation of  informative viewpoints and\ncorresponding view angles. For each segment s ∈ S,  a\nset  of  candidate viewpoints Vraw  is generated  to ensure\ncomprehensive coverage (Lines 3-6). Since segmentation is\nconducted based on the surface normal,  the viewpoints for\neach segment will be arranged in a linear spatial pattern.\nEach viewpoint  vi  is defined as a  tuple vi = (pi, ϕi).\npi  denotes  the position of  the viewpoint,  and ϕi  is  the\nview angle, which is initialized to be perpendicular to the\nprincipal orientation of  the bounding box of  the segment.\nThe candidate viewpoints are then sequenced using the Lin-\nKernighan-Helsgaun (LKH) solver [18] (Line 7). Then, a\npost-processing with a three-stage refinement procedure is\nconducted to handle the outliers and optimize the consis-\ntency.  In the first stage of post-processing, a grouping is\nperformed by mapping each viewpoint back to its source\nsegment. Consecutive viewpoints from the same segment\nare merged into clusters,  resulting in an initial cluster set\nC (Line 8).  In the second stage, clusters with sizes below\na threshold τmax are considered outliers and merged with\nthe nearest adjacent cluster from the same source segment,\nprovided that  their combined sequence remains contiguous\n(Lines 9-14). This yields a refined set of clusters Cmerged.\nFinally, a local reordering is performed within each cluster\nto minimize intra-cluster  travel distance while preserving\nthe global cluster order to generate an optimized sequence\nof viewpoints Voptimized, which serves as  the basis  for\ndownstream local planning and inspection (Lines 15-16).\nAlgorithm 1: Global Planner\n1 MR ← Input Reference Map;\n2 S ←MapSegmentation(MR) ▷ segment\nbounding boxes\n3 Vraw ← ∅ ▷ viewpoint array\n4 for s ∈ S do\n5  Vs ← GenerateViewpoints(s) ▷ viewpoint\nset for each segment\n6  Vraw.append(Vs) ;\n7 Vordered ← SolveTSP(Vraw) ▷ TSP viewpoint\nsequence\n8 C ← Remap(Vordered, S) ▷ cluster array\n9 τ ← Initial Threshold;\n10 τmax ← Predefined Maximum Threshold;\n11 while τ <= τmax do\n12  Cmerged ←MergeOutlier(C, τ) ▷ merged\ncluster array\n13  C ← Cmerged\n14  τ ← τ + 1\n15 Voptimized ← LocalReorder(Cmerged, S) ▷ output\nviewpoint sequence\n16 return Voptimized;"
+  },
+  {
+    "id": "resultsanddiscussions",
+    "metadata": {
+      "lang": "en",
+      "section_title": "RESULTS AND DISCUSSIONS",
+      "page_start": 3,
+      "page_end": 3
+    },
+    "text": "A. Simulation Experiments\nTo validate the proposed method, simulation experiments\nwere conducted  in  two distinct  indoor  environments,  as\nshown in Fig. 3. Each environment includes the inspection\ntarget and the unforeseen obstacles,  such as static blocks\nand dynamic human workers,  as shown in 1a) and 2a).\nProvided by the floor plan, 1b) and 2b) show the reference\nfloor plan and the planned global path. The planned paths\nsuccessfully visit all target viewpoints exactly once, ensuring\ncomprehensive coverage with minimal redundancy. Although\nminor collisions may occur when transitioning between dis-\ntant segments,  the local planner generates the trajectory in\nreal time to maintain collision-free navigation."
+  },
+  {
+    "id": "conclusionandfuturework",
+    "metadata": {
+      "lang": "en",
+      "section_title": "CONCLUSION AND FUTURE WORK",
+      "page_start": 4,
+      "page_end": 5
+    },
+    "text": "This work presents an adaptive UAV inspection framework\nthat  integrates global viewpoint generation and coverage\nplanning with a hierarchical local planner. The global planner\ngenerates an efficient and complete inspection path based\non a reference map, while the local planner ensures safe\nexecution by incorporating both static and dynamic obstacle\navoidance as well as real-time view angle adaptation. Simu-\nlation results in structured indoor environments demonstrate\nthat our method is able  to maintain high coverage rates\nunder environmental uncertainty. Future work will focus on\nprocessing and analyzing the collected inspection data for\napplication in infrastructure maintenance.\n\n"
+  }
+]

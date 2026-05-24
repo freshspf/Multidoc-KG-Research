@@ -1,0 +1,88 @@
+[
+  {
+    "section": "experimentsandresults2",
+    "path": {
+      "section": "experimentsandresults2",
+      "start_entity": "Distance",
+      "end_entity": "ExitPhase",
+      "hops": [
+        {
+          "from": "Distance",
+          "relation": "partOf",
+          "to": "OptimalParameters",
+          "context": "makes α = 90° and d = 70mm the more optimal parameter set.",
+          "chunk": "4"
+        },
+        {
+          "from": "OptimalParameters",
+          "relation": "resultIn",
+          "to": "PeakContactForce",
+          "context": "For the optimal set of bite transfer parameters, the peak contact force occurs during the entry phase when the mouth is closing.",
+          "chunk": "4"
+        },
+        {
+          "from": "PeakContactForce",
+          "relation": "occursDuring",
+          "to": "ExitPhase",
+          "context": "while the peak contact force occurs during the exit phase for suboptimal parameters.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "According to the research findings, what parameter configuration leads to the occurrence of peak contact force during the exit phase?",
+    "options": {
+      "A": "A parameter set with α = 45° and d = 50mm, identified as optimal.",
+      "B": "A parameter set with α = 45° and d = 50mm, identified as suboptimal.",
+      "C": "A parameter set with α = 90° and d = 70mm, identified as suboptimal.",
+      "D": "A parameter set with α = 90° and d = 70mm, identified as optimal."
+    },
+    "correct_answer": "B",
+    "explanation": "The question requires understanding the relationships from the knowledge graph path. The optimal parameter set leads to peak contact force during the entry phase, meaning any occurrence during the exit phase must be associated with suboptimal parameters. Therefore, since α = 90° and d = 70mm are optimal, the correct answer would be a set described as suboptimal.",
+    "path_description": "Path: Distance --[partOf]--> OptimalParameters --[resultIn]--> PeakContactForce --[occursDuring]--> ExitPhase",
+    "context": "makes α = 90° and d = 70mm the more optimal parameter set. | For the optimal set of bite transfer parameters, the peak contact force occurs during the entry phase when the mouth is closing. | while the peak contact force occurs during the exit phase for suboptimal parameters.",
+    "paper_id": "1237"
+  },
+  {
+    "section": "approach1",
+    "path": {
+      "section": "approach1",
+      "start_entity": "TendonElements",
+      "end_entity": "Image",
+      "hops": [
+        {
+          "from": "TendonElements",
+          "relation": "connect",
+          "to": "FlexibleHeadModel",
+          "context": "Tendon elements then connect the sites to form a fully rigged and actuated head model",
+          "chunk": "1"
+        },
+        {
+          "from": "FlexibleHeadModel",
+          "relation": "generatedFrom",
+          "to": "RGBImage",
+          "context": "A flexible head model is generated from an RGB image",
+          "chunk": "1"
+        },
+        {
+          "from": "RGBImage",
+          "relation": "type",
+          "to": "Image",
+          "context": "A flexible head model is generated from an RGB image",
+          "chunk": "1"
+        }
+      ]
+    },
+    "question": "In the process of creating a fully rigged and actuated head model, which type of image is typically used to generate a flexible head model?",
+    "options": {
+      "A": "An RGB image, which provides the basic color information necessary for modeling",
+      "B": "An X-ray image, which shows the internal structure of the head",
+      "C": "A depth image, which provides detailed information about the shape and volume of the head",
+      "D": "A thermal image, which captures the temperature distribution across the head surface"
+    },
+    "correct_answer": "A",
+    "explanation": "The knowledge graph path illustrates that a flexible head model is generated from an RGB image. RGB images are used because they provide essential color data which is crucial for creating realistic skin textures in the model.",
+    "path_description": "Path: TendonElements --[connect]--> FlexibleHeadModel --[generatedFrom]--> RGBImage --[type]--> Image",
+    "context": "Tendon elements then connect the sites to form a fully rigged and actuated head model | A flexible head model is generated from an RGB image | A flexible head model is generated from an RGB image",
+    "paper_id": "1237"
+  }
+]

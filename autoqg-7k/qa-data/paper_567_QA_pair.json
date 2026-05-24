@@ -1,0 +1,260 @@
+[
+  {
+    "section": "design1",
+    "path": {
+      "section": "design1",
+      "start_entity": "TransactionBatch",
+      "end_entity": "Coordinator",
+      "hops": [
+        {
+          "from": "TransactionBatch",
+          "relation": "selectedFrom",
+          "to": "Transaction",
+          "context": "At the beginning of each batch, a set of transactions is selected for execution in the next round.",
+          "chunk": "5"
+        },
+        {
+          "from": "Transaction",
+          "relation": "checkedForConflictIn",
+          "to": "TransactionBatch",
+          "context": "Reddio checks whether it explicitly conflicts with any transactions already in Tbatch.",
+          "chunk": "5"
+        },
+        {
+          "from": "TransactionBatch",
+          "relation": "filledBy",
+          "to": "Coordinator",
+          "context": "the coordinator forcibly fills the batch with the remaining transactions having the smallest indexes from T.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the context of transaction management described in the 'design1' section, what role does the coordinator play in handling transaction conflicts within a batch?",
+    "options": {
+      "A": "The coordinator selects the initial set of transactions for each batch based on their execution priority.",
+      "B": "The coordinator reorders transactions within the batch to optimize processing time and reduce conflicts.",
+      "C": "The coordinator forcibly fills the batch with transactions that have the smallest indexes if conflicts are detected.",
+      "D": "The coordinator identifies and resolves all conflicts between transactions before they are added to the batch."
+    },
+    "correct_answer": "C",
+    "explanation": "According to the paper, after transactions are checked for conflicts in a batch (Tbatch), the coordinator's role is to fill the batch with the remaining transactions that have the smallest indexes, particularly when conflicts are detected. This responsibility underlines the coordinator's function in managing transaction order and handling conflicts within the batch.",
+    "path_description": "Path: TransactionBatch --[selectedFrom]--> Transaction --[checkedForConflictIn]--> TransactionBatch --[filledBy]--> Coordinator",
+    "context": "At the beginning of each batch, a set of transactions is selected for execution in the next round. | Reddio checks whether it explicitly conflicts with any transactions already in Tbatch. | the coordinator forcibly fills the batch with the remaining transactions having the smallest indexes from T.",
+    "paper_id": "1506"
+  },
+  {
+    "section": "design2",
+    "path": {
+      "section": "design2",
+      "start_entity": "Coordinator",
+      "end_entity": "Concept",
+      "hops": [
+        {
+          "from": "Coordinator",
+          "relation": "aborts",
+          "to": "Transaction",
+          "context": "In this case, the coordinator aborts the transaction and returns it to T for future re-execution.",
+          "chunk": "6"
+        },
+        {
+          "from": "Transaction",
+          "relation": "runsIndependentlyOn",
+          "to": "Thread",
+          "context": "This approach ensures that transactions run independently on different threads without direct interactions.",
+          "chunk": "6"
+        },
+        {
+          "from": "Thread",
+          "relation": "type",
+          "to": "Concept",
+          "context": "This approach ensures that transactions run independently on different threads without direct interactions.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the context of transaction management discussed in the 'design2' section of the paper, what is the role of the coordinator when a transaction is aborted?",
+    "options": {
+      "A": "The coordinator stores the transaction data temporarily until system resources become available.",
+      "B": "The coordinator aborts the transaction and schedules it on a different thread for future re-execution.",
+      "C": "The coordinator directly interacts with other transactions to manage dependencies and avoid conflicts.",
+      "D": "The coordinator merges the aborted transaction with other transactions to enhance processing efficiency."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A because the paper specifies that when a transaction is aborted by the coordinator, it is returned for future re-execution, implying it is rescheduled, likely on different threads as the transactions run independently on different threads.",
+    "path_description": "Path: Coordinator --[aborts]--> Transaction --[runsIndependentlyOn]--> Thread --[type]--> Concept",
+    "context": "In this case, the coordinator aborts the transaction and returns it to T for future re-execution. | This approach ensures that transactions run independently on different threads without direct interactions. | This approach ensures that transactions run independently on different threads without direct interactions.",
+    "paper_id": "1506"
+  },
+  {
+    "section": "design2",
+    "path": {
+      "section": "design2",
+      "start_entity": "Coordinator",
+      "end_entity": "WriteSet",
+      "hops": [
+        {
+          "from": "Coordinator",
+          "relation": "aborts",
+          "to": "Transaction",
+          "context": "In this case, the coordinator aborts the transaction and returns it to T for future re-execution.",
+          "chunk": "6"
+        },
+        {
+          "from": "Transaction",
+          "relation": "runsIndependentlyOn",
+          "to": "Thread",
+          "context": "This approach ensures that transactions run independently on different threads without direct interactions.",
+          "chunk": "6"
+        },
+        {
+          "from": "Thread",
+          "relation": "records",
+          "to": "WriteSet",
+          "context": "During execution, each thread records the read set Rpi and write set Wpi accessed by its transaction.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In a multithreaded transaction system, if a coordinator aborts a transaction, what is the most likely subsequent action taken by the thread running that transaction?",
+    "options": {
+      "A": "The thread immediately retries the transaction to ensure completion without recording any sets.",
+      "B": "The thread merges its write set with the write sets of other threads to maintain consistency.",
+      "C": "The thread independently records the write set accessed by the transaction for future re-execution.",
+      "D": "The thread deletes the write set to prevent data corruption upon transaction re-execution."
+    },
+    "correct_answer": "C",
+    "explanation": "When a coordinator aborts a transaction, according to the knowledge path, the transaction is returned to T (presumably the thread) for future re-execution. During this process, the thread running the transaction records its write set, which is necessary for future re-execution, ensuring that the transaction runs independently without direct interactions.",
+    "path_description": "Path: Coordinator --[aborts]--> Transaction --[runsIndependentlyOn]--> Thread --[records]--> WriteSet",
+    "context": "In this case, the coordinator aborts the transaction and returns it to T for future re-execution. | This approach ensures that transactions run independently on different threads without direct interactions. | During execution, each thread records the read set Rpi and write set Wpi accessed by its transaction.",
+    "paper_id": "1506"
+  },
+  {
+    "section": "design5",
+    "path": {
+      "section": "design5",
+      "start_entity": "HashThread",
+      "end_entity": "Function",
+      "hops": [
+        {
+          "from": "HashThread",
+          "relation": "recalculatesHashes",
+          "to": "NodeN",
+          "context": "recalculates their hashes",
+          "chunk": "9"
+        },
+        {
+          "from": "NodeN",
+          "relation": "isProcessed",
+          "to": "HashThread",
+          "context": "once a node N is hashed",
+          "chunk": "9"
+        },
+        {
+          "from": "HashThread",
+          "relation": "type",
+          "to": "Function",
+          "context": "The HashThread() continuously dequeues nodes from Qh",
+          "chunk": "9"
+        }
+      ]
+    },
+    "question": "In the context of the 'design5' paper section, what is the primary function of the HashThread after processing a node N?",
+    "options": {
+      "A": "It deletes node N from the queue to prevent reprocessing and optimize memory usage.",
+      "B": "It recalculates hashes for node N to maintain data integrity before requeuing.",
+      "C": "It increases the priority of node N in the processing queue for faster subsequent access.",
+      "D": "It sends an alert to the system administrator indicating that node N has been processed."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A because the HashThread recalculates hashes for node N after it is processed, as indicated by the knowledge path. This function is essential for maintaining data integrity in the system. None of the other options directly relate to the described behavior of the HashThread recalculating hashes after processing a node.",
+    "path_description": "Path: HashThread --[recalculatesHashes]--> NodeN --[isProcessed]--> HashThread --[type]--> Function",
+    "context": "recalculates their hashes | once a node N is hashed | The HashThread() continuously dequeues nodes from Qh",
+    "paper_id": "1506"
+  },
+  {
+    "section": "design5",
+    "path": {
+      "section": "design5",
+      "start_entity": "HashThread",
+      "end_entity": "Qh",
+      "hops": [
+        {
+          "from": "HashThread",
+          "relation": "recalculatesHashes",
+          "to": "NodeN",
+          "context": "recalculates their hashes",
+          "chunk": "9"
+        },
+        {
+          "from": "NodeN",
+          "relation": "isHashed",
+          "to": "HashThread",
+          "context": "once a node N is hashed",
+          "chunk": "9"
+        },
+        {
+          "from": "HashThread",
+          "relation": "dequeuesFrom",
+          "to": "Qh",
+          "context": "The HashThread() continuously dequeues nodes from Qh",
+          "chunk": "9"
+        }
+      ]
+    },
+    "question": "In the described process within the 'design5' paper section, what is the sequence of operations performed by HashThread for managing nodes?",
+    "options": {
+      "A": "HashThread marks NodeN as hashed, enqueues it into Qh, and then recalculates its hashes for verification.",
+      "B": "HashThread dequeues NodeN from Qh, recalculates its hashes, and then marks it as unhashed for reprocessing.",
+      "C": "HashThread dequeues NodeN, marks it as hashed without recalculation, and enqueues it back into Qh.",
+      "D": "HashThread recalculates hashes for NodeN, marks it as hashed, and then dequeues it from Qh."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct sequence, as described in the paper's 'design5' section, starts with HashThread recalculating the hashes of NodeN. Once recalculated, the node is marked as hashed. Following this, the HashThread dequeues the node from Qh, thus ensuring it follows the operations as stated.",
+    "path_description": "Path: HashThread --[recalculatesHashes]--> NodeN --[isHashed]--> HashThread --[dequeuesFrom]--> Qh",
+    "context": "recalculates their hashes | once a node N is hashed | The HashThread() continuously dequeues nodes from Qh",
+    "paper_id": "1506"
+  },
+  {
+    "section": "design5",
+    "path": {
+      "section": "design5",
+      "start_entity": "NodeN",
+      "end_entity": "NodeNParent",
+      "hops": [
+        {
+          "from": "NodeN",
+          "relation": "isProcessed",
+          "to": "HashThread",
+          "context": "once a node N is hashed",
+          "chunk": "9"
+        },
+        {
+          "from": "HashThread",
+          "relation": "recalculatesHashes",
+          "to": "NodeN",
+          "context": "recalculates their hashes",
+          "chunk": "9"
+        },
+        {
+          "from": "NodeN",
+          "relation": "attemptsToHash",
+          "to": "NodeNParent",
+          "context": "attempts to hash its parent if all its child nodes have already been processed",
+          "chunk": "9"
+        }
+      ]
+    },
+    "question": "In the process described in section 'design5', what must occur before Node N can attempt to hash its parent Node NParent?",
+    "options": {
+      "A": "Node N must be processed first, then it recalculates its hash before attempting to hash Node NParent.",
+      "B": "All child nodes of Node NParent must be processed before Node N can attempt to hash Node NParent.",
+      "C": "Node N recalculates its hash immediately after attempting to hash Node NParent.",
+      "D": "Node N must receive a signal from Node NParent before it can recalculate its hash and attempt to hash Node NParent."
+    },
+    "correct_answer": "A",
+    "explanation": "According to the knowledge graph path, Node N first undergoes processing, during which it recalculates its hashes. It then attempts to hash its parent, Node NParent, but only if all its child nodes have already been processed. This sequence emphasizes that Node N must be processed and recalculates its own hashes prior to attempting the hashing of Node NParent.",
+    "path_description": "Path: NodeN --[isProcessed]--> HashThread --[recalculatesHashes]--> NodeN --[attemptsToHash]--> NodeNParent",
+    "context": "once a node N is hashed | recalculates their hashes | attempts to hash its parent if all its child nodes have already been processed",
+    "paper_id": "1506"
+  }
+]

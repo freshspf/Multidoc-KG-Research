@@ -1,0 +1,260 @@
+[
+  {
+    "section": "memorybandwidthoptimization1",
+    "path": {
+      "section": "memorybandwidthoptimization1",
+      "start_entity": "Luo",
+      "end_entity": "Problem",
+      "hops": [
+        {
+          "from": "Luo",
+          "relation": "improved",
+          "to": "GPS",
+          "context": "All of the improved GPS heuristics have higher time complexity, which is an important parameter in case of large meshes.",
+          "chunk": "4"
+        },
+        {
+          "from": "GPS",
+          "relation": "usedFor",
+          "to": "MatrixBandwidthMinimization",
+          "context": "The most practical solution is the GPS(Gibbs, Poole and Stockmeyer) method[17], which is one of the fastest heuristics, and also provides good solution quality.",
+          "chunk": "4"
+        },
+        {
+          "from": "MatrixBandwidthMinimization",
+          "relation": "type",
+          "to": "Problem",
+          "context": "Matrix Bandwidth Minimization: Let G(V,E) a graph with vertex set V, |V| = n and edge set E.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the context of optimizing memory bandwidth, how does the improved GPS method specifically contribute to solving the Matrix Bandwidth Minimization problem?",
+    "options": {
+      "A": "The GPS method directly reduces the physical memory required by minimizing data transfer between components.",
+      "B": "It uses a basic heuristic that does not significantly impact the solution quality or the processing time.",
+      "C": "By applying higher time complexity heuristics, it efficiently manages large mesh structures for bandwidth minimization.",
+      "D": "It employs simplified algorithms that reduce the time complexity of operations on small graph structures."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A because the context highlights that the improved GPS method, despite having higher time complexity, is effective for large meshes, which are crucial in the Matrix Bandwidth Minimization problem. This problem often involves managing large graph structures, and the GPS provides a quality solution efficiently.",
+    "path_description": "Path: Luo --[improved]--> GPS --[usedFor]--> MatrixBandwidthMinimization --[type]--> Problem",
+    "context": "All of the improved GPS heuristics have higher time complexity, which is an important parameter in case of large meshes. | The most practical solution is the GPS(Gibbs, Poole and Stockmeyer) method[17], which is one of the fastest heuristics, and also provides good solution quality. | Matrix Bandwidth Minimization: Let G(V,E) a graph with vertex set V, |V| = n and edge set E.",
+    "paper_id": "60"
+  },
+  {
+    "section": "architecture1",
+    "path": {
+      "section": "architecture1",
+      "start_entity": "FiniteVolumeDiscretization",
+      "end_entity": "MemoryAccesses",
+      "hops": [
+        {
+          "from": "FiniteVolumeDiscretization",
+          "relation": "eliminates",
+          "to": "MemoryBandwidth",
+          "context": "In the case of finite volume discretization irregular memory access pattern and high memory bandwidth requirement can be eliminated by storing a small part of the grid on-chip",
+          "chunk": "2"
+        },
+        {
+          "from": "MemoryBandwidth",
+          "relation": "savedBy",
+          "to": "OverlappingInputDataSets",
+          "context": "Overlapping input data sets can be utilized to reduce the number of memory accesses and save memory bandwidth",
+          "chunk": "2"
+        },
+        {
+          "from": "OverlappingInputDataSets",
+          "relation": "reduces",
+          "to": "MemoryAccesses",
+          "context": "Overlapping input data sets can be utilized to reduce the number of memory accesses",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "How does the utilization of overlapping input data sets specifically benefit the performance of computational architectures employing finite volume discretization?",
+    "options": {
+      "A": "By storing a larger portion of the grid on-chip, which fundamentally changes the grid's storage strategy.",
+      "B": "By allowing more data to be processed concurrently, which enhances the parallelism and scalability of the system.",
+      "C": "By increasing the computational intensity per memory access, thereby directly accelerating the processing speed of the system.",
+      "D": "By reducing the number of memory accesses, which decreases the demand on memory bandwidth and addresses irregular memory access patterns."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A because, as outlined in the knowledge path, the utilization of overlapping input data sets in finite volume discretization setups helps in reducing the number of memory accesses. This reduction in memory accesses directly contributes to lowering the demand on memory bandwidth and alleviates problems associated with irregular memory access patterns, which are typical in finite volume discretization.",
+    "path_description": "Path: FiniteVolumeDiscretization --[eliminates]--> MemoryBandwidth --[savedBy]--> OverlappingInputDataSets --[reduces]--> MemoryAccesses",
+    "context": "In the case of finite volume discretization irregular memory access pattern and high memory bandwidth requirement can be eliminated by storing a small part of the grid on-chip | Overlapping input data sets can be utilized to reduce the number of memory accesses and save memory bandwidth | Overlapping input data sets can be utilized to reduce the number of memory accesses",
+    "paper_id": "60"
+  },
+  {
+    "section": "architecture1",
+    "path": {
+      "section": "architecture1",
+      "start_entity": "FiniteVolumeDiscretization",
+      "end_entity": "MemoryAccesses",
+      "hops": [
+        {
+          "from": "FiniteVolumeDiscretization",
+          "relation": "requires",
+          "to": "MemoryBandwidth",
+          "context": "In the case of finite volume discretization irregular memory access pattern and high memory bandwidth requirement can be eliminated by storing a small part of the grid on-chip",
+          "chunk": "2"
+        },
+        {
+          "from": "MemoryBandwidth",
+          "relation": "savedBy",
+          "to": "OverlappingInputDataSets",
+          "context": "Overlapping input data sets can be utilized to reduce the number of memory accesses and save memory bandwidth",
+          "chunk": "2"
+        },
+        {
+          "from": "OverlappingInputDataSets",
+          "relation": "reduces",
+          "to": "MemoryAccesses",
+          "context": "Overlapping input data sets can be utilized to reduce the number of memory accesses",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the context of computational architecture, how can the efficiency of finite volume discretization be enhanced with respect to memory usage?",
+    "options": {
+      "A": "By increasing the size of the grid stored on-chip to reduce the irregular memory access patterns.",
+      "B": "By overlapping input data sets to reduce the number of memory accesses and save memory bandwidth.",
+      "C": "By decreasing the computational complexity of the finite volume discretization algorithms.",
+      "D": "By using higher performance processors to handle the high memory bandwidth requirements."
+    },
+    "correct_answer": "B",
+    "explanation": "According to the knowledge path, finite volume discretization requires high memory bandwidth and can benefit from overlapping input data sets. This overlapping reduces the number of memory accesses and saves memory bandwidth, thus enhancing efficiency.",
+    "path_description": "Path: FiniteVolumeDiscretization --[requires]--> MemoryBandwidth --[savedBy]--> OverlappingInputDataSets --[reduces]--> MemoryAccesses",
+    "context": "In the case of finite volume discretization irregular memory access pattern and high memory bandwidth requirement can be eliminated by storing a small part of the grid on-chip | Overlapping input data sets can be utilized to reduce the number of memory accesses and save memory bandwidth | Overlapping input data sets can be utilized to reduce the number of memory accesses",
+    "paper_id": "60"
+  },
+  {
+    "section": "memorybandwidthoptimization3",
+    "path": {
+      "section": "memorybandwidthoptimization3",
+      "start_entity": "Mesh",
+      "end_entity": "Equation",
+      "hops": [
+        {
+          "from": "Mesh",
+          "relation": "evaluatedBy",
+          "to": "AM1",
+          "context": "Measurements on three meshes with different results shows that the solution quality mainly depends on the maximal degree of the mesh",
+          "chunk": "6"
+        },
+        {
+          "from": "AM1",
+          "relation": "evaluates",
+          "to": "Eq2",
+          "context": "If Eq. 2 holds, AM1 continue to add nodes to part",
+          "chunk": "6"
+        },
+        {
+          "from": "Eq2",
+          "relation": "type",
+          "to": "Equation",
+          "context": "If Eq. 2 holds, AM1 continue to add nodes to part",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the context of optimizing memory bandwidth, what is the primary result of the AM1 algorithm evaluating Eq2 with respect to a mesh network?",
+    "options": {
+      "A": "AM1 adds more nodes to a part of the mesh network if Eq2 holds, indicating a dependency on the mesh's maximal degree.",
+      "B": "AM1 ceases all modifications to the mesh network upon evaluating Eq2, maintaining the current state of the network.",
+      "C": "AM1 removes nodes from the mesh network if Eq2 does not hold, optimizing the memory bandwidth usage.",
+      "D": "AM1 redistributes nodes evenly across the mesh network when Eq2 is evaluated, regardless of the equation's conditions."
+    },
+    "correct_answer": "A",
+    "explanation": "According to the provided context, the evaluation of Eq2 by AM1 leads to the addition of nodes to a part of the mesh, which depends on the maximal degree of the mesh. This understanding comes from the relationship and dependencies established between the mesh, AM1, and Eq2.",
+    "path_description": "Path: Mesh --[evaluatedBy]--> AM1 --[evaluates]--> Eq2 --[type]--> Equation",
+    "context": "Measurements on three meshes with different results shows that the solution quality mainly depends on the maximal degree of the mesh | If Eq. 2 holds, AM1 continue to add nodes to part | If Eq. 2 holds, AM1 continue to add nodes to part",
+    "paper_id": "60"
+  },
+  {
+    "section": "casestudyfinitevolumesolverfortheeulerequations2",
+    "path": {
+      "section": "casestudyfinitevolumesolverfortheeulerequations2",
+      "start_entity": "AverageVelocity",
+      "end_entity": "Variable",
+      "hops": [
+        {
+          "from": "AverageVelocity",
+          "relation": "relatedTo",
+          "to": "UR",
+          "context": "notations |u¯| and |c¯| represent the average velocity and speed of sound at an interface, respectively.",
+          "chunk": "9"
+        },
+        {
+          "from": "UR",
+          "relation": "subtractedFrom",
+          "to": "UL",
+          "context": "defined as UR - UL (|u¯| + c¯).",
+          "chunk": "9"
+        },
+        {
+          "from": "UL",
+          "relation": "type",
+          "to": "Variable",
+          "context": "A finite volume scheme is characterized by UL and UR.",
+          "chunk": "9"
+        }
+      ]
+    },
+    "question": "In a finite volume solver for the Euler equations, if the velocity of fluid between left (UL) and right (UR) states is determined as UR - UL, what does the variable |u¯| represent in this context?",
+    "options": {
+      "A": "The average velocity |u¯| is a constant value representing the speed of sound at the interface.",
+      "B": "The average velocity |u¯| represents the sum of the velocities at the left and right states of the fluid.",
+      "C": "The average velocity |u¯| represents the resultant velocity calculated as the difference between UR and UL.",
+      "D": "The average velocity |u¯| represents the midpoint velocity between the maximum and minimum velocities at the interface."
+    },
+    "correct_answer": "C",
+    "explanation": "From the paper's context, |u¯| is defined in the terms of UR and UL as UR - UL. Hence, the average velocity |u¯| specifically represents the resultant velocity which is the difference between the velocities at the right and left states (UR and UL).",
+    "path_description": "Path: AverageVelocity --[relatedTo]--> UR --[subtractedFrom]--> UL --[type]--> Variable",
+    "context": "notations |u¯| and |c¯| represent the average velocity and speed of sound at an interface, respectively. | defined as UR - UL (|u¯| + c¯). | A finite volume scheme is characterized by UL and UR.",
+    "paper_id": "60"
+  },
+  {
+    "section": "casestudyfinitevolumesolverfortheeulerequations2",
+    "path": {
+      "section": "casestudyfinitevolumesolverfortheeulerequations2",
+      "start_entity": "AverageVelocity",
+      "end_entity": "UL",
+      "hops": [
+        {
+          "from": "AverageVelocity",
+          "relation": "partOf",
+          "to": "FiniteVolumeScheme",
+          "context": "notations |u¯| and |c¯| represent the average velocity and speed of sound at an interface, respectively.",
+          "chunk": "9"
+        },
+        {
+          "from": "FiniteVolumeScheme",
+          "relation": "characterizedBy",
+          "to": "UR",
+          "context": "A finite volume scheme is characterized by UL and UR.",
+          "chunk": "9"
+        },
+        {
+          "from": "UR",
+          "relation": "subtractedFrom",
+          "to": "UL",
+          "context": "defined as UR - UL (|u¯| + c¯).",
+          "chunk": "9"
+        }
+      ]
+    },
+    "question": "In the context of a finite volume scheme for the Euler equations, how is the characteristic property of the scheme, expressed in terms of UR and UL, related to the average velocity at an interface?",
+    "options": {
+      "A": "It is determined by adding the average velocity and the speed of sound to UL, then finding the difference with UR.",
+      "B": "It involves multiplying UR by the sum of the average velocity and the speed of sound, then subtracting UL.",
+      "C": "It is defined by the net difference between UR and UL, subtracting the sum of the average velocity and the speed of sound from UR.",
+      "D": "It is the product of the sum of the average velocity and the speed of sound with the difference between UR and UL."
+    },
+    "correct_answer": "C",
+    "explanation": "The finite volume scheme's characteristic property is defined by the expression UR - UL, which involves subtracting the sum of the average velocity and the speed of sound (|u¯| + c¯) from UR. This adheres to the knowledge path: AverageVelocity is a part of FiniteVolumeScheme, which is characterized by UR subtracted from UL.",
+    "path_description": "Path: AverageVelocity --[partOf]--> FiniteVolumeScheme --[characterizedBy]--> UR --[subtractedFrom]--> UL",
+    "context": "notations |u¯| and |c¯| represent the average velocity and speed of sound at an interface, respectively. | A finite volume scheme is characterized by UL and UR. | defined as UR - UL (|u¯| + c¯).",
+    "paper_id": "60"
+  }
+]

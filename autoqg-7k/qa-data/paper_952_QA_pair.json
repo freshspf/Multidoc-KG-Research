@@ -1,0 +1,217 @@
+[
+  {
+    "section": "systemmodel2",
+    "path": {
+      "section": "systemmodel2",
+      "start_entity": "TransmissionWindow",
+      "end_entity": "MathematicalConcept",
+      "hops": [
+        {
+          "from": "TransmissionWindow",
+          "relation": "hasDuration",
+          "to": "TC",
+          "context": "The gate opens periodically during each network cycle of duration TC.",
+          "chunk": "3"
+        },
+        {
+          "from": "TC",
+          "relation": "isDeterminedBy",
+          "to": "GCD",
+          "context": "The duration of the network cycle corresponds to the Greatest Common Divisor (GCD) of all application cycles involved, given by TC = GCD(Ts).",
+          "chunk": "3"
+        },
+        {
+          "from": "GCD",
+          "relation": "type",
+          "to": "MathematicalConcept",
+          "context": "The duration of the network cycle corresponds to the Greatest Common Divisor (GCD) of all application cycles involved.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In a network system that opens its gate periodically, how is the duration of the network cycle determined according to the mathematical concept described?",
+    "options": {
+      "A": "The duration of the network cycle is determined by the Least Common Multiple of all application cycles involved.",
+      "B": "The duration of the network cycle is equivalent to the average duration of all application cycles in the network.",
+      "C": "The duration of the network cycle is calculated by the sum of all application cycles within the network.",
+      "D": "The duration of the network cycle corresponds to the Greatest Common Divisor of all application cycles involved."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is C, as the duration of the network cycle, TC, is specifically stated to be determined by the Greatest Common Divisor (GCD) of all application cycles, TC = GCD(Ts). This concept falls under the type 'MathematicalConcept' as described in the knowledge path.",
+    "path_description": "Path: TransmissionWindow --[hasDuration]--> TC --[isDeterminedBy]--> GCD --[type]--> MathematicalConcept",
+    "context": "The gate opens periodically during each network cycle of duration TC. | The duration of the network cycle corresponds to the Greatest Common Divisor (GCD) of all application cycles involved, given by TC = GCD(Ts). | The duration of the network cycle corresponds to the Greatest Common Divisor (GCD) of all application cycles involved.",
+    "paper_id": "1759"
+  },
+  {
+    "section": "systemmodel2",
+    "path": {
+      "section": "systemmodel2",
+      "start_entity": "TransmissionTime",
+      "end_entity": "GCD",
+      "hops": [
+        {
+          "from": "TransmissionTime",
+          "relation": "isConstrainedBy",
+          "to": "TransmissionWindow",
+          "context": "The duration wDC of the transmission window for the traffic stream DC must be at least as large as the transmission time required for the burst of NDC packets.",
+          "chunk": "3"
+        },
+        {
+          "from": "TransmissionWindow",
+          "relation": "hasDuration",
+          "to": "TC",
+          "context": "The gate opens periodically during each network cycle of duration TC.",
+          "chunk": "3"
+        },
+        {
+          "from": "TC",
+          "relation": "isDeterminedBy",
+          "to": "GCD",
+          "context": "The duration of the network cycle corresponds to the Greatest Common Divisor (GCD) of all application cycles involved, given by TC = GCD(Ts).",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In a network system where the transmission time is constrained by the transmission window, how is the duration of each network cycle determined?",
+    "options": {
+      "A": "It is determined randomly within a predefined range to optimize traffic management and reduce congestion.",
+      "B": "The duration of each network cycle is equivalent to the Greatest Common Divisor of all application cycles' durations.",
+      "C": "The network cycle duration is determined by the Least Common Multiple of the transmission windows' durations.",
+      "D": "Each network cycle's duration is set by the network administrator based on real-time traffic analysis."
+    },
+    "correct_answer": "B",
+    "explanation": "The duration of each network cycle, denoted as TC, is determined by the Greatest Common Divisor (GCD) of all application cycles involved. This is outlined in the provided knowledge path where TC is determined by GCD, implying the method to calculate the network cycle duration.",
+    "path_description": "Path: TransmissionTime --[isConstrainedBy]--> TransmissionWindow --[hasDuration]--> TC --[isDeterminedBy]--> GCD",
+    "context": "The duration wDC of the transmission window for the traffic stream DC must be at least as large as the transmission time required for the burst of NDC packets. | The gate opens periodically during each network cycle of duration TC. | The duration of the network cycle corresponds to the Greatest Common Divisor (GCD) of all application cycles involved, given by TC = GCD(Ts).",
+    "paper_id": "1759"
+  },
+  {
+    "section": "testbedandexperimentalsetup2",
+    "path": {
+      "section": "testbedandexperimentalsetup2",
+      "start_entity": "Network_Traffic",
+      "end_entity": "Marker",
+      "hops": [
+        {
+          "from": "Network_Traffic",
+          "relation": "generatedBy",
+          "to": "Output_Ports",
+          "context": "Network traffic is generated.",
+          "chunk": "6"
+        },
+        {
+          "from": "Output_Ports",
+          "relation": "markedWith",
+          "to": "Red_Dot",
+          "context": "Specifically, these points are the output ports of the TSN switches MS and SL and are marked with a red dot.",
+          "chunk": "6"
+        },
+        {
+          "from": "Red_Dot",
+          "relation": "type",
+          "to": "Marker",
+          "context": "Specifically, these points are the output ports of the TSN switches MS and SL and are marked with a red dot.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the context of the network setup described in the 'testbedandexperimentalsetup2' section, what does the presence of a red dot on the output ports of the TSN switches MS and SL indicate?",
+    "options": {
+      "A": "The red dot signifies that these output ports are inactive or turned off for maintenance.",
+      "B": "The red dot indicates that these output ports are critical for monitoring network traffic.",
+      "C": "The red dot is a random marker with no specific significance to the network traffic.",
+      "D": "The red dot marks these output ports as being less significant for data throughput."
+    },
+    "correct_answer": "B",
+    "explanation": "The red dot on the output ports, as described, is associated with the marking of critical points in the network setup for monitoring traffic. Given the context and the steps in the knowledge graph, indicating that network traffic is generated by these ports, and these specific ports are marked with a red dot, it can be inferred that the marker (red dot) denotes importance or a key area of focus in monitoring the network traffic.",
+    "path_description": "Path: Network_Traffic --[generatedBy]--> Output_Ports --[markedWith]--> Red_Dot --[type]--> Marker",
+    "context": "Network traffic is generated. | Specifically, these points are the output ports of the TSN switches MS and SL and are marked with a red dot. | Specifically, these points are the output ports of the TSN switches MS and SL and are marked with a red dot.",
+    "paper_id": "1759"
+  },
+  {
+    "section": "systemmodel2",
+    "path": {
+      "section": "systemmodel2",
+      "start_entity": "TransmissionTime",
+      "end_entity": "Concept",
+      "hops": [
+        {
+          "from": "TransmissionTime",
+          "relation": "isConstrainedBy",
+          "to": "TransmissionWindow",
+          "context": "The duration wDC of the transmission window for the traffic stream DC must be at least as large as the transmission time required for the burst of NDC packets.",
+          "chunk": "3"
+        },
+        {
+          "from": "TransmissionWindow",
+          "relation": "isConfiguredBasedOn",
+          "to": "NetworkCycle",
+          "context": "The GCL for this port must be configured based on the network cycle TC, as outlined in Eq. (1).",
+          "chunk": "3"
+        },
+        {
+          "from": "NetworkCycle",
+          "relation": "type",
+          "to": "Concept",
+          "context": "The duration of the network cycle corresponds to the Greatest Common Divisor (GCD) of all application cycles involved.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In a network model where the transmission time for a traffic stream is constrained by the transmission window, and this window is configured based on the network cycle, what determines the minimum duration of the network cycle?",
+    "options": {
+      "A": "The minimum duration of the network cycle is determined by the average duration of the transmission windows for all traffic streams.",
+      "B": "The minimum duration of the network cycle is determined by the Least Common Multiple of all application cycles involved.",
+      "C": "The minimum duration of the network cycle is determined by the sum of all transmission times required by the traffic streams.",
+      "D": "The minimum duration of the network cycle is determined by the Greatest Common Divisor of all application cycles involved."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A because, according to the context provided in the paper, the duration of the network cycle corresponds to the Greatest Common Divisor (GCD) of all application cycles involved. This is a critical factor in configuring the network cycle, thus determining the minimum duration of the network cycle.",
+    "path_description": "Path: TransmissionTime --[isConstrainedBy]--> TransmissionWindow --[isConfiguredBasedOn]--> NetworkCycle --[type]--> Concept",
+    "context": "The duration wDC of the transmission window for the traffic stream DC must be at least as large as the transmission time required for the burst of NDC packets. | The GCL for this port must be configured based on the network cycle TC, as outlined in Eq. (1). | The duration of the network cycle corresponds to the Greatest Common Divisor (GCD) of all application cycles involved.",
+    "paper_id": "1759"
+  },
+  {
+    "section": "conclusionsandfuturework",
+    "path": {
+      "section": "conclusionsandfuturework",
+      "start_entity": "TrafficScheduling",
+      "end_entity": "NetworkCharacteristic",
+      "hops": [
+        {
+          "from": "TrafficScheduling",
+          "relation": "optimizedBy",
+          "to": "AdditionalExperiments",
+          "context": "to optimize traffic scheduling for general applications",
+          "chunk": "8"
+        },
+        {
+          "from": "AdditionalExperiments",
+          "relation": "relatedTo",
+          "to": "Periodicity",
+          "context": "related to the periodicity and the ICI effects",
+          "chunk": "8"
+        },
+        {
+          "from": "Periodicity",
+          "relation": "type",
+          "to": "NetworkCharacteristic",
+          "context": "related to the periodicity and the ICI effects",
+          "chunk": "8"
+        }
+      ]
+    },
+    "question": "How does optimizing traffic scheduling through additional experiments impact network characteristics in general applications?",
+    "options": {
+      "A": "It enhances network periodicity which is a crucial characteristic for managing Intercarrier Interference (ICI).",
+      "B": "It primarily increases the data throughput by reducing the number of collisions in network traffic.",
+      "C": "It reduces the overall network security by exposing periodic data patterns to potential cyber threats.",
+      "D": "It directly improves the hardware efficiency of network components such as routers and switches."
+    },
+    "correct_answer": "A",
+    "explanation": "The question requires understanding the impact of optimized traffic scheduling (first node) which is achieved through additional experiments (second node). These experiments relate to the periodicity (third node), which is a type of network characteristic (final node). The correct answer is A because it correctly connects the optimization of traffic scheduling through experiments with the enhancement of network periodicity, which is crucial for managing ICI effects as described in the paper context.",
+    "path_description": "Path: TrafficScheduling --[optimizedBy]--> AdditionalExperiments --[relatedTo]--> Periodicity --[type]--> NetworkCharacteristic",
+    "context": "to optimize traffic scheduling for general applications | related to the periodicity and the ICI effects | related to the periodicity and the ICI effects",
+    "paper_id": "1759"
+  }
+]

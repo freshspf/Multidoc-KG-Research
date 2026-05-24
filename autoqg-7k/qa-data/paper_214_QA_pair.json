@@ -1,0 +1,217 @@
+[
+  {
+    "section": "autonomousvehicles3",
+    "path": {
+      "section": "autonomousvehicles3",
+      "start_entity": "JeepCherokee",
+      "end_entity": "NetworkType",
+      "hops": [
+        {
+          "from": "JeepCherokee",
+          "relation": "features",
+          "to": "ControllerAreaNetwork",
+          "context": "Figure 1 illustrates the network architecture of a Jeep Cherokee (Level 2-3 Autonomy).",
+          "chunk": "3"
+        },
+        {
+          "from": "ControllerAreaNetwork",
+          "relation": "connects",
+          "to": "LocalInterconnectNetwork",
+          "context": "Body Electrical CAN: This network connects to the Main Body ECU, which manages all body functions of the vehicle via a Local Interconnect Network (LIN).",
+          "chunk": "3"
+        },
+        {
+          "from": "LocalInterconnectNetwork",
+          "relation": "type",
+          "to": "NetworkType",
+          "context": "Body Electrical CAN: This network connects to the Main Body ECU, which manages all body functions of the vehicle via a Local Interconnect Network (LIN).",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the network architecture of a Jeep Cherokee with Level 2-3 Autonomy, what type of network does the Controller Area Network (CAN) connect to via the Local Interconnect Network (LIN)?",
+    "options": {
+      "A": "The Controller Area Network connects to an analog-based Network Type via the Local Interconnect Network.",
+      "B": "The Controller Area Network connects to a digital and analog integrated Network Type via the Local Interconnect Network.",
+      "C": "The Controller Area Network connects to a digital-only Network Type via the Local Interconnect Network.",
+      "D": "The Controller Area Network connects to a hybrid Network Type, facilitating both digital and analog signals via the Local Interconnect Network."
+    },
+    "correct_answer": "C",
+    "explanation": "The Local Interconnect Network (LIN) types are typically digital networks designed to manage lesser complex and low-speed requirements efficiently. In the context of the Jeep Cherokee's network architecture, the LIN connected by the Controller Area Network (CAN) is characterized as a digital-only type network. This is inferred from the structure and functions of LINs in automotive systems, which predominantly handle digital signals for vehicle body functions.",
+    "path_description": "Path: JeepCherokee --[features]--> ControllerAreaNetwork --[connects]--> LocalInterconnectNetwork --[type]--> NetworkType",
+    "context": "Figure 1 illustrates the network architecture of a Jeep Cherokee (Level 2-3 Autonomy). | Body Electrical CAN: This network connects to the Main Body ECU, which manages all body functions of the vehicle via a Local Interconnect Network (LIN). | Body Electrical CAN: This network connects to the Main Body ECU, which manages all body functions of the vehicle via a Local Interconnect Network (LIN).",
+    "paper_id": "1278"
+  },
+  {
+    "section": "autonomousvehicles4",
+    "path": {
+      "section": "autonomousvehicles4",
+      "start_entity": "MainboardECU",
+      "end_entity": "Architecture",
+      "hops": [
+        {
+          "from": "MainboardECU",
+          "relation": "manages",
+          "to": "IntraVehicleNetworkingLayer",
+          "context": "Mainboard ECU manages the head unit and handles functions like navigation, display, and network management.",
+          "chunk": "4"
+        },
+        {
+          "from": "IntraVehicleNetworkingLayer",
+          "relation": "partOf",
+          "to": "GenericAutonomousVehicleArchitecture",
+          "context": "This architecture is organized into four layers: Intra-Vehicle Networking Layer.",
+          "chunk": "4"
+        },
+        {
+          "from": "GenericAutonomousVehicleArchitecture",
+          "relation": "type",
+          "to": "Architecture",
+          "context": "This section introduces a generic architecture for autonomous vehicles (AVs).",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the context of a generic autonomous vehicle architecture, which component is directly managed by the Mainboard ECU and is part of a layer that constitutes the overall vehicle architecture?",
+    "options": {
+      "A": "The External Communication Layer, which handles communication between the vehicle and external networks.",
+      "B": "The Intra-Vehicle Networking Layer, which facilitates network management and communication within the vehicle.",
+      "C": "The Vehicle Control Layer, which directly manages the vehicle's operational mechanisms like steering and braking.",
+      "D": "The Sensor Integration Layer, which processes data from various sensors to assist in navigation and safety."
+    },
+    "correct_answer": "B",
+    "explanation": "The Mainboard ECU manages key functions including network management, and according to the knowledge path, it specifically manages the Intra-Vehicle Networking Layer. This layer is part of the generic autonomous vehicle architecture, fitting the description of being directly managed by the Mainboard ECU and being a component of the overall architecture.",
+    "path_description": "Path: MainboardECU --[manages]--> IntraVehicleNetworkingLayer --[partOf]--> GenericAutonomousVehicleArchitecture --[type]--> Architecture",
+    "context": "Mainboard ECU manages the head unit and handles functions like navigation, display, and network management. | This architecture is organized into four layers: Intra-Vehicle Networking Layer. | This section introduces a generic architecture for autonomous vehicles (AVs).",
+    "paper_id": "1278"
+  },
+  {
+    "section": "autonomousvehiclecybersecurityattacks4",
+    "path": {
+      "section": "autonomousvehiclecybersecurityattacks4",
+      "start_entity": "Gateway",
+      "end_entity": "VehicleSystem",
+      "hops": [
+        {
+          "from": "Gateway",
+          "relation": "controls",
+          "to": "DiagnosticMode",
+          "context": "With control over the compromised Gateway, the researchers were able to force any ECU into this diagnostic mode.",
+          "chunk": "8"
+        },
+        {
+          "from": "DiagnosticMode",
+          "relation": "disables",
+          "to": "PowerAssistedChassis",
+          "context": "This allowed them to deactivate essential safety features such as the power-assisted chassis.",
+          "chunk": "8"
+        },
+        {
+          "from": "PowerAssistedChassis",
+          "relation": "type",
+          "to": "VehicleSystem",
+          "context": "This allowed them to deactivate essential safety features such as the power-assisted chassis.",
+          "chunk": "8"
+        }
+      ]
+    },
+    "question": "In the context of a cybersecurity attack on an autonomous vehicle, how does gaining control of the Gateway potentially compromise the vehicle's operational safety?",
+    "options": {
+      "A": "By intercepting data transmitted through the Gateway, attackers can falsify sensor readings, leading to inappropriate vehicle responses.",
+      "B": "By controlling the Gateway, attackers can force ECUs into diagnostic mode, disabling systems like the power-assisted chassis, impacting vehicle control.",
+      "C": "By directly manipulating the Gateway's firmware, attackers can physically disconnect the vehicle's power supply, leading to a total shutdown.",
+      "D": "By accessing the Gateway, attackers can overload the vehicle’s communication network, causing delays in critical signal processing."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A because, as described in the context, controlling the Gateway allows attackers to force ECUs into a diagnostic mode. This action specifically disables critical safety features such as the power-assisted chassis, thereby directly compromising the vehicle's ability to maintain control, as it impacts the vehicle system that assists in chassis operations.",
+    "path_description": "Path: Gateway --[controls]--> DiagnosticMode --[disables]--> PowerAssistedChassis --[type]--> VehicleSystem",
+    "context": "With control over the compromised Gateway, the researchers were able to force any ECU into this diagnostic mode. | This allowed them to deactivate essential safety features such as the power-assisted chassis. | This allowed them to deactivate essential safety features such as the power-assisted chassis.",
+    "paper_id": "1278"
+  },
+  {
+    "section": "stridedreadthreatmodelforautonomousvehiclesarchitecture",
+    "path": {
+      "section": "stridedreadthreatmodelforautonomousvehiclesarchitecture",
+      "start_entity": "STRIDE",
+      "end_entity": "DenialOfService",
+      "hops": [
+        {
+          "from": "STRIDE",
+          "relation": "popularizedBy",
+          "to": "Microsoft",
+          "context": "STRIDE is a widely used threat modeling framework introduced in 1999 and popularized by Microsoft in 2002.",
+          "chunk": "10"
+        },
+        {
+          "from": "Microsoft",
+          "relation": "popularized",
+          "to": "STRIDE",
+          "context": "STRIDE is a widely used threat modeling framework introduced in 1999 and popularized by Microsoft in 2002.",
+          "chunk": "10"
+        },
+        {
+          "from": "STRIDE",
+          "relation": "focusesOn",
+          "to": "DenialOfService",
+          "context": "• D: Denial of Service - Attacks where an attacker exhausts system resources (computing or networking), reducing its functionality.",
+          "chunk": "10"
+        }
+      ]
+    },
+    "question": "In the context of the STRIDE threat modeling framework, which aspect did Microsoft play a significant role in popularizing, particularly concerning autonomous vehicle architecture?",
+    "options": {
+      "A": "The development of encryption techniques to enhance data security in autonomous vehicles",
+      "B": "The focus on software updates and patch management to prevent malware attacks",
+      "C": "The introduction of real-time monitoring systems for detecting physical intrusions",
+      "D": "The emphasis on Denial of Service attacks where system resources are exhausted, impacting functionality"
+    },
+    "correct_answer": "D",
+    "explanation": "According to the provided knowledge path, Microsoft was instrumental in popularizing the STRIDE threat modeling framework, which focuses on various types of threats including Denial of Service (DoS). DoS is specifically noted in the context of attacks where an attacker exhausts system resources, thus reducing functionality, which is crucial in the architecture of autonomous vehicles.",
+    "path_description": "Path: STRIDE --[popularizedBy]--> Microsoft --[popularized]--> STRIDE --[focusesOn]--> DenialOfService",
+    "context": "STRIDE is a widely used threat modeling framework introduced in 1999 and popularized by Microsoft in 2002. | STRIDE is a widely used threat modeling framework introduced in 1999 and popularized by Microsoft in 2002. | • D: Denial of Service - Attacks where an attacker exhausts system resources (computing or networking), reducing its functionality.",
+    "paper_id": "1278"
+  },
+  {
+    "section": "autonomousvehiclecybersecurityattacks4",
+    "path": {
+      "section": "autonomousvehiclecybersecurityattacks4",
+      "start_entity": "TeslaECUs",
+      "end_entity": "VehicleSystem",
+      "hops": [
+        {
+          "from": "TeslaECUs",
+          "relation": "hasMode",
+          "to": "DiagnosticMode",
+          "context": "Tesla ECUs have a special diagnostic mode that halts the ECU from sending CAN messages and responding to diagnostic requests.",
+          "chunk": "8"
+        },
+        {
+          "from": "DiagnosticMode",
+          "relation": "disables",
+          "to": "AntiLockBrakingSystem",
+          "context": "This allowed them to deactivate essential safety features such as the Anti-lock Braking System (ABS).",
+          "chunk": "8"
+        },
+        {
+          "from": "AntiLockBrakingSystem",
+          "relation": "type",
+          "to": "VehicleSystem",
+          "context": "This allowed them to deactivate essential safety features such as the Anti-lock Braking System (ABS).",
+          "chunk": "8"
+        }
+      ]
+    },
+    "question": "In the context of Tesla's vehicle cybersecurity, what does engaging the diagnostic mode on the Electronic Control Units (ECUs) specifically disable, thereby impacting vehicle safety?",
+    "options": {
+      "A": "The diagnostic mode when activated deactivates the airbag deployment system, crucial for crash protection.",
+      "B": "Engaging the diagnostic mode disables the Anti-lock Braking System (ABS), which is a critical vehicle safety system.",
+      "C": "Activation of the diagnostic mode primarily disables the vehicle's infotainment system, reducing driver distractions.",
+      "D": "It disables the vehicle's automatic transmission system, affecting the gear shifting process."
+    },
+    "correct_answer": "B",
+    "explanation": "The diagnostic mode on Tesla's ECUs specifically disables the Anti-lock Braking System (ABS), as indicated in the knowledge graph path from TeslaECUs through DiagnosticMode to AntiLockBrakingSystem type VehicleSystem. This mode halts ECU communication, affecting critical safety features such as the ABS, which is essential for maintaining vehicle control during sudden stops.",
+    "path_description": "Path: TeslaECUs --[hasMode]--> DiagnosticMode --[disables]--> AntiLockBrakingSystem --[type]--> VehicleSystem",
+    "context": "Tesla ECUs have a special diagnostic mode that halts the ECU from sending CAN messages and responding to diagnostic requests. | This allowed them to deactivate essential safety features such as the Anti-lock Braking System (ABS). | This allowed them to deactivate essential safety features such as the Anti-lock Braking System (ABS).",
+    "paper_id": "1278"
+  }
+]

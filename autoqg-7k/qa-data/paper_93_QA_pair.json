@@ -1,0 +1,217 @@
+[
+  {
+    "section": "logistictransportationsemanticlinknetworkmodelforsupportingtraceability1",
+    "path": {
+      "section": "logistictransportationsemanticlinknetworkmodelforsupportingtraceability1",
+      "start_entity": "SemanticLink",
+      "end_entity": "TradeCertifications",
+      "hops": [
+        {
+          "from": "SemanticLink",
+          "relation": "partOf",
+          "to": "SemanticLinkNetworkModel",
+          "context": "A semantic link network consists of a set of semantic links.",
+          "chunk": "4"
+        },
+        {
+          "from": "SemanticLinkNetworkModel",
+          "relation": "represents",
+          "to": "LogisticTransportation",
+          "context": "The semantic link network model can be used as a lightweight semantic representation model to represent logistic transportations.",
+          "chunk": "4"
+        },
+        {
+          "from": "LogisticTransportation",
+          "relation": "includes",
+          "to": "TradeCertifications",
+          "context": "related documents such as contracts, transportation licenses, trade certifications.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the context of a semantic link network model for logistic transportation, what does the model specifically include to support the traceability of related documents?",
+    "options": {
+      "A": "The model includes a database of logistic companies for direct access and verification.",
+      "B": "The model includes detailed representations of individual contracts linked to logistic events.",
+      "C": "The model includes mechanisms for embedding transportation licenses into the network.",
+      "D": "The model includes trade certifications as part of its structure to ensure traceability."
+    },
+    "correct_answer": "D",
+    "explanation": "The semantic link network model in logistic transportation includes trade certifications as part of its structure. This inclusion aids in tracing and verifying related documents throughout the logistic process, ensuring compliance and facilitating traceability.",
+    "path_description": "Path: SemanticLink --[partOf]--> SemanticLinkNetworkModel --[represents]--> LogisticTransportation --[includes]--> TradeCertifications",
+    "context": "A semantic link network consists of a set of semantic links. | The semantic link network model can be used as a lightweight semantic representation model to represent logistic transportations. | related documents such as contracts, transportation licenses, trade certifications.",
+    "paper_id": "1525"
+  },
+  {
+    "section": "logistictransportationsemanticlinknetworkmodelforsupportingtraceability2",
+    "path": {
+      "section": "logistictransportationsemanticlinknetworkmodelforsupportingtraceability2",
+      "start_entity": "v1",
+      "end_entity": "LogisticCompanyID",
+      "hops": [
+        {
+          "from": "v1",
+          "relation": "sendsOrderTo",
+          "to": "v2",
+          "context": "platform receives an order from a customer from the customer v1 to the platform v",
+          "chunk": "5"
+        },
+        {
+          "from": "v2",
+          "relation": "issuesOrderTo",
+          "to": "v3",
+          "context": "After receiving the order, the e-business platform v2 issues an order d2 to the logistic company v3 in the second transportation.",
+          "chunk": "5"
+        },
+        {
+          "from": "v3",
+          "relation": "type",
+          "to": "LogisticCompanyID",
+          "context": "Then, v3 issues a shipment the parcel d4 from the warehouse v5 in the city A, city B and city C in following three transportations.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the described logistic transportation model, how does the e-business platform ensure the traceability of an order during its second transportation?",
+    "options": {
+      "A": "By receiving the order back from the logistic company once the shipment is delivered.",
+      "B": "By issuing an order to the logistic company, which then manages the shipment from a warehouse.",
+      "C": "By allowing customers to track their orders directly through the city A, city B, and city C.",
+      "D": "By directly sending the order to a warehouse, bypassing the logistic company in the process."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A because the e-business platform v2 issues an order to the logistic company v3, as described in the path. This company then manages the shipment from a warehouse, ensuring traceability of the order during its second transportation. Options B, C, and D are incorrect as they either describe processes not supported by the knowledge graph or misinterpret the roles of the entities involved.",
+    "path_description": "Path: v1 --[sendsOrderTo]--> v2 --[issuesOrderTo]--> v3 --[type]--> LogisticCompanyID",
+    "context": "platform receives an order from a customer from the customer v1 to the platform v | After receiving the order, the e-business platform v2 issues an order d2 to the logistic company v3 in the second transportation. | Then, v3 issues a shipment the parcel d4 from the warehouse v5 in the city A, city B and city C in following three transportations.",
+    "paper_id": "1525"
+  },
+  {
+    "section": "logistictransportationsemanticlinknetworkmodelforsupportingtraceability4",
+    "path": {
+      "section": "logistictransportationsemanticlinknetworkmodelforsupportingtraceability4",
+      "start_entity": "Failed",
+      "end_entity": "Succeeded",
+      "hops": [
+        {
+          "from": "Failed",
+          "relation": "transitionTo",
+          "to": "Init",
+          "context": "Failed ⇐ Init | End.",
+          "chunk": "7"
+        },
+        {
+          "from": "Init",
+          "relation": "transitionTo",
+          "to": "Transporting",
+          "context": "Init ⇐ Transporting | Failed | End.",
+          "chunk": "7"
+        },
+        {
+          "from": "Transporting",
+          "relation": "transitionTo",
+          "to": "Succeeded",
+          "context": "Transporting ⇐ Transporting | Succeeded | Failed.",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "In the context of the logistic transportation semantic link network model for supporting traceability, what is the correct sequence of states from initiation to success?",
+    "options": {
+      "A": "Failed state transitions to Initiation, followed by Transporting, which then transitions to Succeeded.",
+      "B": "Transporting state follows the Failed state directly and transitions into the Succeeded state without Initiation.",
+      "C": "Initiation begins after Transporting, and Transporting directly leads to Succeeded without any failure states.",
+      "D": "Initiation transitions to Transporting, which can either succeed or fail, and success transitions to completion."
+    },
+    "correct_answer": "A",
+    "explanation": "According to the knowledge path provided, the sequence starts with a 'Failed' state, transitions to 'Init', then moves to 'Transporting', and finally transitions to 'Succeeded'. This sequence shows a recovery from failure through proper initiation and transportation processes leading to success.",
+    "path_description": "Path: Failed --[transitionTo]--> Init --[transitionTo]--> Transporting --[transitionTo]--> Succeeded",
+    "context": "Failed ⇐ Init | End. | Init ⇐ Transporting | Failed | End. | Transporting ⇐ Transporting | Succeeded | Failed.",
+    "paper_id": "1525"
+  },
+  {
+    "section": "publishingandtracinglinksonblockchain6",
+    "path": {
+      "section": "publishingandtracinglinksonblockchain6",
+      "start_entity": "NodeVi",
+      "end_entity": "BlockchainAccount",
+      "hops": [
+        {
+          "from": "NodeVi",
+          "relation": "partOf",
+          "to": "ShortcutLink",
+          "context": "For each node vi on the path, the distance si from vi to payee is l −i+1 and a shortcut is constructed in a random sampling way with the sampling probability of 1/si.",
+          "chunk": "14"
+        },
+        {
+          "from": "ShortcutLink",
+          "relation": "transferredTo",
+          "to": "PayeeAccount",
+          "context": "A shortcut is transferred to a payee account when a link is published in a block transaction.",
+          "chunk": "14"
+        },
+        {
+          "from": "PayeeAccount",
+          "relation": "type",
+          "to": "BlockchainAccount",
+          "context": "A shortcut is transferred to a payee account when a link is published in a block transaction.",
+          "chunk": "14"
+        }
+      ]
+    },
+    "question": "In the context of blockchain transactions, how is a shortcut link typically transferred to a payee account?",
+    "options": {
+      "A": "A shortcut link is transferred to a payee account when it is endorsed by all nodes in the blockchain network.",
+      "B": "A shortcut link is transferred to a payee account when it is constructed with a fixed probability and privately communicated.",
+      "C": "A shortcut link is transferred to a payee account when it is randomly sampled and published in a block transaction.",
+      "D": "A shortcut link is transferred to a payee account when it is verified and recorded in a secondary transaction."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A because the context specifies that a shortcut is transferred to a payee account when a link is published in a block transaction. The process involves random sampling with a probability determined by the distance from the node vi to the payee. Options B, C, and D introduce elements like fixed probability, endorsement by all nodes, and secondary transactions, which do not align with the described method in the section.",
+    "path_description": "Path: NodeVi --[partOf]--> ShortcutLink --[transferredTo]--> PayeeAccount --[type]--> BlockchainAccount",
+    "context": "For each node vi on the path, the distance si from vi to payee is l −i+1 and a shortcut is constructed in a random sampling way with the sampling probability of 1/si. | A shortcut is transferred to a payee account when a link is published in a block transaction. | A shortcut is transferred to a payee account when a link is published in a block transaction.",
+    "paper_id": "1525"
+  },
+  {
+    "section": "conclusion",
+    "path": {
+      "section": "conclusion",
+      "start_entity": "RewardPenaltyPolicy",
+      "end_entity": "Domain",
+      "hops": [
+        {
+          "from": "RewardPenaltyPolicy",
+          "relation": "designedFor",
+          "to": "SLN",
+          "context": "A reward-penalty policy is designed based on the confirmation of the state of links",
+          "chunk": "18"
+        },
+        {
+          "from": "SLN",
+          "relation": "usedFor",
+          "to": "LogisticTransportations",
+          "context": "states of logistic transportations",
+          "chunk": "18"
+        },
+        {
+          "from": "LogisticTransportations",
+          "relation": "type",
+          "to": "Domain",
+          "context": "states of logistic transportations",
+          "chunk": "18"
+        }
+      ]
+    },
+    "question": "In the context of Supply Chain Logistics Network (SLN) design, what is the primary purpose of implementing a reward-penalty policy?",
+    "options": {
+      "A": "To encourage better human resource management within the logistics transportation sectors",
+      "B": "To reduce the overall environmental impact of logistic operations across multiple domains",
+      "C": "To increase the financial profitability of SLN by minimizing operational costs and risks",
+      "D": "To enhance the efficiency and reliability of logistic transportations within a specific domain"
+    },
+    "correct_answer": "D",
+    "explanation": "The reward-penalty policy is designed specifically for SLN, which is used for logistic transportations. This policy aims to enhance the performance within this domain by targeting the state and reliability of transportation links, hence improving efficiency and reliability.",
+    "path_description": "Path: RewardPenaltyPolicy --[designedFor]--> SLN --[usedFor]--> LogisticTransportations --[type]--> Domain",
+    "context": "A reward-penalty policy is designed based on the confirmation of the state of links | states of logistic transportations | states of logistic transportations",
+    "paper_id": "1525"
+  }
+]

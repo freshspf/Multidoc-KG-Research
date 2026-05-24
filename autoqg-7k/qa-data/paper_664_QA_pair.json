@@ -1,0 +1,260 @@
+[
+  {
+    "section": "softwareimplementation1",
+    "path": {
+      "section": "softwareimplementation1",
+      "start_entity": "ImpedanceController",
+      "end_entity": "MotionType",
+      "hops": [
+        {
+          "from": "ImpedanceController",
+          "relation": "enables",
+          "to": "ManipulatorControl",
+          "context": "The transporting function predominantly utilizes the inverse dynamics feature of the controller, whereas environmental actions rely on the stiffness attribute of the impedance controller.",
+          "chunk": "7"
+        },
+        {
+          "from": "ManipulatorControl",
+          "relation": "controls",
+          "to": "TransportingMotions",
+          "context": "Within the YORI system, cooking actions are primarily divided into two categories: transporting motions, which entails the movement of ingredients and tools.",
+          "chunk": "7"
+        },
+        {
+          "from": "TransportingMotions",
+          "relation": "type",
+          "to": "MotionType",
+          "context": "Within the YORI system, cooking actions are primarily divided into two categories: transporting motions, which entails the movement of ingredients and tools.",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "In the context of the YORI system's cooking actions, how does the ImpedanceController contribute to the performance of transporting motions?",
+    "options": {
+      "A": "It utilizes impedance control to adjust the stiffness, enhancing the precision of transporting ingredients and tools.",
+      "B": "It employs a direct kinematics model to simplify the computation involved in transporting motions.",
+      "C": "It leverages inverse dynamics to control the manipulator, facilitating the precise movement of ingredients and tools.",
+      "D": "It primarily uses inverse dynamics to ensure accurate and stable environmental interactions during transporting motions."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is C because the ImpedanceController, through the inverse dynamics feature, controls the manipulator which in turn manages transporting motions. This specific control method is significant for precise movements of ingredients and tools in the YORI system, aligning with the given knowledge path and context.",
+    "path_description": "Path: ImpedanceController --[enables]--> ManipulatorControl --[controls]--> TransportingMotions --[type]--> MotionType",
+    "context": "The transporting function predominantly utilizes the inverse dynamics feature of the controller, whereas environmental actions rely on the stiffness attribute of the impedance controller. | Within the YORI system, cooking actions are primarily divided into two categories: transporting motions, which entails the movement of ingredients and tools. | Within the YORI system, cooking actions are primarily divided into two categories: transporting motions, which entails the movement of ingredients and tools.",
+    "paper_id": "292"
+  },
+  {
+    "section": "background1",
+    "path": {
+      "section": "background1",
+      "start_entity": "ForceTorqueSensor",
+      "end_entity": "RobotType",
+      "hops": [
+        {
+          "from": "ForceTorqueSensor",
+          "relation": "usedIn",
+          "to": "Cobot",
+          "context": "Equipped mainly with force-torque sensors",
+          "chunk": "1"
+        },
+        {
+          "from": "Cobot",
+          "relation": "partOf",
+          "to": "DualArmManipulator",
+          "context": "cobots are designed to work alongside humans",
+          "chunk": "1"
+        },
+        {
+          "from": "DualArmManipulator",
+          "relation": "type",
+          "to": "RobotType",
+          "context": "Dual-Arm Manipulator",
+          "chunk": "1"
+        }
+      ]
+    },
+    "question": "In the context of robotics, how does the application of a ForceTorqueSensor in a Cobot relate to its classification within RobotTypes?",
+    "options": {
+      "A": "ForceTorqueSensors are used in Cobots to enhance their mobility, categorizing them under mobile autonomous RobotTypes.",
+      "B": "ForceTorqueSensors enable Cobots, which are part of Dual-Arm Manipulators, to be classified under more advanced RobotTypes.",
+      "C": "ForceTorqueSensors primarily increase the computational abilities of Cobots, associating them with artificially intelligent RobotTypes.",
+      "D": "The use of ForceTorqueSensors in Cobots allows them to function independently, leading to their classification as standalone RobotTypes."
+    },
+    "correct_answer": "B",
+    "explanation": "The question requires understanding that ForceTorqueSensors are used in Cobots, which are a part of Dual-Arm Manipulators, and such configuration is a subset of more advanced RobotTypes, specifically those capable of sophisticated human-robot interaction and safe operations in shared environments.",
+    "path_description": "Path: ForceTorqueSensor --[usedIn]--> Cobot --[partOf]--> DualArmManipulator --[type]--> RobotType",
+    "context": "Equipped mainly with force-torque sensors | cobots are designed to work alongside humans | Dual-Arm Manipulator",
+    "paper_id": "292"
+  },
+  {
+    "section": "softwareimplementation1",
+    "path": {
+      "section": "softwareimplementation1",
+      "start_entity": "ToolChangerControl",
+      "end_entity": "Component",
+      "hops": [
+        {
+          "from": "ToolChangerControl",
+          "relation": "utilizes",
+          "to": "ToolChanger",
+          "context": "To utilize the guiding pin on the tool changer and minimize positional deviation, it is beneficial to set a via point where the end-effector can stop just behind the latching position.",
+          "chunk": "7"
+        },
+        {
+          "from": "ToolChanger",
+          "relation": "controlledBy",
+          "to": "AirDirectionalControlValve",
+          "context": "In order to use the tool changer, an air directional control valve was used to open and close the fingers of the tool changer.",
+          "chunk": "7"
+        },
+        {
+          "from": "AirDirectionalControlValve",
+          "relation": "type",
+          "to": "Component",
+          "context": "In order to use the tool changer, an air directional control valve was used to open and close the fingers of the tool changer.",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "In the context of controlling a tool changer to minimize positional deviation, which type of component is primarily responsible for manipulating the fingers of the tool changer?",
+    "options": {
+      "A": "A hydraulic fluid control system, which adjusts the pressure to maintain the tool changer's grip.",
+      "B": "A mechanical linkage system, which physically manipulates the movement of the tool changer's fingers.",
+      "C": "An air directional control valve, which directly influences the opening and closing of the tool changer's fingers.",
+      "D": "An electronic servo motor, which precisely positions the tool changer's fingers based on sensor feedback."
+    },
+    "correct_answer": "C",
+    "explanation": "Based on the knowledge path, the ToolChangerControl utilizes a ToolChanger that is controlled by an AirDirectionalControlValve. This component is specifically responsible for the opening and closing actions of the fingers of the tool changer, as indicated in the paper's context.",
+    "path_description": "Path: ToolChangerControl --[utilizes]--> ToolChanger --[controlledBy]--> AirDirectionalControlValve --[type]--> Component",
+    "context": "To utilize the guiding pin on the tool changer and minimize positional deviation, it is beneficial to set a via point where the end-effector can stop just behind the latching position. | In order to use the tool changer, an air directional control valve was used to open and close the fingers of the tool changer. | In order to use the tool changer, an air directional control valve was used to open and close the fingers of the tool changer.",
+    "paper_id": "292"
+  },
+  {
+    "section": "hardwaredesign2",
+    "path": {
+      "section": "hardwaredesign2",
+      "start_entity": "ToolChangerMechanism",
+      "end_entity": "KitchenDesign",
+      "hops": [
+        {
+          "from": "ToolChangerMechanism",
+          "relation": "partOf",
+          "to": "YORI",
+          "context": "Tool Changer Mechanism: (a) A guiding cone aligns the tool changer to correct grasping position, (b) Tool changer’s fingers are actuated by using compressed air to grip, (c) Fully locked tool changer and tool plate",
+          "chunk": "4"
+        },
+        {
+          "from": "YORI",
+          "relation": "features",
+          "to": "ModularKitchen",
+          "context": "One of the key features of YORI is its modular kitchen, which, through the design of the cooking cell, creates an organized environment instead of a cluttered one.",
+          "chunk": "4"
+        },
+        {
+          "from": "ModularKitchen",
+          "relation": "type",
+          "to": "KitchenDesign",
+          "context": "One of the key features of YORI is its modular kitchen, which, through the design of the cooking cell, creates an organized environment instead of a cluttered one.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "How does the Tool Changer Mechanism contribute to the functionality of the YORI modular kitchen design?",
+    "options": {
+      "A": "The Tool Changer Mechanism provides digital interface control for appliances, directly interacting with the kitchen's design elements.",
+      "B": "The Tool Changer Mechanism is electrically powered, allowing for rapid tool changes that support the kitchen's modular nature.",
+      "C": "The Tool Changer Mechanism utilizes compressed air to grip tools, enhancing the modular kitchen's ability to maintain an organized environment.",
+      "D": "Through its hydraulic system, the Tool Changer Mechanism facilitates the storage of kitchen appliances, optimizing space in the modular kitchen."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A. The Tool Changer Mechanism, as described, uses compressed air to actuate fingers for gripping, which directly contributes to the modular kitchen's core functionality of maintaining an organized environment by efficiently handling and swapping tools or utensils. This matches the description given in the paper that emphasizes the organization in the modular kitchen setup. Options B, C, and D introduce elements like electrical power, hydraulic systems, and digital interfaces, which are not mentioned in the context of the Tool Changer Mechanism in the provided paper section.",
+    "path_description": "Path: ToolChangerMechanism --[partOf]--> YORI --[features]--> ModularKitchen --[type]--> KitchenDesign",
+    "context": "Tool Changer Mechanism: (a) A guiding cone aligns the tool changer to correct grasping position, (b) Tool changer’s fingers are actuated by using compressed air to grip, (c) Fully locked tool changer and tool plate | One of the key features of YORI is its modular kitchen, which, through the design of the cooking cell, creates an organized environment instead of a cluttered one. | One of the key features of YORI is its modular kitchen, which, through the design of the cooking cell, creates an organized environment instead of a cluttered one.",
+    "paper_id": "292"
+  },
+  {
+    "section": "hardwaredesign4",
+    "path": {
+      "section": "hardwaredesign4",
+      "start_entity": "YORIDispensingModules",
+      "end_entity": "ApplianceComponent",
+      "hops": [
+        {
+          "from": "YORIDispensingModules",
+          "relation": "includes",
+          "to": "FoodProcessor",
+          "context": "The set of appliances and their related tools that make up the YORI dispensing modules",
+          "chunk": "6"
+        },
+        {
+          "from": "FoodProcessor",
+          "relation": "includes",
+          "to": "DicingChamber",
+          "context": "b) food processor and the dicing chamber",
+          "chunk": "6"
+        },
+        {
+          "from": "DicingChamber",
+          "relation": "type",
+          "to": "ApplianceComponent",
+          "context": "b) food processor and the dicing chamber",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the context of YORI dispensing modules' hardware design, which component is directly classified as an appliance component?",
+    "options": {
+      "A": "The motor unit of the food processor, being the primary driver of the appliance's function",
+      "B": "The dispensing nozzle, which is crucial for the output but not part of the food processor",
+      "C": "The dicing chamber, as it is a specific part included within the food processor",
+      "D": "The food processor, which is part of the dispensing modules but not a base component"
+    },
+    "correct_answer": "C",
+    "explanation": "The dicing chamber, included in the food processor, is directly classified as an appliance component, aligning with the knowledge graph path that describes it as a type of ApplianceComponent within the food processor.",
+    "path_description": "Path: YORIDispensingModules --[includes]--> FoodProcessor --[includes]--> DicingChamber --[type]--> ApplianceComponent",
+    "context": "The set of appliances and their related tools that make up the YORI dispensing modules | b) food processor and the dicing chamber | b) food processor and the dicing chamber",
+    "paper_id": "292"
+  },
+  {
+    "section": "softwareimplementation2",
+    "path": {
+      "section": "softwareimplementation2",
+      "start_entity": "ApplianceManager",
+      "end_entity": "ConnectionType",
+      "hops": [
+        {
+          "from": "ApplianceManager",
+          "relation": "coordinatesDataTransferBetween",
+          "to": "Microcontroller",
+          "context": "The appliance manager maintains the USB bus connections and coordinates the transfer of data between the high level scheduler and the microcontrollers.",
+          "chunk": "8"
+        },
+        {
+          "from": "Microcontroller",
+          "relation": "communicatesVia",
+          "to": "USBConnection",
+          "context": "The microcontrollers communicate over a shared USB connection to the main computer.",
+          "chunk": "8"
+        },
+        {
+          "from": "USBConnection",
+          "relation": "type",
+          "to": "ConnectionType",
+          "context": "The microcontrollers communicate over a shared USB connection to the main computer.",
+          "chunk": "8"
+        }
+      ]
+    },
+    "question": "In the context of the software described in 'softwareimplementation2', what type of connection does the Appliance Manager use to facilitate data transfer between the high level scheduler and microcontrollers?",
+    "options": {
+      "A": "The Appliance Manager uses a wireless Bluetooth connection to facilitate data transfer.",
+      "B": "The Appliance Manager uses a USB connection type to facilitate data transfer.",
+      "C": "The Appliance Manager uses an ethernet connection to facilitate data transfer.",
+      "D": "The Appliance Manager uses a serial connection to facilitate data transfer."
+    },
+    "correct_answer": "B",
+    "explanation": "According to the knowledge graph path, the Appliance Manager coordinates data transfer between the microcontrollers using a USB connection. This is explicitly mentioned in the paper context that microcontrollers communicate over a shared USB connection to the main computer. The other options, while plausible types of connections in other contexts, do not fit the specific setup described in the 'softwareimplementation2' section.",
+    "path_description": "Path: ApplianceManager --[coordinatesDataTransferBetween]--> Microcontroller --[communicatesVia]--> USBConnection --[type]--> ConnectionType",
+    "context": "The appliance manager maintains the USB bus connections and coordinates the transfer of data between the high level scheduler and the microcontrollers. | The microcontrollers communicate over a shared USB connection to the main computer. | The microcontrollers communicate over a shared USB connection to the main computer.",
+    "paper_id": "292"
+  }
+]

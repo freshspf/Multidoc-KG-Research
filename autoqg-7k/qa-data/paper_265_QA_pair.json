@@ -1,0 +1,174 @@
+[
+  {
+    "section": "introduction3",
+    "path": {
+      "section": "introduction3",
+      "start_entity": "iTrash",
+      "end_entity": "ProximitySensorsII_IV",
+      "hops": [
+        {
+          "from": "iTrash",
+          "relation": "uses",
+          "to": "ProximitySensorI",
+          "context": "iTrash waits until the proximity sensor by the camera is triggered (Proximity Sensor I, in Fig. 3 B).",
+          "chunk": "2"
+        },
+        {
+          "from": "ProximitySensorI",
+          "relation": "triggeredBy",
+          "to": "User",
+          "context": "iTrash waits until the proximity sensor by the camera is triggered (Proximity Sensor I, in Fig. 3 B), indicating that a user is holding something in front of the camera.",
+          "chunk": "2"
+        },
+        {
+          "from": "User",
+          "relation": "triggeredBy",
+          "to": "ProximitySensorsII_IV",
+          "context": "Then, the user is supposed to dispose the item in the indicated bin, thus triggering the proximity sensor above the correct bin’s opening (one of Proximity Sensors II, III, and IV, in Fig. 3 B).",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the iTrash system, what sequence of events correctly describes the triggering sequence of proximity sensors as described in the paper?",
+    "options": {
+      "A": "Proximity Sensor I triggers itself automatically without user interaction, then triggers Proximity Sensors II, III, or IV.",
+      "B": "Proximity Sensor I is triggered by a user, followed by the user triggering one of Proximity Sensors II, III, or IV.",
+      "C": "Proximity Sensors II, III, and IV trigger each other sequentially before the user interacts with Proximity Sensor I.",
+      "D": "Proximity Sensors II, III, or IV are triggered first, followed by the triggering of Proximity Sensor I by the user."
+    },
+    "correct_answer": "B",
+    "explanation": "According to the paper, Proximity Sensor I is initially triggered by a user presence, indicating that the user is ready to dispose of an item. Following this, as the user disposes of the item in the appropriate bin, one of the Proximity Sensors II, III, or IV, located above the bins, is triggered.",
+    "path_description": "Path: iTrash --[uses]--> ProximitySensorI --[triggeredBy]--> User --[triggeredBy]--> ProximitySensorsII_IV",
+    "context": "iTrash waits until the proximity sensor by the camera is triggered (Proximity Sensor I, in Fig. 3 B). | iTrash waits until the proximity sensor by the camera is triggered (Proximity Sensor I, in Fig. 3 B), indicating that a user is holding something in front of the camera. | Then, the user is supposed to dispose the item in the indicated bin, thus triggering the proximity sensor above the correct bin’s opening (one of Proximity Sensors II, III, and IV, in Fig. 3 B).",
+    "paper_id": "1475"
+  },
+  {
+    "section": "results",
+    "path": {
+      "section": "results",
+      "start_entity": "Control",
+      "end_entity": "Bin",
+      "hops": [
+        {
+          "from": "Control",
+          "relation": "comparedWith",
+          "to": "iTrash",
+          "context": "For the control, we compared the bin thrown value with the bin real value",
+          "chunk": "4"
+        },
+        {
+          "from": "iTrash",
+          "relation": "disposedIn",
+          "to": "YellowBin",
+          "context": "25 in the yellow bin",
+          "chunk": "4"
+        },
+        {
+          "from": "YellowBin",
+          "relation": "type",
+          "to": "Bin",
+          "context": "35 in the yellow bin",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the controlled experimental setup described, how did the iTrash system dispose of 25 units of trash as compared to the real disposal value?",
+    "options": {
+      "A": "The iTrash system correctly disposed of 35 units of trash in the red bin, aligning with the real disposal value.",
+      "B": "The iTrash system incorrectly disposed of 25 units of trash in the green bin, which differs from the correct method.",
+      "C": "The iTrash system disposed of 25 units of trash in the yellow bin, which is the correct disposal method.",
+      "D": "The iTrash system disposed of 35 units of trash in the yellow bin, which is higher than the correct disposal value."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A because the context indicates that the iTrash system disposed of 25 units of trash in the yellow bin, as mentioned in the results section, and this matches the control value for the yellow bin which was also 25. The other options incorrectly suggest different quantities or bin colors, which do not align with the information provided in the context.",
+    "path_description": "Path: Control --[comparedWith]--> iTrash --[disposedIn]--> YellowBin --[type]--> Bin",
+    "context": "For the control, we compared the bin thrown value with the bin real value | 25 in the yellow bin | 35 in the yellow bin",
+    "paper_id": "1475"
+  },
+  {
+    "section": "results",
+    "path": {
+      "section": "results",
+      "start_entity": "Control",
+      "end_entity": "Formula",
+      "hops": [
+        {
+          "from": "Control",
+          "relation": "comparedWith",
+          "to": "iTrash",
+          "context": "For the control, we compared the bin thrown value with the bin real value",
+          "chunk": "4"
+        },
+        {
+          "from": "iTrash",
+          "relation": "accuracyCalculatedBy",
+          "to": "AccuracyCalculation",
+          "context": "To calculate the accuracy of the iTrash classification model, we use: Correct predictions / All predictions",
+          "chunk": "4"
+        },
+        {
+          "from": "AccuracyCalculation",
+          "relation": "type",
+          "to": "Formula",
+          "context": "To calculate the accuracy of the iTrash classification model, we use: Correct predictions / All predictions",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the study involving the iTrash classification model, how is the accuracy of iTrash differentiated from the control method?",
+    "options": {
+      "A": "The control method measures accuracy by assessing user satisfaction with the iTrash system's performance.",
+      "B": "iTrash accuracy is calculated using a formula that divides the number of correct predictions by all predictions made.",
+      "C": "The control method involves calculating accuracy by comparing the bin thrown value with the bin real value.",
+      "D": "iTrash accuracy is determined by comparing the predicted values with a standard set of trash classifications."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A as it directly relates to the path outlined in the knowledge graph. iTrash's accuracy is calculated using a specific formula that involves dividing the number of correct predictions by all predictions made, as mentioned in the context. Option D, though tempting, describes the control method and not the iTrash method. Options B and C introduce unrelated concepts not supported by the provided knowledge graph path.",
+    "path_description": "Path: Control --[comparedWith]--> iTrash --[accuracyCalculatedBy]--> AccuracyCalculation --[type]--> Formula",
+    "context": "For the control, we compared the bin thrown value with the bin real value | To calculate the accuracy of the iTrash classification model, we use: Correct predictions / All predictions | To calculate the accuracy of the iTrash classification model, we use: Correct predictions / All predictions",
+    "paper_id": "1475"
+  },
+  {
+    "section": "results",
+    "path": {
+      "section": "results",
+      "start_entity": "Control",
+      "end_entity": "BinFlow",
+      "hops": [
+        {
+          "from": "Control",
+          "relation": "comparedWith",
+          "to": "iTrash",
+          "context": "For the control, we compared the bin thrown value with the bin real value",
+          "chunk": "4"
+        },
+        {
+          "from": "iTrash",
+          "relation": "uses",
+          "to": "SankeyDiagrams",
+          "context": "using Sankey diagrams to visualize the flow from one category to another",
+          "chunk": "4"
+        },
+        {
+          "from": "SankeyDiagrams",
+          "relation": "visualizes",
+          "to": "BinFlow",
+          "context": "using Sankey diagrams to visualize the flow from one category to another",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the study outlined in the 'results' section, how does the iTrash system utilize Sankey diagrams?",
+    "options": {
+      "A": "To monitor the energy consumption of the iTrash system over time through dynamic charting",
+      "B": "To display the percentage of recyclable materials that are incorrectly thrown as waste",
+      "C": "To track the efficiency of the iTrash system in different environmental conditions via statistical analysis",
+      "D": "To compare the perceived value of items in the bin with their actual value through visual flow representation"
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A because it directly reflects the use of Sankey diagrams in the iTrash system as described in the paper's results section. Sankey diagrams in this context are used to visually represent the flow of items' values from perceived to actual, thus comparing the bin thrown value with the bin real value.",
+    "path_description": "Path: Control --[comparedWith]--> iTrash --[uses]--> SankeyDiagrams --[visualizes]--> BinFlow",
+    "context": "For the control, we compared the bin thrown value with the bin real value | using Sankey diagrams to visualize the flow from one category to another | using Sankey diagrams to visualize the flow from one category to another",
+    "paper_id": "1475"
+  }
+]

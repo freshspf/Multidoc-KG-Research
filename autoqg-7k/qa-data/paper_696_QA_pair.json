@@ -1,0 +1,45 @@
+[
+  {
+    "section": "mainresults3",
+    "path": {
+      "section": "mainresults3",
+      "start_entity": "CDOE",
+      "end_entity": "OptimizationMethod",
+      "hops": [
+        {
+          "from": "CDOE",
+          "relation": "uses",
+          "to": "CorrectionAngles",
+          "context": "Based on the algorithm of the DOE described in Section III-A2, we can remodel the correction angles αerr,a and αerr,m as αerr,a = αca + vca (66) αerr,m = αcm + vcm.",
+          "chunk": "7"
+        },
+        {
+          "from": "CorrectionAngles",
+          "relation": "optimizedUsing",
+          "to": "GradientDescent",
+          "context": "Solving (67a) and (67b) with the gradient descent strategy, we have αca,t = αca,t−1 − ka∇fa  (68a) αcm,t = αca,t−1 − ka∇fm  (68b).",
+          "chunk": "7"
+        },
+        {
+          "from": "GradientDescent",
+          "relation": "type",
+          "to": "OptimizationMethod",
+          "context": "Solving (67a) and (67b) with the gradient descent strategy, we have αca,t = αca,t−1 − ka∇fa  (68a) αcm,t = αca,t−1 − ka∇fm  (68b).",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "In the context of CDOE utilized in the paper, how is the gradient descent method specifically applied to optimize correction angles?",
+    "options": {
+      "A": "Gradient descent optimizes correction angles by setting them to zero initially and then adjusting based on the average gradient over multiple iterations.",
+      "B": "Gradient descent is applied to directly calculate the initial values of correction angles αerr,a and αerr,m by minimizing the associated cost function.",
+      "C": "The method employs gradient descent to simultaneously update all correction angles in a single step using a composite gradient vector.",
+      "D": "Gradient descent is used to iteratively adjust correction angles αca and αcm based on their previous values and the corresponding gradients of function fa and fm."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct application of gradient descent in the context of CDOE, as explained in the provided paper section, involves iterative adjustments of the correction angles αca and αcm. This adjustment is based on their previous values minus a product of a constant ka and the gradient of functions fa and fm respectively, as shown in equations (68a) and (68b). Options B, C, and D, although related to optimization, do not accurately describe the specific method used for the correction angles in this scenario.",
+    "path_description": "Path: CDOE --[uses]--> CorrectionAngles --[optimizedUsing]--> GradientDescent --[type]--> OptimizationMethod",
+    "context": "Based on the algorithm of the DOE described in Section III-A2, we can remodel the correction angles αerr,a and αerr,m as αerr,a = αca + vca (66) αerr,m = αcm + vcm. | Solving (67a) and (67b) with the gradient descent strategy, we have αca,t = αca,t−1 − ka∇fa  (68a) αcm,t = αca,t−1 − ka∇fm  (68b). | Solving (67a) and (67b) with the gradient descent strategy, we have αca,t = αca,t−1 − ka∇fa  (68a) αcm,t = αca,t−1 − ka∇fm  (68b).",
+    "paper_id": "223"
+  }
+]

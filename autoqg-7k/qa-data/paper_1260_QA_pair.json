@@ -1,0 +1,88 @@
+[
+  {
+    "section": "methodology1",
+    "path": {
+      "section": "methodology1",
+      "start_entity": "Hound",
+      "end_entity": "MethodologyComponent",
+      "hops": [
+        {
+          "from": "Hound",
+          "relation": "proposes",
+          "to": "InferencePipeline",
+          "context": "Figure 1 depicts the proposed Hound methodology consisting of a training and inference pipeline.",
+          "chunk": "2"
+        },
+        {
+          "from": "InferencePipeline",
+          "relation": "includes",
+          "to": "Screening",
+          "context": "the sliding window classification and the screening procedure are detailed in Section III-B.",
+          "chunk": "2"
+        },
+        {
+          "from": "Screening",
+          "relation": "type",
+          "to": "MethodologyComponent",
+          "context": "Starting from the classified windows, the Screening stage produces a sequence of time instants marking the start of each CP in the trace.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the Hound methodology as described in the paper, what role does the Screening stage play within the InferencePipeline?",
+    "options": {
+      "A": "The Screening stage is primarily used to train the model on categorized data before applying the sliding window classification.",
+      "B": "The Screening stage focuses on refining the input data through preprocessing techniques before classification occurs.",
+      "C": "The Screening stage operates to archive and store processed data for further analysis and retrieval in subsequent steps.",
+      "D": "The Screening stage is responsible for producing a sequence of time instants marking the start of each critical point in the trace."
+    },
+    "correct_answer": "D",
+    "explanation": "The Screening stage within the Hound methodology's InferencePipeline is specifically designed to generate a sequence of time instants that indicate the commencement of each critical point (CP) in the trace, as explained in the provided context from the paper.",
+    "path_description": "Path: Hound --[proposes]--> InferencePipeline --[includes]--> Screening --[type]--> MethodologyComponent",
+    "context": "Figure 1 depicts the proposed Hound methodology consisting of a training and inference pipeline. | the sliding window classification and the screening procedure are detailed in Section III-B. | Starting from the classified windows, the Screening stage produces a sequence of time instants marking the start of each CP in the trace.",
+    "paper_id": "448"
+  },
+  {
+    "section": "introduction",
+    "path": {
+      "section": "introduction",
+      "start_entity": "CryptographicPrimitives",
+      "end_entity": "CryptographicComponent",
+      "hops": [
+        {
+          "from": "CryptographicPrimitives",
+          "relation": "exploitedBy",
+          "to": "SideChannelAttacks",
+          "context": "By exploiting vulnerabilities in the physical implementation of the cryptographic primitives (CPs), side-channel attacks can exploit the unintended information leakage.",
+          "chunk": "0"
+        },
+        {
+          "from": "SideChannelAttacks",
+          "relation": "poseThreatTo",
+          "to": "CryptographicPrimitives",
+          "context": "Side-channel attacks pose a significant threat to modern cryptographic implementations.",
+          "chunk": "0"
+        },
+        {
+          "from": "CryptographicPrimitives",
+          "relation": "type",
+          "to": "CryptographicComponent",
+          "context": "By exploiting vulnerabilities in the physical implementation of the cryptographic primitives (CPs).",
+          "chunk": "0"
+        }
+      ]
+    },
+    "question": "Which type of cryptographic component is most at risk due to vulnerabilities in its physical implementation being exploited by side-channel attacks?",
+    "options": {
+      "A": "Cryptographic components that operate in highly controlled and secure environments",
+      "B": "Cryptographic components that utilize complex algorithms and extensive computational resources",
+      "C": "Cryptographic components that rely heavily on physical security measures and tamper-proof enclosures",
+      "D": "Cryptographic components that are designed with minimalistic and straightforward algorithms"
+    },
+    "correct_answer": "B",
+    "explanation": "Cryptographic components that utilize complex algorithms and extensive computational resources are more susceptible to side-channel attacks because these components often require significant power and generate observable emissions that can be exploited for unintended information leakage.",
+    "path_description": "Path: CryptographicPrimitives --[exploitedBy]--> SideChannelAttacks --[poseThreatTo]--> CryptographicPrimitives --[type]--> CryptographicComponent",
+    "context": "By exploiting vulnerabilities in the physical implementation of the cryptographic primitives (CPs), side-channel attacks can exploit the unintended information leakage. | Side-channel attacks pose a significant threat to modern cryptographic implementations. | By exploiting vulnerabilities in the physical implementation of the cryptographic primitives (CPs).",
+    "paper_id": "448"
+  }
+]

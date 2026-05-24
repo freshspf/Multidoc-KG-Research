@@ -1,0 +1,88 @@
+[
+  {
+    "section": "discussion1",
+    "path": {
+      "section": "discussion1",
+      "start_entity": "DMCrystal",
+      "end_entity": "ChemicalCompound",
+      "hops": [
+        {
+          "from": "DMCrystal",
+          "relation": "outperforms",
+          "to": "CALYPSO",
+          "context": "For Co4As8, DMCrystal result has lower formation energy of -0.320 ev/atom compared to the -0.161 ev/atom of the structure predicted by CALYPSO.",
+          "chunk": "7"
+        },
+        {
+          "from": "CALYPSO",
+          "relation": "evaluatedOn",
+          "to": "Bi4Se4",
+          "context": "First, Figure 6 shows the predicted structures by CALYPSO for the three benchmark target structures.",
+          "chunk": "7"
+        },
+        {
+          "from": "Bi4Se4",
+          "relation": "type",
+          "to": "ChemicalCompound",
+          "context": "three running experiments for the three targets B4N4, Bi4Se4, Co4As8.",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "Given the performance comparison in the paper, which software tool demonstrated superior predictive accuracy for the chemical compound Bi4Se4?",
+    "options": {
+      "A": "Both DMCrystal and CALYPSO showed equal performance in the prediction of Bi4Se4's structure.",
+      "B": "CALYPSO showed higher performance in predicting the structure of Bi4Se4 compared to DMCrystal.",
+      "C": "The structural prediction of Bi4Se4 was not achievable by either DMCrystal or CALYPSO.",
+      "D": "DMCrystal demonstrated superior predictive accuracy for Bi4Se4 by outperforming CALYPSO in structural prediction."
+    },
+    "correct_answer": "D",
+    "explanation": "The question requires understanding the performance comparison between DMCrystal and CALYPSO. As per the path, DMCrystal outperforms CALYPSO, which was evaluated on Bi4Se4, a chemical compound. Based on the provided context that DMCrystal showed better results for another compound, Co4As8, it can be inferred that DMCrystal also demonstrated superior predictive accuracy for Bi4Se4.",
+    "path_description": "Path: DMCrystal --[outperforms]--> CALYPSO --[evaluatedOn]--> Bi4Se4 --[type]--> ChemicalCompound",
+    "context": "For Co4As8, DMCrystal result has lower formation energy of -0.320 ev/atom compared to the -0.161 ev/atom of the structure predicted by CALYPSO. | First, Figure 6 shows the predicted structures by CALYPSO for the three benchmark target structures. | three running experiments for the three targets B4N4, Bi4Se4, Co4As8.",
+    "paper_id": "155"
+  },
+  {
+    "section": "experiments3",
+    "path": {
+      "section": "experiments3",
+      "start_entity": "CALYPSO",
+      "end_entity": "Algorithm",
+      "hops": [
+        {
+          "from": "CALYPSO",
+          "relation": "appliedTo",
+          "to": "DMCrystal",
+          "context": "we also apply CALYPSO to the three predicted structures",
+          "chunk": "6"
+        },
+        {
+          "from": "DMCrystal",
+          "relation": "comparedWith",
+          "to": "CMCrystal",
+          "context": "For comparison purpose, we amount of distance information used: 1) DMCrystal, which 10% noise on the distance matrix; 3) DMCrystal with only second distance information; 5) CMCrystal: only contact map",
+          "chunk": "6"
+        },
+        {
+          "from": "CMCrystal",
+          "relation": "type",
+          "to": "Algorithm",
+          "context": "CMCrystal: only contact map",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the comparative analysis presented in the paper, what distinguishes CMCrystal from DMCrystal in terms of the algorithmic data input type?",
+    "options": {
+      "A": "CMCrystal employs both contact map and distance matrix data, whereas DMCrystal uses only noise-adjusted distance matrix.",
+      "B": "CMCrystal and DMCrystal both utilize noise-adjusted distance matrix data, differing only in noise levels.",
+      "C": "CMCrystal utilizes only contact map data, whereas DMCrystal employs a noise-adjusted distance matrix.",
+      "D": "CMCrystal uses a distance matrix with 10% noise, while DMCrystal uses only second distance information."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A because the context specifies that CMCrystal uses only a contact map for its input, distinguishing it from DMCrystal, which involves a distance matrix affected by 10% noise. Options B, C, and D introduce incorrect relations or characteristics that were not mentioned or implied in the provided context.",
+    "path_description": "Path: CALYPSO --[appliedTo]--> DMCrystal --[comparedWith]--> CMCrystal --[type]--> Algorithm",
+    "context": "we also apply CALYPSO to the three predicted structures | For comparison purpose, we amount of distance information used: 1) DMCrystal, which 10% noise on the distance matrix; 3) DMCrystal with only second distance information; 5) CMCrystal: only contact map | CMCrystal: only contact map",
+    "paper_id": "155"
+  }
+]

@@ -1,0 +1,45 @@
+[
+  {
+    "section": "controllerdesign",
+    "path": {
+      "section": "controllerdesign",
+      "start_entity": "Vehicle",
+      "end_entity": "ServoMotor",
+      "hops": [
+        {
+          "from": "Vehicle",
+          "relation": "type",
+          "to": "Vehicle",
+          "context": "This result is applied to the case where the vehicle is only equipped with the minimum number of inputs",
+          "chunk": "4"
+        },
+        {
+          "from": "Vehicle",
+          "relation": "type",
+          "to": "Vehicle",
+          "context": "This result is applied to the case where the vehicle is only equipped with the minimum number of inputs",
+          "chunk": "4"
+        },
+        {
+          "from": "Vehicle",
+          "relation": "equippedWith",
+          "to": "ServoMotor",
+          "context": "the vehicle has either 3 propellers or 2 propellers and 1 servo motor",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the context of controller design for a minimal input vehicle as described, which configuration is necessary for precise directional control?",
+    "options": {
+      "A": "A vehicle with three propellers, relying solely on thrust vectoring for maneuvering.",
+      "B": "A vehicle with four propellers, each capable of independent speed adjustments for stability.",
+      "C": "A vehicle with two servo motors and one propeller, prioritizing mechanical over aerodynamic control.",
+      "D": "A vehicle equipped with two propellers and one servo motor, allowing for both thrust and position control."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is B because, according to the paper, the vehicle configuration includes either three propellers or two propellers and one servo motor. The addition of a servo motor in a minimal input setup implies its necessity for enhanced control capabilities, such as precise directional control, which cannot be achieved with propellers alone.",
+    "path_description": "Path: Vehicle --[type]--> Vehicle --[type]--> Vehicle --[equippedWith]--> ServoMotor",
+    "context": "This result is applied to the case where the vehicle is only equipped with the minimum number of inputs | This result is applied to the case where the vehicle is only equipped with the minimum number of inputs | the vehicle has either 3 propellers or 2 propellers and 1 servo motor",
+    "paper_id": "654"
+  }
+]

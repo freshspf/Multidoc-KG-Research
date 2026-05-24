@@ -1,0 +1,174 @@
+[
+  {
+    "section": "bayesianoptimisationframework3",
+    "path": {
+      "section": "bayesianoptimisationframework3",
+      "start_entity": "MaternKernel",
+      "end_entity": "PhysicalProperty",
+      "hops": [
+        {
+          "from": "MaternKernel",
+          "relation": "usedIn",
+          "to": "GaussianProcessRegression",
+          "context": "where K( , , ϕ) is the Mate´rn kernel with ν = and ϕ = φf, Φl are the kernel’s hyperparameters.",
+          "chunk": "5"
+        },
+        {
+          "from": "GaussianProcessRegression",
+          "relation": "predicts",
+          "to": "InCylinderPressure",
+          "context": "Gaussian Process Regression (GPR) is used to predict the behavior of each component...",
+          "chunk": "5"
+        },
+        {
+          "from": "InCylinderPressure",
+          "relation": "type",
+          "to": "PhysicalProperty",
+          "context": "The in-cylinder pressure corresponding to the Otto cycle is given by...",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the Bayesian optimization framework described, how does the Gaussian Process Regression (GPR) utilize the Matern kernel to predict a specific physical property?",
+    "options": {
+      "A": "GPR applies the Matern kernel to forecast the chemical properties of the fuel used in the Otto cycle based on in-cylinder pressure data.",
+      "B": "GPR employs the Matern kernel to predict the thermal expansion coefficients of the materials comprising the cylinder, influenced by pressure changes.",
+      "C": "GPR leverages the Matern kernel to estimate the electrical conductivity inside the cylinder, crucial for optimizing engine performance.",
+      "D": "GPR uses the Matern kernel to model smoothness in the temporal evolution of in-cylinder pressure, a key physical property in the Otto cycle."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A because the Gaussian Process Regression (GPR) specifically uses the Matern kernel to model how the in-cylinder pressure evolves over time within the Otto cycle. This is a direct application of the GPR for predicting a physical property, i.e., in-cylinder pressure, which is crucial for understanding the engine's behavior. The other options incorrectly attribute predictions related to chemical properties, electrical conductivity, and material thermal expansion to the use of the Matern kernel in GPR, which is not supported by the given context.",
+    "path_description": "Path: MaternKernel --[usedIn]--> GaussianProcessRegression --[predicts]--> InCylinderPressure --[type]--> PhysicalProperty",
+    "context": "where K( , , ϕ) is the Mate´rn kernel with ν = and ϕ = φf, Φl are the kernel’s hyperparameters. | Gaussian Process Regression (GPR) is used to predict the behavior of each component... | The in-cylinder pressure corresponding to the Otto cycle is given by...",
+    "paper_id": "1807"
+  },
+  {
+    "section": "results",
+    "path": {
+      "section": "results",
+      "start_entity": "αNEI",
+      "end_entity": "αPI",
+      "hops": [
+        {
+          "from": "αNEI",
+          "relation": "outperforms",
+          "to": "αEI",
+          "context": "ng αEI (red), αNEI (blue), αPI (green) and αNPI (black)",
+          "chunk": "8"
+        },
+        {
+          "from": "αEI",
+          "relation": "comparedWith",
+          "to": "αNEI",
+          "context": "ng αEI (red), αNEI (blue), αPI (green) and αNPI (black)",
+          "chunk": "8"
+        },
+        {
+          "from": "αNEI",
+          "relation": "comparedWith",
+          "to": "αPI",
+          "context": "ng αEI (red), αNEI (blue), αPI (green) and αNPI (black)",
+          "chunk": "8"
+        }
+      ]
+    },
+    "question": "Based on the performance comparison studies, why does αNEI outperform αEI in the context of the graph color-coded results?",
+    "options": {
+      "A": "Because αNEI utilizes a simpler algorithmic structure, which is generally easier to implement than αEI.",
+      "B": "Because it has a better color representation in graphs, making it visually more appealing and easier to analyze.",
+      "C": "Due to its inherent properties, which were further compared unfavorably with αPI indicating a distinct advantage over both.",
+      "D": "As αNEI incorporates more comprehensive data inputs, resulting in higher performance metrics than αEI."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A because the question pathway suggests that αNEI not only outperforms αEI but also unfavorably compares with αPI, indicating that αNEI holds distinct advantages over both in terms of inherent properties that contribute to its performance.",
+    "path_description": "Path: αNEI --[outperforms]--> αEI --[comparedWith]--> αNEI --[comparedWith]--> αPI",
+    "context": "ng αEI (red), αNEI (blue), αPI (green) and αNPI (black) | ng αEI (red), αNEI (blue), αPI (green) and αNPI (black) | ng αEI (red), αNEI (blue), αPI (green) and αNPI (black)",
+    "paper_id": "1807"
+  },
+  {
+    "section": "visualisationofthepresentedacquisitionfunctions2",
+    "path": {
+      "section": "visualisationofthepresentedacquisitionfunctions2",
+      "start_entity": "ConstrainedBayesianOptimization",
+      "end_entity": "Algorithm",
+      "hops": [
+        {
+          "from": "ConstrainedBayesianOptimization",
+          "relation": "partOf",
+          "to": "BayesianOptimization",
+          "context": "Preprint–AutomatedandRisk-AwareEngineControlCalibrationUsingConstrainedBayesianOptimization.",
+          "chunk": "11"
+        },
+        {
+          "from": "BayesianOptimization",
+          "relation": "uses",
+          "to": "αNPI",
+          "context": "Solving the Bayesian Optimisation using αNPI with def best observed iteration (square), optimum (circle).",
+          "chunk": "11"
+        },
+        {
+          "from": "αNPI",
+          "relation": "type",
+          "to": "Algorithm",
+          "context": "Solving the Bayesian Optimisation using αNPI with def best observed iteration (square), optimum (circle).",
+          "chunk": "11"
+        }
+      ]
+    },
+    "question": "In the context of Constrained Bayesian Optimization, how does the use of the αNPI algorithm specifically influence the identification of optimal solutions?",
+    "options": {
+      "A": "αNPI simplifies the Constrained Bayesian Optimization by transforming it into a single-step computation process.",
+      "B": "αNPI increases the computational load significantly by adding multiple layers of complexity to the optimization algorithm.",
+      "C": "αNPI aids in differentiating observed iterations from the optimum by distinct visual markers in graphical representations.",
+      "D": "αNPI primarily functions by eliminating the need for any graphical representations in Bayesian Optimization processes."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A because the αNPI algorithm is used in Bayesian Optimization to help visually distinguish between the best observed iteration and the optimum using specific shapes (square and circle respectively), as indicated in the paper's description of the visualization technique.",
+    "path_description": "Path: ConstrainedBayesianOptimization --[partOf]--> BayesianOptimization --[uses]--> αNPI --[type]--> Algorithm",
+    "context": "Preprint–AutomatedandRisk-AwareEngineControlCalibrationUsingConstrainedBayesianOptimization. | Solving the Bayesian Optimisation using αNPI with def best observed iteration (square), optimum (circle). | Solving the Bayesian Optimisation using αNPI with def best observed iteration (square), optimum (circle).",
+    "paper_id": "1807"
+  },
+  {
+    "section": "visualisationofthepresentedacquisitionfunctions2",
+    "path": {
+      "section": "visualisationofthepresentedacquisitionfunctions2",
+      "start_entity": "IterationK5",
+      "end_entity": "BayesianOptimization",
+      "hops": [
+        {
+          "from": "IterationK5",
+          "relation": "partOf",
+          "to": "IterationK",
+          "context": "Iteration k = 5.",
+          "chunk": "11"
+        },
+        {
+          "from": "IterationK",
+          "relation": "appliedTo",
+          "to": "ConstrainedBayesianOptimization",
+          "context": "Iteration k = 5, Iteration k = 25, Iteration k = 50, Iteration k = 75.",
+          "chunk": "11"
+        },
+        {
+          "from": "ConstrainedBayesianOptimization",
+          "relation": "partOf",
+          "to": "BayesianOptimization",
+          "context": "Preprint–AutomatedandRisk-AwareEngineControlCalibrationUsingConstrainedBayesianOptimization.",
+          "chunk": "11"
+        }
+      ]
+    },
+    "question": "In the context of the visualisation of the presented acquisition functions in a study on Automated and Risk-Aware Engine Control Calibration, what role does Iteration k = 5 play in the process of Constrained Bayesian Optimization?",
+    "options": {
+      "A": "Iteration k = 5 is a mid-point review used to adjust the risk parameters in the Bayesian Optimization process.",
+      "B": "Iteration k = 5 is an arbitrary checkpoint with no specific role in the optimization process.",
+      "C": "Iteration k = 5 is an initial sampling point used to establish baseline performance constraints in Bayesian Optimization.",
+      "D": "Iteration k = 5 represents the final stage where the optimized parameters are verified against the established constraints."
+    },
+    "correct_answer": "C",
+    "explanation": "Iteration k = 5, being part of the Iteration k sequence, serves as an initial sampling point in Constrained Bayesian Optimization, which is a subset of Bayesian Optimization. This early stage is crucial for establishing initial performance constraints and parameters that guide the rest of the optimization process.",
+    "path_description": "Path: IterationK5 --[partOf]--> IterationK --[appliedTo]--> ConstrainedBayesianOptimization --[partOf]--> BayesianOptimization",
+    "context": "Iteration k = 5. | Iteration k = 5, Iteration k = 25, Iteration k = 50, Iteration k = 75. | Preprint–AutomatedandRisk-AwareEngineControlCalibrationUsingConstrainedBayesianOptimization.",
+    "paper_id": "1807"
+  }
+]

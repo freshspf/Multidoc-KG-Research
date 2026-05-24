@@ -1,0 +1,88 @@
+[
+  {
+    "section": "preliminaries2",
+    "path": {
+      "section": "preliminaries2",
+      "start_entity": "LocalGradientComputation",
+      "end_entity": "LossFunction",
+      "hops": [
+        {
+          "from": "LocalGradientComputation",
+          "relation": "appliedTo",
+          "to": "FeedForwardNeuralNetwork",
+          "context": "Local gradient computation. In forward propagation, for each sample (xxx, yyy)...",
+          "chunk": "4"
+        },
+        {
+          "from": "FeedForwardNeuralNetwork",
+          "relation": "uses",
+          "to": "QuadraticLoss",
+          "context": "For feed-forward neural networks with ReLU activation and quadratic loss...",
+          "chunk": "4"
+        },
+        {
+          "from": "QuadraticLoss",
+          "relation": "type",
+          "to": "LossFunction",
+          "context": "For feed-forward neural networks with ReLU activation and quadratic loss...",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the context of feed-forward neural networks using ReLU activation, how does the application of local gradient computation relate to the type of loss function used?",
+    "options": {
+      "A": "Local gradient computation in feed-forward networks focuses solely on optimizing the network's performance using logistic loss.",
+      "B": "Local gradient computation does not relate directly to the loss function but only to the activation function of the network.",
+      "C": "Local gradient computation applies to feed-forward neural networks which use quadratic loss, a specific type of loss function.",
+      "D": "Feed-forward neural networks using ReLU activation do not employ local gradient computation but instead use global gradient methods."
+    },
+    "correct_answer": "C",
+    "explanation": "Local gradient computation is a method used in feed-forward neural networks, and in the provided context, it is specifically applied to networks using quadratic loss. Quadratic loss is a type of loss function, and understanding how local gradients are computed in this setup is essential for optimizing network performance.",
+    "path_description": "Path: LocalGradientComputation --[appliedTo]--> FeedForwardNeuralNetwork --[uses]--> QuadraticLoss --[type]--> LossFunction",
+    "context": "Local gradient computation. In forward propagation, for each sample (xxx, yyy)... | For feed-forward neural networks with ReLU activation and quadratic loss... | For feed-forward neural networks with ReLU activation and quadratic loss...",
+    "paper_id": "699"
+  },
+  {
+    "section": "omnilyticsdatamarket2",
+    "path": {
+      "section": "omnilyticsdatamarket2",
+      "start_entity": "ModelTrade",
+      "end_entity": "Model",
+      "hops": [
+        {
+          "from": "ModelTrade",
+          "relation": "registers",
+          "to": "DO",
+          "context": "The registration is done when N DOs have registered, or a timeout is triggered.",
+          "chunk": "6"
+        },
+        {
+          "from": "DO",
+          "relation": "retrieves",
+          "to": "WWW_Encrypted",
+          "context": "Each DO n retrieves the encrypted model (WWW(cid:101), rrr) from the MO.",
+          "chunk": "6"
+        },
+        {
+          "from": "WWW_Encrypted",
+          "relation": "type",
+          "to": "Model",
+          "context": "The MO encrypts its initial model WWW to obtain an encrypted model WWW(cid:101).",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the context of the ModelTrade framework described in 'omnilyticsdatamarket2', what triggers the retrieval of the encrypted model by a Data Owner (DO)?",
+    "options": {
+      "A": "The Data Owner retrieves the encrypted model after the Model Owner encrypts the initial model.",
+      "B": "Retrieval occurs immediately following any Data Owner registration, without additional conditions.",
+      "C": "The encrypted model is retrieved once a specific number of Data Owners have registered.",
+      "D": "The encrypted model is retrieved after the timeout period expires, regardless of DO registrations."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A, as the paper specifies that each Data Owner retrieves the encrypted model after the Model Owner has encrypted their initial model, denoted as WWW to obtain WWW(cid:101). This indicates that the encryption of the model by the MO is the trigger for the DOs to retrieve the model, aligning with the knowledge path specified.",
+    "path_description": "Path: ModelTrade --[registers]--> DO --[retrieves]--> WWW_Encrypted --[type]--> Model",
+    "context": "The registration is done when N DOs have registered, or a timeout is triggered. | Each DO n retrieves the encrypted model (WWW(cid:101), rrr) from the MO. | The MO encrypts its initial model WWW to obtain an encrypted model WWW(cid:101).",
+    "paper_id": "699"
+  }
+]

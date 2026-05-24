@@ -1,0 +1,92 @@
+[
+  {
+    "id": "introduction",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Introduction",
+      "page_start": 1,
+      "page_end": 1
+    },
+    "text": "0\n5  Falls are a leading cause of  injury and death among el-\n9 derly individuals, particularly those residing in assisted living\n1\n. homes. The ability to detect falls in real-time is critical for\n3 reducing the severity of  injuries and improving the quality\n0 of care for these individuals. However, current fall detection\n5\nsolutions are often reliant on sensor-based systems, such as\n2\n: wearables or pressure mats, or on video-based systems that\nv demand high computational  resources, making them costly\ni\nand impractical for continuous, unobtrusive monitoring in real-\nX\nr world environments.\na  This paper  presents  a novel  fall  detection system that\nuses computer vision, specifically pose estimation,  to detect\nfalls through a fixed camera. Unlike traditional sensor-based\nmethods,  our  approach eliminates  the need for  additional\nhardware or wearables, providing a more affordable and non-\nintrusive solution for fall detection in elderly care settings.\nBy analyzing key body landmarks and movement patterns, the\nsystem can distinguish between normal activities and falls with\nhigh accuracy.\nThe primary contributions of this work are twofold: first,\nwe leverage the lightweight MediaPipe framework to perform\nreal-time pose estimation on standard CPUs, making  the\nsystem both computationally efficient and accessible; second,\nwe introduce a voting mechanism combined with a 20-frame\n\netection System:\non Standard CPUs\nSaurabh Jaiswal (24AI60R46)\nDepartment of Artificial Intelligence\nIndian Institue of Technology Kharagpur\nEmail: saurabhjaiswal.24@kgpian.iitkgp.ac.in\nbuffer to minimize false positives and ensure reliable perfor-\nmance. Our approach provides a practical, resource-efficient\nsolution that can be easily implemented in existing monitoring\nsystems."
+  },
+  {
+    "id": "relatedwork",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Related Work",
+      "page_start": 1,
+      "page_end": 1
+    },
+    "text": "Fall detection has been widely studied using various ap-\nproaches,  including wearable  sensors,  video-based motion\ntracking, and machine learning techniques. Wearable sensor\nsystems  such as accelerometers,  gyroscopes,  and pressure\nsensors are commonly used to detect falls based on movement\nor impact. While these systems are generally accurate,  they\nrequire users  to wear devices consistently, which can be\nproblematic for elderly individuals who may forget or refuse\nto wear them regularly.\nIn contrast,  vision-based systems offer  a more passive\nsolution by using cameras  to track human motion. These\nsystems can use techniques like Convolutional Neural Net-\nworks  (CNNs)  and optical flow to detect  falls based on\nbody movement and pose. However, CNN-based models are\noften computationally intensive, requiring powerful hardware\nsuch as GPUs, which makes them impractical for real-time\napplications in resource-constrained environments like elderly\ncare homes. Additionally,  such systems can be sensitive to\nchanges  in lighting conditions, occlusion, or clutter  in the\nenvironment, which affects their robustness.\nMore recently, there has been a shift toward pose estimation\nframeworks, which aim to capture human body landmarks\nfrom video  input. These  frameworks,  such as MediaPipe,\noffer a lightweight alternative to CNNs by detecting body\njoints and key points in real-time, using only standard CPUs\nwith minimal computational overhead. MediaPipe has shown\npromise in various applications, including fall detection, due\nto its efficiency and accuracy in estimating human pose under\ndifferent conditions.\nSeveral studies have combined pose estimation with multi-\nframe buffering  techniques  to  improve detection accuracy\nacross time. This approach helps retain critical motion fea-\ntures over multiple frames,  reducing false positives caused\nby temporary changes in posture. Moreover, recent work has\nincorporated weighted voting mechanisms, where different\npose-based features are assigned varying levels of importance\nbased on their relevance to fall detection. This enables more"
+  },
+  {
+    "id": "usecaseinelderlycarefacilities",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Use Case in Elderly Care Facilities",
+      "page_start": 2,
+      "page_end": 2
+    },
+    "text": "reliableperformanceindynamicenvironments,suchaselderly alignment, and movement speed, which were selected after\ncare facilities, where fast and accurate detection is crucial. multiple trial-and-error experiments to ensure reliable fall\nBuilding on these advancements, our approach combines detection. These features are used to vote on the likelihood\nposeestimationwithamulti-framebufferandweightedvoting of a fall event based on predefined thresholds.\nmechanism to enhance fall detection accuracy in real-time, Below is a flowchart for the fall detection system:\nusing only a fixed camera and without the need for additional\nhardware.\nStart\nIII. USECASEINELDERLYCAREFACILITIES\nIn elderly care homes, fall detection systems are critical for\nminimizingresponsetimesduringemergencysituations.Early\ndetectionandrapidresponsetofallsareparticularlyimportant\nfor residents with limited mobility, cognitive impairments, or Video feed\nthosewhomaybeunabletocallforhelp.Thissectionoutlines\nhow our proposed system can be effectively applied in real-\nworld elderly care environments.\nA. Monitoring Resident Safety\nThe proposed system provides continuous monitoring with-\nFor each frame\nout the need for residents to wear any devices, which can be\nuncomfortable, cumbersome, or easily forgotten. By utilizing\nreal-time pose estimation, the system tracks key skeletal\nlandmarks and identifies potential falls based on significant\nposture changes. For instance, a sudden reduction in height\nratio(e.g.,body’sverticalalignment)orabruptshiftsintorso-\nleganglescanindicateafall.Upondetectingsuchchanges,the Extract Features\nsystem generates a fall alert, enabling prompt intervention by\ncaregivers. This proactive monitoring approach significantly\nreduces response time and enhances the chances of mitigating\nfall-related injuries.\nVoting\nB. Reducing False Alarms\nElderly care homes often experience a high volume of\nroutine activities such as sitting, bending, or lying down, all\nof which could be misinterpreted as falls by conventional no\nisfall Update Buffer\nfall detection systems. To address this challenge, our system\nintegrates a 20-frame buffer memory and a weighted voting\nmechanism. The buffer helps maintain the impact of posture yes\nchanges over 20 frames, ensuring that only sustained, fall-like\nmovements are considered. In addition, the weighted voting\nAlert\nsystem assigns higher importance to key features (such as\nheight ratio and torso-leg angle) that are most indicative of\na fall. This reduces false positives, minimizing unnecessary Fig.1. FlowchartoftheFallDetectionSystem.\nalerts and ensuring that caregivers are notified only when\ngenuine fall events occur, allowing them to focus on real\nemergencies.\nA. Feature Extraction and Threshold Analysis"
+  },
+  {
+    "id": "methodology",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Methodology",
+      "page_start": 2,
+      "page_end": 2
+    },
+    "text": "In each frame, pose landmarks are analyzed to compute\nThe proposed fall detection model utilizes pose-based fea- variousfeaturessuchastheheightratio(betweentheshoulder\nture extraction, threshold-based analysis, and a buffer mem- and hip), the torso-leg angle (the angle between the torso\nory system with a simple voting mechanism. Each frame and the legs), and other indicators. If these features exceed\nis processed using the MediaPipe Pose library to extract or fall below predefined thresholds—such as a height ratio\nskeletal landmarks, which are then analyzed to detect sig- below 0.5 or a torso-leg angle indicative of a fall—the system\nnificant changes in posture indicative of a fall. The system flagstheframeasapotentialfall.Thresholdvaluesarederived\nleverages multiple features, such as the height ratio, torso-leg through experimentation and testing on a dataset of elderly\nangle, knee-ankle position, head-floor distance, upper body subjects, optimizing the system for diverse fall scenarios."
+  },
+  {
+    "id": "falldetectionprocedure",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Fall Detection Procedure",
+      "page_start": 3,
+      "page_end": 3
+    },
+    "text": "Algorithm 1 Fall Detection Procedure\n1:  for each frame in video do\n2:  Detect landmarks using MediaPipe Pose\n3:  Compute features like height ratio, torso-leg angle, etc\n4:  for each indicator do\n5:  Apply threshold check for current feature\n6:  if feature threshold crossed then\n7:  Update buffer to retain feature impact\n8:  end if\n9:  end for\n10:  Take voting from each feature\n11:  if voting is more than threshold then\n12:  Detect fall\n13:  Break\n14:  end if\n15:  end for"
+  },
+  {
+    "id": "experimentalresults",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Experimental Results",
+      "page_start": 3,
+      "page_end": 3
+    },
+    "text": "To evaluate the performance of the proposed fall detection\nsystem, we conducted experiments using the ”GMDCSA24:\nA Dataset  for Human Fall Detection in Videos” [1]. The\nsystem’s performance was evaluated based on several key\nmetrics, including accuracy, precision, and recall. The results\nare summarized in Table II.\nA. Dataset and Setup\nThe fall detection system was tested on the GMDCSA-24\ndataset, which contains over 130 video clips recorded in a\ncontrolled environment. The dataset includes fall and non-fall\nactivities performed by four subjects. Each video in the dataset\nis in RGB format, with a total size of 1.95 GB. The activities\nin the dataset consist of various movements, such as sitting,\nstanding, walking, bending, and falling, commonly observed\nin elderly care facilities.\nFig. 2.  Pose Detection\nFig. 3.  Fall Detected"
+  },
+  {
+    "id": "modelperformanceanalysis",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Model Performance Analysis",
+      "page_start": 4,
+      "page_end": 4
+    },
+    "text": "The fall detection system demonstrates robust performance\nacross multiple evaluation metrics. The model achieves high\nrecall  (98.68%)  indicating excellent capability in detecting\nactual falls with minimal false negatives, while maintaining\nstrong precision (88.24%). The overall accuracy of 91.54%\nand F1-Score of 93.17% demonstrate the system’s balanced\nand reliable performance in real-world fall detection scenarios.\nTABLE I\nCONFUSION MATRIX FOR FALL DETECTION SYSTEM\nPredicted\nActual\nFall  Not Fall\nFall  75  1\nNot Fall  10  44\nTABLE II\nCOMPREHENSIVE PERFORMANCE METRICS\nMetric  Value  Description\nAccuracy  91.54%  Correct predictions / total predictions\nPrecision  88.24%  Accuracy of positive fall predictions\nRecall (Sensitivity)  98.68%  Ability to detect actual falls\nSpecificity  81.48%  Ability to correctly identify non-falls\nF1-Score  93.17%  Harmonic mean of precision & recall\nA. Results and Discussion\nThe system demonstrated high recall, which indicates its\nstrong ability to correctly identify fall events. The precision\nvalue shows  that  the system successfully minimizes  false\npositives, although there is some room for  improvement  in\nreducing false alarms. The accuracy of 86.86% is considered\nsatisfactory for real-time fall detection systems, as it strikes a\nbalance between correctly identifying falls and avoiding false\npositives in a dynamic environment.\nOne of  the main strengths of  the system is  its ability\nto detect  falls in real-time without  requiring any additional\nhardware or specialized sensors. The use of MediaPipe for\npose estimation ensures that the system can be implemented\non devices with minimal  computational  resources, making\nit highly suitable for elderly care environments where cost-\neffective solutions are essential.\nB. Comparison with Existing Systems\nCompared to traditional sensor-based fall detection systems,\nour approach does not require the user to wear any devices\nor rely on expensive sensor setups. Additionally, video-based\nfall detection methods that use convolutional neural networks\n(CNNs) often require substantial computational resources and\nspecialized hardware.  In contrast,  our  approach  leverages\nlightweight pose estimation models such as MediaPipe, en-\nabling real-time performance with a fixed camera setup.\nPrevious fall detection systems often rely on basic motion\ndetection or sensor readings, which may be limited in their\nability to differentiate between fall and non-fall activities, es-\npecially in dynamic environments like elderly care homes. Our\napproach, which incorporates temporal analysis through the\n\n20-frame buffer and voting mechanism, significantly reduces\nfalse positives and ensures accurate detection in various real-\nworld scenarios."
+  },
+  {
+    "id": "conclusion",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Conclusion",
+      "page_start": 4,
+      "page_end": 4
+    },
+    "text": "In this paper, we presented a lightweight and efficient fall\ndetection system aimed at  improving safety in elderly care\nfacilities. The system leverages the MediaPipe pose estima-\ntion framework to process video feeds in real-time, without\nrequiring any additional sensors or expensive hardware. By\nanalyzing key body landmarks and utilizing a 20-frame buffer\nwith a simple voting mechanism, the system accurately detects\nfalls while minimizing false positives.\nThe evaluation results show that the system achieves an ac-\ncuracy of 86.86%, precision of 85.23%, and recall of 93.75%.\nThese results highlight the system’s ability to effectively detect\nfalls while reducing unnecessary alerts, making it a reliable\nsolution for elderly care environments where prompt interven-\ntion is critical. Additionally,  the system’s low computational\nrequirements make it well-suited for deployment on standard\nCPUs, ensuring that it is both cost-effective and accessible.\nOur approach demonstrates a significant improvement over\ntraditional  sensor-based and CNN-based fall detection sys-\ntems, offering a practical, unobtrusive solution for continuous\nmonitoring in assisted living homes."
+  },
+  {
+    "id": "futurework",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Future Work",
+      "page_start": 4,
+      "page_end": 4
+    },
+    "text": "While the current system shows promising results, there are\nseveral avenues for improvement. One key area is enhancing\nthe voting mechanism. Instead of relying on a simple voting\nsystem, a weighted voting model could be explored. In this\napproach, features like height ratio, torso-leg angle, and head-\nfloor distance could be assigned different weights based on\ntheir  relevance and impact on fall detection accuracy. For\nexample, the torso-leg angle may carry more weight than knee-\nankle position,  as  the former  is more indicative of a fall.\nBy integrating weighted voting, we can prioritize the most\ncorrelated features, leading to a more robust and reliable fall\ndetection system. Additionally, exploring the use of machine\nlearning models to dynamically adjust these weights based on\ntraining data could further improve performance."
+  }
+]

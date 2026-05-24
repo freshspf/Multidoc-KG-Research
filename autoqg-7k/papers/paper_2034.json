@@ -1,0 +1,62 @@
+[
+  {
+    "id": "abstract",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Abstract",
+      "page_start": 1,
+      "page_end": 1
+    },
+    "text": "Industry-scale recommender systems face a core challenge: repre-\n5\nsenting entities with high cardinality, such as users or items, using\n2\ndense embeddings that must be accessible during both training and\n0\ninference. However, as embedding sizes grow, memory constraints\n2\n  make storage and access increasingly difficult. We describe a light-\ny weight, learnable embedding compression technique that projects\na\ndense embeddings into a high-dimensional, sparsely activated space.\nM Designed for retrieval tasks, our method reduces memory require-\n \nments while preserving retrieval performance, enabling scalable\n6\ndeployment under strict resource constraints. Our results demon-\n1\n  strate that leveraging sparsity is a promising approach for improving\n \n]  the efficiency of large-scale recommenders. We release our code at\nR https://github.com/recombee/CompresSAE.\nI\n.\ns Keywords\nc\n[ Embedding Compression, Sparse Autoencoders\n \n "
+  },
+  {
+    "id": "introduction",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Introduction",
+      "page_start": 1,
+      "page_end": 1
+    },
+    "text": "v\nIndustrial recommender systems (RSs) pursue extreme performance\n8\nat scale, handling massive embedding tables of dense, high dimen-\n8\nsional user and item vectors spanning multiple modalities: textual,\n3\nvisual, video, and behavioral [11]. These expressive representa-\n1\n1  tions are essential for modeling fine-grained user preferences and\n.  item characteristics. However, as embedding dimensions are pro-\n5\ngressively increasing, so do the costs: memory, flops, and retrieval\n0\nlatency all grow sharply, challenging large-scale deployments.\n5\nThis paper presents our experience with improving the quality-\n2\n:  1\nefficiency trade-off in a production setting at Recombee , an AI-\nv powered Recommender-as-a-Service platform. We focus on at-scale\ni\n8\ndeployments, managing catalogs with O(10 ) richly annotated\nX\nr  items and serving high-throughput personalized traffic. As in many\na real-world systems, these scenarios routinely suffer from persis-\ntent cold-start challenges, with a significant fraction of the catalog\nnever receiving interactions. This long-tail sparsity motivates the\nuse of powerful content-based embeddings to enable catalog explo-\nration. However, doing so further exacerbates the efficiency crisis\nby inflating embedding tables.\nAs is standard in industry, Recombee systems employ multistage\narchitectures [2] to manage complexity and performance, with\nexpressive embeddings serving downstream tasks like retrieval,\nranking, clustering, and personalization. In the candidate retrieval\nstage, in particular, high-quality embeddings can measurably im-\nprove candidate set recall. For example, replacing the production\n1https://www.recombee.com/\n\ning Compression for Scalable\nmender Systems\n1,3  1,2\nišák  , Vojtěch Vančura\n1,2  1,2\nAlves  , Pavel Kordík\n3\nrsity in Prague, Charles University\nch Republic\nohunek,rodrigo.alves,pavel.kordik}@recombee.com\nModel  Embedding  CTR  Size per 100M\n(Compression)  Dimension  Lift  Embeddings\nSBERT [18]  512  (baseline)  204.8 GB\nNomic [14]  768  +4.86%  307.2 GB\nNomic (Matryoshka)  64  +1.89%  25.6 GB\nNomic (CompresSAE)  4096*  +3.44%  25.6 GB\n*Sparse embeddings with 32 nonzero entries.\nFigure 1: Comparison of embedding models used for can-\ndidate retrieval. We report online recommendation perfor-\nmance on a downstream task, relative to SBERT [18], with\nanytime-valid 99% confidence intervals.\nSBERT (distil-use-base-multilingual-cased-v2) [18] with a\nNomic model (nomic-embed-text-v1.5) [14] recently yielded a\n4.86% uplift in click-through rate (CTR), see Figure 1. But such\ngains come at a steep price: for catalogs with 100 million items,\nembedding tables routinely reach hundreds of GBs, placing pres-\nsure on storage, distribution, caching, and accelerator memory, and\nultimately limiting both training and inference throughput.\nThe industry trend is clear: larger embeddings improve qual-\nity. But they are also slower, more costly, and less scalable. While\nrecent approaches like Matryoshka [8] compress embeddings via\nprogressive truncation and are gaining traction, they come at the\ncost of retraining the backbone model. In contrast, we advocate for\na different approach: sparse embeddings. By maintaining high\ndimensionality but enforcing structured sparsity, we retain rep-\nresentational capacity while dramatically reducing memory and\ncompute overhead. This direction offers a scalable and efficient path\nforward for retrieval in next-generation recommender systems."
+  },
+  {
+    "id": "relatedwork",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Related Work",
+      "page_start": 1,
+      "page_end": 1
+    },
+    "text": "Numerous strategies have been proposed to address the challenges\nrelated to large embedding tables in RSs, each with distinct trade-\noffs [10]. For instance, quantization (e.g., int4 [6]) offers a strong\ncompression–accuracy trade-off and is widely adopted, though"
+  },
+  {
+    "id": "approach",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Approach",
+      "page_start": 2,
+      "page_end": 2
+    },
+    "text": "We start by training an SAE on a corpus of 𝑁 𝑑-dimensional em-\n𝑁×𝑑\nbeddings E ∈ R  produced by a pretrained encoder (similarly\nto [21]) – i.e., without finetuning the encoder itself – making our\napproach more flexible and computationally cheaper compared\nto Matryoshka-based compression. However, unlike [21], which\nextends the interpretability-focused architecture of [5] by adding a\ncontrastive loss, we employ a new architecture specifically designed\nfor the use of the embeddings in retrieval tasks, with a primary\nemphasis on preserving directional information.\nOur sparse autoencoder, CompresSAE, comprises a non-linear\nℎ×𝑑  ℎ\nencoder 𝑓𝑒𝑛𝑐 , with learnable weights W𝑒𝑛𝑐 ∈ R  , bias b𝑒𝑛𝑐 ∈ R ,\nand a positive integer sparsity hyperparameter 𝑘, that encodes an\n𝑑\ninput vector x ∈ R  into a 𝑘-sparse ℎ-dimensional latent repre-\nℎ\nsentation s ∈ R . This sparse representation is then reconstructed\n𝑑×ℎ\nusing a linear decoder 𝑓𝑑𝑒𝑐 , parametrized byW𝑑𝑒𝑐 ∈ R  . Written\n\nRecombee\nSimilarity in compressed (sparse) latent space\nSimilarity in reconstructed (dense) latent space\n ReduceSum\nht: Two modes of inference\nformally:\ns = 𝑓𝑒𝑛𝑐 (x;W𝑒𝑛𝑐, b𝑒𝑛𝑐, 𝑘) = 𝜙 (W𝑒𝑛𝑐x + b𝑒𝑛𝑐, 𝑘)  (1)\nxˆ = 𝑓𝑑𝑒𝑐 (s;W𝑑𝑒𝑐 ) = W𝑑𝑒𝑐 s  (2)\nDifferent from prior works [5, 21] which standardize the input\nx before encoding and later rescale the output, we simply nor-\nmalize the input: x = x/∥x∥2. Note that this is directly aligned\nwith retrieval use cases, where cosine similarity is used. Moreover,\nℎ  ℎ\n𝜙 (·, 𝑘) : R → R , a function that retains the 𝑘 entries with the\nlargest absolute values and zeroes out the rest, serves both as a\nsparsification mechanism and non-linear activation in our model,\nreplacing the common choice of ReLU and TopK. This design pro-\nmotes the distillation of the original vector’s direction into the\nsparse latent space and better utilizes its limited capacity by also\npreserving negative values. Finally, the decoder is bias-free, which\nenables a retrieval \"trick\" described in Section 3.2, and its weight\nmatrix Wdec is row-normalized, ensuring consistent output scaling.\nAnother innovative aspect of our SAE from prior approaches\nis the choice of reconstruction objective. Our goal is to use the\nembeddings for similarity search with cosine distance as the metric;\nthus, we depart from the traditional ℓ2-reconstruction and instead\ntrain the model to minimize the cosine distance between the input\nx and its reconstruction xˆ = 𝑓 (x; 𝜃, 𝑘):\n⊤\n(cid:0)  (cid:1)  x xˆ\nLcosine x, 𝑓 (x; 𝜃, 𝑘)  = 1 −  (3)\n∥x∥2∥xˆ ∥2\nHere, 𝑓 = 𝑓𝑑𝑒𝑐 ◦ 𝑓𝑒𝑛𝑐 and 𝜃 denotes the learnable parameters of\nthe SAE. Analogous to [5], our final loss L combines Lcosine for\nreconstructions with different 𝑘s, 𝑓 (x; 𝜃, 𝑘) and 𝑓 (x; 𝜃, 4𝑘), which\nhas proven effective in the preventing emergence of dead neurons.\n3.1  Training\nAs shown in Figure 2 (left), CompresSAE operates directly on\nbatches of precomputed embeddings, requiring no access to the\noriginal encoder or raw data. Its compact architecture supports\nlarge batch sizes, enabling efficient and fast training. Figure 3 (left)\nshows a run using the Adam optimizer [7] with a batch size of\n100 000, reaching convergence in approximately 500 steps (around\n100 seconds) on a single NVIDIA H100 SXM 80GB GPU."
+  },
+  {
+    "id": "experimentalresults",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Experimental Results",
+      "page_start": 3,
+      "page_end": 3
+    },
+    "text": "We conducted our experiments with a proprietary dataset from a\n8\nglobal client in the media domain, with a catalog of O(10 ) items.\nOffline Experiments. Figure 3 (left) demonstrates the fast train-\ning convergence of CompresSAE, surpassing the retrieval accuracy\nof equally sized Matryoshka after approximately 15 seconds. The\naccuracy-compression trade-off is compared in Figure 3 (center).\nCompresSAE achieves superior balance between compression and\naccuracy compared to Matryoshka, especially at high compression\nratios: CompresSAE can match the performance of Matryoshka\nmodels up to four times larger. Finally, retrieval from the recon-\nstructed space yields the best trade-off overall.\nOnline Experiment (Figure 1, Figure 3 (right)). We also con-\nducted an A/B test for online evaluation. Each variant received\na sample of approximately 8.5 million users. The experiment evalu-\nates four different embedding models used for candidate retrieval:\n512-dimensional SBERT (baseline); 768-dimensional Nomic model\ntrained with Matryoshka loss; its 64-dimensional Matryoshka vari-\nant; and CompresSAE, our 4096-dimensional sparse compression\nof the Nomic model with 𝑘 = 32, where similarity is computed\ndirectly in the sparse compressed space. Performance is measured\nvia downstream CTR.\nResults show that bothMatryoshka embeddings andCompresSAE\noutperform the 8× larger SBERT (Figure 1). Compared to the un-\ncompressed Nomic model, our 12× compressed CompresSAE sac-\nrifices only 1.35% of CTR performance. Notably, our lightweight\npost-processing method statistically significantly outperforms Ma-\ntryoshka of the same size by +1.52% (Figure 3, right)."
+  },
+  {
+    "id": "conclusions",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Conclusions",
+      "page_start": 3,
+      "page_end": 4
+    },
+    "text": "We introduce CompresSAE, a sparse autoencoder that compresses\ndense embeddings into high-dimensional, sparsely activated vec-\ntors optimized for candidate retrieval. The method preserves cosine\nsimilarity, requires no retraining of the original encoder, and deliv-\ners significant memory and compute savings without sacrificing\ndownstream performance. Online deployment at Recombee con-\nfirms that CompresSAE outperforms leading Matryoshka-based\ncompression in retrieval quality, as measured by downstream CTR.\nOur results establish sparsity as a promising direction for enhancing\nthe efficiency of web-scale recommender systems.\n\nUnderreview,2025,Prague,CzechRepublic Recombee\nReferences EricLarson,CJCarey,İlhanPolat,YuFeng,EricW.Moore,JakeVanderPlas,"
+  }
+]

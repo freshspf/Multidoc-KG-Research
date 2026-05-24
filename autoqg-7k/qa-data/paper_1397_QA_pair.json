@@ -1,0 +1,131 @@
+[
+  {
+    "section": "method1",
+    "path": {
+      "section": "method1",
+      "start_entity": "HardwareSecurityModule",
+      "end_entity": "PrivateKey",
+      "hops": [
+        {
+          "from": "HardwareSecurityModule",
+          "relation": "consistsOf",
+          "to": "PhysicalUnclonableFunctionAuthenticator",
+          "context": "The hardware security module is implemented into two main parts: the physical unclonable function authenticator",
+          "chunk": "4"
+        },
+        {
+          "from": "PhysicalUnclonableFunctionAuthenticator",
+          "relation": "utilizes",
+          "to": "FPGAS",
+          "context": "the FPGAS authenticator acting as the medium for the authentication process using PUF",
+          "chunk": "4"
+        },
+        {
+          "from": "FPGAS",
+          "relation": "receives",
+          "to": "PrivateKey",
+          "context": "Meanwhile, the private key will be transferred to the FPGAS board for the authentication key process",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the described implementation of the hardware security module, how is the private key used in the authentication process?",
+    "options": {
+      "A": "The private key is embedded within all components of the hardware security module for redundancy.",
+      "B": "The private key is stored within the physical unclonable function to enhance the security of the hardware security module.",
+      "C": "The private key is transferred to the FPGA board, which works with the physical unclonable function for authentication.",
+      "D": "The private key directly interacts with the hardware security module without utilizing the FPGA board."
+    },
+    "correct_answer": "C",
+    "explanation": "According to the paper's method1 section, the private key is transferred to the FPGA (Field-Programmable Gate Array) board as part of the authentication process, where it works in conjunction with the physical unclonable function authenticator. Options B, C, and D are incorrect as they either assign roles to the private key or component interactions not supported by the information in the paper.",
+    "path_description": "Path: HardwareSecurityModule --[consistsOf]--> PhysicalUnclonableFunctionAuthenticator --[utilizes]--> FPGAS --[receives]--> PrivateKey",
+    "context": "The hardware security module is implemented into two main parts: the physical unclonable function authenticator | the FPGAS authenticator acting as the medium for the authentication process using PUF | Meanwhile, the private key will be transferred to the FPGAS board for the authentication key process",
+    "paper_id": "502"
+  },
+  {
+    "section": "result2",
+    "path": {
+      "section": "result2",
+      "start_entity": "Experiment1",
+      "end_entity": "Outcome",
+      "hops": [
+        {
+          "from": "Experiment1",
+          "relation": "evaluates",
+          "to": "ArbiterPUF",
+          "context": "Experiment 1 evaluates Arbiter PUF design.",
+          "chunk": "7"
+        },
+        {
+          "from": "ArbiterPUF",
+          "relation": "hasOutcome",
+          "to": "AuthenticationFail",
+          "context": "Fig. 7: PUF Authentication Process Fail (Left) & Authentication Sucess (right)",
+          "chunk": "7"
+        },
+        {
+          "from": "AuthenticationFail",
+          "relation": "type",
+          "to": "Outcome",
+          "context": "Fig. 7: PUF Authentication Process Fail (Left) & Authentication Sucess (right)",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "In Experiment 1, which outcome type is specifically associated with the evaluation of the Arbiter PUF design?",
+    "options": {
+      "A": "The outcome type associated is an improvement in encryption speed and efficiency.",
+      "B": "The outcome type associated is a hardware malfunction unrelated to authentication processes.",
+      "C": "The outcome type associated is an authentication failure due to inherent design flaws.",
+      "D": "The outcome type associated is an authentication success, indicating robust security features."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A because the path from the experiment to the Arbiter PUF leads to an authentication failure outcome. This suggests that the evaluation specifically identified issues leading to failures in authentication, which is typically indicative of design flaws in the context of PUF evaluations.",
+    "path_description": "Path: Experiment1 --[evaluates]--> ArbiterPUF --[hasOutcome]--> AuthenticationFail --[type]--> Outcome",
+    "context": "Experiment 1 evaluates Arbiter PUF design. | Fig. 7: PUF Authentication Process Fail (Left) & Authentication Sucess (right) | Fig. 7: PUF Authentication Process Fail (Left) & Authentication Sucess (right)",
+    "paper_id": "502"
+  },
+  {
+    "section": "conclusions",
+    "path": {
+      "section": "conclusions",
+      "start_entity": "DepartmentOfComputerScienceAndElectronics",
+      "end_entity": "Property",
+      "hops": [
+        {
+          "from": "DepartmentOfComputerScienceAndElectronics",
+          "relation": "supports",
+          "to": "HardwareSecurityModule",
+          "context": "This work was partially supported by the Department of Computer Science and Electronics, Universitas Gadjah Mada under the publication Funding Year 2024.",
+          "chunk": "8"
+        },
+        {
+          "from": "HardwareSecurityModule",
+          "relation": "exhibits",
+          "to": "TimeConsumption",
+          "context": "One crucial aspect of HSM is time consumption.",
+          "chunk": "8"
+        },
+        {
+          "from": "TimeConsumption",
+          "relation": "type",
+          "to": "Property",
+          "context": "One crucial aspect of HSM is time consumption.",
+          "chunk": "8"
+        }
+      ]
+    },
+    "question": "In the context of the support from the Department of Computer Science and Electronics at Universitas Gadjah Mada for research on Hardware Security Modules (HSM), which property of HSM is specifically highlighted?",
+    "options": {
+      "A": "Data integrity assurance is emphasized as the primary feature of Hardware Security Modules.",
+      "B": "Time consumption is specifically highlighted as a crucial aspect of Hardware Security Modules.",
+      "C": "Encryption speed is noted as the key improvement area for Hardware Security Modules.",
+      "D": "Computational complexity is identified as the most constraining factor for Hardware Security Modules."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A, as the paper specifically points out that time consumption is a crucial aspect of HSMs. The other options, although related to possible characteristics of HSMs, do not align with the specific aspect supported by the Department of Computer Science and Electronics as identified in the given context.",
+    "path_description": "Path: DepartmentOfComputerScienceAndElectronics --[supports]--> HardwareSecurityModule --[exhibits]--> TimeConsumption --[type]--> Property",
+    "context": "This work was partially supported by the Department of Computer Science and Electronics, Universitas Gadjah Mada under the publication Funding Year 2024. | One crucial aspect of HSM is time consumption. | One crucial aspect of HSM is time consumption.",
+    "paper_id": "502"
+  }
+]

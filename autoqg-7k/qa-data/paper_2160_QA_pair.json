@@ -1,0 +1,303 @@
+[
+  {
+    "section": "taskdefinition1",
+    "path": {
+      "section": "taskdefinition1",
+      "start_entity": "CoCo-Bench",
+      "end_entity": "Function",
+      "hops": [
+        {
+          "from": "CoCo-Bench",
+          "relation": "includesTask",
+          "to": "CodeUnderstanding",
+          "context": "In CoCo-Bench, we define four primary tasks to comprehensively evaluate the capabilities of LLMs in software engineering.",
+          "chunk": "2"
+        },
+        {
+          "from": "CodeUnderstanding",
+          "relation": "includesFunction",
+          "to": "fCU",
+          "context": "The CU task comprises two functions: fCU : C × I → O and fCU : C × O → P(I).",
+          "chunk": "2"
+        },
+        {
+          "from": "fCU",
+          "relation": "type",
+          "to": "Function",
+          "context": "The CU task comprises two functions: fCU : C × I → O and fCU : C × O → P(I).",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the context of the CoCo-Bench framework from the 'taskdefinition1' section, how does the function fCU in the CodeUnderstanding task transform its inputs?",
+    "options": {
+      "A": "The function fCU takes a combination of Code (C) and Inputs (I) to produce Outputs (O).",
+      "B": "The function fCU translates Code (C) directly into a set of Probabilities of Inputs (P(I)).",
+      "C": "The function fCU maps Outputs (O) directly back to the original Code (C).",
+      "D": "The function fCU uses Outputs (O) and Code (C) to generate Probabilities of Inputs (P(I))."
+    },
+    "correct_answer": "A",
+    "explanation": "According to the provided context, the function fCU in the CodeUnderstanding task operates as a transformation function, mapping a combination of Code (C) and Inputs (I) to Outputs (O). The other options incorrectly describe the transformation process of the function fCU.",
+    "path_description": "Path: CoCo-Bench --[includesTask]--> CodeUnderstanding --[includesFunction]--> fCU --[type]--> Function",
+    "context": "In CoCo-Bench, we define four primary tasks to comprehensively evaluate the capabilities of LLMs in software engineering. | The CU task comprises two functions: fCU : C × I → O and fCU : C × O → P(I). | The CU task comprises two functions: fCU : C × I → O and fCU : C × O → P(I).",
+    "paper_id": "165"
+  },
+  {
+    "section": "taskdefinition1",
+    "path": {
+      "section": "taskdefinition1",
+      "start_entity": "CoCo-Bench",
+      "end_entity": "Tool",
+      "hops": [
+        {
+          "from": "CoCo-Bench",
+          "relation": "includesTask",
+          "to": "CodeUnderstanding",
+          "context": "In CoCo-Bench, we define four primary tasks to comprehensively evaluate the capabilities of LLMs in software engineering.",
+          "chunk": "2"
+        },
+        {
+          "from": "CodeUnderstanding",
+          "relation": "utilizesTool",
+          "to": "Keras",
+          "context": "For example, in web development and data processing, we utilize key tools such as Keras (Chollet, 2015).",
+          "chunk": "2"
+        },
+        {
+          "from": "Keras",
+          "relation": "type",
+          "to": "Tool",
+          "context": "For example, in web development and data processing, we utilize key tools such as Keras (Chollet, 2015).",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the context of CoCo-Bench, which task primarily utilizes the tool Keras to evaluate the capabilities of LLMs specifically in software engineering?",
+    "options": {
+      "A": "Code Testing, a task that evaluates LLMs' ability to detect and fix errors in software.",
+      "B": "Code Optimization, which aims to enhance the efficiency and performance of code written by LLMs.",
+      "C": "Code Generation, a task focused on the ability of LLMs to produce functional software code.",
+      "D": "Code Understanding, a task designed to assess how LLMs interpret and analyze code."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A, Code Understanding. According to the knowledge path, CoCo-Bench includes the task Code Understanding which utilizes the tool Keras. Keras, being a deep learning framework, is primarily used in tasks involving understanding and interpreting complex structures like code, rather than generating, optimizing, or testing it.",
+    "path_description": "Path: CoCo-Bench --[includesTask]--> CodeUnderstanding --[utilizesTool]--> Keras --[type]--> Tool",
+    "context": "In CoCo-Bench, we define four primary tasks to comprehensively evaluate the capabilities of LLMs in software engineering. | For example, in web development and data processing, we utilize key tools such as Keras (Chollet, 2015). | For example, in web development and data processing, we utilize key tools such as Keras (Chollet, 2015).",
+    "paper_id": "165"
+  },
+  {
+    "section": "taskdefinition3",
+    "path": {
+      "section": "taskdefinition3",
+      "start_entity": "CodeUnderstanding",
+      "end_entity": "PerformanceIssues",
+      "hops": [
+        {
+          "from": "CodeUnderstanding",
+          "relation": "partOf",
+          "to": "Task4",
+          "context": "Code Understanding (CU)",
+          "chunk": "4"
+        },
+        {
+          "from": "Task4",
+          "relation": "evaluates",
+          "to": "PythonCodeSnippet",
+          "context": "Task 4: Code Review",
+          "chunk": "4"
+        },
+        {
+          "from": "PythonCodeSnippet",
+          "relation": "hasIssue",
+          "to": "PerformanceIssues",
+          "context": "Performance Issues: None",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the context of Task 4: Code Review, which of the following statements best reflects the relationship between Code Understanding and Python code snippets with performance issues?",
+    "options": {
+      "A": "Code Understanding in Task 4 primarily focuses on syntax errors in Python code snippets.",
+      "B": "Python code snippets evaluated in Task 4 always contain multiple performance issues.",
+      "C": "Code Understanding in Task 4 does not identify any performance issues in Python code snippets.",
+      "D": "Performance issues in Python code snippets are frequently resolved during Task 4 Code Review."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A because the context specifies that under Code Understanding in Task 4, which is part of Code Review, there are no performance issues found in the Python code snippets. This indicates that the process of understanding the code within this task does not detect performance problems.",
+    "path_description": "Path: CodeUnderstanding --[partOf]--> Task4 --[evaluates]--> PythonCodeSnippet --[hasIssue]--> PerformanceIssues",
+    "context": "Code Understanding (CU) | Task 4: Code Review | Performance Issues: None",
+    "paper_id": "165"
+  },
+  {
+    "section": "limitationsandfuturework",
+    "path": {
+      "section": "limitationsandfuturework",
+      "start_entity": "CoCo-Bench",
+      "end_entity": "DataType",
+      "hops": [
+        {
+          "from": "CoCo-Bench",
+          "relation": "lacks",
+          "to": "MultimodalTasks",
+          "context": "Currently, the benchmark lacks multimodal tasks that require models to integrate code with other data types, such as images or natural language...",
+          "chunk": "8"
+        },
+        {
+          "from": "MultimodalTasks",
+          "relation": "requiresIntegrationOf",
+          "to": "Images",
+          "context": "Currently, the benchmark lacks multimodal tasks that require models to integrate code with other data types, such as images or natural language...",
+          "chunk": "8"
+        },
+        {
+          "from": "Images",
+          "relation": "type",
+          "to": "DataType",
+          "context": "Currently, the benchmark lacks multimodal tasks that require models to integrate code with other data types, such as images or natural language...",
+          "chunk": "8"
+        }
+      ]
+    },
+    "question": "Considering the limitations of CoCo-Bench discussed in the 'limitationsandfuturework' section, what type of data integration is specifically mentioned as missing in multimodal tasks?",
+    "options": {
+      "A": "Integration of code with visual data types such as images.",
+      "B": "Integration of code with audio data such as sounds and spoken language.",
+      "C": "Integration of code with numeric data for statistical analysis tasks.",
+      "D": "Integration of code with text data in different languages for translation tasks."
+    },
+    "correct_answer": "A",
+    "explanation": "The paper mentions that the CoCo-Bench currently lacks multimodal tasks that require the integration of code with other data types such as images or natural language. Among the options, only the integration of code with images matches the description provided, making option B the correct answer.",
+    "path_description": "Path: CoCo-Bench --[lacks]--> MultimodalTasks --[requiresIntegrationOf]--> Images --[type]--> DataType",
+    "context": "Currently, the benchmark lacks multimodal tasks that require models to integrate code with other data types, such as images or natural language... | Currently, the benchmark lacks multimodal tasks that require models to integrate code with other data types, such as images or natural language... | Currently, the benchmark lacks multimodal tasks that require models to integrate code with other data types, such as images or natural language...",
+    "paper_id": "165"
+  },
+  {
+    "section": "limitationsandfuturework",
+    "path": {
+      "section": "limitationsandfuturework",
+      "start_entity": "CoCo-Bench",
+      "end_entity": "DataType",
+      "hops": [
+        {
+          "from": "CoCo-Bench",
+          "relation": "plansToIntroduce",
+          "to": "MultimodalTasks",
+          "context": "Recognizing this gap, we plan to introduce multimodal tasks in the future, allowing us to evaluate models on more complex projects and providing a more holistic assessment of LLMs’ capabilities.",
+          "chunk": "8"
+        },
+        {
+          "from": "MultimodalTasks",
+          "relation": "requiresIntegrationOf",
+          "to": "Images",
+          "context": "Currently, the benchmark lacks multimodal tasks that require models to integrate code with other data types, such as images or natural language...",
+          "chunk": "8"
+        },
+        {
+          "from": "Images",
+          "relation": "type",
+          "to": "DataType",
+          "context": "Currently, the benchmark lacks multimodal tasks that require models to integrate code with other data types, such as images or natural language...",
+          "chunk": "8"
+        }
+      ]
+    },
+    "question": "In the context of future updates to the CoCo-Bench benchmark, what type of data integration is specifically mentioned as necessary for upcoming multimodal tasks?",
+    "options": {
+      "A": "Merging numerical data with video files, considered compound data types",
+      "B": "Integration of code with images, which are classified as a distinct data type",
+      "C": "Combining textual data with audio files, which are part of simple data types",
+      "D": "Linking graphical data with spreadsheet data, recognized as hybrid data types"
+    },
+    "correct_answer": "B",
+    "explanation": "The path in the knowledge graph highlights the introduction of multimodal tasks that require the integration of code with other data types such as images. The correct answer, therefore, is the integration of code with images, where images are identified as a distinct data type. The other options introduce different data pairings that are not supported by the provided context or graph path.",
+    "path_description": "Path: CoCo-Bench --[plansToIntroduce]--> MultimodalTasks --[requiresIntegrationOf]--> Images --[type]--> DataType",
+    "context": "Recognizing this gap, we plan to introduce multimodal tasks in the future, allowing us to evaluate models on more complex projects and providing a more holistic assessment of LLMs’ capabilities. | Currently, the benchmark lacks multimodal tasks that require models to integrate code with other data types, such as images or natural language... | Currently, the benchmark lacks multimodal tasks that require models to integrate code with other data types, such as images or natural language...",
+    "paper_id": "165"
+  },
+  {
+    "section": "benchmarkmetric",
+    "path": {
+      "section": "benchmarkmetric",
+      "start_entity": "CodeLLMs",
+      "end_entity": "Dataset",
+      "hops": [
+        {
+          "from": "CodeLLMs",
+          "relation": "uses",
+          "to": "WeightingScheme",
+          "context": "To evaluate the performance of Code LLMs on the CoCo-Bench, we incorporate a weighting scheme",
+          "chunk": "11"
+        },
+        {
+          "from": "WeightingScheme",
+          "relation": "appliedTo",
+          "to": "CoCo-Bench",
+          "context": "To evaluate the performance of Code LLMs on the CoCo-Bench, we incorporate a weighting scheme",
+          "chunk": "11"
+        },
+        {
+          "from": "CoCo-Bench",
+          "relation": "type",
+          "to": "Dataset",
+          "context": "To evaluate the performance of Code LLMs on the CoCo-Bench, we incorporate a weighting scheme",
+          "chunk": "11"
+        }
+      ]
+    },
+    "question": "What is the primary purpose of applying a weighting scheme to Code LLMs when evaluating their performance on the CoCo-Bench dataset?",
+    "options": {
+      "A": "To ensure that all code patterns are equally represented in the evaluation metrics.",
+      "B": "To enhance the visual representation of the code for better understanding by reviewers.",
+      "C": "To differentiate between various programming languages used in the dataset.",
+      "D": "To prioritize certain types of code errors over others, skewing the results."
+    },
+    "correct_answer": "A",
+    "explanation": "The purpose of applying a weighting scheme is to balance the evaluation metrics so that all code patterns are represented equally, ensuring a fair assessment of the Code LLMs' performance on the CoCo-Bench dataset. This allows for a more accurate measurement of the model's overall capabilities.",
+    "path_description": "Path: CodeLLMs --[uses]--> WeightingScheme --[appliedTo]--> CoCo-Bench --[type]--> Dataset",
+    "context": "To evaluate the performance of Code LLMs on the CoCo-Bench, we incorporate a weighting scheme | To evaluate the performance of Code LLMs on the CoCo-Bench, we incorporate a weighting scheme | To evaluate the performance of Code LLMs on the CoCo-Bench, we incorporate a weighting scheme",
+    "paper_id": "165"
+  },
+  {
+    "section": "benchmarkconstruction",
+    "path": {
+      "section": "benchmarkconstruction",
+      "start_entity": "CoCo-Bench",
+      "end_entity": "CodeCollection",
+      "hops": [
+        {
+          "from": "CoCo-Bench",
+          "relation": "hasStage",
+          "to": "RawDataCollection",
+          "context": "The sample generation process of CoCo-Bench is strategically organized into three main stages.",
+          "chunk": "10"
+        },
+        {
+          "from": "RawDataCollection",
+          "relation": "sourcesCodeFrom",
+          "to": "Leetcode",
+          "context": "We source code from Leetcode and various project repositories.",
+          "chunk": "10"
+        },
+        {
+          "from": "Leetcode",
+          "relation": "providesEnvironmentFor",
+          "to": "CodeCollection",
+          "context": "Leetcode provides a controlled environment with frequently reviewed and updated code.",
+          "chunk": "10"
+        }
+      ]
+    },
+    "question": "In the context of CoCo-Bench's sample generation process, why is Leetcode specifically utilized during the Raw Data Collection stage?",
+    "options": {
+      "A": "Leetcode allows unlimited data downloads, which facilitates the rapid collection of large volumes of code samples.",
+      "B": "Leetcode provides a controlled environment that ensures the code is frequently reviewed and updated, ideal for reliable data sourcing.",
+      "C": "Leetcode offers exclusive access to a wide range of programming languages, which is crucial for diverse sample generation.",
+      "D": "Leetcode contributes to the design of the environment, enhancing the user interface and experience during data collection."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A because, as indicated by the knowledge path, Leetcode is used in the Raw Data Collection stage of CoCo-Bench to provide a controlled environment. This environment is specifically chosen because it ensures that the code is frequently reviewed and updated, making it a reliable source for data collection. The other options, while plausible, do not relate directly to the reasons for using Leetcode as outlined in the section of the paper.",
+    "path_description": "Path: CoCo-Bench --[hasStage]--> RawDataCollection --[sourcesCodeFrom]--> Leetcode --[providesEnvironmentFor]--> CodeCollection",
+    "context": "The sample generation process of CoCo-Bench is strategically organized into three main stages. | We source code from Leetcode and various project repositories. | Leetcode provides a controlled environment with frequently reviewed and updated code.",
+    "paper_id": "165"
+  }
+]

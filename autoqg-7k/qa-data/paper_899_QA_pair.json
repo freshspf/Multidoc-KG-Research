@@ -1,0 +1,88 @@
+[
+  {
+    "section": "variations",
+    "path": {
+      "section": "variations",
+      "start_entity": "Multiplier",
+      "end_entity": "HardwareComponent",
+      "hops": [
+        {
+          "from": "Multiplier",
+          "relation": "affectedBy",
+          "to": "SpeculativeExecution",
+          "context": "The timing of when the multiplier becomes available for multiply R3, R4 could be affected by the timing of the first multiplication.",
+          "chunk": "10"
+        },
+        {
+          "from": "SpeculativeExecution",
+          "relation": "affects",
+          "to": "DRAMRowAddressSelect",
+          "context": "changing the DRAM row address select.",
+          "chunk": "10"
+        },
+        {
+          "from": "DRAMRowAddressSelect",
+          "relation": "type",
+          "to": "HardwareComponent",
+          "context": "changing the DRAM row address select.",
+          "chunk": "10"
+        }
+      ]
+    },
+    "question": "In a computer system, how does speculative execution indirectly influence the functionality of a hardware component?",
+    "options": {
+      "A": "It increases the processing speed of the central processing unit, enhancing overall system efficiency.",
+      "B": "It changes the voltage levels supplied to the hardware components, thereby affecting their operations.",
+      "C": "Speculative execution directly modifies the data storage capacity of the dynamic random-access memory.",
+      "D": "By altering the timing of a multiplier's availability, it impacts how DRAM row address select functions."
+    },
+    "correct_answer": "D",
+    "explanation": "Speculative execution affects the timing of when the multiplier is available, which in turn impacts the DRAM row address select—a specific hardware component. This sequence of influences highlights how speculative execution indirectly affects hardware components by altering the operational timing of intermediate elements like the multiplier.",
+    "path_description": "Path: Multiplier --[affectedBy]--> SpeculativeExecution --[affects]--> DRAMRowAddressSelect --[type]--> HardwareComponent",
+    "context": "The timing of when the multiplier becomes available for multiply R3, R4 could be affected by the timing of the first multiplication. | changing the DRAM row address select. | changing the DRAM row address select.",
+    "paper_id": "108"
+  },
+  {
+    "section": "aspectreexampleimplementation",
+    "path": {
+      "section": "aspectreexampleimplementation",
+      "start_entity": "temp",
+      "end_entity": "Array",
+      "hops": [
+        {
+          "from": "temp",
+          "relation": "usedIn",
+          "to": "victim_function",
+          "context": "uint8_t temp = 0",
+          "chunk": "14"
+        },
+        {
+          "from": "victim_function",
+          "relation": "uses",
+          "to": "array2",
+          "context": "void victim_function(size_t x)",
+          "chunk": "14"
+        },
+        {
+          "from": "array2",
+          "relation": "type",
+          "to": "Array",
+          "context": "uint8_t array2[256 * 512]",
+          "chunk": "14"
+        }
+      ]
+    },
+    "question": "In the context of the Spectre attack example implementation, what is the primary type of the 'array2' variable as used within the 'victim_function'?",
+    "options": {
+      "A": "Function that takes a size_t type argument and does not return a value",
+      "B": "Single uint8_t variable initialized to zero",
+      "C": "Array of 256 elements, each consisting of 512 uint8_t values",
+      "D": "Array of 512 elements, each capable of storing 256 uint8_t values"
+    },
+    "correct_answer": "D",
+    "explanation": "The context indicates that 'array2' is declared as uint8_t array2[256 * 512], which implies it is an array with 512 rows, each capable of storing 256 uint8_t values. The other options either misinterpret the size and structure of the array or describe other variables and functions.",
+    "path_description": "Path: temp --[usedIn]--> victim_function --[uses]--> array2 --[type]--> Array",
+    "context": "uint8_t temp = 0 | void victim_function(size_t x) | uint8_t array2[256 * 512]",
+    "paper_id": "108"
+  }
+]

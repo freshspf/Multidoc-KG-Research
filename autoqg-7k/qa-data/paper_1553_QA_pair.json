@@ -1,0 +1,432 @@
+[
+  {
+    "section": "background5",
+    "path": {
+      "section": "background5",
+      "start_entity": "Learner",
+      "end_entity": "QueryType",
+      "hops": [
+        {
+          "from": "Learner",
+          "relation": "uses",
+          "to": "RandomSamplingOracle",
+          "context": "The learner has access to a random sampling which, when called, returns some 𝑥  𝐴∗ drawn according to oracle ∈ 𝐷.",
+          "chunk": "6"
+        },
+        {
+          "from": "RandomSamplingOracle",
+          "relation": "replaces",
+          "to": "EquivalenceQuery",
+          "context": "Replacing each equivalence query with calls to the sampling oracle in the above-described manner gives rise to a theoretical guarantee on the classification accuracy of the inferred hypothesis.",
+          "chunk": "6"
+        },
+        {
+          "from": "EquivalenceQuery",
+          "relation": "type",
+          "to": "QueryType",
+          "context": "Intuitively, instead of asking an equivalence query, the learner makes a certain number of calls to the random sampling oracle.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the context of machine learning as described in the paper, what is the primary benefit of replacing equivalence queries with calls to a random sampling oracle?",
+    "options": {
+      "A": "It significantly increases the computational complexity of the learning model.",
+      "B": "It decreases the number of necessary interactions between the learner and the oracle.",
+      "C": "It theoretically guarantees the classification accuracy of the inferred hypothesis.",
+      "D": "It enhances the random sampling oracle's ability to draw unbiased samples from the distribution D."
+    },
+    "correct_answer": "C",
+    "explanation": "The paper explains that replacing each equivalence query with calls to the random sampling oracle theoretically guarantees the classification accuracy of the inferred hypothesis. This results from the learner accessing a distribution of samples rather than relying on the fixed outcomes of equivalence queries.",
+    "path_description": "Path: Learner --[uses]--> RandomSamplingOracle --[replaces]--> EquivalenceQuery --[type]--> QueryType",
+    "context": "The learner has access to a random sampling which, when called, returns some 𝑥  𝐴∗ drawn according to oracle ∈ 𝐷. | Replacing each equivalence query with calls to the sampling oracle in the above-described manner gives rise to a theoretical guarantee on the classification accuracy of the inferred hypothesis. | Intuitively, instead of asking an equivalence query, the learner makes a certain number of calls to the random sampling oracle.",
+    "paper_id": "661"
+  },
+  {
+    "section": "relatedwork5",
+    "path": {
+      "section": "relatedwork5",
+      "start_entity": "Clark",
+      "end_entity": "GreibachNormalForm",
+      "hops": [
+        {
+          "from": "Clark",
+          "relation": "presents",
+          "to": "Algorithm",
+          "context": "he instead presents an algorithm which learns only a subclass of the context-free languages",
+          "chunk": "12"
+        },
+        {
+          "from": "Algorithm",
+          "relation": "learns",
+          "to": "SimpleDeterministicCFG",
+          "context": "Yokomori [31] presents an algorithm which can learn a simple deterministic CFG",
+          "chunk": "12"
+        },
+        {
+          "from": "SimpleDeterministicCFG",
+          "relation": "isInForm",
+          "to": "GreibachNormalForm",
+          "context": "If 𝐺 is in GNF, then it is a simple deterministic CFG",
+          "chunk": "12"
+        }
+      ]
+    },
+    "question": "Which statement best describes the relationship between the algorithm presented by Clark and its capabilities in the context of context-free grammars?",
+    "options": {
+      "A": "Clark's algorithm can learn any context-free language, provided it is represented in Greibach Normal Form.",
+      "B": "Clark's algorithm learns a subclass of context-free languages that are always in Greibach Normal Form.",
+      "C": "Clark's algorithm is restricted to learning simple deterministic CFGs, which are a subset that includes Greibach Normal Form.",
+      "D": "Clark's algorithm specifically learns only those context-free grammars that cannot be converted into Greibach Normal Form."
+    },
+    "correct_answer": "C",
+    "explanation": "Clark presents an algorithm that learns a subclass of context-free languages, specifically simple deterministic CFGs. The information that simple deterministic CFGs are included in Greibach Normal Form aligns with it being a subclass, not the entirety or outside this form.",
+    "path_description": "Path: Clark --[presents]--> Algorithm --[learns]--> SimpleDeterministicCFG --[isInForm]--> GreibachNormalForm",
+    "context": "he instead presents an algorithm which learns only a subclass of the context-free languages | Yokomori [31] presents an algorithm which can learn a simple deterministic CFG | If 𝐺 is in GNF, then it is a simple deterministic CFG",
+    "paper_id": "661"
+  },
+  {
+    "section": "relatedwork5",
+    "path": {
+      "section": "relatedwork5",
+      "start_entity": "Yokomori",
+      "end_entity": "Model",
+      "hops": [
+        {
+          "from": "Yokomori",
+          "relation": "presents",
+          "to": "Algorithm",
+          "context": "Yokomori [31] presents an algorithm which can learn a simple deterministic CFG",
+          "chunk": "12"
+        },
+        {
+          "from": "Algorithm",
+          "relation": "learns",
+          "to": "SimpleDeterministicCFG",
+          "context": "Yokomori [31] presents an algorithm which can learn a simple deterministic CFG",
+          "chunk": "12"
+        },
+        {
+          "from": "SimpleDeterministicCFG",
+          "relation": "type",
+          "to": "Model",
+          "context": "Yokomori [31] presents an algorithm which can learn a simple deterministic CFG",
+          "chunk": "12"
+        }
+      ]
+    },
+    "question": "According to Yokomori's research, what type of model does the algorithm learn when applied to context-free grammars?",
+    "options": {
+      "A": "The algorithm learns a simple deterministic finite automaton model.",
+      "B": "The algorithm learns a general probabilistic context-free grammar model.",
+      "C": "The algorithm learns a complex nondeterministic context-free grammar model.",
+      "D": "The algorithm learns a simple deterministic context-free grammar model."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A, as the knowledge path indicates that Yokomori's algorithm learns a simple deterministic CFG (context-free grammar), which is a type of model. The other options introduce different types of models or complexities which are not supported by the given knowledge path.",
+    "path_description": "Path: Yokomori --[presents]--> Algorithm --[learns]--> SimpleDeterministicCFG --[type]--> Model",
+    "context": "Yokomori [31] presents an algorithm which can learn a simple deterministic CFG | Yokomori [31] presents an algorithm which can learn a simple deterministic CFG | Yokomori [31] presents an algorithm which can learn a simple deterministic CFG",
+    "paper_id": "661"
+  },
+  {
+    "section": "relatedwork5",
+    "path": {
+      "section": "relatedwork5",
+      "start_entity": "Algorithm",
+      "end_entity": "Model",
+      "hops": [
+        {
+          "from": "Algorithm",
+          "relation": "learns",
+          "to": "SimpleDeterministicCFG",
+          "context": "Yokomori [31] presents an algorithm which can learn a simple deterministic CFG",
+          "chunk": "12"
+        },
+        {
+          "from": "SimpleDeterministicCFG",
+          "relation": "isInForm",
+          "to": "GreibachNormalForm",
+          "context": "If 𝐺 is in GNF, then it is a simple deterministic CFG",
+          "chunk": "12"
+        },
+        {
+          "from": "GreibachNormalForm",
+          "relation": "type",
+          "to": "Model",
+          "context": "A CFG𝐺 = (𝑉 , 𝐴, 𝑅, 𝑆) is in Greibach normal form (GNF)",
+          "chunk": "12"
+        }
+      ]
+    },
+    "question": "Which type of model does the algorithm presented by Yokomori learn, based on its ability to process a specific form of context-free grammar?",
+    "options": {
+      "A": "The algorithm develops a probabilistic model by learning non-deterministic context-free grammars in standard form.",
+      "B": "The algorithm is designed to learn a model using unrestricted grammars that are neither simple nor deterministic.",
+      "C": "The algorithm learns a model based on the Greibach Normal Form, which defines a simple deterministic CFG.",
+      "D": "The algorithm constructs a model that simulates learning based on the Chomsky Normal Form for context-free grammars."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A because the algorithm by Yokomori learns a simple deterministic CFG that is specifically in Greibach Normal Form, and this form is a type of model according to the knowledge graph path described.",
+    "path_description": "Path: Algorithm --[learns]--> SimpleDeterministicCFG --[isInForm]--> GreibachNormalForm --[type]--> Model",
+    "context": "Yokomori [31] presents an algorithm which can learn a simple deterministic CFG | If 𝐺 is in GNF, then it is a simple deterministic CFG | A CFG𝐺 = (𝑉 , 𝐴, 𝑅, 𝑆) is in Greibach normal form (GNF)",
+    "paper_id": "661"
+  },
+  {
+    "section": "method10",
+    "path": {
+      "section": "method10",
+      "start_entity": "PLStar",
+      "end_entity": "DataStructure",
+      "hops": [
+        {
+          "from": "PLStar",
+          "relation": "improvesOver",
+          "to": "LStar",
+          "context": "For non-dense languages, however, PL* will always give some improvement over L*.",
+          "chunk": "23"
+        },
+        {
+          "from": "LStar",
+          "relation": "makesTable",
+          "to": "ObservationTable",
+          "context": "L* makes these same additions, its table will then become the L* table equivalent to PL*'s augmented table.",
+          "chunk": "23"
+        },
+        {
+          "from": "ObservationTable",
+          "relation": "type",
+          "to": "DataStructure",
+          "context": "After making their observation tables closed and consistent, L* and PL* then construct their hypotheses.",
+          "chunk": "23"
+        }
+      ]
+    },
+    "question": "In the context of learning non-dense languages, how does the PL* algorithm improve upon the L* algorithm in terms of data structure manipulation?",
+    "options": {
+      "A": "PL* enhances the L* algorithm by adding more entries to the Observation Table, thus creating a more comprehensive Data Structure.",
+      "B": "PL* modifies the L* algorithm by using a different type of Observation Table, which is less efficient but more thorough.",
+      "C": "PL* replaces the L* algorithm's Observation Table with a more advanced Graphical Structure, optimizing the learning process.",
+      "D": "PL* simplifies the L* algorithm by removing unnecessary entries from the Observation Table, streamlining the Data Structure."
+    },
+    "correct_answer": "A",
+    "explanation": "PL* improves upon L* by augmenting the Observation Table, which is the Data Structure used by both algorithms to construct hypotheses. This enhancement involves adding more entries to the Observation Table, making it more comprehensive and effective for constructing accurate hypotheses in non-dense languages.",
+    "path_description": "Path: PLStar --[improvesOver]--> LStar --[makesTable]--> ObservationTable --[type]--> DataStructure",
+    "context": "For non-dense languages, however, PL* will always give some improvement over L*. | L* makes these same additions, its table will then become the L* table equivalent to PL*'s augmented table. | After making their observation tables closed and consistent, L* and PL* then construct their hypotheses.",
+    "paper_id": "661"
+  },
+  {
+    "section": "method11",
+    "path": {
+      "section": "method11",
+      "start_entity": "RandomSamplingOracle",
+      "end_entity": "Variable",
+      "hops": [
+        {
+          "from": "RandomSamplingOracle",
+          "relation": "returns",
+          "to": "x",
+          "context": "When a random sampling oracle is called, it returns some 𝑥 ∈ 𝐴∗ drawn according to a fixed probability distribution 𝐷 over 𝐴∗.",
+          "chunk": "24"
+        },
+        {
+          "from": "x",
+          "relation": "preventsAdditionOf",
+          "to": "S",
+          "context": "due to the existence of this 𝑥.",
+          "chunk": "24"
+        },
+        {
+          "from": "S",
+          "relation": "type",
+          "to": "Variable",
+          "context": "Thus, 𝑠 would certainly have not been added to 𝑆stored either.",
+          "chunk": "24"
+        }
+      ]
+    },
+    "question": "In the context of a random sampling oracle used in computational methods, what implication does the variable x, returned by the oracle, have on the set S?",
+    "options": {
+      "A": "The variable x adds more elements to the set S to increase the computational complexity of the analysis.",
+      "B": "The variable x simplifies the set S by reducing the number of elements based on the distribution D.",
+      "C": "The variable x acts as a placeholder in set S without influencing the addition or removal of elements.",
+      "D": "The variable x prevents the addition of certain elements to the set S, thereby influencing the variable's distribution."
+    },
+    "correct_answer": "D",
+    "explanation": "The variable x, drawn from a fixed probability distribution D when the random sampling oracle is called, prevents the addition of certain elements to the set S. This is crucial as it influences the composition and characteristics of S, ensuring only specific elements according to x are included or excluded, thereby impacting the overall analysis or computation involving S.",
+    "path_description": "Path: RandomSamplingOracle --[returns]--> x --[preventsAdditionOf]--> S --[type]--> Variable",
+    "context": "When a random sampling oracle is called, it returns some 𝑥 ∈ 𝐴∗ drawn according to a fixed probability distribution 𝐷 over 𝐴∗. | due to the existence of this 𝑥. | Thus, 𝑠 would certainly have not been added to 𝑆stored either.",
+    "paper_id": "661"
+  },
+  {
+    "section": "method11",
+    "path": {
+      "section": "method11",
+      "start_entity": "RandomSamplingOracle",
+      "end_entity": "Sstored",
+      "hops": [
+        {
+          "from": "RandomSamplingOracle",
+          "relation": "returns",
+          "to": "x",
+          "context": "When a random sampling oracle is called, it returns some 𝑥 ∈ 𝐴∗ drawn according to a fixed probability distribution 𝐷 over 𝐴∗.",
+          "chunk": "24"
+        },
+        {
+          "from": "x",
+          "relation": "preventsAdditionOf",
+          "to": "S",
+          "context": "due to the existence of this 𝑥.",
+          "chunk": "24"
+        },
+        {
+          "from": "S",
+          "relation": "partOf",
+          "to": "Sstored",
+          "context": "Thus, 𝑠 would certainly have not been added to 𝑆stored either.",
+          "chunk": "24"
+        }
+      ]
+    },
+    "question": "In the context of the method11 section, how does the output of the RandomSamplingOracle influence the composition of Sstored?",
+    "options": {
+      "A": "The output x serves as a placeholder in Sstored which is replaced as more elements are sampled.",
+      "B": "The output x directly adds elements to Sstored based on a predetermined sampling method.",
+      "C": "The output x prevents the addition of certain elements S to Sstored based on its unique properties.",
+      "D": "The output x modifies the probability distribution D which then influences what gets added to Sstored."
+    },
+    "correct_answer": "C",
+    "explanation": "The output x from the RandomSamplingOracle prevents the addition of certain elements S to Sstored due to its properties as per the knowledge path. Option A correctly identifies that the role of x is preventative in terms of the addition of elements to Sstored, aligning with the paper's description.",
+    "path_description": "Path: RandomSamplingOracle --[returns]--> x --[preventsAdditionOf]--> S --[partOf]--> Sstored",
+    "context": "When a random sampling oracle is called, it returns some 𝑥 ∈ 𝐴∗ drawn according to a fixed probability distribution 𝐷 over 𝐴∗. | due to the existence of this 𝑥. | Thus, 𝑠 would certainly have not been added to 𝑆stored either.",
+    "paper_id": "661"
+  },
+  {
+    "section": "method12",
+    "path": {
+      "section": "method12",
+      "start_entity": "Rijsbergen",
+      "end_entity": "Metric",
+      "hops": [
+        {
+          "from": "Rijsbergen",
+          "relation": "developedBy",
+          "to": "F1-score",
+          "context": "The metric of F1-score is attributed to Rijsbergen.",
+          "chunk": "25"
+        },
+        {
+          "from": "F1-score",
+          "relation": "basedOn",
+          "to": "Recall",
+          "context": "F1-score combines two other metrics, precision and recall.",
+          "chunk": "25"
+        },
+        {
+          "from": "Recall",
+          "relation": "type",
+          "to": "Metric",
+          "context": "F1-score combines two other metrics, precision and recall.",
+          "chunk": "25"
+        }
+      ]
+    },
+    "question": "Which statement best describes the relationship between the concepts developed by Rijsbergen and their types in the context of evaluating model performance?",
+    "options": {
+      "A": "Rijsbergen developed recall, which forms the basis of the F1-score, a method used primarily in regression analysis.",
+      "B": "Rijsbergen introduced the concept of precision and recall, which are both types of methods used in descriptive statistics.",
+      "C": "Rijsbergen created precision, which directly influences the F1-score, classified under the category of algorithms.",
+      "D": "Rijsbergen developed the F1-score, which is a metric based on recall, another performance measurement."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A because it correctly follows the path from Rijsbergen, who developed the F1-score. The F1-score is based on recall, and both are types of metrics used to evaluate model performance. Options B, C, and D are incorrect as they misrepresent the relationships and the nature of the concepts involved.",
+    "path_description": "Path: Rijsbergen --[developedBy]--> F1-score --[basedOn]--> Recall --[type]--> Metric",
+    "context": "The metric of F1-score is attributed to Rijsbergen. | F1-score combines two other metrics, precision and recall. | F1-score combines two other metrics, precision and recall.",
+    "paper_id": "661"
+  },
+  {
+    "section": "method11",
+    "path": {
+      "section": "method11",
+      "start_entity": "RandomSamplingOracle",
+      "end_entity": "Spre",
+      "hops": [
+        {
+          "from": "RandomSamplingOracle",
+          "relation": "returns",
+          "to": "x",
+          "context": "When a random sampling oracle is called, it returns some 𝑥 ∈ 𝐴∗ drawn according to a fixed probability distribution 𝐷 over 𝐴∗.",
+          "chunk": "24"
+        },
+        {
+          "from": "x",
+          "relation": "preventsAdditionOf",
+          "to": "S",
+          "context": "due to the existence of this 𝑥.",
+          "chunk": "24"
+        },
+        {
+          "from": "S",
+          "relation": "partOf",
+          "to": "Spre",
+          "context": "even if 𝑠 was itself later added to 𝑆pre.",
+          "chunk": "24"
+        }
+      ]
+    },
+    "question": "In the context of the method11 section, how does the existence of 𝑥, returned by the RandomSamplingOracle, influence the composition of 𝑆pre?",
+    "options": {
+      "A": "The existence of 𝑥 allows it to be added to both 𝑆 and 𝑆pre, creating a dynamic change in the composition of 𝑆pre over time.",
+      "B": "The existence of 𝑥 has no impact on 𝑆 or 𝑆pre, as 𝑥 is typically discarded by the RandomSamplingOracle after being drawn.",
+      "C": "The existence of 𝑥 directly adds it to 𝑆pre, thus modifying the original composition of 𝑆pre regardless of later additions.",
+      "D": "The existence of 𝑥 prevents its addition to 𝑆, which is part of 𝑆pre, ensuring 𝑆pre remains unchanged even if 𝑠 is added later."
+    },
+    "correct_answer": "D",
+    "explanation": "According to the knowledge path, 𝑥 returned by the RandomSamplingOracle prevents its own addition to 𝑆, which is part of 𝑆pre. This ensures that the structure of 𝑆pre does not change due to the addition of 𝑥 to 𝑆, even if other elements like 𝑠 are added to 𝑆pre later.",
+    "path_description": "Path: RandomSamplingOracle --[returns]--> x --[preventsAdditionOf]--> S --[partOf]--> Spre",
+    "context": "When a random sampling oracle is called, it returns some 𝑥 ∈ 𝐴∗ drawn according to a fixed probability distribution 𝐷 over 𝐴∗. | due to the existence of this 𝑥. | even if 𝑠 was itself later added to 𝑆pre.",
+    "paper_id": "661"
+  },
+  {
+    "section": "discussion1",
+    "path": {
+      "section": "discussion1",
+      "start_entity": "PLStarAlgorithm",
+      "end_entity": "QueryType",
+      "hops": [
+        {
+          "from": "PLStarAlgorithm",
+          "relation": "outperforms",
+          "to": "LStarAlgorithm",
+          "context": "We proved that PL* always performs less queries than L*, when both are tasked with learning the same non-dense language. Furthermore, we showed empirically that PL* significantly outperforms L* in terms of both runtime and space usage.",
+          "chunk": "31"
+        },
+        {
+          "from": "LStarAlgorithm",
+          "relation": "uses",
+          "to": "EquivalenceQuery",
+          "context": "Whilst L* uses equivalence and membership queries, PL* uses equivalence and prefix queries.",
+          "chunk": "31"
+        },
+        {
+          "from": "EquivalenceQuery",
+          "relation": "type",
+          "to": "QueryType",
+          "context": "Whilst L* uses equivalence and membership queries, PL* uses equivalence and prefix queries.",
+          "chunk": "31"
+        }
+      ]
+    },
+    "question": "Why does the PLStarAlgorithm demonstrate improved performance over the LStarAlgorithm in learning non-dense languages?",
+    "options": {
+      "A": "Because PLStarAlgorithm requires more queries to achieve the same learning objectives, thus increasing runtime.",
+      "B": "Because PLStarAlgorithm uses fewer types of queries, focusing on equivalence and prefix queries which are more efficient.",
+      "C": "Because LStarAlgorithm uses only membership queries which are less effective for non-dense languages.",
+      "D": "Because PLStarAlgorithm utilizes both equivalence and membership queries, providing a broader range of data for analysis."
+    },
+    "correct_answer": "B",
+    "explanation": "The PLStarAlgorithm outperforms the LStarAlgorithm because it uses equivalence and prefix queries instead of equivalence and membership queries. This specific combination of query types (prefix and equivalence) used by PLStar is more efficient in handling non-dense languages, leading to better performance in terms of both the number of queries and the resources used (runtime and space), as opposed to the broader query types used by LStar.",
+    "path_description": "Path: PLStarAlgorithm --[outperforms]--> LStarAlgorithm --[uses]--> EquivalenceQuery --[type]--> QueryType",
+    "context": "We proved that PL* always performs less queries than L*, when both are tasked with learning the same non-dense language. Furthermore, we showed empirically that PL* significantly outperforms L* in terms of both runtime and space usage. | Whilst L* uses equivalence and membership queries, PL* uses equivalence and prefix queries. | Whilst L* uses equivalence and membership queries, PL* uses equivalence and prefix queries.",
+    "paper_id": "661"
+  }
+]

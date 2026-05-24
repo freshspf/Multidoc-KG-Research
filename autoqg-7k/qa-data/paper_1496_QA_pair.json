@@ -1,0 +1,260 @@
+[
+  {
+    "section": "theoreticalfoundation3",
+    "path": {
+      "section": "theoreticalfoundation3",
+      "start_entity": "Mprime",
+      "end_entity": "SolveFunction",
+      "hops": [
+        {
+          "from": "Mprime",
+          "relation": "contains",
+          "to": "DependencyParameter",
+          "context": "Given a strongly connected component 𝑀′ comprising models whose dependency parameters depend on models from outside 𝑀′...",
+          "chunk": "7"
+        },
+        {
+          "from": "DependencyParameter",
+          "relation": "usedIn",
+          "to": "Equations",
+          "context": "assemble a system of equations whose solution in line 33 provides the values for setting the remaining dependency parameters of the models from 𝑀′...",
+          "chunk": "7"
+        },
+        {
+          "from": "Equations",
+          "relation": "solvedBy",
+          "to": "SolveFunction",
+          "context": "Depending on whether the Equations are of the first or the second form, the Solve function from line 33 employs numeric solvers and optimisers as appropriate...",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "In the context of solving the system of equations derived from a strongly connected component, Mprime, how does the nature of the Equations influence the choice of the Solve function?",
+    "options": {
+      "A": "If the Equations are of the first form, numeric solvers are employed to determine the values of dependency parameters.",
+      "B": "Regardless of the form of the Equations, the Solve function always employs symbolic solvers to ensure accuracy.",
+      "C": "The Solve function employs optimisers if the Equations are of the second form, aligning with the model's external dependencies.",
+      "D": "The choice of Solve function is influenced by the size of Mprime, leading to either numeric or symbolic solvers."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A because the context specifies that the nature of the Equations (whether they are of the first or the second form) directly influences the choice of the Solve function. Numeric solvers are specifically employed for the first form of Equations to determine the values for the dependency parameters.",
+    "path_description": "Path: Mprime --[contains]--> DependencyParameter --[usedIn]--> Equations --[solvedBy]--> SolveFunction",
+    "context": "Given a strongly connected component 𝑀′ comprising models whose dependency parameters depend on models from outside 𝑀′... | assemble a system of equations whose solution in line 33 provides the values for setting the remaining dependency parameters of the models from 𝑀′... | Depending on whether the Equations are of the first or the second form, the Solve function from line 33 employs numeric solvers and optimisers as appropriate...",
+    "paper_id": "281"
+  },
+  {
+    "section": "theoreticalfoundation3",
+    "path": {
+      "section": "theoreticalfoundation3",
+      "start_entity": "Equations",
+      "end_entity": "OptimisationMethod",
+      "hops": [
+        {
+          "from": "Equations",
+          "relation": "solvedBy",
+          "to": "SolveFunction",
+          "context": "Depending on whether the Equations are of the first or the second form, the Solve function from line 33 employs numeric solvers and optimisers as appropriate...",
+          "chunk": "7"
+        },
+        {
+          "from": "SolveFunction",
+          "relation": "uses",
+          "to": "PowellsOptimizationMethod",
+          "context": "leverages derivative-free optimization (e.g., Powell’s optimization method [55])...",
+          "chunk": "7"
+        },
+        {
+          "from": "PowellsOptimizationMethod",
+          "relation": "type",
+          "to": "OptimisationMethod",
+          "context": "leverages derivative-free optimization (e.g., Powell’s optimization method [55])...",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "In the scenario where 'SolveFunction' is required to handle equations of various forms, how does it specifically optimize the solving process according to the paper section 'theoreticalfoundation3'?",
+    "options": {
+      "A": "It primarily relies on heuristic algorithms to approximate solutions for complex equations.",
+      "B": "It exclusively uses gradient-based methods, ensuring rapid convergence for all equations.",
+      "C": "It employs Powell's Optimization Method, a type of derivative-free optimization, suitable for numeric equations.",
+      "D": "It integrates both derivative and non-derivative methods to provide a comprehensive solution."
+    },
+    "correct_answer": "C",
+    "explanation": "According to the paper, the 'SolveFunction' employs numeric solvers and optimisers as appropriate, and specifically leverages Powell’s Optimization Method, which is a derivative-free optimisation method. Thus, Option B is the correct answer as it directly relates to the type of method used by the 'SolveFunction' to optimize the solving process for equations.",
+    "path_description": "Path: Equations --[solvedBy]--> SolveFunction --[uses]--> PowellsOptimizationMethod --[type]--> OptimisationMethod",
+    "context": "Depending on whether the Equations are of the first or the second form, the Solve function from line 33 employs numeric solvers and optimisers as appropriate... | leverages derivative-free optimization (e.g., Powell’s optimization method [55])... | leverages derivative-free optimization (e.g., Powell’s optimization method [55])...",
+    "paper_id": "281"
+  },
+  {
+    "section": "theoreticalfoundation4",
+    "path": {
+      "section": "theoreticalfoundation4",
+      "start_entity": "VerifySCC",
+      "end_entity": "Property",
+      "hops": [
+        {
+          "from": "VerifySCC",
+          "relation": "calledBy",
+          "to": "Verify",
+          "context": "With all these parameters resolved, VerifySCC is called in line 13.",
+          "chunk": "8"
+        },
+        {
+          "from": "Verify",
+          "relation": "obtainsAndReturns",
+          "to": "property_phi_v",
+          "context": "after which VerifySCC exits, enabling the Verify function to then obtain and return the value of property𝑚𝑣 in line 15, and to terminate.",
+          "chunk": "8"
+        },
+        {
+          "from": "property_phi_v",
+          "relation": "type",
+          "to": "Property",
+          "context": "The function then moves directly to computing the property 𝜙𝑣 of model 𝑚𝑣 in line 15.",
+          "chunk": "8"
+        }
+      ]
+    },
+    "question": "In the theoretical foundation of the knowledge graph, when the Verify function is called following the exit of VerifySCC, what type of value does it primarily obtain and return?",
+    "options": {
+      "A": "It obtains and returns a numerical value indicating the performance efficiency of model 𝑚𝑣.",
+      "B": "It obtains and returns a Boolean value determining the validity of the model 𝑚𝑣.",
+      "C": "It obtains and returns property 𝜙𝑣, which is a specific characteristic or feature of the model 𝑚𝑣.",
+      "D": "It obtains and returns a property related to the computational complexity of model 𝑚𝑣."
+    },
+    "correct_answer": "C",
+    "explanation": "The Verify function, as per the knowledge graph and the paper's context, obtains and returns property 𝜙𝑣, which is explicitly referred to as a property of the model 𝑚𝑣. This indicates that it is a specific characteristic or feature of the model, aligning with option B. The other options, while plausible, do not correctly describe the type of property obtained and returned, which is not about computational complexity, performance efficiency, or a Boolean validity check.",
+    "path_description": "Path: VerifySCC --[calledBy]--> Verify --[obtainsAndReturns]--> property_phi_v --[type]--> Property",
+    "context": "With all these parameters resolved, VerifySCC is called in line 13. | after which VerifySCC exits, enabling the Verify function to then obtain and return the value of property𝑚𝑣 in line 15, and to terminate. | The function then moves directly to computing the property 𝜙𝑣 of model 𝑚𝑣 in line 15.",
+    "paper_id": "281"
+  },
+  {
+    "section": "casestudiesandexperiments2",
+    "path": {
+      "section": "casestudiesandexperiments2",
+      "start_entity": "HumanSupervisor",
+      "end_entity": "System",
+      "hops": [
+        {
+          "from": "HumanSupervisor",
+          "relation": "monitors",
+          "to": "Robot",
+          "context": "A human supervisor whose operation depends on these probabilities is monitoring the robot fleet.",
+          "chunk": "11"
+        },
+        {
+          "from": "Robot",
+          "relation": "partOf",
+          "to": "RoboFleet",
+          "context": "A human supervisor whose operation depends on these probabilities is monitoring the robot fleet.",
+          "chunk": "11"
+        },
+        {
+          "from": "RoboFleet",
+          "relation": "type",
+          "to": "System",
+          "context": "Figure 6c shows how these RoboFleet properties vary when the external parameter nAttempts is varied.",
+          "chunk": "11"
+        }
+      ]
+    },
+    "question": "In the context of a human supervisor monitoring a robot as part of a RoboFleet system, how does varying the external parameter nAttempts likely affect the system?",
+    "options": {
+      "A": "It changes the properties of the RoboFleet system, as observed in experimental setups.",
+      "B": "It influences the external communication protocols between different RoboFleet systems.",
+      "C": "It affects the monitoring capabilities of the human supervisor over the robot fleet.",
+      "D": "It directly alters the operational efficiency of individual robots within the fleet."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is B because the context indicates that varying the external parameter nAttempts changes the properties of the RoboFleet system, as demonstrated in the experimental setups shown in Figure 6c of the paper. Options A, C, and D, while plausible, do not directly relate to the impacts observed in the experiments described.",
+    "path_description": "Path: HumanSupervisor --[monitors]--> Robot --[partOf]--> RoboFleet --[type]--> System",
+    "context": "A human supervisor whose operation depends on these probabilities is monitoring the robot fleet. | A human supervisor whose operation depends on these probabilities is monitoring the robot fleet. | Figure 6c shows how these RoboFleet properties vary when the external parameter nAttempts is varied.",
+    "paper_id": "281"
+  },
+  {
+    "section": "casestudiesandexperiments3",
+    "path": {
+      "section": "casestudiesandexperiments3",
+      "start_entity": "ObstacleDetectionComponent",
+      "end_entity": "Direction",
+      "hops": [
+        {
+          "from": "ObstacleDetectionComponent",
+          "relation": "usedBy",
+          "to": "Robot",
+          "context": "parameter 𝑞 obtained through the analysis of a DTMC model 𝑚od of the camera-based obstacle detection component of the robots.",
+          "chunk": "12"
+        },
+        {
+          "from": "Robot",
+          "relation": "movesWithProbability",
+          "to": "SouthEast",
+          "context": "south with probability 1 − 𝑞, south-east with probability 𝑞/2...",
+          "chunk": "12"
+        },
+        {
+          "from": "SouthEast",
+          "relation": "type",
+          "to": "Direction",
+          "context": "south with probability 1 − 𝑞, south-east with probability 𝑞/2...",
+          "chunk": "12"
+        }
+      ]
+    },
+    "question": "In the context of the Discrete-Time Markov Chain (DTMC) model used to analyze the camera-based obstacle detection component, how does the probability parameter 𝑞 affect the robot's movement direction?",
+    "options": {
+      "A": "As the value of 𝑞 decreases, the probability of the robot moving south-east approaches zero.",
+      "B": "The robot is more likely to move south as the value of 𝑞 increases, with south-east being less probable.",
+      "C": "The robot will move in a direction randomly chosen regardless of the value of 𝑞.",
+      "D": "The robot moves south-east with a probability of 𝑞/2, indicating a higher likelihood as 𝑞 increases."
+    },
+    "correct_answer": "D",
+    "explanation": "According to the DTMC model analysis, the robot moves south-east with a probability of 𝑞/2. Therefore, as the value of 𝑞 increases, the probability of the robot moving south-east also increases, making option B correct. Options A, C, and D are incorrect as they misinterpret the relationship between 𝑞 and the robot’s movement direction.",
+    "path_description": "Path: ObstacleDetectionComponent --[usedBy]--> Robot --[movesWithProbability]--> SouthEast --[type]--> Direction",
+    "context": "parameter 𝑞 obtained through the analysis of a DTMC model 𝑚od of the camera-based obstacle detection component of the robots. | south with probability 1 − 𝑞, south-east with probability 𝑞/2... | south with probability 1 − 𝑞, south-east with probability 𝑞/2...",
+    "paper_id": "281"
+  },
+  {
+    "section": "casestudiesandexperiments3",
+    "path": {
+      "section": "casestudiesandexperiments3",
+      "start_entity": "DTMCModel",
+      "end_entity": "SouthEast",
+      "hops": [
+        {
+          "from": "DTMCModel",
+          "relation": "models",
+          "to": "ObstacleDetectionComponent",
+          "context": "parameter 𝑞 obtained through the analysis of a DTMC model 𝑚od of the camera-based obstacle detection component of the robots.",
+          "chunk": "12"
+        },
+        {
+          "from": "ObstacleDetectionComponent",
+          "relation": "usedBy",
+          "to": "Robot",
+          "context": "parameter 𝑞 obtained through the analysis of a DTMC model 𝑚od of the camera-based obstacle detection component of the robots.",
+          "chunk": "12"
+        },
+        {
+          "from": "Robot",
+          "relation": "movesWithProbability",
+          "to": "SouthEast",
+          "context": "south with probability 1 − 𝑞, south-east with probability 𝑞/2...",
+          "chunk": "12"
+        }
+      ]
+    },
+    "question": "In the scenario where a robot utilizes a DTMC model for its camera-based obstacle detection component, how does the robot determine its movement direction based on the parameter 𝑞?",
+    "options": {
+      "A": "The robot moves southeast with a probability of 1 - 𝑞 and south with a probability of 𝑞.",
+      "B": "The robot moves south with a probability of 1 - 𝑞 and moves southeast with a probability of 𝑞/2.",
+      "C": "The robot moves east with a probability of 𝑞/2 and moves southeast with a probability of 1 - 𝑞.",
+      "D": "The robot moves south with a probability of 𝑞 and moves southeast with a probability of 1 - 𝑞/2."
+    },
+    "correct_answer": "B",
+    "explanation": "According to the DTMC model analysis of the obstacle detection component, the parameter 𝑞 influences the movement probabilities such that the robot moves south with a probability of 1 - 𝑞 and southeast with a probability of 𝑞/2. This specific distribution of probabilities ensures that the robot adjusts its path based on the likelihood of encountering obstacles as analyzed by the DTMC model.",
+    "path_description": "Path: DTMCModel --[models]--> ObstacleDetectionComponent --[usedBy]--> Robot --[movesWithProbability]--> SouthEast",
+    "context": "parameter 𝑞 obtained through the analysis of a DTMC model 𝑚od of the camera-based obstacle detection component of the robots. | parameter 𝑞 obtained through the analysis of a DTMC model 𝑚od of the camera-based obstacle detection component of the robots. | south with probability 1 − 𝑞, south-east with probability 𝑞/2...",
+    "paper_id": "281"
+  }
+]

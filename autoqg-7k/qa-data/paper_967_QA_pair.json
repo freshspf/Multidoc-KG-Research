@@ -1,0 +1,88 @@
+[
+  {
+    "section": "experimentdeepclusteringforpredictivemodeling1",
+    "path": {
+      "section": "experimentdeepclusteringforpredictivemodeling1",
+      "start_entity": "PCA30",
+      "end_entity": "Method",
+      "hops": [
+        {
+          "from": "PCA30",
+          "relation": "hasLowerRMSEThan",
+          "to": "RawSpace12x50",
+          "context": "Overall, PCA30 has lower RMSE than RawSpace12x50.",
+          "chunk": "2"
+        },
+        {
+          "from": "RawSpace12x50",
+          "relation": "renamedFrom",
+          "to": "FE12",
+          "context": "We rename the FE12 appproach in [13] as RawSpace12x50 in this paper.",
+          "chunk": "2"
+        },
+        {
+          "from": "FE12",
+          "relation": "type",
+          "to": "Method",
+          "context": "Subsequently, they extended FE2 to FE12 using the 12 variables described above.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the context of predictive modeling experiments detailed in 'experimentdeepclusteringforpredictivemodeling1', which statement best describes the relationship and evolution of FE12?",
+    "options": {
+      "A": "FE12, which was renamed to RawSpace12x50 in the paper, showed a higher RMSE compared to PCA30.",
+      "B": "FE12 initially used 2 variables but was later extended to use 12 variables, which demonstrated a lower RMSE than PCA30.",
+      "C": "FE12, later renamed to RawSpace12x50, originally utilized 12 variables and was found to have a higher RMSE than PCA30.",
+      "D": "FE12 was the original name for PCA30, which was demonstrated to have a lower RMSE compared to other methods using 50 variables."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is C. FE12, which was later renamed to RawSpace12x50 in the paper, originally employed 12 variables as indicated by its evolution from FE2. The passage specifies that PCA30 has a lower RMSE than RawSpace12x50, indicating that FE12 (RawSpace12x50) showed a higher RMSE compared to PCA30. Options A, B, and D are incorrect as they either confuse the direction of RMSE comparison or incorrectly describe the evolution and naming of FE12.",
+    "path_description": "Path: PCA30 --[hasLowerRMSEThan]--> RawSpace12x50 --[renamedFrom]--> FE12 --[type]--> Method",
+    "context": "Overall, PCA30 has lower RMSE than RawSpace12x50. | We rename the FE12 appproach in [13] as RawSpace12x50 in this paper. | Subsequently, they extended FE2 to FE12 using the 12 variables described above.",
+    "paper_id": "1271"
+  },
+  {
+    "section": "experimentdeepclusteringforpredictivemodeling1",
+    "path": {
+      "section": "experimentdeepclusteringforpredictivemodeling1",
+      "start_entity": "RawSpace12x50",
+      "end_entity": "Concatenation",
+      "hops": [
+        {
+          "from": "RawSpace12x50",
+          "relation": "renamedFrom",
+          "to": "FE12",
+          "context": "We rename the FE12 appproach in [13] as RawSpace12x50 in this paper.",
+          "chunk": "2"
+        },
+        {
+          "from": "FE12",
+          "relation": "extends",
+          "to": "FE2",
+          "context": "Subsequently, they extended FE2 to FE12 using the 12 variables described above.",
+          "chunk": "2"
+        },
+        {
+          "from": "FE2",
+          "relation": "basedOn",
+          "to": "Concatenation",
+          "context": "In [13] the authors used a feature extraction approach, FE2 which concatenates the edge airbag pressure and retainer ring pressure.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the process of feature extraction transformation described in the paper section 'experimentdeepclusteringforpredictivemodeling1', what data concatenation approach led to the development of FE12, now termed RawSpace12x50?",
+    "options": {
+      "A": "A combination of edge airbag pressure with the frontal crash sensor readings, initially described in FE2.",
+      "B": "The fusion of edge airbag pressure with vehicle speed data, which was first introduced in FE2.",
+      "C": "The concatenation of edge airbag pressure and retainer ring pressure, originally used in FE2.",
+      "D": "The aggregation of retainer ring pressure with side airbag deployments, as initially utilized in FE2."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A because the paper outlines that FE2, which was extended to FE12 (renamed RawSpace12x50), was based on the concatenation of edge airbag pressure and retainer ring pressure. Options B, C, and D introduce elements not mentioned in the provided context or relevant papers.",
+    "path_description": "Path: RawSpace12x50 --[renamedFrom]--> FE12 --[extends]--> FE2 --[basedOn]--> Concatenation",
+    "context": "We rename the FE12 appproach in [13] as RawSpace12x50 in this paper. | Subsequently, they extended FE2 to FE12 using the 12 variables described above. | In [13] the authors used a feature extraction approach, FE2 which concatenates the edge airbag pressure and retainer ring pressure.",
+    "paper_id": "1271"
+  }
+]

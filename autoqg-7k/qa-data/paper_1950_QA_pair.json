@@ -1,0 +1,174 @@
+[
+  {
+    "section": "introduction",
+    "path": {
+      "section": "introduction",
+      "start_entity": "RedHatReport2022",
+      "end_entity": "Metric",
+      "hops": [
+        {
+          "from": "RedHatReport2022",
+          "relation": "reportsUsageOf",
+          "to": "Kubernetes",
+          "context": "According to a 2022 Red Hat report, up to 70% of IT organizations use Kubernetes (K8s) in some way",
+          "chunk": "0"
+        },
+        {
+          "from": "Kubernetes",
+          "relation": "playsRoleIn",
+          "to": "EnergyUsage",
+          "context": "Kubernetes-based workloads play a significant role in this power consumption",
+          "chunk": "0"
+        },
+        {
+          "from": "EnergyUsage",
+          "relation": "type",
+          "to": "Metric",
+          "context": "the energy usage and efficiency of applications running in Kubernetes clusters is of significant interest",
+          "chunk": "0"
+        }
+      ]
+    },
+    "question": "According to the 2022 Red Hat report, how does Kubernetes influence IT organizations' metrics related to energy?",
+    "options": {
+      "A": "Kubernetes indirectly reduces energy usage by optimizing server utilization across multiple IT organizations.",
+      "B": "Kubernetes-based workloads significantly contribute to the power consumption metrics of IT organizations.",
+      "C": "The majority of Kubernetes users primarily focus on the cost-reduction metrics rather than energy usage.",
+      "D": "Kubernetes is used by IT organizations primarily to enhance their performance metrics, not energy usage."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A because the path from the knowledge graph indicates that Kubernetes plays a role in energy usage, which is classified as a metric. The context specifies that Kubernetes-based workloads significantly contribute to power consumption, aligning with the idea that Kubernetes influences energy usage metrics in IT organizations.",
+    "path_description": "Path: RedHatReport2022 --[reportsUsageOf]--> Kubernetes --[playsRoleIn]--> EnergyUsage --[type]--> Metric",
+    "context": "According to a 2022 Red Hat report, up to 70% of IT organizations use Kubernetes (K8s) in some way | Kubernetes-based workloads play a significant role in this power consumption | the energy usage and efficiency of applications running in Kubernetes clusters is of significant interest",
+    "paper_id": "410"
+  },
+  {
+    "section": "cncfkepler",
+    "path": {
+      "section": "cncfkepler",
+      "start_entity": "Gudepu",
+      "end_entity": "Protocol",
+      "hops": [
+        {
+          "from": "Gudepu",
+          "relation": "uses",
+          "to": "Kubernetes-based_Efficient_Power_Level_Exporter",
+          "context": "Gudepu et al. use Kepler to obtain power measurements...",
+          "chunk": "1"
+        },
+        {
+          "from": "Kubernetes-based_Efficient_Power_Level_Exporter",
+          "relation": "appliesGuidelinesFrom",
+          "to": "GreenHouse_Gas_Protocol",
+          "context": "The idle power of the host is then distributed among processes in accordance with their size, as is stipulated in the GreenHouse Gas protocol guidelines.",
+          "chunk": "1"
+        },
+        {
+          "from": "GreenHouse_Gas_Protocol",
+          "relation": "type",
+          "to": "Protocol",
+          "context": "The idle power of the host is then distributed among processes in accordance with their size, as is stipulated in the GreenHouse Gas protocol guidelines.",
+          "chunk": "1"
+        }
+      ]
+    },
+    "question": "In the context of the Kepler project as discussed by Gudepu et al., how does the Kubernetes-based Efficient Power Level Exporter apply the guidelines of the GreenHouse Gas Protocol?",
+    "options": {
+      "A": "It calculates the total power consumption of Kubernetes clusters without distributing it among processes.",
+      "B": "It measures the idle power of the host and distributes it among processes based on their size.",
+      "C": "It collects real-time energy consumption data and correlates it directly with greenhouse gas emissions.",
+      "D": "It reports the power usage effectiveness (PUE) of data centers using standard computational methods."
+    },
+    "correct_answer": "B",
+    "explanation": "According to the paper, the Kubernetes-based Efficient Power Level Exporter used in the Kepler project implements the guidelines from the GreenHouse Gas Protocol by measuring the idle power of the host and distributing that power among the processes based on their size. This is directly stated as the method of applying the protocol's guidelines.",
+    "path_description": "Path: Gudepu --[uses]--> Kubernetes-based_Efficient_Power_Level_Exporter --[appliesGuidelinesFrom]--> GreenHouse_Gas_Protocol --[type]--> Protocol",
+    "context": "Gudepu et al. use Kepler to obtain power measurements... | The idle power of the host is then distributed among processes in accordance with their size, as is stipulated in the GreenHouse Gas protocol guidelines. | The idle power of the host is then distributed among processes in accordance with their size, as is stipulated in the GreenHouse Gas protocol guidelines.",
+    "paper_id": "410"
+  },
+  {
+    "section": "kubewatt3",
+    "path": {
+      "section": "kubewatt3",
+      "start_entity": "EstimatedPowerUsage",
+      "end_entity": "Component",
+      "hops": [
+        {
+          "from": "EstimatedPowerUsage",
+          "relation": "basedOn",
+          "to": "AverageCPUUsage",
+          "context": "used to find the estimated power usage at the average CPU-usage of the control plane.",
+          "chunk": "6"
+        },
+        {
+          "from": "AverageCPUUsage",
+          "relation": "partOf",
+          "to": "ControlPlane",
+          "context": "used to find the estimated power usage at the average CPU-usage of the control plane.",
+          "chunk": "6"
+        },
+        {
+          "from": "ControlPlane",
+          "relation": "type",
+          "to": "Component",
+          "context": "used to find the estimated power usage at the average CPU-usage of the control plane.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the context of estimating power usage in a Kubernetes environment, which component's average CPU usage most directly influences the estimation?",
+    "options": {
+      "A": "The average CPU usage of the Control Plane, as it is a key component of the system architecture.",
+      "B": "The average CPU usage of individual Pods, which are minimal deployable units in Kubernetes.",
+      "C": "The average CPU usage of individual Containers, which host the applications within the system.",
+      "D": "The average CPU usage of the Services layer, which facilitates communication between Pods."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A. According to the knowledge path provided, the Estimated Power Usage is based on the Average CPU Usage, which is part of the Control Plane, thereby making it the most directly relevant component for power estimation in the provided context.",
+    "path_description": "Path: EstimatedPowerUsage --[basedOn]--> AverageCPUUsage --[partOf]--> ControlPlane --[type]--> Component",
+    "context": "used to find the estimated power usage at the average CPU-usage of the control plane. | used to find the estimated power usage at the average CPU-usage of the control plane. | used to find the estimated power usage at the average CPU-usage of the control plane.",
+    "paper_id": "410"
+  },
+  {
+    "section": "kubewattevaluation",
+    "path": {
+      "section": "kubewattevaluation",
+      "start_entity": "KubeWatt",
+      "end_entity": "Measurement",
+      "hops": [
+        {
+          "from": "KubeWatt",
+          "relation": "uses",
+          "to": "BaseInitializationMode",
+          "context": "To evaluate the base initialization mode (RQ2), we run the KubeWatt job on SUT",
+          "chunk": "7"
+        },
+        {
+          "from": "BaseInitializationMode",
+          "relation": "measures",
+          "to": "StaticPowerValue",
+          "context": "The static power value has been determined from iDRAC data at 199.1W",
+          "chunk": "7"
+        },
+        {
+          "from": "StaticPowerValue",
+          "relation": "type",
+          "to": "Measurement",
+          "context": "The static power value has been determined from iDRAC data at 199.1W",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "In the evaluation of KubeWatt's base initialization mode, how is the type of measurement for the static power value determined?",
+    "options": {
+      "A": "The static power value is measured using iDRAC data, classifying it under the Measurement type.",
+      "B": "The static power value is an estimated figure derived from theoretical calculations, classified under the Estimation type.",
+      "C": "The static power value is calculated using predictive modeling, making it a Predictive Measurement type.",
+      "D": "The static power value is monitored through real-time sensors, falling under the Real-time Monitoring type."
+    },
+    "correct_answer": "A",
+    "explanation": "The question revolves around understanding how the static power value is classified in relation to its measurement type. Option A is correct because the paper specifies that the static power value is determined from iDRAC data, which is a form of measurement, specifically classified under the 'Measurement' type in the provided knowledge path.",
+    "path_description": "Path: KubeWatt --[uses]--> BaseInitializationMode --[measures]--> StaticPowerValue --[type]--> Measurement",
+    "context": "To evaluate the base initialization mode (RQ2), we run the KubeWatt job on SUT | The static power value has been determined from iDRAC data at 199.1W | The static power value has been determined from iDRAC data at 199.1W",
+    "paper_id": "410"
+  }
+]

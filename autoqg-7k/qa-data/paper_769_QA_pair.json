@@ -1,0 +1,88 @@
+[
+  {
+    "section": "reconstructionframework1",
+    "path": {
+      "section": "reconstructionframework1",
+      "start_entity": "DeepLearning_Reconstruction",
+      "end_entity": "Network",
+      "hops": [
+        {
+          "from": "DeepLearning_Reconstruction",
+          "relation": "basedOn",
+          "to": "DeepLearning_Architecture",
+          "context": "The deep learning architecture for the EIT sensor is adopted from the author’s previous research.",
+          "chunk": "2"
+        },
+        {
+          "from": "DeepLearning_Architecture",
+          "relation": "includes",
+          "to": "ImageReconstruction_Network",
+          "context": "After pre-processing, the image reconstruction network refines the image through an encoder-decoder architecture.",
+          "chunk": "2"
+        },
+        {
+          "from": "ImageReconstruction_Network",
+          "relation": "type",
+          "to": "Network",
+          "context": "After pre-processing, the image reconstruction network refines the image through an encoder-decoder architecture.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "What type of network is primarily utilized in the deep learning architecture for image reconstruction in the EIT sensor, as per the knowledge path from 'DeepLearning_Reconstruction' to 'Network'?",
+    "options": {
+      "A": "The network uses a fully connected neural network to analyze and reconstruct the image data.",
+      "B": "The network primarily employs a convolutional neural network for initial image capture and processing.",
+      "C": "The network is an encoder-decoder network used to refine images after pre-processing.",
+      "D": "A recurrent neural network is used to sequentially update the image details during post-processing."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is 'A' because the knowledge path indicates that the deep learning architecture includes an image reconstruction network of encoder-decoder type, which is used to refine images after pre-processing. This is directly stated in the context provided from the paper.",
+    "path_description": "Path: DeepLearning_Reconstruction --[basedOn]--> DeepLearning_Architecture --[includes]--> ImageReconstruction_Network --[type]--> Network",
+    "context": "The deep learning architecture for the EIT sensor is adopted from the author’s previous research. | After pre-processing, the image reconstruction network refines the image through an encoder-decoder architecture. | After pre-processing, the image reconstruction network refines the image through an encoder-decoder architecture.",
+    "paper_id": "1519"
+  },
+  {
+    "section": "reconstructionframework2",
+    "path": {
+      "section": "reconstructionframework2",
+      "start_entity": "ContactForceDistributionConversion",
+      "end_entity": "Force",
+      "hops": [
+        {
+          "from": "ContactForceDistributionConversion",
+          "relation": "uses",
+          "to": "AirPressureSensor",
+          "context": "Using this sum of external contact force information, we converted the conductivity distribution into contact force distribution based on the relative intensities.",
+          "chunk": "3"
+        },
+        {
+          "from": "AirPressureSensor",
+          "relation": "measures",
+          "to": "TotalAppliedForce",
+          "context": "Ftotal is the Total applied force (known from a separate measurement, e.g., air pressure sensor).",
+          "chunk": "3"
+        },
+        {
+          "from": "TotalAppliedForce",
+          "relation": "type",
+          "to": "Force",
+          "context": "Ftotal is the Total applied force (known from a separate measurement, e.g., air pressure sensor).",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the context of converting conductivity distribution into contact force distribution, how is the total applied force comprehensively measured?",
+    "options": {
+      "A": "Through a hydraulic system that calculates force based on fluid pressure dynamics.",
+      "B": "By employing an electrical resistance meter that quantifies force through conductivity changes.",
+      "C": "Utilizing a weight scale to directly measure the gravitational force acting on the object.",
+      "D": "Using an air pressure sensor that measures the sum of external forces applied to an object."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A because the paper specifies that the total applied force, Ftotal, is measured using an air pressure sensor. This sensor is part of the process that uses the total force measurement to convert conductivity distribution into contact force distribution. The other options, while plausible in different contexts, do not align with the measurement method described in the paper.",
+    "path_description": "Path: ContactForceDistributionConversion --[uses]--> AirPressureSensor --[measures]--> TotalAppliedForce --[type]--> Force",
+    "context": "Using this sum of external contact force information, we converted the conductivity distribution into contact force distribution based on the relative intensities. | Ftotal is the Total applied force (known from a separate measurement, e.g., air pressure sensor). | Ftotal is the Total applied force (known from a separate measurement, e.g., air pressure sensor).",
+    "paper_id": "1519"
+  }
+]

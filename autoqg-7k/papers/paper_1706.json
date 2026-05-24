@@ -1,0 +1,102 @@
+[
+  {
+    "id": "abstract",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Abstract",
+      "page_start": 1,
+      "page_end": 1
+    },
+    "text": "0 Dockerﬁles are one of the most prevalent kinds of DevOps arti-\n2  facts used in industry. Despite their prevalence,  there is a lack\n \nr of sophisticated semantics-aware static analysis of Dockerﬁles. In\na\nthis paper, we introduce a dataset of approximately 178,000 unique\nM Dockerﬁles collected fromGitHub. To enhance the usability of this\n \ndata, we describe ﬁve representations we have devised for working\n8\nwith, mining from, and analyzing these Dockerﬁles. Each Docker-\n2\n  ﬁle representation builds upon the previous ones, and the ﬁnal rep-\n \n] resentation, created by three levels of nested parsing and abstrac-\nE  tion, makes tasks such as mining and static checking tractable. The\nS Dockerﬁles, in each of the ﬁve representations, along with meta-\n.\ndata and the tools used to shepard the data fromone representation\ns\nc  to the next are all available at: https://doi.org/10.5281/zenodo.3628771.\n[\n "
+  },
+  {
+    "id": "introduction",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Introduction",
+      "page_start": 1,
+      "page_end": 1
+    },
+    "text": "1\n. DevOps artifacts in general, and Dockerﬁles in particular, repre-\n3\nsent a relatively under-served area with respect to advanced tool-\n0\ning for assisting developers. We focus on Docker because it is the\n0\nmost prevalent DevOps artifact in industry (some 79% of IT com-\n2\n: panies use it [10]) and the de-facto container technology in OSS [6,\nv 12]. Nevertheless, the VS Code Docker extension, with its over 3.7\ni\nmillion unique installations, features relatively shallow syntactic\nX\nr support [8]. One possible reason for the lack of advanced tooling\na may be the challenge of nested languages. Many DevOps artifacts\nhave relatively simple top-level structure—YAML and JSON are\ntwo popular top-level choices—although some tools, like Docker,\nhave a custom top-level language. Oftentimes some form of em-\nbedded scripting language (primarily Bash) is nested within the\ntop-level syntax. Furthermore, within an embedded Bash script,\nthere are any number of user-authored or distribution-provided\nPermission to make digital or hard copies of all or part of this work for personal or\nclassroom use is granted without fee provided that copies are not made or distributed\nfor proﬁt or commercial advantage and that copies bear this notice and the full cita-\ntion on the ﬁrst page. Copyrights for components of this work owned by others than\nACMmust be honored. Abstracting with credit is permitted. To copy otherwise, or re-\npublish, to post on servers or to redistribute to lists, requires prior speciﬁc permission\nand/or a fee. Request permissions from permissions@acm.org.\nMSR ’20, October 5–6, 2020, Seoul, Republic of Korea\n© 2020 Association for Computing Machinery.\nACM ISBN 978-1-4503-7517-7/20/05. . . $15.00\nhttps://doi.org/10.1145/3379597.3387498\n1\n\nDockerfiles\nChristian Bird\nMicrosoft Research, USA\nChristian.Bird@microsoft.com\nThomas Reps\nUniversity of Wisconsin–Madison, USA\nreps@cs.wisc.edu\nscripts and packages. Each of these tools, in turn, induce new sub-\nlanguages based on their grammar of options, arguments, and in-\nputs. (As a simple example, think of Unix utilities like awk, sed, and\ngrep.)\nThese third-level sub-languages represent a road-block to awholis-\ntic understanding of many DevOps artifacts. Even advanced tools,\nsuch as Hadolint [2], make no attempt to parse further than the\nsecond-level of embedded shell code. The lack of structured rep-\nresentations at this third-level of embedded languages is a major\nhindrance to both mining and static checking of Dockerﬁles and\nDevOps artifacts, in general [11].\nWith the dataset of Dockerﬁles described in this paper, we make\nthe following core contribution:\nAbstract Syntax Trees (ASTs) for a set of 178,000 uniqueDock-\nerﬁles with structured representations of the (i) top-level syn-\ntax, (ii) second-level embedded shell, and (iii) third-level op-\ntions and arguments for the 50 most commonly used utilities,\nand the tools used to generate each of these representations."
+  },
+  {
+    "id": "dockerfilecollection",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Dockerfile Collection",
+      "page_start": 1,
+      "page_end": 1
+    },
+    "text": "To capture a suﬃciently large set of Dockerﬁles, we made use of\nGitHub’s API to query for repository metadata. To begin with, we\ndownloadedmetadata for every public repositorywith ten or more\nstars from January 1st, 2007 to June 1st, 2019. This process yielded\napproximately 900,000metadata entries (each corresponding to one\nrepository).\nWith repository metadata in hand, we began the next phase of\ndata collection. For each of the 900,000 repositorymetadata entries,\nwe again used GitHub’s API to select a recursive listing of all the\nﬁles and directories present in each repository. We stored this data,\nalongwith the repositorymetadata entries, in a relational database.\nNote that, at this point, we have avoided downloading repositories\ndirectly (via a fetch or clone). This approach avoids the problem\nof storing an inordinate amount of data (most of which we are\nuninterested in).\nNext, we ran a case-insensitive query against our database to\nﬁnd all ﬁles in all repositories with names containing the string\ndockerfile. This process yielded approximately 250,000 matches.\nAt this point, we began to download each likely Dockerﬁle from\nGitHub individually. As ﬁles were downloaded, they were saved to\ndisk. In the event of a failed download request, the download was\nre-tried up to ﬁve times before skipping the errant ﬁle.\nFinally, we applied a Dockerﬁle parser from the dockerfile\nPython package [1]. We performed this step to reduce the number\nof non-Dockerﬁle ﬁles that may have been present due to our very\nbasic initial ﬁltering. Files that failed to parse were simply deleted."
+  },
+  {
+    "id": "dockerfilerepresentations1",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Dockerfile Representations",
+      "page_start": 2,
+      "page_end": 3
+    },
+    "text": "We now present details about the various representations of this\ndata. The Dockerﬁles, at the source level, are of limited use in struc-\ntured tasks like mining and static checking. To provide more read-\nily usable data we transformed the original Dockerﬁles into sev-\neral representations, each building upon the last, resulting in, ulti-\nmately, richAbstract Syntax Trees (ASTs) onwhich patternmining\nand static checking are tractable.\nRepresentation 0: Source Files\nIn the ﬁrst representation, we created a compressed tar archive\nof the directory of Dockerﬁles we originally collected. We did the\nsame for the subset of Gold ﬁles. These compressed tar archives are\npresent in the ./datasets/0a-original-dockerfile-sources\ndirectory of our artifact.\nExample Usage:\ntar -xvJf ./0a-original-dockerfile-sources/github.tar.xz\ncd ./sources\ncat 484097305.Dockerfile\nRunning the above should produce:\nFROM busybox\nEXPOSE 80/tcp\nCOPY httpserver .\nCMD [\"./httpserver\"]\n2\n\nJ. Henkel, C. Bird, S. Lahiri, and T. Reps\nRepresentation 1: De-duplicated Source Files\nOne common issue in datasets sourced fromGitHub is duplication.\nFor DevOps artifacts, this issue is compounded by the common\ntactics of ﬁnding a workable artifact from another similar reposi-\ntory, or using one of many “catch-all” patterns. In either case, du-\nplicate ﬁles may likely be created. To address duplication, we re-\nmoved ﬁles from Representation 0 that were non-unique based on\na SHA 256 hash (calculated using sha256sum). We then generated\ncompressed tar archives as before. These archives are present in\nthe ./datasets/0b-deduplicated-dockerfile-sources direc-\ntory of our artifact.\nExample Usage:\ntar -xvJf ./0b-deduplicated-dockerfile-sources/github.tar.xz\ncd ./deduplicated-sources\ncat f9f9726d2643993eb2176491858b7875ae332d05.Dockerfile\nRunning the above should produce:\n# https://hub.docker.com/r/consensysllc/go-ipfs/\n# THANKS!!!!!\nFROM ipfs/go-ipfs\nCOPY start_ipfs.sh /usr/local/bin/start_ipfs\nRepresentation 2: Phase-I ASTs\nIn the next representation, we make the transition from source-\nlevel Dockerﬁles to an encoding of Abstract Syntax Trees for Dock-\nerﬁles. We applied the parser from Python’s dockerfile package\nto obtain a Concrete Syntax Tree (CST). We then applied signiﬁ-\ncant post-processing to obtain something closer to an AST. Addi-\ntionally, we checked to make sure the directives extracted by the\ndockerfile package were actually known directives (due to this\npackage’s permissive parser, a small number of invalid ﬁles man-\nage to generate valid parse trees—we detected and rejected these\nﬁles at this stage). We encoded the whole corpus (and the Gold sub-\nset) via compressed JSON lines ﬁles (JSONL). A JSONL ﬁle stores,\non each line, one valid JSON object representing a single entity.\nThese JSONLﬁles are present in the ./datasets/1-phase-1-asts\ndirectory of our artifact.\nExample Usage:\ncat ./1-phase-1-dockerfile-asts/github.jsonl.xz \\\n| xz -cd \\\n| grep '3d0d691c1745e14be0f1facd14c49e3fbbb750d8' \\\n| jq\nRunning the above should produce:\n{\n\"type\": \"DOCKER-FILE\",\n\"children\": [{\n\"type\": \"DOCKER-FROM\",\n\"children\": [{\n\"type\": \"DOCKER-IMAGE-NAME\",\n\"value\": \"solaris\",\n\"children\": []\n}]\n}, ..., {\n\"type\": \"DOCKER-CMD\",\n\"children\": [{\n\"type\": \"DOCKER-CMD-ARG\",\n\"value\": \"./httpserver\",\n\"children\": []\n}]\n}],\n\"file_sha\": \"3d0d691c1745e14be0f1facd14c49e3fbbb750d8\"\n}\n\nA Dataset of Dockerfiles\nRepresentation 3: Phase-II ASTs\nOne key insight and contributionwe bring toDockerﬁle analysis is\nthe necessity of dealing with the nested languages present in Dock-\nerﬁles. The most immediate nested language in a typical Docker-\nﬁle is some form of shell scripting in RUN statements. Primarily,\nthese statements contain valid Bash (but, in principal, scripts for\nother shells such as Window’s Powershell are permitted). In Rep-\nresentation 3, we took the ASTs fromRepresentation 2 and, for each\nAST, identiﬁed and parsed any embedded Bash."
+  },
+  {
+    "id": "dockerfilerepresentations2",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Dockerfile Representations",
+      "page_start": 2,
+      "page_end": 3
+    },
+    "text": "We assumed that\nthe child of any RUN statement contains embedded Bash, and em-\nployed ShellCheck [3] to parse these literal nodes into sub-trees.\nWe again stored the results as compressed JSONL ﬁles, which can\nbe found in the ./datasets/2-phase-2-dockerfile-asts direc-\ntory of our artifact.\nExample Usage:\ncat ./2-phase-2-dockerfile-asts/github.jsonl.xz \\\n| xz -cd \\\n| grep '972b56dc14ff87faddd0c35a5f3b6a32597a36ed' \\\n| jq\nRunning the above should produce:\n{\n\"type\": \"DOCKER-FILE\",\n\"file_sha\": \"972b56dc14ff87faddd0c35a5f3b6a32597a36ed\",\n\"children\": [..., {\n\"children\": [{\n\"children\": [{\n\"children\": [..., {\n\"children\": [{\n\"value\": \"npm\",\n\"children\": [],\n\"type\": \"BASH-LITERAL\"\n}],\n\"type\": \"BASH-COMMAND-COMMAND\"\n}, {\n\"children\": [{\n\"value\": \"install\",\n\"children\": [],\n\"type\": \"BASH-LITERAL\"\n}, {\n\"value\": \"--production\",\n\"children\": [],\n\"type\": \"BASH-LITERAL\"\n}],\n\"type\": \"BASH-COMMAND-ARGS\"\n}],\n\"type\": \"MAYBE-SEMANTIC-COMMAND\"\n}],\n\"type\": \"BASH-SCRIPT\"\n}],\n\"type\": \"DOCKER-RUN\"\n}, ...]\n}\nRepresentation 4: Phase-III ASTs\nAlthough the previous representation is workable and used in both\nHadolint [2] and recent work on Dockerﬁles [6], one of the core\ncontributions of this dataset is a richer representation of Docker-\nﬁles based on the use of many parsers. First, we created parsers\nfor each of the 50 most used Bash commands in Dockerﬁles. (Here,\nthe 50 most used Bash commands were identiﬁed, empirically, by\ncounting and ranking the Bash commands present in our Phase-\nII ASTs.) Next, to arrive at Representation 4, we took each Phase-\nII AST and found every sub-tree (in the embedded Bash that we\nparsed as part of Phase-II) that corresponded to one of the 50 most\nfrequently used Bash commands in our corpus of Dockerﬁles. For\n3\n\nMSR ’20, October 5–6, 2020, Seoul, Republic of Korea\neach of these corresponding sub-trees, we extracted them and ap-\nplied the appropriate parser for the command. The results of this\nthird-level parse were then used to replace the removed sub-tree.\nThe example usage below highlights this process: note how the\nMAYBE-SEMANTIC-COMMAND node from the previous Phase-II AST\nhas been replaced by a new SC-NPM-INSTALL sub-tree. This new\nsub-tree has structured nodes corresponding to the various ﬂags,\noptions, and parameters deﬁned by the npm utility. It is in this\nPhase-III representation that we ﬁnally have the ability to mine, in\na structured way, patterns such as: “npm’s --production ﬂag must\nalways be present when running the npm install sub-command”.\nTomake this extra level of parsing possible and less onerous, we\nleveraged the fact that all of the popular Bash utilities have some\nform of embedded help documentation (accessible either through\na ﬂag or manual pages). This documentation often describes,  in\ndetail, the schema of allowable ﬂags, options, and parameters. Un-\nfortunately, these help documents are written in natural language.\nTherefore, wewrote a parser generator that takes structured schemas\nthat are close, in spirit, to help documentation. With this specially\ndesigned input format, it became much easier to write schemas\nand generate parsers. In fact, it took us on average between 15 and\n30 minutes to encode individual schemas for popular command-\nline utilities. Encoding schemas, although manual work, is a one-\ntime process—the parsers we generate are eﬃcient (operating, com-\nmonly, in milliseconds) and, once generated, parsers can be used\nwith any DevOps artifact containing nested Bash, not just Docker-\nﬁles.\nOur Phase-III ASTs are stored as compressed JSONL ﬁles. These\nﬁles reside in the ./datasets/3-phase-3-dockerfile-asts di-\nrectory of our artifact. Additionally, the schemas we use for parser\ngeneration are available in the\n./datasets/3-phase-3-.../generate/enrich/commands\ndirectory. Each schema is encoded as a YAML ﬁle to strike a bal-\nance between programmatic ease of use and human readability.\nThese schemas encode both ﬂags with their types (boolean, array,\netc.) and the various usage scenarios allowed by a command. Sce-\nnarios mostly mirror a command’s allowable sub-commands (e.g.,\ngit clone/add/. . . ). Each scenario has its own conﬁguration\nand, via YAMLMerge Keys, scenariosmay inherit commonﬂag def-\ninitions. (This feature is useful for common ﬂags like -h/--help.)\nExample Usage:\ncat ./3-phase-3-dockerfile-asts/github.jsonl.xz \\\n| xz -cd \\\n| grep '972b56dc14ff87faddd0c35a5f3b6a32597a36ed' \\\n| jq\nRunning the above should produce:\n{\n\"file_sha\": \"972b56dc14ff87faddd0c35a5f3b6a32597a36ed\",\n\"type\": \"DOCKER-FILE\",\n\"children\": [..., {\n\"children\": [{\n\"children\": [{\n\"children\": [{\n\"children\": [], \"type\": \"SC-NPM-F-PRODUCTION\"\n}],\n\"type\": \"SC-NPM-INSTALL\"\n}],\n\"type\": \"BASH-SCRIPT\"\n}],\n\"type\": \"DOCKER-RUN\"."
+  },
+  {
+    "id": "datasetusages",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Dataset Usages",
+      "page_start": 4,
+      "page_end": 4
+    },
+    "text": "We have used the dataset presented here to carry out a study on\nthe feasibility of automated rule mining from Dockerﬁles. In addi-\ntion, we have also manually curated a collection of Gold Rules, and\nused these rules to gather general statistics on the incidence of rule\nviolations in Dockerﬁles on GitHub. In that study we found that,\non average, there are ﬁve times more rule violations in the overall\ncorpus of Dockerﬁles compared to the number of violations in the\nGold Files introduced in §2. Moreover, we found that frequent sub-\ntree mining [4, 5], with the help of some light modiﬁcations, can\neﬀectively mine Tree Association Rules [9] from this corpus. For\ncomprehensive details and analysis, see Henkel et al. [7].\nIn addition to the Dockerﬁles presented earlier, we have also\nmade the Gold Rules available in the ./datasets/6-gold-rules\ndirectory of our artifact. Each rule is rendered as a simple JavaScript\nObject, and encoded into a TypeScript ﬁle for easy usage in a down-\nstream application, such as a static rule checker."
+  },
+  {
+    "id": "futuredirections",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Future Directions",
+      "page_start": 4,
+      "page_end": 4
+    },
+    "text": "Although we successfully implemented an automated rule miner\nand static-checking engine using this data, our techniques have"
+  },
+  {
+    "id": "limitations",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Limitations",
+      "page_start": 4,
+      "page_end": 4
+    },
+    "text": "the kind of Tree Association Rules it canmine. Expanding the class\nof minable rules would be a signiﬁcant advance. Second, we have\nnot yet investigated the possibility of using this data in the context\nof repairs. It is likely that one can to use these more structured rep-\nresentations of Dockerﬁles to bootstrap interesting research on the\nautomated repair of common Docker mistakes. Finally, there are a\nnumber of other interesting uses for this data outside of rule min-\ning, checking, and violation repairs. In particular, encoded within\nthese Dockerﬁles is a wealth of information on the kinds of tools\nbeing used in production environments, and, more critically, the\ndependencies among various pieces of production software. We be-\nlieve that research in this direction would be of great interest; to\nwork towards harnessing this data, we have recently expanded the\nset of manually generated schemas to include 17 new schemas for\ncommon dependency-management tools.\n6  LIMITATIONS\nAlthough both the challenges and techniques detailed in this pa-\nper are, in theory, applicable to a wide range of DevOps artifacts,\nthe dataset we provide consists solely of Dockerﬁles. Futhermore,\nthese Dockerﬁles come from a single source: GitHub. It is possible\nthat other DevOps artifacts are not as amenable to the ideas we\npresent."
+  },
+  {
+    "id": "summary",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Summary",
+      "page_start": 4,
+      "page_end": 4
+    },
+    "text": "DevOps artifacts in general, and Dockerﬁles speciﬁcally, often see\nless support than traditional program artifacts in terms of Interac-\ntive Development Environment (IDE) extensions and tooling. We\noﬀer a large dataset of Dockerﬁles, in ﬁve diﬀerent representations,\nto bootstrap research in the realmof better developer assistance for\nDevOps and Docker. As part of these datasets, we also contribute\ntools geared towards addressing some of the challenges associated\nwith DevOps artifacts. Namely, we provide tools to perform var-\nious levels of parsing to uncover structure within the nested lan-\nguages present in many DevOps artifacts."
+  },
+  {
+    "id": "acknowledgments",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Acknowledgments",
+      "page_start": 5,
+      "page_end": 5
+    },
+    "text": "Supported,inpart,byagiftfromRajivandRituBatraandbyONR\nundergrantsN00014-17-1-2889andN00014-19-1-2318.Anyopin-\nions,findings,andconclusionsorrecommendationsexpressedin\nthis publicationare thoseofthe authors,and do not necessarily\nreflecttheviewsofthesponsoringagencies."
+  }
+]

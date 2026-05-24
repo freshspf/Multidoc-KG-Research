@@ -1,0 +1,131 @@
+[
+  {
+    "section": "usagescenarios1",
+    "path": {
+      "section": "usagescenarios1",
+      "start_entity": "Meta-Llama-3-70B-Instruct",
+      "end_entity": "Dataset",
+      "hops": [
+        {
+          "from": "Meta-Llama-3-70B-Instruct",
+          "relation": "evaluatedOn",
+          "to": "GSM-Plus",
+          "context": "For the analysis, we use the Meta-Llama-3-70B-Instruct model.",
+          "chunk": "2"
+        },
+        {
+          "from": "GSM-Plus",
+          "relation": "basedOn",
+          "to": "GSM8K",
+          "context": "GSM-Plus is an adversarially modified version of the GSM8K dataset.",
+          "chunk": "2"
+        },
+        {
+          "from": "GSM8K",
+          "relation": "type",
+          "to": "Dataset",
+          "context": "GSM-Plus is an adversarially modified version of the GSM8K dataset.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "Considering the evaluation of the Meta-Llama-3-70B-Instruct model, which dataset description correctly identifies the nature and lineage of GSM-Plus?",
+    "options": {
+      "A": "GSM-Plus is a simplified subset of the GSM8K dataset, primarily used for quick model evaluations.",
+      "B": "GSM-Plus is an enhanced dataset that includes additional data points compared to the original GSM8K dataset.",
+      "C": "GSM-Plus is a condensed version of the GSM8K dataset, having fewer but more complex samples.",
+      "D": "GSM-Plus is an adversarially modified version of the GSM8K dataset, designed to improve model robustness."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is B because the context specifies that GSM-Plus is an 'adversarially modified version' of the GSM8K dataset. This implies modifications were made to the original dataset to potentially enhance the model's performance in adversarial conditions, not just an addition or reduction of data points or simplification of the dataset.",
+    "path_description": "Path: Meta-Llama-3-70B-Instruct --[evaluatedOn]--> GSM-Plus --[basedOn]--> GSM8K --[type]--> Dataset",
+    "context": "For the analysis, we use the Meta-Llama-3-70B-Instruct model. | GSM-Plus is an adversarially modified version of the GSM8K dataset. | GSM-Plus is an adversarially modified version of the GSM8K dataset.",
+    "paper_id": "84"
+  },
+  {
+    "section": "tooloverview",
+    "path": {
+      "section": "tooloverview",
+      "start_entity": "AnalyzePage",
+      "end_entity": "RenderingFormat",
+      "hops": [
+        {
+          "from": "AnalyzePage",
+          "relation": "partOf",
+          "to": "NeMoInspector",
+          "context": "The tool includes two pages that can be used separately or together: the Analyze page, which provides a comprehensive examination of the model’s outputs.",
+          "chunk": "1"
+        },
+        {
+          "from": "NeMoInspector",
+          "relation": "supports",
+          "to": "LaTeX",
+          "context": "Each sample is presented in a reader-friendly format, i.e. with Markdown and LaTeX rendering.",
+          "chunk": "1"
+        },
+        {
+          "from": "LaTeX",
+          "relation": "type",
+          "to": "RenderingFormat",
+          "context": "Each sample is presented in a reader-friendly format, i.e. with Markdown and LaTeX rendering.",
+          "chunk": "1"
+        }
+      ]
+    },
+    "question": "In the NeMoInspector tool, how does the AnalyzePage support the presentation of model outputs in a reader-friendly format?",
+    "options": {
+      "A": "Through the integration of JavaScript to enhance interactive elements and provide real-time analysis feedback.",
+      "B": "By incorporating a proprietary software that converts text to a visually engaging graphical interface.",
+      "C": "By embedding HTML directly into the page, allowing dynamic content interaction and real-time data display.",
+      "D": "By utilizing LaTeX as part of its output options, which is a type of rendering format known for its high-quality typesetting."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A because the AnalyzePage is part of NeMoInspector, which supports LaTeX. LaTeX is a rendering format used to present model outputs in a reader-friendly way, particularly useful for high-quality typesetting of mathematical and scientific documentation.",
+    "path_description": "Path: AnalyzePage --[partOf]--> NeMoInspector --[supports]--> LaTeX --[type]--> RenderingFormat",
+    "context": "The tool includes two pages that can be used separately or together: the Analyze page, which provides a comprehensive examination of the model’s outputs. | Each sample is presented in a reader-friendly format, i.e. with Markdown and LaTeX rendering. | Each sample is presented in a reader-friendly format, i.e. with Markdown and LaTeX rendering.",
+    "paper_id": "84"
+  },
+  {
+    "section": "tooloverview",
+    "path": {
+      "section": "tooloverview",
+      "start_entity": "PromptBasedMode",
+      "end_entity": "Python",
+      "hops": [
+        {
+          "from": "PromptBasedMode",
+          "relation": "partOf",
+          "to": "InferencePage",
+          "context": "The inference page offers two modes: “Prompt-based” and “Templates-based”.",
+          "chunk": "1"
+        },
+        {
+          "from": "InferencePage",
+          "relation": "partOf",
+          "to": "NeMoInspector",
+          "context": "The tool includes two pages that can be used separately or together: the Inference page, which focuses on interactive prompt design.",
+          "chunk": "1"
+        },
+        {
+          "from": "NeMoInspector",
+          "relation": "supports",
+          "to": "Python",
+          "context": "and Python syntax highlighting.",
+          "chunk": "1"
+        }
+      ]
+    },
+    "question": "In the context of the NeMo Inspector tool, how does the PromptBasedMode specifically support Python programming?",
+    "options": {
+      "A": "PromptBasedMode translates user inputs into Python code snippets that can be executed within the NeMo Inspector environment.",
+      "B": "PromptBasedMode uses Python to run backend computations, enhancing the user interface on the Inference Page.",
+      "C": "PromptBasedMode is part of the Inference Page, which is integrated into NeMo Inspector, a tool that supports Python through syntax highlighting.",
+      "D": "PromptBasedMode directly interacts with Python libraries to import necessary syntax rules for highlighting and error detection."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A because the PromptBasedMode, being a part of the Inference Page, is integrated into the NeMo Inspector, which supports Python primarily via syntax highlighting. This relationship is established through the hierarchical inclusion from PromptBasedMode to Inference Page and then to NeMo Inspector, which offers Python support.",
+    "path_description": "Path: PromptBasedMode --[partOf]--> InferencePage --[partOf]--> NeMoInspector --[supports]--> Python",
+    "context": "The inference page offers two modes: “Prompt-based” and “Templates-based”. | The tool includes two pages that can be used separately or together: the Inference page, which focuses on interactive prompt design. | and Python syntax highlighting.",
+    "paper_id": "84"
+  }
+]

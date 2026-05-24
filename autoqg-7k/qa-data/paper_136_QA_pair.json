@@ -1,0 +1,131 @@
+[
+  {
+    "section": "background1",
+    "path": {
+      "section": "background1",
+      "start_entity": "Ordering",
+      "end_entity": "BlockchainParameter",
+      "hops": [
+        {
+          "from": "Ordering",
+          "relation": "usesParameter",
+          "to": "BatchSize",
+          "context": "This step collects network transactions until the defined Batch Timeout (timeout) or Batch Size (block size) parameters are reached to generate a new block.",
+          "chunk": "3"
+        },
+        {
+          "from": "BatchSize",
+          "relation": "measuredBy",
+          "to": "PreferredMaxBytes",
+          "context": "Block size parameters can be either by bytes size (PreferredMaxBytes) or by the number of transactions per block (MaxMessageCount).",
+          "chunk": "3"
+        },
+        {
+          "from": "PreferredMaxBytes",
+          "relation": "type",
+          "to": "BlockchainParameter",
+          "context": "Block size parameters can be either by bytes size (PreferredMaxBytes) or by the number of transactions per block (MaxMessageCount).",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the context of blockchain technology, how does the BatchSize parameter influence the generation of a new block based on the defined metrics?",
+    "options": {
+      "A": "BatchSize determines the block generation through the number of transactions per block, specifically using the MaxMessageCount parameter.",
+      "B": "BatchSize is primarily influenced by the network's speed and does not directly use parameters like PreferredMaxBytes.",
+      "C": "BatchSize directly sets the time limit for block generation without considering the size or number of transactions.",
+      "D": "BatchSize uses the PreferredMaxBytes parameter to measure the maximum bytes size, influencing when a new block is initiated."
+    },
+    "correct_answer": "D",
+    "explanation": "BatchSize influences block generation by setting a limit on either the number of transactions or the size in bytes. The correct answer, B, specifies that BatchSize uses the PreferredMaxBytes parameter to measure and set the maximum bytes size, which is one of the ways to determine when to initiate a new block.",
+    "path_description": "Path: Ordering --[usesParameter]--> BatchSize --[measuredBy]--> PreferredMaxBytes --[type]--> BlockchainParameter",
+    "context": "This step collects network transactions until the defined Batch Timeout (timeout) or Batch Size (block size) parameters are reached to generate a new block. | Block size parameters can be either by bytes size (PreferredMaxBytes) or by the number of transactions per block (MaxMessageCount). | Block size parameters can be either by bytes size (PreferredMaxBytes) or by the number of transactions per block (MaxMessageCount).",
+    "paper_id": "1443"
+  },
+  {
+    "section": "results1",
+    "path": {
+      "section": "results1",
+      "start_entity": "BlockSize",
+      "end_entity": "Parameter",
+      "hops": [
+        {
+          "from": "BlockSize",
+          "relation": "partOf",
+          "to": "CommitStage",
+          "context": "and a low block size (BLOCK=1).",
+          "chunk": "7"
+        },
+        {
+          "from": "CommitStage",
+          "relation": "optimizedFor",
+          "to": "ProcessingCapacity",
+          "context": "In the first case study, we varied the processing capacity of the computers in the commit stage.",
+          "chunk": "7"
+        },
+        {
+          "from": "ProcessingCapacity",
+          "relation": "type",
+          "to": "Parameter",
+          "context": "processing capacities for endorsement (ep), ordering (op), and commit (cp)",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "In the context of optimizing the commit stage for blockchain transactions, which parameter type is directly influenced by modifications in processing capacity?",
+    "options": {
+      "A": "TransactionRate as it reflects the throughput of transactions processed per second",
+      "B": "ProcessingCapacity given it directly impacts the speed and efficiency of the commit stage",
+      "C": "BlockSize as it determines the number of transactions per block during the commit stage",
+      "D": "SecurityLevel since it correlates with the robustness of transaction validation processes"
+    },
+    "correct_answer": "C",
+    "explanation": "The question focuses on the effects of processing capacity changes in the commit stage, particularly how these changes influence the parameter type. ProcessingCapacity was optimized for BlockSize, which is a key factor in determining the number of transactions per block, thus impacting how transactions are committed in a blockchain environment. Other options, although plausible, do not directly tie into the specific parameter type influenced by processing capacity in the context provided.",
+    "path_description": "Path: BlockSize --[partOf]--> CommitStage --[optimizedFor]--> ProcessingCapacity --[type]--> Parameter",
+    "context": "and a low block size (BLOCK=1). | In the first case study, we varied the processing capacity of the computers in the commit stage. | processing capacities for endorsement (ep), ordering (op), and commit (cp)",
+    "paper_id": "1443"
+  },
+  {
+    "section": "results4",
+    "path": {
+      "section": "results4",
+      "start_entity": "TIME_OUT",
+      "end_entity": "Method",
+      "hops": [
+        {
+          "from": "TIME_OUT",
+          "relation": "comparedWith",
+          "to": "BLOCK_SIZE",
+          "context": "TIME_OUT and BLOCK_SIZE are compared in their effects on MRT.",
+          "chunk": "10"
+        },
+        {
+          "from": "BLOCK_SIZE",
+          "relation": "partOf",
+          "to": "SensitivityAnalysis",
+          "context": "BLOCK_SIZE is a variable considered in the Sensitivity Analysis.",
+          "chunk": "10"
+        },
+        {
+          "from": "SensitivityAnalysis",
+          "relation": "type",
+          "to": "Method",
+          "context": "Conducted a Sensitivity Analysis that enabled us to focus on the MRT.",
+          "chunk": "10"
+        }
+      ]
+    },
+    "question": "In the context of the sensitivity analysis described in the paper, which variable's comparison with TIME_OUT most directly affects the focus on Mean Response Time (MRT)?",
+    "options": {
+      "A": "Method, since it generally refers to how the analysis is structured and impacts results.",
+      "B": "Sensitivity Analysis, as it is the methodological approach used for studying MRT.",
+      "C": "TIME_OUT itself, since it is the primary factor determining the overall MRT directly.",
+      "D": "BLOCK_SIZE, as it is a variable directly compared with TIME_OUT affecting MRT in the analysis."
+    },
+    "correct_answer": "D",
+    "explanation": "BLOCK_SIZE is explicitly mentioned as being compared with TIME_OUT in their effects on MRT within the context of a sensitivity analysis, making it the most directly related variable to the focus on MRT as described in the paper.",
+    "path_description": "Path: TIME_OUT --[comparedWith]--> BLOCK_SIZE --[partOf]--> SensitivityAnalysis --[type]--> Method",
+    "context": "TIME_OUT and BLOCK_SIZE are compared in their effects on MRT. | BLOCK_SIZE is a variable considered in the Sensitivity Analysis. | Conducted a Sensitivity Analysis that enabled us to focus on the MRT.",
+    "paper_id": "1443"
+  }
+]

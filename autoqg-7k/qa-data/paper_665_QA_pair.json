@@ -1,0 +1,174 @@
+[
+  {
+    "section": "introduction",
+    "path": {
+      "section": "introduction",
+      "start_entity": "FUOrionisSystem",
+      "end_entity": "AstronomicalFeature",
+      "hops": [
+        {
+          "from": "FUOrionisSystem",
+          "relation": "isPrototypeFor",
+          "to": "EpisodicAccretion",
+          "context": "These eruptions are named after the prototype FU Orionis system.",
+          "chunk": "0"
+        },
+        {
+          "from": "EpisodicAccretion",
+          "relation": "impacts",
+          "to": "IceLines",
+          "context": "Such large and powerful outbursts have significant impact on the mass budget, disk chemistry, ice lines, dust evolution, mineralogy, and dynamics.",
+          "chunk": "0"
+        },
+        {
+          "from": "IceLines",
+          "relation": "type",
+          "to": "AstronomicalFeature",
+          "context": "Such large and powerful outbursts have significant impact on the mass budget, disk chemistry, ice lines, dust evolution, mineralogy, and dynamics.",
+          "chunk": "0"
+        }
+      ]
+    },
+    "question": "How does the episodic accretion observed in the FU Orionis system influence a specific astronomical feature according to the knowledge graph?",
+    "options": {
+      "A": "It increases the luminosity of the system, thereby affecting the visibility of nearby astronomical features.",
+      "B": "It changes the electromagnetic spectrum observed, modifying the perceived color of the system.",
+      "C": "It directly alters the gravitational pull, influencing the orbital paths of surrounding celestial bodies.",
+      "D": "It impacts the ice lines, which are crucial in determining the distribution of molecular compounds."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A because the path indicates that the episodic accretion impacts ice lines, which are a type of astronomical feature. Ice lines are crucial for determining where different molecular compounds can condense in a disk around a star, influencing disk chemistry and the formation of planets.",
+    "path_description": "Path: FUOrionisSystem --[isPrototypeFor]--> EpisodicAccretion --[impacts]--> IceLines --[type]--> AstronomicalFeature",
+    "context": "These eruptions are named after the prototype FU Orionis system. | Such large and powerful outbursts have significant impact on the mass budget, disk chemistry, ice lines, dust evolution, mineralogy, and dynamics. | Such large and powerful outbursts have significant impact on the mass budget, disk chemistry, ice lines, dust evolution, mineralogy, and dynamics.",
+    "paper_id": "2043"
+  },
+  {
+    "section": "modeldescription",
+    "path": {
+      "section": "modeldescription",
+      "start_entity": "SmallDust",
+      "end_entity": "IdealMHDApproximation",
+      "hops": [
+        {
+          "from": "SmallDust",
+          "relation": "convertsTo",
+          "to": "GrownDust",
+          "context": "The small dust can turn into grown dust and vice versa, depending on the dust growth rate",
+          "chunk": "1"
+        },
+        {
+          "from": "GrownDust",
+          "relation": "partOf",
+          "to": "FEOSAD",
+          "context": "while the grown dust component drifts with respect to the gas",
+          "chunk": "1"
+        },
+        {
+          "from": "FEOSAD",
+          "relation": "uses",
+          "to": "IdealMHDApproximation",
+          "context": "while the evolution of the magnetic field is considered in the ideal MHD approximation",
+          "chunk": "1"
+        }
+      ]
+    },
+    "question": "In the context of dust evolution in astrophysical environments, how does the ideal MHD approximation specifically relate to the process of dust growth?",
+    "options": {
+      "A": "The ideal MHD approximation primarily focuses on thermal dynamics, which indirectly speeds up the conversion of small dust to grown dust.",
+      "B": "The ideal MHD approximation directly influences the rate at which small dust converts into grown dust by altering magnetic field lines.",
+      "C": "The ideal MHD approximation is applied to predict the collision rates between small dust particles, facilitating their growth into grown dust.",
+      "D": "The ideal MHD approximation is used to model the magnetic field evolution, which impacts the drifting behavior of grown dust within the FEOSAD framework."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A. In the described model, the grown dust drifts with respect to the gas, and the evolution of the magnetic field that influences this drifting is modeled using the ideal MHD approximation within the FEOSAD framework. Options B, C, and D incorrectly describe the direct influence of the ideal MHD approximation on dust conversion rates, thermal dynamics, and collision rates, which are not supported by the provided context.",
+    "path_description": "Path: SmallDust --[convertsTo]--> GrownDust --[partOf]--> FEOSAD --[uses]--> IdealMHDApproximation",
+    "context": "The small dust can turn into grown dust and vice versa, depending on the dust growth rate | while the grown dust component drifts with respect to the gas | while the evolution of the magnetic field is considered in the ideal MHD approximation",
+    "paper_id": "2043"
+  },
+  {
+    "section": "results2",
+    "path": {
+      "section": "results2",
+      "start_entity": "LargeDust",
+      "end_entity": "Star",
+      "hops": [
+        {
+          "from": "LargeDust",
+          "relation": "convertedInto",
+          "to": "SmallDust",
+          "context": "Thus, large dust is converted into small dust...",
+          "chunk": "3"
+        },
+        {
+          "from": "SmallDust",
+          "relation": "coupledWith",
+          "to": "Gas",
+          "context": "As the small dust component is well-coupled with the gas...",
+          "chunk": "3"
+        },
+        {
+          "from": "Gas",
+          "relation": "accretedOnto",
+          "to": "Star",
+          "context": "it is accreted onto the star as the outburst proceeds...",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the process of star formation as described, what is the sequence that leads to dust accretion onto a star?",
+    "options": {
+      "A": "Small dust directly forms from stellar material, becomes coupled with large dust, and is then accreted onto the star.",
+      "B": "Gas is first converted into small dust, which then aggregates into large dust and is accreted onto the star.",
+      "C": "Large dust directly accretes onto the star without undergoing any transformation or coupling with gas.",
+      "D": "Large dust is broken down into small dust, which couples with gas and then is accreted onto the star."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct sequence starts with large dust being converted into small dust. The small dust then becomes well-coupled with the gas, as mentioned in the paper. Finally, this mixture of small dust and gas is accreted onto the star during the outburst process, as described in the knowledge graph path.",
+    "path_description": "Path: LargeDust --[convertedInto]--> SmallDust --[coupledWith]--> Gas --[accretedOnto]--> Star",
+    "context": "Thus, large dust is converted into small dust... | As the small dust component is well-coupled with the gas... | it is accreted onto the star as the outburst proceeds...",
+    "paper_id": "2043"
+  },
+  {
+    "section": "results2",
+    "path": {
+      "section": "results2",
+      "start_entity": "AccretionRate",
+      "end_entity": "AstrophysicalEvent",
+      "hops": [
+        {
+          "from": "AccretionRate",
+          "relation": "comparedWith",
+          "to": "WindMassLossRate",
+          "context": "Again, it can be clearly seen that the wind gas mass-loss rate is roughly equal to the accretion rate onto the star at quiescence...",
+          "chunk": "3"
+        },
+        {
+          "from": "WindMassLossRate",
+          "relation": "increasesDuring",
+          "to": "Outburst",
+          "context": "During an outburst, this rate is about ten times smaller...",
+          "chunk": "3"
+        },
+        {
+          "from": "Outburst",
+          "relation": "type",
+          "to": "AstrophysicalEvent",
+          "context": "As the small dust component is well-coupled with the gas, it is accreted onto the star as the outburst proceeds...",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the context of astrophysical events, if the accretion rate onto a star is roughly equal to the wind mass loss rate during quiescence, how does the wind mass loss rate compare to the accretion rate during an outburst?",
+    "options": {
+      "A": "The wind mass loss rate during an outburst decreases but remains about half of the accretion rate.",
+      "B": "The wind mass loss rate during an outburst is about ten times smaller than the accretion rate.",
+      "C": "The wind mass loss rate during an outburst increases to be ten times greater than the accretion rate.",
+      "D": "The wind mass loss rate during an outburst remains roughly equal to the accretion rate."
+    },
+    "correct_answer": "B",
+    "explanation": "The question asks for a comparison between the wind mass loss rate and the accretion rate during an outburst. According to the paper, during an outburst, the wind mass loss rate is about ten times smaller than the accretion rate. Therefore, option A is correct.",
+    "path_description": "Path: AccretionRate --[comparedWith]--> WindMassLossRate --[increasesDuring]--> Outburst --[type]--> AstrophysicalEvent",
+    "context": "Again, it can be clearly seen that the wind gas mass-loss rate is roughly equal to the accretion rate onto the star at quiescence... | During an outburst, this rate is about ten times smaller... | As the small dust component is well-coupled with the gas, it is accreted onto the star as the outburst proceeds...",
+    "paper_id": "2043"
+  }
+]

@@ -1,0 +1,131 @@
+[
+  {
+    "section": "reconfigurablerollingrobot",
+    "path": {
+      "section": "reconfigurablerollingrobot",
+      "start_entity": "MagneticFluxMaximization",
+      "end_entity": "EasierDecoupling",
+      "hops": [
+        {
+          "from": "MagneticFluxMaximization",
+          "relation": "enabledBy",
+          "to": "HArrayConfiguration",
+          "context": "This adjustment maximized magnetic flux at close distances while enabling easier decoupling.",
+          "chunk": "1"
+        },
+        {
+          "from": "HArrayConfiguration",
+          "relation": "optimizedFor",
+          "to": "MagneticFluxMaximization",
+          "context": "This adjustment maximized magnetic flux at close distances while enabling easier decoupling.",
+          "chunk": "1"
+        },
+        {
+          "from": "MagneticFluxMaximization",
+          "relation": "resultIn",
+          "to": "EasierDecoupling",
+          "context": "This adjustment maximized magnetic flux at close distances while enabling easier decoupling.",
+          "chunk": "1"
+        }
+      ]
+    },
+    "question": "In the context of the reconfigurable rolling robot, how does the configuration of the H Array specifically contribute to the robot's performance?",
+    "options": {
+      "A": "It enhances the robot's speed by streamlining magnetic interactions between the components.",
+      "B": "It reduces the energy consumption by optimizing the alignment of magnetic fields within the system.",
+      "C": "It increases the overall weight of the robot, thereby stabilizing its movements across various surfaces.",
+      "D": "It maximizes magnetic flux at close distances which facilitates easier decoupling of the robot components."
+    },
+    "correct_answer": "D",
+    "explanation": "The H Array configuration is optimized to maximize magnetic flux at close distances, as noted in the knowledge path. This maximization of magnetic flux, in turn, facilitates easier decoupling of the robot components, directly linking to the ease of reconfiguration and operational efficiency of the reconfigurable rolling robot.",
+    "path_description": "Path: MagneticFluxMaximization --[enabledBy]--> HArrayConfiguration --[optimizedFor]--> MagneticFluxMaximization --[resultIn]--> EasierDecoupling",
+    "context": "This adjustment maximized magnetic flux at close distances while enabling easier decoupling. | This adjustment maximized magnetic flux at close distances while enabling easier decoupling. | This adjustment maximized magnetic flux at close distances while enabling easier decoupling.",
+    "paper_id": "733"
+  },
+  {
+    "section": "robotdynamicmodelling2",
+    "path": {
+      "section": "robotdynamicmodelling2",
+      "start_entity": "MagneticTorque",
+      "end_entity": "Inertia",
+      "hops": [
+        {
+          "from": "MagneticTorque",
+          "relation": "createdBetween",
+          "to": "Pendulum",
+          "context": "where τqi = τmag,i + τm,i which τmag,i and τm, i are the magnetic torque created between permanent magnets located on end-effector of the pendulum and motor torque, respectively.",
+          "chunk": "3"
+        },
+        {
+          "from": "Pendulum",
+          "relation": "partOf",
+          "to": "TotalEnergy",
+          "context": "The total energy is considered with inertia and body linear momentum for the first disk and pendulum.",
+          "chunk": "3"
+        },
+        {
+          "from": "TotalEnergy",
+          "relation": "considers",
+          "to": "Inertia",
+          "context": "The total energy is considered with inertia and body linear momentum for the first disk and pendulum.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the context of robot dynamic modeling, how does the inertia influence the total energy of a pendulum system incorporating magnetic torque?",
+    "options": {
+      "A": "Inertia contributes to the total energy by impacting both the magnetic and motor torque components of the pendulum.",
+      "B": "Inertia primarily influences the total energy through its effect on body linear momentum and not directly on torque.",
+      "C": "Inertia directly affects the magnetic torque created between the pendulum's permanent magnets and the end-effector.",
+      "D": "Inertia is only considered in the calculation of motor torque, not affecting the magnetic torque or total energy."
+    },
+    "correct_answer": "B",
+    "explanation": "In the given context, inertia is mentioned in relation to the total energy calculation, specifically considering both inertia and body linear momentum. Therefore, it influences the total energy primarily through its effect on body linear momentum rather than directly affecting the torque components (magnetic or motor), making option D the correct answer.",
+    "path_description": "Path: MagneticTorque --[createdBetween]--> Pendulum --[partOf]--> TotalEnergy --[considers]--> Inertia",
+    "context": "where τqi = τmag,i + τm,i which τmag,i and τm, i are the magnetic torque created between permanent magnets located on end-effector of the pendulum and motor torque, respectively. | The total energy is considered with inertia and body linear momentum for the first disk and pendulum. | The total energy is considered with inertia and body linear momentum for the first disk and pendulum.",
+    "paper_id": "733"
+  },
+  {
+    "section": "robotdynamicmodelling3",
+    "path": {
+      "section": "robotdynamicmodelling3",
+      "start_entity": "MagneticCouplingModel",
+      "end_entity": "Model",
+      "hops": [
+        {
+          "from": "MagneticCouplingModel",
+          "relation": "calculates",
+          "to": "MagneticFluxDensity",
+          "context": "we model the magnetic flux density Bmag as a function of the distance pm between them based on our experiments",
+          "chunk": "4"
+        },
+        {
+          "from": "MagneticFluxDensity",
+          "relation": "basedOn",
+          "to": "MagneticCouplingModel",
+          "context": "we model the magnetic flux density Bmag as a function of the distance pm between them based on our experiments",
+          "chunk": "4"
+        },
+        {
+          "from": "MagneticCouplingModel",
+          "relation": "type",
+          "to": "Model",
+          "context": "To calculate the magnetic force between the pendulums’ coupling permanent magnets",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the context of modeling robot dynamics, how does the type of model used to calculate magnetic flux density impact the understanding of magnetic force between coupled pendulums?",
+    "options": {
+      "A": "Implementing a Quantum Mechanical Model provides a theoretical framework that is less reliant on empirical data from experiments.",
+      "B": "Utilizing a Statistical Mechanics Model incorporates probabilities which are not suitable for deterministic calculations like magnetic flux density.",
+      "C": "Adopting a Classical Electromagnetism Model simplifies calculations but may reduce the precision necessary for robotic applications.",
+      "D": "Using a Magnetic Coupling Model allows for precise calculations based on experimental data, enhancing accuracy in magnetic force estimations."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A because the Magnetic Coupling Model, as used in the paper, calculates magnetic flux density based on experimental measurements (as mentioned in the context). This approach directly supports accurate calculations of magnetic forces between the pendulums’ coupling permanent magnets, which is crucial for detailed understanding and precise manipulation in robot dynamics.",
+    "path_description": "Path: MagneticCouplingModel --[calculates]--> MagneticFluxDensity --[basedOn]--> MagneticCouplingModel --[type]--> Model",
+    "context": "we model the magnetic flux density Bmag as a function of the distance pm between them based on our experiments | we model the magnetic flux density Bmag as a function of the distance pm between them based on our experiments | To calculate the magnetic force between the pendulums’ coupling permanent magnets",
+    "paper_id": "733"
+  }
+]

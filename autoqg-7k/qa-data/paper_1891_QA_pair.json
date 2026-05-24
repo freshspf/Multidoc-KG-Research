@@ -1,0 +1,88 @@
+[
+  {
+    "section": "results1",
+    "path": {
+      "section": "results1",
+      "start_entity": "LSTM",
+      "end_entity": "Metric",
+      "hops": [
+        {
+          "from": "LSTM",
+          "relation": "outperforms",
+          "to": "NN",
+          "context": "LSTM performed marginally better in terms of R2-score and MSE difference...",
+          "chunk": "5"
+        },
+        {
+          "from": "NN",
+          "relation": "evaluatedOn",
+          "to": "R2Score",
+          "context": "Different NN based ML models that are suitable for timeseries data...",
+          "chunk": "5"
+        },
+        {
+          "from": "R2Score",
+          "relation": "type",
+          "to": "Metric",
+          "context": "R2-score ranges between 0 and 1...",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "Which statement best describes the relationship and evaluation metric discussed in the context of LSTM and other neural network models?",
+    "options": {
+      "A": "LSTM models and other neural networks use R2-score as a metric to calculate the mean absolute error between predicted and actual observations.",
+      "B": "LSTM significantly surpassed other neural network models when evaluated on the mean squared error, which measures average squared difference between estimated and actual values.",
+      "C": "LSTM marginally outperformed other neural network models evaluated based on the R2-score, which measures the proportion of variance explained.",
+      "D": "The performance of LSTM and other neural network models cannot be measured using R2-score as this metric is not applicable to time series data."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A because the paper mentions that LSTM performed marginally better compared to other neural network models based specifically on the R2-score. The R2-score is a metric that measures the proportion of variance in the dependent variable that is predictable from the independent variables, which aligns with 'A'. Options B, C, and D introduce incorrect details or misunderstandings about the evaluation metrics and their applicability.",
+    "path_description": "Path: LSTM --[outperforms]--> NN --[evaluatedOn]--> R2Score --[type]--> Metric",
+    "context": "LSTM performed marginally better in terms of R2-score and MSE difference... | Different NN based ML models that are suitable for timeseries data... | R2-score ranges between 0 and 1...",
+    "paper_id": "683"
+  },
+  {
+    "section": "conclusion",
+    "path": {
+      "section": "conclusion",
+      "start_entity": "NCP",
+      "end_entity": "KSStatistic",
+      "hops": [
+        {
+          "from": "NCP",
+          "relation": "comparedWith",
+          "to": "LSTM",
+          "context": "LSTMs and NCPs exhibit comparable performance.",
+          "chunk": "7"
+        },
+        {
+          "from": "LSTM",
+          "relation": "evaluatedOn",
+          "to": "Testset",
+          "context": "LSTMs and NCPs exhibit comparable performance on the testset.",
+          "chunk": "7"
+        },
+        {
+          "from": "Testset",
+          "relation": "measures",
+          "to": "KSStatistic",
+          "context": "A higher KS statistic value corresponds to higher original testset and the synthetic testset.",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "In the comparison of LSTM and NCP models as discussed in the paper, which measurement is specifically used to evaluate their performance on the testset?",
+    "options": {
+      "A": "The KS Statistic is employed to ascertain the distinction between the original and synthetic testsets.",
+      "B": "The Mean Squared Error (MSE) is used to determine the accuracy differences in model predictions.",
+      "C": "The Precision Score is calculated to understand the exactness of the models' outputs.",
+      "D": "The Area Under the Curve (AUC) is used to evaluate the overall performance of the models on variable data."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A because, according to the knowledge graph path provided, the LSTM and NCP models are compared and evaluated on a testset specifically using the KS Statistic. This statistic measures the differences between the distributions of the original testset and the synthetic testset.",
+    "path_description": "Path: NCP --[comparedWith]--> LSTM --[evaluatedOn]--> Testset --[measures]--> KSStatistic",
+    "context": "LSTMs and NCPs exhibit comparable performance. | LSTMs and NCPs exhibit comparable performance on the testset. | A higher KS statistic value corresponds to higher original testset and the synthetic testset.",
+    "paper_id": "683"
+  }
+]

@@ -1,0 +1,217 @@
+[
+  {
+    "section": "introduction2",
+    "path": {
+      "section": "introduction2",
+      "start_entity": "DynamicThermalManagementSystem",
+      "end_entity": "System",
+      "hops": [
+        {
+          "from": "DynamicThermalManagementSystem",
+          "relation": "reduces",
+          "to": "ProcessorSpeed",
+          "context": "Typically, the processor’s speed is reduced to one fourth or even one eighth",
+          "chunk": "1"
+        },
+        {
+          "from": "ProcessorSpeed",
+          "relation": "reducedBy",
+          "to": "DynamicThermalManagementSystem",
+          "context": "Typically, the processor’s speed is reduced to one fourth or even one eighth",
+          "chunk": "1"
+        },
+        {
+          "from": "DynamicThermalManagementSystem",
+          "relation": "type",
+          "to": "System",
+          "context": "the microprocessor’s temperature is managed by a Dynamic Thermal Management (DTM) system",
+          "chunk": "1"
+        }
+      ]
+    },
+    "question": "How does the Dynamic Thermal Management (DTM) system primarily affect microprocessor performance in scenarios of high thermal activity?",
+    "options": {
+      "A": "The DTM system intermittently stops the processor to prevent overheating, resuming once temperatures stabilize.",
+      "B": "The DTM system reduces the processor's speed to potentially one fourth or one eighth of its normal speed.",
+      "C": "The DTM system increases the processor's speed to accommodate increased computational demands.",
+      "D": "The DTM system maintains the processor's speed constant regardless of the thermal conditions."
+    },
+    "correct_answer": "B",
+    "explanation": "The Dynamic Thermal Management (DTM) system manages the microprocessor's temperature by reducing the processor's speed to minimize heat production, typically to one fourth or one eighth of its normal speed, as stated in the context.",
+    "path_description": "Path: DynamicThermalManagementSystem --[reduces]--> ProcessorSpeed --[reducedBy]--> DynamicThermalManagementSystem --[type]--> System",
+    "context": "Typically, the processor’s speed is reduced to one fourth or even one eighth | Typically, the processor’s speed is reduced to one fourth or even one eighth | the microprocessor’s temperature is managed by a Dynamic Thermal Management (DTM) system",
+    "paper_id": "5"
+  },
+  {
+    "section": "thenpcompletenessproofs1",
+    "path": {
+      "section": "thenpcompletenessproofs1",
+      "start_entity": "Job",
+      "end_entity": "Problem",
+      "hops": [
+        {
+          "from": "Job",
+          "relation": "partOf",
+          "to": "SchedulingProblem",
+          "context": "First, we have 3n jobs that correspond to the instance of 3-Partition",
+          "chunk": "3"
+        },
+        {
+          "from": "SchedulingProblem",
+          "relation": "relatedTo",
+          "to": "3PartitionProblem",
+          "context": "We use a reduction from the 3-Partition to prove the scheduling problem",
+          "chunk": "3"
+        },
+        {
+          "from": "3PartitionProblem",
+          "relation": "type",
+          "to": "Problem",
+          "context": "3-Partition is well-known to be NP-hard",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "Why is the 3-Partition problem significant in the proof of NP-hardness for a certain scheduling problem?",
+    "options": {
+      "A": "Because the 3-Partition problem simplifies the scheduling problem, making it solvable in polynomial time.",
+      "B": "Because the scheduling problem includes 3n jobs that must be equally divided, similar to the 3-Partition problem.",
+      "C": "Because the scheduling problem can be reduced to the 3-Partition problem, demonstrating inherent complexity.",
+      "D": "Because 3-Partition problem instances are used to generate optimal schedules directly, without further calculations."
+    },
+    "correct_answer": "C",
+    "explanation": "The significance of the 3-Partition problem in proving NP-hardness for the scheduling problem lies in the reduction from the scheduling problem to the 3-Partition problem. This demonstrates that the scheduling problem is at least as hard as the 3-Partition problem, which is known to be NP-hard. Thus, if we can show that solving the scheduling problem would solve the 3-Partition problem, it implies the inherent complexity of the scheduling problem.",
+    "path_description": "Path: Job --[partOf]--> SchedulingProblem --[relatedTo]--> 3PartitionProblem --[type]--> Problem",
+    "context": "First, we have 3n jobs that correspond to the instance of 3-Partition | We use a reduction from the 3-Partition to prove the scheduling problem | 3-Partition is well-known to be NP-hard",
+    "paper_id": "5"
+  },
+  {
+    "section": "thenpcompletenessproofs2",
+    "path": {
+      "section": "thenpcompletenessproofs2",
+      "start_entity": "S",
+      "end_entity": "SolutionType",
+      "hops": [
+        {
+          "from": "S",
+          "relation": "hasProperty",
+          "to": "3Partition",
+          "context": "ely that if S has a 3-partition then there is a...",
+          "chunk": "4"
+        },
+        {
+          "from": "3Partition",
+          "relation": "enables",
+          "to": "FeasibleSolution",
+          "context": "ling instance has a feasible solution as well.",
+          "chunk": "4"
+        },
+        {
+          "from": "FeasibleSolution",
+          "relation": "type",
+          "to": "SolutionType",
+          "context": "ling instance has a feasible solution as well.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the context of NP-completeness proofs, how does the property of having a 3-partition influence the type of solution for a problem instance?",
+    "options": {
+      "A": "A 3-partition in a set establishes a pathway to a feasible solution, which is typically identified as an NP-hard solution type.",
+      "B": "If a set has a 3-partition, it directly enables a feasible solution, which is generally a polynomial-time solution.",
+      "C": "Having a 3-partition in a set leads to a feasible solution, categorized specifically as an NP-complete solution type.",
+      "D": "The presence of a 3-partition in a set allows for an infeasible solution, typically characterized as an exponential-time solution."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is D. The 3-partition property of set S enables a feasible solution for the problem instance. In the context of NP-completeness, feasible solutions related to 3-partition problems are commonly classified as NP-hard, reflecting the complexity and computational challenges associated with finding such solutions.",
+    "path_description": "Path: S --[hasProperty]--> 3Partition --[enables]--> FeasibleSolution --[type]--> SolutionType",
+    "context": "ely that if S has a 3-partition then there is a... | ling instance has a feasible solution as well. | ling instance has a feasible solution as well.",
+    "paper_id": "5"
+  },
+  {
+    "section": "thenpcompletenessproofs3",
+    "path": {
+      "section": "thenpcompletenessproofs3",
+      "start_entity": "Temperature",
+      "end_entity": "Concept",
+      "hops": [
+        {
+          "from": "Temperature",
+          "relation": "measuredDuring",
+          "to": "Job",
+          "context": "Therefore the temperature at time 4i + 4 would be at least 2α > 1/4.",
+          "chunk": "5"
+        },
+        {
+          "from": "Job",
+          "relation": "hasMatching",
+          "to": "Matching",
+          "context": "constructed above has a schedule where all jobs exists a matching of A, B, C.",
+          "chunk": "5"
+        },
+        {
+          "from": "Matching",
+          "relation": "type",
+          "to": "Concept",
+          "context": "constructed above has a schedule where all jobs exists a matching of A, B, C.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the context of the knowledge graph path provided, how does the matching of jobs A, B, and C relate to the concept of temperature measurements during these jobs?",
+    "options": {
+      "A": "The matching of jobs A, B, and C directly dictates the temperature settings for each job to ensure proper execution.",
+      "B": "The matching of jobs A, B, and C has no direct correlation with temperature measurements during these jobs.",
+      "C": "The matching of jobs A, B, and C helps in determining the optimal temperature for job execution.",
+      "D": "The temperature measurements are used to ensure that the matching of jobs A, B, and C meets specific environmental conditions."
+    },
+    "correct_answer": "B",
+    "explanation": "The matching of jobs A, B, and C in the given context refers to the organization or scheduling of these jobs rather than influencing or being influenced by the temperature measurements during these jobs. The temperature at a specific time, as mentioned in the context, is independent of the job matching, focusing instead on other operational parameters.",
+    "path_description": "Path: Temperature --[measuredDuring]--> Job --[hasMatching]--> Matching --[type]--> Concept",
+    "context": "Therefore the temperature at time 4i + 4 would be at least 2α > 1/4. | constructed above has a schedule where all jobs exists a matching of A, B, C. | constructed above has a schedule where all jobs exists a matching of A, B, C.",
+    "paper_id": "5"
+  },
+  {
+    "section": "thenpcompletenessproofs3",
+    "path": {
+      "section": "thenpcompletenessproofs3",
+      "start_entity": "Block",
+      "end_entity": "Concept",
+      "hops": [
+        {
+          "from": "Block",
+          "relation": "contains",
+          "to": "Temperature",
+          "context": "We showed that every block contains jobs that correspond to some triple (a, b, c) ∈ A × B × C.",
+          "chunk": "5"
+        },
+        {
+          "from": "Temperature",
+          "relation": "measuredDuring",
+          "to": "Job",
+          "context": "Therefore the temperature at time 4i + 4 would be at least 2α > 1/4.",
+          "chunk": "5"
+        },
+        {
+          "from": "Job",
+          "relation": "type",
+          "to": "Concept",
+          "context": "constructed above has a schedule where all jobs exists a matching of A, B, C.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the context of thenpcompletenessproofs3, how does the type of job relate to the temperature measurement during a block?",
+    "options": {
+      "A": "The type of job does not influence temperature measurements, as they are solely dependent on external environmental factors.",
+      "B": "The type of job, irrespective of the concept, dictates the maximum temperature recorded during any operations within the block.",
+      "C": "The type of job conceptually determines the frequency of temperature measurements within a block.",
+      "D": "The type of job, defined by the concept, influences the minimum temperature recorded during the job scheduling within the block."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A because the question requires understanding the relationship from the block to the job through the temperature and then to the concept. The type of job (linked to a concept) influences the temperature conditions (minimum temperature specifically mentioned in the context) during the scheduling within the block, as indicated by the provided multi-hop path.",
+    "path_description": "Path: Block --[contains]--> Temperature --[measuredDuring]--> Job --[type]--> Concept",
+    "context": "We showed that every block contains jobs that correspond to some triple (a, b, c) ∈ A × B × C. | Therefore the temperature at time 4i + 4 would be at least 2α > 1/4. | constructed above has a schedule where all jobs exists a matching of A, B, C.",
+    "paper_id": "5"
+  }
+]

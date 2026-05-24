@@ -1,0 +1,88 @@
+[
+  {
+    "section": "screc1",
+    "path": {
+      "section": "screc1",
+      "start_entity": "SCRec",
+      "end_entity": "MLPOperations",
+      "hops": [
+        {
+          "from": "SCRec",
+          "relation": "integrates",
+          "to": "HardwareAccelerator",
+          "context": "SCRec integrates a custom hardware accelerator to enhance model performance",
+          "chunk": "4"
+        },
+        {
+          "from": "HardwareAccelerator",
+          "relation": "designedToAccelerate",
+          "to": "MLPCore",
+          "context": "On the hardware side, the MLP core and EMB core are designed to accelerate computations in the MLP layer",
+          "chunk": "4"
+        },
+        {
+          "from": "MLPCore",
+          "relation": "accelerates",
+          "to": "MLPOperations",
+          "context": "This simulation measures the latency required to retrieve embedding vectors in an EMB core and the latency of MLP operations in an MLP core",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the SCRec system, which component is specifically integrated to accelerate the latency of MLP operations?",
+    "options": {
+      "A": "A custom hardware accelerator designed to enhance overall model performance.",
+      "B": "A dedicated DSP unit primarily focused on digital signal processing tasks.",
+      "C": "A general-purpose GPU typically utilized in broad parallel computation tasks.",
+      "D": "An EMB core primarily used to reduce the retrieval time of embedding vectors."
+    },
+    "correct_answer": "A",
+    "explanation": "According to the knowledge path, the SCRec uses a custom hardware accelerator, which integrates an MLP core designed specifically to accelerate MLP operations, thus enhancing model performance related to these operations.",
+    "path_description": "Path: SCRec --[integrates]--> HardwareAccelerator --[designedToAccelerate]--> MLPCore --[accelerates]--> MLPOperations",
+    "context": "SCRec integrates a custom hardware accelerator to enhance model performance | On the hardware side, the MLP core and EMB core are designed to accelerate computations in the MLP layer | This simulation measures the latency required to retrieve embedding vectors in an EMB core and the latency of MLP operations in an MLP core",
+    "paper_id": "593"
+  },
+  {
+    "section": "screc6",
+    "path": {
+      "section": "screc6",
+      "start_entity": "TT-core",
+      "end_entity": "Output-tiles",
+      "hops": [
+        {
+          "from": "TT-core",
+          "relation": "uses",
+          "to": "TT-CU",
+          "context": "the TT CU computes the entire embedding vector simultaneously.",
+          "chunk": "9"
+        },
+        {
+          "from": "TT-CU",
+          "relation": "enabledBy",
+          "to": "PE-array",
+          "context": "the EMB core, which is implemented with a 2D PE array.",
+          "chunk": "9"
+        },
+        {
+          "from": "PE-array",
+          "relation": "processes",
+          "to": "Output-tiles",
+          "context": "processing the entire matrix in 16 × 32-sized output tiles iteratively.",
+          "chunk": "9"
+        }
+      ]
+    },
+    "question": "In the architecture described in section 'screc6', how is the output processed by the TT-CU through the PE-array?",
+    "options": {
+      "A": "The TT-CU uses a linear array structure to compute the entire embedding vector and processes it in 8 × 16-sized output tiles.",
+      "B": "The TT-CU utilizes a 3D PE array to sequentially process the entire embedding vector in 64 × 64-sized output tiles.",
+      "C": "The TT-CU uses a scalar computation method and processes the output in a single large tile covering the entire matrix.",
+      "D": "The TT-CU employs a 2D PE array to compute the entire embedding vector and processes it in 16 × 32-sized output tiles."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A. The TT-CU computes the entire embedding vector simultaneously using a 2D PE array and processes the output in 16 × 32-sized output tiles iteratively, as stated in the paper. Option B is incorrect because the size of the output tiles and the PE array configuration don't match the description. Option C misrepresents both the structure of the PE array and the size of the output tiles. Option D is incorrect as it suggests a scalar computation method which contradicts the use of a 2D PE array as mentioned in the paper.",
+    "path_description": "Path: TT-core --[uses]--> TT-CU --[enabledBy]--> PE-array --[processes]--> Output-tiles",
+    "context": "the TT CU computes the entire embedding vector simultaneously. | the EMB core, which is implemented with a 2D PE array. | processing the entire matrix in 16 × 32-sized output tiles iteratively.",
+    "paper_id": "593"
+  }
+]

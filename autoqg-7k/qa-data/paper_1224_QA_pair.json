@@ -1,0 +1,174 @@
+[
+  {
+    "section": "materialsandmethods3",
+    "path": {
+      "section": "materialsandmethods3",
+      "start_entity": "gpu-tracker",
+      "end_entity": "Metric",
+      "hops": [
+        {
+          "from": "gpu-tracker",
+          "relation": "partOf",
+          "to": "Tracker",
+          "context": "The gpu-tracker command-line interface (CLI), implemented using the docopt Python package (5), wraps the Tracker class of the API.",
+          "chunk": "4"
+        },
+        {
+          "from": "Tracker",
+          "relation": "monitors",
+          "to": "cpu_utilization",
+          "context": "After profiling complete cpu_utilization, gpu_utilization, and compute_time data",
+          "chunk": "4"
+        },
+        {
+          "from": "cpu_utilization",
+          "relation": "type",
+          "to": "Metric",
+          "context": "After profiling complete cpu_utilization, gpu_utilization, and compute_time data",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the context of system monitoring described in the paper, what specific role does the Tracker class play?",
+    "options": {
+      "A": "It monitors cpu_utilization as a type of metric to evaluate system performance during operations.",
+      "B": "It directly manages the computation of gpu_utilization metrics for performance assessment.",
+      "C": "It is responsible for the storage and retrieval of compute_time data exclusively.",
+      "D": "It is used for wrapping the gpu-tracker command-line interface to facilitate user interactions."
+    },
+    "correct_answer": "A",
+    "explanation": "The Tracker class, as part of the gpu-tracker CLI, is involved in monitoring system metrics such as cpu_utilization. This is indicated by the knowledge path showing the relationship of the gpu-tracker as a part of Tracker, which then monitors cpu_utilization identified as a type of Metric. Options A, B, and D, although plausible, do not align with the specific monitoring function of the Tracker class as described.",
+    "path_description": "Path: gpu-tracker --[partOf]--> Tracker --[monitors]--> cpu_utilization --[type]--> Metric",
+    "context": "The gpu-tracker command-line interface (CLI), implemented using the docopt Python package (5), wraps the Tracker class of the API. | After profiling complete cpu_utilization, gpu_utilization, and compute_time data | After profiling complete cpu_utilization, gpu_utilization, and compute_time data",
+    "paper_id": "239"
+  },
+  {
+    "section": "materialsandmethods4",
+    "path": {
+      "section": "materialsandmethods4",
+      "start_entity": "Compute_Time",
+      "end_entity": "Feature",
+      "hops": [
+        {
+          "from": "Compute_Time",
+          "relation": "measuredBy",
+          "to": "gpu-tracker",
+          "context": "PU utilization, GPU utilization, and compute time",
+          "chunk": "5"
+        },
+        {
+          "from": "gpu-tracker",
+          "relation": "implements",
+          "to": "CLI_Help_Message",
+          "context": "Fig 2. The CLI help message shown by running ‘gpu-tracker --help’.",
+          "chunk": "5"
+        },
+        {
+          "from": "CLI_Help_Message",
+          "relation": "type",
+          "to": "Feature",
+          "context": "Fig 2. The CLI help message shown by running ‘gpu-tracker --help’.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the context of monitoring compute time in a research study, which feature of the 'gpu-tracker' tool is implemented to measure and display this metric?",
+    "options": {
+      "A": "A graphical user interface that displays real-time GPU and CPU utilization statistics",
+      "B": "A real-time plotting tool that graphs compute time against GPU utilization",
+      "C": "A command-line interface help message detailing usage and options",
+      "D": "An automated email alert system that notifies users of high compute usage"
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is B because the 'gpu-tracker --help' command implements a CLI help message, which is a feature for displaying information on how to measure and monitor compute time, as indicated by the knowledge graph path.",
+    "path_description": "Path: Compute_Time --[measuredBy]--> gpu-tracker --[implements]--> CLI_Help_Message --[type]--> Feature",
+    "context": "PU utilization, GPU utilization, and compute time | Fig 2. The CLI help message shown by running ‘gpu-tracker --help’. | Fig 2. The CLI help message shown by running ‘gpu-tracker --help’.",
+    "paper_id": "239"
+  },
+  {
+    "section": "results1",
+    "path": {
+      "section": "results1",
+      "start_entity": "gpu_tracker",
+      "end_entity": "Hours",
+      "hops": [
+        {
+          "from": "gpu_tracker",
+          "relation": "provides",
+          "to": "Tracker",
+          "context": "The gpu_tracker package provides the Tracker class.",
+          "chunk": "6"
+        },
+        {
+          "from": "Tracker",
+          "relation": "measures",
+          "to": "ComputeTime",
+          "context": "The Tracker class measures compute time, CPU utilization, GPU utilization, and RAM usage.",
+          "chunk": "6"
+        },
+        {
+          "from": "ComputeTime",
+          "relation": "hasUnit",
+          "to": "Hours",
+          "context": "Compute time: Unit: hours, Time: 0.001 hours.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the context of using the gpu_tracker package, how does the Tracker class measure the compute time?",
+    "options": {
+      "A": "The Tracker class measures the compute time in minutes, with a typical measurement around 60 minutes.",
+      "B": "The Tracker class measures the compute time in seconds, reporting detailed second-by-second utilization.",
+      "C": "The Tracker class measures the compute time in hours, reported as 0.001 hours.",
+      "D": "The Tracker class measures compute time in milliseconds to ensure high precision in reporting."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A because, according to the paper, the Tracker class from the gpu_tracker package measures compute time in hours, and a specific example given is 0.001 hours.",
+    "path_description": "Path: gpu_tracker --[provides]--> Tracker --[measures]--> ComputeTime --[hasUnit]--> Hours",
+    "context": "The gpu_tracker package provides the Tracker class. | The Tracker class measures compute time, CPU utilization, GPU utilization, and RAM usage. | Compute time: Unit: hours, Time: 0.001 hours.",
+    "paper_id": "239"
+  },
+  {
+    "section": "results4",
+    "path": {
+      "section": "results4",
+      "start_entity": "tracker",
+      "end_entity": "mp",
+      "hops": [
+        {
+          "from": "tracker",
+          "relation": "tracks",
+          "to": "child_process",
+          "context": "with gput.Tracker(n_expected_cores=2, sleep_time=0.2) as tracker:",
+          "chunk": "9"
+        },
+        {
+          "from": "child_process",
+          "relation": "createdBy",
+          "to": "ctx",
+          "context": "child_process = ctx.Process(target=example_function)",
+          "chunk": "9"
+        },
+        {
+          "from": "ctx",
+          "relation": "createdBy",
+          "to": "mp",
+          "context": "ctx = mp.get_context(method='spawn')",
+          "chunk": "9"
+        }
+      ]
+    },
+    "question": "In the provided Python multiprocessing example, what is the correct relationship between the object 'tracker' and the method 'spawn'?",
+    "options": {
+      "A": "The 'tracker' object is used to monitor CPU utilization during the creation of a child process using the 'spawn' method.",
+      "B": "The 'spawn' method is unrelated to the 'tracker' object, as it functions independently within the multiprocessing library.",
+      "C": "The 'tracker' object directly invokes the 'spawn' method to execute the child process in a new computational context.",
+      "D": "The 'spawn' method is a property of the 'tracker' object, utilized to initialize the multiprocessing environment."
+    },
+    "correct_answer": "A",
+    "explanation": "The 'tracker' object tracks CPU utilization when a child process is created in a multiprocessing context (ctx) that uses the 'spawn' method for process creation. This method does not directly invoke nor is it a property of the 'tracker', but it does relate indirectly by the context in which the child process is created.",
+    "path_description": "Path: tracker --[tracks]--> child_process --[createdBy]--> ctx --[createdBy]--> mp",
+    "context": "with gput.Tracker(n_expected_cores=2, sleep_time=0.2) as tracker: | child_process = ctx.Process(target=example_function) | ctx = mp.get_context(method='spawn')",
+    "paper_id": "239"
+  }
+]

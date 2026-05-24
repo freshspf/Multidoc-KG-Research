@@ -1,0 +1,45 @@
+[
+  {
+    "section": "robotdesign",
+    "path": {
+      "section": "robotdesign",
+      "start_entity": "JPEGCamera",
+      "end_entity": "Program",
+      "hops": [
+        {
+          "from": "JPEGCamera",
+          "relation": "sendsDataTo",
+          "to": "BluetoothMicroController",
+          "context": "The camera images are inputs to a convolutional neural network computer vision model, which enables closed-loop control and corrects actuation imperfections during autonomous operations",
+          "chunk": "2"
+        },
+        {
+          "from": "BluetoothMicroController",
+          "relation": "processes",
+          "to": "OnBoardCNN",
+          "context": "Processor: A Bluetooth-enabled micro-controller (Seeeduino XIAO nRF52840) for processing the computer vision model",
+          "chunk": "2"
+        },
+        {
+          "from": "OnBoardCNN",
+          "relation": "type",
+          "to": "Program",
+          "context": "on-board convolutional neural network (CNN) based computer vision program is integrated",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the robot design described, which component primarily handles the transmission of camera image data to the convolutional neural network for processing?",
+    "options": {
+      "A": "The JPEGCamera sends data directly to the convolutional neural network, bypassing any micro-controller.",
+      "B": "The on-board convolutional neural network directly receives data from the JPEGCamera without intermediary processing.",
+      "C": "A separate dedicated image processing unit is responsible for transmitting data to the convolutional neural network.",
+      "D": "A Bluetooth-enabled micro-controller processes the data before it reaches the convolutional neural network."
+    },
+    "correct_answer": "D",
+    "explanation": "According to the knowledge path, the JPEGCamera sends data to the BluetoothMicroController, which then processes this data before it is handled by the OnBoardCNN. Hence, the Bluetooth-enabled micro-controller is the component that primarily handles the transmission and initial processing of the camera image data.",
+    "path_description": "Path: JPEGCamera --[sendsDataTo]--> BluetoothMicroController --[processes]--> OnBoardCNN --[type]--> Program",
+    "context": "The camera images are inputs to a convolutional neural network computer vision model, which enables closed-loop control and corrects actuation imperfections during autonomous operations | Processor: A Bluetooth-enabled micro-controller (Seeeduino XIAO nRF52840) for processing the computer vision model | on-board convolutional neural network (CNN) based computer vision program is integrated",
+    "paper_id": "1097"
+  }
+]

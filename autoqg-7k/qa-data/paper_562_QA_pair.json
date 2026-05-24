@@ -1,0 +1,45 @@
+[
+  {
+    "section": "backgroundandpreliminaries",
+    "path": {
+      "section": "backgroundandpreliminaries",
+      "start_entity": "ShelleyAddress",
+      "end_entity": "BlockchainModel",
+      "hops": [
+        {
+          "from": "ShelleyAddress",
+          "relation": "hasPart",
+          "to": "PaymentAddress",
+          "context": "Shelley: A Shelley address has two main parts.",
+          "chunk": "2"
+        },
+        {
+          "from": "PaymentAddress",
+          "relation": "canOwn",
+          "to": "UTXO",
+          "context": "Payment Addresses: Only this type of address can own/spend a UTXO.",
+          "chunk": "2"
+        },
+        {
+          "from": "UTXO",
+          "relation": "type",
+          "to": "BlockchainModel",
+          "context": "Cardano basically falls in the category of UTXO-based blockchains.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the context of Cardano's blockchain model, which statement best describes the relationship between Shelley addresses and their capability in the network?",
+    "options": {
+      "A": "All types of addresses in the Cardano blockchain, including Shelley addresses, can own a UTXO equally.",
+      "B": "Shelley addresses primarily serve as a method for encrypting transactions on the blockchain, rather than owning UTXOs.",
+      "C": "Shelley addresses directly interact with blockchain models without the need for a payment address to own a UTXO.",
+      "D": "A Shelley address, through its payment address component, is the only type that can own and spend a UTXO."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A because, based on the provided knowledge path and context, Shelley addresses comprise payment addresses as one of their main parts, and it is specifically stated that only payment addresses can own/spend a UTXO. This relationship indicates that a Shelley address, via its payment address component, has the unique capability to own and spend UTXOs within the Cardano blockchain, which is categorized under UTXO-based blockchains.",
+    "path_description": "Path: ShelleyAddress --[hasPart]--> PaymentAddress --[canOwn]--> UTXO --[type]--> BlockchainModel",
+    "context": "Shelley: A Shelley address has two main parts. | Payment Addresses: Only this type of address can own/spend a UTXO. | Cardano basically falls in the category of UTXO-based blockchains.",
+    "paper_id": "1528"
+  }
+]

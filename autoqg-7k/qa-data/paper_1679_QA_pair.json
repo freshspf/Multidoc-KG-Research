@@ -1,0 +1,131 @@
+[
+  {
+    "section": "systemdesignimplementation1",
+    "path": {
+      "section": "systemdesignimplementation1",
+      "start_entity": "TCP-over-QUIC",
+      "end_entity": "QUICImplementation",
+      "hops": [
+        {
+          "from": "TCP-over-QUIC",
+          "relation": "uses",
+          "to": "Quinn",
+          "context": "Our study extends this line of research by implementing and experimentally evaluating a practical TCP-over-QUIC tunnel using the Quinn library in Rust.",
+          "chunk": "3"
+        },
+        {
+          "from": "Quinn",
+          "relation": "comparedWith",
+          "to": "MsQuic",
+          "context": "In a more detailed benchmarking study by Kevin Marti [16], MsQuic and Quinn were compared under different networking conditions.",
+          "chunk": "3"
+        },
+        {
+          "from": "MsQuic",
+          "relation": "type",
+          "to": "QUICImplementation",
+          "context": "In a more detailed benchmarking study by Kevin Marti [16], MsQuic and Quinn were compared under different networking conditions.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the process of implementing a TCP-over-QUIC tunnel, which library was utilized, and how does it relate to MsQuic in the context of QUIC implementations?",
+    "options": {
+      "A": "The MsQuic library was selected for the TCP-over-QUIC implementation because it is the most efficient QUIC implementation.",
+      "B": "Both Quinn and MsQuic libraries were used together to enhance the QUIC implementation in the TCP-over-QUIC tunnel.",
+      "C": "TCP-over-QUIC implementation does not involve Quinn or MsQuic libraries but uses an alternative approach with similar functionalities.",
+      "D": "The Quinn library was used for TCP-over-QUIC implementation, and it was compared with MsQuic, another QUIC implementation."
+    },
+    "correct_answer": "D",
+    "explanation": "The question traces the use of the Quinn library in implementing a TCP-over-QUIC tunnel and its comparison with MsQuic in benchmarking studies. The correct answer is A, which accurately reflects the implementation of TCP-over-QUIC using Quinn and its relationship with MsQuic as another QUIC implementation, as indicated in the provided knowledge graph path.",
+    "path_description": "Path: TCP-over-QUIC --[uses]--> Quinn --[comparedWith]--> MsQuic --[type]--> QUICImplementation",
+    "context": "Our study extends this line of research by implementing and experimentally evaluating a practical TCP-over-QUIC tunnel using the Quinn library in Rust. | In a more detailed benchmarking study by Kevin Marti [16], MsQuic and Quinn were compared under different networking conditions. | In a more detailed benchmarking study by Kevin Marti [16], MsQuic and Quinn were compared under different networking conditions.",
+    "paper_id": "948"
+  },
+  {
+    "section": "experimentalmethodology",
+    "path": {
+      "section": "experimentalmethodology",
+      "start_entity": "TCP_over_QUIC_tunneling_implementation",
+      "end_entity": "Component",
+      "hops": [
+        {
+          "from": "TCP_over_QUIC_tunneling_implementation",
+          "relation": "evaluatedOn",
+          "to": "Experimental_Setup",
+          "context": "This section presents a comprehensive experimental methodology to evaluate the performance characteristics of the TCP over QUIC tunneling implementation.",
+          "chunk": "5"
+        },
+        {
+          "from": "Experimental_Setup",
+          "relation": "uses",
+          "to": "Virtual_Machines",
+          "context": "All experiments were conducted in a controlled virtual network environment to ensure repeatability and minimal external interference.",
+          "chunk": "5"
+        },
+        {
+          "from": "Virtual_Machines",
+          "relation": "type",
+          "to": "Component",
+          "context": "The setup included the following components: Virtual Machines: Two Debian 12.10.0 virtual machines deployed on the same physical host using KVM/QEMU virtualization.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the experimental setup described for evaluating TCP over QUIC tunneling performance, what is the type of the used virtual machines in terms of their deployment component?",
+    "options": {
+      "A": "Virtual machines configured independently without any specific virtualization technology noted",
+      "B": "Virtual machines deployed using Hyper-V on multiple interconnected physical servers",
+      "C": "Virtual machines deployed using VMware on separate physical hosts to minimize interference",
+      "D": "Virtual machines deployed on the same physical host using KVM/QEMU virtualization"
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is B because the paper specifies that two Debian 12.10.0 virtual machines were deployed on the same physical host using KVM/QEMU virtualization technology, as part of the experimental setup to evaluate TCP over QUIC tunneling implementation.",
+    "path_description": "Path: TCP_over_QUIC_tunneling_implementation --[evaluatedOn]--> Experimental_Setup --[uses]--> Virtual_Machines --[type]--> Component",
+    "context": "This section presents a comprehensive experimental methodology to evaluate the performance characteristics of the TCP over QUIC tunneling implementation. | All experiments were conducted in a controlled virtual network environment to ensure repeatability and minimal external interference. | The setup included the following components: Virtual Machines: Two Debian 12.10.0 virtual machines deployed on the same physical host using KVM/QEMU virtualization.",
+    "paper_id": "948"
+  },
+  {
+    "section": "resultsanalysis1",
+    "path": {
+      "section": "resultsanalysis1",
+      "start_entity": "TCPOverQUIC",
+      "end_entity": "NetworkConnectionType",
+      "hops": [
+        {
+          "from": "TCPOverQUIC",
+          "relation": "improves",
+          "to": "TCPDirectConnection",
+          "context": "the TCP over QUIC tunnel itself is to improve the efficiency under weak network conditions",
+          "chunk": "6"
+        },
+        {
+          "from": "TCPDirectConnection",
+          "relation": "outperforms",
+          "to": "TCPOverQUIC",
+          "context": "the throughput of TCP direct connection can completely crush the TCP over QUIC tunnel under excellent network conditions",
+          "chunk": "6"
+        },
+        {
+          "from": "TCPOverQUIC",
+          "relation": "type",
+          "to": "NetworkConnectionType",
+          "context": "the TCP over QUIC tunnel itself is to improve the efficiency under weak network conditions",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the context of network efficiency under varying network conditions, how does the performance of a TCP Direct Connection compare to a TCP over QUIC tunnel under excellent network conditions?",
+    "options": {
+      "A": "The TCP over QUIC tunnel outperforms the TCP Direct Connection significantly under excellent network conditions.",
+      "B": "The TCP over QUIC tunnel and the TCP Direct Connection perform equally well under excellent network conditions.",
+      "C": "The throughput of TCP over QUIC tunnel is slightly better than TCP Direct Connection under excellent network conditions.",
+      "D": "The TCP Direct Connection outperforms the TCP over QUIC tunnel significantly under excellent network conditions."
+    },
+    "correct_answer": "D",
+    "explanation": "According to the paper, under excellent network conditions, the throughput of a TCP Direct Connection can completely crush the TCP over QUIC tunnel, indicating a significant outperformance over the TCP over QUIC tunnel under these conditions.",
+    "path_description": "Path: TCPOverQUIC --[improves]--> TCPDirectConnection --[outperforms]--> TCPOverQUIC --[type]--> NetworkConnectionType",
+    "context": "the TCP over QUIC tunnel itself is to improve the efficiency under weak network conditions | the throughput of TCP direct connection can completely crush the TCP over QUIC tunnel under excellent network conditions | the TCP over QUIC tunnel itself is to improve the efficiency under weak network conditions",
+    "paper_id": "948"
+  }
+]

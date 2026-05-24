@@ -1,0 +1,174 @@
+[
+  {
+    "section": "typesofsleepminting1",
+    "path": {
+      "section": "typesofsleepminting1",
+      "start_entity": "PrivilegedAddressExample",
+      "end_entity": "CodeExample",
+      "hops": [
+        {
+          "from": "PrivilegedAddressExample",
+          "relation": "illustrates",
+          "to": "PrivilegedAddress",
+          "context": "The example of Privileged Address illustrates how the attacker can modify the function to bypass permission checks.",
+          "chunk": "2"
+        },
+        {
+          "from": "PrivilegedAddress",
+          "relation": "relatedTo",
+          "to": "PrivilegedAddressExample",
+          "context": "Privileged Address issue type is related to the provided code example.",
+          "chunk": "2"
+        },
+        {
+          "from": "PrivilegedAddressExample",
+          "relation": "type",
+          "to": "CodeExample",
+          "context": "Example of Privileged Address where the attacker modifies the function isApprovedOrOwner by adding a statement 'spender == secretOwner'.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the context of smart contract vulnerabilities, how does the 'Privileged Address' example demonstrate a potential security flaw?",
+    "options": {
+      "A": "By causing an overflow error in smart contract computations due to improper error handling.",
+      "B": "By inadvertently exposing private keys through poorly secured transaction logs.",
+      "C": "By enabling any user to access privileged functions without necessary permissions via a public API.",
+      "D": "By allowing an attacker to manipulate the function isApprovedOrOwner to skip over essential permission checks."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A because the example given in the paper shows an attacker modifying the 'isApprovedOrOwner' function by adding a condition that allows a 'spender' equal to 'secretOwner' to bypass normal permission checks, directly illustrating a security flaw.",
+    "path_description": "Path: PrivilegedAddressExample --[illustrates]--> PrivilegedAddress --[relatedTo]--> PrivilegedAddressExample --[type]--> CodeExample",
+    "context": "The example of Privileged Address illustrates how the attacker can modify the function to bypass permission checks. | Privileged Address issue type is related to the provided code example. | Example of Privileged Address where the attacker modifies the function isApprovedOrOwner by adding a statement 'spender == secretOwner'.",
+    "paper_id": "1479"
+  },
+  {
+    "section": "typesofsleepminting3",
+    "path": {
+      "section": "typesofsleepminting3",
+      "start_entity": "ownerOf",
+      "end_entity": "Function",
+      "hops": [
+        {
+          "from": "ownerOf",
+          "relation": "checks",
+          "to": "attacker",
+          "context": "Contract ERC721 reserves the old owner information(attacker address) so the attacker can pass the check naturally through this incorrect owner information",
+          "chunk": "4"
+        },
+        {
+          "from": "attacker",
+          "relation": "hasIncorrectInformation",
+          "to": "ownerOf",
+          "context": "Contract ERC721 reserves the old owner information(attacker address) so the attacker can pass the check naturally through this incorrect owner information",
+          "chunk": "4"
+        },
+        {
+          "from": "ownerOf",
+          "relation": "type",
+          "to": "Function",
+          "context": "“ERC721.ownerOf(tokenId) == msg.sender” when function transfer calls rewritten ownerOf to check owner of punk",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the context of ERC721 smart contracts, how does an attacker exploit the 'ownerOf' function to manipulate token ownership?",
+    "options": {
+      "A": "The attacker uses a phishing technique to trick the real owner into transferring ownership of the token.",
+      "B": "The attacker retains old owner information, allowing them to pass ownership checks by matching the 'msg.sender' with their address.",
+      "C": "The attacker updates the smart contract's code directly, changing 'ownerOf' function to always return their address.",
+      "D": "The attacker overloads the network, causing delays in the update of owner information in the 'ownerOf' function."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A. As described in the context, the attacker can exploit the ERC721 smart contract by retaining old owner information. This incorrect information allows the attacker to pass the ownership verification checks in functions like transfer, as the 'ownerOf' function checks if the 'msg.sender' (attacker's address) matches the recorded owner, which has not been correctly updated.",
+    "path_description": "Path: ownerOf --[checks]--> attacker --[hasIncorrectInformation]--> ownerOf --[type]--> Function",
+    "context": "Contract ERC721 reserves the old owner information(attacker address) so the attacker can pass the check naturally through this incorrect owner information | Contract ERC721 reserves the old owner information(attacker address) so the attacker can pass the check naturally through this incorrect owner information | “ERC721.ownerOf(tokenId) == msg.sender” when function transfer calls rewritten ownerOf to check owner of punk",
+    "paper_id": "1479"
+  },
+  {
+    "section": "methodology2",
+    "path": {
+      "section": "methodology2",
+      "start_entity": "WakeMint",
+      "end_entity": "BlockchainEvent",
+      "hops": [
+        {
+          "from": "WakeMint",
+          "relation": "startsAnalysisOn",
+          "to": "LOG4",
+          "context": "when WakeMint meets the LOG4, it starts to do the analysis",
+          "chunk": "6"
+        },
+        {
+          "from": "LOG4",
+          "relation": "correspondsTo",
+          "to": "TransferEvent",
+          "context": "the emission of Transfer event corresponds to the instruction LOG4",
+          "chunk": "6"
+        },
+        {
+          "from": "TransferEvent",
+          "relation": "type",
+          "to": "BlockchainEvent",
+          "context": "the emission of Transfer event corresponds to the instruction LOG4",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the context of the WakeMint and LOG4 interaction, what type of blockchain event is directly triggered by the LOG4 instruction?",
+    "options": {
+      "A": "The LOG4 instruction directly triggers a ModificationEvent in the blockchain.",
+      "B": "The LOG4 instruction directly triggers a TransferEvent in the blockchain.",
+      "C": "The LOG4 instruction directly triggers a ContractCreation event in the blockchain.",
+      "D": "The LOG4 instruction directly triggers a VerificationEvent in the blockchain."
+    },
+    "correct_answer": "B",
+    "explanation": "As per the knowledge graph, WakeMint starts its analysis upon encountering LOG4, which corresponds to the emission of a TransferEvent. This TransferEvent is classified under the broader category of BlockchainEvent.",
+    "path_description": "Path: WakeMint --[startsAnalysisOn]--> LOG4 --[correspondsTo]--> TransferEvent --[type]--> BlockchainEvent",
+    "context": "when WakeMint meets the LOG4, it starts to do the analysis | the emission of Transfer event corresponds to the instruction LOG4 | the emission of Transfer event corresponds to the instruction LOG4",
+    "paper_id": "1479"
+  },
+  {
+    "section": "conclusion",
+    "path": {
+      "section": "conclusion",
+      "start_entity": "WakeMint",
+      "end_entity": "Technology",
+      "hops": [
+        {
+          "from": "WakeMint",
+          "relation": "identifies",
+          "to": "Sleepminting",
+          "context": "WakeMint identifies critical functions related to token transfer",
+          "chunk": "11"
+        },
+        {
+          "from": "Sleepminting",
+          "relation": "posesVulnerabilityTo",
+          "to": "NFTSmartContracts",
+          "context": "explored the vulnerabilities posed by sleepminting in NFT smart contracts",
+          "chunk": "11"
+        },
+        {
+          "from": "NFTSmartContracts",
+          "relation": "type",
+          "to": "Technology",
+          "context": "explored the vulnerabilities posed by sleepminting in NFT smart contracts",
+          "chunk": "11"
+        }
+      ]
+    },
+    "question": "What type of technology is particularly vulnerable to the practice of sleepminting as identified by the WakeMint tool?",
+    "options": {
+      "A": "Consumer-level IoT devices and their associated software",
+      "B": "Technology utilized in traditional banking software systems",
+      "C": "Blockchain technology used in decentralized financial applications",
+      "D": "NFT smart contracts used to manage digital assets"
+    },
+    "correct_answer": "D",
+    "explanation": "The WakeMint tool identifies and explores vulnerabilities specific to NFT smart contracts, particularly those involving sleepminting. Sleepminting is a method that poses a significant threat to the integrity of these smart contracts, which are a type of technology used to manage digital assets.",
+    "path_description": "Path: WakeMint --[identifies]--> Sleepminting --[posesVulnerabilityTo]--> NFTSmartContracts --[type]--> Technology",
+    "context": "WakeMint identifies critical functions related to token transfer | explored the vulnerabilities posed by sleepminting in NFT smart contracts | explored the vulnerabilities posed by sleepminting in NFT smart contracts",
+    "paper_id": "1479"
+  }
+]

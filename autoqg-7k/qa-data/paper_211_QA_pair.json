@@ -1,0 +1,174 @@
+[
+  {
+    "section": "background",
+    "path": {
+      "section": "background",
+      "start_entity": "BaseStation",
+      "end_entity": "CryptographicKey",
+      "hops": [
+        {
+          "from": "BaseStation",
+          "relation": "hasIdentifier",
+          "to": "CellID",
+          "context": "A base station can be uniquely identified by the cell IDs",
+          "chunk": "5"
+        },
+        {
+          "from": "CellID",
+          "relation": "requires",
+          "to": "PublicKey",
+          "context": "each cell ID requires a public key in our scheme",
+          "chunk": "5"
+        },
+        {
+          "from": "PublicKey",
+          "relation": "type",
+          "to": "CryptographicKey",
+          "context": "each cell ID requires a public key in our scheme",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In a telecommunications network, if a particular base station needs to implement secure communication protocols, what type of key must be associated with its unique identifier, the Cell ID?",
+    "options": {
+      "A": "A cryptographic key specifically designed for asymmetric encryption techniques.",
+      "B": "A universal key that can be used interchangeably among different network protocols.",
+      "C": "A symmetric key that is shared among all devices connected to the base station.",
+      "D": "A manual override key that allows network administrators unrestricted access."
+    },
+    "correct_answer": "A",
+    "explanation": "The knowledge graph path indicates that a Cell ID (which uniquely identifies a base station) requires a public key, which is classified as a type of cryptographic key. Cryptographic keys used in this context are typically for asymmetric encryption, where a public key is involved.",
+    "path_description": "Path: BaseStation --[hasIdentifier]--> CellID --[requires]--> PublicKey --[type]--> CryptographicKey",
+    "context": "A base station can be uniquely identified by the cell IDs | each cell ID requires a public key in our scheme | each cell ID requires a public key in our scheme",
+    "paper_id": "1596"
+  },
+  {
+    "section": "implementationandexperimentalsetup",
+    "path": {
+      "section": "implementationandexperimentalsetup",
+      "start_entity": "RemoteSetup",
+      "end_entity": "CommunicationProtocol",
+      "hops": [
+        {
+          "from": "RemoteSetup",
+          "relation": "partOf",
+          "to": "OfflineBlockchainBasedKeyDelivery",
+          "context": "our implementations include both local (direct communication link) and remote setups.",
+          "chunk": "13"
+        },
+        {
+          "from": "OfflineBlockchainBasedKeyDelivery",
+          "relation": "usedIn",
+          "to": "Online5GRRCCommunications",
+          "context": "Because we implement both the offline blockchain-based key delivery and its use in the online 5G RRC communications...",
+          "chunk": "13"
+        },
+        {
+          "from": "Online5GRRCCommunications",
+          "relation": "type",
+          "to": "CommunicationProtocol",
+          "context": "Because we implement both the offline blockchain-based key delivery and its use in the online 5G RRC communications...",
+          "chunk": "13"
+        }
+      ]
+    },
+    "question": "In the context of implementing an offline blockchain-based key delivery system, how does this system interact with 5G RRC communications?",
+    "options": {
+      "A": "It serves as a backup system for 5G RRC communications in case of direct link failure.",
+      "B": "It acts as an independent verification system outside of the 5G RRC communication framework.",
+      "C": "It is used only for local setups and does not interact with online 5G RRC communications.",
+      "D": "It forms a part of the communication protocol used in online 5G RRC communications."
+    },
+    "correct_answer": "D",
+    "explanation": "The offline blockchain-based key delivery is a part of the remote setup, which is used in the online 5G RRC communications as a type of communication protocol. This shows a direct integration and utilization of the blockchain system within the 5G communication framework, rather than acting as an independent or backup system.",
+    "path_description": "Path: RemoteSetup --[partOf]--> OfflineBlockchainBasedKeyDelivery --[usedIn]--> Online5GRRCCommunications --[type]--> CommunicationProtocol",
+    "context": "our implementations include both local (direct communication link) and remote setups. | Because we implement both the offline blockchain-based key delivery and its use in the online 5G RRC communications... | Because we implement both the offline blockchain-based key delivery and its use in the online 5G RRC communications...",
+    "paper_id": "1596"
+  },
+  {
+    "section": "experimentalanalyses1",
+    "path": {
+      "section": "experimentalanalyses1",
+      "start_entity": "FakeBaseStation",
+      "end_entity": "SignatureAlgorithm",
+      "hops": [
+        {
+          "from": "FakeBaseStation",
+          "relation": "preventedBy",
+          "to": "OurScheme",
+          "context": "A fake base station can hijack the connectivity without our scheme; it cannot against our scheme.",
+          "chunk": "14"
+        },
+        {
+          "from": "OurScheme",
+          "relation": "supports",
+          "to": "ECDSA-521",
+          "context": "our scheme can support all the ECDSA ciphers with varying key lengths and security strengths",
+          "chunk": "14"
+        },
+        {
+          "from": "ECDSA-521",
+          "relation": "type",
+          "to": "SignatureAlgorithm",
+          "context": "AECDSA-521 649",
+          "chunk": "14"
+        }
+      ]
+    },
+    "question": "Which of the following best describes the function of 'Our Scheme' in the context of securing communications against fake base stations?",
+    "options": {
+      "A": "Our Scheme, by supporting AES encryption, prevents interceptions by fake base stations using ECDSA-521.",
+      "B": "Our Scheme detects fake base stations by deploying ECDSA-521, primarily used for user authentication in network systems.",
+      "C": "Our Scheme enhances the data speed of ECDSA-521, which is a type of encryption algorithm used to secure cellular data.",
+      "D": "Our Scheme prevents fake base stations by supporting various ECDSA ciphers, including ECDSA-521, a type of signature algorithm."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A because 'Our Scheme' is described as preventing fake base stations by supporting various ECDSA ciphers, including ECDSA-521, which is specifically identified as a signature algorithm. This implies that by supporting a robust signature algorithm, Our Scheme enhances security against such threats. The other options either mischaracterize ECDSA-521 or inaccurately describe the functions of Our Scheme.",
+    "path_description": "Path: FakeBaseStation --[preventedBy]--> OurScheme --[supports]--> ECDSA-521 --[type]--> SignatureAlgorithm",
+    "context": "A fake base station can hijack the connectivity without our scheme; it cannot against our scheme. | our scheme can support all the ECDSA ciphers with varying key lengths and security strengths | AECDSA-521 649",
+    "paper_id": "1596"
+  },
+  {
+    "section": "experimentalanalyses2",
+    "path": {
+      "section": "experimentalanalyses2",
+      "start_entity": "Blockchain",
+      "end_entity": "Measurement",
+      "hops": [
+        {
+          "from": "Blockchain",
+          "relation": "usedFor",
+          "to": "CertificateDelivery",
+          "context": "We implement the offline blockchain for the base station certificate delivery.",
+          "chunk": "15"
+        },
+        {
+          "from": "CertificateDelivery",
+          "relation": "measures",
+          "to": "CertificateDeliveryTime",
+          "context": "run experiments to measure the certificate delivery time.",
+          "chunk": "15"
+        },
+        {
+          "from": "CertificateDeliveryTime",
+          "relation": "type",
+          "to": "Measurement",
+          "context": "run experiments to measure the certificate delivery time.",
+          "chunk": "15"
+        }
+      ]
+    },
+    "question": "In the context of utilizing blockchain technology for certificate delivery, what type of data is primarily analyzed to assess the effectiveness of this application?",
+    "options": {
+      "A": "The qualitative feedback from users on the reliability of the blockchain system.",
+      "B": "The quantitative analysis of user satisfaction with the blockchain-enabled application.",
+      "C": "The statistical significance of data security improvements in blockchain transactions.",
+      "D": "The measurement of certificate delivery time at the base station using offline blockchain."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A because the paper discusses the use of blockchain for the specific purpose of certificate delivery at a base station. The effectiveness of this application is assessed by measuring the certificate delivery time, which is a type of data measurement related to the functionality of the blockchain system in this context.",
+    "path_description": "Path: Blockchain --[usedFor]--> CertificateDelivery --[measures]--> CertificateDeliveryTime --[type]--> Measurement",
+    "context": "We implement the offline blockchain for the base station certificate delivery. | run experiments to measure the certificate delivery time. | run experiments to measure the certificate delivery time.",
+    "paper_id": "1596"
+  }
+]

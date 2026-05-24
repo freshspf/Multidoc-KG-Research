@@ -1,0 +1,45 @@
+[
+  {
+    "section": "experimentalsetup",
+    "path": {
+      "section": "experimentalsetup",
+      "start_entity": "BauxiteMine",
+      "end_entity": "TruckModel",
+      "hops": [
+        {
+          "from": "BauxiteMine",
+          "relation": "hasEquipment",
+          "to": "Truck",
+          "context": "20 Trucks",
+          "chunk": "8"
+        },
+        {
+          "from": "Truck",
+          "relation": "model",
+          "to": "CAT777",
+          "context": "Trucks CAT 777",
+          "chunk": "8"
+        },
+        {
+          "from": "CAT777",
+          "relation": "type",
+          "to": "TruckModel",
+          "context": "Trucks CAT 777",
+          "chunk": "8"
+        }
+      ]
+    },
+    "question": "In the experimental setup involving a bauxite mine, which type of equipment model is specifically described as being used and what is its classification?",
+    "options": {
+      "A": "15 loaders of the CAT993K model, classified specifically as a type of LoaderModel",
+      "B": "20 trucks of the CAT777 model, classified specifically as a type of TruckModel",
+      "C": "10 excavators of the CAT345D model, classified specifically as a type of ExcavatorModel",
+      "D": "25 bulldozers of the CATD11 model, classified specifically as a type of BulldozerModel"
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is derived from following the knowledge graph path provided. The bauxite mine uses trucks (hasEquipment), specifically the CAT777 models (model), which are classified as TruckModel (type). This matches with option 'A', while the other options mention different equipment models and types not discussed in the context.",
+    "path_description": "Path: BauxiteMine --[hasEquipment]--> Truck --[model]--> CAT777 --[type]--> TruckModel",
+    "context": "20 Trucks | Trucks CAT 777 | Trucks CAT 777",
+    "paper_id": "294"
+  }
+]

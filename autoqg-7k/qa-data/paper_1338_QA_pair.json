@@ -1,0 +1,131 @@
+[
+  {
+    "section": "approach2",
+    "path": {
+      "section": "approach2",
+      "start_entity": "TeleLoRA",
+      "end_entity": "HardwareFeature",
+      "hops": [
+        {
+          "from": "TeleLoRA",
+          "relation": "optimizedFor",
+          "to": "GPU",
+          "context": "tice, this makes it possible to train TeleLoRA on",
+          "chunk": "3"
+        },
+        {
+          "from": "GPU",
+          "relation": "hasFeature",
+          "to": "VRAM",
+          "context": "le GPU within 24GB VRAM.",
+          "chunk": "3"
+        },
+        {
+          "from": "VRAM",
+          "relation": "type",
+          "to": "HardwareFeature",
+          "context": "le GPU within 24GB VRAM.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "Which feature of the GPU most directly enables the efficient training of TeleLoRA models?",
+    "options": {
+      "A": "The GPU's optimized architecture for parallel processing tasks.",
+      "B": "The GPU's ability to support high-resolution video outputs.",
+      "C": "The GPU's incorporation of 24GB of VRAM, a type of hardware feature.",
+      "D": "The GPU's compatibility with multiple external devices."
+    },
+    "correct_answer": "C",
+    "explanation": "The paper mentions the use of a GPU with 24GB VRAM, specifically optimized for training TeleLoRA models. VRAM (Video RAM) is crucial for handling large datasets and complex computations, making it the hardware feature that most directly enables efficient training.",
+    "path_description": "Path: TeleLoRA --[optimizedFor]--> GPU --[hasFeature]--> VRAM --[type]--> HardwareFeature",
+    "context": "tice, this makes it possible to train TeleLoRA on | le GPU within 24GB VRAM. | le GPU within 24GB VRAM.",
+    "paper_id": "1789"
+  },
+  {
+    "section": "conclusion2",
+    "path": {
+      "section": "conclusion2",
+      "start_entity": "EquivariantMLP",
+      "end_entity": "TaylorSeries",
+      "hops": [
+        {
+          "from": "EquivariantMLP",
+          "relation": "relatedTo",
+          "to": "PermutationSymmetricNeuralNetwork",
+          "context": "universal equivariant MLPs Ravanbakhsh (2020), as well as many others, but our approach adds significant compute efficiency.",
+          "chunk": "6"
+        },
+        {
+          "from": "PermutationSymmetricNeuralNetwork",
+          "relation": "appliedTo",
+          "to": "TrojanDetectionClassifiers",
+          "context": "design of practical permutation symmetric neural networks and how such a network can be applied to Trojan detection.",
+          "chunk": "6"
+        },
+        {
+          "from": "TrojanDetectionClassifiers",
+          "relation": "uses",
+          "to": "TaylorSeries",
+          "context": "design of Trojan detection classifiers, ingesting matrices as features for Trojan detection using Taylor series.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "How does the design of permutation symmetric neural networks contribute to the efficiency of Trojan detection classifiers?",
+    "options": {
+      "A": "By directly applying Taylor series to the input data, bypassing the need for matrix-based feature extraction.",
+      "B": "By enabling the classifiers to ingest matrices as features and use Taylor series for enhanced detection accuracy.",
+      "C": "By using permutation symmetry to reduce the dimensionality of the inputs, thus not requiring Taylor series.",
+      "D": "By simplifying the computational requirements for matrix manipulation without the need for series expansion methods."
+    },
+    "correct_answer": "B",
+    "explanation": "The question addresses how permutation symmetric neural networks, designed to be efficient, apply to Trojan detection classifiers. The correct answer is A because it mentions the use of matrices as features and the application of Taylor series, both of which are specified in the paper section 'conclusion2' and are essential for understanding the compute efficiency and detection capabilities of the neural network in handling Trojan threats.",
+    "path_description": "Path: EquivariantMLP --[relatedTo]--> PermutationSymmetricNeuralNetwork --[appliedTo]--> TrojanDetectionClassifiers --[uses]--> TaylorSeries",
+    "context": "universal equivariant MLPs Ravanbakhsh (2020), as well as many others, but our approach adds significant compute efficiency. | design of practical permutation symmetric neural networks and how such a network can be applied to Trojan detection. | design of Trojan detection classifiers, ingesting matrices as features for Trojan detection using Taylor series.",
+    "paper_id": "1789"
+  },
+  {
+    "section": "conclusion6",
+    "path": {
+      "section": "conclusion6",
+      "start_entity": "einpool_ab",
+      "end_entity": "Class",
+      "hops": [
+        {
+          "from": "einpool_ab",
+          "relation": "partOf",
+          "to": "einnet",
+          "context": "class einnet(nn.Module)",
+          "chunk": "10"
+        },
+        {
+          "from": "einnet",
+          "relation": "hasFanIn",
+          "to": "nn_Linear",
+          "context": "self.fan_in=nn.Linear(ninput,nh0*pool.fan_in)",
+          "chunk": "10"
+        },
+        {
+          "from": "nn_Linear",
+          "relation": "type",
+          "to": "Class",
+          "context": "self.fan_in=nn.Linear(ninput,nh0*pool.fan_in)",
+          "chunk": "10"
+        }
+      ]
+    },
+    "question": "In the context of a neural network defined as 'einnet', which component directly determines the number of input features for the 'nn.Linear' module?",
+    "options": {
+      "A": "The subtraction of the fan-in of the pool (pool.fan_in) from the number of initial inputs (ninput).",
+      "B": "The division of the number of initial inputs (ninput) by the fan-in of the pool (pool.fan_in).",
+      "C": "The product of the number of initial inputs (ninput) and the fan-in of the pool (pool.fan_in).",
+      "D": "The sum of the number of initial inputs (ninput) and the fan-in of the pool (pool.fan_in)."
+    },
+    "correct_answer": "C",
+    "explanation": "The 'nn.Linear' module in the 'einnet' class has its number of input features determined by the multiplication of 'ninput' (number of initial inputs) and 'nh0*pool.fan_in' (the fan-in of the pool). This is directly stated in the syntax 'self.fan_in=nn.Linear(ninput,nh0*pool.fan_in)', where 'nh0*pool.fan_in' defines the fan-in of the linear module.",
+    "path_description": "Path: einpool_ab --[partOf]--> einnet --[hasFanIn]--> nn_Linear --[type]--> Class",
+    "context": "class einnet(nn.Module) | self.fan_in=nn.Linear(ninput,nh0*pool.fan_in) | self.fan_in=nn.Linear(ninput,nh0*pool.fan_in)",
+    "paper_id": "1789"
+  }
+]

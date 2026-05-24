@@ -1,0 +1,174 @@
+[
+  {
+    "section": "carbonawareequilibriumelectricitymarketclearingmodel2",
+    "path": {
+      "section": "carbonawareequilibriumelectricitymarketclearingmodel2",
+      "start_entity": "VoltageAngle",
+      "end_entity": "Role",
+      "hops": [
+        {
+          "from": "VoltageAngle",
+          "relation": "partOf",
+          "to": "MathematicalOptimizationProblem",
+          "context": "Constraint (3c) sets the voltage angle at the",
+          "chunk": "2"
+        },
+        {
+          "from": "MathematicalOptimizationProblem",
+          "relation": "usedBy",
+          "to": "TransmissionOwners",
+          "context": "which is characterized by the following mathematical optimization problem",
+          "chunk": "2"
+        },
+        {
+          "from": "TransmissionOwners",
+          "relation": "type",
+          "to": "Role",
+          "context": "Transmission Owners: Transmission owners act as spatial arbitragers and aim to maximize the power transmission profit",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the context of a carbon-aware equilibrium electricity market clearing model, what role does the optimization of voltage angles play for transmission owners?",
+    "options": {
+      "A": "It enables transmission owners to directly control the energy consumption of end users.",
+      "B": "It assists transmission owners in complying with global carbon emissions standards.",
+      "C": "It allows transmission owners to reduce the total power generation cost across the grid.",
+      "D": "It helps transmission owners to maximize power transmission profits through efficient spatial arbitrage."
+    },
+    "correct_answer": "D",
+    "explanation": "The optimization of voltage angles, as part of a mathematical optimization problem, is crucial for transmission owners who act as spatial arbitragers. By optimizing these angles, they are able to maximize their profits from power transmission, leveraging efficient power flow across different regions.",
+    "path_description": "Path: VoltageAngle --[partOf]--> MathematicalOptimizationProblem --[usedBy]--> TransmissionOwners --[type]--> Role",
+    "context": "Constraint (3c) sets the voltage angle at the | which is characterized by the following mathematical optimization problem | Transmission Owners: Transmission owners act as spatial arbitragers and aim to maximize the power transmission profit",
+    "paper_id": "784"
+  },
+  {
+    "section": "numericalstudies1",
+    "path": {
+      "section": "numericalstudies1",
+      "start_entity": "ConsumerDemandFlexibility",
+      "end_entity": "FuelType",
+      "hops": [
+        {
+          "from": "ConsumerDemandFlexibility",
+          "relation": "usesValuesFrom",
+          "to": "IEEERTSGMLCSystem",
+          "context": "For consumers’ demand flexibility, we use the values in the IEEE RTS-GMLC system as the maximum values and 80% of these values as the minimum values.",
+          "chunk": "4"
+        },
+        {
+          "from": "IEEERTSGMLCSystem",
+          "relation": "includesFuelTypes",
+          "to": "Solar",
+          "context": "For generator fuel types, this system covers natural gas, oil, coal, and renewable sources (solar, wind, and hydro).",
+          "chunk": "4"
+        },
+        {
+          "from": "Solar",
+          "relation": "type",
+          "to": "FuelType",
+          "context": "For generator fuel types, this system covers natural gas, oil, coal, and renewable sources (solar, wind, and hydro).",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the context of consumers' demand flexibility in the IEEE RTS-GMLC system, how is the flexibility related to the type of fuel used by generators?",
+    "options": {
+      "A": "Consumers' demand flexibility is adjusted based on the percentage of coal used in the total fuel mix.",
+      "B": "There is no direct correlation between consumers' demand flexibility and the types of fuel used by generators.",
+      "C": "The flexibility values are indirectly influenced by the system's dependency on oil and natural gas.",
+      "D": "The maximum flexibility is directly determined by the inclusion of solar as a renewable fuel type in the system."
+    },
+    "correct_answer": "B",
+    "explanation": "The question requires understanding that consumer demand flexibility is defined independently of the type of fuel used by generators, although both are part of the same system. The knowledge graph path showing the connection through 'usesValuesFrom' and 'includesFuelTypes' leads to an understanding that while both elements are part of the IEEE RTS-GMLC system, the type of generator fuel (solar in this case, a renewable source) doesn't directly impact how consumer demand flexibility values are set. Hence, there is no direct correlation.",
+    "path_description": "Path: ConsumerDemandFlexibility --[usesValuesFrom]--> IEEERTSGMLCSystem --[includesFuelTypes]--> Solar --[type]--> FuelType",
+    "context": "For consumers’ demand flexibility, we use the values in the IEEE RTS-GMLC system as the maximum values and 80% of these values as the minimum values. | For generator fuel types, this system covers natural gas, oil, coal, and renewable sources (solar, wind, and hydro). | For generator fuel types, this system covers natural gas, oil, coal, and renewable sources (solar, wind, and hydro).",
+    "paper_id": "784"
+  },
+  {
+    "section": "numericalstudies2",
+    "path": {
+      "section": "numericalstudies2",
+      "start_entity": "CarbonCosts",
+      "end_entity": "Variable",
+      "hops": [
+        {
+          "from": "CarbonCosts",
+          "relation": "increases",
+          "to": "TotalDemand",
+          "context": "As the carbon costs increase to these levels, the total demand decreases",
+          "chunk": "5"
+        },
+        {
+          "from": "TotalDemand",
+          "relation": "decreases",
+          "to": "TotalGeneration",
+          "context": "the total generation decreases accordingly",
+          "chunk": "5"
+        },
+        {
+          "from": "TotalGeneration",
+          "relation": "type",
+          "to": "Variable",
+          "context": "the total generation decreases accordingly",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the scenario where carbon costs escalate, how does an increase in carbon costs specifically impact the type of total generation?",
+    "options": {
+      "A": "The type of total generation becomes fixed, unaffected by changes in total demand or carbon costs.",
+      "B": "The type of total generation shifts towards more sustainable sources to compensate for the higher carbon costs.",
+      "C": "The type of total generation becomes more variable as it adjusts to the decreased total demand due to higher carbon costs.",
+      "D": "The type of total generation remains constant because the total demand is what primarily affects it."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is B. As carbon costs increase, this leads to a decrease in total demand. Subsequently, total generation decreases and becomes more variable to adapt to the lower and fluctuating demand levels.",
+    "path_description": "Path: CarbonCosts --[increases]--> TotalDemand --[decreases]--> TotalGeneration --[type]--> Variable",
+    "context": "As the carbon costs increase to these levels, the total demand decreases | the total generation decreases accordingly | the total generation decreases accordingly",
+    "paper_id": "784"
+  },
+  {
+    "section": "numericalstudies2",
+    "path": {
+      "section": "numericalstudies2",
+      "start_entity": "CarbonCosts",
+      "end_entity": "TotalGenerationCost",
+      "hops": [
+        {
+          "from": "CarbonCosts",
+          "relation": "increases",
+          "to": "TotalDemand",
+          "context": "As the carbon costs increase to these levels, the total demand decreases",
+          "chunk": "5"
+        },
+        {
+          "from": "TotalDemand",
+          "relation": "decreases",
+          "to": "TotalGeneration",
+          "context": "the total generation decreases accordingly",
+          "chunk": "5"
+        },
+        {
+          "from": "TotalGeneration",
+          "relation": "decreases",
+          "to": "TotalGenerationCost",
+          "context": "the total generation cost also decrease",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the context of increasing carbon costs, how does the relationship between total demand and total generation costs manifest?",
+    "options": {
+      "A": "Higher carbon costs lead to increased total demand, which raises total generation and thus increases total generation costs.",
+      "B": "Increasing carbon costs do not affect total demand or generation, but directly increase total generation costs through higher operational expenses.",
+      "C": "As carbon costs increase, decreased total demand leads to lower total generation and consequently reduced total generation costs.",
+      "D": "With rising carbon costs, total demand remains constant, but increased efficiency in generation reduces total generation costs."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A because, as per the paper, increasing carbon costs result in a decrease in total demand. This lower demand leads to reduced total generation, and as a result, total generation costs also decrease.",
+    "path_description": "Path: CarbonCosts --[increases]--> TotalDemand --[decreases]--> TotalGeneration --[decreases]--> TotalGenerationCost",
+    "context": "As the carbon costs increase to these levels, the total demand decreases | the total generation decreases accordingly | the total generation cost also decrease",
+    "paper_id": "784"
+  }
+]

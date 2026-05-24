@@ -1,0 +1,174 @@
+[
+  {
+    "section": "proposedapproach2",
+    "path": {
+      "section": "proposedapproach2",
+      "start_entity": "LocalModel",
+      "end_entity": "SmartContract",
+      "hops": [
+        {
+          "from": "LocalModel",
+          "relation": "testedBy",
+          "to": "Validator",
+          "context": "For each validator j, test results are deployed into the Blockchain in the form of a n − tuple containing the following information: a digest of the employed test set TS j with size |TS j| = s, a digest of the verified model H(mi), the output of the model for each data point in TS j.",
+          "chunk": "6"
+        },
+        {
+          "from": "Validator",
+          "relation": "queries",
+          "to": "CoordinatorSC",
+          "context": "It queries the Coordinator SC and gets the hashes of all the LMs to be tested.",
+          "chunk": "6"
+        },
+        {
+          "from": "CoordinatorSC",
+          "relation": "type",
+          "to": "SmartContract",
+          "context": "It queries the Coordinator SC and gets the hashes of all the LMs to be tested.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the context of deploying test results into the Blockchain, what is the primary role of the Coordinator SC within the system described?",
+    "options": {
+      "A": "The Coordinator SC generates the digest of the employed test set and the verified model.",
+      "B": "The Coordinator SC collects and stores the hashes of all Local Models that are to be tested by validators.",
+      "C": "The Coordinator SC directly modifies the Local Models based on feedback from the Validator.",
+      "D": "The Coordinator SC sends the test results to stakeholders external to the Blockchain network."
+    },
+    "correct_answer": "B",
+    "explanation": "The Coordinator SC is primarily responsible for collecting and storing the hashes of all Local Models to be tested, as indicated by its querying function in the system, facilitating the testing process by Validators. Options B, C, and D are incorrect as they describe roles not attributed to the Coordinator SC based on the information provided in the paper section.",
+    "path_description": "Path: LocalModel --[testedBy]--> Validator --[queries]--> CoordinatorSC --[type]--> SmartContract",
+    "context": "For each validator j, test results are deployed into the Blockchain in the form of a n − tuple containing the following information: a digest of the employed test set TS j with size |TS j| = s, a digest of the verified model H(mi), the output of the model for each data point in TS j. | It queries the Coordinator SC and gets the hashes of all the LMs to be tested. | It queries the Coordinator SC and gets the hashes of all the LMs to be tested.",
+    "paper_id": "724"
+  },
+  {
+    "section": "proposedapproach1",
+    "path": {
+      "section": "proposedapproach1",
+      "start_entity": "CoordinatorSC",
+      "end_entity": "Model",
+      "hops": [
+        {
+          "from": "CoordinatorSC",
+          "relation": "manages",
+          "to": "IPFS",
+          "context": "Coordinator SC contains the necessary functions to orchestrate the framework, like storing the verification contract addresses for all the local models at each iteration.",
+          "chunk": "5"
+        },
+        {
+          "from": "IPFS",
+          "relation": "stores",
+          "to": "GlobalModel",
+          "context": "IPFS. This distributed File System stores the Global Model and the different Local Models for each iteration.",
+          "chunk": "5"
+        },
+        {
+          "from": "GlobalModel",
+          "relation": "type",
+          "to": "Model",
+          "context": "participants to train a Global Model (GM, hereafter) collaboratively without revealing confidential information.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the context of the proposed approach for a distributed framework, which entity is managed by the Coordinator SC to securely store the type-specific Global Model?",
+    "options": {
+      "A": "Data Warehouse, a system used for reporting and data analysis, storing Global and Local Models.",
+      "B": "IPFS, a distributed File System, which securely stores the Global Model and different Local Models.",
+      "C": "Blockchain, a distributed ledger technology, which directly stores the Global Model under encryption.",
+      "D": "Cloud Storage Services, which provide scalable storage options for both Global and Local Models."
+    },
+    "correct_answer": "B",
+    "explanation": "According to the knowledge graph, the Coordinator SC manages the IPFS, which in turn stores the Global Model. IPFS is a distributed File System specifically mentioned as storing the Global Model securely, aligning with the framework's goals of collaborative training without revealing confidential information.",
+    "path_description": "Path: CoordinatorSC --[manages]--> IPFS --[stores]--> GlobalModel --[type]--> Model",
+    "context": "Coordinator SC contains the necessary functions to orchestrate the framework, like storing the verification contract addresses for all the local models at each iteration. | IPFS. This distributed File System stores the Global Model and the different Local Models for each iteration. | participants to train a Global Model (GM, hereafter) collaboratively without revealing confidential information.",
+    "paper_id": "724"
+  },
+  {
+    "section": "experimentalresults4",
+    "path": {
+      "section": "experimentalresults4",
+      "start_entity": "SeCTISFramework",
+      "end_entity": "Model",
+      "hops": [
+        {
+          "from": "SeCTISFramework",
+          "relation": "enablesImprovement",
+          "to": "Recall",
+          "context": "our SeCTIS framework enables a significant increase in the",
+          "chunk": "11"
+        },
+        {
+          "from": "Recall",
+          "relation": "approachesPerformance",
+          "to": "BaselineModel",
+          "context": "the recall consistently improves across all scenarios, closely approaching the performance of the baseline model",
+          "chunk": "11"
+        },
+        {
+          "from": "BaselineModel",
+          "relation": "type",
+          "to": "Model",
+          "context": "the recall of the baseline model is denoted by a dashed line",
+          "chunk": "11"
+        }
+      ]
+    },
+    "question": "In the context of the SeCTIS framework's experimental results, how does the recall performance of the SeCTIS framework compare to the baseline model?",
+    "options": {
+      "A": "The recall of the SeCTIS framework exceeds the baseline model's performance in specific scenarios.",
+      "B": "The recall of the SeCTIS framework improves significantly, closely approaching the baseline model's performance.",
+      "C": "The recall of the SeCTIS framework remains consistently below the baseline model's performance.",
+      "D": "The recall of the SeCTIS framework fluctuates extensively and does not approach the baseline model's performance."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A because the context indicates that the recall enabled by the SeCTIS framework consistently improves and closely approaches the performance of the baseline model, which is depicted by a dashed line.",
+    "path_description": "Path: SeCTISFramework --[enablesImprovement]--> Recall --[approachesPerformance]--> BaselineModel --[type]--> Model",
+    "context": "our SeCTIS framework enables a significant increase in the | the recall consistently improves across all scenarios, closely approaching the performance of the baseline model | the recall of the baseline model is denoted by a dashed line",
+    "paper_id": "724"
+  },
+  {
+    "section": "executionperformanceforzkpoperations",
+    "path": {
+      "section": "executionperformanceforzkpoperations",
+      "start_entity": "EZKL",
+      "end_entity": "Operation",
+      "hops": [
+        {
+          "from": "EZKL",
+          "relation": "uses",
+          "to": "Validator",
+          "context": "Validators and Learners are two key actors in the cryptographic operations.",
+          "chunk": "15"
+        },
+        {
+          "from": "Validator",
+          "relation": "performs",
+          "to": "ProofGeneration",
+          "context": "6. Proof Generation. (Validator)",
+          "chunk": "15"
+        },
+        {
+          "from": "ProofGeneration",
+          "relation": "type",
+          "to": "Operation",
+          "context": "6. Proof Generation. (Validator)",
+          "chunk": "15"
+        }
+      ]
+    },
+    "question": "In the context of EZKL's execution performance for zero-knowledge proof operations, what role does the Validator primarily play?",
+    "options": {
+      "A": "The Validator primarily uses EZKL to generate proofs of type Operation efficiently and securely.",
+      "B": "The Validator primarily provides computational resources to EZKL to support the overall network infrastructure.",
+      "C": "The Validator primarily reviews and approves the proofs generated by EZKL without participating in their creation.",
+      "D": "The Validator primarily acts as a passive observer, monitoring the performance of proof generation by Learners."
+    },
+    "correct_answer": "A",
+    "explanation": "The question follows the knowledge path where EZKL uses a Validator, which performs Proof Generation, and the type of Proof Generation is classified as Operation. The correct answer is A because it correctly identifies the Validator’s role in using EZKL to generate proofs categorized under Operation, aligning with the provided knowledge graph path and the context of execution performance for zero-knowledge proof operations.",
+    "path_description": "Path: EZKL --[uses]--> Validator --[performs]--> ProofGeneration --[type]--> Operation",
+    "context": "Validators and Learners are two key actors in the cryptographic operations. | 6. Proof Generation. (Validator) | 6. Proof Generation. (Validator)",
+    "paper_id": "724"
+  }
+]

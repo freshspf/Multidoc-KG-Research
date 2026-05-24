@@ -1,0 +1,131 @@
+[
+  {
+    "section": "introduction",
+    "path": {
+      "section": "introduction",
+      "start_entity": "SecureCommunicationProtocol",
+      "end_entity": "Technology",
+      "hops": [
+        {
+          "from": "SecureCommunicationProtocol",
+          "relation": "proposedFor",
+          "to": "CarRemoteKeylessEntry",
+          "context": "we propose a secure communication protocol for remote keyless entry systems with adaptive adjustment of transmission parameters",
+          "chunk": "0"
+        },
+        {
+          "from": "CarRemoteKeylessEntry",
+          "relation": "uses",
+          "to": "BluetoothLowEnergy",
+          "context": "Car Remote Keyless Entry (RKE) systems, which are standard or optional in 80% of cars today, typically rely on short-range radio transmission using Bluetooth Low Energy (BLE) technology",
+          "chunk": "0"
+        },
+        {
+          "from": "BluetoothLowEnergy",
+          "relation": "type",
+          "to": "Technology",
+          "context": "short-range radio transmission using Bluetooth Low Energy (BLE) technology",
+          "chunk": "0"
+        }
+      ]
+    },
+    "question": "Which technology, commonly utilized in Car Remote Keyless Entry systems as indicated by the secure communication protocol we proposed, is a type of short-range radio transmission technology?",
+    "options": {
+      "A": "Bluetooth Low Energy (BLE), which adapts its transmission parameters for enhanced security",
+      "B": "Wi-Fi Direct, which is primarily used for high-speed data transfer between devices",
+      "C": "NFC (Near Field Communication), largely used for contactless payment systems",
+      "D": "Zigbee, mainly known for its application in home automation systems"
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is Bluetooth Low Energy (BLE) because it is specifically identified in the context as the technology used in Car Remote Keyless Entry systems, which are proposed to use a secure communication protocol with adaptive adjustment of transmission parameters. The other options, while plausible technologies for short-range communication, do not match the specific application and type described in the given context.",
+    "path_description": "Path: SecureCommunicationProtocol --[proposedFor]--> CarRemoteKeylessEntry --[uses]--> BluetoothLowEnergy --[type]--> Technology",
+    "context": "we propose a secure communication protocol for remote keyless entry systems with adaptive adjustment of transmission parameters | Car Remote Keyless Entry (RKE) systems, which are standard or optional in 80% of cars today, typically rely on short-range radio transmission using Bluetooth Low Energy (BLE) technology | short-range radio transmission using Bluetooth Low Energy (BLE) technology",
+    "paper_id": "231"
+  },
+  {
+    "section": "systemframework1",
+    "path": {
+      "section": "systemframework1",
+      "start_entity": "VehicleServer",
+      "end_entity": "VehicleRFTerminal",
+      "hops": [
+        {
+          "from": "VehicleServer",
+          "relation": "managesCertificates",
+          "to": "VehicleSystem",
+          "context": "The vehicle server acts as the root certificate authority (root CA), managing certificates and issuing them to the vehicle system.",
+          "chunk": "2"
+        },
+        {
+          "from": "VehicleSystem",
+          "relation": "constructsCertificateAuthenticationSystem",
+          "to": "KeyRFTerminal",
+          "context": "Constructing the certificate authentication system to verify the key’s legitimacy.",
+          "chunk": "2"
+        },
+        {
+          "from": "KeyRFTerminal",
+          "relation": "usesAdaptiveFrequencyHopping",
+          "to": "VehicleRFTerminal",
+          "context": "The key RF terminal broadcasts to connect with the vehicle RF terminal, then uses adaptive frequency-hopping for secure communication.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the vehicle communication system described in 'systemframework1', how does the vehicle server contribute to secure communication between the key RF terminal and the vehicle RF terminal?",
+    "options": {
+      "A": "The vehicle server programs the vehicle RF terminal to recognize signals only from authenticated key RF terminals.",
+      "B": "The vehicle server encrypts messages sent between the key RF terminal and the vehicle RF terminal.",
+      "C": "The vehicle server directly manages the frequency hopping in the RF terminals to avoid signal interception.",
+      "D": "The vehicle server issues certificates to the vehicle system, which constructs a certificate authentication system for the key RF terminal."
+    },
+    "correct_answer": "D",
+    "explanation": "The vehicle server acts as a root certificate authority, issuing certificates to the vehicle system, which in turn constructs a certificate authentication system. This system is crucial for verifying the legitimacy of the key (used by the key RF terminal), thus indirectly contributing to secure communication via adaptive frequency hopping between the RF terminals.",
+    "path_description": "Path: VehicleServer --[managesCertificates]--> VehicleSystem --[constructsCertificateAuthenticationSystem]--> KeyRFTerminal --[usesAdaptiveFrequencyHopping]--> VehicleRFTerminal",
+    "context": "The vehicle server acts as the root certificate authority (root CA), managing certificates and issuing them to the vehicle system. | Constructing the certificate authentication system to verify the key’s legitimacy. | The key RF terminal broadcasts to connect with the vehicle RF terminal, then uses adaptive frequency-hopping for secure communication.",
+    "paper_id": "231"
+  },
+  {
+    "section": "summary",
+    "path": {
+      "section": "summary",
+      "start_entity": "AdaptiveRKECommunicationSystem",
+      "end_entity": "Algorithm",
+      "hops": [
+        {
+          "from": "AdaptiveRKECommunicationSystem",
+          "relation": "uses",
+          "to": "AuthenticationMechanism",
+          "context": "By introducing a lightweight authentication mechanism based on ECDSA and AES.",
+          "chunk": "15"
+        },
+        {
+          "from": "AuthenticationMechanism",
+          "relation": "basedOn",
+          "to": "AES",
+          "context": "By introducing a lightweight authentication mechanism based on ECDSA and AES.",
+          "chunk": "15"
+        },
+        {
+          "from": "AES",
+          "relation": "type",
+          "to": "Algorithm",
+          "context": "By introducing a real-time adaptive frequency-hopping scheme and a lightweight authentication mechanism based on ECDSA and AES.",
+          "chunk": "15"
+        }
+      ]
+    },
+    "question": "Which cryptographic algorithm is utilized within the Authentication Mechanism of the Adaptive RKE Communication System to ensure security?",
+    "options": {
+      "A": "Rivest–Shamir–Adleman (RSA) algorithm is primarily used for encryption and decryption.",
+      "B": "Elliptic Curve Digital Signature Algorithm (ECDSA) provides the cryptographic base.",
+      "C": "Advanced Encryption Standard (AES) serves as the core cryptographic foundation.",
+      "D": "SHA-256 Hashing Algorithm is mainly employed for data integrity and security."
+    },
+    "correct_answer": "C",
+    "explanation": "The knowledge path details that the Authentication Mechanism in the Adaptive RKE Communication System utilizes AES as a type of Algorithm. The paper specifically states that the lightweight authentication mechanism is based on AES, confirming that AES is fundamental to the security measures in place.",
+    "path_description": "Path: AdaptiveRKECommunicationSystem --[uses]--> AuthenticationMechanism --[basedOn]--> AES --[type]--> Algorithm",
+    "context": "By introducing a lightweight authentication mechanism based on ECDSA and AES. | By introducing a lightweight authentication mechanism based on ECDSA and AES. | By introducing a real-time adaptive frequency-hopping scheme and a lightweight authentication mechanism based on ECDSA and AES.",
+    "paper_id": "231"
+  }
+]

@@ -1,0 +1,88 @@
+[
+  {
+    "section": "ivresults1",
+    "path": {
+      "section": "ivresults1",
+      "start_entity": "MainApplication",
+      "end_entity": "Filter",
+      "hops": [
+        {
+          "from": "MainApplication",
+          "relation": "includes",
+          "to": "Downscaler",
+          "context": "Downscaler2Frame application: MainApplication ifg: FrameGenerator id: Downscaler ifc: FrameConstructor",
+          "chunk": "5"
+        },
+        {
+          "from": "Downscaler",
+          "relation": "uses",
+          "to": "HorizontalFilter",
+          "context": "Downscaler ihf: HorizontalFilter ivf: VerticalFilter",
+          "chunk": "5"
+        },
+        {
+          "from": "HorizontalFilter",
+          "relation": "type",
+          "to": "Filter",
+          "context": "Downscaler ihf: HorizontalFilter ivf: VerticalFilter",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the context of the MainApplication, what is the primary role of the HorizontalFilter within the Downscaler component?",
+    "options": {
+      "A": "The HorizontalFilter is primarily used for adjusting the color balance in images during the downscaling process.",
+      "B": "The HorizontalFilter aids in the temporal alignment of frames to ensure smoother transitions between them.",
+      "C": "The HorizontalFilter is utilized to enhance the spatial resolution of frames by modifying horizontal pixel density.",
+      "D": "The HorizontalFilter serves to compress the data size of frames by reducing their horizontal dimension."
+    },
+    "correct_answer": "C",
+    "explanation": "The HorizontalFilter, as a type of Filter within the Downscaler component of the MainApplication, is designed to improve the quality of the image frames. This is typically achieved by adjusting pixel density, specifically in the horizontal direction, to enhance spatial resolution, not for color adjustment, data compression, or temporal alignment as suggested by the other options.",
+    "path_description": "Path: MainApplication --[includes]--> Downscaler --[uses]--> HorizontalFilter --[type]--> Filter",
+    "context": "Downscaler2Frame application: MainApplication ifg: FrameGenerator id: Downscaler ifc: FrameConstructor | Downscaler ihf: HorizontalFilter ivf: VerticalFilter | Downscaler ihf: HorizontalFilter ivf: VerticalFilter",
+    "paper_id": "22"
+  },
+  {
+    "section": "vconclusion1",
+    "path": {
+      "section": "vconclusion1",
+      "start_entity": "MainApplication",
+      "end_entity": "Filter",
+      "hops": [
+        {
+          "from": "MainApplication",
+          "relation": "includes",
+          "to": "Downscaler",
+          "context": "Downscaler2Frame application: MainApplication ifg: FrameGenerator id: Downscaler ifc: FrameConstructor",
+          "chunk": "7"
+        },
+        {
+          "from": "Downscaler",
+          "relation": "uses",
+          "to": "VerticalFilter",
+          "context": "Downscaler ihf: HorizontalFilter ivf: VerticalFilter",
+          "chunk": "7"
+        },
+        {
+          "from": "VerticalFilter",
+          "relation": "type",
+          "to": "Filter",
+          "context": "Downscaler ihf: HorizontalFilter ivf: VerticalFilter",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "In the MainApplication's Downscaler2Frame setup, which type of filter does the Downscaler utilize for its vertical filtering process?",
+    "options": {
+      "A": "VerticalFilter that specifically functions as a type of specialized Color Filter",
+      "B": "HorizontalFilter that specifically functions as a type of specialized Color Filter",
+      "C": "VerticalFilter that specifically functions as a type of general Filter",
+      "D": "HorizontalFilter that specifically functions as a type of general Filter"
+    },
+    "correct_answer": "C",
+    "explanation": "The knowledge graph path shows that the Downscaler uses a VerticalFilter which is categorized as a type of general Filter. This path excludes the HorizontalFilter from being used in the vertical filtering process and specifies the type of the VerticalFilter as a general Filter, not a specialized Color Filter.",
+    "path_description": "Path: MainApplication --[includes]--> Downscaler --[uses]--> VerticalFilter --[type]--> Filter",
+    "context": "Downscaler2Frame application: MainApplication ifg: FrameGenerator id: Downscaler ifc: FrameConstructor | Downscaler ihf: HorizontalFilter ivf: VerticalFilter | Downscaler ihf: HorizontalFilter ivf: VerticalFilter",
+    "paper_id": "22"
+  }
+]

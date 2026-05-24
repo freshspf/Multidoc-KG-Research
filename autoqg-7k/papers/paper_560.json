@@ -1,0 +1,42 @@
+[
+  {
+    "id": "introduction",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Introduction",
+      "page_start": 1,
+      "page_end": 1
+    },
+    "text": "C\n.  Nowadays, data is often described as the gold and blood\ns\nthat fuels the global economy and powers innovation across all\nc\n[ sectors. While modern society continues to generate increasing\n \n  volumes of data,  the majority remains raw and unlabeled,\n1\npresenting challenges and opportunities  for businesses and\nv\nresearchers alike. Effective quality control in data labeling is\n6\n6 crucial for ensuring the accuracy and reliability of advanced\n0 data analytics.\n0  Active Learning (AL) is a data-efficient method combining\n0\n. machine learning with expert knowledge for data labeling. An\n3 active learner may begin with a small number of unlabeled\n0 data and the selected data points are presented to an oracle\n5\n(e.g., a human expert) who provides the true labels for these\n2\n: samples to train an initial model on these labeled data [1].\nv Employing crowd workers in AL has harnessed the benefits.\ni\nThese approaches involve querying labels from multiple low-\nX\nr cost annotators with various expertise through crowdsourcing\na\nplatforms instead of relying on a high-quality oracle.\nHowever,  there are still  several challenges regarding the\neffects of annotation noise caused by imperfect annotators.\nFor example, how to achieve an annotation consensus with\ncrowd diversity? How can we protect  the crowd worker’s\nidentity while ensuring transparency and trust  in the crowd\ndata labeling process? Although blockchain has been used in\nmany crowdsourcing scenarios, integrating blockchain and AL\nfor crowd data labeling arises new technical challenges.\nThis poster introduces a novel approach called CrowdAL,\nwhich utilizes a blockchain framework and Zero Knowledge\nProofs (ZKPs)  to cope with these challenges in crowd AL\nfor data  labeling. We design smart  contracts  to provide a\ntamper-proof means to handle user activities publicly, ensuring\n\nlockchain-empowered\nin Crowd Data Labeling\n1  1\nang , and Zhiming Zhao\nrsity of Amsterdam, The Netherlands\nAmsterdam, The Netherlands\ndata integrity and distributed consensus. Blockchain’s inherent\nsupport for cryptographic functionalities also facilitates worker\nprivacy. The results have showcased the feasibility of our\napproach."
+  },
+  {
+    "id": "relatedwork",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Related Work",
+      "page_start": 1,
+      "page_end": 1
+    },
+    "text": "While current  research has explored using blockchain to\nenhance trust and transparency in crowdsourcing-based label\naggregation and reward distribution,  it still needs to address\nthe integration with active learning processes fully. We also\nnotice a gap in balancing privacy and publicity. A compari-\nson of current research integrating crowdsource labeling and\nblockchain is shown in Table I. This comparison evaluates\nwhether the proposed systems support active learning, can be\ndeployed on a public blockchain allowing public participation,\nand include a fair and transparent incentivization mechanism.\nTABLE I\nCOMPARISON OF DIFFERENT BLOCKCHAIN-BACKED FRAMEWORKS.\nPaper  Active Learning  Public  Fairness\nTFCrowd[2]  ✗  ✗  ✓\nCrowdBC[3]  ✗  ✓  ✗\nZebraLancer[4]  ✗  ✓  ✓\nBFC[5]  ✗  ✓  ✓\nThis Work  ✓  ✓  ✓"
+  },
+  {
+    "id": "thecrowdalframework",
+    "metadata": {
+      "lang": "en",
+      "section_title": "The CrowdAL Framework",
+      "page_start": 1,
+      "page_end": 1
+    },
+    "text": "A. Architecture\nWe propose CrowdAL, a decentralized platform for data\n1\nlabeling in AL and the source code is available at GitHub .\nWe design the system architecture and interactions between\nthe system components are depicted in Fig.  1. CrowdAL\ncontains  two components:  smart  contract  factory and AL\nserver. Contract  factory is responsible for contract  template\nstorage, contract generation and contract deployment, while\nAL server  is  responsible  for managing AL process,  e.g.,\nlabel querying and model training. The workflow begins with\na user  interacts with JobManagement  contract. AL server\nlistens for  job creation event,  retrieves unlabeled data from\nthe database, and starts the training process. Users then submit\nlabels through JobInstance contract, while AL server listens for\naggregated labels. Once training completes, AL server updates\n1\nhttps://github.com/ShaojieH/zktree-al/"
+  },
+  {
+    "id": "conclusion",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Conclusion",
+      "page_start": 2,
+      "page_end": 2
+    },
+    "text": "This poster presents CrowdAL,  a blockchain-empowered\ncrowd active learning system that addresses  the challenges\nof  integrating AL with crowd data labeling. This work has\nexplored the implementation of a decentralized active learn-\ning system utilizing blockchain technology, while balancing\ntransparency and privacy via zero-knowledge proofs.\nACKNOWLEDGMENT\nThis work is part of a Master’s thesis from the VU&UvA\nMaster thesis program. Also, this research was made possible\nthrough partial funding from several European Union projects:\nCLARIFY (860627), ENVRI-Hub Next  (101131141), EV-\nERSE (101129744), BlueCloud-2026 (101094227), OSCARS\n(101129751), LifeWatch ERIC, BioDT (101057437,  through\nLifeWatch ERIC), and Dutch NWO LTER-LIFE project."
+  }
+]

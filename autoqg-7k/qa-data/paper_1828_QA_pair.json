@@ -1,0 +1,303 @@
+[
+  {
+    "section": "platformimplementation2",
+    "path": {
+      "section": "platformimplementation2",
+      "start_entity": "AcceptAssessment",
+      "end_entity": "Choice",
+      "hops": [
+        {
+          "from": "AcceptAssessment",
+          "relation": "archivesContract",
+          "to": "MediationAssessment",
+          "context": "To accept this assessment, the counterpart must sign this contract by exercising the AcceptAssessment choice in the MediationAssessment contract.",
+          "chunk": "7"
+        },
+        {
+          "from": "MediationAssessment",
+          "relation": "createdBy",
+          "to": "SubmitAssessment",
+          "context": "This choice creates the MediationAssessment with the creator as a signatory and the counterpart as an observer.",
+          "chunk": "7"
+        },
+        {
+          "from": "SubmitAssessment",
+          "relation": "type",
+          "to": "Choice",
+          "context": "The resolution by mediation is triggered by the SubmitAssessment choice.",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "In the MediationAssessment contract, what is the role of the counterpart after the AcceptAssessment choice is exercised?",
+    "options": {
+      "A": "The counterpart becomes the sole creator of the MediationAssessment, taking full control.",
+      "B": "The counterpart becomes a signatory, actively participating in the contract's resolutions.",
+      "C": "The counterpart remains an observer, monitoring the proceedings without active participation.",
+      "D": "The counterpart is designated as the principal mediator, directing the mediation process."
+    },
+    "correct_answer": "C",
+    "explanation": "Upon exercising the AcceptAssessment choice in the MediationAssessment contract, the counterpart is designated as an observer. This role allows them to monitor the proceedings but does not grant them active participation in the contract's resolutions, differentiating it from the roles of a signatory or creator.",
+    "path_description": "Path: AcceptAssessment --[archivesContract]--> MediationAssessment --[createdBy]--> SubmitAssessment --[type]--> Choice",
+    "context": "To accept this assessment, the counterpart must sign this contract by exercising the AcceptAssessment choice in the MediationAssessment contract. | This choice creates the MediationAssessment with the creator as a signatory and the counterpart as an observer. | The resolution by mediation is triggered by the SubmitAssessment choice.",
+    "paper_id": "725"
+  },
+  {
+    "section": "platformimplementation2",
+    "path": {
+      "section": "platformimplementation2",
+      "start_entity": "Reject",
+      "end_entity": "Choice",
+      "hops": [
+        {
+          "from": "Reject",
+          "relation": "archivesContract",
+          "to": "MediationAssessment",
+          "context": "To reject the assessment, the counterpart exercises the Reject choice that archives the contract.",
+          "chunk": "7"
+        },
+        {
+          "from": "MediationAssessment",
+          "relation": "createdBy",
+          "to": "SubmitAssessment",
+          "context": "This choice creates the MediationAssessment with the creator as a signatory and the counterpart as an observer.",
+          "chunk": "7"
+        },
+        {
+          "from": "SubmitAssessment",
+          "relation": "type",
+          "to": "Choice",
+          "context": "The resolution by mediation is triggered by the SubmitAssessment choice.",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "In the context of the platform implementation discussed, what is the role of the counterpart when a contract is rejected and a MediationAssessment is created?",
+    "options": {
+      "A": "The counterpart serves as the creator of the MediationAssessment after exercising the Reject choice.",
+      "B": "The counterpart acts as an observer when the MediationAssessment is created following the rejection of the contract.",
+      "C": "The counterpart is responsible for triggering the resolution by mediation through the SubmitAssessment choice.",
+      "D": "The counterpart becomes the signatory of the MediationAssessment subsequent to the contract's rejection."
+    },
+    "correct_answer": "B",
+    "explanation": "According to the provided context, when the Reject choice is exercised, it leads to the creation of a MediationAssessment where the creator is a signatory and the counterpart is an observer. Options B, C, and D incorrectly assign roles or triggers not supported by the context.",
+    "path_description": "Path: Reject --[archivesContract]--> MediationAssessment --[createdBy]--> SubmitAssessment --[type]--> Choice",
+    "context": "To reject the assessment, the counterpart exercises the Reject choice that archives the contract. | This choice creates the MediationAssessment with the creator as a signatory and the counterpart as an observer. | The resolution by mediation is triggered by the SubmitAssessment choice.",
+    "paper_id": "725"
+  },
+  {
+    "section": "platformimplementation2",
+    "path": {
+      "section": "platformimplementation2",
+      "start_entity": "MI-Oracle",
+      "end_entity": "arbitrators",
+      "hops": [
+        {
+          "from": "MI-Oracle",
+          "relation": "triggeredBy",
+          "to": "CreateMI",
+          "context": "The MI process is triggered by calling the CreateMI choice in the LeaseAgreement contract.",
+          "chunk": "7"
+        },
+        {
+          "from": "CreateMI",
+          "relation": "creates",
+          "to": "MIReport",
+          "context": "This choice creates the MIReport contract below.",
+          "chunk": "7"
+        },
+        {
+          "from": "MIReport",
+          "relation": "initializedWithEmpty",
+          "to": "arbitrators",
+          "context": "The MIReport is initialized with the arbitrators attribute as an empty set.",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "In the process described in the LeaseAgreement contract, what does the MI-Oracle functionally initiate resulting in the configuration of the MIReport?",
+    "options": {
+      "A": "MI-Oracle triggers the CreateMI choice, which leads to the creation of the MIReport initialized without arbitrators.",
+      "B": "MI-Oracle calls the CreateMI function, which then assigns a preset list of arbitrators to the MIReport.",
+      "C": "MI-Oracle generates the arbitrators set, which is subsequently used to populate the MIReport.",
+      "D": "MI-Oracle directly creates the MIReport, which then automatically populates the arbitrators attribute."
+    },
+    "correct_answer": "A",
+    "explanation": "The MI-Oracle initiates the CreateMI choice as per the LeaseAgreement contract, which then leads to the creation of MIReport. This report is initially set with the arbitrators attribute as an empty set, indicating no arbitrators are assigned at creation. None of the other options correctly represent this sequential process.",
+    "path_description": "Path: MI-Oracle --[triggeredBy]--> CreateMI --[creates]--> MIReport --[initializedWithEmpty]--> arbitrators",
+    "context": "The MI process is triggered by calling the CreateMI choice in the LeaseAgreement contract. | This choice creates the MIReport contract below. | The MIReport is initialized with the arbitrators attribute as an empty set.",
+    "paper_id": "725"
+  },
+  {
+    "section": "platformimplementation3",
+    "path": {
+      "section": "platformimplementation3",
+      "start_entity": "Visitor",
+      "end_entity": "Parties",
+      "hops": [
+        {
+          "from": "Visitor",
+          "relation": "creates",
+          "to": "Poll",
+          "context": "In the Polling Process, the Visitor, will visit the property and create the Poll contract represented below, by exercising the CreatePoll choice in the MIReport contract.",
+          "chunk": "8"
+        },
+        {
+          "from": "Poll",
+          "relation": "hasObserver",
+          "to": "voters",
+          "context": "observer voters",
+          "chunk": "8"
+        },
+        {
+          "from": "voters",
+          "relation": "type",
+          "to": "Parties",
+          "context": "Poll voters : Parties",
+          "chunk": "8"
+        }
+      ]
+    },
+    "question": "In the polling process described in the 'platformimplementation3' section, what is the role of the entity labeled as 'Parties' in relation to the Poll?",
+    "options": {
+      "A": "Parties are responsible for creating the Poll and setting up the initial conditions for voters.",
+      "B": "Parties serve as the entity that observes and analyzes the results of the Poll created by the Visitor.",
+      "C": "Parties are the primary voters in the Poll, directly engaging with the Poll created by the Visitor.",
+      "D": "Parties provide technological support and software for the execution of the Poll."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A. According to the knowledge path, the Visitor creates a Poll, which has 'voters' that are observed by 'Parties'. This indicates that Parties play the role of observers who analyze the Poll results, rather than being responsible for creating the Poll or being the primary voters.",
+    "path_description": "Path: Visitor --[creates]--> Poll --[hasObserver]--> voters --[type]--> Parties",
+    "context": "In the Polling Process, the Visitor, will visit the property and create the Poll contract represented below, by exercising the CreatePoll choice in the MIReport contract. | observer voters | Poll voters : Parties",
+    "paper_id": "725"
+  },
+  {
+    "section": "platformimplementation3",
+    "path": {
+      "section": "platformimplementation3",
+      "start_entity": "Visitor",
+      "end_entity": "Party",
+      "hops": [
+        {
+          "from": "Visitor",
+          "relation": "creates",
+          "to": "Poll",
+          "context": "In the Polling Process, the Visitor, will visit the property and create the Poll contract represented below, by exercising the CreatePoll choice in the MIReport contract.",
+          "chunk": "8"
+        },
+        {
+          "from": "Poll",
+          "relation": "hasSignatory",
+          "to": "landlord",
+          "context": "Both the Tenant and Landlord must be signatory to this contract.",
+          "chunk": "8"
+        },
+        {
+          "from": "landlord",
+          "relation": "type",
+          "to": "Party",
+          "context": "Poll landlord.: Party",
+          "chunk": "8"
+        }
+      ]
+    },
+    "question": "In the context of the Polling Process described in the MIReport contract, what role does the landlord play in the creation of the Poll contract?",
+    "options": {
+      "A": "The landlord solely finances the Poll, covering all associated costs and fees.",
+      "B": "The landlord provides the physical space where the Poll is conducted, hosting the Visitor and Tenant.",
+      "C": "The landlord is responsible for initiating the Poll by exercising the CreatePoll choice in the contract.",
+      "D": "The landlord acts as a signatory to the Poll contract, ensuring all parties agree to the terms."
+    },
+    "correct_answer": "D",
+    "explanation": "According to the paper, both the Tenant and Landlord must be signatories to the Poll contract created when the Visitor exercises the CreatePoll choice in the MIReport contract. This implies that the landlord, as a Party, acts as a signatory to the contract, agreeing to its terms along with the Tenant.",
+    "path_description": "Path: Visitor --[creates]--> Poll --[hasSignatory]--> landlord --[type]--> Party",
+    "context": "In the Polling Process, the Visitor, will visit the property and create the Poll contract represented below, by exercising the CreatePoll choice in the MIReport contract. | Both the Tenant and Landlord must be signatory to this contract. | Poll landlord.: Party",
+    "paper_id": "725"
+  },
+  {
+    "section": "evaluation2",
+    "path": {
+      "section": "evaluation2",
+      "start_entity": "Landlord",
+      "end_entity": "Tenant",
+      "hops": [
+        {
+          "from": "Landlord",
+          "relation": "exercises",
+          "to": "AcceptChoice",
+          "context": "There is only one way to create this contract, which is for the Landlord to exercise the Accept choice in the Proposal contract created by the Tenant.",
+          "chunk": "11"
+        },
+        {
+          "from": "AcceptChoice",
+          "relation": "partOf",
+          "to": "ProposalContract",
+          "context": "There is only one way to create this contract, which is for the Landlord to exercise the Accept choice in the Proposal contract created by the Tenant.",
+          "chunk": "11"
+        },
+        {
+          "from": "ProposalContract",
+          "relation": "createdBy",
+          "to": "Tenant",
+          "context": "There is only one way to create this contract, which is for the Landlord to exercise the Accept choice in the Proposal contract created by the Tenant.",
+          "chunk": "11"
+        }
+      ]
+    },
+    "question": "In the process of establishing a rental agreement, which statement accurately describes the sequence of actions leading to the creation of the final contract?",
+    "options": {
+      "A": "The Tenant creates the initial contract, and then additional negotiations between the Tenant and Landlord shape the final contract.",
+      "B": "The Tenant initiates the process by creating a Proposal contract, which the Landlord can accept to form the final contract.",
+      "C": "The Landlord initiates the process by creating a Proposal contract, which the Tenant then accepts to form the final contract.",
+      "D": "Both the Tenant and Landlord collaboratively create a Proposal contract, which is then automatically converted into the final contract."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct sequence, as specified in the paper, involves the Tenant creating a Proposal contract first. The Landlord then exercises the choice to accept this Proposal, which finalizes the creation of the contract. Options B, C, and D incorrectly describe the roles or sequence of actions involved in this process.",
+    "path_description": "Path: Landlord --[exercises]--> AcceptChoice --[partOf]--> ProposalContract --[createdBy]--> Tenant",
+    "context": "There is only one way to create this contract, which is for the Landlord to exercise the Accept choice in the Proposal contract created by the Tenant. | There is only one way to create this contract, which is for the Landlord to exercise the Accept choice in the Proposal contract created by the Tenant. | There is only one way to create this contract, which is for the Landlord to exercise the Accept choice in the Proposal contract created by the Tenant.",
+    "paper_id": "725"
+  },
+  {
+    "section": "evaluation2",
+    "path": {
+      "section": "evaluation2",
+      "start_entity": "Landlord",
+      "end_entity": "ContractType",
+      "hops": [
+        {
+          "from": "Landlord",
+          "relation": "exercises",
+          "to": "AcceptChoice",
+          "context": "There is only one way to create this contract, which is for the Landlord to exercise the Accept choice in the Proposal contract created by the Tenant.",
+          "chunk": "11"
+        },
+        {
+          "from": "AcceptChoice",
+          "relation": "partOf",
+          "to": "ProposalContract",
+          "context": "There is only one way to create this contract, which is for the Landlord to exercise the Accept choice in the Proposal contract created by the Tenant.",
+          "chunk": "11"
+        },
+        {
+          "from": "ProposalContract",
+          "relation": "type",
+          "to": "ContractType",
+          "context": "There is only one way to create this contract, which is for the Landlord to exercise the Accept choice in the Proposal contract created by the Tenant.",
+          "chunk": "11"
+        }
+      ]
+    },
+    "question": "In the context of a rental agreement, what is the sequence that correctly represents the process for establishing a specific contract type between a Tenant and a Landlord?",
+    "options": {
+      "A": "The Landlord exercises the Accept choice within the Proposal contract, which is essential for creating a specific Contract Type.",
+      "B": "The Tenant initiates the Accept choice, leading to a Proposal contract which the Landlord reviews to decide the Contract Type.",
+      "C": "Both the Tenant and the Landlord collaboratively exercise the Accept choice to directly establish the Contract Type.",
+      "D": "The Contract Type is determined independently by the Tenant before the Landlord exercises any choices in the Proposal contract."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct sequence as outlined in the paper is that the Landlord must exercise the Accept choice in the Proposal contract initiated by the Tenant to create a specific Contract Type. Options B, C, and D incorrectly describe the roles and sequence of actions needed to establish the Contract Type.",
+    "path_description": "Path: Landlord --[exercises]--> AcceptChoice --[partOf]--> ProposalContract --[type]--> ContractType",
+    "context": "There is only one way to create this contract, which is for the Landlord to exercise the Accept choice in the Proposal contract created by the Tenant. | There is only one way to create this contract, which is for the Landlord to exercise the Accept choice in the Proposal contract created by the Tenant. | There is only one way to create this contract, which is for the Landlord to exercise the Accept choice in the Proposal contract created by the Tenant.",
+    "paper_id": "725"
+  }
+]

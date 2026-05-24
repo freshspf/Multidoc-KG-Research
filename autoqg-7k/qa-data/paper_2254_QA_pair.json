@@ -1,0 +1,88 @@
+[
+  {
+    "section": "appendix",
+    "path": {
+      "section": "appendix",
+      "start_entity": "SMOTExTA-B",
+      "end_entity": "ExampleA",
+      "hops": [
+        {
+          "from": "SMOTExTA-B",
+          "relation": "derivedFrom",
+          "to": "ExampleB",
+          "context": "The SMOTExT case plausibly integrates features from both source cases (A and B) while maintaining clinical coherence.",
+          "chunk": "6"
+        },
+        {
+          "from": "ExampleB",
+          "relation": "comparedWith",
+          "to": "SMOTExTA-B",
+          "context": "Example B  SMOTExT A-B 78 years old  72 years old (closer to B)",
+          "chunk": "6"
+        },
+        {
+          "from": "SMOTExTA-B",
+          "relation": "derivedFrom",
+          "to": "ExampleA",
+          "context": "The SMOTExT case plausibly integrates features from both source cases (A and B) while maintaining clinical coherence.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the process of deriving SMOTExTA-B from ExampleB and comparing it with ExampleA, what characteristic of SMOTExTA-B is explicitly noted to be closer to that of ExampleB?",
+    "options": {
+      "A": "The geographic location of the patient in SMOTExTA-B is similar to that of ExampleB.",
+      "B": "The treatment approach for SMOTExTA-B is significantly influenced by the methods used in ExampleB.",
+      "C": "The clinical symptoms of SMOTExTA-B are specifically aligned more closely with those of ExampleB.",
+      "D": "The age of SMOTExTA-B is noted as being closer to that of ExampleB at 72 years old."
+    },
+    "correct_answer": "D",
+    "explanation": "The question requires understanding the relationship of derived features in SMOTExTA-B as compared to ExampleB and ExampleA. The context specifically mentions the age of SMOTExTA-B as being closer to that of ExampleB, which is 72 years old, aligning with Option A.",
+    "path_description": "Path: SMOTExTA-B --[derivedFrom]--> ExampleB --[comparedWith]--> SMOTExTA-B --[derivedFrom]--> ExampleA",
+    "context": "The SMOTExT case plausibly integrates features from both source cases (A and B) while maintaining clinical coherence. | Example B  SMOTExT A-B 78 years old  72 years old (closer to B) | The SMOTExT case plausibly integrates features from both source cases (A and B) while maintaining clinical coherence.",
+    "paper_id": "823"
+  },
+  {
+    "section": "appendix",
+    "path": {
+      "section": "appendix",
+      "start_entity": "SMOTExT",
+      "end_entity": "SMOTExTA-B",
+      "hops": [
+        {
+          "from": "SMOTExT",
+          "relation": "integratesFeaturesFrom",
+          "to": "ExampleA",
+          "context": "The SMOTExT case plausibly integrates features from both source cases (A and B) while maintaining clinical coherence.",
+          "chunk": "6"
+        },
+        {
+          "from": "ExampleA",
+          "relation": "comparedWith",
+          "to": "ExampleB",
+          "context": "Structured comparison of two original clinical descriptions (A and B) and a SMOTExT case generated via latent space interpolation.",
+          "chunk": "6"
+        },
+        {
+          "from": "ExampleB",
+          "relation": "comparedWith",
+          "to": "SMOTExTA-B",
+          "context": "Example B  SMOTExT A-B 78 years old  72 years old (closer to B)",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "Based on the integration and comparison features in SMOTExT, what can be inferred about the age of the synthesized SMOTExT A-B relative to the original examples?",
+    "options": {
+      "A": "The age of SMOTExT A-B is likely closer to Example B as it is 72 years old which is closer to 78.",
+      "B": "The age of SMOTExT A-B is exactly the same as Example B, showing direct copying rather than synthesis.",
+      "C": "The age of SMOTExT A-B is likely an average of Examples A and B, demonstrating equal influence from both.",
+      "D": "The age of SMOTExT A-B is likely closer to Example A, indicating a dominant influence from Example A."
+    },
+    "correct_answer": "A",
+    "explanation": "The paper states that SMOTExT A-B is 72 years old, which is closer to the age of Example B (78 years old). This implies that the age characteristic in the synthesized SMOTExT A-B case is more influenced by or closer to Example B's age, rather than being an average or identical to Example A.",
+    "path_description": "Path: SMOTExT --[integratesFeaturesFrom]--> ExampleA --[comparedWith]--> ExampleB --[comparedWith]--> SMOTExTA-B",
+    "context": "The SMOTExT case plausibly integrates features from both source cases (A and B) while maintaining clinical coherence. | Structured comparison of two original clinical descriptions (A and B) and a SMOTExT case generated via latent space interpolation. | Example B  SMOTExT A-B 78 years old  72 years old (closer to B)",
+    "paper_id": "823"
+  }
+]

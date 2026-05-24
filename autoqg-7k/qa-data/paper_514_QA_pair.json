@@ -1,0 +1,260 @@
+[
+  {
+    "section": "equilibriainproperdelegationgames2",
+    "path": {
+      "section": "equilibriainproperdelegationgames2",
+      "start_entity": "PoolOperation",
+      "end_entity": "Activity",
+      "hops": [
+        {
+          "from": "PoolOperation",
+          "relation": "hasStake",
+          "to": "SPO",
+          "context": "Suppose that an SPO has s stakes.",
+          "chunk": "7"
+        },
+        {
+          "from": "SPO",
+          "relation": "operates",
+          "to": "PoolOperation",
+          "context": "Additionally suppose that they operate a pool with pledge λ = s and external delegation β.",
+          "chunk": "7"
+        },
+        {
+          "from": "PoolOperation",
+          "relation": "type",
+          "to": "Activity",
+          "context": "Additionally suppose that they operate a pool with pledge λ = s and external delegation β.",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "In a system where a Stake Pool Operator (SPO) operates a pool, if the SPO has a stake of s and operates a pool with a pledge equal to their stake, what activity type might this pool operation be classified as?",
+    "options": {
+      "A": "The activity type of the pool operation might be classified as a basic staking activity.",
+      "B": "The activity type of the pool operation might be classified as an advanced trading activity.",
+      "C": "The activity type of the pool operation might be classified as a delegated proof of stake.",
+      "D": "The activity type of the pool operation might be classified as a liquidity provision operation."
+    },
+    "correct_answer": "A",
+    "explanation": "Given the knowledge path, the SPO's operation of a pool with a pledge equal to their stake s indicates a straightforward staking mechanism, commonly referred to as basic staking activity. The pledge λ = s suggests a direct allocation of the operator's own resources to the pool, reinforcing the classification as basic staking rather than involving more complex operations such as trading or liquidity provision.",
+    "path_description": "Path: PoolOperation --[hasStake]--> SPO --[operates]--> PoolOperation --[type]--> Activity",
+    "context": "Suppose that an SPO has s stakes. | Additionally suppose that they operate a pool with pledge λ = s and external delegation β. | Additionally suppose that they operate a pool with pledge λ = s and external delegation β.",
+    "paper_id": "796"
+  },
+  {
+    "section": "equilibriainproperdelegationgames3",
+    "path": {
+      "section": "equilibriainproperdelegationgames3",
+      "start_entity": "λi",
+      "end_entity": "ci",
+      "hops": [
+        {
+          "from": "λi",
+          "relation": "lessThan",
+          "to": "τ",
+          "context": "The unit delegation reward is given by r and λi < τ and pool operation cost ci.",
+          "chunk": "8"
+        },
+        {
+          "from": "τ",
+          "relation": "associatedWith",
+          "to": "r",
+          "context": "The unit delegation reward is given by r and λi < τ and pool operation cost ci.",
+          "chunk": "8"
+        },
+        {
+          "from": "r",
+          "relation": "associatedWith",
+          "to": "ci",
+          "context": "The unit delegation reward is given by r and λi < τ and pool operation cost ci.",
+          "chunk": "8"
+        }
+      ]
+    },
+    "question": "In a delegation game, if the individual delegation parameter λi is less than the threshold τ, which of the following is true regarding the relationships in the system?",
+    "options": {
+      "A": "The threshold τ mediates the relationship between the unit delegation reward r and the pool operation cost ci.",
+      "B": "The delegation parameter being less than the threshold τ is associated with a higher unit delegation reward r.",
+      "C": "The pool operation cost ci increases proportionally as the unit delegation reward r decreases.",
+      "D": "The delegation parameter λi directly determines the pool operation cost ci without any intermediary association."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A because the knowledge path indicates that λi being less than τ is associated with the unit delegation reward r, suggesting a scenario where a lower λi relative to τ could be linked to a more favorable reward r. The other options introduce relationships or direct effects not supported by the provided knowledge path.",
+    "path_description": "Path: λi --[lessThan]--> τ --[associatedWith]--> r --[associatedWith]--> ci",
+    "context": "The unit delegation reward is given by r and λi < τ and pool operation cost ci. | The unit delegation reward is given by r and λi < τ and pool operation cost ci. | The unit delegation reward is given by r and λi < τ and pool operation cost ci.",
+    "paper_id": "796"
+  },
+  {
+    "section": "computationalmethodsandresults2",
+    "path": {
+      "section": "computationalmethodsandresults2",
+      "start_entity": "FPTAS",
+      "end_entity": "GameTheoryConcept",
+      "hops": [
+        {
+          "from": "FPTAS",
+          "relation": "appliedTo",
+          "to": "DecentralizationObjective",
+          "context": "In order to approximate Oℓ, we use the typical dynamic programming FPTAS",
+          "chunk": "13"
+        },
+        {
+          "from": "DecentralizationObjective",
+          "relation": "basedOn",
+          "to": "ProperDelegationGame",
+          "context": "Approximating the Decentralization Objective based on the proper delegation game",
+          "chunk": "13"
+        },
+        {
+          "from": "ProperDelegationGame",
+          "relation": "type",
+          "to": "GameTheoryConcept",
+          "context": "proper delegation game, G(ρ, τ, (s, c, ϵ))",
+          "chunk": "13"
+        }
+      ]
+    },
+    "question": "In the context of approximating the decentralization objective in computational methods, which statement best explains the use of FPTAS in relation to game theory?",
+    "options": {
+      "A": "While FPTAS is crucial, it operates independently of the game theory concepts and does not interact with the proper delegation game.",
+      "B": "FPTAS facilitates direct calculation of outcomes in any game theory concept, bypassing the need for a structured proper delegation game.",
+      "C": "The decentralization objective uses FPTAS directly on the game theory concepts to ensure efficient computation across decentralized systems.",
+      "D": "FPTAS is applied to the decentralization objective, which is structured around the proper delegation game, a specific type of game theory concept."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A. The Fully Polynomial Time Approximation Scheme (FPTAS) is specifically applied to the objective of decentralization, which in this context, is based on the structure of a proper delegation game, itself a game theory concept. This illustrates a clear dependency path from FPTAS to a game theory concept through the medium of the proper delegation game, designed for the decentralization objective.",
+    "path_description": "Path: FPTAS --[appliedTo]--> DecentralizationObjective --[basedOn]--> ProperDelegationGame --[type]--> GameTheoryConcept",
+    "context": "In order to approximate Oℓ, we use the typical dynamic programming FPTAS | Approximating the Decentralization Objective based on the proper delegation game | proper delegation game, G(ρ, τ, (s, c, ϵ))",
+    "paper_id": "796"
+  },
+  {
+    "section": "computationalmethodsandresults6",
+    "path": {
+      "section": "computationalmethodsandresults6",
+      "start_entity": "Table6",
+      "end_entity": "Table",
+      "hops": [
+        {
+          "from": "Table6",
+          "relation": "reports",
+          "to": "ExPostSPOStableDraws",
+          "context": "Table 6 The number of ex post SPO stable",
+          "chunk": "17"
+        },
+        {
+          "from": "ExPostSPOStableDraws",
+          "relation": "measuredIn",
+          "to": "Table5",
+          "context": "Table 5 The number of ex post SPO stable draws",
+          "chunk": "17"
+        },
+        {
+          "from": "Table5",
+          "relation": "type",
+          "to": "Table",
+          "context": "Table 5 The number of ex post SPO stable draws",
+          "chunk": "17"
+        }
+      ]
+    },
+    "question": "In the study described in the 'computationalmethodsandresults6' section, how is the relationship between Table 6 and Table 5 characterized concerning ExPostSPOStableDraws?",
+    "options": {
+      "A": "Table 5 reports on the ExPostSPOStableDraws, which are further analyzed and expanded in Table 6 based on the table type.",
+      "B": "Table 6 reports on the ExPostSPOStableDraws, which are measured in Table 5 based on the type of table defined.",
+      "C": "Table 6 and Table 5 both independently report ExPostSPOStableDraws without any direct measurement correlation between them.",
+      "D": "Table 6 derives its data directly from Table 5, analyzing ExPostSPOStableDraws without specifying the table type."
+    },
+    "correct_answer": "B",
+    "explanation": "According to the knowledge path, Table 6 reports on ExPostSPOStableDraws, which are measured in Table 5. The type of these measurements is identified as 'Table'. Thus, option A correctly follows this 3-hop reasoning path, stating that Table 6 reports on the draws measured in Table 5 as per the defined table type.",
+    "path_description": "Path: Table6 --[reports]--> ExPostSPOStableDraws --[measuredIn]--> Table5 --[type]--> Table",
+    "context": "Table 6 The number of ex post SPO stable | Table 5 The number of ex post SPO stable draws | Table 5 The number of ex post SPO stable draws",
+    "paper_id": "796"
+  },
+  {
+    "section": "computationalmethodsandresults6",
+    "path": {
+      "section": "computationalmethodsandresults6",
+      "start_entity": "Table5",
+      "end_entity": "Table",
+      "hops": [
+        {
+          "from": "Table5",
+          "relation": "reports",
+          "to": "ExPostSPOStableDraws",
+          "context": "Table 5 The number of ex post SPO stable draws",
+          "chunk": "17"
+        },
+        {
+          "from": "ExPostSPOStableDraws",
+          "relation": "measuredIn",
+          "to": "Table6",
+          "context": "Table 6 The number of ex post SPO stable",
+          "chunk": "17"
+        },
+        {
+          "from": "Table6",
+          "relation": "type",
+          "to": "Table",
+          "context": "Table 6 The number of ex post SPO stable",
+          "chunk": "17"
+        }
+      ]
+    },
+    "question": "In the study described in 'computationalmethodsandresults6', how is the information about 'ExPostSPOStableDraws' quantitatively represented and classified?",
+    "options": {
+      "A": "It is mentioned in the text between Table 5 and Table 6 and is analyzed as a graph.",
+      "B": "It appears as a footnote in Table 5 and is calculated in Table 6, being designated as a chart type.",
+      "C": "It is initially detailed in Table 5 and summarized in Table 6, being referenced as a figure.",
+      "D": "It is reported in Table 5 and measured in Table 6, where it is classified as a type of table."
+    },
+    "correct_answer": "D",
+    "explanation": "The question requires understanding the flow of information through the tables as described in the paper. Table 5 reports on 'ExPostSPOStableDraws' which is then measured in Table 6, and the type of representation for this data is classified as a table, following the knowledge graph path.",
+    "path_description": "Path: Table5 --[reports]--> ExPostSPOStableDraws --[measuredIn]--> Table6 --[type]--> Table",
+    "context": "Table 5 The number of ex post SPO stable draws | Table 6 The number of ex post SPO stable | Table 6 The number of ex post SPO stable",
+    "paper_id": "796"
+  },
+  {
+    "section": "computationalmethodsandresults7",
+    "path": {
+      "section": "computationalmethodsandresults7",
+      "start_entity": "Figure13",
+      "end_entity": "Concept",
+      "hops": [
+        {
+          "from": "Figure13",
+          "relation": "showsImpactOf",
+          "to": "BaselineThresholdStrategy",
+          "context": "In Figures 13 and 15 we see the impact...",
+          "chunk": "18"
+        },
+        {
+          "from": "BaselineThresholdStrategy",
+          "relation": "affects",
+          "to": "Decentralization",
+          "context": "participation of the baseline threshold strategy...",
+          "chunk": "18"
+        },
+        {
+          "from": "Decentralization",
+          "relation": "type",
+          "to": "Concept",
+          "context": "have much of an effect on decentralization,",
+          "chunk": "18"
+        }
+      ]
+    },
+    "question": "In the context of computational methods in decentralized networks, how does the baseline threshold strategy, as demonstrated in Figure 13, influence the concept of decentralization?",
+    "options": {
+      "A": "The baseline threshold strategy enhances the security protocols thereby inadvertently supporting decentralization.",
+      "B": "The baseline threshold strategy significantly promotes decentralization by encouraging wider participation.",
+      "C": "The baseline threshold strategy does not significantly impact the level of decentralization within the network.",
+      "D": "The baseline threshold strategy reduces decentralization by increasing centralized control mechanisms."
+    },
+    "correct_answer": "C",
+    "explanation": "According to the provided context in the section 'computationalmethodsandresults7', the baseline threshold strategy does not have much of an effect on decentralization, indicating that its impact on decentralization is insignificant.",
+    "path_description": "Path: Figure13 --[showsImpactOf]--> BaselineThresholdStrategy --[affects]--> Decentralization --[type]--> Concept",
+    "context": "In Figures 13 and 15 we see the impact... | participation of the baseline threshold strategy... | have much of an effect on decentralization,",
+    "paper_id": "796"
+  }
+]

@@ -1,0 +1,45 @@
+[
+  {
+    "section": "methods1",
+    "path": {
+      "section": "methods1",
+      "start_entity": "EDI",
+      "end_entity": "SfMSparsePointCloud",
+      "hops": [
+        {
+          "from": "EDI",
+          "relation": "outputs",
+          "to": "DeblurredImage",
+          "context": "Specifically, we first use the EDI algorithm to process the blurred images.",
+          "chunk": "3"
+        },
+        {
+          "from": "DeblurredImage",
+          "relation": "inputInto",
+          "to": "COLMAP",
+          "context": "Next, the EDI deblurred image is input into COLMAP to generate an SfM sparse point cloud.",
+          "chunk": "3"
+        },
+        {
+          "from": "COLMAP",
+          "relation": "generates",
+          "to": "SfMSparsePointCloud",
+          "context": "Next, the EDI deblurred image is input into COLMAP to generate an SfM sparse point cloud.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the process of generating a Structure-from-Motion (SfM) sparse point cloud, what is the role of the EDI algorithm?",
+    "options": {
+      "A": "The EDI algorithm is used to deblur images, which are then input into COLMAP to generate the SfM sparse point cloud.",
+      "B": "The EDI algorithm directly generates an SfM sparse point cloud from high-resolution images without any intermediate steps.",
+      "C": "The EDI algorithm compiles multiple blurred images into a single enhanced image, which is not suitable for generating SfM sparse point clouds.",
+      "D": "The EDI algorithm enhances the resolution of images, which are necessary for COLMAP to process and generate the SfM sparse point cloud."
+    },
+    "correct_answer": "A",
+    "explanation": "The EDI algorithm is specifically used to deblur images. These deblurred images are then used as inputs into the COLMAP software, which is responsible for generating the SfM sparse point cloud. Options B, C, and D are incorrect as they either misrepresent the purpose of the EDI algorithm or misstate the process outlined in the knowledge graph path.",
+    "path_description": "Path: EDI --[outputs]--> DeblurredImage --[inputInto]--> COLMAP --[generates]--> SfMSparsePointCloud",
+    "context": "Specifically, we first use the EDI algorithm to process the blurred images. | Next, the EDI deblurred image is input into COLMAP to generate an SfM sparse point cloud. | Next, the EDI deblurred image is input into COLMAP to generate an SfM sparse point cloud.",
+    "paper_id": "944"
+  }
+]

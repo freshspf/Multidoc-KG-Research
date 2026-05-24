@@ -1,0 +1,88 @@
+[
+  {
+    "section": "conclusionsandfuturework",
+    "path": {
+      "section": "conclusionsandfuturework",
+      "start_entity": "DEX_Swap",
+      "end_entity": "Address",
+      "hops": [
+        {
+          "from": "DEX_Swap",
+          "relation": "transferredTo",
+          "to": "ETH",
+          "context": "This address was used to swap the UNI tokens for ETH via a decentralized finance platform.",
+          "chunk": "7"
+        },
+        {
+          "from": "ETH",
+          "relation": "splitInto",
+          "to": "D2",
+          "context": "Finally, the resulting ETH was split into two separate addresses (D1 and D2)...",
+          "chunk": "7"
+        },
+        {
+          "from": "D2",
+          "relation": "type",
+          "to": "Address",
+          "context": "separate addresses (D1 and D2), which we later identified as deposit addresses controlled by the popular exchange Binance...",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "In the process described in the conclusionsandfuturework section of the paper, what was the primary purpose of the address labeled as D2?",
+    "options": {
+      "A": "D2 was used as a deposit address controlled by the exchange Binance to receive ETH.",
+      "B": "D2 functioned as a smart contract to facilitate the swap of UNI tokens for ETH.",
+      "C": "D2 served as a temporary storage before transferring ETH to cold storage for long-term holding.",
+      "D": "D2 was primarily used to redistribute ETH to individual private wallets for security."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A because the context specifies that the ETH was split into two addresses, D1 and D2, which were identified as deposit addresses controlled by the exchange Binance. Hence, D2's primary purpose was to act as a deposit address to receive ETH.",
+    "path_description": "Path: DEX_Swap --[transferredTo]--> ETH --[splitInto]--> D2 --[type]--> Address",
+    "context": "This address was used to swap the UNI tokens for ETH via a decentralized finance platform. | Finally, the resulting ETH was split into two separate addresses (D1 and D2)... | separate addresses (D1 and D2), which we later identified as deposit addresses controlled by the popular exchange Binance...",
+    "paper_id": "744"
+  },
+  {
+    "section": "conclusionsandfuturework",
+    "path": {
+      "section": "conclusionsandfuturework",
+      "start_entity": "ETH",
+      "end_entity": "CryptocurrencyExchange",
+      "hops": [
+        {
+          "from": "ETH",
+          "relation": "splitInto",
+          "to": "D1",
+          "context": "Finally, the resulting ETH was split into two separate addresses (D1 and D2)...",
+          "chunk": "7"
+        },
+        {
+          "from": "D1",
+          "relation": "controlledBy",
+          "to": "Binance",
+          "context": "separate addresses (D1 and D2), which we later identified as deposit addresses controlled by the popular exchange Binance...",
+          "chunk": "7"
+        },
+        {
+          "from": "Binance",
+          "relation": "type",
+          "to": "CryptocurrencyExchange",
+          "context": "the popular exchange Binance and cryptocurrency swap service SimpleSwap, respectively.",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "In the research findings, what is the relationship between ETH, Binance, and the type of service Binance provides?",
+    "options": {
+      "A": "ETH was split, with all parts controlled by Binance, operating primarily as a digital wallet service.",
+      "B": "ETH was used by Binance as a base currency for trading and investment services on their platform.",
+      "C": "ETH was divided into two parts, one of which was controlled by Binance, identified as a Cryptocurrency Exchange.",
+      "D": "ETH was completely transferred to Binance which later converted it into multiple cryptocurrencies through a swap service."
+    },
+    "correct_answer": "C",
+    "explanation": "The paper elucidates that ETH was split into two addresses (D1 and D2), with D1 being controlled by Binance, which is categorized as a Cryptocurrency Exchange. This outlines the direct control of part of the ETH by Binance and its primary function as an exchange, rather than any other service.",
+    "path_description": "Path: ETH --[splitInto]--> D1 --[controlledBy]--> Binance --[type]--> CryptocurrencyExchange",
+    "context": "Finally, the resulting ETH was split into two separate addresses (D1 and D2)... | separate addresses (D1 and D2), which we later identified as deposit addresses controlled by the popular exchange Binance... | the popular exchange Binance and cryptocurrency swap service SimpleSwap, respectively.",
+    "paper_id": "744"
+  }
+]

@@ -1,0 +1,88 @@
+[
+  {
+    "section": "numericalexperiments",
+    "path": {
+      "section": "numericalexperiments",
+      "start_entity": "Rollouts",
+      "end_entity": "Policy",
+      "hops": [
+        {
+          "from": "Rollouts",
+          "relation": "performedFor",
+          "to": "QMDPPolicy",
+          "context": "For each policy, we perform 500 rollouts.",
+          "chunk": "7"
+        },
+        {
+          "from": "QMDPPolicy",
+          "relation": "comparedWith",
+          "to": "MDPPolicy",
+          "context": "We compare the performance of the proposed QMDP policy with three other policies.",
+          "chunk": "7"
+        },
+        {
+          "from": "MDPPolicy",
+          "relation": "type",
+          "to": "Policy",
+          "context": "the MDP policy where the vehicle follows Equation (4) with perfect knowledge of its location.",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "In the context of the numerical experiments section, how does the QMDP policy's requirement for rollouts differ when compared to the MDP policy?",
+    "options": {
+      "A": "The QMDP policy performs fewer rollouts due to its more efficient computation compared to the MDP policy.",
+      "B": "The MDP policy requires fewer rollouts because it operates under perfect knowledge of the vehicle's location.",
+      "C": "The QMDP policy requires additional rollouts to account for uncertainty in vehicle location.",
+      "D": "Both QMDP and MDP policies perform the same number of rollouts, as they both require 500 each."
+    },
+    "correct_answer": "D",
+    "explanation": "According to the paper, each policy, including both QMDP and MDP, involves performing 500 rollouts. This indicates that the number of rollouts required is standard across both policies, despite the differences in their handling of vehicle location knowledge.",
+    "path_description": "Path: Rollouts --[performedFor]--> QMDPPolicy --[comparedWith]--> MDPPolicy --[type]--> Policy",
+    "context": "For each policy, we perform 500 rollouts. | We compare the performance of the proposed QMDP policy with three other policies. | the MDP policy where the vehicle follows Equation (4) with perfect knowledge of its location.",
+    "paper_id": "333"
+  },
+  {
+    "section": "guidanceinuncertainflowfields2",
+    "path": {
+      "section": "guidanceinuncertainflowfields2",
+      "start_entity": "ValueIteration",
+      "end_entity": "SolutionMethod",
+      "hops": [
+        {
+          "from": "ValueIteration",
+          "relation": "solves",
+          "to": "BellmanEquation",
+          "context": "Equations (3)-(5) are solved via value iteration, yielding an optimal policy for under-ice guidance that provides an optimal action a⋆(s˜) for every state s˜ ∈ S.",
+          "chunk": "6"
+        },
+        {
+          "from": "BellmanEquation",
+          "relation": "usedIn",
+          "to": "ApproximateDynamicProgrammingSolution",
+          "context": "the optimal value of the state (i.e., the optimal discounted expected reward that an agent will obtain when departing from that state) can be computed through the Bellman equation.",
+          "chunk": "6"
+        },
+        {
+          "from": "ApproximateDynamicProgrammingSolution",
+          "relation": "type",
+          "to": "SolutionMethod",
+          "context": "We are now in a position to solve the continuous MDP through approximate dynamic programming (ADP).",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the context of under-ice navigation, how does the solution method of approximate dynamic programming specifically apply to optimizing the guidance system?",
+    "options": {
+      "A": "It directly applies linear programming techniques to solve the Bellman equation, bypassing the need for iterative approximation methods like value iteration.",
+      "B": "It employs heuristic algorithms to approximate the optimal values directly from the state transitions without solving the Bellman equation.",
+      "C": "It uses Monte Carlo simulation methods to estimate the state values, which are then used to approximate solutions to the Bellman equation.",
+      "D": "It applies by utilizing value iteration to solve the Bellman equation, which is a key component in deriving the optimal policy for state-based actions."
+    },
+    "correct_answer": "D",
+    "explanation": "The solution method of approximate dynamic programming in the context mentioned involves using value iteration to solve the Bellman equation, which in turn helps in deriving the optimal policy for each state in the under-ice guidance system. This is indicated by the knowledge path from ValueIteration to BellmanEquation and then to ApproximateDynamicProgrammingSolution. Options B, C, and D describe different methods that do not align with the described approach of using value iteration and solving the Bellman equation for this specific application.",
+    "path_description": "Path: ValueIteration --[solves]--> BellmanEquation --[usedIn]--> ApproximateDynamicProgrammingSolution --[type]--> SolutionMethod",
+    "context": "Equations (3)-(5) are solved via value iteration, yielding an optimal policy for under-ice guidance that provides an optimal action a⋆(s˜) for every state s˜ ∈ S. | the optimal value of the state (i.e., the optimal discounted expected reward that an agent will obtain when departing from that state) can be computed through the Bellman equation. | We are now in a position to solve the continuous MDP through approximate dynamic programming (ADP).",
+    "paper_id": "333"
+  }
+]

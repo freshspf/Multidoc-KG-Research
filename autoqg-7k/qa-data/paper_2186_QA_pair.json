@@ -1,0 +1,475 @@
+[
+  {
+    "section": "iirelatedwork2",
+    "path": {
+      "section": "iirelatedwork2",
+      "start_entity": "Zad",
+      "end_entity": "Method",
+      "hops": [
+        {
+          "from": "Zad",
+          "relation": "uses",
+          "to": "LabelGuidedApproach",
+          "context": "In step ❶, we introduce a label-guided approach by selecting 100 samples from the dataset and manually creating summaries based on the augmented text and description.",
+          "chunk": "3"
+        },
+        {
+          "from": "LabelGuidedApproach",
+          "relation": "uses",
+          "to": "ManualSummaryCreation",
+          "context": "In step ❶, we introduce a label-guided approach by selecting 100 samples from the dataset and manually creating summaries based on the augmented text and description.",
+          "chunk": "3"
+        },
+        {
+          "from": "ManualSummaryCreation",
+          "relation": "type",
+          "to": "Method",
+          "context": "In step ❶, we introduce a label-guided approach by selecting 100 samples from the dataset and manually creating summaries based on the augmented text and description.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "What methodological approach does the Zad project employ to enhance the quality of dataset sample summaries?",
+    "options": {
+      "A": "Zad utilizes a peer-reviewed method of crowdsourced summary evaluation to improve the accuracy and relevance of dataset annotations.",
+      "B": "Zad implements an automated summary generation tool that leverages machine learning algorithms to process dataset samples.",
+      "C": "Zad uses a label-guided approach involving manual summary creation of selected samples based on augmented descriptions.",
+      "D": "Zad applies a statistical analysis technique to automatically generate labels for dataset samples without manual intervention."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A, as the Zad project uses a label-guided approach for manually creating summaries of selected samples, based on augmented text and description. This approach is directly mentioned in the context provided from the paper.",
+    "path_description": "Path: Zad --[uses]--> LabelGuidedApproach --[uses]--> ManualSummaryCreation --[type]--> Method",
+    "context": "In step ❶, we introduce a label-guided approach by selecting 100 samples from the dataset and manually creating summaries based on the augmented text and description. | In step ❶, we introduce a label-guided approach by selecting 100 samples from the dataset and manually creating summaries based on the augmented text and description. | In step ❶, we introduce a label-guided approach by selecting 100 samples from the dataset and manually creating summaries based on the augmented text and description.",
+    "paper_id": "86"
+  },
+  {
+    "section": "ivpipelineandtechnicaldetails3",
+    "path": {
+      "section": "ivpipelineandtechnicaldetails3",
+      "start_entity": "Transformer",
+      "end_entity": "KeyValueMemory",
+      "hops": [
+        {
+          "from": "Transformer",
+          "relation": "composedOf",
+          "to": "Encoder",
+          "context": "The transformer is composed of an encoder and a decoder.",
+          "chunk": "9"
+        },
+        {
+          "from": "Encoder",
+          "relation": "uses",
+          "to": "FeedForwardNetwork",
+          "context": "The encoder is composed of two sub-layers: the self-attention layer and the Feed-Forward Network (FFN).",
+          "chunk": "9"
+        },
+        {
+          "from": "FeedForwardNetwork",
+          "relation": "functionsAs",
+          "to": "KeyValueMemory",
+          "context": "As shown in [15], FFN functions as key-value memory, where key vectors encode sequence patterns and value vectors represent token distributions.",
+          "chunk": "9"
+        }
+      ]
+    },
+    "question": "In a transformer architecture, how does the Feed-Forward Network (FFN) within the encoder primarily function according to its design as described in section 'ivpipelineandtechnicaldetails3'?",
+    "options": {
+      "A": "The FFN acts as a filter to remove noise from the input data before it reaches the self-attention layer.",
+      "B": "The FFN processes input embeddings to generate output embeddings without altering internal memory states.",
+      "C": "The FFN functions as key-value memory, where key vectors encode sequence patterns and value vectors represent token distributions.",
+      "D": "The FFN encodes positional information of tokens to facilitate sequence alignment."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is B, as the context specifies that the FFN in the encoder functions as key-value memory. This is detailed in the provided path from the knowledge graph and the associated paper section, which states that key vectors in FFN encode sequence patterns while value vectors represent token distributions.",
+    "path_description": "Path: Transformer --[composedOf]--> Encoder --[uses]--> FeedForwardNetwork --[functionsAs]--> KeyValueMemory",
+    "context": "The transformer is composed of an encoder and a decoder. | The encoder is composed of two sub-layers: the self-attention layer and the Feed-Forward Network (FFN). | As shown in [15], FFN functions as key-value memory, where key vectors encode sequence patterns and value vectors represent token distributions.",
+    "paper_id": "86"
+  },
+  {
+    "section": "ivpipelineandtechnicaldetails2",
+    "path": {
+      "section": "ivpipelineandtechnicaldetails2",
+      "start_entity": "SubWordTokenization",
+      "end_entity": "Parameter",
+      "hops": [
+        {
+          "from": "SubWordTokenization",
+          "relation": "balances",
+          "to": "CharacterLevelTokenization",
+          "context": "Sub-word tokenization balances word and character tokenization by breaking words into smaller units.",
+          "chunk": "8"
+        },
+        {
+          "from": "CharacterLevelTokenization",
+          "relation": "reduces",
+          "to": "VocabSize",
+          "context": "Character-level tokenization reduces vocabulary size and computational costs by splitting text into individual characters.",
+          "chunk": "8"
+        },
+        {
+          "from": "VocabSize",
+          "relation": "type",
+          "to": "Parameter",
+          "context": "Vocab size is typically limited to the most common 100,000 words in the training corpus.",
+          "chunk": "8"
+        }
+      ]
+    },
+    "question": "How does the application of sub-word tokenization influence the size and type of parameters in a model's architecture?",
+    "options": {
+      "A": "It increases the vocabulary size by adding more unique tokens, thus increasing the number of parameters.",
+      "B": "Sub-word tokenization increases computational costs by generating a larger set of tokenized outputs.",
+      "C": "It has no significant impact on vocabulary size but increases the complexity of the model's architecture.",
+      "D": "By using sub-word units, it reduces vocabulary size, which correspondingly decreases the number of parameters."
+    },
+    "correct_answer": "D",
+    "explanation": "Sub-word tokenization balances word and character-level tokenizations, where the latter reduces vocabulary size by breaking text into individual characters. A reduced vocabulary size means fewer unique tokens that the model needs to manage, which directly leads to a reduction in the number of parameters required.",
+    "path_description": "Path: SubWordTokenization --[balances]--> CharacterLevelTokenization --[reduces]--> VocabSize --[type]--> Parameter",
+    "context": "Sub-word tokenization balances word and character tokenization by breaking words into smaller units. | Character-level tokenization reduces vocabulary size and computational costs by splitting text into individual characters. | Vocab size is typically limited to the most common 100,000 words in the training corpus.",
+    "paper_id": "86"
+  },
+  {
+    "section": "ivpipelineandtechnicaldetails3",
+    "path": {
+      "section": "ivpipelineandtechnicaldetails3",
+      "start_entity": "Transformer",
+      "end_entity": "OneThirdTrainableParameters",
+      "hops": [
+        {
+          "from": "Transformer",
+          "relation": "composedOf",
+          "to": "Encoder",
+          "context": "The transformer is composed of an encoder and a decoder.",
+          "chunk": "9"
+        },
+        {
+          "from": "Encoder",
+          "relation": "uses",
+          "to": "SelfAttentionLayer",
+          "context": "The encoder is composed of two sub-layers: the self-attention layer and the Feed-Forward Network (FFN).",
+          "chunk": "9"
+        },
+        {
+          "from": "SelfAttentionLayer",
+          "relation": "accountsFor",
+          "to": "OneThirdTrainableParameters",
+          "context": "Self-attention accounts for one-third of trainable parameters, while FFN consumes the majority.",
+          "chunk": "9"
+        }
+      ]
+    },
+    "question": "In the architecture of a transformer as described in the paper section 'ivpipelineandtechnicaldetails3', what fraction of the encoder's trainable parameters does the self-attention layer account for?",
+    "options": {
+      "A": "The self-attention layer accounts for one-fourth of the encoder's trainable parameters.",
+      "B": "The self-attention layer accounts for two-thirds of the encoder's trainable parameters.",
+      "C": "The self-attention layer accounts for one-third of the encoder's trainable parameters.",
+      "D": "The self-attention layer accounts for one-half of the encoder's trainable parameters."
+    },
+    "correct_answer": "C",
+    "explanation": "According to the knowledge graph path, the transformer is composed of an encoder which uses a self-attention layer. This self-attention layer accounts for one-third of the trainable parameters in the encoder, while the Feed-Forward Network (FFN) consumes the majority.",
+    "path_description": "Path: Transformer --[composedOf]--> Encoder --[uses]--> SelfAttentionLayer --[accountsFor]--> OneThirdTrainableParameters",
+    "context": "The transformer is composed of an encoder and a decoder. | The encoder is composed of two sub-layers: the self-attention layer and the Feed-Forward Network (FFN). | Self-attention accounts for one-third of trainable parameters, while FFN consumes the majority.",
+    "paper_id": "86"
+  },
+  {
+    "section": "vevaluation3",
+    "path": {
+      "section": "vevaluation3",
+      "start_entity": "PHP",
+      "end_entity": "Dataset",
+      "hops": [
+        {
+          "from": "PHP",
+          "relation": "mentionedIn",
+          "to": "StatisticalAnalysis",
+          "context": "Technologies, e.g., PHP.",
+          "chunk": "12"
+        },
+        {
+          "from": "StatisticalAnalysis",
+          "relation": "appliedTo",
+          "to": "USE",
+          "context": "We selected the dataset produced by both encoders for statistical analysis.",
+          "chunk": "12"
+        },
+        {
+          "from": "USE",
+          "relation": "type",
+          "to": "Dataset",
+          "context": "over 83% of the augmented text in the USE dataset contained 250 words or fewer.",
+          "chunk": "12"
+        }
+      ]
+    },
+    "question": "In the context of the paper 'vevaluation3', which technology's application in statistical analysis primarily targets a dataset where over 83% of the augmented text contains 250 words or fewer?",
+    "options": {
+      "A": "Java, known for its robust handling of large datasets, rather than small text datasets.",
+      "B": "PHP, as it was mentioned in relation to the statistical analysis of the USE dataset.",
+      "C": "Python, frequently used for scripting in small to medium text manipulation tasks.",
+      "D": "JavaScript, often applied for client-side data handling but not specifically for datasets like USE."
+    },
+    "correct_answer": "B",
+    "explanation": "The question traces the use of PHP from its mention in connection with statistical analysis, which was specifically applied to the USE dataset characterized by the majority of its text being under 250 words. This is directly derived from the knowledge path and the context provided in the paper section 'vevaluation3'. The other options, while plausible due to their common use in programming and data manipulation, are not mentioned in conjunction with the specific dataset analysis in the paper.",
+    "path_description": "Path: PHP --[mentionedIn]--> StatisticalAnalysis --[appliedTo]--> USE --[type]--> Dataset",
+    "context": "Technologies, e.g., PHP. | We selected the dataset produced by both encoders for statistical analysis. | over 83% of the augmented text in the USE dataset contained 250 words or fewer.",
+    "paper_id": "86"
+  },
+  {
+    "section": "vevaluation4",
+    "path": {
+      "section": "vevaluation4",
+      "start_entity": "BART",
+      "end_entity": "Architecture",
+      "hops": [
+        {
+          "from": "BART",
+          "relation": "finetunedOn",
+          "to": "USE",
+          "context": "Fig. 5. Results after fine-tuning the models using a different single encoder.",
+          "chunk": "13"
+        },
+        {
+          "from": "USE",
+          "relation": "comparedWith",
+          "to": "Transformer",
+          "context": "We reiterate that we used the DAN architecture for USE, which is less accurate than the transformer architecture.",
+          "chunk": "13"
+        },
+        {
+          "from": "Transformer",
+          "relation": "type",
+          "to": "Architecture",
+          "context": "We reiterate that we used the DAN architecture for USE, which is less accurate than the transformer architecture.",
+          "chunk": "13"
+        }
+      ]
+    },
+    "question": "In the context of model evaluation, what architectural characteristic distinguishes the performance of BART when fine-tuned on USE from its potential performance when fine-tuned on a typical Transformer?",
+    "options": {
+      "A": "USE employs the DAN architecture, which is generally considered less accurate than the Transformer architecture.",
+      "B": "USE and Transformer both utilize similar architectures, making BART's performance comparable when fine-tuned on either.",
+      "C": "The Transformer architecture is less accurate, making BART less effective when fine-tuned on USE compared to other models.",
+      "D": "BART, when fine-tuned on USE, leverages a more complex architecture than when fine-tuned on a typical Transformer."
+    },
+    "correct_answer": "A",
+    "explanation": "The key to this question is understanding that USE employs the DAN architecture, which is explicitly stated to be less accurate than the Transformer architecture. Thus, BART's performance when fine-tuned on USE would likely be inferior compared to being fine-tuned directly on a Transformer model, due to the architectural limitations of USE.",
+    "path_description": "Path: BART --[finetunedOn]--> USE --[comparedWith]--> Transformer --[type]--> Architecture",
+    "context": "Fig. 5. Results after fine-tuning the models using a different single encoder. | We reiterate that we used the DAN architecture for USE, which is less accurate than the transformer architecture. | We reiterate that we used the DAN architecture for USE, which is less accurate than the transformer architecture.",
+    "paper_id": "86"
+  },
+  {
+    "section": "vevaluation5",
+    "path": {
+      "section": "vevaluation5",
+      "start_entity": "Token250Limit",
+      "end_entity": "OriginalSummary",
+      "hops": [
+        {
+          "from": "Token250Limit",
+          "relation": "resultsIn",
+          "to": "UniformSummary",
+          "context": "First, we expected restricting the generated summary length to 250 tokens during fine-tuning would yield a uniform summary",
+          "chunk": "14"
+        },
+        {
+          "from": "UniformSummary",
+          "relation": "notAchievedBy",
+          "to": "GeneratedSummaries",
+          "context": "However, most generated summaries were significantly below 250 tokens",
+          "chunk": "14"
+        },
+        {
+          "from": "GeneratedSummaries",
+          "relation": "comparedWith",
+          "to": "OriginalSummary",
+          "context": "Still, as the number of tokens starts to increase, the number of instances decreases in the generated summary, even more than the original summary, except for the token counts between 176 and 200",
+          "chunk": "14"
+        }
+      ]
+    },
+    "question": "Why did the approach of setting a 250 token limit not consistently result in uniformly lengthy summaries as compared to the original summary?",
+    "options": {
+      "A": "The 250 token limit led to summaries consistently exceeding the length of the original summary, causing an overflow in information.",
+      "B": "The token limit was not enforced properly, which resulted in summaries that were much shorter than the original summary.",
+      "C": "Summaries were uniformly distributed across all token ranges from 0 to 250, matching the length of the original summary perfectly.",
+      "D": "Most generated summaries significantly fell short of the 250 token target, showing a decline in length as token counts increased."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A because the paper explicitly states that while the token limit was set at 250, most generated summaries did not reach this length. Instead, they were significantly shorter, especially as the number of tokens increased beyond a certain point (more than the original summary except for the counts between 176 and 200). This indicates that the limit did not achieve the expected uniformity in summary length.",
+    "path_description": "Path: Token250Limit --[resultsIn]--> UniformSummary --[notAchievedBy]--> GeneratedSummaries --[comparedWith]--> OriginalSummary",
+    "context": "First, we expected restricting the generated summary length to 250 tokens during fine-tuning would yield a uniform summary | However, most generated summaries were significantly below 250 tokens | Still, as the number of tokens starts to increase, the number of instances decreases in the generated summary, even more than the original summary, except for the token counts between 176 and 200",
+    "paper_id": "86"
+  },
+  {
+    "section": "vevaluation6",
+    "path": {
+      "section": "vevaluation6",
+      "start_entity": "T5",
+      "end_entity": "DatasetSizeReduction",
+      "hops": [
+        {
+          "from": "T5",
+          "relation": "evaluatedOn",
+          "to": "USE_Dataset",
+          "context": "T5 was evaluated using the USE dataset.",
+          "chunk": "15"
+        },
+        {
+          "from": "USE_Dataset",
+          "relation": "partOf",
+          "to": "QualityEnhancementPipeline",
+          "context": "USE dataset is part of the quality enhancement pipeline.",
+          "chunk": "15"
+        },
+        {
+          "from": "QualityEnhancementPipeline",
+          "relation": "resultIn",
+          "to": "DatasetSizeReduction",
+          "context": "The quality enhancement pipeline resulted in the dataset size shrinking by almost 50%.",
+          "chunk": "15"
+        }
+      ]
+    },
+    "question": "How did the evaluation of T5 on the USE dataset influence the outcomes of the quality enhancement pipeline?",
+    "options": {
+      "A": "The evaluation of T5 on the USE dataset led to a reduction in dataset size through the quality enhancement pipeline.",
+      "B": "The evaluation highlighted inefficiencies in the USE dataset, prompting a restructure of the dataset architecture.",
+      "C": "The USE dataset evaluation resulted in increased computational efficiency, but not dataset size reduction.",
+      "D": "Using the USE dataset for evaluating T5 led to an increase in the accuracy of the T5 model predictions."
+    },
+    "correct_answer": "A",
+    "explanation": "The question requires understanding the sequence of impacts from evaluating T5 on the USE dataset, which is a part of the quality enhancement pipeline that ultimately resulted in dataset size reduction. The correct answer is A, as it directly correlates the evaluation of T5 with the result of the dataset size reduction mentioned in the provided knowledge graph path.",
+    "path_description": "Path: T5 --[evaluatedOn]--> USE_Dataset --[partOf]--> QualityEnhancementPipeline --[resultIn]--> DatasetSizeReduction",
+    "context": "T5 was evaluated using the USE dataset. | USE dataset is part of the quality enhancement pipeline. | The quality enhancement pipeline resulted in the dataset size shrinking by almost 50%.",
+    "paper_id": "86"
+  },
+  {
+    "section": "vevaluation6",
+    "path": {
+      "section": "vevaluation6",
+      "start_entity": "BART",
+      "end_entity": "Dataset",
+      "hops": [
+        {
+          "from": "BART",
+          "relation": "improves",
+          "to": "T5",
+          "context": "BART showed a slight improvement in recall compared to T5 when applied to the capped dataset.",
+          "chunk": "15"
+        },
+        {
+          "from": "T5",
+          "relation": "evaluatedOn",
+          "to": "USE_Dataset",
+          "context": "T5 was evaluated using the USE dataset.",
+          "chunk": "15"
+        },
+        {
+          "from": "USE_Dataset",
+          "relation": "type",
+          "to": "Dataset",
+          "context": "USE dataset is mentioned as being used in the quality enhancement pipeline.",
+          "chunk": "15"
+        }
+      ]
+    },
+    "question": "Which statement best describes the relationship between BART, T5, and the USE dataset as discussed in the paper section 'vevaluation6'?",
+    "options": {
+      "A": "BART improved recall over T5 specifically when evaluated using the USE dataset in a quality enhancement setting.",
+      "B": "BART and T5 showed similar performance when evaluated on different datasets in the same study.",
+      "C": "T5 outperformed BART in terms of precision when both were evaluated using the USE dataset.",
+      "D": "The USE dataset was utilized to compare the recall and precision enhancements of BART and T5."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A because the context describes that BART showed an improvement in recall compared to T5 when applied to the capped dataset and mentions that T5 was evaluated using the USE dataset. Thus, A correctly synthesizes this information, implying that BART's improvement was noted in the context of the USE dataset used in quality enhancement.",
+    "path_description": "Path: BART --[improves]--> T5 --[evaluatedOn]--> USE_Dataset --[type]--> Dataset",
+    "context": "BART showed a slight improvement in recall compared to T5 when applied to the capped dataset. | T5 was evaluated using the USE dataset. | USE dataset is mentioned as being used in the quality enhancement pipeline.",
+    "paper_id": "86"
+  },
+  {
+    "section": "vevaluation7",
+    "path": {
+      "section": "vevaluation7",
+      "start_entity": "DataReduction",
+      "end_entity": "TargetSummary",
+      "hops": [
+        {
+          "from": "DataReduction",
+          "relation": "improves",
+          "to": "SummaryQualityEvaluation",
+          "context": "maintaining the same score while reducing the dataset size is promising, as data reduction typically degrades performance.",
+          "chunk": "16"
+        },
+        {
+          "from": "SummaryQualityEvaluation",
+          "relation": "evaluatedOn",
+          "to": "GeneratedSummaries",
+          "context": "To further evaluate summary quality, we analyzed 100 randomly selected instances.",
+          "chunk": "16"
+        },
+        {
+          "from": "GeneratedSummaries",
+          "relation": "alignedWith",
+          "to": "TargetSummary",
+          "context": "Additionally, the generated summaries were better aligned with target summaries in content and maintained a consistent length.",
+          "chunk": "16"
+        }
+      ]
+    },
+    "question": "How does data reduction impact the relationship between generated summaries and target summaries in terms of summary quality evaluation?",
+    "options": {
+      "A": "Data reduction diminishes the relevance of summary quality evaluation, causing a misalignment between generated and target summaries.",
+      "B": "Data reduction improves summary quality evaluation, leading to better alignment between generated and target summaries.",
+      "C": "Data reduction increases the length variability between generated and target summaries, despite maintaining quality scores.",
+      "D": "Data reduction has no effect on the alignment between generated and target summaries, and quality evaluations remain unchanged."
+    },
+    "correct_answer": "B",
+    "explanation": "The question's correct answer is derived by following the knowledge graph path: Data reduction improves Summary Quality Evaluation, which is evaluated on Generated Summaries, and these summaries are better aligned with the Target Summary. The context confirms that despite data reduction, which typically degrades performance, the generated summaries maintained a consistent length and better alignment with target summaries, indicating an improvement in summary quality evaluation.",
+    "path_description": "Path: DataReduction --[improves]--> SummaryQualityEvaluation --[evaluatedOn]--> GeneratedSummaries --[alignedWith]--> TargetSummary",
+    "context": "maintaining the same score while reducing the dataset size is promising, as data reduction typically degrades performance. | To further evaluate summary quality, we analyzed 100 randomly selected instances. | Additionally, the generated summaries were better aligned with target summaries in content and maintained a consistent length.",
+    "paper_id": "86"
+  },
+  {
+    "section": "vevaluation7",
+    "path": {
+      "section": "vevaluation7",
+      "start_entity": "DataReduction",
+      "end_entity": "CrossSiteScripting",
+      "hops": [
+        {
+          "from": "DataReduction",
+          "relation": "improves",
+          "to": "SummaryQualityEvaluation",
+          "context": "maintaining the same score while reducing the dataset size is promising, as data reduction typically degrades performance.",
+          "chunk": "16"
+        },
+        {
+          "from": "SummaryQualityEvaluation",
+          "relation": "evaluatedOn",
+          "to": "GeneratedSummaries",
+          "context": "To further evaluate summary quality, we analyzed 100 randomly selected instances.",
+          "chunk": "16"
+        },
+        {
+          "from": "GeneratedSummaries",
+          "relation": "uses",
+          "to": "CrossSiteScripting",
+          "context": "the target summary included XSS, but the generated summary uses cross-site scripting (XSS).",
+          "chunk": "16"
+        }
+      ]
+    },
+    "question": "How does data reduction impact the evaluation of summary quality in scenarios where the content involves security threats, specifically XSS?",
+    "options": {
+      "A": "Data reduction results in a complete transformation of summary content, often omitting critical information like XSS.",
+      "B": "Data reduction maintains the same evaluation score despite a reduced dataset size, which is significant given the usual performance degradation.",
+      "C": "Data reduction significantly enhances the performance of the summary quality evaluation by expanding the dataset size.",
+      "D": "Data reduction has no impact on summary quality evaluation and is generally not used in scenarios involving security content."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A because the paper notes that maintaining the same score while reducing the dataset size is promising, indicating that the performance does not degrade as might be typically expected. Options B, C, and D are incorrect as they either misrepresent the effects of data reduction or misunderstand its impact on summary quality evaluation within the context of security threats like XSS.",
+    "path_description": "Path: DataReduction --[improves]--> SummaryQualityEvaluation --[evaluatedOn]--> GeneratedSummaries --[uses]--> CrossSiteScripting",
+    "context": "maintaining the same score while reducing the dataset size is promising, as data reduction typically degrades performance. | To further evaluate summary quality, we analyzed 100 randomly selected instances. | the target summary included XSS, but the generated summary uses cross-site scripting (XSS).",
+    "paper_id": "86"
+  }
+]

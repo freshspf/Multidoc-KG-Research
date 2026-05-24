@@ -1,0 +1,72 @@
+[
+  {
+    "id": "introduction",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Introduction",
+      "page_start": 1,
+      "page_end": 1
+    },
+    "text": "v\nThe advent of quantum computing poses significant threats\n8\nto traditional cryptographic methods,  such as RSA (Rivest,\n3\n9 Shamir, Adleman) and ECC (Elliptic Curve Cryptography) [1],\n7 [2]. At  the same time, centralized data storage models are\n0 increasingly vulnerable to breaches and misuse. The system\n.\n4 architecture presented in this paper addresses these challenges\n0 by integrating quantum-resistant cryptographic primitives with\n5\nblockchain technology.\n2\n:  Blockchain is a decentralized, append-only ledger main-\nv tained by a network of nodes, where each block of data is\ni\ncryptographically linked to the previous one. This structure\nX\nr ensures transparency, immutability, and resistance to tamper-\na ing—making it ideal for secure and verifiable record-keeping.\nUsing  CRYSTALS-Kyber  and  CRYSTALS-Dilithium\nfuture-proofs  encryption against  quantum adversaries  and\nensures  data  integrity  through  robust  digital  signatures.\nMoreover,  the  immutable blockchain  ledger  guarantees  a\ntamper-evident record of all file transactions, enhancing both\nsecurity and regulatory compliance [3], [4].\nThe  emergence  of  quantum computers  represents  a\nparadigm shift  in computational  capability that  creates an\nurgent security challenge for data protection. Although large-\nscale quantum computers do not yet exist, adversaries may\nimplement a “harvest now, decrypt later” strategy, collecting\ncurrently encrypted data to decode when quantum computing\nbecomes more accessible [2]. This threat particularly affects\n\nm-Resistant File Transfer\nchain Audit Trail\nMasudul H Imtiaz\nDept. of Electrical and Computer Engineering\nClarkson univeristy\nPotsdam, NY, USA\nmimtiaz@clarkson.edu\npublic-key cryptographic systems like RSA and ECC, which\nrely on mathematical problems that quantum algorithms can\nsolve efficiently. Shor’s algorithm [7],  [8],  for instance, can\nfactor large numbers and solve discrete logarithm problems\nin minimal time, effectively breaking these widely deployed\ncryptographic systems. As nations and corporations  invest\nbillions  in quantum computing  research,  the  timeline  for\npractical quantum computers capable of breaking current en-\ncryption standards continues to accelerate, creating urgency\nfor quantum-resistant solutions.\nTraditional centralized storage models compound these vul-\nnerabilities by concentrating data under single-authority con-\ntrol, limiting user autonomy over access patterns and privacy.\nWhen users upload data to conventional cloud services, they\nsurrender direct control and must  trust providers to enforce\naccess policies correctly. This concentration creates both secu-\nrity and compliance challenges, particularly as regulations like\nGDPR (General Data Protection Regulation) and CCPA (Cali-\nfornia Consumer Privacy Act) emphasize data sovereignty and\ntransparency. Furthermore, centralized architecture presents a\nsingle point of failure that, when compromised, can lead to\nmassive data breaches affecting millions of users. The research\naddresses these dual challenges by combining post-quantum\ncryptography with blockchain technology to create a secure,\nauditable, and user-centric data storage solution.\nRecently, the National Institute of Standards and Technol-\nogy (NIST) has led standardization efforts for post-quantum\ncryptographic algorithms, selecting CRYSTALS-Kyber for key\nencapsulation and CRYSTALS-Dilithium for digital signatures\n[1]. These lattice-based algorithms derive security from mathe-\nmatical problems presumed difficult even for quantum comput-\ners. The architecture incorporates these NIST-standardized al-\ngorithms to ensure long-term data confidentiality and integrity\nagainst both classical and quantum adversaries. By integrating\nthese algorithms with blockchain technology for  immutable\naudit trails, the system offers a comprehensive security frame-\nwork that addresses both present and future threats to sensitive\ndata while enhancing regulatory compliance through transpar-\nent, verifiable records of all data transactions.\nThe following sections of the paper present the condensed\nsystem architecture for a quantum-resistant file transfer sys-\ntem with blockchain audit trails. Following this introduction,"
+  },
+  {
+    "id": "systemarchitecture",
+    "metadata": {
+      "lang": "en",
+      "section_title": "System Architecture",
+      "page_start": 2,
+      "page_end": 2
+    },
+    "text": "The proposed system is divided into three primary mod-\nules: the Sender,  the User Storage with Blockchain, and the\nRequestor. The architecture is designed to ensure secure file\ntransmission, decentralized storage, and auditability.\nA. High-Level Overview of the 3-System Design\nFigure 1 provides a high-level overview of the three-system\ndesign. The figure illustrates the interactions among the three\nkey components:\n• Sender Module: Initiates secure file transfers by encrypt-\ning files with CRYSTALS-Kyber and signing them with\nCRYSTALS-Dilithium. Metadata such as timestamps and\nsender  identifiers are attached to each file  to support\nsubsequent verification.\n• User Storage and Blockchain Module: Acts as  the\ncentral hub for processing incoming files.  It decrypts\nfiles for verification, re-encrypts them using a centralized\nroot key for secure storage, and logs each transaction on\nan immutable blockchain ledger. This logging captures\ncritical details like sender ID, file name, timestamps, and\ntransaction status, ensuring a verifiable audit trail.\n• Requestor Module: Facilitates authenticated file retrieval\nby verifying digital  signatures and re-encrypting files\nwith  the Requestor’s public key before  transmission.\nThe module also provides a user-friendly interface for\nmanaging downloads and viewing file metadata.\nThis modular design supports scalability and robustness by\ndecoupling core functionalities while maintaining secure in-\nteractions across all components.\nB. Sender Module\nThe Sender module is tasked with preparing files for secure\ntransmission. Its core functionalities include:\n• Encryption:  Files  are  encrypted using CRYSTALS-\nKyber, a lattice-based algorithm that provides quantum\nresistance.\n• Digital Signing: Each file is signed using CRYSTALS-\nDilithium to ensure authenticity and non-repudiation.\n• Metadata Attachment: Essential metadata (e.g., times-\ntamps, sender IDs) is appended to the encrypted package\nto support later verification.\nThese processes ensure that  transmitted data remains confi-\ndential and verifiable.\n\nC. User Storage and Blockchain Module\nCentral  to the system is the User Storage module, which\nfunctions as a secure hub for both file management and audit\nlogging. Its key responsibilities include:\n• Decryption and Re-encryption: Files  received from\nthe Sender are decrypted and then re-encrypted using\na centralized root key,  ensuring uniform protection in\nstorage.\n• Blockchain Logging: Each file transaction is immutably\nrecorded on a blockchain ledger. The ledger stores key\ndetails such as the sender ID, file name, timestamp, and\nstatus, creating a verifiable audit trail [3], [4].\n• Key Management: The module manages the generation,\nrotation, and secure storage of quantum-resistant keys,\nthereby maintaining long-term system security.\nFigure 2 shows pseudocode outlining the blockchain logging\nprocess for sender transactions.\nFigure 3 depicts the detailed data flow for sender transac-\ntions processed by the User Storage module.\nD. Requestor Module\nThe Requestor module provides secure access to stored files\nfor authenticated users. Its operations include:\n• Authentication: Each request is authenticated using dig-\nital signatures, ensuring that only legitimate users can\ninitiate file retrieval.\n• Re-encryption for Secure Transfer: Upon verification,\nthe User Storage module re-encrypts the requested file\nwith the Requestor’s public key, thereby safeguarding the\nfile during transmission.\n• User Interface Management: A web-based interface\nallows users to view file metadata,  track requests, and\nmanage downloads.\nFigure 4 illustrates the data flow for file retrieval handled\nby the User Storage module."
+  },
+  {
+    "id": "implementationandperformanceinsights",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Implementation and Performance Insights",
+      "page_start": 2,
+      "page_end": 3
+    },
+    "text": "The practical  implementation of  the system is designed\nwith cross-platform compatibility in mind. The Sender module\nis implemented as a Python web application leveraging the\nliboqs library for quantum-resistant cryptographic opera-\ntions. The User Storage module is built on the Django frame-\nwork with containerized deployment using Docker, ensuring\nconsistent  runtime behavior across Windows, macOS,  and\nLinux environments. Experimental evaluations were performed\non a single-core x86 system with 16 GB of RAM. Files\nranging from 1 KB to 2 GB were processed in both PQC In-\nMemory and file-based modes. Benchmarking tests revealed\nthat while the file-based approach incurs a modest  latency\nincrease (e.g., 3.8 seconds for a 2GB file)  6, the In-Memory\napproach achieves nearly identical performance to traditional\nAES encryption (1.3 seconds versus 1.2 seconds for 2GB\nfiles)  [5],  [6]. These findings highlight  the  feasibility of\ndeploying post-quantum algorithms in practical, low-resource\nenvironments,  7 highlights RAM utilization of PQFE and\n\nFig. 1. High-level system architecture showing interactions among\nIF HTTPS transaction received:\nExtract {encrypted_file, ciphertext\nIF sender is recognized:\nRetrieve corresponding private\ndecrypted_file = Decrypt(encry\nVERIFY digital_signature using\nreencrypted_file = Encrypt(dec\nUpdate blockchain with {sender\nStore file on disk as \"<sender\nFig. 2.  Pseudocode outlining the blockcha\nFig. 3. Data flow for sender transactions\n\nthe Sender, User Storage with Blockchain, and Requestor modules.\n, digital_signature} from Sender\n_key\npted_file, private_key)\nDilithium\nrypted_file, internal_root_key)\n_id, file_name, timestamp, status}\n_id>_<file_name>.<ext>\"\nin logging process for sender transactions.\nprocessed by the User Storage module."
+  },
+  {
+    "id": "securityconsiderations",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Security Considerations",
+      "page_start": 4,
+      "page_end": 4
+    },
+    "text": "The  integration of CRYSTALS-Kyber  and CRYSTALS-\nDilithium enhances data confidentiality and integrity against\nboth classical  and quantum adversaries  [1],  [2]. Addition-\nally, blockchain logging serves as an immutable audit  trail\nthat  records all file transactions,  facilitating rapid detection\n\nns handled by the User Storage module.\nfor the Requestor module.\nFig. 7.  Peak RAM Usage vs. File Size for PQFE File-Based, PQFE In-\nMemory, and AES\nof unauthorized modifications and ensuring compliance with\nregulatory requirements. The system’s modular design further\nsimplifies the implementation of advanced key management\ntechniques,  including key rotation and dynamic protocol ne-\ngotiation."
+  },
+  {
+    "id": "discussionandfuturework",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Discussion and Future Work",
+      "page_start": 4,
+      "page_end": 4
+    },
+    "text": "The presented architecture demonstrates a robust approach\nto secure file transfer  in a post-quantum era. Key benefits\ninclude:"
+  },
+  {
+    "id": "conclusion",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Conclusion",
+      "page_start": 5,
+      "page_end": 5
+    },
+    "text": "In conclusion,  this paper has presented a condensed yet\ncomprehensive system architecture for a quantum-resistant file\ntransfer system with blockchain audit  trails. By combining\nadvanced cryptographic techniques with decentralized storage\nprinciples,  the proposed design addresses both current and\nemerging security challenges. The experimental evaluations\naffirm that  the computational overhead introduced by post-\nquantum algorithms is manageable, paving the way for future\nresearch into hardware-accelerated solutions and multi-node\nblockchain scalability."
+  },
+  {
+    "id": "attribution",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Attribution",
+      "page_start": 5,
+      "page_end": 5
+    },
+    "text": "A.  Icons and Graphics\nThe icons used in the diagrams were downloaded from\nFlaticon:\n• https://support.flaticon.com/\n"
+  }
+]

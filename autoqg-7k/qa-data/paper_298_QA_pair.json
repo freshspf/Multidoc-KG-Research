@@ -1,0 +1,88 @@
+[
+  {
+    "section": "d2xchainarchitecture",
+    "path": {
+      "section": "d2xchainarchitecture",
+      "start_entity": "ServiceValidator",
+      "end_entity": "Ledger",
+      "hops": [
+        {
+          "from": "ServiceValidator",
+          "relation": "adds",
+          "to": "Block",
+          "context": "add them to the D2XChain ledger as blocks",
+          "chunk": "3"
+        },
+        {
+          "from": "Block",
+          "relation": "partOf",
+          "to": "D2XChainLedger",
+          "context": "A ratified transaction becomes a block in the D2XChain ledger",
+          "chunk": "3"
+        },
+        {
+          "from": "D2XChainLedger",
+          "relation": "type",
+          "to": "Ledger",
+          "context": "add them to the D2XChain ledger as blocks",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the D2XChain architecture, what role does the ServiceValidator primarily play in terms of the ledger?",
+    "options": {
+      "A": "ServiceValidator audits the content of blocks but does not add them to the D2XChainLedger.",
+      "B": "ServiceValidator removes blocks from the D2XChainLedger to maintain its efficiency and performance.",
+      "C": "ServiceValidator modifies the existing blocks within the D2XChainLedger, enhancing the security of the ledger.",
+      "D": "ServiceValidator adds blocks that are essential parts of the D2XChainLedger, classified as a type of ledger."
+    },
+    "correct_answer": "D",
+    "explanation": "The ServiceValidator's role is to add transactions that are ratified into blocks directly to the D2XChainLedger, which forms part of the overarching ledger structure. The other options incorrectly describe the ServiceValidator's interaction with blocks in the D2XChainLedger.",
+    "path_description": "Path: ServiceValidator --[adds]--> Block --[partOf]--> D2XChainLedger --[type]--> Ledger",
+    "context": "add them to the D2XChain ledger as blocks | A ratified transaction becomes a block in the D2XChain ledger | add them to the D2XChain ledger as blocks",
+    "paper_id": "757"
+  },
+  {
+    "section": "d2xchainarchitecture",
+    "path": {
+      "section": "d2xchainarchitecture",
+      "start_entity": "ServiceValidator",
+      "end_entity": "Component",
+      "hops": [
+        {
+          "from": "ServiceValidator",
+          "relation": "processes",
+          "to": "CertificateRequest",
+          "context": "processed by service validators",
+          "chunk": "3"
+        },
+        {
+          "from": "CertificateRequest",
+          "relation": "placedIn",
+          "to": "PendingTransactionsPool",
+          "context": "placed in the pending transactions pool",
+          "chunk": "3"
+        },
+        {
+          "from": "PendingTransactionsPool",
+          "relation": "type",
+          "to": "Component",
+          "context": "placed in the pending transactions pool",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the d2xchainarchitecture, what is the role of the ServiceValidator in relation to the PendingTransactionsPool?",
+    "options": {
+      "A": "ServiceValidator processes CertificateRequests that are then placed in the PendingTransactionsPool as a type of Component.",
+      "B": "ServiceValidator retrieves Components from the PendingTransactionsPool to process CertificateRequests.",
+      "C": "ServiceValidator directly inserts various types of Components into the PendingTransactionsPool without processing.",
+      "D": "ServiceValidator audits the PendingTransactionsPool to ensure all Components are validated before processing."
+    },
+    "correct_answer": "A",
+    "explanation": "According to the knowledge path, the ServiceValidator processes CertificateRequests which are then placed in the PendingTransactionsPool, and these requests are considered a type of Component within the pool. Options B, C, and D misrepresent the flow and roles described in the path.",
+    "path_description": "Path: ServiceValidator --[processes]--> CertificateRequest --[placedIn]--> PendingTransactionsPool --[type]--> Component",
+    "context": "processed by service validators | placed in the pending transactions pool | placed in the pending transactions pool",
+    "paper_id": "757"
+  }
+]

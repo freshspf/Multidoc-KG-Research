@@ -1,0 +1,45 @@
+[
+  {
+    "section": "detailedexperimentalresults1",
+    "path": {
+      "section": "detailedexperimentalresults1",
+      "start_entity": "BlockFound",
+      "end_entity": "Dataset",
+      "hops": [
+        {
+          "from": "BlockFound",
+          "relation": "uses",
+          "to": "ModelM",
+          "context": "Train the model M to minimize the loss function",
+          "chunk": "12"
+        },
+        {
+          "from": "ModelM",
+          "relation": "trainedOn",
+          "to": "BenignTransactions",
+          "context": "for each transaction Di ∈ D do Tokenize Di using T",
+          "chunk": "12"
+        },
+        {
+          "from": "BenignTransactions",
+          "relation": "type",
+          "to": "Dataset",
+          "context": "Input: Benign transactions D = {D1, ..., DN}",
+          "chunk": "12"
+        }
+      ]
+    },
+    "question": "In the process of training Model M to minimize the loss function, which dataset type is primarily used for this purpose?",
+    "options": {
+      "A": "Model M is trained exclusively on datasets containing only fraudulent transactions to identify common patterns.",
+      "B": "Model M is trained primarily on a dataset consisting of benign transactions to improve detection accuracy.",
+      "C": "The training involves a mixed dataset of both benign and fraudulent transactions for balanced learning.",
+      "D": "Model M uses a dataset of system logs to understand transaction behaviors and characteristics."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A, as the knowledge path indicates that Model M is trained on Benign Transactions, which are a type of dataset. The question and the context provided from the paper section 'detailedexperimentalresults1' specifically mention that the input for training consists of benign transactions, aligning perfectly with the knowledge path from the graph.",
+    "path_description": "Path: BlockFound --[uses]--> ModelM --[trainedOn]--> BenignTransactions --[type]--> Dataset",
+    "context": "Train the model M to minimize the loss function | for each transaction Di ∈ D do Tokenize Di using T | Input: Benign transactions D = {D1, ..., DN}",
+    "paper_id": "1042"
+  }
+]

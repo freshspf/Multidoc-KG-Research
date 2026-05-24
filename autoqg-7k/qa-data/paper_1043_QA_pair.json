@@ -1,0 +1,217 @@
+[
+  {
+    "section": "modelingoftherobotdynamics2",
+    "path": {
+      "section": "modelingoftherobotdynamics2",
+      "start_entity": "FaultyDynamicsModel",
+      "end_entity": "Variable",
+      "hops": [
+        {
+          "from": "FaultyDynamicsModel",
+          "relation": "comparedWith",
+          "to": "StateSpaceModel",
+          "context": "Moreover, to observe how the healthy dynamics of the robot is affected by the broken belt fault, the faulty model is introduced",
+          "chunk": "2"
+        },
+        {
+          "from": "StateSpaceModel",
+          "relation": "uses",
+          "to": "StateVector",
+          "context": "we can write the state space model as follows: x˙ = fh(x, τm)",
+          "chunk": "2"
+        },
+        {
+          "from": "StateVector",
+          "relation": "type",
+          "to": "Variable",
+          "context": "Define the state vector x = [x1 x2 x3 x4] := [θm θa θm θa]",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the context of comparing a faulty dynamics model with a state space model to observe the impact of a robot's broken belt fault, what type of variable primarily constitutes the state vector?",
+    "options": {
+      "A": "The state vector predominantly includes force measurements, indicated as [fm fa fm fa].",
+      "B": "The state vector is mainly made up of linear velocities, represented as [vm va vm va].",
+      "C": "The state vector consists mostly of acceleration readings, shown as [am aa am aa].",
+      "D": "The state vector is primarily composed of angular positions, denoted as [θm θa θm θa]."
+    },
+    "correct_answer": "D",
+    "explanation": "The state vector x, as defined in the state space model in the paper, consists of [x1 x2 x3 x4] := [θm θa θm θa], where θm and θa denote angular positions. This implies that the variables in the state vector are related to angular positions, making option A the correct answer.",
+    "path_description": "Path: FaultyDynamicsModel --[comparedWith]--> StateSpaceModel --[uses]--> StateVector --[type]--> Variable",
+    "context": "Moreover, to observe how the healthy dynamics of the robot is affected by the broken belt fault, the faulty model is introduced | we can write the state space model as follows: x˙ = fh(x, τm) | Define the state vector x = [x1 x2 x3 x4] := [θm θa θm θa]",
+    "paper_id": "931"
+  },
+  {
+    "section": "modelbasedfaultestimation2",
+    "path": {
+      "section": "modelbasedfaultestimation2",
+      "start_entity": "FaultEstimatorSynthesis",
+      "end_entity": "FaultScenario",
+      "hops": [
+        {
+          "from": "FaultEstimatorSynthesis",
+          "relation": "addresses",
+          "to": "FaultEstimator",
+          "context": "Problem 1 (Fault Estimator Synthesis) Consider the faulty WH system dynamics...",
+          "chunk": "4"
+        },
+        {
+          "from": "FaultEstimator",
+          "relation": "appliedTo",
+          "to": "BrokenBelt",
+          "context": "The fault estimator is applied to both the broken belt and tilt fault scenarios.",
+          "chunk": "4"
+        },
+        {
+          "from": "BrokenBelt",
+          "relation": "type",
+          "to": "FaultScenario",
+          "context": "The fault estimator is applied to both the broken belt and tilt fault scenarios.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the context of fault estimator synthesis, which scenario is NOT directly addressed when applying a fault estimator designed to handle a broken belt fault scenario?",
+    "options": {
+      "A": "A tilt fault scenario, where the system's angle deviates from its normal operational range.",
+      "B": "A temperature fault scenario, where the system's operational temperature exceeds safe limits.",
+      "C": "An electrical fault scenario, where there is a disruption in the system's electrical circuitry.",
+      "D": "A vibration fault scenario, where abnormal vibrations are detected within the system."
+    },
+    "correct_answer": "B",
+    "explanation": "The fault estimator specifically addresses the broken belt and tilt fault scenarios. Temperature and electrical faults are not mentioned in the context, making the temperature fault scenario the correct choice as it is not directly addressed by the fault estimator designed for broken belt scenarios.",
+    "path_description": "Path: FaultEstimatorSynthesis --[addresses]--> FaultEstimator --[appliedTo]--> BrokenBelt --[type]--> FaultScenario",
+    "context": "Problem 1 (Fault Estimator Synthesis) Consider the faulty WH system dynamics... | The fault estimator is applied to both the broken belt and tilt fault scenarios. | The fault estimator is applied to both the broken belt and tilt fault scenarios.",
+    "paper_id": "931"
+  },
+  {
+    "section": "modelbasedfaultestimation3",
+    "path": {
+      "section": "modelbasedfaultestimation3",
+      "start_entity": "HealthyModel",
+      "end_entity": "State",
+      "hops": [
+        {
+          "from": "HealthyModel",
+          "relation": "switchesTo",
+          "to": "FaultyModel",
+          "context": "For a broken belt, we switch from the healthy model to a faulty model with a higher dimension.",
+          "chunk": "5"
+        },
+        {
+          "from": "FaultyModel",
+          "relation": "hasAdditionalState",
+          "to": "EndEffectorPosition",
+          "context": "The additional states of the faulty model, corresponding to the position and velocity of the end effector (i.e., θ and θ˙, respectively).",
+          "chunk": "5"
+        },
+        {
+          "from": "EndEffectorPosition",
+          "relation": "type",
+          "to": "State",
+          "context": "The additional states of the faulty model, corresponding to the position and velocity of the end effector (i.e., θ and θ˙, respectively).",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the context of model-based fault estimation for a broken belt, how does the transition from a healthy model to a faulty model impact the system's state representation?",
+    "options": {
+      "A": "The transition does not change the state dimensions but alters the parameter values within the existing states.",
+      "B": "The transition modifies the healthy model to exclude any states related to the end effector, focusing on central machine dynamics.",
+      "C": "The transition introduces additional states related to the end effector's position and velocity, thereby increasing the system's state dimension.",
+      "D": "The transition reduces the system's state dimension by simplifying the model to focus only on the end effector's position."
+    },
+    "correct_answer": "C",
+    "explanation": "The transition from a healthy model to a faulty model due to a broken belt involves the introduction of additional states. These states specifically correspond to the position and velocity of the end effector (θ and θ˙, respectively). This addition of states increases the dimensionality of the system's state representation, making option A the correct answer.",
+    "path_description": "Path: HealthyModel --[switchesTo]--> FaultyModel --[hasAdditionalState]--> EndEffectorPosition --[type]--> State",
+    "context": "For a broken belt, we switch from the healthy model to a faulty model with a higher dimension. | The additional states of the faulty model, corresponding to the position and velocity of the end effector (i.e., θ and θ˙, respectively). | The additional states of the faulty model, corresponding to the position and velocity of the end effector (i.e., θ and θ˙, respectively).",
+    "paper_id": "931"
+  },
+  {
+    "section": "modelbasedfaultestimation3",
+    "path": {
+      "section": "modelbasedfaultestimation3",
+      "start_entity": "MeasurementNoise",
+      "end_entity": "Figure",
+      "hops": [
+        {
+          "from": "MeasurementNoise",
+          "relation": "affects",
+          "to": "FaultEstimation",
+          "context": "The results for fault estimation with measurement noise for a broken belt are depicted in Figure 7.",
+          "chunk": "5"
+        },
+        {
+          "from": "FaultEstimation",
+          "relation": "evaluatedIn",
+          "to": "Figure9",
+          "context": "When including measurement noise into the simulation, similar estimation performance can be noticed, see Figure 9.",
+          "chunk": "5"
+        },
+        {
+          "from": "Figure9",
+          "relation": "type",
+          "to": "Figure",
+          "context": "When including measurement noise into the simulation, similar estimation performance can be noticed, see Figure 9.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the context of model-based fault estimation, how does the inclusion of measurement noise affect the estimation performance for a broken belt system as evaluated in Figure 9?",
+    "options": {
+      "A": "Measurement noise significantly improves the estimation performance by reducing error margins in the simulation.",
+      "B": "The inclusion of measurement noise maintains a similar estimation performance compared to scenarios without it.",
+      "C": "Measurement noise eliminates the possibility of estimating faults, as shown in the results of Figure 9.",
+      "D": "The inclusion of measurement noise drastically worsens the estimation performance, making it unreliable."
+    },
+    "correct_answer": "B",
+    "explanation": "According to the context provided, when measurement noise is included in the simulation for fault estimation of a broken belt, the performance remains similar to that without noise. This is depicted and evaluated in Figure 9, confirming that measurement noise does not significantly alter estimation performance.",
+    "path_description": "Path: MeasurementNoise --[affects]--> FaultEstimation --[evaluatedIn]--> Figure9 --[type]--> Figure",
+    "context": "The results for fault estimation with measurement noise for a broken belt are depicted in Figure 7. | When including measurement noise into the simulation, similar estimation performance can be noticed, see Figure 9. | When including measurement noise into the simulation, similar estimation performance can be noticed, see Figure 9.",
+    "paper_id": "931"
+  },
+  {
+    "section": "conclusion",
+    "path": {
+      "section": "conclusion",
+      "start_entity": "HybridFDIEScheme",
+      "end_entity": "Algorithm",
+      "hops": [
+        {
+          "from": "HybridFDIEScheme",
+          "relation": "proposes",
+          "to": "DataDrivenComponent",
+          "context": "Subsequently, this fault estimate is used by the data-driven part of the FDIE scheme.",
+          "chunk": "8"
+        },
+        {
+          "from": "DataDrivenComponent",
+          "relation": "uses",
+          "to": "SupportVectorMachine",
+          "context": "Hereto, a support vector machine (SVM) is proposed.",
+          "chunk": "8"
+        },
+        {
+          "from": "SupportVectorMachine",
+          "relation": "type",
+          "to": "Algorithm",
+          "context": "Hereto, a support vector machine (SVM) is proposed.",
+          "chunk": "8"
+        }
+      ]
+    },
+    "question": "In the context of the Hybrid FDIE Scheme, how does the Data-Driven Component contribute to fault diagnosis?",
+    "options": {
+      "A": "It employs a Bayesian Network to calculate the probability of various faults occurring within the system.",
+      "B": "It utilizes a Support Vector Machine (SVM) algorithm to estimate faults based on data-driven analysis.",
+      "C": "It uses a Neural Network to continuously learn and adapt to new fault patterns detected in the system.",
+      "D": "It applies a Genetic Algorithm to optimize the fault detection process based on evolutionary principles."
+    },
+    "correct_answer": "B",
+    "explanation": "The Data-Driven Component of the Hybrid FDIE Scheme uses a Support Vector Machine (SVM), which is a type of algorithm, to estimate faults. This is directly stated in the context, where an SVM is proposed for use in the data-driven part of the FDIE scheme.",
+    "path_description": "Path: HybridFDIEScheme --[proposes]--> DataDrivenComponent --[uses]--> SupportVectorMachine --[type]--> Algorithm",
+    "context": "Subsequently, this fault estimate is used by the data-driven part of the FDIE scheme. | Hereto, a support vector machine (SVM) is proposed. | Hereto, a support vector machine (SVM) is proposed.",
+    "paper_id": "931"
+  }
+]

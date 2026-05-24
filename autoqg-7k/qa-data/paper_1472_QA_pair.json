@@ -1,0 +1,88 @@
+[
+  {
+    "section": "agingmechanismsinintegratedcircuits3",
+    "path": {
+      "section": "agingmechanismsinintegratedcircuits3",
+      "start_entity": "AppliedElectricField",
+      "end_entity": "HardBreakdown",
+      "hops": [
+        {
+          "from": "AppliedElectricField",
+          "relation": "primaryFactorIn",
+          "to": "DefectGeneration",
+          "context": "The primary factors accelerating TDDB in MOSFETs are the applied electric field, temperature, and defects in the material. The applied electric field is the primary factor in defect or trap generation.",
+          "chunk": "5"
+        },
+        {
+          "from": "DefectGeneration",
+          "relation": "leadsTo",
+          "to": "SoftBreakdown",
+          "context": "The gradual accumulation of defects leads to a conductive percolation path connecting the gate and substrate. This creates a continuous conduction channel that increases leakage current and reduces the device’s switching speed.",
+          "chunk": "5"
+        },
+        {
+          "from": "SoftBreakdown",
+          "relation": "leadsTo",
+          "to": "HardBreakdown",
+          "context": "The elevated temperature due to the leakage current results in the formation of additional traps, creating a wider and less resistant path. This leads to the increased gate current, resulting in thermal runaway that entirely breaks the dielectric layer.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In MOSFETs, how does the applied electric field primarily contribute to the failure mechanism known as hard breakdown?",
+    "options": {
+      "A": "The applied electric field increases the device's switching speed, which indirectly leads to hard breakdown.",
+      "B": "The applied electric field generates defects, leading to soft breakdown and subsequently causing hard breakdown.",
+      "C": "The applied electric field decreases the overall temperature of the device, preventing hard breakdown.",
+      "D": "The applied electric field directly causes hard breakdown by immediately deteriorating the dielectric layer."
+    },
+    "correct_answer": "B",
+    "explanation": "The applied electric field in MOSFETs primarily contributes to hard breakdown by first generating defects in the device's material. These defects gradually accumulate, leading to soft breakdown by forming a conductive percolation path that increases leakage current. As the situation progresses, this eventually culminates in hard breakdown, characterized by the complete failure of the dielectric layer.",
+    "path_description": "Path: AppliedElectricField --[primaryFactorIn]--> DefectGeneration --[leadsTo]--> SoftBreakdown --[leadsTo]--> HardBreakdown",
+    "context": "The primary factors accelerating TDDB in MOSFETs are the applied electric field, temperature, and defects in the material. The applied electric field is the primary factor in defect or trap generation. | The gradual accumulation of defects leads to a conductive percolation path connecting the gate and substrate. This creates a continuous conduction channel that increases leakage current and reduces the device’s switching speed. | The elevated temperature due to the leakage current results in the formation of additional traps, creating a wider and less resistant path. This leads to the increased gate current, resulting in thermal runaway that entirely breaks the dielectric layer.",
+    "paper_id": "454"
+  },
+  {
+    "section": "challengesandfuturedirections",
+    "path": {
+      "section": "challengesandfuturedirections",
+      "start_entity": "ICs",
+      "end_entity": "TDDB",
+      "hops": [
+        {
+          "from": "ICs",
+          "relation": "encounter",
+          "to": "ReliabilityIssues",
+          "context": "ICs encounter increasing reliability issues stemming from complex interactions among aging mechanisms...",
+          "chunk": "18"
+        },
+        {
+          "from": "ReliabilityIssues",
+          "relation": "stemFrom",
+          "to": "ComplexInteractions",
+          "context": "ICs encounter increasing reliability issues stemming from complex interactions among aging mechanisms...",
+          "chunk": "18"
+        },
+        {
+          "from": "ComplexInteractions",
+          "relation": "include",
+          "to": "TDDB",
+          "context": "interactions among aging mechanisms, including BTI, HCI, TDDB and EM.",
+          "chunk": "18"
+        }
+      ]
+    },
+    "question": "In integrated circuits (ICs), which aging mechanism involved in complex interactions specifically contributes to reliability issues through time-dependent dielectric breakdown (TDDB)?",
+    "options": {
+      "A": "Hot Carrier Injection (HCI) causes immediate transistor performance degradation.",
+      "B": "Time-dependent Dielectric Breakdown (TDDB) directly leads to dielectric failure.",
+      "C": "Bias Temperature Instability (BTI) contributes by accelerating dielectric wear-out.",
+      "D": "Electromigration (EM) primarily affects metal line conductivity and integrity."
+    },
+    "correct_answer": "B",
+    "explanation": "The question follows the knowledge path from ICs encountering reliability issues due to complex interactions among aging mechanisms, specifically focusing on TDDB. TDDB, or Time-dependent Dielectric Breakdown, is the correct answer as it directly describes the process where dielectric materials in ICs break down over time, impacting reliability. The other mechanisms mentioned (BTI, HCI, and EM) also contribute to aging and reliability issues but do not specifically relate to dielectric breakdown as described in the provided context.",
+    "path_description": "Path: ICs --[encounter]--> ReliabilityIssues --[stemFrom]--> ComplexInteractions --[include]--> TDDB",
+    "context": "ICs encounter increasing reliability issues stemming from complex interactions among aging mechanisms... | ICs encounter increasing reliability issues stemming from complex interactions among aging mechanisms... | interactions among aging mechanisms, including BTI, HCI, TDDB and EM.",
+    "paper_id": "454"
+  }
+]

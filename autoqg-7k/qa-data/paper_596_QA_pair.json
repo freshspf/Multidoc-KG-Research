@@ -1,0 +1,45 @@
+[
+  {
+    "section": "ourmodel1",
+    "path": {
+      "section": "ourmodel1",
+      "start_entity": "Validation_Server",
+      "end_entity": "Server",
+      "hops": [
+        {
+          "from": "Validation_Server",
+          "relation": "validates",
+          "to": "Global_Model",
+          "context": "During the validation procedure, an IDLE parameter server, which has finished its current epoch training and is waiting for other parameter servers, will be assigned as the validating parameter server",
+          "chunk": "5"
+        },
+        {
+          "from": "Global_Model",
+          "relation": "aggregatedBy",
+          "to": "Validation_Server",
+          "context": "the validation server aggregates a new global model by averaging the top-𝐾 best local models",
+          "chunk": "5"
+        },
+        {
+          "from": "Validation_Server",
+          "relation": "type",
+          "to": "Server",
+          "context": "During the validation procedure, an IDLE parameter server, which has finished its current epoch training and is waiting for other parameter servers, will be assigned as the validating parameter server",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the context of distributed machine learning, what role does the validation server play during the model validation procedure after completing the aggregation of the global model?",
+    "options": {
+      "A": "The validation server aggregates a new global model by averaging the top-K best local models.",
+      "B": "The validation server distributes tasks of model validation to various external servers for efficiency.",
+      "C": "The validation server calculates the precision and recall for the new global model using external datasets.",
+      "D": "The validation server initiates a new round of training for all parameter servers involved."
+    },
+    "correct_answer": "A",
+    "explanation": "According to the provided context, during the validation procedure, an IDLE parameter server (assigned as the validating parameter server) aggregates a new global model by averaging the top-K best local models. This role involves integrating multiple local models to form a more robust global model, rather than calculating performance metrics, distributing tasks, or initiating new training rounds.",
+    "path_description": "Path: Validation_Server --[validates]--> Global_Model --[aggregatedBy]--> Validation_Server --[type]--> Server",
+    "context": "During the validation procedure, an IDLE parameter server, which has finished its current epoch training and is waiting for other parameter servers, will be assigned as the validating parameter server | the validation server aggregates a new global model by averaging the top-𝐾 best local models | During the validation procedure, an IDLE parameter server, which has finished its current epoch training and is waiting for other parameter servers, will be assigned as the validating parameter server",
+    "paper_id": "786"
+  }
+]

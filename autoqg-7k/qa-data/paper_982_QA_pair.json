@@ -1,0 +1,131 @@
+[
+  {
+    "section": "systemmodelandproblemdefinition1",
+    "path": {
+      "section": "systemmodelandproblemdefinition1",
+      "start_entity": "PipelineCompletionTime",
+      "end_entity": "ComputingModel",
+      "hops": [
+        {
+          "from": "PipelineCompletionTime",
+          "relation": "optimizedFor",
+          "to": "MobileDataProcessingPipeline",
+          "context": "Our goal is to optimize the average Pipeline Completion Time (PCT) by predicting the amount of resources required.",
+          "chunk": "3"
+        },
+        {
+          "from": "MobileDataProcessingPipeline",
+          "relation": "uses",
+          "to": "ServerlessComputingModel",
+          "context": "We utilize the serverless computing model, where the mobile data processing pipeline code is deployed.",
+          "chunk": "3"
+        },
+        {
+          "from": "ServerlessComputingModel",
+          "relation": "type",
+          "to": "ComputingModel",
+          "context": "We utilize the serverless computing model.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the context of optimizing the Pipeline Completion Time (PCT) for a mobile data processing pipeline, which computing model is utilized and why is it particularly suitable?",
+    "options": {
+      "A": "The cloud-based model is chosen for its extensive storage capacity, facilitating large data sets processing.",
+      "B": "A distributed computing model is utilized to enhance the processing speed by splitting tasks across multiple servers.",
+      "C": "A quantum computing model is deployed to leverage its superior processing power for complex data computations.",
+      "D": "The serverless computing model is used due to its ability to dynamically allocate resources based on demand, reducing idle times."
+    },
+    "correct_answer": "D",
+    "explanation": "The serverless computing model is specifically mentioned in the paper as being utilized due to its characteristic of dynamic resource allocation. This feature is suitable for optimizing Pipeline Completion Time (PCT) as it allows for resources to be allocated when needed, thus minimizing waste and improving efficiency.",
+    "path_description": "Path: PipelineCompletionTime --[optimizedFor]--> MobileDataProcessingPipeline --[uses]--> ServerlessComputingModel --[type]--> ComputingModel",
+    "context": "Our goal is to optimize the average Pipeline Completion Time (PCT) by predicting the amount of resources required. | We utilize the serverless computing model, where the mobile data processing pipeline code is deployed. | We utilize the serverless computing model.",
+    "paper_id": "685"
+  },
+  {
+    "section": "ourmethodology1",
+    "path": {
+      "section": "ourmethodology1",
+      "start_entity": "TIMBER",
+      "end_entity": "Software",
+      "hops": [
+        {
+          "from": "TIMBER",
+          "relation": "uses",
+          "to": "SequentialNeuralNetwork",
+          "context": "In TIMBER, we build a Sequential Neural network model for predicting the appropriate configuration for each one of the serverless functions.",
+          "chunk": "5"
+        },
+        {
+          "from": "SequentialNeuralNetwork",
+          "relation": "implementedIn",
+          "to": "Keras",
+          "context": "The Sequential model is the simplest neural network base model in Keras.",
+          "chunk": "5"
+        },
+        {
+          "from": "Keras",
+          "relation": "type",
+          "to": "Software",
+          "context": "The Sequential model is the simplest neural network base model in Keras.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the TIMBER methodology, what is the significance of using a Sequential Neural Network implemented in Keras for serverless functions configuration?",
+    "options": {
+      "A": "It enables the creation of complex multi-layer neural networks that require advanced programming skills.",
+      "B": "It supports direct integration with cloud services, thus optimizing real-time data processing.",
+      "C": "It allows for quick and efficient experimentation with different configurations due to the simplicity of model architecture.",
+      "D": "It provides a platform-independent framework that enhances security and data privacy in serverless computing."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A because the Sequential model in Keras, being the simplest neural network base model, allows for quick and efficient experimentation. This is particularly useful in the context of TIMBER for predicting configurations for serverless functions, where simplicity and efficiency are crucial.",
+    "path_description": "Path: TIMBER --[uses]--> SequentialNeuralNetwork --[implementedIn]--> Keras --[type]--> Software",
+    "context": "In TIMBER, we build a Sequential Neural network model for predicting the appropriate configuration for each one of the serverless functions. | The Sequential model is the simplest neural network base model in Keras. | The Sequential model is the simplest neural network base model in Keras.",
+    "paper_id": "685"
+  },
+  {
+    "section": "experimentalevaluation2",
+    "path": {
+      "section": "experimentalevaluation2",
+      "start_entity": "NeuralModel",
+      "end_entity": "PipelineType",
+      "hops": [
+        {
+          "from": "NeuralModel",
+          "relation": "trainedOn",
+          "to": "W3",
+          "context": "Once we have trained the neural model with the pipelines from each one of these different workloads, we can then use it to estimate the number of instances for each other function in similar pipelines and their resource needs even for pipelines for which we have possibly zero knowledge on their performance.",
+          "chunk": "10"
+        },
+        {
+          "from": "W3",
+          "relation": "partOf",
+          "to": "Clustering",
+          "context": "Speciﬁcally, these workloads, namely W1, W2 and W3, refer to three different types of real-world pipelines: Processing, Sensor Correlation and Clustering respectively.",
+          "chunk": "10"
+        },
+        {
+          "from": "Clustering",
+          "relation": "type",
+          "to": "PipelineType",
+          "context": "Speciﬁcally, these workloads, namely W1, W2 and W3, refer to three different types of real-world pipelines: Processing, Sensor Correlation and Clustering respectively.",
+          "chunk": "10"
+        }
+      ]
+    },
+    "question": "Considering the training of a neural model on different workloads, which pipeline type is associated with the workload W3, as used in the neural model's training process?",
+    "options": {
+      "A": "W3 is associated with a Clustering pipeline type, which is part of the neural model training.",
+      "B": "W3 is associated with a Generalized Data Handling pipeline type, which is part of the neural model training.",
+      "C": "W3 is associated with a Processing pipeline type, which is part of the neural model training.",
+      "D": "W3 is associated with a Sensor Correlation pipeline type, which is part of the neural model training."
+    },
+    "correct_answer": "A",
+    "explanation": "The knowledge path indicates that the neural model is trained on W3, which is part of the Clustering pipeline type. This type is a specific category of the pipeline used in the neural model's training as mentioned in the context from the paper.",
+    "path_description": "Path: NeuralModel --[trainedOn]--> W3 --[partOf]--> Clustering --[type]--> PipelineType",
+    "context": "Once we have trained the neural model with the pipelines from each one of these different workloads, we can then use it to estimate the number of instances for each other function in similar pipelines and their resource needs even for pipelines for which we have possibly zero knowledge on their performance. | Speciﬁcally, these workloads, namely W1, W2 and W3, refer to three different types of real-world pipelines: Processing, Sensor Correlation and Clustering respectively. | Speciﬁcally, these workloads, namely W1, W2 and W3, refer to three different types of real-world pipelines: Processing, Sensor Correlation and Clustering respectively.",
+    "paper_id": "685"
+  }
+]

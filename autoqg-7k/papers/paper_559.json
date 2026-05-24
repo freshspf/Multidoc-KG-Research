@@ -1,0 +1,42 @@
+[
+  {
+    "id": "introduction",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Introduction",
+      "page_start": 1,
+      "page_end": 1
+    },
+    "text": "E\nS  The succinctness property and the short verification times\n.\ns of zk-SNARKs come at the cost of large computational com-\nc plexity, static execution models, and memory overheads during\n[\n  the proof generation process [1]. These limitations represent\n \n1 a problem in VOC applications which require handling large\nv and varying workloads, like rollups. This type of application\n5 would benefit  from scalable,  interoperable, and manageable\n1\nsystem environments like clouds. However, DSL toolkits like\n9\nZoKrates [2] or Circom [3] concentrate on circuit development\n6\n1 and put  little emphasis on how to integrate  these circuits\n.\ninto production systems. Bridging the gap between advanced\n4\ncryptography and modern systems engineering also helps to\n0\n4 create standardized benchmarks for proving systems and tools.\n2"
+  },
+  {
+    "id": "provingservice",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Proving Service",
+      "page_start": 1,
+      "page_end": 1
+    },
+    "text": "v\ni  We  introduce a service-oriented approach for VOC that\nX facilitates  the use of  the cryptographic procedures of  zk-\nr\nSNARKs within cloud system architectures. Our system allows\na\nfor executing arithmetic circuits as encapsulated application\nlogic in containers that are deployable to different machines re-\nalizing scalability, provide interoperability with other services,\nand are better manageable. For that, we give an overview of the\nservice-oriented system architecture and describe the internals\nof the proving service.\nA. Service Oriented Verifiable Off-chain Computation\nThe problems above can be fulfilled through a service-\noriented approach as depicted in Figure 1. Starting from a\nhigher-level system’s perspective, we treat the proving service\nas a black box which, upon a request, returns the proof together\n\nRKs Execution for\nn Computations\nJonathan Heiss, Stefan Tai\nm Engineering\nerlin\nermany\ne.tu-berlin.de\nFig. 1: Proving Service Model\nwith the computation’s output. Following the VOC model [2],\nwe distinguish between the blockchain infrastructure hosting\nthe verifier contract and a cloud-based off-chain infrastruc-\nture that  runs outside the consensus protocol and hosts the\nconsumer and the proving service.\nThe consumer  service  is  responsible  for managing  the\nproving service’s inputs and outputs and interacting with the\nrelying verifier contract. It receives data from external sources\nand translates  them into a proof  request. Upon a request\nthrough the prover client,  the proving service executes the\nVOC and returns  the ZKP attesting  to  the computational\nintegrity of the VOC. The consumer service then submits the\nZKP to the verifier contract  through its verifier client. On\nsubmission,  the verifier contract verifies the proof computed\nby the proving service.\nFig. 2: Proving Service Architecture\nB. Service Architecture\nThe Proving Service depicted in Figure 2 is an application\nservice that runs stand-alone on the prover’s off-chain infras-"
+  },
+  {
+    "id": "zokratesapi",
+    "metadata": {
+      "lang": "en",
+      "section_title": "ZoKrates-API",
+      "page_start": 2,
+      "page_end": 2
+    },
+    "text": "The  previous  service-oriented  architecture  serves  as  a\ntechnology-agnostic blueprint for building proving services for"
+  },
+  {
+    "id": "evaluation",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Evaluation",
+      "page_start": 2,
+      "page_end": 2
+    },
+    "text": "proving service for ZoKrates [2] and present  the ZoKrates-\n1\nAPI  as a ready-to-use open-source software. We servicify\nZoKrates by wrapping an API around the ZoKrates  inter-\npreter,  the central component of the ZoKrates software that\npreviously has only been addressable through a Command\nLine Interface and a Javascript  library. The ZoKrates-API\nexposes the methods of the ZoKrates interpreter through HTTP\nendpoints. We containerized the ZoKrates-API using Docker,\nmaking the services easily deployable among a wide range of\nmachines and allowing us to further leverage cloud-native tools\nlike Kubernetes for horizontal scalability, manageability, and\nobservability. Furthermore, the ZoKrates-API supports multi-\nthreading so a single instance can compute multiple proofs in\nparallel.\nIV. EVALUATION\nTo  test  the presented  implementation, we deployed  the\ncontainerized ZoKrates-API on a Kubernetes cluster. As a\n1\nhttps://github.com/ZK-Plus/zokrates-api\n\nMemory Consumption\nworkload for our experiments, we generated a large number\n29\nof EdDSA signatures [4] which amounts for more than 2  of\ncircuit constraints similar to [5].\nWe conducted three experiments (see Figure 3) to measure\nthe average proving time per signature in [sec] and the mem-\nory consumption in [gb] using various cluster configurations.\nFigure 3A) shows a 33% improvement in proving time for a\nsingle machine when choosing an appropriate machine size.\nAn argument  in favour of vertical escalability. For a single\nmachine as well, Figure 3B) shows  that  the proving time\ncan be brought down drastically when few parallel  threads\nare enabled,  though the gains plateaued rapidly due to the\nincreasing resources needed. Running the same experiments\nin parallel VMs instead of threads, Figure 3C) demonstrate a\nbetter approach to scaling proving as the computational burden\nis distributed over several machines, proportional  increasing\nthe processing time.\nV. CONCLUSION\nAs  the experiments demonstrate,  significant performance\nimprovements can be gained from horizontal (more nodes) and\nvertical (larger nodes) scalability of an arbitrary zk-SNARK\nproof. We facilitate this process by leveraging modern cloud-\nnative architectures such as Docker and Kubernetes."
+  }
+]

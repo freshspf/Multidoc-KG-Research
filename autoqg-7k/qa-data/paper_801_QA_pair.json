@@ -1,0 +1,88 @@
+[
+  {
+    "section": "method1",
+    "path": {
+      "section": "method1",
+      "start_entity": "FacialFeatures",
+      "end_entity": "PerformanceMetric",
+      "hops": [
+        {
+          "from": "FacialFeatures",
+          "relation": "protectedFrom",
+          "to": "OriginalFacialImages",
+          "context": "to protect sensitive facial features from being reconstructed into original facial images",
+          "chunk": "2"
+        },
+        {
+          "from": "OriginalFacialImages",
+          "relation": "maintains",
+          "to": "DownstreamClassificationPerformance",
+          "context": "while maintaining downstream classification performance",
+          "chunk": "2"
+        },
+        {
+          "from": "DownstreamClassificationPerformance",
+          "relation": "type",
+          "to": "PerformanceMetric",
+          "context": "while maintaining downstream classification performance",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "How does protecting sensitive facial features from being reconstructed into original facial images affect the performance metric of downstream classification?",
+    "options": {
+      "A": "It does not affect the performance metric since the classification is independent of facial features.",
+      "B": "It leads to a drastic reduction in the performance metric due to loss of data.",
+      "C": "It maintains the downstream classification performance by ensuring the performance metric does not degrade.",
+      "D": "It significantly enhances the performance metric by introducing additional data."
+    },
+    "correct_answer": "C",
+    "explanation": "The knowledge graph pathway indicates that protecting sensitive facial features (while preventing their reconstruction into original images) maintains downstream classification performance, suggesting that the performance metric, which is a type of measurement for this performance, does not degrade. The other options incorrectly suggest enhancement, reduction, or no impact, which contradicts the pathway's implication of maintained performance.",
+    "path_description": "Path: FacialFeatures --[protectedFrom]--> OriginalFacialImages --[maintains]--> DownstreamClassificationPerformance --[type]--> PerformanceMetric",
+    "context": "to protect sensitive facial features from being reconstructed into original facial images | while maintaining downstream classification performance | while maintaining downstream classification performance",
+    "paper_id": "1611"
+  },
+  {
+    "section": "method3",
+    "path": {
+      "section": "method3",
+      "start_entity": "AngularSimilarityLoss",
+      "end_entity": "Data",
+      "hops": [
+        {
+          "from": "AngularSimilarityLoss",
+          "relation": "obscures",
+          "to": "GeometricStructure",
+          "context": "Since our goal is to obscure the geometric structure of the original point clouds.",
+          "chunk": "4"
+        },
+        {
+          "from": "GeometricStructure",
+          "relation": "partOf",
+          "to": "OriginalPointClouds",
+          "context": "Since our goal is to obscure the geometric structure of the original point clouds.",
+          "chunk": "4"
+        },
+        {
+          "from": "OriginalPointClouds",
+          "relation": "type",
+          "to": "Data",
+          "context": "Since our goal is to obscure the geometric structure of the original point clouds.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the context of data processing in method3, what is the primary purpose of employing AngularSimilarityLoss?",
+    "options": {
+      "A": "To enhance the clarity and detail of the geometric structure within the original point clouds.",
+      "B": "To obscure the geometric structure of the original point clouds, making it difficult to derive the original data format.",
+      "C": "To convert the geometric structure of the original point clouds into a more simplified data format.",
+      "D": "To retain the exact geometric structure of the original point clouds for accurate data representation."
+    },
+    "correct_answer": "B",
+    "explanation": "AngularSimilarityLoss is used to obscure the geometric structure of the original point clouds, as indicated by the knowledge path. This aims to modify the data's original geometric structure, making it challenging to recognize or revert back to its original form, hence 'A' is the correct option. Options B, C, and D are incorrect as they suggest enhancing, simplifying, or retaining the structure, which is contrary to the goal of obscuring it.",
+    "path_description": "Path: AngularSimilarityLoss --[obscures]--> GeometricStructure --[partOf]--> OriginalPointClouds --[type]--> Data",
+    "context": "Since our goal is to obscure the geometric structure of the original point clouds. | Since our goal is to obscure the geometric structure of the original point clouds. | Since our goal is to obscure the geometric structure of the original point clouds.",
+    "paper_id": "1611"
+  }
+]

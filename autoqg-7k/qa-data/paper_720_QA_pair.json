@@ -1,0 +1,260 @@
+[
+  {
+    "section": "staticsecurityforcommunicationsandmemories2",
+    "path": {
+      "section": "staticsecurityforcommunicationsandmemories2",
+      "start_entity": "SecurityBuilder",
+      "end_entity": "DataFormat",
+      "hops": [
+        {
+          "from": "SecurityBuilder",
+          "relation": "contains",
+          "to": "ReadingModule",
+          "context": "Reading Module (ReadMod) is in charge of reading security policies from the dedicated Block RAM trusted memory and extracting security parameters to be transmitted to the Checking Module.",
+          "chunk": "5"
+        },
+        {
+          "from": "ReadingModule",
+          "relation": "transfersDataTo",
+          "to": "CheckingModule",
+          "context": "Reading Module (ReadMod) is in charge of reading security policies from the dedicated Block RAM trusted memory and extracting security parameters to be transmitted to the Checking Module.",
+          "chunk": "5"
+        },
+        {
+          "from": "CheckingModule",
+          "relation": "verifies",
+          "to": "DataFormat",
+          "context": "Checking Module (CheckMod). For a simple implementation, Checking Module verifies two parameters: read/write access right and data format thanks to a set of comparators and a test function.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the context of the SecurityBuilder system, how does the Checking Module verify the integrity of data received from the Reading Module?",
+    "options": {
+      "A": "By comparing the extracted security parameters with a predefined set of compliance requirements.",
+      "B": "By verifying the read/write access right and the data format using a set of comparators and a test function.",
+      "C": "By ensuring that the data complies with the security policies specified in the SecurityBuilder architectural framework.",
+      "D": "By checking the encryption level of the data and matching it against the security parameters extracted from Block RAM."
+    },
+    "correct_answer": "B",
+    "explanation": "The Checking Module (CheckMod) ensures the integrity of data by verifying two specific parameters: the read/write access right and the data format. This is accomplished through the use of comparators and a test function, as described in the context provided.",
+    "path_description": "Path: SecurityBuilder --[contains]--> ReadingModule --[transfersDataTo]--> CheckingModule --[verifies]--> DataFormat",
+    "context": "Reading Module (ReadMod) is in charge of reading security policies from the dedicated Block RAM trusted memory and extracting security parameters to be transmitted to the Checking Module. | Reading Module (ReadMod) is in charge of reading security policies from the dedicated Block RAM trusted memory and extracting security parameters to be transmitted to the Checking Module. | Checking Module (CheckMod). For a simple implementation, Checking Module verifies two parameters: read/write access right and data format thanks to a set of comparators and a test function.",
+    "paper_id": "76"
+  },
+  {
+    "section": "staticsecurityforcommunicationsandmemories3",
+    "path": {
+      "section": "staticsecurityforcommunicationsandmemories3",
+      "start_entity": "SecurityBuilderModule",
+      "end_entity": "Module",
+      "hops": [
+        {
+          "from": "SecurityBuilderModule",
+          "relation": "partOf",
+          "to": "LocalFirewall",
+          "context": "Local Firewall (see Figure 3). It contains the main cryptographic feature: Idle state. The Security Builder module waits for a new incoming data to be analyzed (and received from the Firewall Interface).",
+          "chunk": "6"
+        },
+        {
+          "from": "LocalFirewall",
+          "relation": "contains",
+          "to": "SecurityBuilderModule",
+          "context": "Local Firewall (see Figure 3). It contains the main cryptographic feature: Idle state. The Security Builder module waits for a new incoming data to be analyzed (and received from the Firewall Interface).",
+          "chunk": "6"
+        },
+        {
+          "from": "SecurityBuilderModule",
+          "relation": "type",
+          "to": "Module",
+          "context": "the Security Builder module",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the context of the Local Firewall's design as described in the paper section 'staticsecurityforcommunicationsandmemories3', what is the primary role of the Security Builder module?",
+    "options": {
+      "A": "It generates and distributes encryption keys to other modules within the Local Firewall system.",
+      "B": "It waits for new incoming data to be analyzed, which it receives from the Firewall Interface.",
+      "C": "It actively scans all outgoing communications to ensure they comply with established security protocols.",
+      "D": "It monitors the performance of the firewall and adjusts its rules based on traffic patterns."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A, as the paper specifies that the Security Builder module waits for a new incoming data to be analyzed, which specifically mentions that it receives this data from the Firewall Interface. The other options, while related to firewall and security functions, do not accurately reflect the role of the Security Builder module as described in the paper.",
+    "path_description": "Path: SecurityBuilderModule --[partOf]--> LocalFirewall --[contains]--> SecurityBuilderModule --[type]--> Module",
+    "context": "Local Firewall (see Figure 3). It contains the main cryptographic feature: Idle state. The Security Builder module waits for a new incoming data to be analyzed (and received from the Firewall Interface). | Local Firewall (see Figure 3). It contains the main cryptographic feature: Idle state. The Security Builder module waits for a new incoming data to be analyzed (and received from the Firewall Interface). | the Security Builder module",
+    "paper_id": "76"
+  },
+  {
+    "section": "staticsecurityforcommunicationsandmemories4",
+    "path": {
+      "section": "staticsecurityforcommunicationsandmemories4",
+      "start_entity": "Keccak",
+      "end_entity": "EncryptionMode",
+      "hops": [
+        {
+          "from": "Keccak",
+          "relation": "consideredAsAlternativeTo",
+          "to": "AES-GCM",
+          "context": "Keccak (SHA-3 standard) has also interesting performances and could be considered as another alternative.",
+          "chunk": "7"
+        },
+        {
+          "from": "AES-GCM",
+          "relation": "outperforms",
+          "to": "MD5",
+          "context": "According to Table 2, the best option is AES-GCM (four times faster than solutions based on hash functions).",
+          "chunk": "7"
+        },
+        {
+          "from": "MD5",
+          "relation": "type",
+          "to": "EncryptionMode",
+          "context": "MD5 is still used despite weaknesses were discovered in MD5.",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "Which of the following statements best describes the relationship and performance comparison between Keccak, AES-GCM, and MD5 according to the paper section 'staticsecurityforcommunicationsandmemories4'?",
+    "options": {
+      "A": "MD5, which is faster than AES-GCM, is considered less secure, making Keccak the preferred Encryption Mode due to its speed.",
+      "B": "AES-GCM, being four times faster than hash function-based solutions like Keccak, still faces performance challenges compared to MD5.",
+      "C": "Keccak and MD5, both being hash functions, provide similar security benefits, but AES-GCM is noted for its superior speed.",
+      "D": "Keccak, as an alternative to AES-GCM, outperforms MD5, which is an older Encryption Mode with known vulnerabilities."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is 'A' because Keccak is considered as an alternative to AES-GCM and it outperforms MD5, which is categorized as an Encryption Mode with known security weaknesses. This aligns with the knowledge graph path and the context given in the paper, where AES-GCM is mentioned as faster compared to hash-based solutions and MD5 is noted for its ongoing usage despite its vulnerabilities.",
+    "path_description": "Path: Keccak --[consideredAsAlternativeTo]--> AES-GCM --[outperforms]--> MD5 --[type]--> EncryptionMode",
+    "context": "Keccak (SHA-3 standard) has also interesting performances and could be considered as another alternative. | According to Table 2, the best option is AES-GCM (four times faster than solutions based on hash functions). | MD5 is still used despite weaknesses were discovered in MD5.",
+    "paper_id": "76"
+  },
+  {
+    "section": "implementationresults1",
+    "path": {
+      "section": "implementationresults1",
+      "start_entity": "Xilinx6FPGA",
+      "end_entity": "IP",
+      "hops": [
+        {
+          "from": "Xilinx6FPGA",
+          "relation": "contains",
+          "to": "MicroBlaze",
+          "context": "it contains 2 MicroBlaze softcore processors",
+          "chunk": "11"
+        },
+        {
+          "from": "MicroBlaze",
+          "relation": "partOf",
+          "to": "ImageProcessingIP",
+          "context": "An image processing IP. This IP contains several programmable registers and performs a threshold function on a picture",
+          "chunk": "11"
+        },
+        {
+          "from": "ImageProcessingIP",
+          "relation": "type",
+          "to": "IP",
+          "context": "An image processing IP. This IP contains several programmable registers and performs a threshold function on a picture",
+          "chunk": "11"
+        }
+      ]
+    },
+    "question": "In the context of the Xilinx 6 FPGA setup described in the 'implementationresults1' section, what is the primary function of the ImageProcessing IP integrated with the MicroBlaze processors?",
+    "options": {
+      "A": "It focuses on color correction and image sharpening in real-time video feeds.",
+      "B": "It manages the data flow between different IP cores without altering image data.",
+      "C": "It primarily enhances the resolution of images using advanced scaling algorithms.",
+      "D": "It performs a threshold function on a picture by utilizing several programmable registers."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A, as the ImageProcessing IP connected to the MicroBlaze processors within the Xilinx 6 FPGA is specifically mentioned to perform a threshold function on a picture, utilizing several programmable registers. The other options, while plausible in the context of image processing, do not reflect the specific function of the IP described in the paper.",
+    "path_description": "Path: Xilinx6FPGA --[contains]--> MicroBlaze --[partOf]--> ImageProcessingIP --[type]--> IP",
+    "context": "it contains 2 MicroBlaze softcore processors | An image processing IP. This IP contains several programmable registers and performs a threshold function on a picture | An image processing IP. This IP contains several programmable registers and performs a threshold function on a picture",
+    "paper_id": "76"
+  },
+  {
+    "section": "implementationresults1",
+    "path": {
+      "section": "implementationresults1",
+      "start_entity": "MicroBlaze",
+      "end_entity": "Memory",
+      "hops": [
+        {
+          "from": "MicroBlaze",
+          "relation": "partOf",
+          "to": "ImageProcessingIP",
+          "context": "An image processing IP. This IP contains several programmable registers and performs a threshold function on a picture",
+          "chunk": "11"
+        },
+        {
+          "from": "ImageProcessingIP",
+          "relation": "uses",
+          "to": "BlockRAM",
+          "context": "stored in a shared Block RAM memory",
+          "chunk": "11"
+        },
+        {
+          "from": "BlockRAM",
+          "relation": "type",
+          "to": "Memory",
+          "context": "stored in a shared Block RAM memory",
+          "chunk": "11"
+        }
+      ]
+    },
+    "question": "In the implementation of the Image Processing IP discussed in the paper, how does the MicroBlaze component specifically interact with the memory utilized by the Image Processing IP?",
+    "options": {
+      "A": "MicroBlaze modifies the threshold function parameters stored in the Block RAM memory.",
+      "B": "MicroBlaze serves as an external memory controller for the Block RAM, managing memory allocation.",
+      "C": "MicroBlaze directly accesses the Block RAM memory to retrieve data for external processing units.",
+      "D": "MicroBlaze is part of the Image Processing IP, which uses Block RAM memory to store and process image data."
+    },
+    "correct_answer": "D",
+    "explanation": "MicroBlaze, as part of the Image Processing IP, interacts with the Block RAM by utilizing it to store and process image data. This memory serves as shared storage that is essential for the IP’s function of performing threshold operations on pictures. The other options incorrectly describe the role and interaction of MicroBlaze with the memory.",
+    "path_description": "Path: MicroBlaze --[partOf]--> ImageProcessingIP --[uses]--> BlockRAM --[type]--> Memory",
+    "context": "An image processing IP. This IP contains several programmable registers and performs a threshold function on a picture | stored in a shared Block RAM memory | stored in a shared Block RAM memory",
+    "paper_id": "76"
+  },
+  {
+    "section": "implementationresults3",
+    "path": {
+      "section": "implementationresults3",
+      "start_entity": "CryptoModule",
+      "end_entity": "SecurityExploit",
+      "hops": [
+        {
+          "from": "CryptoModule",
+          "relation": "partOf",
+          "to": "LocalFirewalls",
+          "context": "Crypto Module 1,166",
+          "chunk": "13"
+        },
+        {
+          "from": "LocalFirewalls",
+          "relation": "detect",
+          "to": "KingKongAttack",
+          "context": "If Local Firewalls are implemented",
+          "chunk": "13"
+        },
+        {
+          "from": "KingKongAttack",
+          "relation": "isTypeOf",
+          "to": "SecurityExploit",
+          "context": "exploits such as the 'King Kong' attack",
+          "chunk": "13"
+        }
+      ]
+    },
+    "question": "In the context of cybersecurity, how do local firewalls contribute to the detection and prevention of security exploits?",
+    "options": {
+      "A": "Local firewalls serve to encrypt data using Crypto Modules but are ineffective against attacks like the King Kong attack.",
+      "B": "Local firewalls primarily prevent unauthorized access but do not detect specific attacks such as the King Kong attack.",
+      "C": "Local firewalls, incorporating Crypto Modules, can detect and mitigate specific exploits like the King Kong attack, a type of security exploit.",
+      "D": "Local firewalls analyze data packets but lack the capability to detect complex exploits such as the King Kong attack."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A. According to the knowledge path, Crypto Modules are a part of Local Firewalls which have the capacity to detect exploits such as the King Kong attack, classified under security exploits. Options B, C, and D are incorrect as they either underestimate the functionality of local firewalls in detecting specific security exploits or misstate their capabilities.",
+    "path_description": "Path: CryptoModule --[partOf]--> LocalFirewalls --[detect]--> KingKongAttack --[isTypeOf]--> SecurityExploit",
+    "context": "Crypto Module 1,166 | If Local Firewalls are implemented | exploits such as the 'King Kong' attack",
+    "paper_id": "76"
+  }
+]

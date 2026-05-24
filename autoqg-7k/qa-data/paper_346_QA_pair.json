@@ -1,0 +1,88 @@
+[
+  {
+    "section": "introduction",
+    "path": {
+      "section": "introduction",
+      "start_entity": "SmartContracts",
+      "end_entity": "DAppCategory",
+      "hops": [
+        {
+          "from": "SmartContracts",
+          "relation": "support",
+          "to": "DApps",
+          "context": "Smart contracts are now supporting a wide range of Decentralized applications (DApps) in blockchain.",
+          "chunk": "1"
+        },
+        {
+          "from": "DApps",
+          "relation": "include",
+          "to": "NFT",
+          "context": "Non-Fungible-Token (NFT).",
+          "chunk": "1"
+        },
+        {
+          "from": "NFT",
+          "relation": "type",
+          "to": "DAppCategory",
+          "context": "Non-Fungible-Token (NFT).",
+          "chunk": "1"
+        }
+      ]
+    },
+    "question": "How do smart contracts specifically support the categorization of Non-Fungible Tokens (NFTs) in the realm of blockchain technology?",
+    "options": {
+      "A": "By providing a framework to develop decentralized applications that include NFTs, categorizing them under specific DApp categories",
+      "B": "By tracking the ownership history of NFTs, which categorizes them based on transaction histories in the blockchain",
+      "C": "By directly assigning value to NFTs, thereby creating distinct categories of value within the blockchain",
+      "D": "By encrypting NFT data to enhance security, leading to a new category of secure decentralized applications"
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A because the path indicates that smart contracts support decentralized applications (DApps), which include NFTs. These NFTs are then categorized under specific DApp categories, as supported by the smart contracts framework. The other options, while plausible, do not correctly follow the logic of the knowledge graph path.",
+    "path_description": "Path: SmartContracts --[support]--> DApps --[include]--> NFT --[type]--> DAppCategory",
+    "context": "Smart contracts are now supporting a wide range of Decentralized applications (DApps) in blockchain. | Non-Fungible-Token (NFT). | Non-Fungible-Token (NFT).",
+    "paper_id": "729"
+  },
+  {
+    "section": "designof99993emsmartstate1",
+    "path": {
+      "section": "designof99993emsmartstate1",
+      "start_entity": "Withdraw",
+      "end_entity": "StateVariable",
+      "hops": [
+        {
+          "from": "Withdraw",
+          "relation": "enabledBy",
+          "to": "MintToken",
+          "context": "the state-dependency relationship between function MintToken and Withdraw for state variable SheepToken and WolfToken",
+          "chunk": "4"
+        },
+        {
+          "from": "MintToken",
+          "relation": "writesOn",
+          "to": "WolfToken",
+          "context": "WolfToken[account]++",
+          "chunk": "4"
+        },
+        {
+          "from": "WolfToken",
+          "relation": "type",
+          "to": "StateVariable",
+          "context": "mapping(address => uint256) public WolfToken",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the context of the smart contract functions discussed in the paper, how does the function 'Withdraw' indirectly interact with the state variable 'WolfToken'?",
+    "options": {
+      "A": "The Withdraw function directly modifies the WolfToken state variable by decrementing its count.",
+      "B": "The Withdraw function calls the MintToken function, which then triggers a decrease in the SheepToken state variable.",
+      "C": "The Withdraw function interacts through a proxy function that encapsulates both MintToken and WolfToken into a single transaction.",
+      "D": "The Withdraw function enables the MintToken function, which increases the count of WolfToken for specific accounts."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct relationship is established through the 'enabledBy' connection between Withdraw and MintToken, and MintToken subsequently 'writesOn' WolfToken, specifically incrementing its count (WolfToken[account]++). This illustrates an indirect interaction where Withdraw facilitates the action on a state variable through another function, MintToken.",
+    "path_description": "Path: Withdraw --[enabledBy]--> MintToken --[writesOn]--> WolfToken --[type]--> StateVariable",
+    "context": "the state-dependency relationship between function MintToken and Withdraw for state variable SheepToken and WolfToken | WolfToken[account]++ | mapping(address => uint256) public WolfToken",
+    "paper_id": "729"
+  }
+]

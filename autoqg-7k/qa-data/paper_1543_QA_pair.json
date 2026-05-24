@@ -1,0 +1,303 @@
+[
+  {
+    "section": "dataacquisition",
+    "path": {
+      "section": "dataacquisition",
+      "start_entity": "RuleLearningTool",
+      "end_entity": "Technology",
+      "hops": [
+        {
+          "from": "RuleLearningTool",
+          "relation": "partOf",
+          "to": "binnacleToolset",
+          "context": "Fig. 1 gives an overview of the three primary tools provided by the binnacle toolset: a tool for data acquisition, a tool for rule learning.",
+          "chunk": "3"
+        },
+        {
+          "from": "binnacleToolset",
+          "relation": "uses",
+          "to": "Docker",
+          "context": "binnacle uses a combination of Docker and Apache Kafka to enable dynamic scaling of resources when ingesting a large number of artifacts.",
+          "chunk": "3"
+        },
+        {
+          "from": "Docker",
+          "relation": "type",
+          "to": "Technology",
+          "context": "binnacle uses a combination of Docker and Apache Kafka to enable dynamic scaling of resources when ingesting a large number of artifacts.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "Which technology, identified as part of the binnacle toolset, facilitates dynamic scaling of resources in the data acquisition tool when processing a large number of artifacts?",
+    "options": {
+      "A": "Docker, as it allows containers to be used efficiently across different environments.",
+      "B": "Apache Kafka, because it manages real-time data feeds with high throughput.",
+      "C": "MySQL, known for its capability to handle extensive databases efficiently.",
+      "D": "Python, due to its extensive libraries for data manipulation and scalability."
+    },
+    "correct_answer": "A",
+    "explanation": "According to the path provided, Docker is part of the binnacle toolset used in the data acquisition tool for dynamic scaling. Docker enables the efficient use of containers, which are crucial for managing varying loads, particularly when dealing with large volumes of data, as suggested in the context. Apache Kafka is also mentioned, but it specifically handles data feeds rather than the containerization aspect that Docker supports.",
+    "path_description": "Path: RuleLearningTool --[partOf]--> binnacleToolset --[uses]--> Docker --[type]--> Technology",
+    "context": "Fig. 1 gives an overview of the three primary tools provided by the binnacle toolset: a tool for data acquisition, a tool for rule learning. | binnacle uses a combination of Docker and Apache Kafka to enable dynamic scaling of resources when ingesting a large number of artifacts. | binnacle uses a combination of Docker and Apache Kafka to enable dynamic scaling of resources when ingesting a large number of artifacts.",
+    "paper_id": "50"
+  },
+  {
+    "section": "approach1",
+    "path": {
+      "section": "approach1",
+      "start_entity": "binnacle_toolset",
+      "end_entity": "Platform",
+      "hops": [
+        {
+          "from": "binnacle_toolset",
+          "relation": "includes",
+          "to": "binnacle",
+          "context": "Together, these contributions combine to create the binnacle toolset: the first structure-aware automatic rule miner and enforcement engine for Dockerfiles (and DevOps artifacts, in general).",
+          "chunk": "4"
+        },
+        {
+          "from": "binnacle",
+          "relation": "ingests",
+          "to": "GitHub",
+          "context": "Using binnacle, we ingested every public repository on GitHub with ten or more stars.",
+          "chunk": "4"
+        },
+        {
+          "from": "GitHub",
+          "relation": "type",
+          "to": "Platform",
+          "context": "Using binnacle, we ingested every public repository on GitHub with ten or more stars.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "What type of data source does the binnacle toolset primarily utilize, as per its operations described in the 'approach1' section?",
+    "options": {
+      "A": "Binnacle primarily utilizes internal corporate databases for automatic rule mining and enforcement.",
+      "B": "Binnacle primarily utilizes public repositories on GitHub with ten or more stars for data ingestion.",
+      "C": "Binnacle primarily utilizes private code repositories with fewer than ten stars for data ingestion.",
+      "D": "Binnacle primarily utilizes social media platforms to gather data for rule mining and enforcement."
+    },
+    "correct_answer": "B",
+    "explanation": "According to the knowledge path and the context in the paper, binnacle, which is part of the binnacle toolset, ingests data from GitHub. Specifically, it processes public repositories that have ten or more stars, indicating that GitHub, a platform, serves as the primary data source for binnacle's operations.",
+    "path_description": "Path: binnacle_toolset --[includes]--> binnacle --[ingests]--> GitHub --[type]--> Platform",
+    "context": "Together, these contributions combine to create the binnacle toolset: the first structure-aware automatic rule miner and enforcement engine for Dockerfiles (and DevOps artifacts, in general). | Using binnacle, we ingested every public repository on GitHub with ten or more stars. | Using binnacle, we ingested every public repository on GitHub with ten or more stars.",
+    "paper_id": "50"
+  },
+  {
+    "section": "approach2",
+    "path": {
+      "section": "approach2",
+      "start_entity": "PhasedParsing",
+      "end_entity": "StringLiterals",
+      "hops": [
+        {
+          "from": "PhasedParsing",
+          "relation": "uses",
+          "to": "TopLevelParse",
+          "context": "We employ phased parsing to progressively enrich the AST created by an initial top-level parse.",
+          "chunk": "5"
+        },
+        {
+          "from": "TopLevelParse",
+          "relation": "resultsIn",
+          "to": "LeafNodes",
+          "context": "After this first phase, almost all of the interesting information is wrapped up in leaf nodes that are string literals.",
+          "chunk": "5"
+        },
+        {
+          "from": "LeafNodes",
+          "relation": "contains",
+          "to": "StringLiterals",
+          "context": "After this first phase, almost all of the interesting information is wrapped up in leaf nodes that are string literals.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the context of phased parsing as described in the 'approach2' section, what is the final destination for most of the interesting information after the initial top-level parse?",
+    "options": {
+      "A": "It is lost during the transition from top-level parse to leaf nodes.",
+      "B": "It remains within the top-level parse without progressing to the leaf nodes.",
+      "C": "It is distributed evenly across all nodes within the abstract syntax tree (AST).",
+      "D": "It is primarily encapsulated within string literals located in the leaf nodes of the AST."
+    },
+    "correct_answer": "D",
+    "explanation": "According to the knowledge path, the phased parsing uses a top-level parse which results in leaf nodes that contain string literals, where most of the interesting information is ultimately stored. The other options incorrectly suggest alternative storage locations or imply information loss, which contradicts the described parsing process.",
+    "path_description": "Path: PhasedParsing --[uses]--> TopLevelParse --[resultsIn]--> LeafNodes --[contains]--> StringLiterals",
+    "context": "We employ phased parsing to progressively enrich the AST created by an initial top-level parse. | After this first phase, almost all of the interesting information is wrapped up in leaf nodes that are string literals. | After this first phase, almost all of the interesting information is wrapped up in leaf nodes that are string literals.",
+    "paper_id": "50"
+  },
+  {
+    "section": "approach2",
+    "path": {
+      "section": "approach2",
+      "start_entity": "TopLevelParse",
+      "end_entity": "DataType",
+      "hops": [
+        {
+          "from": "TopLevelParse",
+          "relation": "resultsIn",
+          "to": "LeafNodes",
+          "context": "After this first phase, almost all of the interesting information is wrapped up in leaf nodes that are string literals.",
+          "chunk": "5"
+        },
+        {
+          "from": "LeafNodes",
+          "relation": "contains",
+          "to": "StringLiterals",
+          "context": "After this first phase, almost all of the interesting information is wrapped up in leaf nodes that are string literals.",
+          "chunk": "5"
+        },
+        {
+          "from": "StringLiterals",
+          "relation": "type",
+          "to": "DataType",
+          "context": "After this first phase, almost all of the interesting information is wrapped up in leaf nodes that are string literals.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the context of the approach2 section, when the TopLevelParse results in LeafNodes containing StringLiterals, what type of data typically encapsulates these literals?",
+    "options": {
+      "A": "CodeBlock, which refers to a set of programming instructions executing together.",
+      "B": "AbstractSyntaxTree, which primarily handles the structural representation of the parsed code.",
+      "C": "DataType, which might include various primitive data types such as integers or booleans.",
+      "D": "QueryLanguage, typically used for database management and data manipulation."
+    },
+    "correct_answer": "C",
+    "explanation": "According to the knowledge graph path, the StringLiterals found within the LeafNodes are classified as DataType. This indicates that these literals are encapsulated as specific data types, such as integers or booleans, rather than being part of a structure, language, or code block.",
+    "path_description": "Path: TopLevelParse --[resultsIn]--> LeafNodes --[contains]--> StringLiterals --[type]--> DataType",
+    "context": "After this first phase, almost all of the interesting information is wrapped up in leaf nodes that are string literals. | After this first phase, almost all of the interesting information is wrapped up in leaf nodes that are string literals. | After this first phase, almost all of the interesting information is wrapped up in leaf nodes that are string literals.",
+    "paper_id": "50"
+  },
+  {
+    "section": "approach3",
+    "path": {
+      "section": "approach3",
+      "start_entity": "docker-libraryOrganization",
+      "end_entity": "RuleEnforcementEngine",
+      "hops": [
+        {
+          "from": "docker-libraryOrganization",
+          "relation": "hosted",
+          "to": "GoldSetOfDockerfiles",
+          "context": "These Dockerfiles were obtained from the docker-library/ organization on GitHub.",
+          "chunk": "6"
+        },
+        {
+          "from": "GoldSetOfDockerfiles",
+          "relation": "usedFor",
+          "to": "GoldRules",
+          "context": "To create the set of Gold Rules, we returned to the data in our Gold Set of Dockerfiles.",
+          "chunk": "6"
+        },
+        {
+          "from": "GoldRules",
+          "relation": "developedBy",
+          "to": "RuleEnforcementEngine",
+          "context": "As part of developing this encoding, we curated a set of Gold Rules and wrote a rule-enforcement engine capable of detecting violations of these rules.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "Which of the following best describes the sequence of development and usage in the approach described in section 'approach3' of the paper?",
+    "options": {
+      "A": "Dockerfiles from the docker-library/organization were modified by the Rule Enforcement Engine to produce a set of Gold Rules.",
+      "B": "Gold Rules were initially developed by the Rule Enforcement Engine and then Dockerfiles from docker-library/organization were used to test these rules.",
+      "C": "A Rule Enforcement Engine was developed first to generate a set of Dockerfiles that were later hosted by the docker-library/organization for creating Gold Rules.",
+      "D": "The docker-library/organization hosted a set of Dockerfiles, which were used to create Gold Rules that a Rule Enforcement Engine could apply."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct sequence, as indicated in the provided knowledge path and context, starts with the docker-library/organization hosting the Dockerfiles. These files were then used to create Gold Rules, which in turn were developed by or used in the development of the Rule Enforcement Engine. This engine is capable of enforcing these rules, thus completing the sequence. Options B, C, and D either invert the sequence or incorrectly assign roles to the entities.",
+    "path_description": "Path: docker-libraryOrganization --[hosted]--> GoldSetOfDockerfiles --[usedFor]--> GoldRules --[developedBy]--> RuleEnforcementEngine",
+    "context": "These Dockerfiles were obtained from the docker-library/ organization on GitHub. | To create the set of Gold Rules, we returned to the data in our Gold Set of Dockerfiles. | As part of developing this encoding, we curated a set of Gold Rules and wrote a rule-enforcement engine capable of detecting violations of these rules.",
+    "paper_id": "50"
+  },
+  {
+    "section": "approach6",
+    "path": {
+      "section": "approach6",
+      "start_entity": "binnacle",
+      "end_entity": "TAR",
+      "hops": [
+        {
+          "from": "binnacle",
+          "relation": "implements",
+          "to": "Stage_II",
+          "context": "Stage II: Depending on the scope and location of the given TAR, the enforcement engine binds a region of the input tree.",
+          "chunk": "9"
+        },
+        {
+          "from": "Stage_II",
+          "relation": "partOf",
+          "to": "binnacle",
+          "context": "Stage II: Depending on the scope and location of the given TAR, the enforcement engine binds a region of the input tree.",
+          "chunk": "9"
+        },
+        {
+          "from": "binnacle",
+          "relation": "uses",
+          "to": "TAR",
+          "context": "binnacle’s static rule-enforcement engine takes, as input, a Dockerfile and a set of TARs.",
+          "chunk": "9"
+        }
+      ]
+    },
+    "question": "In the context of the binnacle's static rule-enforcement engine, what is the primary function of Stage II in processing a Dockerfile?",
+    "options": {
+      "A": "Stage II binds a region of the input tree depending on the scope and location of the given TAR.",
+      "B": "Stage II optimizes the Dockerfile by removing redundant TAR entries to enhance performance.",
+      "C": "Stage II compiles a list of all TARs for subsequent validation against security policies.",
+      "D": "Stage II parses the Dockerfile to extract relevant metadata for further analysis."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A. According to the provided context, during Stage II, the enforcement engine specifically binds a region of the input tree based on the scope and location of the given TAR, which directly relates to the processing of a Dockerfile within binnacle's rule-enforcement system.",
+    "path_description": "Path: binnacle --[implements]--> Stage_II --[partOf]--> binnacle --[uses]--> TAR",
+    "context": "Stage II: Depending on the scope and location of the given TAR, the enforcement engine binds a region of the input tree. | Stage II: Depending on the scope and location of the given TAR, the enforcement engine binds a region of the input tree. | binnacle’s static rule-enforcement engine takes, as input, a Dockerfile and a set of TARs.",
+    "paper_id": "50"
+  },
+  {
+    "section": "evaluation2",
+    "path": {
+      "section": "evaluation2",
+      "start_entity": "LocalGoldRules",
+      "end_entity": "Dataset",
+      "hops": [
+        {
+          "from": "LocalGoldRules",
+          "relation": "recoveredBy",
+          "to": "BinnacleRuleMiner",
+          "context": "two thirds (6 of 9) local Gold Rules were recovered by binnacle’s rule miner.",
+          "chunk": "11"
+        },
+        {
+          "from": "BinnacleRuleMiner",
+          "relation": "evaluatedOn",
+          "to": "GoldRules",
+          "context": "To evaluate binnacle’s rule miner, we used the Gold Rules.",
+          "chunk": "11"
+        },
+        {
+          "from": "GoldRules",
+          "relation": "type",
+          "to": "Dataset",
+          "context": "From the original 23 Gold Rules we removed 8 rules.",
+          "chunk": "11"
+        }
+      ]
+    },
+    "question": "In the evaluation of Binnacle's rule miner, how was the effectiveness of the rule miner determined using the dataset of Gold Rules?",
+    "options": {
+      "A": "By comparing the original set of Gold Rules against a new set of rules generated by Binnacle's rule miner.",
+      "B": "By assessing the number of local Gold Rules that were successfully recovered from the dataset.",
+      "C": "By removing a subset of Gold Rules before their application to test the robustness of the rule miner.",
+      "D": "By considering the number of Gold Rules that were not recovered and analyzing the reasons for their omission."
+    },
+    "correct_answer": "B",
+    "explanation": "The effectiveness of Binnacle's rule miner was determined by assessing how many of the local Gold Rules it could recover, as specified in the paper where it mentions that two thirds of the local Gold Rules were recovered using Binnacle's rule miner evaluated on the Gold Rules dataset.",
+    "path_description": "Path: LocalGoldRules --[recoveredBy]--> BinnacleRuleMiner --[evaluatedOn]--> GoldRules --[type]--> Dataset",
+    "context": "two thirds (6 of 9) local Gold Rules were recovered by binnacle’s rule miner. | To evaluate binnacle’s rule miner, we used the Gold Rules. | From the original 23 Gold Rules we removed 8 rules.",
+    "paper_id": "50"
+  }
+]

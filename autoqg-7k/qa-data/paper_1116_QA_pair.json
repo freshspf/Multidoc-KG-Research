@@ -1,0 +1,88 @@
+[
+  {
+    "section": "characterizingandmodelingfaults1",
+    "path": {
+      "section": "characterizingandmodelingfaults1",
+      "start_entity": "RegisterOperandNumber",
+      "end_entity": "Register",
+      "hops": [
+        {
+          "from": "RegisterOperandNumber",
+          "relation": "influences",
+          "to": "Corruption",
+          "context": "We then studied the sensitivity to the register operand number, and a study of the influence of the register operand number was part of the following experiment.",
+          "chunk": "5"
+        },
+        {
+          "from": "Corruption",
+          "relation": "observedIn",
+          "to": "RegisterR0",
+          "context": "Among all successful faults, only r0 has been corrupted, similar to the previous experiment on a sequence of nops.",
+          "chunk": "5"
+        },
+        {
+          "from": "RegisterR0",
+          "relation": "type",
+          "to": "Register",
+          "context": "Among all successful faults, only r0 has been corrupted, similar to the previous experiment on a sequence of nops.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the study of fault sensitivity, how does the register operand number influence the type of register corruption observed in experiments?",
+    "options": {
+      "A": "The register operand number directly influences the type of corruption, specifically targeting the Register R0.",
+      "B": "The register operand number decreases the probability of corruption, enhancing the security of the register.",
+      "C": "The register operand number does not have any influence on the corruption of any specific register.",
+      "D": "The register operand number increases the likelihood of corruption in multiple registers simultaneously."
+    },
+    "correct_answer": "A",
+    "explanation": "According to the paper, the register operand number has a direct influence on the corruption observed, particularly affecting Register R0. This is a specific example of how operand number can target a specific register type during fault experiments.",
+    "path_description": "Path: RegisterOperandNumber --[influences]--> Corruption --[observedIn]--> RegisterR0 --[type]--> Register",
+    "context": "We then studied the sensitivity to the register operand number, and a study of the influence of the register operand number was part of the following experiment. | Among all successful faults, only r0 has been corrupted, similar to the previous experiment on a sequence of nops. | Among all successful faults, only r0 has been corrupted, similar to the previous experiment on a sequence of nops.",
+    "paper_id": "124"
+  },
+  {
+    "section": "loopingback2",
+    "path": {
+      "section": "loopingback2",
+      "start_entity": "CompositeFaults",
+      "end_entity": "Concept",
+      "hops": [
+        {
+          "from": "CompositeFaults",
+          "relation": "mainlyDueTo",
+          "to": "MagicEdge",
+          "context": "Harmful faults are mainly due to composite faults affecting differently an original computation and its duplicated version.",
+          "chunk": "9"
+        },
+        {
+          "from": "MagicEdge",
+          "relation": "representsThreat",
+          "to": "Countermeasures",
+          "context": "Magic edges represent a real threat for all the hardened versions detected by the first (loop-centric) countermeasure.",
+          "chunk": "9"
+        },
+        {
+          "from": "Countermeasures",
+          "relation": "type",
+          "to": "Concept",
+          "context": "Magic edges represent a real threat for all the hardened versions detected by the first (loop-centric) countermeasure.",
+          "chunk": "9"
+        }
+      ]
+    },
+    "question": "What kind of countermeasure is primarily effective against composite faults that threaten computations through magic edges?",
+    "options": {
+      "A": "A redundancy-based countermeasure that duplicates all elements of the system",
+      "B": "A node-specific countermeasure that only addresses individual computational errors",
+      "C": "A loop-centric countermeasure that detects vulnerabilities in hardened versions",
+      "D": "A data flow-based countermeasure that secures the transmission of information"
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A because the path indicates that 'Magic Edge', which represents a threat due to composite faults, is primarily counteracted by the first (loop-centric) countermeasure. This countermeasure is designed to detect vulnerabilities in hardened versions, thus being specifically effective against threats posed by magic edges.",
+    "path_description": "Path: CompositeFaults --[mainlyDueTo]--> MagicEdge --[representsThreat]--> Countermeasures --[type]--> Concept",
+    "context": "Harmful faults are mainly due to composite faults affecting differently an original computation and its duplicated version. | Magic edges represent a real threat for all the hardened versions detected by the first (loop-centric) countermeasure. | Magic edges represent a real threat for all the hardened versions detected by the first (loop-centric) countermeasure.",
+    "paper_id": "124"
+  }
+]

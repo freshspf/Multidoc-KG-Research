@@ -1,0 +1,174 @@
+[
+  {
+    "section": "materialsandmethods1",
+    "path": {
+      "section": "materialsandmethods1",
+      "start_entity": "HarmonizationPipeline",
+      "end_entity": "DownloadStage",
+      "hops": [
+        {
+          "from": "HarmonizationPipeline",
+          "relation": "comprises",
+          "to": "FinalMergeStage",
+          "context": "Our harmonization framework implements a multi-stage pipeline comprising data processing, predictive modeling, and validation components.",
+          "chunk": "1"
+        },
+        {
+          "from": "FinalMergeStage",
+          "relation": "concludes",
+          "to": "HarmonizationPipeline",
+          "context": "Final Merge stage in the harmonization process.",
+          "chunk": "1"
+        },
+        {
+          "from": "HarmonizationPipeline",
+          "relation": "comprises",
+          "to": "DownloadStage",
+          "context": "Our harmonization framework implements a multi-stage pipeline comprising data processing, predictive modeling, and validation components.",
+          "chunk": "1"
+        }
+      ]
+    },
+    "question": "In the described harmonization framework, what is the correct sequence of stages that follows after the Final Merge stage?",
+    "options": {
+      "A": "Predictive modeling is the stage that directly follows the Final Merge in the harmonization process.",
+      "B": "The Validation component is the subsequent phase right after the Final Merge stage in the pipeline.",
+      "C": "Immediately following the Final Merge stage, the Data Processing stage commences as a new cycle.",
+      "D": "The Final Merge stage is followed by the Download Stage as part of the Harmonization Pipeline."
+    },
+    "correct_answer": "D",
+    "explanation": "According to the knowledge path, the Final Merge Stage concludes one phase of the Harmonization Pipeline, and it is followed by the Download Stage, indicating a cyclic nature of the stages within the Harmonization Pipeline.",
+    "path_description": "Path: HarmonizationPipeline --[comprises]--> FinalMergeStage --[concludes]--> HarmonizationPipeline --[comprises]--> DownloadStage",
+    "context": "Our harmonization framework implements a multi-stage pipeline comprising data processing, predictive modeling, and validation components. | Final Merge stage in the harmonization process. | Our harmonization framework implements a multi-stage pipeline comprising data processing, predictive modeling, and validation components.",
+    "paper_id": "226"
+  },
+  {
+    "section": "materialsandmethods1",
+    "path": {
+      "section": "materialsandmethods1",
+      "start_entity": "FinalMergeStage",
+      "end_entity": "PipelineStage",
+      "hops": [
+        {
+          "from": "FinalMergeStage",
+          "relation": "concludes",
+          "to": "HarmonizationPipeline",
+          "context": "Final Merge stage in the harmonization process.",
+          "chunk": "1"
+        },
+        {
+          "from": "HarmonizationPipeline",
+          "relation": "comprises",
+          "to": "UpdateStage",
+          "context": "Our harmonization framework implements a multi-stage pipeline comprising data processing, predictive modeling, and validation components.",
+          "chunk": "1"
+        },
+        {
+          "from": "UpdateStage",
+          "relation": "type",
+          "to": "PipelineStage",
+          "context": "The Update stage enriches the filtered data with standardized mappings for column names.",
+          "chunk": "1"
+        }
+      ]
+    },
+    "question": "In the described harmonization framework, what is the primary function of the Update Stage within the multi-stage pipeline?",
+    "options": {
+      "A": "The Update Stage consolidates various data sources into a final, merged dataset.",
+      "B": "The Update Stage primarily focuses on the predictive modeling of the processed data.",
+      "C": "The Update Stage validates the data integrity post-merging and prior to final output generation.",
+      "D": "The Update Stage enriches the filtered data by providing standardized mappings for column names."
+    },
+    "correct_answer": "D",
+    "explanation": "According to the context provided, the Update Stage within the harmonization framework's multi-stage pipeline is responsible for enriching the filtered data with standardized mappings for column names. This stage does not focus on predictive modeling, data validation post-merging, or consolidating data sources, which makes option A the correct answer.",
+    "path_description": "Path: FinalMergeStage --[concludes]--> HarmonizationPipeline --[comprises]--> UpdateStage --[type]--> PipelineStage",
+    "context": "Final Merge stage in the harmonization process. | Our harmonization framework implements a multi-stage pipeline comprising data processing, predictive modeling, and validation components. | The Update stage enriches the filtered data with standardized mappings for column names.",
+    "paper_id": "226"
+  },
+  {
+    "section": "materialsandmethods4",
+    "path": {
+      "section": "materialsandmethods4",
+      "start_entity": "Reranker",
+      "end_entity": "Dataset",
+      "hops": [
+        {
+          "from": "Reranker",
+          "relation": "uses",
+          "to": "RoBERTa",
+          "context": "The reranker component of the system leverage on RoBERTa",
+          "chunk": "4"
+        },
+        {
+          "from": "RoBERTa",
+          "relation": "finetunedOn",
+          "to": "SyntheticDataset",
+          "context": "We fine-tuned this biomedical RoBERTa variant on a synthetic dataset",
+          "chunk": "4"
+        },
+        {
+          "from": "SyntheticDataset",
+          "relation": "type",
+          "to": "Dataset",
+          "context": "The model was trained on a synthetic dataset",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "Which type of dataset was specifically used to fine-tune the RoBERTa model utilized by the reranker component in the research?",
+    "options": {
+      "A": "A synthetic dataset designed to mimic real-world biomedical data complexities",
+      "B": "A public dataset widely used in general natural language processing tasks",
+      "C": "A private dataset exclusive to a specific pharmaceutical company's research division",
+      "D": "A real-world dataset gathered directly from clinical trials and patient reports"
+    },
+    "correct_answer": "A",
+    "explanation": "The question requires understanding the path where the reranker uses RoBERTa, which was fine-tuned on a synthetic dataset. The correct answer is 'A synthetic dataset designed to mimic real-world biomedical data complexities,' which aligns with the use of a synthetic dataset as mentioned in the paper. The other options are plausible but incorrect based on the given information.",
+    "path_description": "Path: Reranker --[uses]--> RoBERTa --[finetunedOn]--> SyntheticDataset --[type]--> Dataset",
+    "context": "The reranker component of the system leverage on RoBERTa | We fine-tuned this biomedical RoBERTa variant on a synthetic dataset | The model was trained on a synthetic dataset",
+    "paper_id": "226"
+  },
+  {
+    "section": "results",
+    "path": {
+      "section": "results",
+      "start_entity": "RecallAt10",
+      "end_entity": "Experiment",
+      "hops": [
+        {
+          "from": "RecallAt10",
+          "relation": "measures",
+          "to": "HybridRetrieval",
+          "context": "The identical values of Recall@10 and Success@10 (both 0.9700) stem from our evaluation setup.",
+          "chunk": "5"
+        },
+        {
+          "from": "HybridRetrieval",
+          "relation": "outperforms",
+          "to": "LexicalOnlyRetrieval",
+          "context": "The best MRR achieved by this hybrid approach was 0.8833, showcasing a significant improvement over the individual approaches.",
+          "chunk": "5"
+        },
+        {
+          "from": "LexicalOnlyRetrieval",
+          "relation": "type",
+          "to": "Experiment",
+          "context": "The first experiment, Lexical-Only Retrieval, pipeline that combined BM25, field-specific weights, and synonym expansion.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the experiment comparing different retrieval methods, how does the Hybrid Retrieval approach's performance at Recall@10 compare to the Lexical-Only Retrieval method?",
+    "options": {
+      "A": "While both methods show improvements, Lexical-Only Retrieval has a higher Recall@10 than Hybrid Retrieval.",
+      "B": "Hybrid Retrieval achieves the same Recall@10 value as Lexical-Only Retrieval due to identical evaluation setups.",
+      "C": "Hybrid Retrieval's Recall@10 performance cannot be compared to Lexical-Only Retrieval due to different experimental designs.",
+      "D": "Hybrid Retrieval's Recall@10 performance is significantly lower than that of Lexical-Only Retrieval."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A, as the context indicates that both Hybrid Retrieval and Lexical-Only Retrieval achieved the same Recall@10 value, specifically 0.9700, due to the evaluation setup employed in the experiments. This implies that there was no difference in performance at Recall@10 between the two methods under the given experimental conditions.",
+    "path_description": "Path: RecallAt10 --[measures]--> HybridRetrieval --[outperforms]--> LexicalOnlyRetrieval --[type]--> Experiment",
+    "context": "The identical values of Recall@10 and Success@10 (both 0.9700) stem from our evaluation setup. | The best MRR achieved by this hybrid approach was 0.8833, showcasing a significant improvement over the individual approaches. | The first experiment, Lexical-Only Retrieval, pipeline that combined BM25, field-specific weights, and synonym expansion.",
+    "paper_id": "226"
+  }
+]

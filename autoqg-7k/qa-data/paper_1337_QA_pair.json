@@ -1,0 +1,131 @@
+[
+  {
+    "section": "method2",
+    "path": {
+      "section": "method2",
+      "start_entity": "Text_Embeddings",
+      "end_entity": "Data",
+      "hops": [
+        {
+          "from": "Text_Embeddings",
+          "relation": "usedAsWeight",
+          "to": "Text_Image_Logits",
+          "context": "Then, we take these text embeddings as the weight of the convolution.",
+          "chunk": "3"
+        },
+        {
+          "from": "Text_Image_Logits",
+          "relation": "enhances",
+          "to": "Original_Logits",
+          "context": "We use the text-image logits to enhance the original logits output.",
+          "chunk": "3"
+        },
+        {
+          "from": "Original_Logits",
+          "relation": "type",
+          "to": "Data",
+          "context": "We use the text-image logits to enhance the original logits output.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the process described in 'method2', how do text embeddings directly influence the final data output?",
+    "options": {
+      "A": "Text embeddings directly modify the original logits, which are then used as weights for generating the final data output.",
+      "B": "Text embeddings are used as weights in convolution, enhancing text-image logits that subsequently improve the original logits.",
+      "C": "Text embeddings are used to normalize the original logits, indirectly adjusting the text-image logits used in data generation.",
+      "D": "Text embeddings serve as direct inputs to the data, bypassing the text-image logits and original logits stages."
+    },
+    "correct_answer": "B",
+    "explanation": "The question tests understanding of the sequential influence of text embeddings in the described method. Text embeddings are used as convolution weights to enhance text-image logits, which then improve the original logits, ultimately affecting the final data output. Options B, C, and D are misleading as they either rearrange the sequence or misrepresent the role of text embeddings.",
+    "path_description": "Path: Text_Embeddings --[usedAsWeight]--> Text_Image_Logits --[enhances]--> Original_Logits --[type]--> Data",
+    "context": "Then, we take these text embeddings as the weight of the convolution. | We use the text-image logits to enhance the original logits output. | We use the text-image logits to enhance the original logits output.",
+    "paper_id": "1693"
+  },
+  {
+    "section": "relatedwork",
+    "path": {
+      "section": "relatedwork",
+      "start_entity": "SML",
+      "end_entity": "Benchmark",
+      "hops": [
+        {
+          "from": "SML",
+          "relation": "improves",
+          "to": "MaxLogits",
+          "context": "Jung et al. propose SML (Standardized Max Logits) to better apply MaxLogits to segment anomalies in urban scenes.",
+          "chunk": "1"
+        },
+        {
+          "from": "MaxLogits",
+          "relation": "appliedTo",
+          "to": "CAOSBenchmark",
+          "context": "MaxLogits has applications in autonomous driving scenes (the CAOS benchmark).",
+          "chunk": "1"
+        },
+        {
+          "from": "CAOSBenchmark",
+          "relation": "type",
+          "to": "Benchmark",
+          "context": "MaxLogits has applications in autonomous driving scenes (the CAOS benchmark).",
+          "chunk": "1"
+        }
+      ]
+    },
+    "question": "How does the application of Standardized Max Logits (SML) specifically contribute to the field of autonomous driving?",
+    "options": {
+      "A": "SML standardizes the application of MaxLogits, enhancing its ability to detect anomalies in urban autonomous driving scenes.",
+      "B": "SML reduces the computational requirements of MaxLogits, making it more suitable for real-time applications in autonomous vehicles.",
+      "C": "SML increases the accuracy of GPS systems in autonomous vehicles by improving data processing in MaxLogits.",
+      "D": "SML focuses on reducing the noise in data collected from urban scenes, thus indirectly improving the performance of MaxLogits."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A because SML (Standardized Max Logits) specifically improves the application of MaxLogits by standardizing its use, which is particularly beneficial for detecting anomalies in urban scenes within autonomous driving benchmarks (CAOS benchmark). This application directly enhances the capability of autonomous systems to interpret complex urban environments.",
+    "path_description": "Path: SML --[improves]--> MaxLogits --[appliedTo]--> CAOSBenchmark --[type]--> Benchmark",
+    "context": "Jung et al. propose SML (Standardized Max Logits) to better apply MaxLogits to segment anomalies in urban scenes. | MaxLogits has applications in autonomous driving scenes (the CAOS benchmark). | MaxLogits has applications in autonomous driving scenes (the CAOS benchmark).",
+    "paper_id": "1693"
+  },
+  {
+    "section": "method2",
+    "path": {
+      "section": "method2",
+      "start_entity": "CLIP_Text_Encoder",
+      "end_entity": "Original_Logits",
+      "hops": [
+        {
+          "from": "CLIP_Text_Encoder",
+          "relation": "extracts",
+          "to": "Text_Embeddings",
+          "context": "Then, we feed the prompts into the CLIP text encoder to obtain text embeddings.",
+          "chunk": "3"
+        },
+        {
+          "from": "Text_Embeddings",
+          "relation": "usedAsWeight",
+          "to": "Text_Image_Logits",
+          "context": "Then, we take these text embeddings as the weight of the convolution.",
+          "chunk": "3"
+        },
+        {
+          "from": "Text_Image_Logits",
+          "relation": "enhances",
+          "to": "Original_Logits",
+          "context": "We use the text-image logits to enhance the original logits output.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the process described in method2, how does the integration of CLIP text encoder outputs ultimately improve the model's performance?",
+    "options": {
+      "A": "By directly modifying the original logits with the text embeddings to increase the model's computational speed.",
+      "B": "By converting text embeddings into image embeddings that replace the original logits, thus refining the model's accuracy.",
+      "C": "By applying the text embeddings to the image logits, which are then discarded, focusing solely on original logits enhancement.",
+      "D": "By using text embeddings as weights for convolution, which then enhance original logits for better image-text alignment."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A because the process described includes extracting text embeddings from the CLIP text encoder, using these embeddings as weights during convolution, and then using the resultant text-image logits to enhance the original logits, improving alignment between text and image inputs.",
+    "path_description": "Path: CLIP_Text_Encoder --[extracts]--> Text_Embeddings --[usedAsWeight]--> Text_Image_Logits --[enhances]--> Original_Logits",
+    "context": "Then, we feed the prompts into the CLIP text encoder to obtain text embeddings. | Then, we take these text embeddings as the weight of the convolution. | We use the text-image logits to enhance the original logits output.",
+    "paper_id": "1693"
+  }
+]

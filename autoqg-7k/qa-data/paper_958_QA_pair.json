@@ -1,0 +1,131 @@
+[
+  {
+    "section": "validationofhighlevelsimulator",
+    "path": {
+      "section": "validationofhighlevelsimulator",
+      "start_entity": "RealDrone",
+      "end_entity": "EvaluationTool",
+      "hops": [
+        {
+          "from": "RealDrone",
+          "relation": "comparedWith",
+          "to": "SITL",
+          "context": "As a first step, we run a mission in the field using a real drone, and compare the observed flight behavior vs running the same mission with the autopilot in software-in-the-loop (SITL) mode.",
+          "chunk": "4"
+        },
+        {
+          "from": "SITL",
+          "relation": "comparedWith",
+          "to": "HighLevelSimulator",
+          "context": "Then, we compare the results we get for a more complex mission scenario when using the SITL autopilot vs the high-level simulator.",
+          "chunk": "4"
+        },
+        {
+          "from": "HighLevelSimulator",
+          "relation": "servesAs",
+          "to": "EvaluationTool",
+          "context": "We show that the differences are small thus the high-level simulator can serve as a practical evaluation tool without having to do real field tests.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "Why is the high-level simulator considered a practical evaluation tool for drone mission scenarios?",
+    "options": {
+      "A": "Because it allows for the testing of drone missions in virtual environments that are otherwise inaccessible.",
+      "B": "Because it is less expensive than conducting multiple real drone missions in different environmental conditions.",
+      "C": "Because it closely replicates the results of the real drone missions when compared with SITL, reducing the need for field tests.",
+      "D": "Because it can simulate multiple types of drone hardware configurations faster than real-time field tests."
+    },
+    "correct_answer": "C",
+    "explanation": "The high-level simulator is considered a practical evaluation tool because it closely mimics the results obtained from real drone missions when compared with software-in-the-loop (SITL), as shown in the comparative analysis. This accuracy makes it reliable for use in place of actual field tests, thus serving as a cost-effective and efficient evaluation method.",
+    "path_description": "Path: RealDrone --[comparedWith]--> SITL --[comparedWith]--> HighLevelSimulator --[servesAs]--> EvaluationTool",
+    "context": "As a first step, we run a mission in the field using a real drone, and compare the observed flight behavior vs running the same mission with the autopilot in software-in-the-loop (SITL) mode. | Then, we compare the results we get for a more complex mission scenario when using the SITL autopilot vs the high-level simulator. | We show that the differences are small thus the high-level simulator can serve as a practical evaluation tool without having to do real field tests.",
+    "paper_id": "488"
+  },
+  {
+    "section": "validationofhighlevelsimulator",
+    "path": {
+      "section": "validationofhighlevelsimulator",
+      "start_entity": "CustomQuadcopter",
+      "end_entity": "ObjectDetectionModel",
+      "hops": [
+        {
+          "from": "CustomQuadcopter",
+          "relation": "equippedWith",
+          "to": "RaspberryPi",
+          "context": "The drone is also equipped with a Raspberry Pi (RPi) with a camera, serving as an indicative on-board sensing and computing platform.",
+          "chunk": "4"
+        },
+        {
+          "from": "RaspberryPi",
+          "relation": "uses",
+          "to": "YoloV8x",
+          "context": "from 8 to 12 seconds to perform the computation for object detection via yolov8x [26] for a 1080p image downscaled to 480p and 640p, respectively.",
+          "chunk": "4"
+        },
+        {
+          "from": "YoloV8x",
+          "relation": "type",
+          "to": "ObjectDetectionModel",
+          "context": "from 8 to 12 seconds to perform the computation for object detection via yolov8x [26] for a 1080p image downscaled to 480p and 640p, respectively.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "Given the computing setup of a CustomQuadcopter equipped with a Raspberry Pi using YoloV8x, how long would it take to perform object detection when a 1080p image is downscaled to 640p?",
+    "options": {
+      "A": "Nearly 15 to 20 seconds due to the increased complexity of processing at a higher resolution.",
+      "B": "Less than 5 seconds because downscaled images require minimal computational resources.",
+      "C": "About 20 to 30 seconds, as the Raspberry Pi struggles with higher resolution images.",
+      "D": "Approximately 8 to 12 seconds, depending on the specific configuration and conditions."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A because the paper specifies that the time to perform the computation for object detection via YoloV8x on a Raspberry Pi for a 1080p image downscaled to 640p is from 8 to 12 seconds. Options B, C, and D provide misleading times that do not align with the specific details given in the context of the paper.",
+    "path_description": "Path: CustomQuadcopter --[equippedWith]--> RaspberryPi --[uses]--> YoloV8x --[type]--> ObjectDetectionModel",
+    "context": "The drone is also equipped with a Raspberry Pi (RPi) with a camera, serving as an indicative on-board sensing and computing platform. | from 8 to 12 seconds to perform the computation for object detection via yolov8x [26] for a 1080p image downscaled to 480p and 640p, respectively. | from 8 to 12 seconds to perform the computation for object detection via yolov8x [26] for a 1080p image downscaled to 480p and 640p, respectively.",
+    "paper_id": "488"
+  },
+  {
+    "section": "evaluation3",
+    "path": {
+      "section": "evaluation3",
+      "start_entity": "ProposedApproach",
+      "end_entity": "Policy",
+      "hops": [
+        {
+          "from": "ProposedApproach",
+          "relation": "outperforms",
+          "to": "Wait",
+          "context": "the proposed approach outperforms the Wait, Go and Random policies by up to 25.8%, 14.0% and 13.6%, respectively.",
+          "chunk": "7"
+        },
+        {
+          "from": "Wait",
+          "relation": "outperforms",
+          "to": "Go",
+          "context": "Wait becomes better than Go because most waypoints visited have the “opposite” event detection probability 0.6 vs 0.1 before the change.",
+          "chunk": "7"
+        },
+        {
+          "from": "Go",
+          "relation": "type",
+          "to": "Policy",
+          "context": "the optimism of the Go policy pays-off even more.",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "Why does the Proposed Approach outperform the Go Policy in the context of event detection probabilities at waypoints?",
+    "options": {
+      "A": "The Proposed Approach has a higher detection probability adjustment, affecting its performance positively by up to 25.8%.",
+      "B": "The Go Policy has an increased optimism that pays off, leading to a higher event detection rate compared to other policies.",
+      "C": "Most waypoints visited under the Wait policy have an opposite event detection probability, making it less effective than the Proposed Approach.",
+      "D": "The Go Policy is based on a principle of optimism, which although beneficial, does not adapt to changing probabilities as effectively as the Proposed Approach."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is D because it encapsulates the idea that the Go Policy, while generally optimistic and effective, doesn't adjust to changing detection probabilities at waypoints as well as the Proposed Approach. This inability to adapt as effectively leads to its underperformance relative to the Proposed Approach, which is better suited to handling changes in event detection probabilities.",
+    "path_description": "Path: ProposedApproach --[outperforms]--> Wait --[outperforms]--> Go --[type]--> Policy",
+    "context": "the proposed approach outperforms the Wait, Go and Random policies by up to 25.8%, 14.0% and 13.6%, respectively. | Wait becomes better than Go because most waypoints visited have the “opposite” event detection probability 0.6 vs 0.1 before the change. | the optimism of the Go policy pays-off even more.",
+    "paper_id": "488"
+  }
+]

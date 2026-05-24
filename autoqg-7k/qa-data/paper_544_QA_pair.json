@@ -1,0 +1,389 @@
+[
+  {
+    "section": "stateoftheart8",
+    "path": {
+      "section": "stateoftheart8",
+      "start_entity": "Graph_H",
+      "end_entity": "Subset",
+      "hops": [
+        {
+          "from": "Graph_H",
+          "relation": "constructedOn",
+          "to": "Vertices_V",
+          "context": "A graph H is constructed on the set V of variables.",
+          "chunk": "9"
+        },
+        {
+          "from": "Vertices_V",
+          "relation": "dSeparatedGiven",
+          "to": "Subset_S",
+          "context": "if there exists a subset S of V \\\\{v,w} such that v and w are d-separated given S, then the edge between v and w is removed from H.",
+          "chunk": "9"
+        },
+        {
+          "from": "Subset_S",
+          "relation": "type",
+          "to": "Subset",
+          "context": "if there exists a subset S of V \\\\{v,w} such that v and w are d-separated given S, then the edge between v and w is removed from H.",
+          "chunk": "9"
+        }
+      ]
+    },
+    "question": "In the context of graphical models, when constructing a graph H based on a set of variables V, under what condition is an edge between two variables v and w removed from graph H?",
+    "options": {
+      "A": "An edge is retained if there exists a subset S of V including v and w such that v and w are d-connected given S.",
+      "B": "An edge is removed if there exists a subset S of V including v and w such that v and w are d-separated given S.",
+      "C": "An edge is retained if no subset S can be found in V such that v and w are d-separated given S.",
+      "D": "An edge is removed if there exists a subset S of V excluding v and w such that v and w are d-separated given S."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A because the paper specifies that an edge between v and w in graph H is removed if there exists a subset S of V excluding v and w where v and w are d-separated given S. This involves understanding the construction of the graph, the role of the subset, and the concept of d-separation.",
+    "path_description": "Path: Graph_H --[constructedOn]--> Vertices_V --[dSeparatedGiven]--> Subset_S --[type]--> Subset",
+    "context": "A graph H is constructed on the set V of variables. | if there exists a subset S of V \\\\{v,w} such that v and w are d-separated given S, then the edge between v and w is removed from H. | if there exists a subset S of V \\\\{v,w} such that v and w are d-separated given S, then the edge between v and w is removed from H.",
+    "paper_id": "365"
+  },
+  {
+    "section": "proposal6",
+    "path": {
+      "section": "proposal6",
+      "start_entity": "Table2_3",
+      "end_entity": "Variable",
+      "hops": [
+        {
+          "from": "Table2_3",
+          "relation": "contains",
+          "to": "i",
+          "context": "Table 2.3 contains variable i.",
+          "chunk": "15"
+        },
+        {
+          "from": "i",
+          "relation": "relatedTo",
+          "to": "k",
+          "context": "Variables i and k are related in the distribution tables and causal relationships.",
+          "chunk": "15"
+        },
+        {
+          "from": "k",
+          "relation": "type",
+          "to": "Variable",
+          "context": "Variables i, j, and k are used in the distribution tables and causal relationships.",
+          "chunk": "15"
+        }
+      ]
+    },
+    "question": "In the context of the distribution tables and causal relationships described in proposal6, how does variable k function with respect to variable i?",
+    "options": {
+      "A": "Variable k is an independent variable that directly controls the distribution of variable i.",
+      "B": "Variable k acts as a dependent variable influenced by the independent variable i.",
+      "C": "Variable k is a constant used for normalizing the effects observed in variable i.",
+      "D": "Variable k and variable i are both independently varying and do not influence each other."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A because, as per the knowledge graph path, variable i is contained within a table and related to variable k, which is a type of Variable suggesting a dependency. Therefore, k acts as a dependent variable influenced by i.",
+    "path_description": "Path: Table2_3 --[contains]--> i --[relatedTo]--> k --[type]--> Variable",
+    "context": "Table 2.3 contains variable i. | Variables i and k are related in the distribution tables and causal relationships. | Variables i, j, and k are used in the distribution tables and causal relationships.",
+    "paper_id": "365"
+  },
+  {
+    "section": "proposal6",
+    "path": {
+      "section": "proposal6",
+      "start_entity": "Table2_3",
+      "end_entity": "Variable",
+      "hops": [
+        {
+          "from": "Table2_3",
+          "relation": "contains",
+          "to": "i",
+          "context": "Table 2.3 contains variable i.",
+          "chunk": "15"
+        },
+        {
+          "from": "i",
+          "relation": "relatedTo",
+          "to": "j",
+          "context": "Variables i and j are related in the distribution tables and causal relationships.",
+          "chunk": "15"
+        },
+        {
+          "from": "j",
+          "relation": "type",
+          "to": "Variable",
+          "context": "Variables i, j, and k are used in the distribution tables and causal relationships.",
+          "chunk": "15"
+        }
+      ]
+    },
+    "question": "In the context of the distribution tables and causal relationships presented in Table 2.3 of the 'proposal6' section, what type of entity is variable j as it relates to variable i?",
+    "options": {
+      "A": "Variable j is an independent variable that is used to predict the outcomes of variable i.",
+      "B": "Variable j is an intervening variable that mediates the effect of variable i on another outcome.",
+      "C": "Variable j is a control variable that moderates the relationship between variable i and another variable k.",
+      "D": "Variable j is a dependent variable that has a direct causal connection with variable i."
+    },
+    "correct_answer": "B",
+    "explanation": "Variable j is classified as an intervening variable because it is described as being 'related' to variable i within the causal relationship framework in Table 2.3. This suggests that j mediates the influence of i, rather than being merely dependent, independent, or a control variable.",
+    "path_description": "Path: Table2_3 --[contains]--> i --[relatedTo]--> j --[type]--> Variable",
+    "context": "Table 2.3 contains variable i. | Variables i and j are related in the distribution tables and causal relationships. | Variables i, j, and k are used in the distribution tables and causal relationships.",
+    "paper_id": "365"
+  },
+  {
+    "section": "proposal6",
+    "path": {
+      "section": "proposal6",
+      "start_entity": "Table2_3",
+      "end_entity": "Variable",
+      "hops": [
+        {
+          "from": "Table2_3",
+          "relation": "contains",
+          "to": "j",
+          "context": "Table 2.3 contains variable j.",
+          "chunk": "15"
+        },
+        {
+          "from": "j",
+          "relation": "relatedTo",
+          "to": "k",
+          "context": "Variables j and k are related in the distribution tables and causal relationships.",
+          "chunk": "15"
+        },
+        {
+          "from": "k",
+          "relation": "type",
+          "to": "Variable",
+          "context": "Variables i, j, and k are used in the distribution tables and causal relationships.",
+          "chunk": "15"
+        }
+      ]
+    },
+    "question": "In the context of the relationships outlined in Table 2.3 of the paper section 'proposal6', how does variable k function in relation to variable j?",
+    "options": {
+      "A": "Variable k is an independent variable that provides contextual background for variable j.",
+      "B": "Variable k is a constant used to normalize the effects of variable j in distribution tables.",
+      "C": "Variable k is a control variable that negates the influence of variable j in causal relationships.",
+      "D": "Variable k is a dependent variable that is causally influenced by variable j."
+    },
+    "correct_answer": "D",
+    "explanation": "According to the paper, variables j and k are related in distribution tables and causal relationships. Given that the path specifies k as a type of variable related to j, and considering the common usage of causal relationships in statistical analysis, k being a dependent variable influenced by j aligns with this description.",
+    "path_description": "Path: Table2_3 --[contains]--> j --[relatedTo]--> k --[type]--> Variable",
+    "context": "Table 2.3 contains variable j. | Variables j and k are related in the distribution tables and causal relationships. | Variables i, j, and k are used in the distribution tables and causal relationships.",
+    "paper_id": "365"
+  },
+  {
+    "section": "proposal7",
+    "path": {
+      "section": "proposal7",
+      "start_entity": "TransitiveHypotenuse",
+      "end_entity": "Method",
+      "hops": [
+        {
+          "from": "TransitiveHypotenuse",
+          "relation": "partOf",
+          "to": "TransitiveTriangle",
+          "context": "cases may arise: when the transitive hypotenuse of the triangle considered is the first or second leg of another transitive triangle.",
+          "chunk": "16"
+        },
+        {
+          "from": "TransitiveTriangle",
+          "relation": "partOf",
+          "to": "OrderOfElimination",
+          "context": "In any case, these cases must be rare as for a transitive triangle there exists at least one other adjacent triangle.",
+          "chunk": "16"
+        },
+        {
+          "from": "OrderOfElimination",
+          "relation": "type",
+          "to": "Method",
+          "context": "Removing arcs by this method must follow a specific order, to avoid conflicts.",
+          "chunk": "16"
+        }
+      ]
+    },
+    "question": "In the process described in proposal7, what is the primary reason for adhering to a specific order of elimination when removing arcs from transitive triangles?",
+    "options": {
+      "A": "To avoid conflicts that may arise due to overlapping roles of transitive hypotenuses in multiple triangles.",
+      "B": "To ensure that the transitive hypotenuse of a triangle does not mistakenly become the base of another transitive triangle.",
+      "C": "To simplify the computation process by systematically reducing the number of transitive relationships.",
+      "D": "To maintain the structural integrity of the overall geometric configuration by preserving adjacent triangles."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is C because the context indicates that specific order is necessary to avoid conflicts, likely due to the dual role of transitive hypotenuses in multiple triangles. The other options, while plausible, do not directly address the issue of avoiding conflicts mentioned in the context.",
+    "path_description": "Path: TransitiveHypotenuse --[partOf]--> TransitiveTriangle --[partOf]--> OrderOfElimination --[type]--> Method",
+    "context": "cases may arise: when the transitive hypotenuse of the triangle considered is the first or second leg of another transitive triangle. | In any case, these cases must be rare as for a transitive triangle there exists at least one other adjacent triangle. | Removing arcs by this method must follow a specific order, to avoid conflicts.",
+    "paper_id": "365"
+  },
+  {
+    "section": "implementationdetailsandexperiments2",
+    "path": {
+      "section": "implementationdetailsandexperiments2",
+      "start_entity": "Program",
+      "end_entity": "DataFormat",
+      "hops": [
+        {
+          "from": "Program",
+          "relation": "constructs",
+          "to": "CausalGraph",
+          "context": "The program constructs a causal graph",
+          "chunk": "20"
+        },
+        {
+          "from": "CausalGraph",
+          "relation": "constructedFrom",
+          "to": "MatrixData",
+          "context": "G =< V,E >, from a matrix M of binary",
+          "chunk": "20"
+        },
+        {
+          "from": "MatrixData",
+          "relation": "type",
+          "to": "DataFormat",
+          "context": "matrix data is received as a plain text",
+          "chunk": "20"
+        }
+      ]
+    },
+    "question": "In the context of the program described in the 'implementationdetailsandexperiments2' section, which data format is utilized to construct the causal graph from the matrix data?",
+    "options": {
+      "A": "The matrix data used to construct the causal graph is formatted as plain text.",
+      "B": "The matrix data is directly interpreted from an encrypted file format.",
+      "C": "The matrix data is received and processed in a proprietary compressed format.",
+      "D": "The matrix data is formatted in an advanced binary system exclusive to the program."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A as the section explicitly mentions that the matrix data, from which the causal graph is constructed, is received as plain text. The other options introduce formats that are not mentioned in the provided context.",
+    "path_description": "Path: Program --[constructs]--> CausalGraph --[constructedFrom]--> MatrixData --[type]--> DataFormat",
+    "context": "The program constructs a causal graph | G =< V,E >, from a matrix M of binary | matrix data is received as a plain text",
+    "paper_id": "365"
+  },
+  {
+    "section": "implementationdetailsandexperiments4",
+    "path": {
+      "section": "implementationdetailsandexperiments4",
+      "start_entity": "MokkenScalabilityCoefficient",
+      "end_entity": "Algorithm",
+      "hops": [
+        {
+          "from": "MokkenScalabilityCoefficient",
+          "relation": "evaluatedOn",
+          "to": "Graph",
+          "context": "Mokken scalability coefficient evaluated.",
+          "chunk": "22"
+        },
+        {
+          "from": "Graph",
+          "relation": "hasConstructionMethod",
+          "to": "Reichenbach_Test",
+          "context": "The Reichenbach_Test method implemented as proposed in 2.5.",
+          "chunk": "22"
+        },
+        {
+          "from": "Reichenbach_Test",
+          "relation": "type",
+          "to": "Algorithm",
+          "context": "The Reichenbach_Test method implemented as proposed in 2.5.",
+          "chunk": "22"
+        }
+      ]
+    },
+    "question": "In the context of evaluating the Mokken Scalability Coefficient on graphs, which algorithm type is specifically associated with the construction method used for these graphs?",
+    "options": {
+      "A": "Prim's algorithm, often used for finding a minimum spanning tree for a weighted graph",
+      "B": "Kruskal's algorithm, typically applied to find the minimum spanning tree in a graph",
+      "C": "Dijkstra's algorithm, primarily utilized for shortest path problems in graph theory",
+      "D": "Reichenbach_Test, which uniquely integrates causal inference principles in graph construction"
+    },
+    "correct_answer": "D",
+    "explanation": "The Reichenbach_Test as the construction method for the graph is explicitly linked to being a type of algorithm, as per the 3-hop knowledge graph path. The Reichenbach_Test algorithm integrates causal inference principles, distinguishing it from other graph-related algorithms like Dijkstra's, Prim's, or Kruskal's which focus on different aspects of graph theory.",
+    "path_description": "Path: MokkenScalabilityCoefficient --[evaluatedOn]--> Graph --[hasConstructionMethod]--> Reichenbach_Test --[type]--> Algorithm",
+    "context": "Mokken scalability coefficient evaluated. | The Reichenbach_Test method implemented as proposed in 2.5. | The Reichenbach_Test method implemented as proposed in 2.5.",
+    "paper_id": "365"
+  },
+  {
+    "section": "implementationdetailsandexperiments2",
+    "path": {
+      "section": "implementationdetailsandexperiments2",
+      "start_entity": "Program",
+      "end_entity": "PlainText",
+      "hops": [
+        {
+          "from": "Program",
+          "relation": "constructs",
+          "to": "CausalGraph",
+          "context": "The program constructs a causal graph",
+          "chunk": "20"
+        },
+        {
+          "from": "CausalGraph",
+          "relation": "constructedFrom",
+          "to": "MatrixData",
+          "context": "G =< V,E >, from a matrix M of binary",
+          "chunk": "20"
+        },
+        {
+          "from": "MatrixData",
+          "relation": "receivedAs",
+          "to": "PlainText",
+          "context": "matrix data is received as a plain text",
+          "chunk": "20"
+        }
+      ]
+    },
+    "question": "In the process described in the paper, what is the first step a program takes when constructing a causal graph from matrix data?",
+    "options": {
+      "A": "The program first receives matrix data in the form of plain text for processing.",
+      "B": "The program initially constructs a causal graph directly from the plain text.",
+      "C": "The program starts by converting the plain text into a binary format before analysis.",
+      "D": "The program initially parses the plain text to identify relevant causal relationships."
+    },
+    "correct_answer": "A",
+    "explanation": "Based on the knowledge graph path, the first step in the process is for the program to receive matrix data as plain text. The path indicates that the matrix data, which is in plain text, is then used to construct a causal graph. Options B, C, and D suggest alternate initial steps which do not align with the described sequence in the knowledge path.",
+    "path_description": "Path: Program --[constructs]--> CausalGraph --[constructedFrom]--> MatrixData --[receivedAs]--> PlainText",
+    "context": "The program constructs a causal graph | G =< V,E >, from a matrix M of binary | matrix data is received as a plain text",
+    "paper_id": "365"
+  },
+  {
+    "section": "implementationdetailsandexperiments4",
+    "path": {
+      "section": "implementationdetailsandexperiments4",
+      "start_entity": "Graph",
+      "end_entity": "AdjacencyMatrix",
+      "hops": [
+        {
+          "from": "Graph",
+          "relation": "hasConstructionMethod",
+          "to": "Reichenbach_Test",
+          "context": "The Reichenbach_Test method implemented as proposed in 2.5.",
+          "chunk": "22"
+        },
+        {
+          "from": "Reichenbach_Test",
+          "relation": "appliedTo",
+          "to": "Graph",
+          "context": "The Reichenbach_Test method implemented as proposed in 2.5.",
+          "chunk": "22"
+        },
+        {
+          "from": "Graph",
+          "relation": "constructedAs",
+          "to": "AdjacencyMatrix",
+          "context": "The graph is constructed as a list of adjacencies.",
+          "chunk": "22"
+        }
+      ]
+    },
+    "question": "In the context of graph theory, if a graph is constructed using the Reichenbach_Test method as outlined in section 2.5, which of the following describes the typical representation of this graph?",
+    "options": {
+      "A": "The graph is typically represented as an adjacency matrix, involving rows and columns corresponding to nodes and edges.",
+      "B": "The graph is typically represented as a list of edges, where each edge is a pair of nodes that are connected.",
+      "C": "The graph is typically represented using a visual diagram with nodes and edges clearly drawn on a two-dimensional plane.",
+      "D": "The graph is typically represented as a set of nodes where each node directly contains references to its adjacent nodes."
+    },
+    "correct_answer": "A",
+    "explanation": "The Reichenbach_Test method, as implemented according to section 2.5, results in the graph being constructed as an adjacency matrix. This representation uses rows and columns to map the relationships between nodes and edges effectively.",
+    "path_description": "Path: Graph --[hasConstructionMethod]--> Reichenbach_Test --[appliedTo]--> Graph --[constructedAs]--> AdjacencyMatrix",
+    "context": "The Reichenbach_Test method implemented as proposed in 2.5. | The Reichenbach_Test method implemented as proposed in 2.5. | The graph is constructed as a list of adjacencies.",
+    "paper_id": "365"
+  }
+]

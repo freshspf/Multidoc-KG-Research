@@ -1,0 +1,131 @@
+[
+  {
+    "section": "control2",
+    "path": {
+      "section": "control2",
+      "start_entity": "MainBodyController",
+      "end_entity": "Algorithm",
+      "hops": [
+        {
+          "from": "MainBodyController",
+          "relation": "uses",
+          "to": "VirtualModelController",
+          "context": "To stabilize the main body we employ a virtual model controller (VMC).",
+          "chunk": "5"
+        },
+        {
+          "from": "VirtualModelController",
+          "relation": "uses",
+          "to": "PD-Laws",
+          "context": "In this controller, PD-laws (thought of as virtual springs and dampers) compute desired forces τB.",
+          "chunk": "5"
+        },
+        {
+          "from": "PD-Laws",
+          "relation": "type",
+          "to": "Algorithm",
+          "context": "In this controller, PD-laws (thought of as virtual springs and dampers) compute desired forces τB.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the context of stabilizing the main body using a virtual model controller, what type of algorithm does the controller employ to compute the desired forces τB?",
+    "options": {
+      "A": "Linear-Quadratic Regulator (LQR), which minimizes a cost function over time",
+      "B": "Genetic Algorithms, which are used for optimization problems based on natural selection",
+      "C": "Feedforward Neural Networks, which are typically used for pattern recognition",
+      "D": "Proportional-Derivative (PD) laws, which function as virtual springs and dampers"
+    },
+    "correct_answer": "D",
+    "explanation": "The question requires understanding the path from the MainBodyController using VirtualModelController to employing PD-Laws, which are identified as a type of algorithm. PD-Laws, described as functioning as virtual springs and dampers, compute the desired forces τB, fitting the description of the algorithm used in this context.",
+    "path_description": "Path: MainBodyController --[uses]--> VirtualModelController --[uses]--> PD-Laws --[type]--> Algorithm",
+    "context": "To stabilize the main body we employ a virtual model controller (VMC). | In this controller, PD-laws (thought of as virtual springs and dampers) compute desired forces τB. | In this controller, PD-laws (thought of as virtual springs and dampers) compute desired forces τB.",
+    "paper_id": "760"
+  },
+  {
+    "section": "conclusion",
+    "path": {
+      "section": "conclusion",
+      "start_entity": "LeggedRoboticSystem",
+      "end_entity": "RoboticComponent",
+      "hops": [
+        {
+          "from": "LeggedRoboticSystem",
+          "relation": "uses",
+          "to": "ContinuouslyCompliantStructures",
+          "context": "This paper introduces a novel type of legged robotic system with continuously compliant structures.",
+          "chunk": "7"
+        },
+        {
+          "from": "ContinuouslyCompliantStructures",
+          "relation": "replaces",
+          "to": "SeriesElasticActuators",
+          "context": "These function as series elastic elements, replacing traditional series elastic actuators (SEA).",
+          "chunk": "7"
+        },
+        {
+          "from": "SeriesElasticActuators",
+          "relation": "type",
+          "to": "RoboticComponent",
+          "context": "These function as series elastic elements, replacing traditional series elastic actuators (SEA).",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "In the context of legged robotic systems, how do continuously compliant structures function in comparison to traditional series elastic actuators?",
+    "options": {
+      "A": "They serve as a direct substitute for traditional series elastic actuators, functioning as series elastic elements.",
+      "B": "They reduce the overall cost of the system by simplifying the control mechanisms required for movement.",
+      "C": "They provide additional sensory feedback that was not possible with traditional series elastic actuators.",
+      "D": "They enhance the power output traditionally obtained from series elastic actuators by increasing rigidity."
+    },
+    "correct_answer": "A",
+    "explanation": "The paper describes continuously compliant structures as functioning as series elastic elements, which replace traditional series elastic actuators in the legged robotic system. Thus, they serve as a direct substitute.",
+    "path_description": "Path: LeggedRoboticSystem --[uses]--> ContinuouslyCompliantStructures --[replaces]--> SeriesElasticActuators --[type]--> RoboticComponent",
+    "context": "This paper introduces a novel type of legged robotic system with continuously compliant structures. | These function as series elastic elements, replacing traditional series elastic actuators (SEA). | These function as series elastic elements, replacing traditional series elastic actuators (SEA).",
+    "paper_id": "760"
+  },
+  {
+    "section": "experiments",
+    "path": {
+      "section": "experiments",
+      "start_entity": "WalkingExperiment",
+      "end_entity": "Motion",
+      "hops": [
+        {
+          "from": "WalkingExperiment",
+          "relation": "resultsIn",
+          "to": "StablePeriodicWalking",
+          "context": "With these parameter choices, stable periodic walking is possible.",
+          "chunk": "6"
+        },
+        {
+          "from": "StablePeriodicWalking",
+          "relation": "demonstratedBy",
+          "to": "VerticalMotion",
+          "context": "The resulting forward and vertical motions over 10 s of walking are shown in Fig. 3.",
+          "chunk": "6"
+        },
+        {
+          "from": "VerticalMotion",
+          "relation": "type",
+          "to": "Motion",
+          "context": "The resulting forward and vertical motions over 10 s of walking are shown in Fig. 3.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the context of the WalkingExperiment discussed, which type of motion was specifically demonstrated as a result of achieving stable periodic walking?",
+    "options": {
+      "A": "Linear acceleration was analyzed as the primary outcome of the stable periodic walking.",
+      "B": "Rotational motion around a fixed axis was the primary focus of the experiment.",
+      "C": "Horizontal motion was specifically studied and demonstrated in detail in the results.",
+      "D": "Vertical motion was specifically demonstrated, as indicated by the experimental results."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A. According to the knowledge graph path from the experiments section, the stable periodic walking resulted in vertical motion, which is a type of motion. This implies that vertical motion was specifically demonstrated as a result of achieving stable periodic walking. The other options mention different types of motion which were not specified in the given context.",
+    "path_description": "Path: WalkingExperiment --[resultsIn]--> StablePeriodicWalking --[demonstratedBy]--> VerticalMotion --[type]--> Motion",
+    "context": "With these parameter choices, stable periodic walking is possible. | The resulting forward and vertical motions over 10 s of walking are shown in Fig. 3. | The resulting forward and vertical motions over 10 s of walking are shown in Fig. 3.",
+    "paper_id": "760"
+  }
+]

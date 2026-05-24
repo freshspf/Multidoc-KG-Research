@@ -1,0 +1,88 @@
+[
+  {
+    "section": "results1",
+    "path": {
+      "section": "results1",
+      "start_entity": "CCCC_Model",
+      "end_entity": "WongEtAl2017",
+      "hops": [
+        {
+          "from": "CCCC_Model",
+          "relation": "evaluatedOn",
+          "to": "SimulationStudy1",
+          "context": "100 datasets were generated from the most constrained CCCC model with K=3 and Q = [3, 3, 3].",
+          "chunk": "5"
+        },
+        {
+          "from": "SimulationStudy1",
+          "relation": "uses",
+          "to": "CCCC_Model",
+          "context": "For the first simulation study, 100 datasets were generated from the most constrained CCCC model with K=3 and Q = [3, 3, 3].",
+          "chunk": "5"
+        },
+        {
+          "from": "CCCC_Model",
+          "relation": "comparedWith",
+          "to": "WongEtAl2017",
+          "context": "We compared our model with the model by Wong et al. (2017).",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the first simulation study described in the results section, which aspect of the CCCC model was primarily evaluated and compared with the model developed by Wong et al. (2017)?",
+    "options": {
+      "A": "The CCCC model with K=3 and the configuration Q = [3, 3, 3] was evaluated and compared.",
+      "B": "The CCCC model with generalized parameters and arbitrary configurations was evaluated and compared.",
+      "C": "The CCCC model without any constraints or specific configurations was evaluated and compared.",
+      "D": "The CCCC model with K=4 and the configuration Q = [4, 4, 4] was evaluated and compared."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A because the context specifically mentions that 100 datasets were generated from the most constrained CCCC model with K=3 and configuration Q = [3, 3, 3]. This configuration was then used for the simulation study and compared with the model by Wong et al. (2017). The other options introduce configurations or conditions that were not mentioned in the provided context.",
+    "path_description": "Path: CCCC_Model --[evaluatedOn]--> SimulationStudy1 --[uses]--> CCCC_Model --[comparedWith]--> WongEtAl2017",
+    "context": "100 datasets were generated from the most constrained CCCC model with K=3 and Q = [3, 3, 3]. | For the first simulation study, 100 datasets were generated from the most constrained CCCC model with K=3 and Q = [3, 3, 3]. | We compared our model with the model by Wong et al. (2017).",
+    "paper_id": "141"
+  },
+  {
+    "section": "results2",
+    "path": {
+      "section": "results2",
+      "start_entity": "SimulationStudy",
+      "end_entity": "Variable",
+      "hops": [
+        {
+          "from": "SimulationStudy",
+          "relation": "uses",
+          "to": "UUUUModel",
+          "context": "one of the hundred datasets for Simulation Study",
+          "chunk": "6"
+        },
+        {
+          "from": "UUUUModel",
+          "relation": "hasComponent",
+          "to": "Y6",
+          "context": "a three component UUUU model",
+          "chunk": "6"
+        },
+        {
+          "from": "Y6",
+          "relation": "type",
+          "to": "Variable",
+          "context": "Y5 Y6 Y7 Y8",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the 'results2' section discussing the Simulation Study, which component of the UUUUModel was categorized explicitly as a 'Variable' and was utilized in one of the hundred datasets?",
+    "options": {
+      "A": "Y6 was categorized as a 'Variable' and was used in the Simulation Study dataset.",
+      "B": "Y7 was categorized as a 'Variable' and was used in the Simulation Study dataset.",
+      "C": "Y5 was categorized as a 'Variable' and was used in the Simulation Study dataset.",
+      "D": "Y8 was categorized as a 'Variable' and was used in the Simulation Study dataset."
+    },
+    "correct_answer": "A",
+    "explanation": "According to the knowledge graph path provided, the UUUUModel uses the component Y6, which is specifically categorized as a 'Variable'. This aligns with the context given that mentions Y6 as one of the components of the UUUU model used in the Simulation Study.",
+    "path_description": "Path: SimulationStudy --[uses]--> UUUUModel --[hasComponent]--> Y6 --[type]--> Variable",
+    "context": "one of the hundred datasets for Simulation Study | a three component UUUU model | Y5 Y6 Y7 Y8",
+    "paper_id": "141"
+  }
+]

@@ -1,0 +1,88 @@
+[
+  {
+    "section": "problemformulation2",
+    "path": {
+      "section": "problemformulation2",
+      "start_entity": "NMPC",
+      "end_entity": "Objective",
+      "hops": [
+        {
+          "from": "NMPC",
+          "relation": "uses",
+          "to": "CostFunctionJ",
+          "context": "With a model established for the NMPC, the behaviour of the controller can be then designed through the use of a cost function J to be minimized",
+          "chunk": "3"
+        },
+        {
+          "from": "CostFunctionJ",
+          "relation": "minimizes",
+          "to": "MinimizeRoll",
+          "context": "while also minimizing roll throughout its travel",
+          "chunk": "3"
+        },
+        {
+          "from": "MinimizeRoll",
+          "relation": "type",
+          "to": "Objective",
+          "context": "while also minimizing roll throughout its travel",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the context of Nonlinear Model Predictive Control (NMPC) as described in 'problemformulation2', what is the primary objective of minimizing the cost function J?",
+    "options": {
+      "A": "To maximize the speed of the vehicle by reducing resistance and improving aerodynamics.",
+      "B": "To maximize the comfort of passengers by reducing the number of necessary stops.",
+      "C": "To minimize roll during the vehicle's travel, effectively stabilizing its motion.",
+      "D": "To minimize fuel consumption by optimizing the engine's efficiency during operation."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A because, as per the knowledge graph path, the cost function J used in NMPC minimizes roll, which is a type of objective aimed at stabilizing the vehicle's motion during travel. This minimization leads to reduced lateral motion which is crucial for vehicle stability.",
+    "path_description": "Path: NMPC --[uses]--> CostFunctionJ --[minimizes]--> MinimizeRoll --[type]--> Objective",
+    "context": "With a model established for the NMPC, the behaviour of the controller can be then designed through the use of a cost function J to be minimized | while also minimizing roll throughout its travel | while also minimizing roll throughout its travel",
+    "paper_id": "470"
+  },
+  {
+    "section": "resultsdiscussion1",
+    "path": {
+      "section": "resultsdiscussion1",
+      "start_entity": "DirectController",
+      "end_entity": "Model",
+      "hops": [
+        {
+          "from": "DirectController",
+          "relation": "outperforms",
+          "to": "IndirectController",
+          "context": "A standard “Direct” route did not consider the roll of the vessel and instead optimized a direct path to the waypoint with no roll cost.",
+          "chunk": "4"
+        },
+        {
+          "from": "IndirectController",
+          "relation": "outperforms",
+          "to": "LowRollController",
+          "context": "The path taken by “indirect” controller. The vessel initially heads more into the direction of the waves.",
+          "chunk": "4"
+        },
+        {
+          "from": "LowRollController",
+          "relation": "type",
+          "to": "Model",
+          "context": "Low Roll 5, 2500, 2 1.79 8.10 N/A.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the context of maritime navigation, which controller would be most effective at minimizing the roll of the vessel while adhering closely to the optimal path?",
+    "options": {
+      "A": "ModelController, which is not specifically designed for minimizing roll or optimizing the path efficiency",
+      "B": "LowRollController, designed to minimize the roll, potentially at the expense of a less direct route",
+      "C": "DirectController, which optimizes the path directly to the waypoint without considering the vessel's roll",
+      "D": "IndirectController, which initially directs the vessel more towards the wave direction, mitigating roll but altering the path"
+    },
+    "correct_answer": "B",
+    "explanation": "The 'LowRollController' is designed to minimize the roll of the vessel, which can make navigation safer and more efficient in terms of maintaining stability. This controller is more effective in this aspect compared to the 'DirectController' and 'IndirectController', which either do not consider the roll at all or do so less effectively.",
+    "path_description": "Path: DirectController --[outperforms]--> IndirectController --[outperforms]--> LowRollController --[type]--> Model",
+    "context": "A standard “Direct” route did not consider the roll of the vessel and instead optimized a direct path to the waypoint with no roll cost. | The path taken by “indirect” controller. The vessel initially heads more into the direction of the waves. | Low Roll 5, 2500, 2 1.79 8.10 N/A.",
+    "paper_id": "470"
+  }
+]

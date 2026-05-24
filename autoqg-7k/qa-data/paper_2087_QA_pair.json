@@ -1,0 +1,88 @@
+[
+  {
+    "section": "relatedworks",
+    "path": {
+      "section": "relatedworks",
+      "start_entity": "SurrogateGradientMethods",
+      "end_entity": "Dataset",
+      "hops": [
+        {
+          "from": "SurrogateGradientMethods",
+          "relation": "usedToTrain",
+          "to": "SNNs",
+          "context": "SGM has been used to train SNNs on relatively simple tasks such as recognition of handwritten digits",
+          "chunk": "1"
+        },
+        {
+          "from": "SNNs",
+          "relation": "evaluatedOn",
+          "to": "RFSignals",
+          "context": "In this study, we test if SNNs can identify individual RF",
+          "chunk": "1"
+        },
+        {
+          "from": "RFSignals",
+          "relation": "type",
+          "to": "Dataset",
+          "context": "RF signals encode arbitrary messages",
+          "chunk": "1"
+        }
+      ]
+    },
+    "question": "What type of dataset is primarily evaluated when using Surrogate Gradient Methods to train Spiking Neural Networks in the study?",
+    "options": {
+      "A": "A dataset containing detailed three-dimensional medical imaging data",
+      "B": "A dataset comprising complex radio frequency signals encoding arbitrary messages",
+      "C": "A dataset including simple images of natural scenes and landscapes",
+      "D": "A dataset featuring audio recordings of various environmental sounds"
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A because the knowledge path indicates that Surrogate Gradient Methods are used to train Spiking Neural Networks, which are then evaluated on datasets containing RF signals. These RF signals are described as encoding arbitrary messages, indicating their complexity and relevance to radio frequency communication.",
+    "path_description": "Path: SurrogateGradientMethods --[usedToTrain]--> SNNs --[evaluatedOn]--> RFSignals --[type]--> Dataset",
+    "context": "SGM has been used to train SNNs on relatively simple tasks such as recognition of handwritten digits | In this study, we test if SNNs can identify individual RF | RF signals encode arbitrary messages",
+    "paper_id": "1130"
+  },
+  {
+    "section": "methods2",
+    "path": {
+      "section": "methods2",
+      "start_entity": "Architecture",
+      "end_entity": "ModelParameter",
+      "hops": [
+        {
+          "from": "Architecture",
+          "relation": "uses",
+          "to": "OutputShape",
+          "context": "This architecture is inspired by the model used in the",
+          "chunk": "3"
+        },
+        {
+          "from": "OutputShape",
+          "relation": "hasParameter",
+          "to": "ParamCount544",
+          "context": "Output Shape Param # [-1, 32, 2, 128] 544",
+          "chunk": "3"
+        },
+        {
+          "from": "ParamCount544",
+          "relation": "type",
+          "to": "ModelParameter",
+          "context": "Output Shape Param # [-1, 32, 2, 128] 544",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the discussed architecture, how does the parameter count of 544 relate to the model's structure?",
+    "options": {
+      "A": "The parameter count of 544 is a random value chosen to optimize computational efficiency without regard to output shape.",
+      "B": "The parameter count of 544 refers to the number of hidden units in each layer of the neural network model.",
+      "C": "The parameter count of 544 represents the total number of layers within the neural network architecture.",
+      "D": "The parameter count of 544 is indicative of model parameters specific to the output shape [-1, 32, 2, 128]."
+    },
+    "correct_answer": "D",
+    "explanation": "The parameter count of 544 directly relates to the model parameters that define the output shape [-1, 32, 2, 128], as specified in the architecture's design. This count is not arbitrary nor does it specifically refer to layers or hidden units; it is tied to defining characteristics of the model's output shape.",
+    "path_description": "Path: Architecture --[uses]--> OutputShape --[hasParameter]--> ParamCount544 --[type]--> ModelParameter",
+    "context": "This architecture is inspired by the model used in the | Output Shape Param # [-1, 32, 2, 128] 544 | Output Shape Param # [-1, 32, 2, 128] 544",
+    "paper_id": "1130"
+  }
+]

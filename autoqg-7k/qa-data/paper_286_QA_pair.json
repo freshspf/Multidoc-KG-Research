@@ -1,0 +1,389 @@
+[
+  {
+    "section": "preliminaries",
+    "path": {
+      "section": "preliminaries",
+      "start_entity": "CommitmentScheme",
+      "end_entity": "SecurityProperty",
+      "hops": [
+        {
+          "from": "CommitmentScheme",
+          "relation": "basedOn",
+          "to": "CryptographicHashFunction",
+          "context": "The central building block of TYCHE protocols is a commitment scheme, which in turn — in the specific instantiation we present here — is built on a cryptographic hash function.",
+          "chunk": "2"
+        },
+        {
+          "from": "CryptographicHashFunction",
+          "relation": "achieves",
+          "to": "SecondPreimageResistance",
+          "context": "Second-preimage Resistance: Given a hash y := h(x). It is infeasible to find any x ̸= x with h(x') = h(x) = y.",
+          "chunk": "2"
+        },
+        {
+          "from": "SecondPreimageResistance",
+          "relation": "type",
+          "to": "SecurityProperty",
+          "context": "Second-preimage Resistance: Given a hash y := h(x). It is infeasible to find any x ̸= x with h(x') = h(x) = y.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "What type of security property is achieved by using a cryptographic hash function in a commitment scheme as per TYCHE protocols?",
+    "options": {
+      "A": "Deterministic encryption ensuring the same input under the hash function always produces the same output.",
+      "B": "Perfect secrecy ensuring that the plaintext cannot be determined from the ciphertext without the key.",
+      "C": "Collision resistance ensuring no two different inputs produce the same output under the hash function.",
+      "D": "Second-preimage resistance ensuring it is infeasible to find another input that produces the same hash output."
+    },
+    "correct_answer": "D",
+    "explanation": "Second-preimage resistance, as described in the paper, is a security property achieved by cryptographic hash functions used in commitment schemes. It assures that it is computationally infeasible to find another input that hashes to the same output, which is critical for the integrity of commitment schemes in TYCHE protocols.",
+    "path_description": "Path: CommitmentScheme --[basedOn]--> CryptographicHashFunction --[achieves]--> SecondPreimageResistance --[type]--> SecurityProperty",
+    "context": "The central building block of TYCHE protocols is a commitment scheme, which in turn — in the specific instantiation we present here — is built on a cryptographic hash function. | Second-preimage Resistance: Given a hash y := h(x). It is infeasible to find any x ̸= x with h(x') = h(x) = y. | Second-preimage Resistance: Given a hash y := h(x). It is infeasible to find any x ̸= x with h(x') = h(x) = y.",
+    "paper_id": "966"
+  },
+  {
+    "section": "relatedwork",
+    "path": {
+      "section": "relatedwork",
+      "start_entity": "Ballweg",
+      "end_entity": "Feature",
+      "hops": [
+        {
+          "from": "Ballweg",
+          "relation": "generalizedApproach",
+          "to": "Lotteries",
+          "context": "Ballweg et al. [5] generalized this approach to non power-of-two numbers of participants. Ballweg [4] also partially alleviated the restrictions regarding winning probabilities and the multi-winner setting.",
+          "chunk": "1"
+        },
+        {
+          "from": "Lotteries",
+          "relation": "provide",
+          "to": "PrivacyGuarantees",
+          "context": "In addition to fairness, some lotteries [3, 36, 44] also provide certain privacy guarantees to their participants.",
+          "chunk": "1"
+        },
+        {
+          "from": "PrivacyGuarantees",
+          "relation": "type",
+          "to": "Feature",
+          "context": "In addition to fairness, some lotteries [3, 36, 44] also provide certain privacy guarantees to their participants.",
+          "chunk": "1"
+        }
+      ]
+    },
+    "question": "Which feature of lotteries, as generalized by Ballweg, best aligns with the provision of privacy guarantees to participants?",
+    "options": {
+      "A": "The reduction of transparency in the lottery's participant selection process.",
+      "B": "The increased randomness and unpredictability in the selection of lottery winners.",
+      "C": "The establishment of fixed winning probabilities for all participants irrespective of entry times.",
+      "D": "The ability to include non power-of-two numbers of participants while maintaining fairness."
+    },
+    "correct_answer": "D",
+    "explanation": "The question relates to Ballweg's generalization of lotteries to include non power-of-two numbers of participants, which inherently provides privacy by making it less predictable and more inclusive, thereby aligning with the privacy guarantees mentioned. Option A is correct as it specifically addresses the capability of including a non-standard number of participants which can contribute to obscuring individual identities among a larger, less predictable group, enhancing privacy.",
+    "path_description": "Path: Ballweg --[generalizedApproach]--> Lotteries --[provide]--> PrivacyGuarantees --[type]--> Feature",
+    "context": "Ballweg et al. [5] generalized this approach to non power-of-two numbers of participants. Ballweg [4] also partially alleviated the restrictions regarding winning probabilities and the multi-winner setting. | In addition to fairness, some lotteries [3, 36, 44] also provide certain privacy guarantees to their participants. | In addition to fairness, some lotteries [3, 36, 44] also provide certain privacy guarantees to their participants.",
+    "paper_id": "966"
+  },
+  {
+    "section": "relatedwork",
+    "path": {
+      "section": "relatedwork",
+      "start_entity": "Fairness",
+      "end_entity": "Metric",
+      "hops": [
+        {
+          "from": "Fairness",
+          "relation": "definedBy",
+          "to": "Chung",
+          "context": "Notions of fairness in multiparty coin flipping have been formally defined by Chung et al. [18].",
+          "chunk": "1"
+        },
+        {
+          "from": "Chung",
+          "relation": "showed",
+          "to": "CommunicationLowerBound",
+          "context": "Chung et al. [17] showed a communication lower bound of Ω(logn) sequential rounds.",
+          "chunk": "1"
+        },
+        {
+          "from": "CommunicationLowerBound",
+          "relation": "type",
+          "to": "Metric",
+          "context": "Chung et al. [17] showed a communication lower bound of Ω(logn) sequential rounds.",
+          "chunk": "1"
+        }
+      ]
+    },
+    "question": "In the context of multiparty coin flipping, how did Chung et al. contribute to the understanding of the communication complexity based on their definition of fairness?",
+    "options": {
+      "A": "Chung et al. proved that increasing the number of parties linearly decreases the necessary communication rounds for fairness.",
+      "B": "Chung et al. determined that at least Ω(n^2) messages must be exchanged to ensure fairness in multiparty scenarios.",
+      "C": "Chung et al. introduced an algorithm that reduces communication rounds to Ω(loglogn) under certain fairness conditions.",
+      "D": "Chung et al. established a communication lower bound of Ω(logn) sequential rounds, indicating the minimum rounds required for fairness."
+    },
+    "correct_answer": "D",
+    "explanation": "Chung et al. defined fairness and showed that a communication lower bound for achieving such fairness in multiparty coin flipping is Ω(logn) sequential rounds. This establishes the minimum number of rounds required under their fairness definition, making option A the correct answer. Other options mention incorrect boundaries or effects on the rounds, which are not supported by Chung et al.'s findings.",
+    "path_description": "Path: Fairness --[definedBy]--> Chung --[showed]--> CommunicationLowerBound --[type]--> Metric",
+    "context": "Notions of fairness in multiparty coin flipping have been formally defined by Chung et al. [18]. | Chung et al. [17] showed a communication lower bound of Ω(logn) sequential rounds. | Chung et al. [17] showed a communication lower bound of Ω(logn) sequential rounds.",
+    "paper_id": "966"
+  },
+  {
+    "section": "collateralfreelotteries2",
+    "path": {
+      "section": "collateralfreelotteries2",
+      "start_entity": "TwoPlayerProtocol",
+      "end_entity": "DataStructure",
+      "hops": [
+        {
+          "from": "TwoPlayerProtocol",
+          "relation": "adaptedTo",
+          "to": "SingleWinnerMultipartyLottery",
+          "context": "As previously shown by Miller and Bentov [41], the above two-player protocol can be used as a sub-protocol for constructing a multiparty lottery with a single winner.",
+          "chunk": "4"
+        },
+        {
+          "from": "SingleWinnerMultipartyLottery",
+          "relation": "uses",
+          "to": "PerfectBinaryTree",
+          "context": "This can be naturally done when the number of players n is a power of two, by building a perfect binary tree of two-player instances.",
+          "chunk": "4"
+        },
+        {
+          "from": "PerfectBinaryTree",
+          "relation": "type",
+          "to": "DataStructure",
+          "context": "This can be naturally done when the number of players n is a power of two, by building a perfect binary tree of two-player instances.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "How does the adaptation of a two-player protocol to a single-winner multiparty lottery influence the data structure used for managing player instances?",
+    "options": {
+      "A": "It shifts the protocol to use a hash table, enabling quick access to any player's data based on their unique identifiers.",
+      "B": "It involves adapting the protocol to use a perfect binary tree, providing an efficient way to manage the powers of two number of players.",
+      "C": "It requires the protocol to implement a circular linked list, ensuring that each player can interact with two neighboring players.",
+      "D": "It modifies the protocol to use a linear array, allowing sequential interaction among the players for simplicity."
+    },
+    "correct_answer": "B",
+    "explanation": "The adaptation of a two-player protocol to a single-winner multiparty lottery utilizes a perfect binary tree when the number of players is a power of two. The perfect binary tree serves as an efficient data structure to manage player instances in such setups, where each node in the tree represents a two-player instance and helps in determining the single winner.",
+    "path_description": "Path: TwoPlayerProtocol --[adaptedTo]--> SingleWinnerMultipartyLottery --[uses]--> PerfectBinaryTree --[type]--> DataStructure",
+    "context": "As previously shown by Miller and Bentov [41], the above two-player protocol can be used as a sub-protocol for constructing a multiparty lottery with a single winner. | This can be naturally done when the number of players n is a power of two, by building a perfect binary tree of two-player instances. | This can be naturally done when the number of players n is a power of two, by building a perfect binary tree of two-player instances.",
+    "paper_id": "966"
+  },
+  {
+    "section": "maintycheprotocol2",
+    "path": {
+      "section": "maintycheprotocol2",
+      "start_entity": "SplitDominanceTheorem",
+      "end_entity": "Protocol",
+      "hops": [
+        {
+          "from": "SplitDominanceTheorem",
+          "relation": "proposes",
+          "to": "ArbitraryPayoutFunctions",
+          "context": "Theorem 1 (Split Dominance)",
+          "chunk": "6"
+        },
+        {
+          "from": "ArbitraryPayoutFunctions",
+          "relation": "appliedTo",
+          "to": "ProtocolSection",
+          "context": "Arbitrary Payout Functions",
+          "chunk": "6"
+        },
+        {
+          "from": "ProtocolSection",
+          "relation": "type",
+          "to": "Protocol",
+          "context": "Some phases serve the function of two phases in the Protocol Section Weighted Multi-Winn",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the context of the Split Dominance Theorem as proposed in the maintycheprotocol2 section, how are Arbitrary Payout Functions applied within the Protocol?",
+    "options": {
+      "A": "They facilitate the redistribution of resources among participants after each phase.",
+      "B": "They are primarily used to enhance security measures during data transmission phases.",
+      "C": "They determine the sequence of operations within various phases of the protocol.",
+      "D": "They are used to divide responsibilities that typically belong to multiple phases within the protocol."
+    },
+    "correct_answer": "D",
+    "explanation": "The Split Dominance Theorem proposes Arbitrary Payout Functions which, according to the context, are applied in the Protocol Section to serve the function of two phases. This implies that they are used to divide responsibilities that typically belong to multiple phases within the protocol, making option A the correct answer. Options B, C, and D, although plausible in a protocol context, do not directly relate to the role of arbitrary payout functions as described in the theorem and the provided context.",
+    "path_description": "Path: SplitDominanceTheorem --[proposes]--> ArbitraryPayoutFunctions --[appliedTo]--> ProtocolSection --[type]--> Protocol",
+    "context": "Theorem 1 (Split Dominance) | Arbitrary Payout Functions | Some phases serve the function of two phases in the Protocol Section Weighted Multi-Winn",
+    "paper_id": "966"
+  },
+  {
+    "section": "maintycheprotocol5",
+    "path": {
+      "section": "maintycheprotocol5",
+      "start_entity": "SubProtocol",
+      "end_entity": "ShufflingAlgorithm",
+      "hops": [
+        {
+          "from": "SubProtocol",
+          "relation": "partOf",
+          "to": "TYCHEMultipartyLotteryProtocol",
+          "context": "This new sub-protocol involves some subset of m ≤ n out of all n participants.",
+          "chunk": "9"
+        },
+        {
+          "from": "TYCHEMultipartyLotteryProtocol",
+          "relation": "implements",
+          "to": "FisherYatesShuffle",
+          "context": "Under honest participation, it basically implements a variant of the Fisher-Yates shuffle.",
+          "chunk": "9"
+        },
+        {
+          "from": "FisherYatesShuffle",
+          "relation": "type",
+          "to": "ShufflingAlgorithm",
+          "context": "Under honest participation, it basically implements a variant of the Fisher-Yates shuffle.",
+          "chunk": "9"
+        }
+      ]
+    },
+    "question": "In the context of the TYCHEMultipartyLotteryProtocol, how does the SubProtocol ensure fairness among participants during the lottery execution?",
+    "options": {
+      "A": "By allowing participants to vote on the sequence of numbers generated, thereby achieving a democratic selection process.",
+      "B": "By implementing a variant of the Fisher-Yates shuffle, a well-known Shuffling Algorithm, to ensure unbiased random ordering of participants.",
+      "C": "By directly using cryptographic hash functions to obscure the order of participants, preventing any form of bias or manipulation.",
+      "D": "By enabling all participants to simultaneously reveal their choices, thus negating any advantage of earlier or later positioning."
+    },
+    "correct_answer": "B",
+    "explanation": "The SubProtocol, as part of the TYCHEMultipartyLotteryProtocol, ensures fairness by implementing a variant of the Fisher-Yates shuffle. This shuffle is a type of Shuffling Algorithm known for producing an unbiased random permutation of a sequence, which in this scenario applies to the ordering of participants in the lottery.",
+    "path_description": "Path: SubProtocol --[partOf]--> TYCHEMultipartyLotteryProtocol --[implements]--> FisherYatesShuffle --[type]--> ShufflingAlgorithm",
+    "context": "This new sub-protocol involves some subset of m ≤ n out of all n participants. | Under honest participation, it basically implements a variant of the Fisher-Yates shuffle. | Under honest participation, it basically implements a variant of the Fisher-Yates shuffle.",
+    "paper_id": "966"
+  },
+  {
+    "section": "maintycheprotocol6",
+    "path": {
+      "section": "maintycheprotocol6",
+      "start_entity": "Theorem_4",
+      "end_entity": "Two-Party_Lottery",
+      "hops": [
+        {
+          "from": "Theorem_4",
+          "relation": "proves",
+          "to": "TYCHE_Multi-Winner_Lottery",
+          "context": "Theorem 4. If all participants honestly follow the protocol, the above construction generates all permutations of the n participants with equal probability.",
+          "chunk": "10"
+        },
+        {
+          "from": "TYCHE_Multi-Winner_Lottery",
+          "relation": "hasParticipant",
+          "to": "Participant",
+          "context": "If any of the m participants does not reveal their value...",
+          "chunk": "10"
+        },
+        {
+          "from": "Participant",
+          "relation": "participatesIn",
+          "to": "Two-Party_Lottery",
+          "context": "one of the two-party lotteries needs to be evaluated but one of the two participants aborted.",
+          "chunk": "10"
+        }
+      ]
+    },
+    "question": "What is the implication of Theorem 4 in the context of a participant aborting during one of the two-party lotteries in the TYCHE Multi-Winner Lottery?",
+    "options": {
+      "A": "The entire TYCHE Multi-Winner Lottery needs to be restarted if any participant aborts during the two-party lottery.",
+      "B": "An aborted participation disrupts the equal probability of generating permutations among participants.",
+      "C": "If a participant aborts, the protocol can still generate all permutations of participants with equal probability.",
+      "D": "Theorem 4 guarantees that all participants will always reveal their values, preventing any abortion."
+    },
+    "correct_answer": "B",
+    "explanation": "Theorem 4 states that if all participants honestly follow the protocol, all permutations of the participants are generated with equal probability. However, if a participant aborts during a two-party lottery (as mentioned in the context), this disrupts the protocol, implying that the equal probability condition is no longer maintained.",
+    "path_description": "Path: Theorem_4 --[proves]--> TYCHE_Multi-Winner_Lottery --[hasParticipant]--> Participant --[participatesIn]--> Two-Party_Lottery",
+    "context": "Theorem 4. If all participants honestly follow the protocol, the above construction generates all permutations of the n participants with equal probability. | If any of the m participants does not reveal their value... | one of the two-party lotteries needs to be evaluated but one of the two participants aborted.",
+    "paper_id": "966"
+  },
+  {
+    "section": "maintycheprotocol6",
+    "path": {
+      "section": "maintycheprotocol6",
+      "start_entity": "TYCHE_Multi-Winner_Lottery",
+      "end_entity": "Action",
+      "hops": [
+        {
+          "from": "TYCHE_Multi-Winner_Lottery",
+          "relation": "hasParticipant",
+          "to": "Participant",
+          "context": "If any of the m participants does not reveal their value...",
+          "chunk": "10"
+        },
+        {
+          "from": "Participant",
+          "relation": "performs",
+          "to": "Swap",
+          "context": "Either (i) a swap happened before the participant would have participated in their two-party lottery...",
+          "chunk": "10"
+        },
+        {
+          "from": "Swap",
+          "relation": "type",
+          "to": "Action",
+          "context": "Either (i) a swap happened before the participant would have participated in their two-party lottery...",
+          "chunk": "10"
+        }
+      ]
+    },
+    "question": "In the TYCHE_Multi-Winner_Lottery protocol, what action might a participant perform that influences their participation in a two-party lottery?",
+    "options": {
+      "A": "The participant enhances their lottery number, thereby improving their odds in the multi-winner setup.",
+      "B": "The participant delays the lottery process by not revealing their value in the required timeframe.",
+      "C": "The participant independently initiates a new lottery round without consulting other participants.",
+      "D": "The participant performs a swap of their position with another participant prior to the lottery."
+    },
+    "correct_answer": "D",
+    "explanation": "According to the knowledge graph path and the context from the paper, a participant might perform a 'swap' action, which impacts their role or timing in the two-party lottery. This swap happens prior to the participant's scheduled participation, thus directly affecting their engagement in the lottery process. Options B, C, and D, while plausible, do not directly relate to performing a swap action prior to the lottery as described in the context.",
+    "path_description": "Path: TYCHE_Multi-Winner_Lottery --[hasParticipant]--> Participant --[performs]--> Swap --[type]--> Action",
+    "context": "If any of the m participants does not reveal their value... | Either (i) a swap happened before the participant would have participated in their two-party lottery... | Either (i) a swap happened before the participant would have participated in their two-party lottery...",
+    "paper_id": "966"
+  },
+  {
+    "section": "maintycheprotocol6",
+    "path": {
+      "section": "maintycheprotocol6",
+      "start_entity": "Theorem_5",
+      "end_entity": "Role",
+      "hops": [
+        {
+          "from": "Theorem_5",
+          "relation": "evaluates",
+          "to": "TYCHE_Multi-Winner_Lottery",
+          "context": "Theorem 5. The above construction is fair, in the sense of Definition 5.",
+          "chunk": "10"
+        },
+        {
+          "from": "TYCHE_Multi-Winner_Lottery",
+          "relation": "hasParticipant",
+          "to": "Participant",
+          "context": "If any of the m participants does not reveal their value...",
+          "chunk": "10"
+        },
+        {
+          "from": "Participant",
+          "relation": "type",
+          "to": "Role",
+          "context": "If any of the m participants does not reveal their value...",
+          "chunk": "10"
+        }
+      ]
+    },
+    "question": "In the context of Theorem 5 from the 'maintycheprotocol6' section, which describes the TYCHE Multi-Winner Lottery, how does the role of a participant influence the fairness of the lottery?",
+    "options": {
+      "A": "The role affects the frequency of participation in the lottery, but does not impact fairness.",
+      "B": "The role of each participant is irrelevant to the process and does not affect the fairness of the lottery.",
+      "C": "The role of the participant dictates the number of lottery tickets they receive, ensuring fairness.",
+      "D": "The role determines the method by which participants must reveal their values, impacting the fairness."
+    },
+    "correct_answer": "D",
+    "explanation": "Theorem 5 establishes that the lottery is fair if all participants reveal their values. The role determines how and when each participant reveals their values, which directly impacts the fairness of the lottery, as non-disclosure by any participant would breach the fairness condition.",
+    "path_description": "Path: Theorem_5 --[evaluates]--> TYCHE_Multi-Winner_Lottery --[hasParticipant]--> Participant --[type]--> Role",
+    "context": "Theorem 5. The above construction is fair, in the sense of Definition 5. | If any of the m participants does not reveal their value... | If any of the m participants does not reveal their value...",
+    "paper_id": "966"
+  }
+]

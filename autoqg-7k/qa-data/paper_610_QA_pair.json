@@ -1,0 +1,131 @@
+[
+  {
+    "section": "results2",
+    "path": {
+      "section": "results2",
+      "start_entity": "GNN",
+      "end_entity": "Model",
+      "hops": [
+        {
+          "from": "GNN",
+          "relation": "outperforms",
+          "to": "XGBoost",
+          "context": "The GNN models, shown in green, achieve the highest C-Index values across all cancer types, significantly outperforming the other models.",
+          "chunk": "6"
+        },
+        {
+          "from": "XGBoost",
+          "relation": "outperforms",
+          "to": "MLP",
+          "context": "The XGBoost models, depicted in red, generally outperform the MLP and Transformer models.",
+          "chunk": "6"
+        },
+        {
+          "from": "MLP",
+          "relation": "type",
+          "to": "Model",
+          "context": "The MLP models, represented in various figures, show varying performance across different datasets.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the context of comparing model performances across cancer types, which statement best reflects the hierarchy of model effectiveness based on the results from the 'results2' section?",
+    "options": {
+      "A": "MLP models, despite their varying performance, generally outperform both GNN and XGBoost models in terms of C-Index values.",
+      "B": "XGBoost models outperform GNN models but have slightly lower performance compared to MLP models across different datasets.",
+      "C": "GNN models, which have the highest C-Index values, outperform the XGBoost and MLP models, with MLP showing the least consistent performance.",
+      "D": "Transformer models, not directly mentioned, are implicitly understood to outperform GNN, XGBoost, and MLP models in all scenarios."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A. The knowledge path clearly indicates that GNN outperforms XGBoost, which in turn outperforms MLP. This is supported by the context provided, which states that GNN models achieve the highest C-Index values, XGBoost generally outperforms MLP, and MLP shows varying performance. Options B, C, and D are incorrect based on the explicit hierarchy given in the results.",
+    "path_description": "Path: GNN --[outperforms]--> XGBoost --[outperforms]--> MLP --[type]--> Model",
+    "context": "The GNN models, shown in green, achieve the highest C-Index values across all cancer types, significantly outperforming the other models. | The XGBoost models, depicted in red, generally outperform the MLP and Transformer models. | The MLP models, represented in various figures, show varying performance across different datasets.",
+    "paper_id": "705"
+  },
+  {
+    "section": "discussion2",
+    "path": {
+      "section": "discussion2",
+      "start_entity": "FineTuning",
+      "end_entity": "Method",
+      "hops": [
+        {
+          "from": "FineTuning",
+          "relation": "appliedTo",
+          "to": "FeatureExtraction",
+          "context": "later fine-tuning these models to use them as the feature extraction",
+          "chunk": "9"
+        },
+        {
+          "from": "FeatureExtraction",
+          "relation": "usedFor",
+          "to": "IntraInterCancerLearning",
+          "context": "use them as the feature extraction from all modalities at a significantly reduced",
+          "chunk": "9"
+        },
+        {
+          "from": "IntraInterCancerLearning",
+          "relation": "type",
+          "to": "Method",
+          "context": "to perform intra-/inter-cancer learning from",
+          "chunk": "9"
+        }
+      ]
+    },
+    "question": "In the context of utilizing fine-tuning for feature extraction in cancer image analysis, what is the primary methodological purpose of adopting this approach?",
+    "options": {
+      "A": "To increase the speed of image processing without improving diagnostic accuracy.",
+      "B": "To directly predict patient outcomes without the need for additional biomarkers.",
+      "C": "To reduce the computational costs associated with processing multi-modal cancer images.",
+      "D": "To enhance the accuracy of distinguishing between different types of cancer modalities."
+    },
+    "correct_answer": "C",
+    "explanation": "The primary methodological purpose of using fine-tuning for feature extraction in this scenario is to handle all modalities at a significantly reduced computational cost, as mentioned in the context of intra-/inter-cancer learning. This approach leverages the pre-trained models, adjusting them to be more efficient in processing diverse and complex cancer image data, thus addressing computational efficiency.",
+    "path_description": "Path: FineTuning --[appliedTo]--> FeatureExtraction --[usedFor]--> IntraInterCancerLearning --[type]--> Method",
+    "context": "later fine-tuning these models to use them as the feature extraction | use them as the feature extraction from all modalities at a significantly reduced | to perform intra-/inter-cancer learning from",
+    "paper_id": "705"
+  },
+  {
+    "section": "discussion2",
+    "path": {
+      "section": "discussion2",
+      "start_entity": "IntraInterCancerLearning",
+      "end_entity": "GraphSparsity",
+      "hops": [
+        {
+          "from": "IntraInterCancerLearning",
+          "relation": "uses",
+          "to": "PatientEmbeddings",
+          "context": "to perform intra-/inter-cancer learning from the representation of patient embeddings",
+          "chunk": "9"
+        },
+        {
+          "from": "PatientEmbeddings",
+          "relation": "partOf",
+          "to": "WeightedEdges",
+          "context": "the representation of patient embeddings in the form of weighted edges between nodes",
+          "chunk": "9"
+        },
+        {
+          "from": "WeightedEdges",
+          "relation": "relatedTo",
+          "to": "GraphSparsity",
+          "context": "weighted edges between nodes represented inter-patient",
+          "chunk": "9"
+        }
+      ]
+    },
+    "question": "What aspect of the intra-/inter-cancer learning model directly influences the level of sparsity observed in the resulting graph representation?",
+    "options": {
+      "A": "The form of patient embeddings as weighted edges between nodes in the graph",
+      "B": "The total number of patient embeddings used within the model",
+      "C": "The use of standard patient identifiers rather than embeddings",
+      "D": "The variance in patient data utilized during the learning process"
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is derived from understanding that 'PatientEmbeddings' are used in the form of 'WeightedEdges' between nodes, as part of 'IntraInterCancerLearning'. These weighted edges directly affect the 'GraphSparsity', as the method and form of embedding representation (i.e., as weighted edges) dictate the connections and therefore the sparsity or density of the graph.",
+    "path_description": "Path: IntraInterCancerLearning --[uses]--> PatientEmbeddings --[partOf]--> WeightedEdges --[relatedTo]--> GraphSparsity",
+    "context": "to perform intra-/inter-cancer learning from the representation of patient embeddings | the representation of patient embeddings in the form of weighted edges between nodes | weighted edges between nodes represented inter-patient",
+    "paper_id": "705"
+  }
+]

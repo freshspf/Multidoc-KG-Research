@@ -1,0 +1,45 @@
+[
+  {
+    "section": "methodology3",
+    "path": {
+      "section": "methodology3",
+      "start_entity": "GyroscopeReading",
+      "end_entity": "Sensor",
+      "hops": [
+        {
+          "from": "GyroscopeReading",
+          "relation": "recordedDuring",
+          "to": "Excitation",
+          "context": "On entry to the first step of each motor, the gyroscope reading Ω𝑒 and margin ΔΩ to the sensor limits is recorded.",
+          "chunk": "3"
+        },
+        {
+          "from": "Excitation",
+          "relation": "avoids",
+          "to": "MEMSGyroscopes",
+          "context": "This has to be avoided, as attitude estimation would be lost making recovery impossible.",
+          "chunk": "3"
+        },
+        {
+          "from": "MEMSGyroscopes",
+          "relation": "type",
+          "to": "Sensor",
+          "context": "exceed the ±2000 /s measurement range of most MEMS gyroscopes.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "Why is it critical to avoid excitation conditions that exceed the ±2000 /s measurement range during the recording of gyroscope readings in MEMS gyroscopes?",
+    "options": {
+      "A": "Gyroscope readings above this range can increase the power consumption of the sensor, leading to battery drain.",
+      "B": "Readings beyond this limit can distort data, leading to inaccuracies in temperature measurements inside the sensor.",
+      "C": "Such conditions can cause physical damage to the MEMS gyroscopes, requiring costly repairs or replacements.",
+      "D": "Exceeding this range can result in the loss of attitude estimation, making recovery of the original state impossible."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A because exceeding the measurement range can cause the loss of critical attitude estimation data, as indicated by the context that recovery becomes impossible if this limit is breached. Options B, C, and D, although plausible, do not directly relate to the loss of attitude estimation mentioned in the context.",
+    "path_description": "Path: GyroscopeReading --[recordedDuring]--> Excitation --[avoids]--> MEMSGyroscopes --[type]--> Sensor",
+    "context": "On entry to the first step of each motor, the gyroscope reading Ω𝑒 and margin ΔΩ to the sensor limits is recorded. | This has to be avoided, as attitude estimation would be lost making recovery impossible. | exceed the ±2000 /s measurement range of most MEMS gyroscopes.",
+    "paper_id": "344"
+  }
+]

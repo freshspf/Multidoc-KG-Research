@@ -1,0 +1,42 @@
+[
+  {
+    "id": "introductionandproblemdefinition",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Introduction and Problem Definition",
+      "page_start": 1,
+      "page_end": 1
+    },
+    "text": "Electronic devices nowadays suffer from\nlems typically within the Printed-Circuit Bo\nsingle PCB can employ different connectiv\ninterferences increase. A cross-section of a\nof  different  metallization  layers  and  throu\nfrom PCBs and radiate into free-space or c\nlating such PCB is needed in the early-stag\ndetecting any potential problems. \n \nMetal \nDielectric \nFig. 1. A cross-section o\n\nPhysics-Informed Neural \nEMC Simulations \nohamed Kheir \nrn Denmark (SDU) \ntrial Electronics  \nd Electrical Engineering \nønderborg, Denmark \n \nr}@sdu.dk\naper  is  to  investigate  the  feasibility  of \nworks (PINNs), in particular Kolmogo-\ncilitating  Electromagnetic  Interference \nommon EM problem formulations and \n solutions instead of lengthy and com-\nhis research may open new horizons for \nless  energy  consumption  and  feasible \nity (EMC), EMI simulations, full-wave \ntworks. \nefinition \n different electromagnetic emission prob-\nards (PCBs). This is due to the fact that a \nity standards and  therefore emissions and \n PCB is shown in Fig. 1 where it consists \ngh-hole  vias.  Most  EMI  issues  originate \nouple into other parts of the circuit. Simu-\ne of product design and can be helpful in \nThrough-Hole Vias    \nf a multi-layered PCB. "
+  },
+  {
+    "id": "methodology",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Methodology",
+      "page_start": 2,
+      "page_end": 4
+    },
+    "text": "PINNs have achieved remarkable succes\n(PDEs) [6]. Multi-layer perceptrons (MLPs\ntrainable weights, are the standard building\nture [7] has shown a promising alternative \n(KANs), where  neurons are  connected via \n\nstly full-wave solvers where their simula-\nmerically  to obtain  the electric- and mag-\n also helps in determining the critical cou-\n within the structure. \ne or frequency domain where the complex-\nrange increases. The well-known problems \nulation may  last hours or days depending \ne PC hardware we use.  In  simulations we \ntion and test all the possibilities. \nical  EMC  problem  needs  high-speed  ad-\nacity  and  additionally  a  number  of  GPU \n.  This  makes  the  simulation  workstation \nputation  time  on  a  highly-equipped  ma-\nelectricity and cooling. \ndification  to  the EMI problems  requires  a \n. This is cumbersome since each iteration \nt problem. \nbased on Machine Learning (ML), play a \nEMC. They enhance the understanding of \nns,  and  improve  system  reliability  [1,2]. \nviations  from  expected  behavior,  such  as \nL can assist in designing and optimizing \ng materials  [3]  and  grounding  configura-\ns  with  conventional  ML  techniques  has \namlessly integrate domain-specific physics \nng, it can encode Maxwell’s equations and \nd data. Moreover, PINNs  is competitively \nnstraints, which can reduce dependence on \nccelerating  EMI  modeling.  Such  PINNs \nmpared to traditional ML.  \ns in solving Partial Differential Equations \n), which consist of neurons connected via \n blocks for neural networks. Recent litera-\nfor MLPs: Kolmogorov–Arnold Networks \nlearnable  activation  functions.  Fine-tuned \n\nKANs  can  lead  to  small  networks, which\nfunctions, providing much better interpreta\nof  applying  physics-informed KANs  to  so\nelectromagnetics. \nThe problem under investigation is the s\nwhich can be described by the Laplace equa\n \n2\nwhere u is the electric potential. Th−e ∇bo𝑢𝑢un=d\ned  in  the  same  figure  where  the  potential\nplane (y = 1). \n \nFig. 2 A 2D electrostatic box. \n \nWe use the KAN-based PINN to solve \ndefined as  \n \nlosspde  loss  loss\n1\n   𝑖𝑖  𝑏𝑏  𝑛𝑛𝑖𝑖\n= 𝛼𝛼  +  : = 𝛼𝛼  ∑\nwhere loss  and loss   denote the interior an\nThe interior loss is evaluated by a rando\n𝑖𝑖  𝑏𝑏\ninside the domain while the boundary loss\npoints (denoted with   ) on the boundary. \n is the hyperparameter balancing the effec\n𝑏𝑏\nFig.  3  shows  an  e𝑧𝑧xample  of KAN-base𝑓𝑓\n𝛼𝛼from different  layers are connected with  le\ndenote the second-order derivative with res\n\n3 \n  can  further  be described  with  symbolic \nbility. Here, we present a feasibility study \nlve  PDEs  related  to  the  physical  laws  of \nimple 2D electrostatic box shown in Fig. 2 \ntion in (1).  \n                                         (1) \n \na0ry,  conditions of the structure are illustrat-\n  is  zero  everywhere  except  the  excitation \n \nthe above PDE problem, where the loss is \n         (2) \n𝑛𝑛𝑖𝑖  2  1  𝑛𝑛𝑏𝑏  2\n𝑖𝑖=1  𝑖𝑖  𝑛𝑛𝑏𝑏  𝑖𝑖=1  𝑏𝑏\n  |𝑓𝑓(𝑧𝑧 )| +  ∑    |𝑢𝑢(𝑧𝑧 )|  ,\nd boundary losses, respectively.  \nm sampling of    points (denoted with   ) \n is evaluated by a uniform sampling of    \n𝑖𝑖  𝑖𝑖\n is defined 𝑛𝑛as   , a𝑧𝑧nd \n𝑏𝑏\nt of the two loss terms.    2  𝑛𝑛\n𝑖𝑖  𝑖𝑖  𝑖𝑖\nd( 𝑧𝑧P)INN methodolo𝑓𝑓g(y𝑧𝑧, )w=he −re∇  th𝑢𝑢e(  𝑧𝑧ne)urons \narnable activation functions (   and    \npect to    and   ).   𝑥𝑥𝑥𝑥  𝑦𝑦𝑦𝑦\n𝑢𝑢  𝑢𝑢\n𝑥𝑥  𝑦𝑦\n\n4 \nFig. 3 Example PINN with KAN. \nIn comparison, Fig. 4 shows an example\nthe neurons from different layers are connec\n \nFig. 4 Example PINN with MLP. \nThe  input  layer requires  two neurons re\nof  the neural network  is comprised of one\ndescribes the two different types of PINNs \n \n \n\n \n \n of MLP-based PINN methodology, where \nted with learnable weights.  \n \npresenting  the coordinates, and  the output \n neuron  representing  the  solution. Table 1 \nused to solve the PDE.  "
+  },
+  {
+    "id": "results",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Results",
+      "page_start": 5,
+      "page_end": 6
+    },
+    "text": "The electric potential of the electrostatic\nand the result is shown in Fig. 5. \nFig. 5 Ground truth solution provided by CST S\nAs clear from the figure, the distribution\ncenter  of  the  excitation  plane  and  starts  to\npotential is zero elsewhere. \nFig. 6 and Fig. 7 show the results from t\nspectively. As shown, the two PINNs can a\ned by the commercial simulation software. \n \n\n5 \nrk descriptions. \nNo. Neurons   Activation Function \n32,32   tanh \n5,5   learnable \nints on  each boundary  side  and  randomly \nrained models are used to predict the solu-\ns provided by the simulation software. \n box is simulated in CST Studio Suite [8] \n \n \ntudio Suite. \n of the scalar potential is maximum at the \n  decay  at  the  boundary  edges  where  the \nhe MLP-based and KAN-based PINNs, re-\nchieve very similar results to those provid-\n \n\n6\nFig. 6 Results from the MLP-based PINN.\nFig. 7 Results from the KAN-based PINN.\nThe slight (absolute) differences are shown in Fig. 8 and Fig. 9 where it did not ex-\nceed 0.1."
+  },
+  {
+    "id": "conclusions",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Conclusions",
+      "page_start": 7,
+      "page_end": 8
+    },
+    "text": "This  study has  investigated  the possibil\nEMI/EMC simulations as a green alternativ\nboth MLP- as well as KAN-based PINNs \nthe same results as MLP-based PINN, but \nquently  reduce  the  training  time  required \nsimulation  workflow  compared  to  numeric\nduce  a  promising  potential  solution  for  so\n\n7 \n \nhe  results  from  the MLP-based  PINN  and  the \n \nhe results from  the KAN-based PINN. and  the \nity of employing AI-driven  techniques  for \ne. We have demonstrated the results from \nwhere the KAN-based PINNs can achieve \nwith much fewer neurons. This can conse-\nand  introduce  an  energy-efficient  and  fast \nal  full-wave  simulations.  This  will  intro-\nlving  EMI/EMC  problems  and  structures \n\n8 \nthat normally require complex computation\na long time. "
+  }
+]

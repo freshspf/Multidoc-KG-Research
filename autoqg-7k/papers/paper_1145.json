@@ -1,0 +1,52 @@
+[
+  {
+    "id": "introduction",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Introduction",
+      "page_start": 1,
+      "page_end": 1
+    },
+    "text": "9\n8  Rapid growth of sub-meter resolution Spotlight image arch\n8  opment and a wonderful complement to medium resolution\n7\n1. The samples distributed through open data programs [4,\n0\n.  tists, who are excited to evaluate the suitability of such dat\n3  mainly due to the limitations imposed by the formats used\n0  (SLC) images, for example [6].\n5\n2  European SAR data providers have offered SLC images in\n:  in all imaging modes such as stripmap, Spotlight, ScanSA\nv\ni  modes of data in a common processor framework, for exa\nacquired in different modes without having to switch thei\nX\nr  publicly available has cemented the Zero-Doppler system\na  adopted by data providers from other countries including C\nSmallsat SAR providers from the USA [4, 5] have chosen\n(PFA) following the Sensor Independent Complex Data [1\nNational Geospatial-Intelligence Agency (NGA), is comm\nthe earth observation remote sensing community. Althou\nSICD, they do not support the application of end-to-end an\nimplementations of popular workﬂows like interferometry a\ndeterrent. Further, examples of such workﬂows often star\nDoppler format. It is also interesting to note that Zero-Do\nSICD speciﬁcation [1] and the defense community is alread\nWe present a method to adapt Range-Doppler-based SAR p\nformat. With our proposedmodiﬁcation, open source SAR p\nPFA data in their original image coordinates. Although it is\npling the PFA imagery onto a Zero-Doppler grid and using\n∗\nEmail: piyush.agram@earthdaily.com\n\nGEOMETRY FRAMEWORKS TO\n∗\nAGERY IN POLAR FORMAT\nAgram\nlytics USA Inc.\n, MN, USA\nACT\nof Spotlight Synthetic Aperture Radar (SAR) im-\ndard Range-Doppler (RDA) geometry algorithms.\ncharacterized by a constant value of the Center\nliﬁed expressions for forward (image-to-ground)\nusing Sensor Independent Complex Data (SICD)\ned to current open source SAR software that im-\nport within them for Spotlight data distributed in\nt that utilizes the Python packages sarpy [2] and\nposed approach.\nives acquired by smallsat SAR sensors is an exciting devel-\nsystematic continuous global coverage offered by Sentinel-\n5] have further piqued the interest of remote sensing scien-\na for their applications. However, progress has been slow\nto distribute the highest resolution Single Look Complex\nthe Zero-Doppler coordinate system [7] for data acquired\nR, TOPS, etc. This is typically achieved by processing all\nmple [8]. This allows end-users to operate on SAR data\nr analysis tools. ESA’s long history of making SAR data\nas the defacto global community standard and has been\nanada, Japan, India, etc.\nto distribute sub-meter resolution SLCs in Polar Format\n] speciﬁcation. The SICD standard, developed by the U.S.\nonly used by the defense community, but is unfamiliar to\ngh commercial SAR software has developed readers for\nalytics workﬂows to SICD data [6]. The absence of public\nnd radiometric terrain correction with PFA data is a major\nt with freely available data, such as Sentinel-1, in a Zero-\nppler Spotlight data is already supported by the RGZERO\ny able to work with SLC data in that format.\nrocessing software to process Spotlight PFA data in SICD\nrocessing software can be modiﬁed to work with Spotlight\npossible to perform backscatter-related analysis by resam-\nexisting tools, working in the source image coordinates is"
+  },
+  {
+    "id": "sicdspotlightgeometrymodel",
+    "metadata": {
+      "lang": "en",
+      "section_title": "SICD Spotlight geometry model",
+      "page_start": 2,
+      "page_end": 2
+    },
+    "text": "In this section, we walk through SICD’s PFA geometry m\nin a Spotlight PFA image and Range-Doppler coordinates\nimages. We have examined more than 50 images in the Um\nCapella [5] also provides Spotlight data in the SICD PFA fo\nthe Zero-Doppler system. We will follow the exact notation\nto follow.\nSince the source PFA image is characterized by constant tC\nbe treated as constants.\nTable 1: Variables that are constant f\nVariable  Description\nTGT\nARPCOA  Platform position\nTGT\nVARPCOA  Platform velocity\nSCP TGT\nR  Range from platform\nCOA\n(cid:0)  SC(cid:1) P TGT\nRdot  Rate of change of ran\nCOA\n(cid:0)TGT  (cid:1)\nθCOA  Polar angle\ndθ TGT\ndt  Rate of change of po\nCOA\n(cid:0)  (cid:1)TGT\nKSFCOA  Polar aperture scale f\nTGT\ndKSF\ndθ  Rate of change of po\nCOA\n(cid:16)  (cid:17)\nFrom the material in Section 4.1 of [9], we may write the\nTGT  TGT\ncoordinates (rg  , az  ) as\nTGT  SCP TGT\nRCOA  R\nCOA\n=\n  TGT     (cid:0)  (cid:1) TGT\nRdot  SCP\nCOA  Rdot\nCOA\n\n    \nwhere the matrix elements can be written in terms of differ\n(cid:0)  (cid:1)\nTGT  TGT\nA11  = KSFCOA · cos θCOA\nTGT  TGT\nA12  = KSFCOA · sin θCOA\n(cid:0)  (cid:1)\nTGT\ndKSF  (cid:0)  (cid:1) TGT\nA21  =  · cos θCOA\ndθ  COA\n\"(cid:18)  (cid:19)\n(cid:0)  (cid:1)\n2\n\nra information to be preserved, e.g., sub-aperture analytics\nmodel for the speciﬁc case of Staring Spotlight data.  In\nel and present modiﬁcations to traditional RDAworkﬂows.\nd InSAR engineers and analysts.\nodel [9] and derive a simple relationship between pixels\nfor the speciﬁc case of constant tCOA (Staring Spotlight)\nbra Open Data Program [4] and they all share this property.\nrmat, although most of its public SLC data appear to be in\nused in Section 4.1 of [9] to make it easier for the readers\nOA, we can show (Table 1) that all the following terms can\nor constant tCOA Spotlight images.\nto scene center pixel\nge to platform at scene center pixel\nlar angle w.r.t time\nactor\nlar aperture scale factor w.r.t polar angle\nslant range and the slant range change rate at the image\nTGT\nA11  A12  rg\n+  ·  (1)\n    TGT \n\" A21  A22 #  az\n\n    \nent constants in Table 1 as\n(2)\nTGT\nTGT  TGT  dθ\n−KSFCOA · sin θCOA  ·\ndt  COA\n# (cid:18)  (cid:19)\n(cid:0)  (cid:1)"
+  },
+  {
+    "id": "modificationstostandardrangedoppleralgorithms",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Modifications to standard Range-Doppler algorithms",
+      "page_start": 3,
+      "page_end": 3
+    },
+    "text": "forward and inverse mapping methodologies in RDA and\nform to assist developers in implementing the presented\nplify the notation from Section 2, to make the discussion\nation in SICD [9] terminology, refers to the computation of\nixel at range-azimuth indices of (rg, az) in the image raster\nntation of forward mapping is important for transforming\nn interpretation. We provide a detailed one-to-onemapping\nin the Zero-Doppler and PFA frameworks in Table 2.\nf forward mapping computations.\nConstant tCOA PFA\nV~  , R~  platform state vector\nsat  sat\nfor each azimuth index:\nSCP\nsing  • R0 = R  +A12 ∗ az\n• dR = A11\nSCP\n• Rdot0 = Rdot  +A22 ∗ az\n• dRdot = A21\nfor each range index:\n• R = R0 + dR ∗ rg\nsing  • Rdot = Rdot0 + dRdot ∗ rg\nSolve Range-Doppler  equation  using\nVsat, Rsat, R, Rdot, DEM.\nTable 2 shows that both the slant range (R) and the slant\npolynomial of the range index. This is easily handled by\nown as Acquisition Doppler or Non-Zero Doppler) [3, 10]\nre parallelized for each azimuth index as the range indices\nwords, we are able to reuse such an RDA implementation\nnge, slant range pixel spacing and the Doppler polynomial"
+  },
+  {
+    "id": "demonstration",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Demonstration",
+      "page_start": 4,
+      "page_end": 4
+    },
+    "text": "A script  demonstrating  the  correctness  of  the  app\nhttps://github.com/piyushrpt/PFA2RDAgeometry.\nverse mapping methods via the SICD framework and ISC\n(within acceptable numerical error limits). Open-source SA\na reference to implement the methodology laid out in Secti\n4\n\nration in SICD [9] terminology, refers to computation of\no a target (T~) on the ground.  Inverse mapping is a faster\nn of a target in 3D space to a 2D domain. The primary\nn correction in the SNAP terminology [11]). We provide\nmentation of the inverse transform of a single pixel in the\nerse mapping computation for one pixel\nConstant tCOA PFA\n• Vsat, Rsat satellite state vectors\nz-  R = R~  − T~\nsat\nR~sat−T~\n(cid:12)  ~  ((cid:12)  )\nRdot (cid:12)= Vsat ·  (cid:12) ~ −~\n|Rsat  T|\n(cid:12)  (cid:12)\nInvert Equation 1 to get (rg, az) coordi-\nnates from (R, Rdot).\ne-\nonstant tCOA, share the same state vector for the imaging\nthe slant range (R) and slant range change rate (Rdot) for\n(rg, az) indices using the inverse of Equation 1.  Inverse\ntransform and can be implemented using basic numerical\nols. We also note that we can implement a simple PFA to\ng for a Zero-Doppler system with the inverse mapping for\nource PFA image.\noppler solver (Section 5 of [9]) to transform (R, Rdot) to\nnot support imagery in a Native-Doppler system, like the\nodiﬁcations presented in Section 3.1 would be straightfor-\nnd ALOS-1 SLC data. If the RDA framework is designed\nthe framework would need to be generalized to work with\niﬁcations.\nroach  presented  in  this  paper  can  be  accessed  at\nIn the demonstration script, we show that forward and in-\nE’s Range-Doppler framework produce the same results\nR software developers can use this demonstration script as\non 3 within their RDA frameworks."
+  },
+  {
+    "id": "conclusion",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Conclusion",
+      "page_start": 5,
+      "page_end": 5
+    },
+    "text": "In Section 2, we show that the geometry model for PFA\nSICD model for PFA data. Building on the simpliﬁed mod\ncan be adapted to work with PFA Spotlight data. We have\nisce3 in Section 4 to demonstrate the correctness of our me\ndevelopers are able to adapt their Range-Doppler processi\nmore utilization and better exploitation of ever-increasing S\nby smallsat SAR providers.\nAcknowledgments\nThank you to my colleagues Matthew Calef, Kelly Olsen an\nand providing valuable feedback."
+  }
+]

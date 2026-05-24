@@ -1,0 +1,303 @@
+[
+  {
+    "section": "qed1",
+    "path": {
+      "section": "qed1",
+      "start_entity": "QED",
+      "end_entity": "HardwareComponent",
+      "hops": [
+        {
+          "from": "QED",
+          "relation": "focusesOn",
+          "to": "Node",
+          "context": "QED focuses on the load-store queue (LSQ) and the coherence interface between global coherence and the node (core and local cache hierarchy).",
+          "chunk": "3"
+        },
+        {
+          "from": "Node",
+          "relation": "includes",
+          "to": "LocalCacheHierarchy",
+          "context": "QED focuses on the load-store queue (LSQ) and the coherence interface between global coherence and the node (core and local cache hierarchy).",
+          "chunk": "3"
+        },
+        {
+          "from": "LocalCacheHierarchy",
+          "relation": "type",
+          "to": "HardwareComponent",
+          "context": "QED focuses on the load-store queue (LSQ) and the coherence interface between global coherence and the node (core and local cache hierarchy).",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the context of the QED architecture, which component acts as a significant intermediary for managing data flow between the core and global coherence?",
+    "options": {
+      "A": "The global coherence interface, which directly manages all data transactions between nodes.",
+      "B": "The load-store queue (LSQ), which mainly handles data buffering and forwarding.",
+      "C": "The hardware component, which is primarily responsible for the physical transference of data.",
+      "D": "The local cache hierarchy, essential for storing and providing rapid access to frequently used data."
+    },
+    "correct_answer": "D",
+    "explanation": "The question leverages the knowledge path from QED to LocalCacheHierarchy, indicating its role as an intermediary in data flow. The LocalCacheHierarchy, as part of the node, serves to interface between core processing elements and broader coherence mechanisms, handling data storage and quick access, crucial for effective data management and flow.",
+    "path_description": "Path: QED --[focusesOn]--> Node --[includes]--> LocalCacheHierarchy --[type]--> HardwareComponent",
+    "context": "QED focuses on the load-store queue (LSQ) and the coherence interface between global coherence and the node (core and local cache hierarchy). | QED focuses on the load-store queue (LSQ) and the coherence interface between global coherence and the node (core and local cache hierarchy). | QED focuses on the load-store queue (LSQ) and the coherence interface between global coherence and the node (core and local cache hierarchy).",
+    "paper_id": "240"
+  },
+  {
+    "section": "introduction2",
+    "path": {
+      "section": "introduction2",
+      "start_entity": "QED",
+      "end_entity": "Event",
+      "hops": [
+        {
+          "from": "QED",
+          "relation": "optimizedFor",
+          "to": "InFlightMemoryInstructions",
+          "context": "Thus, QED is scalable in both the numbers of in-flight memory instructions and of cores for all MCMs",
+          "chunk": "1"
+        },
+        {
+          "from": "InFlightMemoryInstructions",
+          "relation": "comparedWith",
+          "to": "ExternalEvents",
+          "context": "we need to consider only all pairs of types of in-flight memory instructions and only one of the types of intervening external events",
+          "chunk": "1"
+        },
+        {
+          "from": "ExternalEvents",
+          "relation": "type",
+          "to": "Event",
+          "context": "and intervening external events, which are proxies for instructions in other cores",
+          "chunk": "1"
+        }
+      ]
+    },
+    "question": "In the context of QED's scalability for various Multi-Core Memory Systems (MCMs), how does the optimization of in-flight memory instructions primarily relate to external events?",
+    "options": {
+      "A": "External events are optimized to enhance the performance of all types of in-flight memory instructions simultaneously.",
+      "B": "In-flight memory instructions are optimized independently of any external events to ensure maximum throughput.",
+      "C": "In-flight memory instructions are optimized through a general assessment of all possible external events.",
+      "D": "In-flight memory instructions are optimized by considering their interaction with one specific type of external event."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A. According to the context, QED's optimization of in-flight memory instructions considers only one type of intervening external event. This specific focus allows effective scalability in MCMs, showing a direct relationship between the optimization of these instructions and their interaction with a particular type of external event.",
+    "path_description": "Path: QED --[optimizedFor]--> InFlightMemoryInstructions --[comparedWith]--> ExternalEvents --[type]--> Event",
+    "context": "Thus, QED is scalable in both the numbers of in-flight memory instructions and of cores for all MCMs | we need to consider only all pairs of types of in-flight memory instructions and only one of the types of intervening external events | and intervening external events, which are proxies for instructions in other cores",
+    "paper_id": "240"
+  },
+  {
+    "section": "qed3",
+    "path": {
+      "section": "qed3",
+      "start_entity": "QED",
+      "end_entity": "MemoryOrder",
+      "hops": [
+        {
+          "from": "QED",
+          "relation": "targets",
+          "to": "Restoration",
+          "context": "We refer to such unobservable transformations as restoration.",
+          "chunk": "5"
+        },
+        {
+          "from": "Restoration",
+          "relation": "targets",
+          "to": "ExecutedOrder",
+          "context": "Only <e ordering may be restored.",
+          "chunk": "5"
+        },
+        {
+          "from": "ExecutedOrder",
+          "relation": "transformedTo",
+          "to": "MemoryOrder",
+          "context": "If the executed order <e may be transformed unobservably into an MCM-compliant memory order <m then the system is MCM compliant.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the context of QED transformations, what accurately describes the compliance of a system with the Memory Consistency Model (MCM)?",
+    "options": {
+      "A": "Memory Consistency Model compliance is achieved if all executed orders require observable transformations to align with memory orders.",
+      "B": "System compliance with MCM is determined only if the restoration process is observable and traceable.",
+      "C": "If the executed order can be unobservably transformed into a memory order that complies with MCM, the system is considered MCM compliant.",
+      "D": "A system is MCM compliant if every possible restoration of executed orders directly fails to comply with the memory order."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A. According to the context from the paper, a system is considered MCM compliant if the executed order can be unobservably transformed into a memory order that is compliant with MCM. This implies a non-observable transformation process from executed order to memory order that meets MCM requirements. Options B, C, and D introduce elements (observability, direct failure, and requirements of all executed orders) that are not mentioned or contradicted in the provided context.",
+    "path_description": "Path: QED --[targets]--> Restoration --[targets]--> ExecutedOrder --[transformedTo]--> MemoryOrder",
+    "context": "We refer to such unobservable transformations as restoration. | Only <e ordering may be restored. | If the executed order <e may be transformed unobservably into an MCM-compliant memory order <m then the system is MCM compliant.",
+    "paper_id": "240"
+  },
+  {
+    "section": "qed4",
+    "path": {
+      "section": "qed4",
+      "start_entity": "ld_B",
+      "end_entity": "ld_A",
+      "hops": [
+        {
+          "from": "ld_B",
+          "relation": "followedBy",
+          "to": "inv_B",
+          "context": "in Figure 1(d), ld B <m inv B <m inv A <m ld A, which cannot be restored.",
+          "chunk": "6"
+        },
+        {
+          "from": "inv_B",
+          "relation": "followedBy",
+          "to": "inv_A",
+          "context": "in Figure 1(d), ld B <m inv B <m inv A <m ld A, which cannot be restored.",
+          "chunk": "6"
+        },
+        {
+          "from": "inv_A",
+          "relation": "followedBy",
+          "to": "ld_A",
+          "context": "in Figure 1(d), ld B <m inv B <m inv A <m ld A, which cannot be restored.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the context of the qed4 section, what is the correct sequence of operations that leads to an irreversible state as depicted in Figure 1(d)?",
+    "options": {
+      "A": "Load A followed by Invert A, followed by Invert B, and then Load B",
+      "B": "Load B followed by Invert B, followed by Invert A, and then Load A",
+      "C": "Invert A followed by Load A, followed by Load B, and then Invert B",
+      "D": "Invert B followed by Load B, followed by Load A, and then Invert A"
+    },
+    "correct_answer": "B",
+    "explanation": "The sequence 'Load B followed by Invert B, followed by Invert A, and then Load A' exactly matches the described irreversible state in the paper section 'qed4' and Figure 1(d). The other sequences do not follow the order specified in the knowledge path.",
+    "path_description": "Path: ld_B --[followedBy]--> inv_B --[followedBy]--> inv_A --[followedBy]--> ld_A",
+    "context": "in Figure 1(d), ld B <m inv B <m inv A <m ld A, which cannot be restored. | in Figure 1(d), ld B <m inv B <m inv A <m ld A, which cannot be restored. | in Figure 1(d), ld B <m inv B <m inv A <m ld A, which cannot be restored.",
+    "paper_id": "240"
+  },
+  {
+    "section": "relatedwork",
+    "path": {
+      "section": "relatedwork",
+      "start_entity": "Power",
+      "end_entity": "SGIOrigin2000",
+      "hops": [
+        {
+          "from": "Power",
+          "relation": "supports",
+          "to": "RelaxedMemoryOrdering",
+          "context": "Almost all current, commercially-important CPU families (e.g., x86-64, ARM, Power, and RISC-V) each support a specific such relaxed model.",
+          "chunk": "11"
+        },
+        {
+          "from": "RelaxedMemoryOrdering",
+          "relation": "relaxes",
+          "to": "SequentialConsistency",
+          "context": "Targeting higher performance, other models, such as Total Store Order (TSO), Release Consistency (RC) and Relaxed Memory Ordering (RMO), relax various ordering and write atomicity constraints of SC.",
+          "chunk": "11"
+        },
+        {
+          "from": "SequentialConsistency",
+          "relation": "implementedIn",
+          "to": "SGIOrigin2000",
+          "context": "Sequential Consistency (SC) is the most intuitive memory model and is implemented in the SGI Origin 2000.",
+          "chunk": "11"
+        }
+      ]
+    },
+    "question": "Which of the following statements accurately describes the implementation of memory models in relation to the SGI Origin 2000?",
+    "options": {
+      "A": "SGI Origin 2000 implements the Sequential Consistency model, which is supported by the Power CPU family through its Relaxed Memory Ordering.",
+      "B": "SGI Origin 2000 is known for its exclusive use of the x86-64 architecture, implementing a unique model derived from Relaxed Memory Ordering.",
+      "C": "SGI Origin 2000 relies on the Release Consistency model, a derivative of the Relaxed Memory Ordering found in the ARM CPU family.",
+      "D": "SGI Origin 2000 utilizes the Total Store Order model, closely linked with the Release Consistency supported by the Power CPU."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A because the knowledge path indicates that Power supports Relaxed Memory Ordering (RMO), which relaxes the constraints of Sequential Consistency (SC), and SC is implemented in the SGI Origin 2000. Options B, C, and D introduce incorrect relationships or models not supported by the provided context.",
+    "path_description": "Path: Power --[supports]--> RelaxedMemoryOrdering --[relaxes]--> SequentialConsistency --[implementedIn]--> SGIOrigin2000",
+    "context": "Almost all current, commercially-important CPU families (e.g., x86-64, ARM, Power, and RISC-V) each support a specific such relaxed model. | Targeting higher performance, other models, such as Total Store Order (TSO), Release Consistency (RC) and Relaxed Memory Ordering (RMO), relax various ordering and write atomicity constraints of SC. | Sequential Consistency (SC) is the most intuitive memory model and is implemented in the SGI Origin 2000.",
+    "paper_id": "240"
+  },
+  {
+    "section": "relatedwork",
+    "path": {
+      "section": "relatedwork",
+      "start_entity": "x86-64",
+      "end_entity": "SGIOrigin2000",
+      "hops": [
+        {
+          "from": "x86-64",
+          "relation": "supports",
+          "to": "TotalStoreOrder",
+          "context": "Almost all current, commercially-important CPU families (e.g., x86-64, ARM, Power, and RISC-V) each support a specific such relaxed model.",
+          "chunk": "11"
+        },
+        {
+          "from": "TotalStoreOrder",
+          "relation": "relaxes",
+          "to": "SequentialConsistency",
+          "context": "Targeting higher performance, other models, such as Total Store Order (TSO), Release Consistency (RC) and Relaxed Memory Ordering (RMO), relax various ordering and write atomicity constraints of SC.",
+          "chunk": "11"
+        },
+        {
+          "from": "SequentialConsistency",
+          "relation": "implementedIn",
+          "to": "SGIOrigin2000",
+          "context": "Sequential Consistency (SC) is the most intuitive memory model and is implemented in the SGI Origin 2000.",
+          "chunk": "11"
+        }
+      ]
+    },
+    "question": "Which of the following accurately describes the relationship between the x86-64 architecture and the SGI Origin 2000 in terms of memory model implementation?",
+    "options": {
+      "A": "x86-64 directly implements the Sequential Consistency model, which is the same model used by the SGI Origin 2000 for memory ordering.",
+      "B": "x86-64 supports Total Store Order which relaxes certain constraints of Sequential Consistency, a model implemented in the SGI Origin 2000.",
+      "C": "Both x86-64 and SGI Origin 2000 utilize the Total Store Order model, which directly enhances performance by relaxing write constraints.",
+      "D": "SGI Origin 2000 uses a relaxed version of the memory model supported by x86-64, focusing on enhancing write atomicity and ordering."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A. x86-64 supports the Total Store Order (TSO) memory model, which relaxes certain constraints found in the Sequential Consistency (SC) model. SC is known for its intuitive approach to memory but is relaxed in TSO for performance reasons. The SGI Origin 2000 implements the SC model, establishing the connection through the relaxation of constraints from SC to TSO by x86-64.",
+    "path_description": "Path: x86-64 --[supports]--> TotalStoreOrder --[relaxes]--> SequentialConsistency --[implementedIn]--> SGIOrigin2000",
+    "context": "Almost all current, commercially-important CPU families (e.g., x86-64, ARM, Power, and RISC-V) each support a specific such relaxed model. | Targeting higher performance, other models, such as Total Store Order (TSO), Release Consistency (RC) and Relaxed Memory Ordering (RMO), relax various ordering and write atomicity constraints of SC. | Sequential Consistency (SC) is the most intuitive memory model and is implemented in the SGI Origin 2000.",
+    "paper_id": "240"
+  },
+  {
+    "section": "relatedwork",
+    "path": {
+      "section": "relatedwork",
+      "start_entity": "RelaxedMemoryOrdering",
+      "end_entity": "ComputerSystem",
+      "hops": [
+        {
+          "from": "RelaxedMemoryOrdering",
+          "relation": "relaxes",
+          "to": "SequentialConsistency",
+          "context": "Targeting higher performance, other models, such as Total Store Order (TSO), Release Consistency (RC) and Relaxed Memory Ordering (RMO), relax various ordering and write atomicity constraints of SC.",
+          "chunk": "11"
+        },
+        {
+          "from": "SequentialConsistency",
+          "relation": "implementedIn",
+          "to": "SGIOrigin2000",
+          "context": "Sequential Consistency (SC) is the most intuitive memory model and is implemented in the SGI Origin 2000.",
+          "chunk": "11"
+        },
+        {
+          "from": "SGIOrigin2000",
+          "relation": "type",
+          "to": "ComputerSystem",
+          "context": "Sequential Consistency (SC) is the most intuitive memory model and is implemented in the SGI Origin 2000.",
+          "chunk": "11"
+        }
+      ]
+    },
+    "question": "Which of the following statements correctly describes the relationship between Relaxed Memory Ordering (RMO) and the SGI Origin 2000 system?",
+    "options": {
+      "A": "Relaxed Memory Ordering is a direct implementation framework used by the SGI Origin 2000 for enhancing system performance.",
+      "B": "The SGI Origin 2000 modifies the principles of Relaxed Memory Ordering to suit its unique computer system requirements.",
+      "C": "SGI Origin 2000 uses Relaxed Memory Ordering directly to manage its internal computer system operations and performance.",
+      "D": "Relaxed Memory Ordering relaxes constraints of Sequential Consistency, which is implemented in the SGI Origin 2000."
+    },
+    "correct_answer": "D",
+    "explanation": "Relaxed Memory Ordering (RMO) is a model that relaxes certain constraints of Sequential Consistency (SC). The SGI Origin 2000 implements SC, thereby indirectly relating RMO's relaxation of constraints to the system's memory model, not directly implementing RMO.",
+    "path_description": "Path: RelaxedMemoryOrdering --[relaxes]--> SequentialConsistency --[implementedIn]--> SGIOrigin2000 --[type]--> ComputerSystem",
+    "context": "Targeting higher performance, other models, such as Total Store Order (TSO), Release Consistency (RC) and Relaxed Memory Ordering (RMO), relax various ordering and write atomicity constraints of SC. | Sequential Consistency (SC) is the most intuitive memory model and is implemented in the SGI Origin 2000. | Sequential Consistency (SC) is the most intuitive memory model and is implemented in the SGI Origin 2000.",
+    "paper_id": "240"
+  }
+]

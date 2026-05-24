@@ -1,0 +1,174 @@
+[
+  {
+    "section": "results",
+    "path": {
+      "section": "results",
+      "start_entity": "Project",
+      "end_entity": "SecurityVulnerability",
+      "hops": [
+        {
+          "from": "Project",
+          "relation": "hasSubset",
+          "to": "Commit",
+          "context": "The analyzed cohort of 62.8K objects, which includes unique 9.8K projects and 22.7K CVEs, is a subset of the total number of selected commits associated with over 16K projects and 27K CVEs",
+          "chunk": "2"
+        },
+        {
+          "from": "Commit",
+          "relation": "neededToFix",
+          "to": "CVE",
+          "context": "The median number of commits needed to fix a CVE is 1, with the 75th percentile being 3",
+          "chunk": "2"
+        },
+        {
+          "from": "CVE",
+          "relation": "type",
+          "to": "SecurityVulnerability",
+          "context": "What are the characteristics of the CVE lifetime within a project?",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "Considering the relationship between projects, commits, and CVEs, what best describes the nature of security vulnerabilities addressed by commits in a project?",
+    "options": {
+      "A": "Each project typically addresses all security vulnerabilities within a single commit, ensuring quick resolution.",
+      "B": "Most security vulnerabilities require multiple commits to be fully resolved, usually up to three.",
+      "C": "Security vulnerabilities are typically addressed in a single commit, with some exceptions needing up to two.",
+      "D": "Security vulnerabilities are often left unresolved as projects lack the necessary commits to address them."
+    },
+    "correct_answer": "B",
+    "explanation": "The median number of commits needed to fix a CVE is 1, indicating that many CVEs are addressed by a single commit, but the 75th percentile being 3 commits shows that a significant number also require multiple commits to resolve, making option A the most accurate.",
+    "path_description": "Path: Project --[hasSubset]--> Commit --[neededToFix]--> CVE --[type]--> SecurityVulnerability",
+    "context": "The analyzed cohort of 62.8K objects, which includes unique 9.8K projects and 22.7K CVEs, is a subset of the total number of selected commits associated with over 16K projects and 27K CVEs | The median number of commits needed to fix a CVE is 1, with the 75th percentile being 3 | What are the characteristics of the CVE lifetime within a project?",
+    "paper_id": "609"
+  },
+  {
+    "section": "results",
+    "path": {
+      "section": "results",
+      "start_entity": "Commit",
+      "end_entity": "CVE",
+      "hops": [
+        {
+          "from": "Commit",
+          "relation": "groupedBy",
+          "to": "Project",
+          "context": "To address this issue, we grouped the set of commits by CVE-ID and project",
+          "chunk": "2"
+        },
+        {
+          "from": "Project",
+          "relation": "hasSubset",
+          "to": "Commit",
+          "context": "The analyzed cohort of 62.8K objects, which includes unique 9.8K projects and 22.7K CVEs, is a subset of the total number of selected commits associated with over 16K projects and 27K CVEs",
+          "chunk": "2"
+        },
+        {
+          "from": "Commit",
+          "relation": "neededToFix",
+          "to": "CVE",
+          "context": "The median number of commits needed to fix a CVE is 1, with the 75th percentile being 3",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the research paper's analysis, what is the median number of commits required to fix a CVE according to the grouping of commits by project and CVE-ID?",
+    "options": {
+      "A": "The median number of commits required is 5, based on the distinct grouping of CVE-IDs across different projects.",
+      "B": "The median value stands at 2 for the required number of commits, as per the grouped data of projects by CVE-ID.",
+      "C": "A median of 4 commits is needed across all projects to address a single CVE, following the specific CVE-ID grouping.",
+      "D": "The median number of commits needed to fix a CVE is 1, as determined through project and CVE-ID grouping."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A. According to the context from the paper, after grouping the commits by project and CVE-ID, the median number of commits necessary to fix a CVE is documented as 1. Options B, C, and D provide incorrect numbers, deliberately designed to test if the information was understood and remembered correctly.",
+    "path_description": "Path: Commit --[groupedBy]--> Project --[hasSubset]--> Commit --[neededToFix]--> CVE",
+    "context": "To address this issue, we grouped the set of commits by CVE-ID and project | The analyzed cohort of 62.8K objects, which includes unique 9.8K projects and 22.7K CVEs, is a subset of the total number of selected commits associated with over 16K projects and 27K CVEs | The median number of commits needed to fix a CVE is 1, with the 75th percentile being 3",
+    "paper_id": "609"
+  },
+  {
+    "section": "threatstovalidity",
+    "path": {
+      "section": "threatstovalidity",
+      "start_entity": "DataQuality",
+      "end_entity": "DataAnomaly",
+      "hops": [
+        {
+          "from": "DataQuality",
+          "relation": "addressedBy",
+          "to": "FilteringSuspiciousData",
+          "context": "We countered this by filtering suspicious data.",
+          "chunk": "3"
+        },
+        {
+          "from": "FilteringSuspiciousData",
+          "relation": "targets",
+          "to": "TimeTravellers",
+          "context": "We countered this by filtering suspicious data, like commit 'time travellers'.",
+          "chunk": "3"
+        },
+        {
+          "from": "TimeTravellers",
+          "relation": "type",
+          "to": "DataAnomaly",
+          "context": "We countered this by filtering suspicious data, like commit 'time travellers'.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the context of data quality assurance in software repositories, how does the process of filtering suspicious data target a specific type of data anomaly?",
+    "options": {
+      "A": "By filtering out data with missing timestamps, which are essential for chronological analysis.",
+      "B": "By excluding data that shows an unusually high number of commits in a short time frame, indicating possible automation.",
+      "C": "By isolating data entries that contain multiple identical timestamps, suggesting copy-paste errors.",
+      "D": "By identifying and removing data entries that include unrealistic future timestamps, known as 'time travellers'."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A because the knowledge path indicates that the process of FilteringSuspiciousData targets TimeTravellers, which are a specific type of DataAnomaly characterized by unrealistic future timestamps.",
+    "path_description": "Path: DataQuality --[addressedBy]--> FilteringSuspiciousData --[targets]--> TimeTravellers --[type]--> DataAnomaly",
+    "context": "We countered this by filtering suspicious data. | We countered this by filtering suspicious data, like commit 'time travellers'. | We countered this by filtering suspicious data, like commit 'time travellers'.",
+    "paper_id": "609"
+  },
+  {
+    "section": "threatstovalidity",
+    "path": {
+      "section": "threatstovalidity",
+      "start_entity": "ObservabilityOfCVE",
+      "end_entity": "ResearchBias",
+      "hops": [
+        {
+          "from": "ObservabilityOfCVE",
+          "relation": "causedBy",
+          "to": "DeveloperMeticulousness",
+          "context": "We rely on developer meticulousness to put CVE ID in commit messages.",
+          "chunk": "3"
+        },
+        {
+          "from": "DeveloperMeticulousness",
+          "relation": "resultsIn",
+          "to": "SelectionBias",
+          "context": "This limitation results in selection bias for non silent repairs.",
+          "chunk": "3"
+        },
+        {
+          "from": "SelectionBias",
+          "relation": "type",
+          "to": "ResearchBias",
+          "context": "This limitation results in selection bias for non silent repairs.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the context of cybersecurity research, how does developer meticulousness in documenting CVE IDs in commit messages influence the quality of research findings?",
+    "options": {
+      "A": "It ensures that all CVEs are documented, thus eliminating any form of bias in the research.",
+      "B": "It decreases the overall quality of the software, leading to a higher occurrence of CVEs.",
+      "C": "It creates a more comprehensive dataset that reduces the likelihood of encountering research bias.",
+      "D": "It leads to selection bias for non-silent repairs, potentially causing research bias in the findings."
+    },
+    "correct_answer": "D",
+    "explanation": "The meticulousness of developers in documenting CVE IDs in commit messages causes selection bias for non-silent repairs. This selection bias is a type of research bias that can affect the quality and validity of research findings, as only certain types of data (non-silent repairs) are selected for analysis.",
+    "path_description": "Path: ObservabilityOfCVE --[causedBy]--> DeveloperMeticulousness --[resultsIn]--> SelectionBias --[type]--> ResearchBias",
+    "context": "We rely on developer meticulousness to put CVE ID in commit messages. | This limitation results in selection bias for non silent repairs. | This limitation results in selection bias for non silent repairs.",
+    "paper_id": "609"
+  }
+]

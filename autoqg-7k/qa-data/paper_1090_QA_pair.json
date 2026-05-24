@@ -1,0 +1,475 @@
+[
+  {
+    "section": "relatedwork",
+    "path": {
+      "section": "relatedwork",
+      "start_entity": "ConfidenceCalibration",
+      "end_entity": "Technique",
+      "hops": [
+        {
+          "from": "ConfidenceCalibration",
+          "relation": "categorizedInto",
+          "to": "TrainingTimeMethods",
+          "context": "Existing calibration works can be categorized into two main types: training-time methods and post-hoc methods.",
+          "chunk": "2"
+        },
+        {
+          "from": "TrainingTimeMethods",
+          "relation": "uses",
+          "to": "ImplicitRegularizations",
+          "context": "Implicit regularizations are also widely used during training including label smoothing and Mixup.",
+          "chunk": "2"
+        },
+        {
+          "from": "ImplicitRegularizations",
+          "relation": "type",
+          "to": "Technique",
+          "context": "Implicit regularizations are also widely used during training including label smoothing and Mixup.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the context of confidence calibration strategies in machine learning, which technique is an example of an implicit regularization used during training-time methods?",
+    "options": {
+      "A": "Enhancing model performance through post-hoc calibration adjustments.",
+      "B": "Using dropout layers to randomly deactivate certain neurons during the training phase.",
+      "C": "Employing early stopping to prevent overfitting during the training process.",
+      "D": "Applying label smoothing or Mixup to optimize model generalization."
+    },
+    "correct_answer": "D",
+    "explanation": "Implicit regularizations such as label smoothing and Mixup are categorized under training-time methods in confidence calibration, as per the knowledge path. These techniques aim to optimize model generalization during the training phase, thus making option B the correct answer. The other options, although plausible, do not represent implicit regularization techniques used specifically during training time.",
+    "path_description": "Path: ConfidenceCalibration --[categorizedInto]--> TrainingTimeMethods --[uses]--> ImplicitRegularizations --[type]--> Technique",
+    "context": "Existing calibration works can be categorized into two main types: training-time methods and post-hoc methods. | Implicit regularizations are also widely used during training including label smoothing and Mixup. | Implicit regularizations are also widely used during training including label smoothing and Mixup.",
+    "paper_id": "1898"
+  },
+  {
+    "section": "relatedwork",
+    "path": {
+      "section": "relatedwork",
+      "start_entity": "TrainingTimeMethods",
+      "end_entity": "Technique",
+      "hops": [
+        {
+          "from": "TrainingTimeMethods",
+          "relation": "uses",
+          "to": "ImplicitRegularizations",
+          "context": "Implicit regularizations are also widely used during training including label smoothing and Mixup.",
+          "chunk": "2"
+        },
+        {
+          "from": "ImplicitRegularizations",
+          "relation": "includes",
+          "to": "LabelSmoothing",
+          "context": "Implicit regularizations are also widely used during training including label smoothing and Mixup.",
+          "chunk": "2"
+        },
+        {
+          "from": "LabelSmoothing",
+          "relation": "type",
+          "to": "Technique",
+          "context": "Implicit regularizations are also widely used during training including label smoothing and Mixup.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "Which of the following can be considered a type of technique used under implicit regularizations in training time methods?",
+    "options": {
+      "A": "Batch normalization, aimed at improving the speed, performance, and stability of artificial neural networks",
+      "B": "Early stopping, which halts training when performance on a validation set starts to degrade",
+      "C": "Gradient clipping, primarily used to counteract exploding gradients in training",
+      "D": "Label smoothing, which is often applied to prevent overfitting in model training"
+    },
+    "correct_answer": "D",
+    "explanation": "Label smoothing is explicitly mentioned as a type of technique included under implicit regularizations in training time methods. The other options, while related to training methods, are not specifically categorized under implicit regularizations in the context provided.",
+    "path_description": "Path: TrainingTimeMethods --[uses]--> ImplicitRegularizations --[includes]--> LabelSmoothing --[type]--> Technique",
+    "context": "Implicit regularizations are also widely used during training including label smoothing and Mixup. | Implicit regularizations are also widely used during training including label smoothing and Mixup. | Implicit regularizations are also widely used during training including label smoothing and Mixup.",
+    "paper_id": "1898"
+  },
+  {
+    "section": "preliminaries",
+    "path": {
+      "section": "preliminaries",
+      "start_entity": "LCE",
+      "end_entity": "ExpectedCalibrationError",
+      "hops": [
+        {
+          "from": "LCE",
+          "relation": "appliedTo",
+          "to": "fθ",
+          "context": "Especially, LCE is the cross-entropy loss on a sample (xi, yi) defined as: LCE(xi, yi; θ).",
+          "chunk": "4"
+        },
+        {
+          "from": "fθ",
+          "relation": "calibratedUsing",
+          "to": "ECE",
+          "context": "To measure how well a model is calibrated, we introduce the Expected Calibration Error (ECE).",
+          "chunk": "4"
+        },
+        {
+          "from": "ECE",
+          "relation": "type",
+          "to": "ExpectedCalibrationError",
+          "context": "To measure how well a model is calibrated, we introduce the Expected Calibration Error (ECE).",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the context of model calibration, how does the Expected Calibration Error (ECE) relate to the cross-entropy loss function (LCE) when assessing a model parameterized by θ?",
+    "options": {
+      "A": "ECE is calibrated using the LCE applied to fθ, which is then used to measure the calibration error of the model.",
+      "B": "ECE is a type of calibration error that uses LCE applied to a model parameterized by θ to assess its calibration accuracy.",
+      "C": "ECE directly modifies the parameters θ of the model by minimizing the LCE to improve model performance.",
+      "D": "ECE uses the output of LCE as a baseline to compute the divergence from ideal model behavior without recalibrating θ."
+    },
+    "correct_answer": "A",
+    "explanation": "The Expected Calibration Error (ECE) is used to measure how well a model is calibrated by applying the cross-entropy loss (LCE) to a model parameterized by θ (fθ). The ECE is then calibrated using this application of LCE to assess the overall calibration error of the model.",
+    "path_description": "Path: LCE --[appliedTo]--> fθ --[calibratedUsing]--> ECE --[type]--> ExpectedCalibrationError",
+    "context": "Especially, LCE is the cross-entropy loss on a sample (xi, yi) defined as: LCE(xi, yi; θ). | To measure how well a model is calibrated, we introduce the Expected Calibration Error (ECE). | To measure how well a model is calibrated, we introduce the Expected Calibration Error (ECE).",
+    "paper_id": "1898"
+  },
+  {
+    "section": "preliminaries",
+    "path": {
+      "section": "preliminaries",
+      "start_entity": "L",
+      "end_entity": "ExpectedCalibrationError",
+      "hops": [
+        {
+          "from": "L",
+          "relation": "measures",
+          "to": "fθ",
+          "context": "Let L be the loss function that measures how well the model’s predictions fθ(xi) matches the true label yi.",
+          "chunk": "4"
+        },
+        {
+          "from": "fθ",
+          "relation": "calibratedUsing",
+          "to": "ECE",
+          "context": "To measure how well a model is calibrated, we introduce the Expected Calibration Error (ECE).",
+          "chunk": "4"
+        },
+        {
+          "from": "ECE",
+          "relation": "type",
+          "to": "ExpectedCalibrationError",
+          "context": "To measure how well a model is calibrated, we introduce the Expected Calibration Error (ECE).",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the context of model evaluation, how does the Expected Calibration Error (ECE) relate to the loss function L and the model's predictions?",
+    "options": {
+      "A": "ECE directly modifies the loss function L to enhance the accuracy of the model's predictions fθ(xi) against actual labels yi.",
+      "B": "ECE is a type of calibration measure that uses the loss function L to assess the discrepancy between predicted and true labels.",
+      "C": "ECE uses the calibration of predictions fθ(xi) assessed by the loss function L to determine the model's performance.",
+      "D": "ECE is a specific calibration metric that assesses how the loss function L captures the match between model predictions and true labels."
+    },
+    "correct_answer": "D",
+    "explanation": "The Expected Calibration Error (ECE) is specifically designed to evaluate how well the model's predicted probabilities (calculated using the loss function L) match the actual outcomes (true labels). This is a calibration measure, not a direct modification or use of the loss function, but rather an assessment of the outputs generated in context of the loss function's effectiveness.",
+    "path_description": "Path: L --[measures]--> fθ --[calibratedUsing]--> ECE --[type]--> ExpectedCalibrationError",
+    "context": "Let L be the loss function that measures how well the model’s predictions fθ(xi) matches the true label yi. | To measure how well a model is calibrated, we introduce the Expected Calibration Error (ECE). | To measure how well a model is calibrated, we introduce the Expected Calibration Error (ECE).",
+    "paper_id": "1898"
+  },
+  {
+    "section": "experiments2",
+    "path": {
+      "section": "experiments2",
+      "start_entity": "ExperienceReplay",
+      "end_entity": "Dataset",
+      "hops": [
+        {
+          "from": "ExperienceReplay",
+          "relation": "appliedTo",
+          "to": "ResNet",
+          "context": "In both cases, we employ Experience Replay (ER) as our base learning technique.",
+          "chunk": "6"
+        },
+        {
+          "from": "ResNet",
+          "relation": "trainedOn",
+          "to": "Tiny-ImageNet",
+          "context": "For Tiny-ImageNet, we train a ResNet-18 model with 10 tasks and 20 classes per task.",
+          "chunk": "6"
+        },
+        {
+          "from": "Tiny-ImageNet",
+          "relation": "type",
+          "to": "Dataset",
+          "context": "We conduct experiments on two real-world image datasets: CIFAR-100 and Tiny-ImageNet.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "When using Experience Replay as a learning technique for the ResNet model, what is the specific configuration when trained on Tiny-ImageNet?",
+    "options": {
+      "A": "ResNet-18 model with 10 tasks and 20 classes per task",
+      "B": "ResNet-34 model with 10 tasks and 30 classes per task",
+      "C": "ResNet-18 model with 5 tasks and 50 classes per task",
+      "D": "ResNet-50 model with 5 tasks and 10 classes per task"
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is based on the specific details provided in the paper section 'experiments2', where it mentions that a ResNet-18 model is trained on Tiny-ImageNet with 10 tasks and 20 classes per task. The other options modify either the ResNet model version or the configuration of tasks and classes, which are not supported by the provided text.",
+    "path_description": "Path: ExperienceReplay --[appliedTo]--> ResNet --[trainedOn]--> Tiny-ImageNet --[type]--> Dataset",
+    "context": "In both cases, we employ Experience Replay (ER) as our base learning technique. | For Tiny-ImageNet, we train a ResNet-18 model with 10 tasks and 20 classes per task. | We conduct experiments on two real-world image datasets: CIFAR-100 and Tiny-ImageNet.",
+    "paper_id": "1898"
+  },
+  {
+    "section": "preliminaries",
+    "path": {
+      "section": "preliminaries",
+      "start_entity": "fθ",
+      "end_entity": "zi",
+      "hops": [
+        {
+          "from": "fθ",
+          "relation": "calibratedUsing",
+          "to": "ECE",
+          "context": "To measure how well a model is calibrated, we introduce the Expected Calibration Error (ECE).",
+          "chunk": "4"
+        },
+        {
+          "from": "ECE",
+          "relation": "evaluates",
+          "to": "fθ",
+          "context": "To measure how well a model is calibrated, we introduce the Expected Calibration Error (ECE).",
+          "chunk": "4"
+        },
+        {
+          "from": "fθ",
+          "relation": "outputs",
+          "to": "zi",
+          "context": "fθ outputs a logit zi = fθ(xi).",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the process of evaluating model calibration using Expected Calibration Error (ECE), what does the logit zi explicitly represent?",
+    "options": {
+      "A": "zi represents the error calculated during the ECE calibration of model fθ",
+      "B": "zi represents the direct input into the model fθ before calibration is applied",
+      "C": "zi is the prediction probability for a specific class after applying softmax to logits",
+      "D": "zi represents the output of the calibration function applied to input xi"
+    },
+    "correct_answer": "D",
+    "explanation": "In the context of model calibration using ECE, the logit zi = fθ(xi) represents the output of the model fθ when applied to the input xi, which is then used to evaluate the model's calibration. This output is specifically referred to as a logit, indicating it is prior to applying the softmax function to derive probabilities.",
+    "path_description": "Path: fθ --[calibratedUsing]--> ECE --[evaluates]--> fθ --[outputs]--> zi",
+    "context": "To measure how well a model is calibrated, we introduce the Expected Calibration Error (ECE). | To measure how well a model is calibrated, we introduce the Expected Calibration Error (ECE). | fθ outputs a logit zi = fθ(xi).",
+    "paper_id": "1898"
+  },
+  {
+    "section": "conclusion1",
+    "path": {
+      "section": "conclusion1",
+      "start_entity": "T-CIL",
+      "end_entity": "LearningTechniques",
+      "hops": [
+        {
+          "from": "T-CIL",
+          "relation": "uses",
+          "to": "AdversarialPerturbation",
+          "context": "T-CIL leverages exemplars for calibration by applying adversarial perturbation to an exemplar set and optimizing the temperature on the perturbed set.",
+          "chunk": "11"
+        },
+        {
+          "from": "AdversarialPerturbation",
+          "relation": "partOf",
+          "to": "T-CIL",
+          "context": "T-CIL leverages exemplars for calibration by applying adversarial perturbation to an exemplar set and optimizing the temperature on the perturbed set.",
+          "chunk": "11"
+        },
+        {
+          "from": "T-CIL",
+          "relation": "improves",
+          "to": "LearningTechniques",
+          "context": "T-CIL is compatible with various existing learning techniques and improves their calibration performances.",
+          "chunk": "11"
+        }
+      ]
+    },
+    "question": "How does the application of adversarial perturbation in the T-CIL process enhance the performance of learning techniques?",
+    "options": {
+      "A": "By randomly altering the data distribution in the training set, it increases the generalization ability of the model.",
+      "B": "By directly manipulating the exemplar set, it increases the robustness of the model against adversarial attacks.",
+      "C": "By applying adversarial perturbation, it optimizes the temperature calibration, indirectly enhancing learning techniques.",
+      "D": "By increasing the complexity of the learning algorithm, it requires additional computational resources."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is B. T-CIL uses adversarial perturbation on an exemplar set to optimize the temperature, which is a calibration technique. This optimization indirectly improves the performance of various learning techniques by enhancing their calibration performances.",
+    "path_description": "Path: T-CIL --[uses]--> AdversarialPerturbation --[partOf]--> T-CIL --[improves]--> LearningTechniques",
+    "context": "T-CIL leverages exemplars for calibration by applying adversarial perturbation to an exemplar set and optimizing the temperature on the perturbed set. | T-CIL leverages exemplars for calibration by applying adversarial perturbation to an exemplar set and optimizing the temperature on the perturbed set. | T-CIL is compatible with various existing learning techniques and improves their calibration performances.",
+    "paper_id": "1898"
+  },
+  {
+    "section": "experiments4",
+    "path": {
+      "section": "experiments4",
+      "start_entity": "ModelParameters",
+      "end_entity": "AccuracyGap",
+      "hops": [
+        {
+          "from": "ModelParameters",
+          "relation": "partOf",
+          "to": "Algorithm1",
+          "context": "Input: Exemplar set Mt, validation set from new task Dt,valid, model parameters θ = {w, v}, tolerance δ",
+          "chunk": "8"
+        },
+        {
+          "from": "Algorithm1",
+          "relation": "implements",
+          "to": "T-CIL",
+          "context": "Algorithm 1: The T-CIL algorithm.",
+          "chunk": "8"
+        },
+        {
+          "from": "T-CIL",
+          "relation": "hasMetric",
+          "to": "AccuracyGap",
+          "context": "At the same time, T-CIL’s misprediction rate gap increases from 17.8% to 43.7%, which is proportional to the accuracy gap increase.",
+          "chunk": "8"
+        }
+      ]
+    },
+    "question": "In the context of the T-CIL algorithm as described, how does the relationship between the model parameters and the accuracy gap manifest in terms of algorithmic performance?",
+    "options": {
+      "A": "Optimization of the model parameters leads directly to a decrease in the accuracy gap, thus reducing the misprediction rate gap proportionally.",
+      "B": "Changes in model parameters have no significant impact on the accuracy gap, but they affect the computational efficiency of T-CIL.",
+      "C": "As the model parameters are optimized, the accuracy gap increases, correlating with an increase in the misprediction rate gap.",
+      "D": "The model parameters primarily adjust the memory usage of the T-CIL algorithm, indirectly affecting the accuracy gap."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A because the paper explicitly states that as the accuracy gap increases, the misprediction rate gap also increases. This suggests that the optimization or adjustment of the model parameters (θ = {w, v}) influences the accuracy gap, which in turn affects the misprediction rate.",
+    "path_description": "Path: ModelParameters --[partOf]--> Algorithm1 --[implements]--> T-CIL --[hasMetric]--> AccuracyGap",
+    "context": "Input: Exemplar set Mt, validation set from new task Dt,valid, model parameters θ = {w, v}, tolerance δ | Algorithm 1: The T-CIL algorithm. | At the same time, T-CIL’s misprediction rate gap increases from 17.8% to 43.7%, which is proportional to the accuracy gap increase.",
+    "paper_id": "1898"
+  },
+  {
+    "section": "conclusion2",
+    "path": {
+      "section": "conclusion2",
+      "start_entity": "T-CIL",
+      "end_entity": "Dataset",
+      "hops": [
+        {
+          "from": "T-CIL",
+          "relation": "outperforms",
+          "to": "PerturbTS",
+          "context": "While PerturbTS achieves the best calibration performances when combined with EEIL and WA on the Tiny-ImageNet, its effectiveness is inconsistent.",
+          "chunk": "12"
+        },
+        {
+          "from": "PerturbTS",
+          "relation": "notApplicableTo",
+          "to": "CIFAR-10",
+          "context": "The reason PerturbTS [37] is not applicable on the CIFAR-10 in a class-incremental learning setup...",
+          "chunk": "12"
+        },
+        {
+          "from": "CIFAR-10",
+          "relation": "type",
+          "to": "Dataset",
+          "context": "The reason PerturbTS [37] is not applicable on the CIFAR-10 in a class-incremental learning setup...",
+          "chunk": "12"
+        }
+      ]
+    },
+    "question": "Why is the technique PerturbTS considered ineffective for class-incremental learning on the CIFAR-10 dataset?",
+    "options": {
+      "A": "PerturbTS outperforms other techniques in larger datasets but lacks the necessary adaptations for CIFAR-10's specific requirements.",
+      "B": "PerturbTS does not support the data structure and image complexity found in CIFAR-10, rendering it inapplicable.",
+      "C": "CIFAR-10's simplistic nature and lower resolution images do not require the advanced calibration PerturbTS provides.",
+      "D": "PerturbTS is primarily designed for datasets with a larger and more complex structure than CIFAR-10."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is C because the paper explicitly states that PerturbTS is not applicable to CIFAR-10 in a class-incremental learning setup, indicating that the technique does not support the specific characteristics and requirements of the CIFAR-10 dataset.",
+    "path_description": "Path: T-CIL --[outperforms]--> PerturbTS --[notApplicableTo]--> CIFAR-10 --[type]--> Dataset",
+    "context": "While PerturbTS achieves the best calibration performances when combined with EEIL and WA on the Tiny-ImageNet, its effectiveness is inconsistent. | The reason PerturbTS [37] is not applicable on the CIFAR-10 in a class-incremental learning setup... | The reason PerturbTS [37] is not applicable on the CIFAR-10 in a class-incremental learning setup...",
+    "paper_id": "1898"
+  },
+  {
+    "section": "conclusion3",
+    "path": {
+      "section": "conclusion3",
+      "start_entity": "OptimalTS",
+      "end_entity": "Dataset",
+      "hops": [
+        {
+          "from": "OptimalTS",
+          "relation": "comparedWith",
+          "to": "T-CIL",
+          "context": "Additional ECE progressions We present the progression of ECE across tasks on CIFAR-100 and Tiny-ImageNet of vanilla, T-CIL, and OptimalTS when combined with four class-incremental learning techniques.",
+          "chunk": "13"
+        },
+        {
+          "from": "T-CIL",
+          "relation": "evaluatedOn",
+          "to": "CIFAR-100",
+          "context": "Varying size of new-task validation set We vary the size of the new-task validation set and evaluate ECE and accuracy on CIFAR-100, using ER as a base class-incremental learning technique.",
+          "chunk": "13"
+        },
+        {
+          "from": "CIFAR-100",
+          "relation": "type",
+          "to": "Dataset",
+          "context": "memory sizes of 500, 1,000, 1,500, and 2,000 samples for CIFAR-100...",
+          "chunk": "13"
+        }
+      ]
+    },
+    "question": "When evaluating the ECE performance of OptimalTS compared with T-CIL on different datasets, what specific dataset type was used for detailed analysis in the study?",
+    "options": {
+      "A": "Tiny-ImageNet, a dataset often used for benchmarking advances in deep learning techniques.",
+      "B": "MNIST, a dataset known for its simplicity and use in benchmarking basic image recognition algorithms.",
+      "C": "ImageNet, a large visual database designed for use in visual object recognition software research.",
+      "D": "CIFAR-100, a dataset primarily used to assess model performance on image recognition tasks."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is CIFAR-100, as it is explicitly mentioned in the context that OptimalTS and T-CIL's ECE was evaluated on this dataset. CIFAR-100 is known for image recognition tasks, aligning with the domain of the study described which focuses on incremental learning techniques and their evaluation on image datasets.",
+    "path_description": "Path: OptimalTS --[comparedWith]--> T-CIL --[evaluatedOn]--> CIFAR-100 --[type]--> Dataset",
+    "context": "Additional ECE progressions We present the progression of ECE across tasks on CIFAR-100 and Tiny-ImageNet of vanilla, T-CIL, and OptimalTS when combined with four class-incremental learning techniques. | Varying size of new-task validation set We vary the size of the new-task validation set and evaluate ECE and accuracy on CIFAR-100, using ER as a base class-incremental learning technique. | memory sizes of 500, 1,000, 1,500, and 2,000 samples for CIFAR-100...",
+    "paper_id": "1898"
+  },
+  {
+    "section": "conclusion3",
+    "path": {
+      "section": "conclusion3",
+      "start_entity": "OptimalTS",
+      "end_entity": "Dataset",
+      "hops": [
+        {
+          "from": "OptimalTS",
+          "relation": "comparedWith",
+          "to": "T-CIL",
+          "context": "Additional ECE progressions We present the progression of ECE across tasks on CIFAR-100 and Tiny-ImageNet of vanilla, T-CIL, and OptimalTS when combined with four class-incremental learning techniques.",
+          "chunk": "13"
+        },
+        {
+          "from": "T-CIL",
+          "relation": "evaluatedOn",
+          "to": "Tiny-ImageNet",
+          "context": "Additional ECE progressions We present the progression of ECE across tasks on CIFAR-100 and Tiny-ImageNet of vanilla, T-CIL, and OptimalTS when combined with four class-incremental learning techniques.",
+          "chunk": "13"
+        },
+        {
+          "from": "Tiny-ImageNet",
+          "relation": "type",
+          "to": "Dataset",
+          "context": "and 1,000, 2,000, 3,000, and 4,000 samples for Tiny-ImageNet.",
+          "chunk": "13"
+        }
+      ]
+    },
+    "question": "Which of the following best describes the relationship and comparative evaluation between OptimalTS and T-CIL on the Tiny-ImageNet dataset?",
+    "options": {
+      "A": "OptimalTS and T-CIL were evaluated on Tiny-ImageNet to assess the progression of ECE with different sample sizes.",
+      "B": "OptimalTS outperformed T-CIL in a direct comparison using the Tiny-ImageNet dataset with unchanged class sizes.",
+      "C": "T-CIL and OptimalTS were used to train on Tiny-ImageNet, focusing solely on improving dataset annotation accuracy.",
+      "D": "OptimalTS and T-CIL were both used to train on Tiny-ImageNet without considering the progression of ECE measurements."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A because the context explains that both OptimalTS and T-CIL were evaluated on the Tiny-ImageNet dataset to monitor the progression of Expected Calibration Error (ECE) across different tasks, which involved various sample sizes (1,000, 2,000, 3,000, and 4,000). The other options are misleading by either specifying incorrect details about performance comparison, training focus, or the use of ECE measurements.",
+    "path_description": "Path: OptimalTS --[comparedWith]--> T-CIL --[evaluatedOn]--> Tiny-ImageNet --[type]--> Dataset",
+    "context": "Additional ECE progressions We present the progression of ECE across tasks on CIFAR-100 and Tiny-ImageNet of vanilla, T-CIL, and OptimalTS when combined with four class-incremental learning techniques. | Additional ECE progressions We present the progression of ECE across tasks on CIFAR-100 and Tiny-ImageNet of vanilla, T-CIL, and OptimalTS when combined with four class-incremental learning techniques. | and 1,000, 2,000, 3,000, and 4,000 samples for Tiny-ImageNet.",
+    "paper_id": "1898"
+  }
+]

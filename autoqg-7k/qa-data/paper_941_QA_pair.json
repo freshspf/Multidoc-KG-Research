@@ -1,0 +1,131 @@
+[
+  {
+    "section": "systemmodel1",
+    "path": {
+      "section": "systemmodel1",
+      "start_entity": "MessagePassingModel",
+      "end_entity": "Function",
+      "hops": [
+        {
+          "from": "MessagePassingModel",
+          "relation": "includes",
+          "to": "LocalProtocol",
+          "context": "For each process pi ∈ Π, a local protocol Ppi := ⟨Spi , Ipi , Opi , L, τpi , κpi , δpi ⟩",
+          "chunk": "1"
+        },
+        {
+          "from": "LocalProtocol",
+          "relation": "includes",
+          "to": "CommunicationFunction",
+          "context": "κpi : Spi → L  is a communication function",
+          "chunk": "1"
+        },
+        {
+          "from": "CommunicationFunction",
+          "relation": "type",
+          "to": "Function",
+          "context": "κpi : Spi → L  is a communication function",
+          "chunk": "1"
+        }
+      ]
+    },
+    "question": "In the context of a Message Passing Model, what role does the communication function κpi play within the local protocol Ppi for a process pi?",
+    "options": {
+      "A": "It provides a transition function from input Ipi to output Opi, facilitating process communication.",
+      "B": "It maps states in Spi to labels in L, enabling the labeling of states for communication purposes.",
+      "C": "It serves as a function to encrypt and decrypt messages sent between processes in a distributed system.",
+      "D": "It generates the list of all possible communication protocols available to process pi within the system."
+    },
+    "correct_answer": "B",
+    "explanation": "The communication function κpi is described as a mapping from Spi (the states of a process pi) to L (labels), which functions to label states for communication purposes within the local protocol. The other options describe roles that are not aligned with the definition and function of κpi within the local protocol.",
+    "path_description": "Path: MessagePassingModel --[includes]--> LocalProtocol --[includes]--> CommunicationFunction --[type]--> Function",
+    "context": "For each process pi ∈ Π, a local protocol Ppi := ⟨Spi , Ipi , Opi , L, τpi , κpi , δpi ⟩ | κpi : Spi → L  is a communication function | κpi : Spi → L  is a communication function",
+    "paper_id": "1291"
+  },
+  {
+    "section": "minimaltasksheaves2",
+    "path": {
+      "section": "minimaltasksheaves2",
+      "start_entity": "Function_delta_p",
+      "end_entity": "Section_S",
+      "hops": [
+        {
+          "from": "Function_delta_p",
+          "relation": "solves",
+          "to": "Task_T",
+          "context": "δp solves T because first, the only vectors in the system slice are task solving vectors.",
+          "chunk": "7"
+        },
+        {
+          "from": "Task_T",
+          "relation": "hasSheaf",
+          "to": "Sheaf_FA",
+          "context": "Now that we have characterized solvability of a task T under a protocol P in terms of its task sheaf, FA,≃.",
+          "chunk": "7"
+        },
+        {
+          "from": "Sheaf_FA",
+          "relation": "hasSection",
+          "to": "Section_S",
+          "context": "system slice, ccl(N(A)), has a section S.",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "Why does the function δp effectively solve Task T in the context of protocol P?",
+    "options": {
+      "A": "Because δp is a task-solving vector, and all vectors in the system slice are task-solving vectors for Task T.",
+      "B": "Because δp directly interacts with section S of sheaf FA, providing a clear path to solving Task T.",
+      "C": "Because δp modifies the properties of Task T, making it easier to solve within the given system slice.",
+      "D": "Because the function δp is part of the task sheaf FA, which inherently contains all solutions for Task T."
+    },
+    "correct_answer": "A",
+    "explanation": "Option A is correct because the context specifies that δp solves Task T due to all vectors in the system slice being task-solving vectors, and δp is one such vector. Options B, C, and D suggest incorrect implications or relationships that are not supported by the given context or knowledge path.",
+    "path_description": "Path: Function_delta_p --[solves]--> Task_T --[hasSheaf]--> Sheaf_FA --[hasSection]--> Section_S",
+    "context": "δp solves T because first, the only vectors in the system slice are task solving vectors. | Now that we have characterized solvability of a task T under a protocol P in terms of its task sheaf, FA,≃. | system slice, ccl(N(A)), has a section S.",
+    "paper_id": "1291"
+  },
+  {
+    "section": "computingsolutions2",
+    "path": {
+      "section": "computingsolutions2",
+      "start_entity": "ComputableDecisionMaps",
+      "end_entity": "Method",
+      "hops": [
+        {
+          "from": "ComputableDecisionMaps",
+          "relation": "appliedTo",
+          "to": "ExecutionGraph",
+          "context": "Proposition 35 (Computable Decision Maps).",
+          "chunk": "9"
+        },
+        {
+          "from": "ExecutionGraph",
+          "relation": "usedFor",
+          "to": "ComputableDecisionMaps",
+          "context": "compute the execution graph",
+          "chunk": "9"
+        },
+        {
+          "from": "ComputableDecisionMaps",
+          "relation": "type",
+          "to": "Method",
+          "context": "Proposition 35 (Computable Decision Maps).",
+          "chunk": "9"
+        }
+      ]
+    },
+    "question": "In the context of computable decision maps as discussed in 'computingsolutions2', how is the execution graph utilized?",
+    "options": {
+      "A": "The execution graph serves primarily as a visualization tool to represent the outcomes of computable decision maps.",
+      "B": "The execution graph facilitates the storage of computable decision maps for future reference and auditing purposes.",
+      "C": "The execution graph is used to validate the computational efficiency of methods described in computable decision maps.",
+      "D": "The execution graph is applied to enhance the accuracy of computable decision maps by providing a methodical approach."
+    },
+    "correct_answer": "D",
+    "explanation": "The execution graph is applied to computable decision maps and is used for enhancing the method by which these maps are computed, making option A the correct answer. Option B is incorrect as it suggests a visualization role which is not supported by the context. Option C is misleading because it refers to storage, not computation. Option D incorrectly focuses on computational efficiency validation rather than method enhancement.",
+    "path_description": "Path: ComputableDecisionMaps --[appliedTo]--> ExecutionGraph --[usedFor]--> ComputableDecisionMaps --[type]--> Method",
+    "context": "Proposition 35 (Computable Decision Maps). | compute the execution graph | Proposition 35 (Computable Decision Maps).",
+    "paper_id": "1291"
+  }
+]

@@ -1,0 +1,88 @@
+[
+  {
+    "section": "analysis",
+    "path": {
+      "section": "analysis",
+      "start_entity": "ConcatenationDirection",
+      "end_entity": "ConcatenationOrder",
+      "hops": [
+        {
+          "from": "ConcatenationDirection",
+          "relation": "uses",
+          "to": "EnglishFirst_TargetSecond",
+          "context": "Thus, we set the order as English first, followed by the target language.",
+          "chunk": "6"
+        },
+        {
+          "from": "EnglishFirst_TargetSecond",
+          "relation": "comparedWith",
+          "to": "RandomMix",
+          "context": "We compare the original direction (English first, target language second) with a 1:1 random mix of both directions.",
+          "chunk": "6"
+        },
+        {
+          "from": "RandomMix",
+          "relation": "type",
+          "to": "ConcatenationOrder",
+          "context": "as well as a 1:1 random mix of both directions.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the context of linguistic data processing, what specific order of concatenation was found to be used when compared with a 1:1 random mix of both directions?",
+    "options": {
+      "A": "The concatenation occurred with the target language and English mixed equally from the start.",
+      "B": "The order was set to prioritize the target language first, followed by English.",
+      "C": "The order was set to prioritize English first, followed by the target language.",
+      "D": "The concatenation was set without any specific order, allowing for a natural linguistic flow."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A because the paper states that the concatenation direction used was English first, followed by the target language. This order was specifically compared with a 1:1 random mix of both directions, highlighting its distinctiveness from the random mix where no specific order is prioritized.",
+    "path_description": "Path: ConcatenationDirection --[uses]--> EnglishFirst_TargetSecond --[comparedWith]--> RandomMix --[type]--> ConcatenationOrder",
+    "context": "Thus, we set the order as English first, followed by the target language. | We compare the original direction (English first, target language second) with a 1:1 random mix of both directions. | as well as a 1:1 random mix of both directions.",
+    "paper_id": "32"
+  },
+  {
+    "section": "thesettingforevaluation",
+    "path": {
+      "section": "thesettingforevaluation",
+      "start_entity": "TaskPrompts",
+      "end_entity": "Method",
+      "hops": [
+        {
+          "from": "TaskPrompts",
+          "relation": "contains",
+          "to": "MRC",
+          "context": "Table 5: Task Prompts.",
+          "chunk": "10"
+        },
+        {
+          "from": "MRC",
+          "relation": "uses",
+          "to": "GreedySearch",
+          "context": "For the reading comprehension task (MRC), we use greedy search to generate logits.",
+          "chunk": "10"
+        },
+        {
+          "from": "GreedySearch",
+          "relation": "type",
+          "to": "Method",
+          "context": "For other tasks, we use greedy search to generate logits.",
+          "chunk": "10"
+        }
+      ]
+    },
+    "question": "In the context of the evaluation settings described in the paper, what does the greedy search method specifically generate for the reading comprehension task (MRC)?",
+    "options": {
+      "A": "For the MRC task, greedy search directly produces the final answers based on the input data.",
+      "B": "For the MRC task, greedy search is used to optimize the neural network parameters before testing.",
+      "C": "For the MRC task, greedy search specifically generates probabilities that are later converted into logits.",
+      "D": "For the MRC task, greedy search specifically generates logits to interpret task performance."
+    },
+    "correct_answer": "D",
+    "explanation": "According to the paper, in the context of the reading comprehension task (MRC), the greedy search methodology is used to generate logits. Logits are the raw output scores from models that are often transformed into probabilities for interpretation and decision-making in tasks. The other options are incorrect as they either misrepresent the output of the greedy search or misstate its role in the task.",
+    "path_description": "Path: TaskPrompts --[contains]--> MRC --[uses]--> GreedySearch --[type]--> Method",
+    "context": "Table 5: Task Prompts. | For the reading comprehension task (MRC), we use greedy search to generate logits. | For other tasks, we use greedy search to generate logits.",
+    "paper_id": "32"
+  }
+]

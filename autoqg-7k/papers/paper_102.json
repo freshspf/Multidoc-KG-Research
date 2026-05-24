@@ -1,0 +1,82 @@
+[
+  {
+    "id": "introduction",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Introduction",
+      "page_start": 1,
+      "page_end": 1
+    },
+    "text": "2\n:\nBlockchain technology, originally introduced by Nak\nv\ni\ntrust is established by cryptographic proofs rather than\nX\nr  further advanced this paradigm with smart contracts,\na  digital assets in a transparent, tamper-evident manner.\nDespite their success, traditional smart contracts fa\n• On-chain data reliance: They can only directly\ntheir ability to work with large, dynamic, or priv\n• Deterministic and immutable code: While im\niterative processes or ﬂexible upgrades cumbers\n• Execution costs: Every on-chain operation cons\ncan be prohibitively expensive for data-heavy or\nIn parallel, the concepts of digital life forms (DLF\n1\nemerged in various research contexts. We use these t\n1\nIn this paper, we introduce these terms as an extension of mul\non agent-based models.\n\novereign Agent Consensus\nnism\ni Yang\nST\nnect.ust.hk\n30, 2024\nract\nl at on-chain, deterministic logic. However, they\ncale off-chain data, dynamic multi-step workﬂows,\nupdates.  In this paper, we propose the concept of\ngent mechanism wherein several digital life forms\ne complex tasks in Trusted Execution Environments\nus software agents that own their code, state, and\nentralized control.\non-chain, Swarm Contract moves most of the\nh multi-agent consensus rather than a single mono-\nh a lightweight off-chain auction example—minting\nw off-chain coordination can determine a clearing\nrmed collectively by multiple agents in TEE. Our\nralized solutions, potentially beneﬁting DAO gover-\ninteroperability.\namoto [1], has enabled decentralized systems where\ncentralized authorities. The advent of Ethereum [2]\nallowing developers to build on-chain logic handling\nce notable constraints:\nprocess on-chain data or data fed by oracles, limiting\nate information.\nmutability strengthens trust, it also makes complex\nome.\numes gas and is subject to network congestion, which\nhigh-frequency operations.\n) and Sovereign Agents (Sovereign Agent) have\nerms to describe autonomous software entities that:\nti-agent and decentralized systems; see also [4, 5] for background"
+  },
+  {
+    "id": "relatedwork",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Related Work",
+      "page_start": 2,
+      "page_end": 2
+    },
+    "text": "2.1  Smart Contracts and Beyond\nSmart contract-based systems, popularized by Ethereu\nsets. Research has extended to multi-chain solutions\ntechnologies that improve scalability. However, these\nministic logic and external data oracles.\n2.2 Multi-Agent Systems\nMulti-agent systems have been studied extensively in\nautonomous entities (agents) that can interact, collab\nOur Swarm Contract draws inspiration from the\neconomic independence in blockchain-based credentia\n2.3  TEE-Based Decentralized Computation\nTrusted Execution Environments (Intel SGX, ARM T\nCompute) allow secure off-chain computation with i\nlike Enigma [7] have sought to combine TEE with b\napproach extends these ideas, deploying multiple enc\nan application-level protocol.\n2\n\ning on decentralized or secure hardware infrastruc-\nnting compute or storage resources as needed.\nsingle external party’s unilateral authority.\nwhere multiple Sovereign Agent s collaborate\ninimized mechanism we call a “multi-agent contract.”\nironment, reducing cost and inﬂexibility.\neach consensus before executing critical actions (e.g.,\nn-chain.\nti-modal, or private data, which is difﬁcult to handle\nin which a Swarm Contract coordinates the off-\nhile we focus on an “auction” scenario, this structure\nernance, multi-chain asset management, or machine\nitalicize or specially format phrases like digital life\nhen they ﬁrst appear or are conceptually deﬁned. This\nterms, signaling to readers that these are formalized\ndardize usage and references throughout the paper.\nm [2], have transformed how we manage digital as-\n(e.g., Polkadot, Cosmos/Tendermint [3]) and layer-2\nsolutions primarily remain on-chain, relying on deter-\nAI and distributed computing [4, 5]. They focus on\norate, or compete toward shared or individual goals.\nse architectures but anchors agents’ ownership and\nls, making them sovereign.\nrustZone, AWS Nitro Enclaves, Azure Conﬁdential\nntegrity and conﬁdentiality guarantees [6].  Projects\nlockchain for privacy-preserving computation. Our\nlaves as Sovereign Agent s that collectively run"
+  },
+  {
+    "id": "swarmcontractconceptsandarchitecture",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Swarm Contract Concepts and Architecture",
+      "page_start": 3,
+      "page_end": 3
+    },
+    "text": "3.1  Deﬁning Digital Life Forms and Sovereig\nDigital Life Forms (DLF).  We propose the notion o\n• Potentially indeﬁnite lifespans, running on dece\n• Autonomy in their decision processes, respondi\n• The capability to manage digital assets (e.g., tok\nSovereign Agents (Sovereign Agent).  A Sove\nplicit sovereignty:\n• Self-ownership: The agent’s code and data rem\n• Economic resources: The agent can hold, spen\n• Upgrade autonomy: Only the agent itself (or a\nlogic, preventing unilateral takeovers.\n3.2  Swarm Contract Overview\nA Swarm Contract is a coordination mechanism\nimplement logic traditionally embedded in a single on-\nwe have:\n1. Off-chain agent cluster: Each Sovereign A\nprivate keys securely.\n2. On-chain multi-sig wallet: All ﬁnal state trans\njoint signatures from the agent cluster.\n3. Consensus on results: The agents use off-cha\ncritical data (e.g., ﬁnal price, winners).\nOnce a threshold or full set of agents concur, a tran\nThis design yields a ﬂexible trust-minimized architec\nand centralized off-chain systems."
+  },
+  {
+    "id": "minimalnftauctionexample",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Minimal NFT Auction Example",
+      "page_start": 3,
+      "page_end": 3
+    },
+    "text": "To demonstrate how Swarm Contract works in pr\nidentical NFTs are sold via an off-chain procedure. Th\nprice.\n3\n\ngns\n8, 9], and various blockchain-based auctions exist but\ncols (e.g., commit-reveal) can reduce on-chain usage.\nmost complexity off-chain, with only ﬁnal settlement\nrchitecture\nn Agents\nf digital life forms as software entities with:\nntralized or secure hardware.\nng to stimuli or data feeds.\nens, cryptocurrencies).\nreign Agent is a specialization of DLF with ex-\nain under its sole governance.\nd, or stake tokens without a controlling external party.\nmajority of cooperating agents) can modify its internal\nfor multiple Sovereign Agent s that collectively\nchain contract. Instead of a monolithic smart contract,\ngent runs inside a TEE, processing data and holding\nitions (e.g., distributing funds, minting NFTs) require\nin messaging or a small consensus layer to agree on\nsaction is constructed and signed to execute on-chain.\nture, bridging the gap between purely on-chain logic\nactice, we present a simpliﬁed example where 10,000\ne 10,000-th highest bid determines the ﬁnal clearing"
+  },
+  {
+    "id": "technicalimplementation",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Technical Implementation",
+      "page_start": 4,
+      "page_end": 5
+    },
+    "text": "5.1  TEE Deployment of Agents\nEach Sovereign Agent runs in a separate TEE en\n• Private Key Isolation: The Sovereign Age\nexternal tampering.\n• Remote Attestation: Observers can verify that\nensuring integrity.\n• Provider Diversity: Agents can be deployed ac\nlated risks.\n4\n\nlti-sig wallet address within a speciﬁed time window.\noming transactions on the blockchain, recording the\nt sorts participants by their contributed amounts in\nst among the top 10,000) sets the ﬁnal clearing price.\nmerkle root with the others.\ne, they re-check chain data to resolve conﬂicts.\nion that:\ns to the top contributors.\ne the clearing price.\n,000 (if applicable).\nain, ﬁnalizing distribution.\naction (or a few batched transactions) is used.\n-chain data or quickly adapt logic without redeploying\npant lists, storing minimal data on-chain at settlement.\nvironment:\nnt ’s private keys never leave the enclave, preventing\na known code base is indeed running in each enclave,\nross different clouds or data centers to mitigate corre-\n\n5.2 Multi-Signature Wallet Mechanics\nNo specialized on-chain logic is needed beyond a stan\n• Agents each control one signature share.\n• A transaction requires all (or a threshold m) of\n• The wallet handles NFT mint calls or transfers,\n5.3  Consensus Among Agents\nFor a small cluster (e.g., three enclaves), a simple requ\n• One agent proposes the ﬁnal sorted list or merkl\n• The others validate the data. If consistent, they\n• A ﬁnal multi-sig transaction is produced and sig\nFor larger clusters, byzantine-fault-tolerant protocols (\nFigure 1: A Simpliﬁed\nAgent A  Data/Results  Agen\n(TEE)  (TE\nS\nSign Txn\nMulti-sig\n(On-C\nFigure 1: Multiple Sovereign Agents (Agent A, B, C)\neach other and jointly sign an on-chain transaction (vi\n5\n\ndard multi-sig contract/wallet:\nthese signatures to be valid.\nas well as refunds.\nest-and-ack approach can sufﬁce:\ne root.\nsign a conﬁrmation message.\nned by all agents.\nPBFT, Tendermint [3]) may be employed.\nSwarm Architecture\nt B  Data/Results  Agent C\nE)  (TEE)\nign Txn\nSign Txn\nWallet\nhain)\neach operate in a TEE. They share data/results with\na a multi-sig wallet) only when consensus is reached."
+  },
+  {
+    "id": "securityandtrustanalysis",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Security and Trust Analysis",
+      "page_start": 6,
+      "page_end": 6
+    },
+    "text": "6.1  Threat Model\n• Single-Agent Compromise: An attacker subv\nactions alone due to multi-sig requirements.\n• Majority Collusion: If more than the threshold\nresults. Mitigation includes distributing enclave\n• TEE Vulnerabilities: As with all secure enclav\n[10]. Regular patching is crucial.\n6.2  Trust Assumptions\n• Each Sovereign Agent runs unmodiﬁed co\n• The underlying blockchain is sufﬁciently secure\nattacks beyond normal tolerances.\n• Adversaries cannot compromise a majority of e"
+  },
+  {
+    "id": "extensionsandfuturedirections",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Extensions and Future Directions",
+      "page_start": 6,
+      "page_end": 6
+    },
+    "text": "DAO Governance.  By merging Sovereign Age\nperform sophisticated analyses (e.g., sentiment, KPI m\nals.\nCross-Chain Coordination.  Multiple enclaves can\netc.), unify cross-chain states, and orchestrate atomic\nsensus.\nMulti-Modal Data Handling.  Beyond numeric or t\nages, machine learning inferences, or sensor inputs.\nhandle complex computations privately within TEE en"
+  },
+  {
+    "id": "conclusion",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Conclusion",
+      "page_start": 6,
+      "page_end": 7
+    },
+    "text": "We have introduced the Swarm Contract framew\nchain computation for decentralized applications. Ou\nautonomous digital life forms running in TEE—that\non-chain contract. Instead, the agents rely on a multi-\ning ﬂexibility, scalability, and veriﬁability.\nA straightforward NFT sale example illustrates the\nplex applications such as multi-chain management,\ngovernance. We believe Swarm Contract has the\napplications, enabling far richer functionality than co\nbeneﬁts of trustlessness, transparency, and security.\n6\n\nerts one agent’s TEE. They cannot execute on-chain\n(e.g., 2-of-3) collude, they could produce fraudulent\ns across separate providers.\nes, hardware/ﬁrmware exploits may appear over time\nde in a TEE, as evidenced by remote attestation.\n, with stable ﬁnality to prevent reorgs or double-spend\nnclaves simultaneously.\nnt logic with off-chain data processing, DAOs can\netrics) before ﬁnalizing on-chain governance propos-\nmonitor various blockchains (Ethereum, BNB Chain,\nmulti-chain transactions under a single off-chain con-\nextual data, Swarm Contract can incorporate im-\nA distributed cluster of Sovereign Agent s can\nclaves, revealing only ﬁnal decisions on-chain.\nork as a method of achieving trust-minimized off-\nr design features multiple Sovereign Agent s—\ncollectively replace the need for a single monolithic\nsig wallet for minimal ﬁnal on-chain actions, balanc-\napproach, but the structure generalizes to more com-\nprivacy-preserving data analysis, or advanced DAO\npotential to expand the boundaries of decentralized\nnventional smart contracts while preserving the core\n\nAcknowledgments\nWe thank the broader research community for advanc\ngies, and auction theory. Additionally, we acknowle\nhardware that underpin the feasibility of multi-Sover"
+  }
+]

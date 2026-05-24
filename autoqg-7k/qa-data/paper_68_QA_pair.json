@@ -1,0 +1,131 @@
+[
+  {
+    "section": "stateoftheart",
+    "path": {
+      "section": "stateoftheart",
+      "start_entity": "BFEL",
+      "end_entity": "Blockchain",
+      "hops": [
+        {
+          "from": "BFEL",
+          "relation": "comparedWith",
+          "to": "FLChain",
+          "context": "BFEL [6], in comparison to the aforementioned approaches, introduces a more sophisticated architectural design.",
+          "chunk": "2"
+        },
+        {
+          "from": "FLChain",
+          "relation": "divergesFrom",
+          "to": "BlockFL",
+          "context": "However, it diverges from BlockFL by introducing an additional cryptographic layer to encrypt the local updates stored in the blockchain.",
+          "chunk": "2"
+        },
+        {
+          "from": "BlockFL",
+          "relation": "basedOn",
+          "to": "Blockchain",
+          "context": "BlockFL [5] is a pioneering work that introduces a conceptual architecture where clients record their local updates in a public (proof-of-work) blockchain.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "How does BFEL's architectural design differ from that of BlockFL in terms of enhancing security for stored data?",
+    "options": {
+      "A": "BFEL uses a more advanced proof-of-work blockchain to record the local updates more securely.",
+      "B": "BFEL enhances security by storing updates in a private blockchain, unlike BlockFL's public blockchain approach.",
+      "C": "BFEL introduces an additional cryptographic layer to encrypt the local updates before storing them in the blockchain.",
+      "D": "BFEL relies solely on traditional security measures inherent to public blockchains without additional layers."
+    },
+    "correct_answer": "C",
+    "explanation": "BFEL diverges from the BlockFL by introducing an additional cryptographic layer specifically for encrypting the local updates stored in the blockchain, which is not mentioned in the description of BlockFL's use of a public blockchain without additional encryption layers.",
+    "path_description": "Path: BFEL --[comparedWith]--> FLChain --[divergesFrom]--> BlockFL --[basedOn]--> Blockchain",
+    "context": "BFEL [6], in comparison to the aforementioned approaches, introduces a more sophisticated architectural design. | However, it diverges from BlockFL by introducing an additional cryptographic layer to encrypt the local updates stored in the blockchain. | BlockFL [5] is a pioneering work that introduces a conceptual architecture where clients record their local updates in a public (proof-of-work) blockchain.",
+    "paper_id": "686"
+  },
+  {
+    "section": "systemdetaileddesign1",
+    "path": {
+      "section": "systemdetaileddesign1",
+      "start_entity": "ModelOwner",
+      "end_entity": "EntityGroup",
+      "hops": [
+        {
+          "from": "ModelOwner",
+          "relation": "assumedCorrectBy",
+          "to": "SystemModel",
+          "context": "We assume model owners to be correct",
+          "chunk": "5"
+        },
+        {
+          "from": "SystemModel",
+          "relation": "includes",
+          "to": "Clients",
+          "context": "Our system is composed of a finite set of processes: clients, servers, storage replicas, Model Owner (MO)",
+          "chunk": "5"
+        },
+        {
+          "from": "Clients",
+          "relation": "type",
+          "to": "EntityGroup",
+          "context": "of processes: clients, servers, storage replicas, Model Owner (MO)",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the system design detailed in the 'systemdetaileddesign1' section, how is the Model Owner related to the classification of clients?",
+    "options": {
+      "A": "Clients are controlled by the Model Owner to function as separate EntityGroups, independent of the system's replica storage.",
+      "B": "The Model Owner serves as a subsystem within the clients, categorizing them as a unique type of EntityGroup.",
+      "C": "The Model Owner directly manages the clients, ensuring they are part of a dynamic set of processes including servers and storage replicas.",
+      "D": "The Model Owner, assumed to be correct, indirectly classifies clients as a type of EntityGroup within the System Model."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A. According to the knowledge graph path, the Model Owner is assumed correct by the System Model, which includes clients. These clients are then classified as a type of EntityGroup. This implies an indirect relationship where the Model Owner's correctness impacts the system's structure and classification of clients as part of the EntityGroup.",
+    "path_description": "Path: ModelOwner --[assumedCorrectBy]--> SystemModel --[includes]--> Clients --[type]--> EntityGroup",
+    "context": "We assume model owners to be correct | Our system is composed of a finite set of processes: clients, servers, storage replicas, Model Owner (MO) | of processes: clients, servers, storage replicas, Model Owner (MO)",
+    "paper_id": "686"
+  },
+  {
+    "section": "systemdetaileddesign2",
+    "path": {
+      "section": "systemdetaileddesign2",
+      "start_entity": "Transaction",
+      "end_entity": "Entity",
+      "hops": [
+        {
+          "from": "Transaction",
+          "relation": "registers",
+          "to": "Client",
+          "context": "Transaction registers client on blockchain.",
+          "chunk": "6"
+        },
+        {
+          "from": "Client",
+          "relation": "sends",
+          "to": "Update",
+          "context": "Client sends updates to servers.",
+          "chunk": "6"
+        },
+        {
+          "from": "Update",
+          "relation": "type",
+          "to": "Entity",
+          "context": "Updates are mentioned as part of the algorithm.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the context of a blockchain-based system detailed in the paper, how does a transaction registering a client influence the system's functioning?",
+    "options": {
+      "A": "A client registered through a transaction can receive updates, which are crucial for maintaining blockchain integrity.",
+      "B": "A client registered through a transaction can delete updates, thus maintaining the system's operational efficiency.",
+      "C": "A client registered through a transaction can verify updates, which are essential for system security.",
+      "D": "A client registered through a transaction can send updates, which are integral parts of the system's algorithm."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A because it follows the knowledge path where the transaction registers a client, and then the client sends updates, which are part of the system's algorithm. Options B, C, and D are incorrect as they do not accurately reflect the flow of actions and responsibilities described in the knowledge path.",
+    "path_description": "Path: Transaction --[registers]--> Client --[sends]--> Update --[type]--> Entity",
+    "context": "Transaction registers client on blockchain. | Client sends updates to servers. | Updates are mentioned as part of the algorithm.",
+    "paper_id": "686"
+  }
+]

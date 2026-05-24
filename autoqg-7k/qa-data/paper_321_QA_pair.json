@@ -1,0 +1,131 @@
+[
+  {
+    "section": "problemformulation",
+    "path": {
+      "section": "problemformulation",
+      "start_entity": "Rewards",
+      "end_entity": "VisualCoverage",
+      "hops": [
+        {
+          "from": "Rewards",
+          "relation": "type",
+          "to": "Rewards",
+          "context": "Each robot moves within a finite graph, selecting actions based on rewards tied to visual coverage.",
+          "chunk": "2"
+        },
+        {
+          "from": "Rewards",
+          "relation": "type",
+          "to": "Rewards",
+          "context": "Each robot moves within a finite graph, selecting actions based on rewards tied to visual coverage.",
+          "chunk": "2"
+        },
+        {
+          "from": "Rewards",
+          "relation": "tiedTo",
+          "to": "VisualCoverage",
+          "context": "Each robot moves within a finite graph, selecting actions based on rewards tied to visual coverage.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the context of robotic navigation within a finite graph, how is the reward system primarily configured to enhance the robot's operational efficiency?",
+    "options": {
+      "A": "Rewards are determined by the complexity of the tasks the robots are programmed to perform.",
+      "B": "The reward system is configured based on the robot's speed and energy consumption during its operation.",
+      "C": "The reward system is primarily based on the accuracy of the robots in navigating predefined paths.",
+      "D": "Rewards are aligned with the extent of area coverage assessed through visual sensors on the robots."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is B, as the rewards system described in the paper is tied to 'visual coverage'. This indicates that robots receive rewards based on how effectively they cover visual areas within the graph, enhancing their operational efficiency by prioritizing thorough exploration or surveillance.",
+    "path_description": "Path: Rewards --[type]--> Rewards --[type]--> Rewards --[tiedTo]--> VisualCoverage",
+    "context": "Each robot moves within a finite graph, selecting actions based on rewards tied to visual coverage. | Each robot moves within a finite graph, selecting actions based on rewards tied to visual coverage. | Each robot moves within a finite graph, selecting actions based on rewards tied to visual coverage.",
+    "paper_id": "1305"
+  },
+  {
+    "section": "relatedwork",
+    "path": {
+      "section": "relatedwork",
+      "start_entity": "CoCap",
+      "end_entity": "Technology",
+      "hops": [
+        {
+          "from": "CoCap",
+          "relation": "extends",
+          "to": "ConflictBasedSearch",
+          "context": "CoCap extends the CBS approach to motion capture in multi-actor scenarios",
+          "chunk": "1"
+        },
+        {
+          "from": "ConflictBasedSearch",
+          "relation": "appliedTo",
+          "to": "MultiRobotTeams",
+          "context": "Despite the success of CBS in navigation, its application in perception planning systems remains under-explored",
+          "chunk": "1"
+        },
+        {
+          "from": "MultiRobotTeams",
+          "relation": "type",
+          "to": "Technology",
+          "context": "Designing dense multi-robot systems",
+          "chunk": "1"
+        }
+      ]
+    },
+    "question": "Which statement best describes the extension of the Conflict-Based Search (CBS) approach by CoCap, particularly in the context of technology for multi-robot teams?",
+    "options": {
+      "A": "CoCap applies the CBS approach to enhance motion capture technologies in scenarios involving dense multi-robot teams.",
+      "B": "CoCap modifies the CBS algorithm to prioritize energy efficiency in robots rather than improving motion capture technologies.",
+      "C": "CoCap extends CBS for better network communication among robots, focusing exclusively on improving navigational efficiencies.",
+      "D": "CoCap utilizes CBS to advance individual robot's processing power for more effective task allocation in technology sectors."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A because CoCap extends the Conflict-Based Search approach specifically to improve motion capture technology in scenarios that involve multiple robots, as indicated by the knowledge graph path linking CoCap, CBS, MultiRobotTeams, and Technology. The other options introduce unrelated aspects such as network communication, processing power, and energy efficiency, which are not supported by the provided context.",
+    "path_description": "Path: CoCap --[extends]--> ConflictBasedSearch --[appliedTo]--> MultiRobotTeams --[type]--> Technology",
+    "context": "CoCap extends the CBS approach to motion capture in multi-actor scenarios | Despite the success of CBS in navigation, its application in perception planning systems remains under-explored | Designing dense multi-robot systems",
+    "paper_id": "1305"
+  },
+  {
+    "section": "briefoverviewonconflictbasedsearch",
+    "path": {
+      "section": "briefoverviewonconflictbasedsearch",
+      "start_entity": "ConstraintSet",
+      "end_entity": "TimeT",
+      "hops": [
+        {
+          "from": "ConstraintSet",
+          "relation": "includes",
+          "to": "Constraint",
+          "context": "Given a set of constraints Ω, let Ωi ⊆ Ω represent the subset of all constraints in Ω that belong to agent i (i.e.,",
+          "chunk": "3"
+        },
+        {
+          "from": "Constraint",
+          "relation": "prevents",
+          "to": "Conflict",
+          "context": "To prevent such conflicts, a corresponding constraint is added to the path of either agent i or agent j.",
+          "chunk": "3"
+        },
+        {
+          "from": "Conflict",
+          "relation": "occursAt",
+          "to": "TimeT",
+          "context": "A conflict occurs at time t when agent i is at position vti and agent j is at position vtj.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the context of conflict-based search, if agents i and j are at positions vti and vtj at time t, what would best prevent a conflict from occurring at this specific time?",
+    "options": {
+      "A": "Introducing a constraint in the constraint set specific to agent i or agent j's path at time t",
+      "B": "Removing all existing constraints from the constraint set for agents i and j",
+      "C": "Allowing both agents to occupy the same position at the same time without any added constraints",
+      "D": "Scheduling both agents to arrive at the same position but at different times"
+    },
+    "correct_answer": "A",
+    "explanation": "To prevent a conflict at a specific time when both agents i and j are projected to be at the same position, a constraint should be added to the path of either agent i or j at that time, effectively preventing them from being at that position simultaneously. This aligns with the path: ConstraintSet --[includes]--> Constraint --[prevents]--> Conflict --[occursAt]--> TimeT.",
+    "path_description": "Path: ConstraintSet --[includes]--> Constraint --[prevents]--> Conflict --[occursAt]--> TimeT",
+    "context": "Given a set of constraints Ω, let Ωi ⊆ Ω represent the subset of all constraints in Ω that belong to agent i (i.e., | To prevent such conflicts, a corresponding constraint is added to the path of either agent i or agent j. | A conflict occurs at time t when agent i is at position vti and agent j is at position vtj.",
+    "paper_id": "1305"
+  }
+]

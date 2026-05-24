@@ -1,0 +1,131 @@
+[
+  {
+    "section": "softmorphingquadrotor2",
+    "path": {
+      "section": "softmorphingquadrotor2",
+      "start_entity": "SemiRigidInnerSpines",
+      "end_entity": "Plane",
+      "hops": [
+        {
+          "from": "SemiRigidInnerSpines",
+          "relation": "enables",
+          "to": "Motion",
+          "context": "The semi-rigid inner spines provide structural support against upward forces while allowing motion in the horizontal plane.",
+          "chunk": "2"
+        },
+        {
+          "from": "Motion",
+          "relation": "occursIn",
+          "to": "HorizontalPlane",
+          "context": "The semi-rigid inner spines provide structural support against upward forces while allowing motion in the horizontal plane.",
+          "chunk": "2"
+        },
+        {
+          "from": "HorizontalPlane",
+          "relation": "type",
+          "to": "Plane",
+          "context": "The semi-rigid inner spines provide structural support against upward forces while allowing motion in the horizontal plane.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "How do the semi-rigid inner spines in the soft morphing quadrotor contribute to its functionality in terms of motion?",
+    "options": {
+      "A": "They enhance aerodynamic efficiency by allowing motion predominantly in the vertical direction.",
+      "B": "They reduce the overall weight of the quadrotor, which primarily supports motion in a vertical plane.",
+      "C": "They increase the flexibility of the quadrotor, allowing for unrestricted motion in both horizontal and vertical planes.",
+      "D": "They provide structural support against upward forces, enabling controlled motion specifically in the horizontal plane."
+    },
+    "correct_answer": "D",
+    "explanation": "The semi-rigid inner spines are designed to provide structural support against upward forces, which is crucial for maintaining stability. Moreover, these spines enable motion specifically in the horizontal plane, which allows for controlled lateral movements without compromising the structural integrity required to counteract vertical forces.",
+    "path_description": "Path: SemiRigidInnerSpines --[enables]--> Motion --[occursIn]--> HorizontalPlane --[type]--> Plane",
+    "context": "The semi-rigid inner spines provide structural support against upward forces while allowing motion in the horizontal plane. | The semi-rigid inner spines provide structural support against upward forces while allowing motion in the horizontal plane. | The semi-rigid inner spines provide structural support against upward forces while allowing motion in the horizontal plane.",
+    "paper_id": "1196"
+  },
+  {
+    "section": "experiments",
+    "path": {
+      "section": "experiments",
+      "start_entity": "Downwash",
+      "end_entity": "MeasurementSystem",
+      "hops": [
+        {
+          "from": "Downwash",
+          "relation": "affects",
+          "to": "Deflection_Angle",
+          "context": "The components of motion in the vertical planes XZ and YZ and the corresponding values of Θi and Φi increase with thrust, highlighting the effect of downwash and vibration disturbances on the SPA deflection angle.",
+          "chunk": "4"
+        },
+        {
+          "from": "Deflection_Angle",
+          "relation": "measuredBy",
+          "to": "Vicon_System",
+          "context": "The deflection angle of the arm is measured using the Vicon system, which records the pose of the arm tip (where the motor is placed) and the base.",
+          "chunk": "4"
+        },
+        {
+          "from": "Vicon_System",
+          "relation": "type",
+          "to": "MeasurementSystem",
+          "context": "The deflection angle of the arm is measured using the Vicon system, which records the pose of the arm tip (where the motor is placed) and the base.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "How does the downwash influence the measurement process of the SPA's deflection angle using the Vicon system?",
+    "options": {
+      "A": "Downwash increases the Θi and Φi values, which are then recorded by the Vicon system to measure deflection angle changes.",
+      "B": "Downwash directly interferes with the Vicon system's sensors, causing inaccurate measurements of the deflection angles.",
+      "C": "Vicon system utilizes downwash to create a more stable environment for measuring the deflection angle more accurately.",
+      "D": "Downwash reduces the effectiveness of the Vicon system by decreasing the visibility of the arm's tip and base."
+    },
+    "correct_answer": "A",
+    "explanation": "The explanation in the context notes that downwash and vibration disturbances affect the values of Θi and Φi, which correspond to the SPA's deflection angle. The Vicon system measures these angles by recording the pose of the arm tip and base. Therefore, the increase in Θi and Φi due to downwash is what the Vicon system captures to assess changes in the deflection angle.",
+    "path_description": "Path: Downwash --[affects]--> Deflection_Angle --[measuredBy]--> Vicon_System --[type]--> MeasurementSystem",
+    "context": "The components of motion in the vertical planes XZ and YZ and the corresponding values of Θi and Φi increase with thrust, highlighting the effect of downwash and vibration disturbances on the SPA deflection angle. | The deflection angle of the arm is measured using the Vicon system, which records the pose of the arm tip (where the motor is placed) and the base. | The deflection angle of the arm is measured using the Vicon system, which records the pose of the arm tip (where the motor is placed) and the base.",
+    "paper_id": "1196"
+  },
+  {
+    "section": "methodology",
+    "path": {
+      "section": "methodology",
+      "start_entity": "SoftDrone",
+      "end_entity": "Vector",
+      "hops": [
+        {
+          "from": "SoftDrone",
+          "relation": "experiences",
+          "to": "Downwash",
+          "context": "During flight, the downwash from the motors and servo motors, attached to the tips of the soft drone’s arms, causes an upward bend in the arms.",
+          "chunk": "3"
+        },
+        {
+          "from": "Downwash",
+          "relation": "affects",
+          "to": "ThrustVector",
+          "context": "The impact of downwash on the thrust vector.",
+          "chunk": "3"
+        },
+        {
+          "from": "ThrustVector",
+          "relation": "type",
+          "to": "Vector",
+          "context": "The impact of downwash on the thrust vector.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the context of UAV flight dynamics, how does the downwash from motors impact the drone's thrust vector?",
+    "options": {
+      "A": "The downwash causes an upward bend in the arms, which alters the direction of the thrust vector.",
+      "B": "The downwash results in a lateral shift of the thrust vector, making the drone more unstable.",
+      "C": "The downwash directly increases the overall thrust output of the drone, enhancing its lifting capacity.",
+      "D": "The downwash significantly decreases the air pressure above the drone, reducing lift and control."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A because the downwash, as mentioned in the context, causes an upward bend in the arms of the drone, which would naturally lead to an alteration in the direction of the thrust vector, as the motors and servos are attached at these points.",
+    "path_description": "Path: SoftDrone --[experiences]--> Downwash --[affects]--> ThrustVector --[type]--> Vector",
+    "context": "During flight, the downwash from the motors and servo motors, attached to the tips of the soft drone’s arms, causes an upward bend in the arms. | The impact of downwash on the thrust vector. | The impact of downwash on the thrust vector.",
+    "paper_id": "1196"
+  }
+]

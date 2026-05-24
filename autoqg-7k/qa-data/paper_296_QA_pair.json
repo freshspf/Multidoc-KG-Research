@@ -1,0 +1,45 @@
+[
+  {
+    "section": "securityanalysis",
+    "path": {
+      "section": "securityanalysis",
+      "start_entity": "VotingProtocol",
+      "end_entity": "Voter",
+      "hops": [
+        {
+          "from": "VotingProtocol",
+          "relation": "fulfills",
+          "to": "Eligibility",
+          "context": "Our voting protocol successfully fulfills the following security requirements.",
+          "chunk": "2"
+        },
+        {
+          "from": "Eligibility",
+          "relation": "confirmedBy",
+          "to": "Bob",
+          "context": "Eligibility – Bob confirms the eligibility of voters.",
+          "chunk": "2"
+        },
+        {
+          "from": "Bob",
+          "relation": "type",
+          "to": "Voter",
+          "context": "Eligibility – Bob confirms the eligibility of voters.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the voting protocol described in the 'securityanalysis' section, how is the confirmation of voter eligibility ensured?",
+    "options": {
+      "A": "A separate verification body outside the voting protocol confirms each voter's eligibility.",
+      "B": "The voting protocol automatically verifies each voter's eligibility without human intervention.",
+      "C": "Bob, identified as a voter, confirms the eligibility of other voters.",
+      "D": "Voter eligibility is determined through a public voting record accessible to all participants."
+    },
+    "correct_answer": "C",
+    "explanation": "The question specifically tests the understanding of the path from the voting protocol to the role of Bob. According to the provided path and context, Bob, who is a type of voter, is responsible for confirming the eligibility of voters as part of the voting protocol. This eliminates the other options where the protocol automatically verifies, uses public records, or an external body for eligibility confirmation.",
+    "path_description": "Path: VotingProtocol --[fulfills]--> Eligibility --[confirmedBy]--> Bob --[type]--> Voter",
+    "context": "Our voting protocol successfully fulfills the following security requirements. | Eligibility – Bob confirms the eligibility of voters. | Eligibility – Bob confirms the eligibility of voters.",
+    "paper_id": "749"
+  }
+]

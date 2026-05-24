@@ -1,0 +1,174 @@
+[
+  {
+    "section": "proposedmethod2",
+    "path": {
+      "section": "proposedmethod2",
+      "start_entity": "Points",
+      "end_entity": "TimeComplexity",
+      "hops": [
+        {
+          "from": "Points",
+          "relation": "identifiedBy",
+          "to": "MortonCodes",
+          "context": "The points serial number at the non-empty positions are denoted as {A, B, . . . , I}, and the corresponding Morton codes are represented as {M111, M211, . . . , M233}.",
+          "chunk": "4"
+        },
+        {
+          "from": "MortonCodes",
+          "relation": "storedIn",
+          "to": "IndexTable",
+          "context": "For each occupied position, the corresponding indices are set to the serial number (i.e., from A to I, as shown in Fig. 6) of the point, while for empty positions, the indices are set to null, as shown Table II.",
+          "chunk": "4"
+        },
+        {
+          "from": "IndexTable",
+          "relation": "reduces",
+          "to": "TimeComplexity",
+          "context": "the average time complexity can be reduced to O(1).",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "How does the utilization of Morton codes in the Index Table influence the time complexity of retrieving points?",
+    "options": {
+      "A": "By assigning unique Morton codes to points and storing them in an Index Table, the time complexity of retrieval is reduced to O(1).",
+      "B": "The use of Morton codes and their storage in an Index Table increases the time complexity to O(log n) because binary search is applied.",
+      "C": "Morton codes complicate the Index Table structure, leading to a time complexity of O(n^2) due to nested loop operations.",
+      "D": "Since Morton codes are sequentially assigned, using them increases the time complexity to O(n) due to linear search requirements."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A because the points are identified by Morton codes, which are then stored in an Index Table. This structured approach allows for efficient O(1) time complexity retrieval, as opposed to linear or logarithmic time complexities suggested by the other options.",
+    "path_description": "Path: Points --[identifiedBy]--> MortonCodes --[storedIn]--> IndexTable --[reduces]--> TimeComplexity",
+    "context": "The points serial number at the non-empty positions are denoted as {A, B, . . . , I}, and the corresponding Morton codes are represented as {M111, M211, . . . , M233}. | For each occupied position, the corresponding indices are set to the serial number (i.e., from A to I, as shown in Fig. 6) of the point, while for empty positions, the indices are set to null, as shown Table II. | the average time complexity can be reduced to O(1).",
+    "paper_id": "1684"
+  },
+  {
+    "section": "proposedmethod2",
+    "path": {
+      "section": "proposedmethod2",
+      "start_entity": "Points",
+      "end_entity": "DataStructure",
+      "hops": [
+        {
+          "from": "Points",
+          "relation": "identifiedBy",
+          "to": "MortonCodes",
+          "context": "The points serial number at the non-empty positions are denoted as {A, B, . . . , I}, and the corresponding Morton codes are represented as {M111, M211, . . . , M233}.",
+          "chunk": "4"
+        },
+        {
+          "from": "MortonCodes",
+          "relation": "storedIn",
+          "to": "IndexTable",
+          "context": "For each occupied position, the corresponding indices are set to the serial number (i.e., from A to I, as shown in Fig. 6) of the point, while for empty positions, the indices are set to null, as shown Table II.",
+          "chunk": "4"
+        },
+        {
+          "from": "IndexTable",
+          "relation": "type",
+          "to": "DataStructure",
+          "context": "To reduce the time complexity, we only need to traverse the points in the point cloud at the beginning of the encoder and build an index table.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the context of the proposed method described, which data structure is primarily used to efficiently store and retrieve Morton codes corresponding to the serial numbers of points in a point cloud?",
+    "options": {
+      "A": "A binary search tree that uses Morton codes as keys to organize the serial numbers of the points.",
+      "B": "An index table that stores serial numbers of points at non-empty positions and null at empty positions.",
+      "C": "A hash table that uses point coordinates as keys to directly access their Morton codes.",
+      "D": "A linked list that sequentially lists all Morton codes and their corresponding point indices."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A, an index table. The paper details that Morton codes, which are used to identify points, are stored in an index table where indices are set to the serial numbers of points at non-empty positions or null at empty ones. This data structure allows for efficient storage and retrieval of Morton codes, which is essential for reducing time complexity in the encoding process of a point cloud.",
+    "path_description": "Path: Points --[identifiedBy]--> MortonCodes --[storedIn]--> IndexTable --[type]--> DataStructure",
+    "context": "The points serial number at the non-empty positions are denoted as {A, B, . . . , I}, and the corresponding Morton codes are represented as {M111, M211, . . . , M233}. | For each occupied position, the corresponding indices are set to the serial number (i.e., from A to I, as shown in Fig. 6) of the point, while for empty positions, the indices are set to null, as shown Table II. | To reduce the time complexity, we only need to traverse the points in the point cloud at the beginning of the encoder and build an index table.",
+    "paper_id": "1684"
+  },
+  {
+    "section": "experimentalresults1",
+    "path": {
+      "section": "experimentalresults1",
+      "start_entity": "VCWF-M",
+      "end_entity": "AlgorithmCombination",
+      "hops": [
+        {
+          "from": "VCWF-M",
+          "relation": "outperforms",
+          "to": "BWF-M",
+          "context": "From these tables, we can see that, the RD performance for inter prediction is better than that for intra prediction",
+          "chunk": "8"
+        },
+        {
+          "from": "BWF-M",
+          "relation": "comparedWith",
+          "to": "CIWF-M",
+          "context": "Tables III, IV, and V compares the End-to-End BD AttrRates (%) of BWF-M, CIWF-M",
+          "chunk": "8"
+        },
+        {
+          "from": "CIWF-M",
+          "relation": "type",
+          "to": "AlgorithmCombination",
+          "context": "Similarly, CIWF-M and VCWF-M indicate CIWF with M-KNN",
+          "chunk": "8"
+        }
+      ]
+    },
+    "question": "In the context of the algorithms' performance comparison for RD prediction, which algorithm combination shows the best performance for inter prediction?",
+    "options": {
+      "A": "CIWF-M outperforms both BWF-M and VCWF-M in terms of inter prediction performance.",
+      "B": "All algorithms perform equally well in both inter and intra predictions.",
+      "C": "BWF-M shows better results compared to CIWF-M and VCWF-M in both inter and intra prediction.",
+      "D": "VCWF-M outperforms BWF-M and CIWF-M, indicating its superior performance in inter prediction."
+    },
+    "correct_answer": "D",
+    "explanation": "The question requires understanding the performance hierarchy between the algorithms. According to the knowledge graph path, VCWF-M outperforms BWF-M, which is compared with CIWF-M. The question specifies 'inter prediction,' and according to the context, VCWF-M shows superior performance in inter prediction compared to the other algorithms.",
+    "path_description": "Path: VCWF-M --[outperforms]--> BWF-M --[comparedWith]--> CIWF-M --[type]--> AlgorithmCombination",
+    "context": "From these tables, we can see that, the RD performance for inter prediction is better than that for intra prediction | Tables III, IV, and V compares the End-to-End BD AttrRates (%) of BWF-M, CIWF-M | Similarly, CIWF-M and VCWF-M indicate CIWF with M-KNN",
+    "paper_id": "1684"
+  },
+  {
+    "section": "conclusion",
+    "path": {
+      "section": "conclusion",
+      "start_entity": "HighEfficiencyWienerFilterMethod",
+      "end_entity": "M-KNN",
+      "hops": [
+        {
+          "from": "HighEfficiencyWienerFilterMethod",
+          "relation": "proposes",
+          "to": "VCWF",
+          "context": "VCWF which is specifically designed based on point classification for Luma component.",
+          "chunk": "11"
+        },
+        {
+          "from": "VCWF",
+          "relation": "partOf",
+          "to": "HighEfficiencyWienerFilterMethod",
+          "context": "VCWF which is specifically designed based on point classification for Luma component.",
+          "chunk": "11"
+        },
+        {
+          "from": "HighEfficiencyWienerFilterMethod",
+          "relation": "proposes",
+          "to": "M-KNN",
+          "context": "It includes four parts, i.e., M-KNN for fast neighbor search.",
+          "chunk": "11"
+        }
+      ]
+    },
+    "question": "Which of the following statements accurately describes the relationship between the High Efficiency Wiener Filter Method, VCWF, and M-KNN in the context of image processing?",
+    "options": {
+      "A": "VCWF directly improves the M-KNN algorithm by incorporating High Efficiency Wiener Filter Method's principles.",
+      "B": "M-KNN is an alternative to VCWF proposed by the High Efficiency Wiener Filter Method for better Luma component classification.",
+      "C": "The High Efficiency Wiener Filter Method proposes VCWF, which includes M-KNN as a component for fast neighbor search.",
+      "D": "The High Efficiency Wiener Filter Method is a component of VCWF designed to enhance the performance of the M-KNN algorithm."
+    },
+    "correct_answer": "C",
+    "explanation": "The provided knowledge path indicates that the High Efficiency Wiener Filter Method proposes VCWF, which in turn includes M-KNN for fast neighbor search. This means that VCWF is part of the High Efficiency Wiener Filter Method and utilizes M-KNN as a component specifically for enhancing search capabilities.",
+    "path_description": "Path: HighEfficiencyWienerFilterMethod --[proposes]--> VCWF --[partOf]--> HighEfficiencyWienerFilterMethod --[proposes]--> M-KNN",
+    "context": "VCWF which is specifically designed based on point classification for Luma component. | VCWF which is specifically designed based on point classification for Luma component. | It includes four parts, i.e., M-KNN for fast neighbor search.",
+    "paper_id": "1684"
+  }
+]

@@ -1,0 +1,45 @@
+[
+  {
+    "section": "method2",
+    "path": {
+      "section": "method2",
+      "start_entity": "Block",
+      "end_entity": "Entity",
+      "hops": [
+        {
+          "from": "Block",
+          "relation": "checkedBy",
+          "to": "Ticket",
+          "context": "The procedure to check if a new block is valid involves a ticket.",
+          "chunk": "2"
+        },
+        {
+          "from": "Ticket",
+          "relation": "determines",
+          "to": "Chain_Index",
+          "context": "The bits of the ticket determine the chain index.",
+          "chunk": "2"
+        },
+        {
+          "from": "Chain_Index",
+          "relation": "type",
+          "to": "Entity",
+          "context": "Calculate the hash of the ticket and check the last p bits to find the chain index.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the validation process of a new block, how is the relationship between the ticket and the entity established?",
+    "options": {
+      "A": "The entity type is determined by the block's size, which is derived from the ticket.",
+      "B": "The ticket calculates the hash of the block to directly establish the entity's properties.",
+      "C": "The block directly checks the type of entity using the ticket's encoded data.",
+      "D": "The ticket is used to determine the chain index, which in turn identifies the type of entity involved."
+    },
+    "correct_answer": "D",
+    "explanation": "The ticket's hash calculation and the last 'p' bits are used to determine the chain index, which in turn categorizes the type of entity involved in the validation process of a new block.",
+    "path_description": "Path: Block --[checkedBy]--> Ticket --[determines]--> Chain_Index --[type]--> Entity",
+    "context": "The procedure to check if a new block is valid involves a ticket. | The bits of the ticket determine the chain index. | Calculate the hash of the ticket and check the last p bits to find the chain index.",
+    "paper_id": "642"
+  }
+]

@@ -1,0 +1,174 @@
+[
+  {
+    "section": "approachoverview",
+    "path": {
+      "section": "approachoverview",
+      "start_entity": "SmartContract",
+      "end_entity": "SmartContractInteraction",
+      "hops": [
+        {
+          "from": "SmartContract",
+          "relation": "investigatedFor",
+          "to": "ApplicationDevelopment",
+          "context": "we surveyed the smart contract about what it is, how it works, and how we could develop an application using this technology.",
+          "chunk": "3"
+        },
+        {
+          "from": "ApplicationDevelopment",
+          "relation": "interactsWith",
+          "to": "Web3",
+          "context": "We use the injected Web3 to interact with the smart contract to test our application.",
+          "chunk": "3"
+        },
+        {
+          "from": "Web3",
+          "relation": "usedFor",
+          "to": "SmartContractInteraction",
+          "context": "We use the injected Web3 to interact with the smart contract to test our application.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the context of smart contract application development, what is the primary role of Web3 technology?",
+    "options": {
+      "A": "Web3 technology is mainly used to provide a secure environment for cryptocurrency transactions only.",
+      "B": "Web3 technology primarily serves as a platform for deploying decentralized applications on the blockchain.",
+      "C": "Web3 technology is used to automatically generate smart contracts based on pre-defined application parameters.",
+      "D": "Web3 technology is used primarily to enable the interaction between the smart contract and the application during testing phases."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is B. According to the paper's context, Web3 technology is utilized to interact with the smart contract during the testing of applications. This facilitates the evaluation of how the application and the smart contract function together, which is crucial in the development process. Options A, C, and D present plausible uses of Web3 but do not specifically address its role in facilitating interaction between smart contracts and applications during testing, as described in the paper.",
+    "path_description": "Path: SmartContract --[investigatedFor]--> ApplicationDevelopment --[interactsWith]--> Web3 --[usedFor]--> SmartContractInteraction",
+    "context": "we surveyed the smart contract about what it is, how it works, and how we could develop an application using this technology. | We use the injected Web3 to interact with the smart contract to test our application. | We use the injected Web3 to interact with the smart contract to test our application.",
+    "paper_id": "1341"
+  },
+  {
+    "section": "design2",
+    "path": {
+      "section": "design2",
+      "start_entity": "CarBidContract",
+      "end_entity": "BidPriceLowerThanInitial",
+      "hops": [
+        {
+          "from": "CarBidContract",
+          "relation": "recordsTransaction",
+          "to": "CarBidContract",
+          "context": "Once the bid transaction is valid, the least bid transaction will be recorded and updated into the Car Bid contract.",
+          "chunk": "5"
+        },
+        {
+          "from": "CarBidContract",
+          "relation": "recordsTransaction",
+          "to": "CarBidContract",
+          "context": "Once the bid transaction is valid, the least bid transaction will be recorded and updated into the Car Bid contract.",
+          "chunk": "5"
+        },
+        {
+          "from": "CarBidContract",
+          "relation": "hasCondition",
+          "to": "BidPriceLowerThanInitial",
+          "context": "Then if the bid price is lower than the initially offered price, the transaction will also be directly reverted.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the context of a Car Bid contract as described in the 'design2' section, what happens when a bid transaction is valid but the bid price is lower than the initial offered price?",
+    "options": {
+      "A": "The bid transaction is recorded in the Car Bid contract and then directly reverted.",
+      "B": "The bid transaction is initially recorded but subsequently updated when a lower bid is submitted.",
+      "C": "The bid transaction is considered invalid and not recorded in the Car Bid contract.",
+      "D": "The bid transaction is ignored, and the initial offered price is decreased to match the lower bid."
+    },
+    "correct_answer": "A",
+    "explanation": "According to the 'design2' section, once a bid transaction is validated and found to have a bid price lower than the initial offering, it is recorded in the Car Bid contract. However, such a transaction is then reverted, indicating that the system does not accept bids lower than the initially offered price.",
+    "path_description": "Path: CarBidContract --[recordsTransaction]--> CarBidContract --[recordsTransaction]--> CarBidContract --[hasCondition]--> BidPriceLowerThanInitial",
+    "context": "Once the bid transaction is valid, the least bid transaction will be recorded and updated into the Car Bid contract. | Once the bid transaction is valid, the least bid transaction will be recorded and updated into the Car Bid contract. | Then if the bid price is lower than the initially offered price, the transaction will also be directly reverted.",
+    "paper_id": "1341"
+  },
+  {
+    "section": "conclusion",
+    "path": {
+      "section": "conclusion",
+      "start_entity": "Application",
+      "end_entity": "UsedCarBiddingProcess",
+      "hops": [
+        {
+          "from": "Application",
+          "relation": "uses",
+          "to": "SmartContracts",
+          "context": "We build our application on Ethereum using the smart contracts technology.",
+          "chunk": "8"
+        },
+        {
+          "from": "SmartContracts",
+          "relation": "improves",
+          "to": "Privacy",
+          "context": "It brings great convenience to buyers and owners, and the use of smart contracts improves the security and privacy of the used car bidding process.",
+          "chunk": "8"
+        },
+        {
+          "from": "Privacy",
+          "relation": "relatedTo",
+          "to": "UsedCarBiddingProcess",
+          "context": "It brings great convenience to buyers and owners, and the use of smart contracts improves the security and privacy of the used car bidding process.",
+          "chunk": "8"
+        }
+      ]
+    },
+    "question": "How does the application built on Ethereum using smart contracts technology specifically enhance the used car bidding process?",
+    "options": {
+      "A": "By providing detailed car histories automatically to potential buyers to enhance transparency.",
+      "B": "By improving the privacy and security of transactions, making it more trustworthy for participants.",
+      "C": "By increasing the speed of transactions, thereby reducing the time needed to finalize car sales.",
+      "D": "By reducing the costs associated with car auctions through automated smart contracts."
+    },
+    "correct_answer": "B",
+    "explanation": "The application built on Ethereum uses smart contracts to improve the privacy and security of the used car bidding process, as mentioned in the conclusion of the paper. This enhancement makes the process more trustworthy for participants, aligning directly with the improvements cited. Options B, C, and D, although plausible, do not specifically align with the improvements in privacy and security highlighted in the paper.",
+    "path_description": "Path: Application --[uses]--> SmartContracts --[improves]--> Privacy --[relatedTo]--> UsedCarBiddingProcess",
+    "context": "We build our application on Ethereum using the smart contracts technology. | It brings great convenience to buyers and owners, and the use of smart contracts improves the security and privacy of the used car bidding process. | It brings great convenience to buyers and owners, and the use of smart contracts improves the security and privacy of the used car bidding process.",
+    "paper_id": "1341"
+  },
+  {
+    "section": "conclusion",
+    "path": {
+      "section": "conclusion",
+      "start_entity": "SmartContracts",
+      "end_entity": "Process",
+      "hops": [
+        {
+          "from": "SmartContracts",
+          "relation": "improves",
+          "to": "Privacy",
+          "context": "It brings great convenience to buyers and owners, and the use of smart contracts improves the security and privacy of the used car bidding process.",
+          "chunk": "8"
+        },
+        {
+          "from": "Privacy",
+          "relation": "relatedTo",
+          "to": "UsedCarBiddingProcess",
+          "context": "It brings great convenience to buyers and owners, and the use of smart contracts improves the security and privacy of the used car bidding process.",
+          "chunk": "8"
+        },
+        {
+          "from": "UsedCarBiddingProcess",
+          "relation": "type",
+          "to": "Process",
+          "context": "It brings great convenience to buyers and owners, and the use of smart contracts improves the security and privacy of the used car bidding process.",
+          "chunk": "8"
+        }
+      ]
+    },
+    "question": "How do smart contracts enhance the used car bidding process according to the described knowledge path?",
+    "options": {
+      "A": "Smart contracts improve the privacy and security, which are integral to the overall bidding process.",
+      "B": "Smart contracts automate the transfer of ownership, which is not directly related to privacy.",
+      "C": "Smart contracts provide a platform for public auctioning, increasing the visibility of the cars.",
+      "D": "Smart contracts mainly reduce the processing time for payments in the used car bidding process."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A because the knowledge path indicates that smart contracts improve privacy, which is related to the used car bidding process. Options B, C, and D, while plausible, do not directly address the improvement of privacy and security in the process as specified in the path.",
+    "path_description": "Path: SmartContracts --[improves]--> Privacy --[relatedTo]--> UsedCarBiddingProcess --[type]--> Process",
+    "context": "It brings great convenience to buyers and owners, and the use of smart contracts improves the security and privacy of the used car bidding process. | It brings great convenience to buyers and owners, and the use of smart contracts improves the security and privacy of the used car bidding process. | It brings great convenience to buyers and owners, and the use of smart contracts improves the security and privacy of the used car bidding process.",
+    "paper_id": "1341"
+  }
+]

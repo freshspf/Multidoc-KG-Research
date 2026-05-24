@@ -1,0 +1,260 @@
+[
+  {
+    "section": "systemoverview",
+    "path": {
+      "section": "systemoverview",
+      "start_entity": "SP-Chain",
+      "end_entity": "Scheme",
+      "hops": [
+        {
+          "from": "SP-Chain",
+          "relation": "includesComponent",
+          "to": "LeaderRotation",
+          "context": "SP-Chain consists of four main components, including leader rotation",
+          "chunk": "3"
+        },
+        {
+          "from": "LeaderRotation",
+          "relation": "isImplementedBy",
+          "to": "LeaderRotationScheme",
+          "context": "To prevent attacks on the leaders and maintain high performance when leaders are malicious or attacked, we propose the leader rotation scheme",
+          "chunk": "3"
+        },
+        {
+          "from": "LeaderRotationScheme",
+          "relation": "type",
+          "to": "Scheme",
+          "context": "To prevent attacks on the leaders and maintain high performance when leaders are malicious or attacked, we propose the leader rotation scheme",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the SP-Chain system, what type of scheme is specifically implemented to address the challenge of maintaining high performance and security when leaders are malicious or under attack?",
+    "options": {
+      "A": "A randomized selection scheme that picks leaders arbitrarily to minimize predictability and potential targeted attacks.",
+      "B": "A leader rotation scheme that systematically changes the leaders to prevent targeted attacks and maintain system integrity.",
+      "C": "A dynamic allocation scheme that shifts responsibilities among members without changing the actual leader.",
+      "D": "A static leadership scheme that relies on a fixed leader to ensure continuity and reduce the complexity of leader changes."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is 'A' because the context specifies that a leader rotation scheme is implemented to handle the issue of leader vulnerability and to ensure high performance, which aligns with the description in option A. The other options, while plausible, do not accurately reflect the described mechanism in the systemoverview section of the paper.",
+    "path_description": "Path: SP-Chain --[includesComponent]--> LeaderRotation --[isImplementedBy]--> LeaderRotationScheme --[type]--> Scheme",
+    "context": "SP-Chain consists of four main components, including leader rotation | To prevent attacks on the leaders and maintain high performance when leaders are malicious or attacked, we propose the leader rotation scheme | To prevent attacks on the leaders and maintain high performance when leaders are malicious or attacked, we propose the leader rotation scheme",
+    "paper_id": "783"
+  },
+  {
+    "section": "implementationandevaluation2",
+    "path": {
+      "section": "implementationandevaluation2",
+      "start_entity": "SP-Chain",
+      "end_entity": "NodeNumberIncreaseInShard",
+      "hops": [
+        {
+          "from": "SP-Chain",
+          "relation": "hasLowerConfirmationDelayThan",
+          "to": "Harmony",
+          "context": "The transaction confirmation delays in SP-Chain are all less than half of that in Harmony.",
+          "chunk": "10"
+        },
+        {
+          "from": "Harmony",
+          "relation": "confirmationLatencyIncreasesWith",
+          "to": "ShardNumberIncrease",
+          "context": "As the number of shards increases, the confirmation latency in both SP-Chain and Harmony increases as well.",
+          "chunk": "10"
+        },
+        {
+          "from": "ShardNumberIncrease",
+          "relation": "causes",
+          "to": "NodeNumberIncreaseInShard",
+          "context": "This is mainly because that as the number of shards increases, the number of nodes inside each shard also increases.",
+          "chunk": "10"
+        }
+      ]
+    },
+    "question": "Why does the transaction confirmation delay in Harmony increase as the number of shards increases?",
+    "options": {
+      "A": "The increase in shard number reduces the communication bandwidth available per shard, directly increasing latency.",
+      "B": "Increasing the number of shards leads to an increase in the number of nodes per shard, which complicates the confirmation process.",
+      "C": "As the number of shards increases, the computational power required for each transaction decreases, slowing the process.",
+      "D": "More shards mean fewer nodes per shard, which reduces the network's overall efficiency and increases delays."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A because the knowledge path indicates that an increase in shard number causes an increase in the number of nodes per shard, which in turn increases confirmation latency. As more nodes are involved in processing each transaction within a shard, coordination and consensus processes become more complex, thereby increasing the transaction confirmation delay.",
+    "path_description": "Path: SP-Chain --[hasLowerConfirmationDelayThan]--> Harmony --[confirmationLatencyIncreasesWith]--> ShardNumberIncrease --[causes]--> NodeNumberIncreaseInShard",
+    "context": "The transaction confirmation delays in SP-Chain are all less than half of that in Harmony. | As the number of shards increases, the confirmation latency in both SP-Chain and Harmony increases as well. | This is mainly because that as the number of shards increases, the number of nodes inside each shard also increases.",
+    "paper_id": "783"
+  },
+  {
+    "section": "implementationandevaluation2",
+    "path": {
+      "section": "implementationandevaluation2",
+      "start_entity": "SP-Chain",
+      "end_entity": "LongerIntraShardConsensusTime",
+      "hops": [
+        {
+          "from": "SP-Chain",
+          "relation": "confirmationLatencyIncreasesWith",
+          "to": "ShardNumberIncrease",
+          "context": "As the number of shards increases, the confirmation latency in both SP-Chain and Harmony increases as well.",
+          "chunk": "10"
+        },
+        {
+          "from": "ShardNumberIncrease",
+          "relation": "causes",
+          "to": "NodeNumberIncreaseInShard",
+          "context": "This is mainly because that as the number of shards increases, the number of nodes inside each shard also increases.",
+          "chunk": "10"
+        },
+        {
+          "from": "NodeNumberIncreaseInShard",
+          "relation": "causes",
+          "to": "LongerIntraShardConsensusTime",
+          "context": "so the intra-shard consensus takes longer time to finish.",
+          "chunk": "10"
+        }
+      ]
+    },
+    "question": "In the context of blockchain technologies such as SP-Chain and Harmony, how does increasing the number of shards affect the system's performance?",
+    "options": {
+      "A": "Increasing the number of shards directly reduces the confirmation latency by distributing the load more evenly across nodes.",
+      "B": "Increasing the number of shards has no significant impact on the performance as nodes are efficiently managed by automated scaling.",
+      "C": "Increasing the number of shards leads to an increase in the number of nodes per shard, thereby lengthening the intra-shard consensus time.",
+      "D": "Increasing the number of shards decreases the overall transaction throughput by directly reducing the node count in each shard."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A. As the number of shards increases, the number of nodes within each shard also increases, which in turn prolongs the duration required to achieve consensus within each shard. This results in increased confirmation latency.",
+    "path_description": "Path: SP-Chain --[confirmationLatencyIncreasesWith]--> ShardNumberIncrease --[causes]--> NodeNumberIncreaseInShard --[causes]--> LongerIntraShardConsensusTime",
+    "context": "As the number of shards increases, the confirmation latency in both SP-Chain and Harmony increases as well. | This is mainly because that as the number of shards increases, the number of nodes inside each shard also increases. | so the intra-shard consensus takes longer time to finish.",
+    "paper_id": "783"
+  },
+  {
+    "section": "implementationandevaluation2",
+    "path": {
+      "section": "implementationandevaluation2",
+      "start_entity": "Harmony",
+      "end_entity": "LongerIntraShardConsensusTime",
+      "hops": [
+        {
+          "from": "Harmony",
+          "relation": "confirmationLatencyIncreasesWith",
+          "to": "ShardNumberIncrease",
+          "context": "As the number of shards increases, the confirmation latency in both SP-Chain and Harmony increases as well.",
+          "chunk": "10"
+        },
+        {
+          "from": "ShardNumberIncrease",
+          "relation": "causes",
+          "to": "NodeNumberIncreaseInShard",
+          "context": "This is mainly because that as the number of shards increases, the number of nodes inside each shard also increases.",
+          "chunk": "10"
+        },
+        {
+          "from": "NodeNumberIncreaseInShard",
+          "relation": "causes",
+          "to": "LongerIntraShardConsensusTime",
+          "context": "so the intra-shard consensus takes longer time to finish.",
+          "chunk": "10"
+        }
+      ]
+    },
+    "question": "In the context of blockchain technology, how does an increase in the number of shards affect the confirmation latency?",
+    "options": {
+      "A": "An increase in the number of shards leads to a decrease in the shard size, which complicates the intra-shard consensus process, indirectly increasing the confirmation latency.",
+      "B": "An increase in the number of shards does not affect the number of nodes per shard but increases the inter-shard communication, leading to higher confirmation latency.",
+      "C": "An increase in the number of shards leads to an increase in the number of nodes per shard, which extends the intra-shard consensus time, thereby increasing confirmation latency.",
+      "D": "An increase in the number of shards reduces the number of nodes per shard, speeding up the intra-shard consensus time, thus decreasing confirmation latency."
+    },
+    "correct_answer": "C",
+    "explanation": "The increase in shard number causes an increase in the number of nodes per shard. More nodes per shard mean that reaching consensus within the shard (intra-shard consensus) takes longer. This delay in reaching consensus directly contributes to increased confirmation latency, as explained in the multi-hop path from the knowledge graph.",
+    "path_description": "Path: Harmony --[confirmationLatencyIncreasesWith]--> ShardNumberIncrease --[causes]--> NodeNumberIncreaseInShard --[causes]--> LongerIntraShardConsensusTime",
+    "context": "As the number of shards increases, the confirmation latency in both SP-Chain and Harmony increases as well. | This is mainly because that as the number of shards increases, the number of nodes inside each shard also increases. | so the intra-shard consensus takes longer time to finish.",
+    "paper_id": "783"
+  },
+  {
+    "section": "implementationandevaluation2",
+    "path": {
+      "section": "implementationandevaluation2",
+      "start_entity": "SP-Chain",
+      "end_entity": "NodeNumberIncreaseInShard",
+      "hops": [
+        {
+          "from": "SP-Chain",
+          "relation": "hasSuperiorScalability",
+          "to": "Harmony",
+          "context": "The above results indicate the superior throughput and scalability of SP-Chain.",
+          "chunk": "10"
+        },
+        {
+          "from": "Harmony",
+          "relation": "confirmationLatencyIncreasesWith",
+          "to": "ShardNumberIncrease",
+          "context": "As the number of shards increases, the confirmation latency in both SP-Chain and Harmony increases as well.",
+          "chunk": "10"
+        },
+        {
+          "from": "ShardNumberIncrease",
+          "relation": "causes",
+          "to": "NodeNumberIncreaseInShard",
+          "context": "This is mainly because that as the number of shards increases, the number of nodes inside each shard also increases.",
+          "chunk": "10"
+        }
+      ]
+    },
+    "question": "In the context of blockchain scalability, why does the confirmation latency increase in systems like SP-Chain and Harmony when the number of shards is increased?",
+    "options": {
+      "A": "More shards create more data to be processed, which overwhelms the system and slows down confirmation times.",
+      "B": "Increasing the number of shards leads to a decrease in the computational power of each shard, thus increasing confirmation latency.",
+      "C": "As the number of shards increases, the number of nodes within each shard increases, contributing to higher confirmation latency.",
+      "D": "As the number of shards increases, the communication between shards becomes less efficient, raising the confirmation latency."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A because, as described in the paper, the increase in shard number leads to an increase in the number of nodes per shard. This rise in nodes contributes to the complexity and processing requirements within each shard, which in turn increases the confirmation latency.",
+    "path_description": "Path: SP-Chain --[hasSuperiorScalability]--> Harmony --[confirmationLatencyIncreasesWith]--> ShardNumberIncrease --[causes]--> NodeNumberIncreaseInShard",
+    "context": "The above results indicate the superior throughput and scalability of SP-Chain. | As the number of shards increases, the confirmation latency in both SP-Chain and Harmony increases as well. | This is mainly because that as the number of shards increases, the number of nodes inside each shard also increases.",
+    "paper_id": "783"
+  },
+  {
+    "section": "implementationandevaluation2",
+    "path": {
+      "section": "implementationandevaluation2",
+      "start_entity": "SP-Chain",
+      "end_entity": "NodeNumberIncreaseInShard",
+      "hops": [
+        {
+          "from": "SP-Chain",
+          "relation": "hasSuperiorThroughput",
+          "to": "Harmony",
+          "context": "The above results indicate the superior throughput and scalability of SP-Chain.",
+          "chunk": "10"
+        },
+        {
+          "from": "Harmony",
+          "relation": "confirmationLatencyIncreasesWith",
+          "to": "ShardNumberIncrease",
+          "context": "As the number of shards increases, the confirmation latency in both SP-Chain and Harmony increases as well.",
+          "chunk": "10"
+        },
+        {
+          "from": "ShardNumberIncrease",
+          "relation": "causes",
+          "to": "NodeNumberIncreaseInShard",
+          "context": "This is mainly because that as the number of shards increases, the number of nodes inside each shard also increases.",
+          "chunk": "10"
+        }
+      ]
+    },
+    "question": "In the context of distributed ledger technologies such as SP-Chain and Harmony, how does an increase in shard numbers impact the system's performance?",
+    "options": {
+      "A": "It reduces confirmation latency by simplifying the transaction verification process.",
+      "B": "It enhances system scalability by uniformly distributing load across fewer nodes.",
+      "C": "It leads to increased confirmation latency due to a higher number of nodes in each shard.",
+      "D": "It decreases the overall system throughput by reducing the number of nodes per shard."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A because as the number of shards increases, each shard also sees an increase in the number of nodes, according to the described knowledge path. This increase in nodes per shard contributes to higher confirmation latencies due to more complex coordination and communication requirements.",
+    "path_description": "Path: SP-Chain --[hasSuperiorThroughput]--> Harmony --[confirmationLatencyIncreasesWith]--> ShardNumberIncrease --[causes]--> NodeNumberIncreaseInShard",
+    "context": "The above results indicate the superior throughput and scalability of SP-Chain. | As the number of shards increases, the confirmation latency in both SP-Chain and Harmony increases as well. | This is mainly because that as the number of shards increases, the number of nodes inside each shard also increases.",
+    "paper_id": "783"
+  }
+]

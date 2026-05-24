@@ -1,0 +1,88 @@
+[
+  {
+    "section": "results1",
+    "path": {
+      "section": "results1",
+      "start_entity": "RoseNet",
+      "end_entity": "Metric",
+      "hops": [
+        {
+          "from": "RoseNet",
+          "relation": "evaluatedOn",
+          "to": "Test1",
+          "context": "On Test1, the scores range from 0.431 for fa_intra_rep to 1.000 for the referential energy.",
+          "chunk": "4"
+        },
+        {
+          "from": "Test1",
+          "relation": "measures",
+          "to": "referentialEnergy",
+          "context": "On Test1, the scores range from 0.431 for fa_intra_rep to 1.000 for the referential energy.",
+          "chunk": "4"
+        },
+        {
+          "from": "referentialEnergy",
+          "relation": "type",
+          "to": "Metric",
+          "context": "On Test1, the scores range from 0.431 for fa_intra_rep to 1.000 for the referential energy.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the evaluation of RoseNet using Test1, which metric is specifically assessed to achieve a maximum score of 1.000?",
+    "options": {
+      "A": "Referential energy, which quantifies the efficiency of reference in network communications.",
+      "B": "Network latency, which measures the delay in data transmission over the network architecture.",
+      "C": "Packet loss rate, which indicates the percentage of packets lost during transmission in the network.",
+      "D": "Data throughput, which assesses the amount of data successfully transferred over the network."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is 'Referential energy,' as it is specifically mentioned in the context that the scores on Test1, where RoseNet was evaluated, range up to 1.000 for referential energy. This metric is associated with the efficiency of reference in communications within the network, as indicated by the maximum score.",
+    "path_description": "Path: RoseNet --[evaluatedOn]--> Test1 --[measures]--> referentialEnergy --[type]--> Metric",
+    "context": "On Test1, the scores range from 0.431 for fa_intra_rep to 1.000 for the referential energy. | On Test1, the scores range from 0.431 for fa_intra_rep to 1.000 for the referential energy. | On Test1, the scores range from 0.431 for fa_intra_rep to 1.000 for the referential energy.",
+    "paper_id": "419"
+  },
+  {
+    "section": "methods",
+    "path": {
+      "section": "methods",
+      "start_entity": "MutantGenerationProcess",
+      "end_entity": "Metric",
+      "hops": [
+        {
+          "from": "MutantGenerationProcess",
+          "relation": "outputs",
+          "to": "RosettaScores",
+          "context": "During the mutant generation process a variety of energetic and related metrics are output by Rosetta",
+          "chunk": "3"
+        },
+        {
+          "from": "RosettaScores",
+          "relation": "summedToCreate",
+          "to": "CompositeRosettaMetric",
+          "context": "each of the Rosetta scores were summed for all residues, to yield a composite Rosetta metric",
+          "chunk": "3"
+        },
+        {
+          "from": "CompositeRosettaMetric",
+          "relation": "type",
+          "to": "Metric",
+          "context": "each of the Rosetta scores were summed for all residues, to yield a composite Rosetta metric",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the research methods described, what is the primary purpose of summing the various Rosetta scores output during the mutant generation process?",
+    "options": {
+      "A": "To generate a composite Rosetta metric that represents the aggregated energetic state of all residues.",
+      "B": "To provide a comprehensive evaluation of energetic and related metrics for each mutant.",
+      "C": "To analyze the individual contributions of each residue to the overall stability of the protein.",
+      "D": "To identify which single metric has the greatest impact on the protein's function."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is C because, as described in the methods section, the outputs of the mutant generation process are summed together to create a composite Rosetta metric. This metric represents the aggregated energetic state of all residues, which is the primary purpose of summing these scores.",
+    "path_description": "Path: MutantGenerationProcess --[outputs]--> RosettaScores --[summedToCreate]--> CompositeRosettaMetric --[type]--> Metric",
+    "context": "During the mutant generation process a variety of energetic and related metrics are output by Rosetta | each of the Rosetta scores were summed for all residues, to yield a composite Rosetta metric | each of the Rosetta scores were summed for all residues, to yield a composite Rosetta metric",
+    "paper_id": "419"
+  }
+]

@@ -1,0 +1,303 @@
+[
+  {
+    "section": "modelling2",
+    "path": {
+      "section": "modelling2",
+      "start_entity": "Function_T",
+      "end_entity": "PhysicalQuantity",
+      "hops": [
+        {
+          "from": "Function_T",
+          "relation": "appliedTo",
+          "to": "Propellers",
+          "context": "Function T(δ) is a static quadratic function of the PWM signal applied to the propeller.",
+          "chunk": "5"
+        },
+        {
+          "from": "Propellers",
+          "relation": "generate",
+          "to": "Thrusts",
+          "context": "First, the propellers M signals δL, δR and generate thrusts",
+          "chunk": "5"
+        },
+        {
+          "from": "Thrusts",
+          "relation": "type",
+          "to": "PhysicalQuantity",
+          "context": "First, the propellers M signals δL, δR and generate thrusts",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the context of Function T(δ) applied to propellers according to the knowledge graph, what does the generated thrust primarily quantify?",
+    "options": {
+      "A": "The thrust measures the energy consumption rate of propellers as a function of PWM signal amplitude.",
+      "B": "The thrust quantifies the rotational speed of the propellers in relation to the PWM signal frequency.",
+      "C": "The thrust quantifies the static quadratic relationship of the PWM signals to the physical forces exerted by the propellers.",
+      "D": "The thrust measures the dynamic linear response of the propellers to changes in the control signals."
+    },
+    "correct_answer": "C",
+    "explanation": "According to the knowledge graph, Function T(δ) which is a static quadratic function is applied to the propellers. This function relates the PWM signals to the physical forces exerted by the propellers, thus the generated thrusts quantify this relationship. Option A correctly identifies the nature of the relationship and the physical quantity involved, while the other options mischaracterize the function's impact or the nature of the thrust.",
+    "path_description": "Path: Function_T --[appliedTo]--> Propellers --[generate]--> Thrusts --[type]--> PhysicalQuantity",
+    "context": "Function T(δ) is a static quadratic function of the PWM signal applied to the propeller. | First, the propellers M signals δL, δR and generate thrusts | First, the propellers M signals δL, δR and generate thrusts",
+    "paper_id": "581"
+  },
+  {
+    "section": "identificationprocedure1",
+    "path": {
+      "section": "identificationprocedure1",
+      "start_entity": "StaticPropellerModelling",
+      "end_entity": "Tool",
+      "hops": [
+        {
+          "from": "StaticPropellerModelling",
+          "relation": "appliedTo",
+          "to": "ASV",
+          "context": "Input gain for static propeller modelling are derived to identify the input gain.",
+          "chunk": "6"
+        },
+        {
+          "from": "ASV",
+          "relation": "controlledBy",
+          "to": "RadioController",
+          "context": "were conducted using a radio controller to issue commands to the propellers.",
+          "chunk": "6"
+        },
+        {
+          "from": "RadioController",
+          "relation": "type",
+          "to": "Tool",
+          "context": "were conducted using a radio controller to issue commands to the propellers.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the context of autonomous surface vehicles (ASVs), how is the functionality of a static propeller model typically controlled during identification procedures?",
+    "options": {
+      "A": "By manually adjusting the propeller's angle to change the direction and speed of the ASV.",
+      "B": "Through direct mechanical linkage allowing for manual control of the propeller's thrust and torque.",
+      "C": "Using an onboard computer system that automatically adjusts the propeller settings based on environmental data.",
+      "D": "Through a radio controller that issues precise commands to adjust the propeller's input gain."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A because the knowledge graph path indicates that the StaticPropellerModelling is applied to ASV which is controlled by a RadioController. This controller is used to issue commands to the propellers, specifically adjusting the input gain necessary for the static propeller model. Options B, C, and D, although plausible in different contexts, do not align with the specific control mechanism described in the paper's context.",
+    "path_description": "Path: StaticPropellerModelling --[appliedTo]--> ASV --[controlledBy]--> RadioController --[type]--> Tool",
+    "context": "Input gain for static propeller modelling are derived to identify the input gain. | were conducted using a radio controller to issue commands to the propellers. | were conducted using a radio controller to issue commands to the propellers.",
+    "paper_id": "581"
+  },
+  {
+    "section": "identificationexperimentsresultsanddiscussion2",
+    "path": {
+      "section": "identificationexperimentsresultsanddiscussion2",
+      "start_entity": "Table4",
+      "end_entity": "R",
+      "hops": [
+        {
+          "from": "Table4",
+          "relation": "containsDataFrom",
+          "to": "StaticP",
+          "context": "Table 4 presents the numerical results for the two partition methods.",
+          "chunk": "11"
+        },
+        {
+          "from": "StaticP",
+          "relation": "measures",
+          "to": "MAE",
+          "context": "Table 4: Comparison of MAE and R Metrics Using Second-Order Static Model",
+          "chunk": "11"
+        },
+        {
+          "from": "MAE",
+          "relation": "comparedWith",
+          "to": "R",
+          "context": "Table 4: Comparison of MAE and R Metrics Using Second-Order Static Model",
+          "chunk": "11"
+        }
+      ]
+    },
+    "question": "In the context of the 'identificationexperimentsresultsanddiscussion2' section, what does Table 4 reveal when comparing different partition methods using the StaticP model?",
+    "options": {
+      "A": "Table 4 demonstrates that the StaticP model has a higher Mean Absolute Error (MAE) and lower correlation coefficient (R) for all partition methods.",
+      "B": "Table 4 details that the partition methods do not significantly impact the Mean Absolute Error (MAE) of the StaticP model.",
+      "C": "Table 4 shows that the StaticP model has lower Mean Absolute Error (MAE) when compared to R in different partition methods.",
+      "D": "Table 4 indicates that the StaticP model results in higher correlation coefficient (R) regardless of the partition method used."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is derived from the knowledge graph path indicating that Table 4 contains data from the StaticP model, which measures MAE and compares it with R. The correct interpretation is that the StaticP model shows better MAE performance compared to R under different partition methods, as implied in option A.",
+    "path_description": "Path: Table4 --[containsDataFrom]--> StaticP --[measures]--> MAE --[comparedWith]--> R",
+    "context": "Table 4 presents the numerical results for the two partition methods. | Table 4: Comparison of MAE and R Metrics Using Second-Order Static Model | Table 4: Comparison of MAE and R Metrics Using Second-Order Static Model",
+    "paper_id": "581"
+  },
+  {
+    "section": "identificationexperimentsresultsanddiscussion2",
+    "path": {
+      "section": "identificationexperimentsresultsanddiscussion2",
+      "start_entity": "Table4",
+      "end_entity": "Dataset",
+      "hops": [
+        {
+          "from": "Table4",
+          "relation": "containsDataFrom",
+          "to": "StaticP",
+          "context": "Table 4 presents the numerical results for the two partition methods.",
+          "chunk": "11"
+        },
+        {
+          "from": "StaticP",
+          "relation": "evaluatedOn",
+          "to": "TrainingDataset",
+          "context": "a fixed 70% of the dataset is used for training and the 30% left is used for validation.",
+          "chunk": "11"
+        },
+        {
+          "from": "TrainingDataset",
+          "relation": "type",
+          "to": "Dataset",
+          "context": "a fixed 70% of the dataset is used for training and the 30% left is used for validation.",
+          "chunk": "11"
+        }
+      ]
+    },
+    "question": "In the context of the research presented in Table 4, what type of data was primarily used to evaluate the effectiveness of the Static Partitioning method?",
+    "options": {
+      "A": "A dataset primarily consisting of real-time streaming data used for model validation",
+      "B": "A dataset specifically designed for training machine learning models, used in 70% proportion",
+      "C": "A dataset used for regression analysis, with a focus on historical data analysis",
+      "D": "A generic dataset that is commonly used for benchmarking in unrelated fields"
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A because the knowledge graph path indicates that Static Partitioning (StaticP) was evaluated on a Training Dataset, which, based on the context from the paper, uses a fixed 70% of the dataset for training. This implies that the dataset is designed for training purposes in machine learning models.",
+    "path_description": "Path: Table4 --[containsDataFrom]--> StaticP --[evaluatedOn]--> TrainingDataset --[type]--> Dataset",
+    "context": "Table 4 presents the numerical results for the two partition methods. | a fixed 70% of the dataset is used for training and the 30% left is used for validation. | a fixed 70% of the dataset is used for training and the 30% left is used for validation.",
+    "paper_id": "581"
+  },
+  {
+    "section": "identificationprocedure2",
+    "path": {
+      "section": "identificationprocedure2",
+      "start_entity": "VectorXu",
+      "end_entity": "Vector",
+      "hops": [
+        {
+          "from": "VectorXu",
+          "relation": "usedIn",
+          "to": "QuadraticStaticModel",
+          "context": "where Xu represents a vector of unknown coefficients.",
+          "chunk": "7"
+        },
+        {
+          "from": "QuadraticStaticModel",
+          "relation": "uses",
+          "to": "VectorXu",
+          "context": "surge for a quadratic static model for the propeller.",
+          "chunk": "7"
+        },
+        {
+          "from": "VectorXu",
+          "relation": "type",
+          "to": "Vector",
+          "context": "where Xu represents a vector of unknown coefficients.",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "In the context of the identification procedure for a quadratic static model, what does the VectorXu primarily represent?",
+    "options": {
+      "A": "A scalar variable representing the rotational speed of the propeller.",
+      "B": "A matrix of known values crucial for predicting the static behavior of the system.",
+      "C": "A vector of unknown coefficients essential for modeling propeller dynamics.",
+      "D": "A set of differential equations used to describe the surge of the model."
+    },
+    "correct_answer": "C",
+    "explanation": "VectorXu is explicitly described as a vector of unknown coefficients in the paper section 'identificationprocedure2.' It is used within the context of a quadratic static model, which indicates its role in modeling complex behaviors such as the dynamics of a propeller, not as a matrix, scalar, or set of equations.",
+    "path_description": "Path: VectorXu --[usedIn]--> QuadraticStaticModel --[uses]--> VectorXu --[type]--> Vector",
+    "context": "where Xu represents a vector of unknown coefficients. | surge for a quadratic static model for the propeller. | where Xu represents a vector of unknown coefficients.",
+    "paper_id": "581"
+  },
+  {
+    "section": "identificationexperimentsresultsanddiscussion4",
+    "path": {
+      "section": "identificationexperimentsresultsanddiscussion4",
+      "start_entity": "DynamicFirstOrderModel",
+      "end_entity": "SurgeVelocity",
+      "hops": [
+        {
+          "from": "DynamicFirstOrderModel",
+          "relation": "outperforms",
+          "to": "StaticSecondOrderModel",
+          "context": "the dynamic first-order model produces superior results for the sway velocity and yaw rate",
+          "chunk": "13"
+        },
+        {
+          "from": "StaticSecondOrderModel",
+          "relation": "outperforms",
+          "to": "FirstOrderDynamicModel",
+          "context": "the surge velocity shows better results when using the static model",
+          "chunk": "13"
+        },
+        {
+          "from": "FirstOrderDynamicModel",
+          "relation": "measures",
+          "to": "SurgeVelocity",
+          "context": "Surge Velocity u and Estimated Velocity uˆ in the Validation Subset Using First-Order Dynamic Model",
+          "chunk": "13"
+        }
+      ]
+    },
+    "question": "Which model demonstrated the most effective performance in predicting surge velocity, according to the hierarchical competency outlined?",
+    "options": {
+      "A": "The Dynamic Second Order Model, which combines features of the first two models for enhanced prediction.",
+      "B": "The Dynamic First Order Model, as it initially outperforms other models in sway velocity and yaw rate.",
+      "C": "The Static Second Order Model, despite being less effective in other velocity measures.",
+      "D": "The First Order Dynamic Model, specifically noted for its approximation in validation subsets."
+    },
+    "correct_answer": "C",
+    "explanation": "The Static Second Order Model is indicated as the most effective for surge velocity. Despite the Dynamic First Order Model outperforming the Static Second Order Model generally, it is specifically mentioned that surge velocity shows better results with the static model, not the dynamic one.",
+    "path_description": "Path: DynamicFirstOrderModel --[outperforms]--> StaticSecondOrderModel --[outperforms]--> FirstOrderDynamicModel --[measures]--> SurgeVelocity",
+    "context": "the dynamic first-order model produces superior results for the sway velocity and yaw rate | the surge velocity shows better results when using the static model | Surge Velocity u and Estimated Velocity uˆ in the Validation Subset Using First-Order Dynamic Model",
+    "paper_id": "581"
+  },
+  {
+    "section": "conclusions",
+    "path": {
+      "section": "conclusions",
+      "start_entity": "ASV",
+      "end_entity": "Measurement",
+      "hops": [
+        {
+          "from": "ASV",
+          "relation": "hasParameter",
+          "to": "ModelParameters",
+          "context": "the input gain of an ASV with fully model parameters can be estimated.",
+          "chunk": "14"
+        },
+        {
+          "from": "ModelParameters",
+          "relation": "estimatedThrough",
+          "to": "HeadingMeasurements",
+          "context": "The unknown coefficients can be estimated through position and heading measurements.",
+          "chunk": "14"
+        },
+        {
+          "from": "HeadingMeasurements",
+          "relation": "type",
+          "to": "Measurement",
+          "context": "The unknown coefficients can be estimated through position and heading measurements.",
+          "chunk": "14"
+        }
+      ]
+    },
+    "question": "Which type of measurement is essential for estimating the input gain of an Autonomous Surface Vehicle (ASV) when using fully modeled parameters?",
+    "options": {
+      "A": "Depth measurements, which are used to evaluate the underwater topography around the ASV.",
+      "B": "Temperature measurements, which are essential for assessing the environmental impact on the ASV.",
+      "C": "Speed measurements, which are necessary to calculate the velocity and motion of the ASV.",
+      "D": "Heading measurements, which are crucial for determining the orientation and direction."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A, Heading measurements. According to the knowledge graph, the 'ModelParameters' of an ASV are estimated through 'HeadingMeasurements', which are a type of 'Measurement'. Heading measurements are specifically related to determining the orientation and direction of the ASV, which is critical for accurate input gain estimation with fully modeled parameters.",
+    "path_description": "Path: ASV --[hasParameter]--> ModelParameters --[estimatedThrough]--> HeadingMeasurements --[type]--> Measurement",
+    "context": "the input gain of an ASV with fully model parameters can be estimated. | The unknown coefficients can be estimated through position and heading measurements. | The unknown coefficients can be estimated through position and heading measurements.",
+    "paper_id": "581"
+  }
+]

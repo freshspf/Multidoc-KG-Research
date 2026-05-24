@@ -1,0 +1,174 @@
+[
+  {
+    "section": "architectureof25drootoftrust3",
+    "path": {
+      "section": "architectureof25drootoftrust3",
+      "start_entity": "DPU_PRS",
+      "end_entity": "Entity",
+      "hops": [
+        {
+          "from": "DPU_PRS",
+          "relation": "definesPolicyFor",
+          "to": "DPU",
+          "context": "Each DPU PRS entry defines one DPU policy concerning some particular data.",
+          "chunk": "6"
+        },
+        {
+          "from": "DPU",
+          "relation": "partOf",
+          "to": "TRANSMON",
+          "context": "The DPU forms another integral part of the TRANSMON, and its function is to provide data-level protection.",
+          "chunk": "6"
+        },
+        {
+          "from": "TRANSMON",
+          "relation": "type",
+          "to": "Entity",
+          "context": "TRANSMONs block all read or write requests that are violating any of their APU/DPU policies.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the architecture of 2.5D Root of Trust, how does the TRANSMON ensure data-level protection?",
+    "options": {
+      "A": "By blocking all read or write requests that violate any of its integrated DPU policies.",
+      "B": "By directly modifying data to comply with high-level security protocols automatically.",
+      "C": "By encrypting all data processed by the DPUs, based on the predefined policies.",
+      "D": "Through the isolated compartmentalization of each DPU, ensuring no data leaks occur."
+    },
+    "correct_answer": "A",
+    "explanation": "The TRANSMON blocks all read or write requests that are not in compliance with the policies defined by the DPU PRS entries. This ensures data-level protection by adhering to the DPU policies which form an integral part of the TRANSMON.",
+    "path_description": "Path: DPU_PRS --[definesPolicyFor]--> DPU --[partOf]--> TRANSMON --[type]--> Entity",
+    "context": "Each DPU PRS entry defines one DPU policy concerning some particular data. | The DPU forms another integral part of the TRANSMON, and its function is to provide data-level protection. | TRANSMONs block all read or write requests that are violating any of their APU/DPU policies.",
+    "paper_id": "161"
+  },
+  {
+    "section": "architectureof25drootoftrust3",
+    "path": {
+      "section": "architectureof25drootoftrust3",
+      "start_entity": "PROC-0",
+      "end_entity": "Entity",
+      "hops": [
+        {
+          "from": "PROC-0",
+          "relation": "updatesPoliciesFor",
+          "to": "TRANSMON",
+          "context": "The trusted PROC-0 within ISEA serves for mapping the system-level shared memory spaces, and for compiling and updating the application-specific sets of policies for each TRANSMON.",
+          "chunk": "6"
+        },
+        {
+          "from": "TRANSMON",
+          "relation": "blocksRequests",
+          "to": "APU_PRS",
+          "context": "TRANSMONs block all read or write requests that are violating any of their APU/DPU policies.",
+          "chunk": "6"
+        },
+        {
+          "from": "APU_PRS",
+          "relation": "type",
+          "to": "Entity",
+          "context": "Each APU PRS entry defines one APU policy concerning some particular region in the system’s shared memory space.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the ISEA system architecture, how does the PROC-0 contribute to enforcing memory access policies via TRANSMONs?",
+    "options": {
+      "A": "PROC-0 generates APU PRS entries, which are then used by TRANSMONs to block or allow memory access requests.",
+      "B": "PROC-0 serves as a backup to TRANSMONs by blocking requests that TRANSMONs fail to address according to APU PRS rules.",
+      "C": "PROC-0 directly blocks any requests that attempt to violate the system-level shared memory spaces using TRANSMONs.",
+      "D": "PROC-0 updates policies for TRANSMONs, which then block requests violating these policies as defined by APU PRS entries."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A because it correctly describes the chain of responsibility where PROC-0 updates the TRANSMONs' policies, and these TRANSMONs utilize the policies defined in the APU PRS entries to enforce memory access controls, thereby blocking requests that violate these policies.",
+    "path_description": "Path: PROC-0 --[updatesPoliciesFor]--> TRANSMON --[blocksRequests]--> APU_PRS --[type]--> Entity",
+    "context": "The trusted PROC-0 within ISEA serves for mapping the system-level shared memory spaces, and for compiling and updating the application-specific sets of policies for each TRANSMON. | TRANSMONs block all read or write requests that are violating any of their APU/DPU policies. | Each APU PRS entry defines one APU policy concerning some particular region in the system’s shared memory space.",
+    "paper_id": "161"
+  },
+  {
+    "section": "experimentalevaluation2",
+    "path": {
+      "section": "experimentalevaluation2",
+      "start_entity": "APU",
+      "end_entity": "SharedMemory",
+      "hops": [
+        {
+          "from": "APU",
+          "relation": "blocks",
+          "to": "Core0x2",
+          "context": "The transaction is blocked by the APU",
+          "chunk": "10"
+        },
+        {
+          "from": "Core0x2",
+          "relation": "accesses",
+          "to": "MemoryRange0x40020000_0x4002006C",
+          "context": "the core with ID 0x2 has access to the address range 0x4002_0000 to 0x4002_006C",
+          "chunk": "10"
+        },
+        {
+          "from": "MemoryRange0x40020000_0x4002006C",
+          "relation": "partOf",
+          "to": "SharedMemory",
+          "context": "the core with ID 0x2 has access to the address range 0x4002_0000 to 0x4002_006C",
+          "chunk": "10"
+        }
+      ]
+    },
+    "question": "In the context of memory access in a shared memory system, how does the APU influence the transaction process when Core0x2 accesses a specific memory range?",
+    "options": {
+      "A": "The APU accelerates the transaction, enabling faster access for Core0x2 to the memory range 0x40020000 to 0x4002006C, increasing efficiency in shared memory utilization.",
+      "B": "The APU blocks the transaction, affecting Core0x2's access to the memory range 0x40020000 to 0x4002006C, which is part of the shared memory.",
+      "C": "The APU monitors the transaction without influencing Core0x2's access to the memory range 0x40020000 to 0x4002006C which is part of the shared memory.",
+      "D": "The APU redirects the transaction, causing Core0x2 to access a different memory range within the shared memory infrastructure."
+    },
+    "correct_answer": "B",
+    "explanation": "According to the knowledge path, the APU blocks the transaction to Core0x2, which directly affects its ability to access the specified memory range, part of the shared memory. The other options either incorrectly suggest a different role of the APU or misrepresent its impact on the transaction.",
+    "path_description": "Path: APU --[blocks]--> Core0x2 --[accesses]--> MemoryRange0x40020000_0x4002006C --[partOf]--> SharedMemory",
+    "context": "The transaction is blocked by the APU | the core with ID 0x2 has access to the address range 0x4002_0000 to 0x4002_006C | the core with ID 0x2 has access to the address range 0x4002_0000 to 0x4002_006C",
+    "paper_id": "161"
+  },
+  {
+    "section": "experimentalevaluation2",
+    "path": {
+      "section": "experimentalevaluation2",
+      "start_entity": "APU",
+      "end_entity": "MemoryRegions",
+      "hops": [
+        {
+          "from": "APU",
+          "relation": "blocks",
+          "to": "Core0x2",
+          "context": "The transaction is blocked by the APU",
+          "chunk": "10"
+        },
+        {
+          "from": "Core0x2",
+          "relation": "blockedBy",
+          "to": "APU",
+          "context": "The transaction is blocked by the APU, and the data in the memory remain protected and as is",
+          "chunk": "10"
+        },
+        {
+          "from": "APU",
+          "relation": "protects",
+          "to": "MemoryRegions",
+          "context": "we protect the shared-memory regions assigned to each core via APU policies",
+          "chunk": "10"
+        }
+      ]
+    },
+    "question": "In the context of the experimental evaluation, how does the APU contribute to the security of data during a transaction?",
+    "options": {
+      "A": "The APU delegates security responsibilities to Core0x2, which independently secures the memory regions.",
+      "B": "The APU enhances the speed of data transfer to Core0x2, indirectly securing the transaction data.",
+      "C": "The APU directly modifies data in the memory regions to prevent unauthorized access during the transaction.",
+      "D": "The APU blocks a transaction at Core0x2, ensuring that the memory regions remain unchanged and secure."
+    },
+    "correct_answer": "D",
+    "explanation": "The APU blocks the transaction at Core0x2, which is a part of its policy to protect the memory regions assigned to each core. This ensures that the data in these regions remain unchanged and protected from unauthorized changes or access during the transaction.",
+    "path_description": "Path: APU --[blocks]--> Core0x2 --[blockedBy]--> APU --[protects]--> MemoryRegions",
+    "context": "The transaction is blocked by the APU | The transaction is blocked by the APU, and the data in the memory remain protected and as is | we protect the shared-memory regions assigned to each core via APU policies",
+    "paper_id": "161"
+  }
+]

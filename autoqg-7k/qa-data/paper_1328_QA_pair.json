@@ -1,0 +1,217 @@
+[
+  {
+    "section": "introduction1",
+    "path": {
+      "section": "introduction1",
+      "start_entity": "PowerManagementUnit",
+      "end_entity": "Component",
+      "hops": [
+        {
+          "from": "PowerManagementUnit",
+          "relation": "applies",
+          "to": "DynamicVoltageAndFrequencyScaling",
+          "context": "To keep the power consumption of the compute domain within its allocated power budget, PMU applies dynamic voltage and frequency scaling (DVFS).",
+          "chunk": "0"
+        },
+        {
+          "from": "DynamicVoltageAndFrequencyScaling",
+          "relation": "increasesPerformanceOf",
+          "to": "GraphicsEngine",
+          "context": "To keep the power consumption of the compute domain within its allocated power budget, PMU applies dynamic voltage and frequency scaling (DVFS) to 2) increase the graphics engines’ performance.",
+          "chunk": "0"
+        },
+        {
+          "from": "GraphicsEngine",
+          "relation": "type",
+          "to": "Component",
+          "context": "CPU cores and graphics engines in the compute domain share the same power budget.",
+          "chunk": "0"
+        }
+      ]
+    },
+    "question": "In compute systems where the Power Management Unit applies Dynamic Voltage and Frequency Scaling, what is the primary purpose of this application regarding the graphics engine?",
+    "options": {
+      "A": "To enhance the performance of the graphics engine by optimizing power usage within allocated budgets",
+      "B": "To increase the overall cooling efficiency of the compute domain by managing the graphics engine's temperature",
+      "C": "To reduce the power consumption of the graphics engine to fit under a strict power budget",
+      "D": "To synchronize the power usage between the graphics engine and CPU cores for balanced performance"
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is 'B' because the paper clearly states that Dynamic Voltage and Frequency Scaling (DVFS) applied by the Power Management Unit (PMU) is intended to increase the performance of the graphics engine within the allocated power budget. This is a direct application to improve performance while managing power consumption efficiently.",
+    "path_description": "Path: PowerManagementUnit --[applies]--> DynamicVoltageAndFrequencyScaling --[increasesPerformanceOf]--> GraphicsEngine --[type]--> Component",
+    "context": "To keep the power consumption of the compute domain within its allocated power budget, PMU applies dynamic voltage and frequency scaling (DVFS). | To keep the power consumption of the compute domain within its allocated power budget, PMU applies dynamic voltage and frequency scaling (DVFS) to 2) increase the graphics engines’ performance. | CPU cores and graphics engines in the compute domain share the same power budget.",
+    "paper_id": "154"
+  },
+  {
+    "section": "background1",
+    "path": {
+      "section": "background1",
+      "start_entity": "MobileSoCArchitecture",
+      "end_entity": "Component",
+      "hops": [
+        {
+          "from": "MobileSoCArchitecture",
+          "relation": "integrates",
+          "to": "ComputeDomain",
+          "context": "A high-end mobile processor is a system-on-chip (SoC) that typically integrates three main domains into a single chip.",
+          "chunk": "2"
+        },
+        {
+          "from": "ComputeDomain",
+          "relation": "includes",
+          "to": "GraphicsEngine",
+          "context": "Compute domain includes CPU cores and graphics engines.",
+          "chunk": "2"
+        },
+        {
+          "from": "GraphicsEngine",
+          "relation": "type",
+          "to": "Component",
+          "context": "Compute domain includes CPU cores and graphics engines.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the context of high-end mobile processors, which component is directly categorized under the compute domain and specifically represents a type of component?",
+    "options": {
+      "A": "The Graphics Engine, which is integral to handling visual processing tasks.",
+      "B": "The Central Processing Unit (CPU) cores, which primarily manage general computing tasks.",
+      "C": "The Connectivity Module, which facilitates communication between the SoC and other devices.",
+      "D": "The Memory Controller, which manages data flow between the processor and memory."
+    },
+    "correct_answer": "A",
+    "explanation": "According to the knowledge graph path, the Compute Domain includes the Graphics Engine, and the Graphics Engine is specifically indicated as a type of 'Component.' The other options, while part of a SoC, do not fit the specific path from Compute Domain to Graphics Engine as a Component.",
+    "path_description": "Path: MobileSoCArchitecture --[integrates]--> ComputeDomain --[includes]--> GraphicsEngine --[type]--> Component",
+    "context": "A high-end mobile processor is a system-on-chip (SoC) that typically integrates three main domains into a single chip. | Compute domain includes CPU cores and graphics engines. | Compute domain includes CPU cores and graphics engines.",
+    "paper_id": "154"
+  },
+  {
+    "section": "motivation1",
+    "path": {
+      "section": "motivation1",
+      "start_entity": "compares",
+      "end_entity": "Voltage",
+      "hops": [
+        {
+          "from": "compares",
+          "relation": "BaselineSetup",
+          "to": "MD_DVFS",
+          "context": "We use two setups for our experiment, as we show in Table 1: 1) To examine the performance of the processor without applying DVFS across multiple domains, we use a baseline setup. 2) To evaluate the benefits of applying DVFS across multiple domains, we use a multi-domain DVFS setup (MD-DVFS).",
+          "chunk": "4"
+        },
+        {
+          "from": "MD_DVFS",
+          "relation": "reducesVoltage",
+          "to": "V_SA",
+          "context": "Second, we reduce the shared voltage (V_SA) and DDRIO-digital voltage (V_IO) proportionally to the minimum functional voltage corresponding to the new frequencies in the IO and memory domains.",
+          "chunk": "4"
+        },
+        {
+          "from": "V_SA",
+          "relation": "type",
+          "to": "Voltage",
+          "context": "Since MC and IO interconnect share the same voltage (V_SA).",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the context of evaluating the benefits of multi-domain DVFS (MD-DVFS), which specific type of voltage does MD-DVFS influence directly by reducing its levels?",
+    "options": {
+      "A": "The voltage supplied to peripheral devices, often denoted as V_Peripheral.",
+      "B": "The graphics processor voltage, typically referred to as V_GPU.",
+      "C": "The core voltage supplied directly to the CPU, commonly referred to as V_Core.",
+      "D": "The shared voltage between Memory Controller and IO interconnect, known as V_SA."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A. The paper explains that in the multi-domain DVFS setup, the voltage V_SA, which is shared by the Memory Controller (MC) and IO interconnect, is reduced. This reduction is part of the strategy to lower power consumption while maintaining functional operation of the system components. V_Core, V_Peripheral, and V_GPU are not mentioned in this context.",
+    "path_description": "Path: compares --[BaselineSetup]--> MD_DVFS --[reducesVoltage]--> V_SA --[type]--> Voltage",
+    "context": "We use two setups for our experiment, as we show in Table 1: 1) To examine the performance of the processor without applying DVFS across multiple domains, we use a baseline setup. 2) To evaluate the benefits of applying DVFS across multiple domains, we use a multi-domain DVFS setup (MD-DVFS). | Second, we reduce the shared voltage (V_SA) and DDRIO-digital voltage (V_IO) proportionally to the minimum functional voltage corresponding to the new frequencies in the IO and memory domains. | Since MC and IO interconnect share the same voltage (V_SA).",
+    "paper_id": "154"
+  },
+  {
+    "section": "sysscalearchitecture1",
+    "path": {
+      "section": "sysscalearchitecture1",
+      "start_entity": "SysScale",
+      "end_entity": "StaticAndDynamicDemands",
+      "hops": [
+        {
+          "from": "SysScale",
+          "relation": "hasComponent",
+          "to": "DemandPredictionMechanism",
+          "context": "SysScale achieves these two goals with three key components.",
+          "chunk": "6"
+        },
+        {
+          "from": "DemandPredictionMechanism",
+          "relation": "predicts",
+          "to": "PerformanceDemands",
+          "context": "The SysScale demand prediction mechanism uses peripheral configuration registers and new performance counters to predict the performance demands of the SoC domains.",
+          "chunk": "6"
+        },
+        {
+          "from": "PerformanceDemands",
+          "relation": "dividedInto",
+          "to": "StaticAndDynamicDemands",
+          "context": "We divide the performance demands into two categories: static and dynamic performance demands.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the SysScale architecture, how does the demand prediction mechanism categorize the predicted performance demands of SoC domains?",
+    "options": {
+      "A": "It predicts them solely based on historical data without categorization.",
+      "B": "It categorizes them based on the utilization of peripheral configuration registers and new performance counters.",
+      "C": "It separates them into hardware-driven demands and software-driven demands.",
+      "D": "It divides them into static performance demands and dynamic performance demands."
+    },
+    "correct_answer": "D",
+    "explanation": "The SysScale architecture uses a demand prediction mechanism that categorizes the performance demands into static and dynamic performance demands, which is directly stated in the provided context.",
+    "path_description": "Path: SysScale --[hasComponent]--> DemandPredictionMechanism --[predicts]--> PerformanceDemands --[dividedInto]--> StaticAndDynamicDemands",
+    "context": "SysScale achieves these two goals with three key components. | The SysScale demand prediction mechanism uses peripheral configuration registers and new performance counters to predict the performance demands of the SoC domains. | We divide the performance demands into two categories: static and dynamic performance demands.",
+    "paper_id": "154"
+  },
+  {
+    "section": "sysscalearchitecture4",
+    "path": {
+      "section": "sysscalearchitecture4",
+      "start_entity": "GraphicsDriver",
+      "end_entity": "Technology",
+      "hops": [
+        {
+          "from": "GraphicsDriver",
+          "relation": "initiatesDVFSRequestFor",
+          "to": "GraphicsEngines",
+          "context": "The OS and the graphics driver normally initiate DVFS requests for the graphics engines...",
+          "chunk": "9"
+        },
+        {
+          "from": "GraphicsEngines",
+          "relation": "supports",
+          "to": "DVFS",
+          "context": "CPU cores and the graphics engines support independent DVFS mechanisms.",
+          "chunk": "9"
+        },
+        {
+          "from": "DVFS",
+          "relation": "type",
+          "to": "Technology",
+          "context": "CPU cores and the graphics engines support independent DVFS mechanisms.",
+          "chunk": "9"
+        }
+      ]
+    },
+    "question": "Which technology is initiated by the graphics driver for the graphics engines that is independently supported by both CPU cores and graphics engines?",
+    "options": {
+      "A": "Direct Memory Access",
+      "B": "Simultaneous Multi-threading",
+      "C": "Graphic Processing Unit acceleration",
+      "D": "Dynamic Voltage and Frequency Scaling (DVFS)"
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A, Dynamic Voltage and Frequency Scaling (DVFS). The knowledge path shows that the graphics driver initiates DVFS requests for the graphics engines. The paper context confirms that CPU cores and graphics engines support independent DVFS mechanisms.",
+    "path_description": "Path: GraphicsDriver --[initiatesDVFSRequestFor]--> GraphicsEngines --[supports]--> DVFS --[type]--> Technology",
+    "context": "The OS and the graphics driver normally initiate DVFS requests for the graphics engines... | CPU cores and the graphics engines support independent DVFS mechanisms. | CPU cores and the graphics engines support independent DVFS mechanisms.",
+    "paper_id": "154"
+  }
+]

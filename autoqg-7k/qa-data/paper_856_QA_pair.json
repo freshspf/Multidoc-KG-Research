@@ -1,0 +1,260 @@
+[
+  {
+    "section": "sparcesparsityawaregeneralpurposecoreextensions3",
+    "path": {
+      "section": "sparcesparsityawaregeneralpurposecoreextensions3",
+      "start_entity": "SPARCE",
+      "end_entity": "isSparse",
+      "hops": [
+        {
+          "from": "SPARCE",
+          "relation": "contains",
+          "to": "SparseValueChecker",
+          "context": "Sparse Value Checker (SVC) is added to the write-back stage of the SPARCE processor.",
+          "chunk": "5"
+        },
+        {
+          "from": "SparseValueChecker",
+          "relation": "updates",
+          "to": "SpRF",
+          "context": "Sparse Value Checker updates the SpRF when the output of an instruction with destination register Rd is zero.",
+          "chunk": "5"
+        },
+        {
+          "from": "SpRF",
+          "relation": "contains",
+          "to": "isSparse",
+          "context": "SpRF contains isSparse field which is updated by the Sparse Value Checker.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the SPARCE processor architecture, how does the Sparse Value Checker contribute to the functionality of the SpRF?",
+    "options": {
+      "A": "It resets all fields in the SpRF when the processor encounters a non-zero output in any register.",
+      "B": "It prevents the SpRF from updating unless all outputs from the instructions are verified as sparse.",
+      "C": "It decreases the latency of write-back operations by bypassing the isSparse field updates in the SpRF.",
+      "D": "It updates the isSparse field in the SpRF when an instruction's destination register output is zero."
+    },
+    "correct_answer": "D",
+    "explanation": "The Sparse Value Checker updates the isSparse field of the SpRF specifically when the output of an instruction targeting a destination register Rd is zero, as per the function described in the context provided. Options B, C, and D introduce inaccuracies or conditions not supported by the description in the provided paper section.",
+    "path_description": "Path: SPARCE --[contains]--> SparseValueChecker --[updates]--> SpRF --[contains]--> isSparse",
+    "context": "Sparse Value Checker (SVC) is added to the write-back stage of the SPARCE processor. | Sparse Value Checker updates the SpRF when the output of an instruction with destination register Rd is zero. | SpRF contains isSparse field which is updated by the Sparse Value Checker.",
+    "paper_id": "105"
+  },
+  {
+    "section": "results2",
+    "path": {
+      "section": "results2",
+      "start_entity": "SPARCE",
+      "end_entity": "Dir-Conv-Scalar",
+      "hops": [
+        {
+          "from": "SPARCE",
+          "relation": "improves",
+          "to": "OpenBlas-SIMD4",
+          "context": "For the OpenBLAS-SIMD4 implementation, the underlying GEMM involves supplementary operations like memory allocate, copy and free operations.",
+          "chunk": "9"
+        },
+        {
+          "from": "OpenBlas-SIMD4",
+          "relation": "evaluatedOn",
+          "to": "AlexNet",
+          "context": "This occupies 14.3% and 16.9% of the total runtimes of AlexNet for Dir-Conv-Scalar and OpenBLAS-SIMD4 implementations, respectively.",
+          "chunk": "9"
+        },
+        {
+          "from": "AlexNet",
+          "relation": "uses",
+          "to": "Dir-Conv-Scalar",
+          "context": "This occupies 14.3% and 16.9% of the total runtimes of AlexNet for Dir-Conv-Scalar and OpenBLAS-SIMD4 implementations, respectively.",
+          "chunk": "9"
+        }
+      ]
+    },
+    "question": "In the context of the SPARCE framework enhancing OpenBlas-SIMD4, which is evaluated on AlexNet using Dir-Conv-Scalar, how does the supplementary operation of memory management impact the total runtime?",
+    "options": {
+      "A": "It increases the total runtime by 16.9% for Dir-Conv-Scalar and 14.3% for OpenBlas-SIMD4 implementations.",
+      "B": "It reduces the total runtime by 14.3% for Dir-Conv-Scalar and 16.9% for OpenBlas-SIMD4 implementations due to efficient allocation.",
+      "C": "It increases the total runtime by 14.3% for Dir-Conv-Scalar and 16.9% for OpenBlas-SIMD4 implementations.",
+      "D": "It has no significant impact on the total runtime for either Dir-Conv-Scalar or OpenBlas-SIMD4 implementations."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A. The paper clearly states that the memory allocate, copy, and free operations occupy 14.3% of the total runtime for the Dir-Conv-Scalar implementation and 16.9% for the OpenBlas-SIMD4 implementation. This indicates an increase in total runtime due to these operations.",
+    "path_description": "Path: SPARCE --[improves]--> OpenBlas-SIMD4 --[evaluatedOn]--> AlexNet --[uses]--> Dir-Conv-Scalar",
+    "context": "For the OpenBLAS-SIMD4 implementation, the underlying GEMM involves supplementary operations like memory allocate, copy and free operations. | This occupies 14.3% and 16.9% of the total runtimes of AlexNet for Dir-Conv-Scalar and OpenBLAS-SIMD4 implementations, respectively. | This occupies 14.3% and 16.9% of the total runtimes of AlexNet for Dir-Conv-Scalar and OpenBLAS-SIMD4 implementations, respectively.",
+    "paper_id": "105"
+  },
+  {
+    "section": "results2",
+    "path": {
+      "section": "results2",
+      "start_entity": "SPARCE",
+      "end_entity": "DNNModel",
+      "hops": [
+        {
+          "from": "SPARCE",
+          "relation": "optimizedFor",
+          "to": "OpenBlas-SIMD4",
+          "context": "For the OpenBLAS-SIMD4 implementation, the underlying GEMM involves supplementary operations like memory allocate, copy and free operations.",
+          "chunk": "9"
+        },
+        {
+          "from": "OpenBlas-SIMD4",
+          "relation": "evaluatedOn",
+          "to": "AlexNet",
+          "context": "This occupies 14.3% and 16.9% of the total runtimes of AlexNet for Dir-Conv-Scalar and OpenBLAS-SIMD4 implementations, respectively.",
+          "chunk": "9"
+        },
+        {
+          "from": "AlexNet",
+          "relation": "type",
+          "to": "DNNModel",
+          "context": "This occupies 14.3% and 16.9% of the total runtimes of AlexNet for Dir-Conv-Scalar and OpenBLAS-SIMD4 implementations, respectively.",
+          "chunk": "9"
+        }
+      ]
+    },
+    "question": "In the context of optimizing SPARCE for DNN models using OpenBlas-SIMD4, which operation occupies the highest percentage of total runtime when evaluating AlexNet?",
+    "options": {
+      "A": "Memory allocate, copy and free operations occupy 14.3% of the total runtime in OpenBLAS-SIMD4 implementation.",
+      "B": "Data preprocessing tasks occupy less than 10% of the total runtime in OpenBLAS-SIMD4 implementation.",
+      "C": "Execution of convolutional layers occupies over 20% of the total runtime in OpenBLAS-SIMD4 implementation.",
+      "D": "Memory allocate, copy and free operations occupy 16.9% of the total runtime in OpenBLAS-SIMD4 implementation."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A, as the context explicitly states that memory allocate, copy and free operations occupy 16.9% of the total runtimes of AlexNet for the OpenBLAS-SIMD4 implementation. This is higher than the 14.3% occupied by these operations for the Dir-Conv-Scalar implementation and is the highest mentioned percentage for any specific operation in the provided context.",
+    "path_description": "Path: SPARCE --[optimizedFor]--> OpenBlas-SIMD4 --[evaluatedOn]--> AlexNet --[type]--> DNNModel",
+    "context": "For the OpenBLAS-SIMD4 implementation, the underlying GEMM involves supplementary operations like memory allocate, copy and free operations. | This occupies 14.3% and 16.9% of the total runtimes of AlexNet for Dir-Conv-Scalar and OpenBLAS-SIMD4 implementations, respectively. | This occupies 14.3% and 16.9% of the total runtimes of AlexNet for Dir-Conv-Scalar and OpenBLAS-SIMD4 implementations, respectively.",
+    "paper_id": "105"
+  },
+  {
+    "section": "results2",
+    "path": {
+      "section": "results2",
+      "start_entity": "Dir-Conv-Scalar",
+      "end_entity": "Implementation",
+      "hops": [
+        {
+          "from": "Dir-Conv-Scalar",
+          "relation": "evaluatedOn",
+          "to": "AlexNet",
+          "context": "This occupies 14.3% and 16.9% of the total runtimes of AlexNet for Dir-Conv-Scalar and OpenBLAS-SIMD4 implementations, respectively.",
+          "chunk": "9"
+        },
+        {
+          "from": "AlexNet",
+          "relation": "uses",
+          "to": "OpenBlas-SIMD4",
+          "context": "This occupies 14.3% and 16.9% of the total runtimes of AlexNet for Dir-Conv-Scalar and OpenBLAS-SIMD4 implementations, respectively.",
+          "chunk": "9"
+        },
+        {
+          "from": "OpenBlas-SIMD4",
+          "relation": "type",
+          "to": "Implementation",
+          "context": "in the context of both Dir-Conv-Scalar and OpenBlas-SIMD4 implementations",
+          "chunk": "9"
+        }
+      ]
+    },
+    "question": "In the context of implementing AlexNet, what implication does the use of OpenBlas-SIMD4 have compared to Dir-Conv-Scalar in terms of total runtime percentage?",
+    "options": {
+      "A": "OpenBlas-SIMD4 occupies a larger percentage of AlexNet's total runtime than Dir-Conv-Scalar.",
+      "B": "OpenBlas-SIMD4 and Dir-Conv-Scalar occupy the same percentage of AlexNet's total runtime.",
+      "C": "OpenBlas-SIMD4 occupies a smaller percentage of AlexNet's total runtime than Dir-Conv-Scalar.",
+      "D": "The implementation type of OpenBlas-SIMD4 is less efficient than Dir-Conv-Scalar in runtime utilization."
+    },
+    "correct_answer": "A",
+    "explanation": "According to the provided context, OpenBlas-SIMD4 occupies 16.9% of the total runtime of AlexNet, which is higher than the 14.3% occupied by Dir-Conv-Scalar. Therefore, OpenBlas-SIMD4 uses a larger percentage of the total runtime.",
+    "path_description": "Path: Dir-Conv-Scalar --[evaluatedOn]--> AlexNet --[uses]--> OpenBlas-SIMD4 --[type]--> Implementation",
+    "context": "This occupies 14.3% and 16.9% of the total runtimes of AlexNet for Dir-Conv-Scalar and OpenBLAS-SIMD4 implementations, respectively. | This occupies 14.3% and 16.9% of the total runtimes of AlexNet for Dir-Conv-Scalar and OpenBLAS-SIMD4 implementations, respectively. | in the context of both Dir-Conv-Scalar and OpenBlas-SIMD4 implementations",
+    "paper_id": "105"
+  },
+  {
+    "section": "results3",
+    "path": {
+      "section": "results3",
+      "start_entity": "GEMMRoutine",
+      "end_entity": "IdealExecution",
+      "hops": [
+        {
+          "from": "GEMMRoutine",
+          "relation": "utilizedIn",
+          "to": "OpenBLAS-SIMD4",
+          "context": "the intelligent instruction ordering in the GEMM routine utilized in the implementation.",
+          "chunk": "10"
+        },
+        {
+          "from": "OpenBLAS-SIMD4",
+          "relation": "hasDisparityIn",
+          "to": "InstructionsExecuted",
+          "context": "the disparity in the fraction of instructions executed and the resultant execution time benefits is more pronounced for the OpenBLAS-SIMD4 implementation.",
+          "chunk": "10"
+        },
+        {
+          "from": "InstructionsExecuted",
+          "relation": "isLargerThan",
+          "to": "IdealExecution",
+          "context": "We find the number of instructions executed to be larger than ideal.",
+          "chunk": "10"
+        }
+      ]
+    },
+    "question": "In the context of the GEMM routine's performance within the OpenBLAS-SIMD4 implementation, what primarily contributes to the increased execution time?",
+    "options": {
+      "A": "Execution time is less than ideal due to unexpected software overhead in the GEMM routine.",
+      "B": "The number of instructions executed in OpenBLAS-SIMD4 is significantly higher than the ideal model anticipates.",
+      "C": "The routine was unable to efficiently utilize SIMD capabilities, leading to performance degradation.",
+      "D": "The disparity in the execution times is mainly due to the lower than expected use of SIMD instructions."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A, as the context specifies that the number of instructions executed by the OpenBLAS-SIMD4 implementation was larger than ideal, which implies that this excess is what leads to increased execution times. Options B, C, and D are misleading since they suggest incorrect reasons like inefficient SIMD utilization or software overhead, which are not supported by the given context.",
+    "path_description": "Path: GEMMRoutine --[utilizedIn]--> OpenBLAS-SIMD4 --[hasDisparityIn]--> InstructionsExecuted --[isLargerThan]--> IdealExecution",
+    "context": "the intelligent instruction ordering in the GEMM routine utilized in the implementation. | the disparity in the fraction of instructions executed and the resultant execution time benefits is more pronounced for the OpenBLAS-SIMD4 implementation. | We find the number of instructions executed to be larger than ideal.",
+    "paper_id": "105"
+  },
+  {
+    "section": "results3",
+    "path": {
+      "section": "results3",
+      "start_entity": "GEMMRoutine",
+      "end_entity": "Metric",
+      "hops": [
+        {
+          "from": "GEMMRoutine",
+          "relation": "utilizedIn",
+          "to": "OpenBLAS-SIMD4",
+          "context": "the intelligent instruction ordering in the GEMM routine utilized in the implementation.",
+          "chunk": "10"
+        },
+        {
+          "from": "OpenBLAS-SIMD4",
+          "relation": "hasDisparityIn",
+          "to": "InstructionsExecuted",
+          "context": "the disparity in the fraction of instructions executed and the resultant execution time benefits is more pronounced for the OpenBLAS-SIMD4 implementation.",
+          "chunk": "10"
+        },
+        {
+          "from": "InstructionsExecuted",
+          "relation": "type",
+          "to": "Metric",
+          "context": "We find the number of instructions executed to be larger than ideal.",
+          "chunk": "10"
+        }
+      ]
+    },
+    "question": "In the study detailed in 'results3', how does the GEMM routine's use of OpenBLAS-SIMD4 primarily enhance performance?",
+    "options": {
+      "A": "By significantly increasing the number of instructions executed, leading directly to enhanced execution time benefits.",
+      "B": "By optimizing the order of instructions, which reduces the overall number of instructions needed for execution.",
+      "C": "By decreasing the fraction of instructions executed, thereby minimizing the computational load and execution time.",
+      "D": "By increasing the disparity in the fraction of instructions executed, thus indirectly improving the execution time."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is D. The question is based on the knowledge path where the GEMM routine utilizes OpenBLAS-SIMD4, which has a pronounced disparity in the fraction of instructions executed, leading to execution time benefits. This suggests that the disparity in instruction execution (not merely increasing or decreasing the number of instructions) is key to performance enhancement, as highlighted by the context provided.",
+    "path_description": "Path: GEMMRoutine --[utilizedIn]--> OpenBLAS-SIMD4 --[hasDisparityIn]--> InstructionsExecuted --[type]--> Metric",
+    "context": "the intelligent instruction ordering in the GEMM routine utilized in the implementation. | the disparity in the fraction of instructions executed and the resultant execution time benefits is more pronounced for the OpenBLAS-SIMD4 implementation. | We find the number of instructions executed to be larger than ideal.",
+    "paper_id": "105"
+  }
+]

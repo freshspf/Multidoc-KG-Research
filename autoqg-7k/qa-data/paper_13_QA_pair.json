@@ -1,0 +1,217 @@
+[
+  {
+    "section": "trustmesharchitectureanddesignprinciples2",
+    "path": {
+      "section": "trustmesharchitectureanddesignprinciples2",
+      "start_entity": "ScheduleCompleteness",
+      "end_entity": "Concept",
+      "hops": [
+        {
+          "from": "ScheduleCompleteness",
+          "relation": "evaluatedOn",
+          "to": "Task",
+          "context": "3) Schedule Completeness: ∀t ∈ V : ∃!n ∈ N : t ∈ schedule(n)",
+          "chunk": "4"
+        },
+        {
+          "from": "Task",
+          "relation": "mappedTo",
+          "to": "TopologicalLevel",
+          "context": "level : V → N maps each task to its topological level",
+          "chunk": "4"
+        },
+        {
+          "from": "TopologicalLevel",
+          "relation": "type",
+          "to": "Concept",
+          "context": "level : V → N maps each task to its topological level",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the context of 'trustmesharchitectureanddesignprinciples2', how is the concept of Schedule Completeness evaluated in relation to the mapping of tasks?",
+    "options": {
+      "A": "Schedule Completeness is maintained by ensuring each task is included in at least two different schedules at varying topological levels.",
+      "B": "Schedule Completeness is determined by the number of tasks that can be simultaneously scheduled at the same topological level.",
+      "C": "Schedule Completeness verifies that each task is repeated across various schedules linked to multiple topological levels.",
+      "D": "Schedule Completeness ensures each task belongs to one and only one schedule mapped distinctly to its topological level."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A because, according to the given context, Schedule Completeness is defined such that each task is uniquely included in a schedule, and each task is mapped to a specific topological level. The other options introduce concepts like task repetition and multiple schedules which are not supported by the provided definition.",
+    "path_description": "Path: ScheduleCompleteness --[evaluatedOn]--> Task --[mappedTo]--> TopologicalLevel --[type]--> Concept",
+    "context": "3) Schedule Completeness: ∀t ∈ V : ∃!n ∈ N : t ∈ schedule(n) | level : V → N maps each task to its topological level | level : V → N maps each task to its topological level",
+    "paper_id": "1187"
+  },
+  {
+    "section": "trustmesharchitectureanddesignprinciples2",
+    "path": {
+      "section": "trustmesharchitectureanddesignprinciples2",
+      "start_entity": "ProbabilisticNodeSelection",
+      "end_entity": "Concept",
+      "hops": [
+        {
+          "from": "ProbabilisticNodeSelection",
+          "relation": "uses",
+          "to": "NodeEligibility",
+          "context": "3) Probabilistic node selection",
+          "chunk": "4"
+        },
+        {
+          "from": "NodeEligibility",
+          "relation": "basedOn",
+          "to": "ResourceState",
+          "context": "2) Node eligibility based on resources: Ne(t) = {n ∈ N | cpureq(t) ≤ cpuavail(n) ∧ memreq(t) ≤ memavail(n)}",
+          "chunk": "4"
+        },
+        {
+          "from": "ResourceState",
+          "relation": "type",
+          "to": "Concept",
+          "context": "Resource state R mapping each node to its available resources",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In a trust mesh architecture, how does the probabilistic node selection process determine the eligibility of nodes for task allocation?",
+    "options": {
+      "A": "By evaluating if the CPU and memory requirements of the task are less than or equal to the available CPU and memory on the node.",
+      "B": "By confirming that the node's security level meets the minimum security requirements of the task.",
+      "C": "By checking if the bandwidth requirements of the task are less than the bandwidth availability of the node.",
+      "D": "By ensuring that the total number of nodes available exceeds the total number of tasks to be allocated."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A because the node eligibility for task allocation in a trust mesh architecture is determined by comparing task-specific requirements (CPU and memory) with the node's available resources. Options B, C, and D are incorrect as they either discuss conditions not specified in the node selection criteria (total number of nodes or bandwidth) or introduce unrelated criteria (security level).",
+    "path_description": "Path: ProbabilisticNodeSelection --[uses]--> NodeEligibility --[basedOn]--> ResourceState --[type]--> Concept",
+    "context": "3) Probabilistic node selection | 2) Node eligibility based on resources: Ne(t) = {n ∈ N | cpureq(t) ≤ cpuavail(n) ∧ memreq(t) ≤ memavail(n)} | Resource state R mapping each node to its available resources",
+    "paper_id": "1187"
+  },
+  {
+    "section": "performanceevaluation1",
+    "path": {
+      "section": "performanceevaluation1",
+      "start_entity": "TrustMesh",
+      "end_entity": "WorkflowStage",
+      "hops": [
+        {
+          "from": "TrustMesh",
+          "relation": "appliedTo",
+          "to": "ColdChainMonitoringScenario",
+          "context": "The performance evaluation employed a cold chain monitoring scenario with a three-stage workflow.",
+          "chunk": "7"
+        },
+        {
+          "from": "ColdChainMonitoringScenario",
+          "relation": "includesStage",
+          "to": "SensorProcessing",
+          "context": "three-stage workflow (sensor processing, anomaly detection, and alert generation).",
+          "chunk": "7"
+        },
+        {
+          "from": "SensorProcessing",
+          "relation": "type",
+          "to": "WorkflowStage",
+          "context": "three-stage workflow (sensor processing, anomaly detection, and alert generation).",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "In the context of the TrustMesh framework applied to a cold chain monitoring scenario, which stage directly follows sensor processing?",
+    "options": {
+      "A": "Anomaly detection, which identifies deviations from expected sensor data patterns",
+      "B": "Temperature control adjustment, which modifies environmental conditions based on sensor inputs",
+      "C": "Data transmission, which involves sending sensor data to a central repository",
+      "D": "Data aggregation, which compiles sensor data from various sources for analysis"
+    },
+    "correct_answer": "A",
+    "explanation": "According to the three-stage workflow described in the 'performanceevaluation1' section, the stage that directly follows sensor processing is anomaly detection. This stage is crucial for identifying deviations from expected patterns in the sensor data.",
+    "path_description": "Path: TrustMesh --[appliedTo]--> ColdChainMonitoringScenario --[includesStage]--> SensorProcessing --[type]--> WorkflowStage",
+    "context": "The performance evaluation employed a cold chain monitoring scenario with a three-stage workflow. | three-stage workflow (sensor processing, anomaly detection, and alert generation). | three-stage workflow (sensor processing, anomaly detection, and alert generation).",
+    "paper_id": "1187"
+  },
+  {
+    "section": "performanceevaluation1",
+    "path": {
+      "section": "performanceevaluation1",
+      "start_entity": "TrustMesh",
+      "end_entity": "OperatingSystem",
+      "hops": [
+        {
+          "from": "TrustMesh",
+          "relation": "includesLayer",
+          "to": "ComputationLayer",
+          "context": "The Computation Layer comprised 16 single-core nodes.",
+          "chunk": "7"
+        },
+        {
+          "from": "ComputationLayer",
+          "relation": "runsOn",
+          "to": "LinuxDistributions",
+          "context": "running diverse Linux distributions including AlmaLinux, Debian, Fedora and Ubuntu.",
+          "chunk": "7"
+        },
+        {
+          "from": "LinuxDistributions",
+          "relation": "type",
+          "to": "OperatingSystem",
+          "context": "running diverse Linux distributions including AlmaLinux, Debian, Fedora and Ubuntu.",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "In the TrustMesh architecture described in the 'performanceevaluation1' section, which component directly interfaces with various Linux distributions like AlmaLinux, Debian, Fedora, and Ubuntu?",
+    "options": {
+      "A": "The Integration Layer, which combines different functionalities, interfaces directly with these Linux distributions.",
+      "B": "The Computation Layer, which comprised 16 single-core nodes, interfaces directly with these Linux distributions.",
+      "C": "The Communication Layer, which manages data transmission, interfaces directly with these Linux distributions.",
+      "D": "The Application Layer, which provides end-user applications, interfaces directly with these Linux distributions."
+    },
+    "correct_answer": "B",
+    "explanation": "The Computation Layer is directly connected to various Linux distributions according to the knowledge graph path: TrustMesh --[includesLayer]--> ComputationLayer --[runsOn]--> LinuxDistributions. This layer operates as the platform for running the Linux distributions including AlmaLinux, Debian, Fedora, and Ubuntu.",
+    "path_description": "Path: TrustMesh --[includesLayer]--> ComputationLayer --[runsOn]--> LinuxDistributions --[type]--> OperatingSystem",
+    "context": "The Computation Layer comprised 16 single-core nodes. | running diverse Linux distributions including AlmaLinux, Debian, Fedora and Ubuntu. | running diverse Linux distributions including AlmaLinux, Debian, Fedora and Ubuntu.",
+    "paper_id": "1187"
+  },
+  {
+    "section": "performanceevaluation2",
+    "path": {
+      "section": "performanceevaluation2",
+      "start_entity": "ControlledExperiments",
+      "end_entity": "Method",
+      "hops": [
+        {
+          "from": "ControlledExperiments",
+          "relation": "simulates",
+          "to": "AttackScenarios",
+          "context": "we conducted controlled experiments simulating two attack scenarios",
+          "chunk": "8"
+        },
+        {
+          "from": "AttackScenarios",
+          "relation": "includes",
+          "to": "UnauthorizedScheduleGeneration",
+          "context": "The first scenario tested unauthorized schedule generation",
+          "chunk": "8"
+        },
+        {
+          "from": "UnauthorizedScheduleGeneration",
+          "relation": "type",
+          "to": "Method",
+          "context": "The first scenario tested unauthorized schedule generation",
+          "chunk": "8"
+        }
+      ]
+    },
+    "question": "In the context of controlled experiments for testing security, what type of method does unauthorized schedule generation represent within attack scenarios?",
+    "options": {
+      "A": "Unauthorized schedule generation is a method used to simulate potential vulnerabilities in scheduling algorithms.",
+      "B": "Unauthorized schedule generation is a method for simulating the effects of internal disruptions on system protocols.",
+      "C": "Unauthorized schedule generation is a method of testing the robustness of security systems in a controlled environment.",
+      "D": "Unauthorized schedule generation is a method used to evaluate the impact of external attacks on internal networks."
+    },
+    "correct_answer": "A",
+    "explanation": "Unauthorized schedule generation, as described in the scenario from the paper, simulates potential vulnerabilities specifically in scheduling algorithms. This type of method is part of the attack scenarios designed to test the security of systems by generating schedules without authorization and observing the system's response to these unexpected inputs.",
+    "path_description": "Path: ControlledExperiments --[simulates]--> AttackScenarios --[includes]--> UnauthorizedScheduleGeneration --[type]--> Method",
+    "context": "we conducted controlled experiments simulating two attack scenarios | The first scenario tested unauthorized schedule generation | The first scenario tested unauthorized schedule generation",
+    "paper_id": "1187"
+  }
+]

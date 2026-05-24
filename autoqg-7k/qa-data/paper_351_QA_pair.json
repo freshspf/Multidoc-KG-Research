@@ -1,0 +1,88 @@
+[
+  {
+    "section": "dataandmethods2",
+    "path": {
+      "section": "dataandmethods2",
+      "start_entity": "PSModel",
+      "end_entity": "Method",
+      "hops": [
+        {
+          "from": "PSModel",
+          "relation": "uses",
+          "to": "IPW",
+          "context": "PS model was estimated, matching was applied",
+          "chunk": "2"
+        },
+        {
+          "from": "IPW",
+          "relation": "hasExtension",
+          "to": "Truncation",
+          "context": "Two extensions of IPW aiming at also exist: truncation",
+          "chunk": "2"
+        },
+        {
+          "from": "Truncation",
+          "relation": "type",
+          "to": "Method",
+          "context": "truncation (which works by saturating percentiles)",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the context of the PS Model utilizing IPW, what is the specific methodological type of the extension known as truncation?",
+    "options": {
+      "A": "A strategy that aims to increase model accuracy by selectively including data points.",
+      "B": "A method focusing on normalizing the extremes in data distribution by saturating percentiles.",
+      "C": "A procedure that enhances data integrity by randomly sampling subsets of the data.",
+      "D": "A technique that emphasizes on reducing bias by excluding outliers from the analysis."
+    },
+    "correct_answer": "B",
+    "explanation": "Truncation as an extension of IPW in the PSModel is specifically described as a method that works by saturating percentiles, which involves normalizing the extremes in data distribution.",
+    "path_description": "Path: PSModel --[uses]--> IPW --[hasExtension]--> Truncation --[type]--> Method",
+    "context": "PS model was estimated, matching was applied | Two extensions of IPW aiming at also exist: truncation | truncation (which works by saturating percentiles)",
+    "paper_id": "946"
+  },
+  {
+    "section": "resultsanddiscussion",
+    "path": {
+      "section": "resultsanddiscussion",
+      "start_entity": "IPWTruncAndStab",
+      "end_entity": "IPW",
+      "hops": [
+        {
+          "from": "IPWTruncAndStab",
+          "relation": "doesNotImproveOver",
+          "to": "IPWStabilized",
+          "context": "IPW with both truncation and stabilization did not improve the estimates compared to stabilization alone.",
+          "chunk": "3"
+        },
+        {
+          "from": "IPWStabilized",
+          "relation": "outperforms",
+          "to": "IPWTruncated",
+          "context": "IPW with stabilized weights was the most accurate and stable method.",
+          "chunk": "3"
+        },
+        {
+          "from": "IPWTruncated",
+          "relation": "hasLowerPerformanceThan",
+          "to": "IPW",
+          "context": "IPW with truncated weights had lower performance.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the analysis of inverse probability weighting methods, which technique was identified as the most accurate and stable?",
+    "options": {
+      "A": "IPW with stabilization alone was identified as the most accurate and stable method.",
+      "B": "The basic IPW method without any modifications was identified as the most accurate and stable.",
+      "C": "IPW with truncation alone was identified as the most accurate and stable method.",
+      "D": "IPW with both truncation and stabilization was identified as the most accurate and stable method."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is B, IPW with stabilization alone, as the paper explicitly states that it was the most accurate and stable method compared to the other variations. Options A and C are incorrect because they suggest other methods were the most accurate and stable, which contradicts the information in the paper. Option D is incorrect because it suggests the basic method was the most effective, whereas the stabilized version specifically outperformed it.",
+    "path_description": "Path: IPWTruncAndStab --[doesNotImproveOver]--> IPWStabilized --[outperforms]--> IPWTruncated --[hasLowerPerformanceThan]--> IPW",
+    "context": "IPW with both truncation and stabilization did not improve the estimates compared to stabilization alone. | IPW with stabilized weights was the most accurate and stable method. | IPW with truncated weights had lower performance.",
+    "paper_id": "946"
+  }
+]

@@ -1,0 +1,174 @@
+[
+  {
+    "section": "introduction",
+    "path": {
+      "section": "introduction",
+      "start_entity": "DepartmentOfEconomicDevelopmentSustainabilityAndEnvironment",
+      "end_entity": "Program",
+      "hops": [
+        {
+          "from": "DepartmentOfEconomicDevelopmentSustainabilityAndEnvironment",
+          "relation": "financed",
+          "to": "ThisWork",
+          "context": "This work has been financed by the Department of Economic Development, Sustainability, and Environment of the Basque Government",
+          "chunk": "0"
+        },
+        {
+          "from": "ThisWork",
+          "relation": "partOf",
+          "to": "ELKARTEK2023",
+          "context": "under the ELKARTEK 2023 program",
+          "chunk": "0"
+        },
+        {
+          "from": "ELKARTEK2023",
+          "relation": "type",
+          "to": "Program",
+          "context": "under the ELKARTEK 2023 program",
+          "chunk": "0"
+        }
+      ]
+    },
+    "question": "Which of the following best describes the relationship between the Department of Economic Development, Sustainability, and Environment and the ELKARTEK 2023 program?",
+    "options": {
+      "A": "The Department of Economic Development, Sustainability, and Environment indirectly supports ELKARTEK 2023 program through financial means.",
+      "B": "The ELKARTEK 2023 program is a separate entity that funds the Department of Economic Development, Sustainability, and Environment.",
+      "C": "The Department of Economic Development, Sustainability, and Environment directly oversees the administration of the ELKARTEK 2023 program.",
+      "D": "The ELKARTEK 2023 program is a collaborative initiative that includes multiple departments, excluding the Department of Economic Development, Sustainability, and Environment."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is B because the Department of Economic Development, Sustainability, and Environment financed the work that is part of the ELKARTEK 2023 program, indicating an indirect support through financial means rather than direct oversight or exclusion from the program. The other options are incorrect as they imply incorrect hierarchical or financial relationships.",
+    "path_description": "Path: DepartmentOfEconomicDevelopmentSustainabilityAndEnvironment --[financed]--> ThisWork --[partOf]--> ELKARTEK2023 --[type]--> Program",
+    "context": "This work has been financed by the Department of Economic Development, Sustainability, and Environment of the Basque Government | under the ELKARTEK 2023 program | under the ELKARTEK 2023 program",
+    "paper_id": "404"
+  },
+  {
+    "section": "proposedapproach1",
+    "path": {
+      "section": "proposedapproach1",
+      "start_entity": "DependenciesField",
+      "end_entity": "FileFormat",
+      "hops": [
+        {
+          "from": "DependenciesField",
+          "relation": "partOf",
+          "to": "Subs-BOM",
+          "context": "The Subs-BOM also defines the dependencies field to group the information of the existing dependencies between the components.",
+          "chunk": "3"
+        },
+        {
+          "from": "Subs-BOM",
+          "relation": "uses",
+          "to": "SCDFile",
+          "context": "enriching its content using the information available in the SCD file of IEC 61850 compliant DS.",
+          "chunk": "3"
+        },
+        {
+          "from": "SCDFile",
+          "relation": "type",
+          "to": "FileFormat",
+          "context": "enriching its content using the information available in the SCD file of IEC 61850 compliant DS.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the context of the Subs-BOM, which file format is utilized to enrich the content of the dependencies field by grouping information on component dependencies?",
+    "options": {
+      "A": "An XML file, widely used for data representation, is utilized to structure the dependencies field.",
+      "B": "A JSON file, known for its lightweight data-interchange format, is used to enhance the dependencies field.",
+      "C": "The SCD file, compliant with IEC 61850 standard, is used to manage and enrich the dependencies field.",
+      "D": "A CSV file, commonly used for simple data tabulation, is employed to organize the dependencies field."
+    },
+    "correct_answer": "C",
+    "explanation": "The SCD file format, compliant with the IEC 61850 standard, is specifically mentioned as being used to enrich the content of the Subs-BOM's dependencies field. This file format is specialized for smart grid data models and not the general formats like CSV, XML, or JSON.",
+    "path_description": "Path: DependenciesField --[partOf]--> Subs-BOM --[uses]--> SCDFile --[type]--> FileFormat",
+    "context": "The Subs-BOM also defines the dependencies field to group the information of the existing dependencies between the components. | enriching its content using the information available in the SCD file of IEC 61850 compliant DS. | enriching its content using the information available in the SCD file of IEC 61850 compliant DS.",
+    "paper_id": "404"
+  },
+  {
+    "section": "proposedapproach1",
+    "path": {
+      "section": "proposedapproach1",
+      "start_entity": "Subs-BOMSchema",
+      "end_entity": "OWASPDependency-Track",
+      "hops": [
+        {
+          "from": "Subs-BOMSchema",
+          "relation": "partOf",
+          "to": "Subs-BOM",
+          "context": "The proposed Subs-BOM schema is a subset of the CycloneDX v1.6 Reference specification.",
+          "chunk": "3"
+        },
+        {
+          "from": "Subs-BOM",
+          "relation": "basedOn",
+          "to": "CycloneDX",
+          "context": "The proposed Subs-BOM is based on the CycloneDX format for SBOMs.",
+          "chunk": "3"
+        },
+        {
+          "from": "CycloneDX",
+          "relation": "usedIn",
+          "to": "OWASPDependency-Track",
+          "context": "CycloneDX is standardized: It was designed in 2017 for use with OWASP Dependency-Track.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "Which of the following best describes the relationship and sequence of usage among the entities mentioned in the proposedapproach1 section of the paper?",
+    "options": {
+      "A": "OWASP Dependency-Track utilizes CycloneDX, which influences the creation of Subs-BOMSchema through Subs-BOM.",
+      "B": "CycloneDX is a component of Subs-BOMSchema which integrates into Subs-BOM, and is finally applied in OWASP Dependency-Track.",
+      "C": "Subs-BOMSchema, influenced by CycloneDX, indirectly contributes to the development of OWASP Dependency-Track through Subs-BOM.",
+      "D": "Subs-BOMSchema is part of Subs-BOM, which is based on CycloneDX, used in conjunction with OWASP Dependency-Track."
+    },
+    "correct_answer": "D",
+    "explanation": "The question requires understanding the flow and dependency of one entity on another as outlined in the paper. Subs-BOMSchema is a part of Subs-BOM, which in turn is based on CycloneDX. CycloneDX has been standardized and is used in OWASP Dependency-Track, completing the chain from Subs-BOMSchema to OWASP Dependency-Track via CycloneDX.",
+    "path_description": "Path: Subs-BOMSchema --[partOf]--> Subs-BOM --[basedOn]--> CycloneDX --[usedIn]--> OWASPDependency-Track",
+    "context": "The proposed Subs-BOM schema is a subset of the CycloneDX v1.6 Reference specification. | The proposed Subs-BOM is based on the CycloneDX format for SBOMs. | CycloneDX is standardized: It was designed in 2017 for use with OWASP Dependency-Track.",
+    "paper_id": "404"
+  },
+  {
+    "section": "introduction",
+    "path": {
+      "section": "introduction",
+      "start_entity": "ThisWork",
+      "end_entity": "Project",
+      "hops": [
+        {
+          "from": "ThisWork",
+          "relation": "partOf",
+          "to": "ELKARTEK2023",
+          "context": "under the ELKARTEK 2023 program",
+          "chunk": "0"
+        },
+        {
+          "from": "ELKARTEK2023",
+          "relation": "includes",
+          "to": "BEACON",
+          "context": "project BEACON",
+          "chunk": "0"
+        },
+        {
+          "from": "BEACON",
+          "relation": "type",
+          "to": "Project",
+          "context": "project BEACON",
+          "chunk": "0"
+        }
+      ]
+    },
+    "question": "Which statement accurately describes the relationship of the work discussed in the 'introduction' section of the paper to the ELKARTEK2023 program?",
+    "options": {
+      "A": "The work under discussion is a separate entity that influenced the formation of the ELKARTEK2023 program, with no direct association to project BEACON.",
+      "B": "The work is a fundamental research paper that was cited by the ELKARTEK2023 program in the context of developing project BEACON as a new technology.",
+      "C": "The work is part of the ELKARTEK2023 program, which includes project BEACON classified as a type of project.",
+      "D": "The work is referenced in the ELKARTEK2023 program as a preceding effort that inspired project BEACON, which is a type of research initiative."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A because it accurately follows the knowledge graph path, indicating that the work discussed in the introduction is part of the ELKARTEK2023 program, which includes project BEACON as a type of project. The other options either incorrectly describe the relationship or misclassify the nature of project BEACON.",
+    "path_description": "Path: ThisWork --[partOf]--> ELKARTEK2023 --[includes]--> BEACON --[type]--> Project",
+    "context": "under the ELKARTEK 2023 program | project BEACON | project BEACON",
+    "paper_id": "404"
+  }
+]

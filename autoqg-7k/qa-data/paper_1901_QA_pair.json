@@ -1,0 +1,88 @@
+[
+  {
+    "section": "researchquestion",
+    "path": {
+      "section": "researchquestion",
+      "start_entity": "CentralizedAuthority",
+      "end_entity": "Entity",
+      "hops": [
+        {
+          "from": "CentralizedAuthority",
+          "relation": "canActuate",
+          "to": "ControlInputs",
+          "context": "a centralized authority can jointly actuate all available control inputs",
+          "chunk": "2"
+        },
+        {
+          "from": "ControlInputs",
+          "relation": "includes",
+          "to": "PSSInputs",
+          "context": "AVR set points or PSS inputs",
+          "chunk": "2"
+        },
+        {
+          "from": "PSSInputs",
+          "relation": "type",
+          "to": "Entity",
+          "context": "AVR set points or PSS inputs",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "Which type of entity is directly influenced by the control inputs that can be actuated by a centralized authority?",
+    "options": {
+      "A": "Automatic Voltage Regulators (AVR), which primarily control generator voltage.",
+      "B": "Electricity Distribution Networks, which manage the delivery of electric power.",
+      "C": "Power System Stabilizers (PSS), which help in maintaining system stability.",
+      "D": "Distributed Energy Resources (DER), which are smaller power sources that can be aggregated."
+    },
+    "correct_answer": "C",
+    "explanation": "The knowledge graph specifies that a centralized authority can actuate control inputs, which include PSS inputs. PSS (Power System Stabilizers) are entities within the power system that help maintain system stability by providing damping controls. Therefore, PSS is the type of entity directly influenced by these control inputs.",
+    "path_description": "Path: CentralizedAuthority --[canActuate]--> ControlInputs --[includes]--> PSSInputs --[type]--> Entity",
+    "context": "a centralized authority can jointly actuate all available control inputs | AVR set points or PSS inputs | AVR set points or PSS inputs",
+    "paper_id": "614"
+  },
+  {
+    "section": "surgicaleigenstructureassignment2",
+    "path": {
+      "section": "surgicaleigenstructureassignment2",
+      "start_entity": "Case1",
+      "end_entity": "Unit",
+      "hops": [
+        {
+          "from": "Case1",
+          "relation": "uses",
+          "to": "MachineModel",
+          "context": "Case 1: 3 machine, 9 bus power system: We adopt the presentation in [19], assuming a fourth-order model for each machine equipped with a local PSS unit",
+          "chunk": "4"
+        },
+        {
+          "from": "MachineModel",
+          "relation": "equippedWith",
+          "to": "PSSUnit",
+          "context": "assuming a fourth-order model for each machine equipped with a local PSS unit",
+          "chunk": "4"
+        },
+        {
+          "from": "PSSUnit",
+          "relation": "type",
+          "to": "Unit",
+          "context": "each machine equipped with a local PSS unit",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the context of a 3 machine, 9 bus power system described in the section 'surgicaleigenstructureassignment2', how does the configuration of each machine's model contribute to system stability?",
+    "options": {
+      "A": "Each machine is configured with a sixth-order model and a globally integrated PSS unit, focusing on inter-machine coordination.",
+      "B": "Each machine uses a fourth-order model equipped with a local PSS unit, enhancing system damping and stability.",
+      "C": "Each machine employs a simple first-order model, which does not adequately support system stability without external stabilizers.",
+      "D": "Each machine operates with a second-order model without any additional units, relying solely on inherent system properties."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A because, as detailed in the provided context, each machine in the system uses a fourth-order model and is equipped with a local Power System Stabilizer (PSS) unit. This setup is specifically designed to enhance the damping of oscillations and overall stability of the power system.",
+    "path_description": "Path: Case1 --[uses]--> MachineModel --[equippedWith]--> PSSUnit --[type]--> Unit",
+    "context": "Case 1: 3 machine, 9 bus power system: We adopt the presentation in [19], assuming a fourth-order model for each machine equipped with a local PSS unit | assuming a fourth-order model for each machine equipped with a local PSS unit | each machine equipped with a local PSS unit",
+    "paper_id": "614"
+  }
+]

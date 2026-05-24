@@ -1,0 +1,131 @@
+[
+  {
+    "section": "experiments2",
+    "path": {
+      "section": "experiments2",
+      "start_entity": "FullKV",
+      "end_entity": "Model",
+      "hops": [
+        {
+          "from": "FullKV",
+          "relation": "comparedWith",
+          "to": "SentenceKV",
+          "context": "We evaluate SentenceKV against Full KV cache, SnapKV and baseline methods on LongBench tasks.",
+          "chunk": "7"
+        },
+        {
+          "from": "SentenceKV",
+          "relation": "outperforms",
+          "to": "Quest",
+          "context": "SentenceKV achieves an accuracy of 97.5%, significantly outperforming Quest.",
+          "chunk": "7"
+        },
+        {
+          "from": "Quest",
+          "relation": "type",
+          "to": "Model",
+          "context": "Overall, SentenceKV provides an improved performance with reduced memory usage.",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "In the context of evaluating key-value storage methods, what type of entity is Quest, given its performance comparison with SentenceKV?",
+    "options": {
+      "A": "Quest is a hardware-based storage solution that uses more memory than SentenceKV.",
+      "B": "Quest is a new algorithm for data retrieval that uses similar memory to SentenceKV.",
+      "C": "Quest is a type of database management system that was less efficient than SentenceKV.",
+      "D": "Quest is a baseline method that was significantly outperformed by SentenceKV in terms of accuracy."
+    },
+    "correct_answer": "D",
+    "explanation": "Based on the knowledge graph path, SentenceKV is compared with and outperforms Quest. The context specifies SentenceKV achieving higher accuracy, which indicates Quest is a baseline method in this evaluation.",
+    "path_description": "Path: FullKV --[comparedWith]--> SentenceKV --[outperforms]--> Quest --[type]--> Model",
+    "context": "We evaluate SentenceKV against Full KV cache, SnapKV and baseline methods on LongBench tasks. | SentenceKV achieves an accuracy of 97.5%, significantly outperforming Quest. | Overall, SentenceKV provides an improved performance with reduced memory usage.",
+    "paper_id": "2154"
+  },
+  {
+    "section": "experiments2",
+    "path": {
+      "section": "experiments2",
+      "start_entity": "SnapKV",
+      "end_entity": "Dataset",
+      "hops": [
+        {
+          "from": "SnapKV",
+          "relation": "comparedWith",
+          "to": "SentenceKV",
+          "context": "We evaluate SentenceKV against Full KV cache, SnapKV and baseline methods on LongBench tasks.",
+          "chunk": "7"
+        },
+        {
+          "from": "SentenceKV",
+          "relation": "evaluatedOn",
+          "to": "LongBench",
+          "context": "We evaluate SentenceKV against Full KV cache, SnapKV and baseline methods on LongBench tasks.",
+          "chunk": "7"
+        },
+        {
+          "from": "LongBench",
+          "relation": "type",
+          "to": "Dataset",
+          "context": "We evaluate SentenceKV against Full KV cache, SnapKV and baseline methods on LongBench tasks.",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "In the evaluation of SentenceKV, which method is compared and on what type of dataset is this evaluation primarily conducted?",
+    "options": {
+      "A": "SentenceKV is compared with Full KV cache on the LongBench dataset, a collection designed for minimal benchmarking.",
+      "B": "SentenceKV is compared against baseline methods on the MidBench dataset, a medium-scale evaluation tool.",
+      "C": "SentenceKV is compared with Full KV cache on the ShortBench dataset, a set of brief performance evaluations.",
+      "D": "SentenceKV is compared with SnapKV on the LongBench dataset, a collection designed for extensive benchmarking."
+    },
+    "correct_answer": "D",
+    "explanation": "The question requires understanding the comparisons (SentenceKV with SnapKV) and the dataset used for evaluation (LongBench). The correct answer is A, as it accurately reflects the relationships and entities described in the knowledge path and context. The other options introduce incorrect comparisons or datasets not mentioned in the provided context.",
+    "path_description": "Path: SnapKV --[comparedWith]--> SentenceKV --[evaluatedOn]--> LongBench --[type]--> Dataset",
+    "context": "We evaluate SentenceKV against Full KV cache, SnapKV and baseline methods on LongBench tasks. | We evaluate SentenceKV against Full KV cache, SnapKV and baseline methods on LongBench tasks. | We evaluate SentenceKV against Full KV cache, SnapKV and baseline methods on LongBench tasks.",
+    "paper_id": "2154"
+  },
+  {
+    "section": "ablationstudies",
+    "path": {
+      "section": "ablationstudies",
+      "start_entity": "SentenceChunking",
+      "end_entity": "Dataset",
+      "hops": [
+        {
+          "from": "SentenceChunking",
+          "relation": "outperforms",
+          "to": "EqualSizedChunking",
+          "context": "this approach consistently yields worse results on LongBench",
+          "chunk": "8"
+        },
+        {
+          "from": "EqualSizedChunking",
+          "relation": "evaluatedOn",
+          "to": "LongBench",
+          "context": "this approach consistently yields worse results on LongBench",
+          "chunk": "8"
+        },
+        {
+          "from": "LongBench",
+          "relation": "type",
+          "to": "Dataset",
+          "context": "this approach consistently yields worse results on LongBench",
+          "chunk": "8"
+        }
+      ]
+    },
+    "question": "In the context of sentence chunking methods evaluated in the ablation studies section, which statement accurately reflects the findings using the LongBench dataset?",
+    "options": {
+      "A": "Equal-sized chunking consistently outperforms sentence chunking when evaluated on the LongBench dataset.",
+      "B": "Sentence chunking yields worse results compared to equal-sized chunking on the LongBench dataset.",
+      "C": "Both equal-sized chunking and sentence chunking yield equally poor results when tested on the LongBench dataset.",
+      "D": "Sentence chunking outperforms equal-sized chunking, yielding better results on the LongBench dataset."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is D as the knowledge path indicates that Sentence Chunking, when compared to Equal Sized Chunking, yields worse results when evaluated on the LongBench dataset, as described in the ablation studies section of the paper.",
+    "path_description": "Path: SentenceChunking --[outperforms]--> EqualSizedChunking --[evaluatedOn]--> LongBench --[type]--> Dataset",
+    "context": "this approach consistently yields worse results on LongBench | this approach consistently yields worse results on LongBench | this approach consistently yields worse results on LongBench",
+    "paper_id": "2154"
+  }
+]

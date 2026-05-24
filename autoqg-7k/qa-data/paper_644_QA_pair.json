@@ -1,0 +1,88 @@
+[
+  {
+    "section": "zeroknowledgeproofoftrainingzkpot2",
+    "path": {
+      "section": "zeroknowledgeproofoftrainingzkpot2",
+      "start_entity": "Quantization",
+      "end_entity": "RegisteredClients",
+      "hops": [
+        {
+          "from": "Quantization",
+          "relation": "appliedTo",
+          "to": "LocalModel",
+          "context": "clients need to quantize their trained models.",
+          "chunk": "4"
+        },
+        {
+          "from": "LocalModel",
+          "relation": "computedFrom",
+          "to": "GlobalModel",
+          "context": "With Wglobal and their private data, clients compute new local models wlocal.",
+          "chunk": "4"
+        },
+        {
+          "from": "GlobalModel",
+          "relation": "retrievedBy",
+          "to": "RegisteredClients",
+          "context": "registered clients retrieve the initial global model for training.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the context of zero-knowledge proof of training, what is the correct sequence of actions performed by registered clients?",
+    "options": {
+      "A": "Clients quantize their local models, compute new local models using global models, and retrieve the global model for initial training.",
+      "B": "Clients first retrieve the global model, use it to compute and quantize local models, and then retrain using private data.",
+      "C": "Clients download global models, directly train them on private data, and then perform quantization on trained global models.",
+      "D": "Clients retrieve their private data, use it to quantize global models, and then compute their local models."
+    },
+    "correct_answer": "A",
+    "explanation": "The question requires understanding the series of actions based on the provided knowledge graph path. Here, A is the correct answer as it aligns with the sequence described in the graph and context: quantization of local models, computation of new local models from the global model, and retrieval of the initial global model for training.",
+    "path_description": "Path: Quantization --[appliedTo]--> LocalModel --[computedFrom]--> GlobalModel --[retrievedBy]--> RegisteredClients",
+    "context": "clients need to quantize their trained models. | With Wglobal and their private data, clients compute new local models wlocal. | registered clients retrieve the initial global model for training.",
+    "paper_id": "1540"
+  },
+  {
+    "section": "zeroknowledgeproofoftrainingzkpot2",
+    "path": {
+      "section": "zeroknowledgeproofoftrainingzkpot2",
+      "start_entity": "AffineMapping",
+      "end_entity": "GlobalModel",
+      "hops": [
+        {
+          "from": "AffineMapping",
+          "relation": "usedIn",
+          "to": "Quantization",
+          "context": "The quantization scheme is an affine mapping of integers q to real numbers r.",
+          "chunk": "4"
+        },
+        {
+          "from": "Quantization",
+          "relation": "appliedTo",
+          "to": "LocalModel",
+          "context": "clients need to quantize their trained models.",
+          "chunk": "4"
+        },
+        {
+          "from": "LocalModel",
+          "relation": "computedFrom",
+          "to": "GlobalModel",
+          "context": "With Wglobal and their private data, clients compute new local models wlocal.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the context of zero-knowledge proof of training, how does the quantization process using affine mapping influence the relationship between local and global models?",
+    "options": {
+      "A": "Affine mapping is used to decrypt the global model parameters before they are sent to clients' local models.",
+      "B": "Quantization through affine mapping compresses the global model's parameters for secure transmission to local clients.",
+      "C": "Local models apply quantization to affine mapping outputs, using them to independently update their parameters.",
+      "D": "Affine mapping quantizes local model parameters to integers, which are then used to update the global model."
+    },
+    "correct_answer": "D",
+    "explanation": "Affine mapping is used in the quantization process to map integers to real numbers. Clients use this quantization scheme on their local models (wlocal), computed using their private data and the global model (Wglobal), to effectively handle and update integer parameters. This helps in maintaining consistency and integrity in the model parameters across different models, thus influencing the updates made to the global model.",
+    "path_description": "Path: AffineMapping --[usedIn]--> Quantization --[appliedTo]--> LocalModel --[computedFrom]--> GlobalModel",
+    "context": "The quantization scheme is an affine mapping of integers q to real numbers r. | clients need to quantize their trained models. | With Wglobal and their private data, clients compute new local models wlocal.",
+    "paper_id": "1540"
+  }
+]

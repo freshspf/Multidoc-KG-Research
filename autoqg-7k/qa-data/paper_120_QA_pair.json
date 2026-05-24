@@ -1,0 +1,45 @@
+[
+  {
+    "section": "networkmodel",
+    "path": {
+      "section": "networkmodel",
+      "start_entity": "ExecutionNode",
+      "end_entity": "SmartContract",
+      "hops": [
+        {
+          "from": "ExecutionNode",
+          "relation": "provesCorrectnessTo",
+          "to": "ValidatorNode",
+          "context": "When a validator node challenges the execution result, the execution node needs to prove that the submitted result is correct.",
+          "chunk": "3"
+        },
+        {
+          "from": "ValidatorNode",
+          "relation": "submitsChallengeTo",
+          "to": "SolanaSmartContract",
+          "context": "If a validator node finds that its local state does not match the commitment submitted by the execution node, it will apply for a fraud-proof challenge in the Solana contract to determine whether the execution node is misbehaving.",
+          "chunk": "3"
+        },
+        {
+          "from": "SolanaSmartContract",
+          "relation": "type",
+          "to": "SmartContract",
+          "context": "These nodes commit the state of the rollup to a Solana smart contract according to slot.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the Solana network model, when a validator node disputes the correctness of an execution node's result, how is the conflict resolved?",
+    "options": {
+      "A": "The execution node must prove the accuracy of its result by submitting a fraud-proof challenge to the Solana smart contract.",
+      "B": "Both nodes are required to resubmit their results to a third-party arbitrator outside of the Solana network.",
+      "C": "The Solana smart contract automatically penalizes the execution node without verifying the fraud-proof challenge.",
+      "D": "The validator node revises its local state to align with the execution node's commitment without further verification."
+    },
+    "correct_answer": "A",
+    "explanation": "When a validator node finds discrepancies in the local state versus the commitment by the execution node, the execution node must submit a fraud-proof challenge to the Solana smart contract to prove its correctness. This process involves the execution node proving the validity of its submitted result directly to the Solana smart contract, which is the entity responsible for resolving such disputes.",
+    "path_description": "Path: ExecutionNode --[provesCorrectnessTo]--> ValidatorNode --[submitsChallengeTo]--> SolanaSmartContract --[type]--> SmartContract",
+    "context": "When a validator node challenges the execution result, the execution node needs to prove that the submitted result is correct. | If a validator node finds that its local state does not match the commitment submitted by the execution node, it will apply for a fraud-proof challenge in the Solana contract to determine whether the execution node is misbehaving. | These nodes commit the state of the rollup to a Solana smart contract according to slot.",
+    "paper_id": "637"
+  }
+]

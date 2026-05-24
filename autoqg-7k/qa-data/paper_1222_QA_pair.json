@@ -1,0 +1,45 @@
+[
+  {
+    "section": "introduction",
+    "path": {
+      "section": "introduction",
+      "start_entity": "Manipulator",
+      "end_entity": "Sensor",
+      "hops": [
+        {
+          "from": "Manipulator",
+          "relation": "controlledBy",
+          "to": "MobilePhone",
+          "context": "changes in this pose are replicated 1:1 at the position level by the manipulator in both translation and orientation (SE3) if and as desired.",
+          "chunk": "0"
+        },
+        {
+          "from": "MobilePhone",
+          "relation": "uses",
+          "to": "Camera",
+          "context": "the pose of the mobile phone using proprioceptive and exteroceptive sensors: the camera.",
+          "chunk": "0"
+        },
+        {
+          "from": "Camera",
+          "relation": "type",
+          "to": "Sensor",
+          "context": "exteroceptive sensors: the camera.",
+          "chunk": "0"
+        }
+      ]
+    },
+    "question": "In the context of a manipulator being controlled by a mobile phone, which component primarily contributes to the manipulator's ability to replicate changes in pose at both the translation and orientation levels?",
+    "options": {
+      "A": "The mobile phone's internal accelerometer to measure changes in speed and direction.",
+      "B": "The mobile phone's gyroscope to maintain orientation stability during movement.",
+      "C": "The mobile phone's camera acting as an exteroceptive sensor to provide real-time spatial data.",
+      "D": "The mobile phone's microphone to detect and interpret ambient sound for positional adjustments."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A because the camera in the mobile phone serves as an exteroceptive sensor, which is crucial for detecting external physical properties such as position and motion. This capability allows the manipulator to mirror changes in the mobile phone's pose in terms of both translation and orientation. The other options, although related to sensing and orientation, do not directly contribute to the replication of pose between the mobile phone and the manipulator as described in the context.",
+    "path_description": "Path: Manipulator --[controlledBy]--> MobilePhone --[uses]--> Camera --[type]--> Sensor",
+    "context": "changes in this pose are replicated 1:1 at the position level by the manipulator in both translation and orientation (SE3) if and as desired. | the pose of the mobile phone using proprioceptive and exteroceptive sensors: the camera. | exteroceptive sensors: the camera.",
+    "paper_id": "276"
+  }
+]

@@ -1,0 +1,217 @@
+[
+  {
+    "section": "experiments1",
+    "path": {
+      "section": "experiments1",
+      "start_entity": "ReasoningOCR",
+      "end_entity": "Task",
+      "hops": [
+        {
+          "from": "ReasoningOCR",
+          "relation": "evaluatedOn",
+          "to": "mPLUG-DocOwl2",
+          "context": "In Tab. 2, with CoT reasoning, the open-source LMMs with 7B to 13B parameter size achieve less than 50% accuracy on Reasoning-OCR.",
+          "chunk": "3"
+        },
+        {
+          "from": "mPLUG-DocOwl2",
+          "relation": "optimizedFor",
+          "to": "OCR",
+          "context": "TextMonkey and mPLUG-DocOwl2 are text-centric LMMs, orienting for OCR-related tasks.",
+          "chunk": "3"
+        },
+        {
+          "from": "OCR",
+          "relation": "type",
+          "to": "Task",
+          "context": "TextMonkey and mPLUG-DocOwl2 are text-centric LMMs, orienting for OCR-related tasks.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "Given that mPLUG-DocOwl2 is optimized for OCR, what type of task does this optimization primarily support according to its evaluation on ReasoningOCR?",
+    "options": {
+      "A": "Task that improves the document's layout understanding and formatting.",
+      "B": "Task centered on biometric data integration within textual analysis.",
+      "C": "Task involving complex computational reasoning beyond simple text parsing.",
+      "D": "Task primarily focused on enhancing visual graphics interpretation in documents."
+    },
+    "correct_answer": "C",
+    "explanation": "The question requires understanding that mPLUG-DocOwl2, being optimized for OCR (Optical Character Recognition), supports tasks related to OCR. Given its evaluation on ReasoningOCR, which involves reasoning capacities, the correct task type is complex computational reasoning beyond simple text parsing. Other listed options, while related to document processing, don’t specifically align with OCR’s primary function of recognizing and interpreting text.",
+    "path_description": "Path: ReasoningOCR --[evaluatedOn]--> mPLUG-DocOwl2 --[optimizedFor]--> OCR --[type]--> Task",
+    "context": "In Tab. 2, with CoT reasoning, the open-source LMMs with 7B to 13B parameter size achieve less than 50% accuracy on Reasoning-OCR. | TextMonkey and mPLUG-DocOwl2 are text-centric LMMs, orienting for OCR-related tasks. | TextMonkey and mPLUG-DocOwl2 are text-centric LMMs, orienting for OCR-related tasks.",
+    "paper_id": "215"
+  },
+  {
+    "section": "conclusion2",
+    "path": {
+      "section": "conclusion2",
+      "start_entity": "DiscountCalculation",
+      "end_entity": "Product",
+      "hops": [
+        {
+          "from": "DiscountCalculation",
+          "relation": "calculates",
+          "to": "Discount",
+          "context": "Calculate the discount: 20% of $49.70 is $9.94.",
+          "chunk": "7"
+        },
+        {
+          "from": "Discount",
+          "relation": "appliesTo",
+          "to": "ToyGuns",
+          "context": "Since Peter is buying more than two toy guns, a 20% discount applies.",
+          "chunk": "7"
+        },
+        {
+          "from": "ToyGuns",
+          "relation": "type",
+          "to": "Product",
+          "context": "Since Peter is buying more than two toy guns...",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "In the scenario described, how does the calculated discount specifically apply to Peter's purchase based on the number of items he is buying?",
+    "options": {
+      "A": "Peter is eligible for a 15% discount since he is buying exactly two toy guns, which are not classified under general merchandise.",
+      "B": "Peter receives a 20% discount because he is purchasing more than two toy guns, which are classified as products.",
+      "C": "Peter gets a 5% discount because he is buying less than five toy guns, which are classified as accessories.",
+      "D": "Peter does not receive any discount as the discount calculation does not apply to toy guns as they are not considered products."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A because it correctly follows the path that calculates a 20% discount which then applies specifically to toy guns, defined as products, when more than two are purchased.",
+    "path_description": "Path: DiscountCalculation --[calculates]--> Discount --[appliesTo]--> ToyGuns --[type]--> Product",
+    "context": "Calculate the discount: 20% of $49.70 is $9.94. | Since Peter is buying more than two toy guns, a 20% discount applies. | Since Peter is buying more than two toy guns...",
+    "paper_id": "215"
+  },
+  {
+    "section": "conclusion2",
+    "path": {
+      "section": "conclusion2",
+      "start_entity": "Peter",
+      "end_entity": "TotalAfterDiscount",
+      "hops": [
+        {
+          "from": "Peter",
+          "relation": "canBuy",
+          "to": "ToyGuns",
+          "context": "Peter can buy 10 toy guns for a total of $39.76 after the discount.",
+          "chunk": "7"
+        },
+        {
+          "from": "ToyGuns",
+          "relation": "hasDiscount",
+          "to": "Discount",
+          "context": "Since Peter is buying more than two toy guns, a 20% discount applies.",
+          "chunk": "7"
+        },
+        {
+          "from": "Discount",
+          "relation": "resultsIn",
+          "to": "TotalAfterDiscount",
+          "context": "Total after discount: $46.19.",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "If Peter initially expected to pay $46.19 for 10 toy guns, what would be the total price before any discount was applied?",
+    "options": {
+      "A": "Peter would have paid $36.95 before the 20% discount was applied to his purchase.",
+      "B": "Peter would have paid $58.88 before the 20% discount was applied to his purchase.",
+      "C": "Peter would have paid $55.43 before the 20% discount was applied to his purchase.",
+      "D": "Peter would have paid $57.74 before the 20% discount was applied to his purchase."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct total before discount can be calculated by dividing the discounted total ($46.19) by 0.8 (since a 20% discount implies paying only 80% of the original price). $46.19 / 0.8 = $57.74.",
+    "path_description": "Path: Peter --[canBuy]--> ToyGuns --[hasDiscount]--> Discount --[resultsIn]--> TotalAfterDiscount",
+    "context": "Peter can buy 10 toy guns for a total of $39.76 after the discount. | Since Peter is buying more than two toy guns, a 20% discount applies. | Total after discount: $46.19.",
+    "paper_id": "215"
+  },
+  {
+    "section": "conclusion2",
+    "path": {
+      "section": "conclusion2",
+      "start_entity": "Peter",
+      "end_entity": "TotalAfterDiscount",
+      "hops": [
+        {
+          "from": "Peter",
+          "relation": "buys",
+          "to": "ToyGuns",
+          "context": "Since Peter is buying more than two toy guns...",
+          "chunk": "7"
+        },
+        {
+          "from": "ToyGuns",
+          "relation": "hasDiscount",
+          "to": "Discount",
+          "context": "Since Peter is buying more than two toy guns, a 20% discount applies.",
+          "chunk": "7"
+        },
+        {
+          "from": "Discount",
+          "relation": "resultsIn",
+          "to": "TotalAfterDiscount",
+          "context": "Total after discount: $46.19.",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "If Peter initially intended to purchase two toy guns for $28.99 each, what was the total price before any discount was applied, given he bought more than two?",
+    "options": {
+      "A": "The total price before any discount was applied was $144.95 for five toy guns.",
+      "B": "The total price before any discount was applied was $115.96 for four toy guns.",
+      "C": "The total price before any discount was applied was $86.97 for three toy guns.",
+      "D": "The total price before any discount was applied was $57.98 for two toy guns."
+    },
+    "correct_answer": "C",
+    "explanation": "The question specifies that Peter bought more than two toy guns, implying at least three. With each toy gun costing $28.99, the total for three guns before any discount would be $28.99 multiplied by 3, equaling $86.97.",
+    "path_description": "Path: Peter --[buys]--> ToyGuns --[hasDiscount]--> Discount --[resultsIn]--> TotalAfterDiscount",
+    "context": "Since Peter is buying more than two toy guns... | Since Peter is buying more than two toy guns, a 20% discount applies. | Total after discount: $46.19.",
+    "paper_id": "215"
+  },
+  {
+    "section": "conclusion2",
+    "path": {
+      "section": "conclusion2",
+      "start_entity": "Discount",
+      "end_entity": "FinancialConcept",
+      "hops": [
+        {
+          "from": "Discount",
+          "relation": "appliesTo",
+          "to": "ToyGuns",
+          "context": "Since Peter is buying more than two toy guns, a 20% discount applies.",
+          "chunk": "7"
+        },
+        {
+          "from": "ToyGuns",
+          "relation": "hasDiscount",
+          "to": "Discount",
+          "context": "Since Peter is buying more than two toy guns, a 20% discount applies.",
+          "chunk": "7"
+        },
+        {
+          "from": "Discount",
+          "relation": "type",
+          "to": "FinancialConcept",
+          "context": "Since Peter is buying more than two toy guns, a 20% discount applies.",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "In the context of applying a discount to purchases, what type of discount is specifically applied when purchasing more than two toy guns?",
+    "options": {
+      "A": "A promotional discount that includes additional toy guns free of cost per purchase.",
+      "B": "A financial discount specifically structured as a percentage reduction in price.",
+      "C": "A seasonal discount applicable only during certain times of the year.",
+      "D": "A quantity discount that reduces the overall cost based on the number of units bought."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A, because the knowledge graph path indicates that a discount applies to toy guns and is further classified as a type of financial concept, specifically a percentage reduction in the price. The other options, while plausible as types of discounts, do not align with the financial concept indicated by the path.",
+    "path_description": "Path: Discount --[appliesTo]--> ToyGuns --[hasDiscount]--> Discount --[type]--> FinancialConcept",
+    "context": "Since Peter is buying more than two toy guns, a 20% discount applies. | Since Peter is buying more than two toy guns, a 20% discount applies. | Since Peter is buying more than two toy guns, a 20% discount applies.",
+    "paper_id": "215"
+  }
+]

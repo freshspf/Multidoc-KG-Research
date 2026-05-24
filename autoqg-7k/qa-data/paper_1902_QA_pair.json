@@ -1,0 +1,88 @@
+[
+  {
+    "section": "introduction",
+    "path": {
+      "section": "introduction",
+      "start_entity": "UncertaintyAwareTracking",
+      "end_entity": "Software",
+      "hops": [
+        {
+          "from": "UncertaintyAwareTracking",
+          "relation": "implementedIn",
+          "to": "PyUAT",
+          "context": "modular Python implementation of UAT for tracking",
+          "chunk": "0"
+        },
+        {
+          "from": "PyUAT",
+          "relation": "availableOn",
+          "to": "GoogleColab",
+          "context": "available at https://github.com/JuBiotech/PyUAT, Google Colab",
+          "chunk": "0"
+        },
+        {
+          "from": "GoogleColab",
+          "relation": "type",
+          "to": "Software",
+          "context": "available at https://github.com/JuBiotech/PyUAT, Google Colab",
+          "chunk": "0"
+        }
+      ]
+    },
+    "question": "Which platform is the modular Python implementation of Uncertainty Aware Tracking (UAT) available on, and what is its classification?",
+    "options": {
+      "A": "PyUAT is available on Google Colab and is classified as software.",
+      "B": "PyUAT is available on GitHub, where it is classified as an uncertainty computation tool.",
+      "C": "Google Colab hosts PyUAT and it is primarily classified as a computational notebook.",
+      "D": "PyUAT is available on GitHub and is classified as a Python library for tracking."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct pathway from the knowledge graph is that UncertaintyAwareTracking is implemented in PyUAT, which is available on Google Colab, and Google Colab is classified as software. This eliminates the other options which misclassify the nature of PyUAT or the platform it is available on.",
+    "path_description": "Path: UncertaintyAwareTracking --[implementedIn]--> PyUAT --[availableOn]--> GoogleColab --[type]--> Software",
+    "context": "modular Python implementation of UAT for tracking | available at https://github.com/JuBiotech/PyUAT, Google Colab | available at https://github.com/JuBiotech/PyUAT, Google Colab",
+    "paper_id": "477"
+  },
+  {
+    "section": "scoringassignmentsusingstatisticalmodels1",
+    "path": {
+      "section": "scoringassignmentsusingstatisticalmodels1",
+      "start_entity": "PyUAT",
+      "end_entity": "Model",
+      "hops": [
+        {
+          "from": "PyUAT",
+          "relation": "uses",
+          "to": "StatisticalModels",
+          "context": "UAT uses statistical models to score assignments.",
+          "chunk": "5"
+        },
+        {
+          "from": "StatisticalModels",
+          "relation": "appliedTo",
+          "to": "AppearanceAssignment",
+          "context": "Statistical models are used to compute the assignments’ likelihood.",
+          "chunk": "5"
+        },
+        {
+          "from": "AppearanceAssignment",
+          "relation": "type",
+          "to": "Model",
+          "context": "An appearance assignment models the appearance of a cell detection at frame t + 1 that has no predecessor in frame t.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the context of scoring assignments using statistical models, which statement best describes the application of these models in PyUAT?",
+    "options": {
+      "A": "Statistical models in PyUAT are primarily used to predict the likelihood of an assignment based on the color intensity of cell detection.",
+      "B": "Statistical models in PyUAT are used to confirm the existence of a cell in frame t before it is detected in frame t+1.",
+      "C": "Statistical models in PyUAT compute assignments based on the historical accuracy of similar assignments in previous frames.",
+      "D": "Statistical models in PyUAT are used to model the likelihood of an assignment where a cell detection in frame t+1 lacks a predecessor in frame t."
+    },
+    "correct_answer": "D",
+    "explanation": "Option A directly relates to the information given in the paper. It accurately reflects the use of statistical models in PyUAT to compute the likelihood of an appearance assignment, specifically where a cell detected in frame t+1 has no predecessor in frame t, aligning with the model's application to appearance assignments as described.",
+    "path_description": "Path: PyUAT --[uses]--> StatisticalModels --[appliedTo]--> AppearanceAssignment --[type]--> Model",
+    "context": "UAT uses statistical models to score assignments. | Statistical models are used to compute the assignments’ likelihood. | An appearance assignment models the appearance of a cell detection at frame t + 1 that has no predecessor in frame t.",
+    "paper_id": "477"
+  }
+]

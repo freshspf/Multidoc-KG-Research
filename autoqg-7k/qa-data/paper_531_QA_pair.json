@@ -1,0 +1,174 @@
+[
+  {
+    "section": "materialandmethods2",
+    "path": {
+      "section": "materialandmethods2",
+      "start_entity": "Consumer",
+      "end_entity": "Entity",
+      "hops": [
+        {
+          "from": "Consumer",
+          "relation": "utilizes",
+          "to": "SharedEnergy",
+          "context": "The consumer utilizes a percentage of the shared energy (η) for his own needs.",
+          "chunk": "3"
+        },
+        {
+          "from": "SharedEnergy",
+          "relation": "storedIn",
+          "to": "EnergyStorage",
+          "context": "The remaining energy is stored in his energy storage for a specified time (τ).",
+          "chunk": "3"
+        },
+        {
+          "from": "EnergyStorage",
+          "relation": "type",
+          "to": "Entity",
+          "context": "The remaining energy is stored in his energy storage for a specified time (τ).",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the context of energy management described in the paper, what type of entity typically represents the ultimate destination for the remaining energy after consumer utilization?",
+    "options": {
+      "A": "A generator that converts mechanical energy into electrical energy for immediate use.",
+      "B": "A solar panel system that directly converts solar energy into electrical energy.",
+      "C": "An advanced lithium-ion battery optimized for high-density energy storage.",
+      "D": "A traditional power grid that distributes electricity to various consumer endpoints."
+    },
+    "correct_answer": "C",
+    "explanation": "The question requires understanding that the energy not utilized by the consumer is stored in an energy storage system. Among the options, only an advanced lithium-ion battery is specifically designed and commonly used for storing high-density energy efficiently, aligning with the concept of 'EnergyStorage' as per the path in the knowledge graph.",
+    "path_description": "Path: Consumer --[utilizes]--> SharedEnergy --[storedIn]--> EnergyStorage --[type]--> Entity",
+    "context": "The consumer utilizes a percentage of the shared energy (η) for his own needs. | The remaining energy is stored in his energy storage for a specified time (τ). | The remaining energy is stored in his energy storage for a specified time (τ).",
+    "paper_id": "563"
+  },
+  {
+    "section": "materialandmethods2",
+    "path": {
+      "section": "materialandmethods2",
+      "start_entity": "Prosumer",
+      "end_entity": "EnergyStorage",
+      "hops": [
+        {
+          "from": "Prosumer",
+          "relation": "sharesEnergyWith",
+          "to": "Consumer",
+          "context": "That is to say, the prosumer will share energy with the consumer first where the consumer will be able to use η% of it directly.",
+          "chunk": "3"
+        },
+        {
+          "from": "Consumer",
+          "relation": "utilizes",
+          "to": "SharedEnergy",
+          "context": "The consumer utilizes a percentage of the shared energy (η) for his own needs.",
+          "chunk": "3"
+        },
+        {
+          "from": "SharedEnergy",
+          "relation": "storedIn",
+          "to": "EnergyStorage",
+          "context": "The remaining energy is stored in his energy storage for a specified time (τ).",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In a scenario where a prosumer shares energy with a consumer, what is the fate of the energy not utilized directly by the consumer?",
+    "options": {
+      "A": "The unused energy is returned back to the prosumer for their own utilization or further distribution.",
+      "B": "The energy is sold back to the grid, generating revenue for the consumer.",
+      "C": "The remaining energy is stored in the consumer's energy storage for a specified duration.",
+      "D": "The leftover energy is dissipated as heat, contributing to inefficiencies in the system."
+    },
+    "correct_answer": "C",
+    "explanation": "According to the knowledge graph path, the consumer utilizes a certain percentage of the shared energy directly. The remaining energy, which is not used immediately, is stored in the consumer's energy storage for a specified time (τ), as detailed in the context from the paper.",
+    "path_description": "Path: Prosumer --[sharesEnergyWith]--> Consumer --[utilizes]--> SharedEnergy --[storedIn]--> EnergyStorage",
+    "context": "That is to say, the prosumer will share energy with the consumer first where the consumer will be able to use η% of it directly. | The consumer utilizes a percentage of the shared energy (η) for his own needs. | The remaining energy is stored in his energy storage for a specified time (τ).",
+    "paper_id": "563"
+  },
+  {
+    "section": "materialandmethods2",
+    "path": {
+      "section": "materialandmethods2",
+      "start_entity": "Prosumer",
+      "end_entity": "Entity",
+      "hops": [
+        {
+          "from": "Prosumer",
+          "relation": "sharesEnergyWith",
+          "to": "Consumer",
+          "context": "That is to say, the prosumer will share energy with the consumer first where the consumer will be able to use η% of it directly.",
+          "chunk": "3"
+        },
+        {
+          "from": "Consumer",
+          "relation": "usesEnergyAfter",
+          "to": "ExpiryTime",
+          "context": "After τ time steps, the consumer can use it for his own purposes.",
+          "chunk": "3"
+        },
+        {
+          "from": "ExpiryTime",
+          "relation": "type",
+          "to": "Entity",
+          "context": "The sharer entity loses the ability to sell the stored energy after τ time steps.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the context of energy sharing between prosumer and consumer, what happens to the energy after τ time steps as per the described model?",
+    "options": {
+      "A": "The energy expires and the consumer can no longer use it for any purpose.",
+      "B": "The consumer becomes the sole user of the energy and can use it for their own purposes.",
+      "C": "The energy is automatically transferred back to the prosumer for redistribution.",
+      "D": "The prosumer regains control over the energy and can decide on its further distribution."
+    },
+    "correct_answer": "B",
+    "explanation": "According to the described model, after τ time steps, the consumer can use the energy for his own purposes, indicating that the consumer becomes the sole user of that energy. The energy does not expire or revert to the prosumer; instead, it transitions to being fully under the consumer's control for personal use.",
+    "path_description": "Path: Prosumer --[sharesEnergyWith]--> Consumer --[usesEnergyAfter]--> ExpiryTime --[type]--> Entity",
+    "context": "That is to say, the prosumer will share energy with the consumer first where the consumer will be able to use η% of it directly. | After τ time steps, the consumer can use it for his own purposes. | The sharer entity loses the ability to sell the stored energy after τ time steps.",
+    "paper_id": "563"
+  },
+  {
+    "section": "introduction",
+    "path": {
+      "section": "introduction",
+      "start_entity": "Blockchain",
+      "end_entity": "Concept",
+      "hops": [
+        {
+          "from": "Blockchain",
+          "relation": "usedFor",
+          "to": "EnergyTrading",
+          "context": "blockchain-based energy trading where the blockchain and smart contracts are used to store the data",
+          "chunk": "0"
+        },
+        {
+          "from": "EnergyTrading",
+          "relation": "enabledBy",
+          "to": "FeedInTariffs",
+          "context": "Trading energy can be done by selling the excess energy back to the utility grid",
+          "chunk": "0"
+        },
+        {
+          "from": "FeedInTariffs",
+          "relation": "type",
+          "to": "Concept",
+          "context": "This approach is basically controlled by the utility grid company, where it sets the price, which is called feed-in-tariffs (FiT)",
+          "chunk": "0"
+        }
+      ]
+    },
+    "question": "How does the concept of feed-in tariffs (FiT) specifically enable blockchain-based energy trading?",
+    "options": {
+      "A": "Feed-in tariffs mainly focus on reducing the carbon emissions associated with blockchain operations.",
+      "B": "Feed-in tariffs encourage the production of renewable energy by providing direct subsidies to producers.",
+      "C": "Feed-in tariffs set by utility grid companies allow for price stability which is essential for blockchain transactions.",
+      "D": "Feed-in tariffs provide technical standards for blockchain to ensure the security and reliability of energy transactions."
+    },
+    "correct_answer": "C",
+    "explanation": "Feed-in tariffs (FiT) are prices set by utility grid companies for buying energy back from producers, which in the context of blockchain-based energy trading, provides a stable pricing mechanism essential for validating and executing transactions on a blockchain platform.",
+    "path_description": "Path: Blockchain --[usedFor]--> EnergyTrading --[enabledBy]--> FeedInTariffs --[type]--> Concept",
+    "context": "blockchain-based energy trading where the blockchain and smart contracts are used to store the data | Trading energy can be done by selling the excess energy back to the utility grid | This approach is basically controlled by the utility grid company, where it sets the price, which is called feed-in-tariffs (FiT)",
+    "paper_id": "563"
+  }
+]

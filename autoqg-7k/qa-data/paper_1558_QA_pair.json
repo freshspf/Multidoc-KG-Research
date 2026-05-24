@@ -1,0 +1,88 @@
+[
+  {
+    "section": "methodology2",
+    "path": {
+      "section": "methodology2",
+      "start_entity": "DataCollection",
+      "end_entity": "LowBandwidth",
+      "hops": [
+        {
+          "from": "DataCollection",
+          "relation": "evaluatedOn",
+          "to": "RS-Anomic",
+          "context": "Data was collected over 90 minutes",
+          "chunk": "3"
+        },
+        {
+          "from": "RS-Anomic",
+          "relation": "contains",
+          "to": "AnomalousBehaviours",
+          "context": "Anomalous Behaviours Captured in RS-Anomic",
+          "chunk": "3"
+        },
+        {
+          "from": "AnomalousBehaviours",
+          "relation": "includes",
+          "to": "LowBandwidth",
+          "context": "Low Bandwidth: A significant deviation from the expected bandwidth",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the study described in the methodology2 section, what was a significant deviation captured during the evaluation of RS-Anomic?",
+    "options": {
+      "A": "Low bandwidth, indicating less data transmission than expected for the system",
+      "B": "High bandwidth, suggesting data transmission was above what the system normally handles",
+      "C": "Standard bandwidth, reflecting typical data transmission rates within the system",
+      "D": "Fluctuating bandwidth, showing inconsistent data transmission rates"
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A because the paper specifies that RS-Anomic includes anomalous behaviours, one of which is low bandwidth, described as a significant deviation from expected bandwidth levels. Options B, C, and D are incorrect as they suggest different bandwidth conditions that were not identified as part of the anomalous behaviours captured in RS-Anomic.",
+    "path_description": "Path: DataCollection --[evaluatedOn]--> RS-Anomic --[contains]--> AnomalousBehaviours --[includes]--> LowBandwidth",
+    "context": "Data was collected over 90 minutes | Anomalous Behaviours Captured in RS-Anomic | Low Bandwidth: A significant deviation from the expected bandwidth",
+    "paper_id": "573"
+  },
+  {
+    "section": "results1",
+    "path": {
+      "section": "results1",
+      "start_entity": "RS-Anomic",
+      "end_entity": "Model",
+      "hops": [
+        {
+          "from": "RS-Anomic",
+          "relation": "evaluatedOn",
+          "to": "Transformer",
+          "context": "We evaluated the RS-Anomic dataset using state-of-the-art models.",
+          "chunk": "5"
+        },
+        {
+          "from": "Transformer",
+          "relation": "outperforms",
+          "to": "MAD-GAN",
+          "context": "Transformer 0.9810 0.8252 0.9905 0.967 outperforms MAD-GANs 0.6073 0.8627 0.5920 0.566.",
+          "chunk": "5"
+        },
+        {
+          "from": "MAD-GAN",
+          "relation": "type",
+          "to": "Model",
+          "context": "MAD-GAN Li et al. [2019], Kitsune Mirsky et al. [2018] for reference Vaswani et al. [2017].",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the evaluation of the RS-Anomic dataset, which model demonstrated superior performance, and what is its primary classification?",
+    "options": {
+      "A": "The MAD-GAN model, primarily categorized as a recurrent neural network, outperformed the Transformer model.",
+      "B": "The MAD-GAN model, primarily categorized as a neural network architecture, outperformed the Transformer model.",
+      "C": "The Transformer model, primarily categorized as a neural network architecture, outperformed the MAD-GAN model.",
+      "D": "The Transformer model, primarily categorized as a generative adversarial network, outperformed the MAD-GAN model."
+    },
+    "correct_answer": "C",
+    "explanation": "The Transformer model, known for its neural network architecture (Vaswani et al. [2017]), demonstrated superior performance compared to the MAD-GAN model in the evaluation of the RS-Anomic dataset. The scores listed in the context clearly show that the Transformer model had higher metric values than the MAD-GAN, indicating it outperformed MAD-GAN.",
+    "path_description": "Path: RS-Anomic --[evaluatedOn]--> Transformer --[outperforms]--> MAD-GAN --[type]--> Model",
+    "context": "We evaluated the RS-Anomic dataset using state-of-the-art models. | Transformer 0.9810 0.8252 0.9905 0.967 outperforms MAD-GANs 0.6073 0.8627 0.5920 0.566. | MAD-GAN Li et al. [2019], Kitsune Mirsky et al. [2018] for reference Vaswani et al. [2017].",
+    "paper_id": "573"
+  }
+]

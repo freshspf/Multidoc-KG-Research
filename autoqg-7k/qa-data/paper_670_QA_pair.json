@@ -1,0 +1,88 @@
+[
+  {
+    "section": "introduction",
+    "path": {
+      "section": "introduction",
+      "start_entity": "FlightControllers",
+      "end_entity": "ForceSource",
+      "hops": [
+        {
+          "from": "FlightControllers",
+          "relation": "model",
+          "to": "ResidualForces",
+          "context": "Traditional flight controllers model a large part of these forces but are unable to model all of them.",
+          "chunk": "0"
+        },
+        {
+          "from": "ResidualForces",
+          "relation": "ariseFrom",
+          "to": "Drag",
+          "context": "The remaining forces, called residual forces, can arise from diverse sources such as blade flapping, drag or ground forces.",
+          "chunk": "0"
+        },
+        {
+          "from": "Drag",
+          "relation": "type",
+          "to": "ForceSource",
+          "context": "The remaining forces, called residual forces, can arise from diverse sources such as blade flapping, drag or ground forces.",
+          "chunk": "0"
+        }
+      ]
+    },
+    "question": "In the context of flight controllers, which type of residual force is specifically categorized as a force source that traditional flight controllers struggle to model?",
+    "options": {
+      "A": "Force arising from drag, which is directly related to the air resistance experienced during flight.",
+      "B": "Force arising from blade flapping, which primarily affects the aerodynamics of rotorcraft.",
+      "C": "Force arising from engine thrust, which primarily propels the aircraft forward.",
+      "D": "Force arising from ground forces, which include interactions with the runway or landing surface."
+    },
+    "correct_answer": "A",
+    "explanation": "The question leverages the knowledge path where flight controllers model residual forces, which can arise from various sources including drag. Among the provided options, drag is specifically mentioned as a type of force (force source) that traditional flight controllers struggle to model fully. Blade flapping and ground forces are also types of residual forces, but they are not directly mentioned as a 'force source' in the context of this question. Engine thrust is not included in the provided context as a residual force.",
+    "path_description": "Path: FlightControllers --[model]--> ResidualForces --[ariseFrom]--> Drag --[type]--> ForceSource",
+    "context": "Traditional flight controllers model a large part of these forces but are unable to model all of them. | The remaining forces, called residual forces, can arise from diverse sources such as blade flapping, drag or ground forces. | The remaining forces, called residual forces, can arise from diverse sources such as blade flapping, drag or ground forces.",
+    "paper_id": "1430"
+  },
+  {
+    "section": "introduction",
+    "path": {
+      "section": "introduction",
+      "start_entity": "IncrementalNonlinearDynamicInversion",
+      "end_entity": "ForceSource",
+      "hops": [
+        {
+          "from": "IncrementalNonlinearDynamicInversion",
+          "relation": "calculates",
+          "to": "ResidualForces",
+          "context": "Incremental Nonlinear Dynamic Inversion (INDI) is an approach that calculates the residual forces by inverting the standard dynamics model of the system and adjusting the control outputs accordingly.",
+          "chunk": "0"
+        },
+        {
+          "from": "ResidualForces",
+          "relation": "ariseFrom",
+          "to": "BladeFlapping",
+          "context": "The remaining forces, called residual forces, can arise from diverse sources such as blade flapping, drag or ground forces.",
+          "chunk": "0"
+        },
+        {
+          "from": "BladeFlapping",
+          "relation": "type",
+          "to": "ForceSource",
+          "context": "The remaining forces, called residual forces, can arise from diverse sources such as blade flapping, drag or ground forces.",
+          "chunk": "0"
+        }
+      ]
+    },
+    "question": "In the context of Incremental Nonlinear Dynamic Inversion (INDI), which type of force is directly calculated by inverting system dynamics and is specifically associated with blade flapping?",
+    "options": {
+      "A": "Residual forces, which are identified through the inversion of standard dynamics models.",
+      "B": "Dynamic forces, which are directly computed from the aeroelastic effects on blades.",
+      "C": "Aerodynamic lift forces, which are generally calculated separately from residual forces.",
+      "D": "Thrust forces, primarily derived from engine output and not directly related to blade dynamics."
+    },
+    "correct_answer": "A",
+    "explanation": "Incremental Nonlinear Dynamic Inversion calculates residual forces by inverting the system's standard dynamics model, and these residual forces can arise from blade flapping, among other sources. Residual forces are the correct type associated with blade flapping in this context, distinguishing them from dynamic, thrust, or lift forces.",
+    "path_description": "Path: IncrementalNonlinearDynamicInversion --[calculates]--> ResidualForces --[ariseFrom]--> BladeFlapping --[type]--> ForceSource",
+    "context": "Incremental Nonlinear Dynamic Inversion (INDI) is an approach that calculates the residual forces by inverting the standard dynamics model of the system and adjusting the control outputs accordingly. | The remaining forces, called residual forces, can arise from diverse sources such as blade flapping, drag or ground forces. | The remaining forces, called residual forces, can arise from diverse sources such as blade flapping, drag or ground forces.",
+    "paper_id": "1430"
+  }
+]

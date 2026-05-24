@@ -1,0 +1,45 @@
+[
+  {
+    "section": "requirementsforrealtimevirtualization2",
+    "path": {
+      "section": "requirementsforrealtimevirtualization2",
+      "start_entity": "HV",
+      "end_entity": "hPMP",
+      "hops": [
+        {
+          "from": "HV",
+          "relation": "executes",
+          "to": "MacroTasks",
+          "context": "When the HV executes, it has to perform a set of macro-tasks",
+          "chunk": "2"
+        },
+        {
+          "from": "MacroTasks",
+          "relation": "includes",
+          "to": "Loading_VM_State",
+          "context": "Loading the next VM state according to the VM scheduler",
+          "chunk": "2"
+        },
+        {
+          "from": "Loading_VM_State",
+          "relation": "involves",
+          "to": "hPMP",
+          "context": "reprogramming hPMP",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the context of real-time virtualization, when a hypervisor (HV) is executing and performing macro tasks, what specific action involves reprogramming the hardware physical memory protection (hPMP)?",
+    "options": {
+      "A": "Updating the hypervisor's own internal state for task management",
+      "B": "Loading the next virtual machine (VM) state according to the VM scheduler",
+      "C": "Synchronizing the physical memory access permissions with external devices",
+      "D": "Adjusting the virtual CPUs allocation among different VMs"
+    },
+    "correct_answer": "B",
+    "explanation": "Reprogramming the hardware physical memory protection (hPMP) is specifically involved when loading the next VM state as per the VM scheduler. This is necessary to ensure that the memory protection settings align with the new VM state's requirements.",
+    "path_description": "Path: HV --[executes]--> MacroTasks --[includes]--> Loading_VM_State --[involves]--> hPMP",
+    "context": "When the HV executes, it has to perform a set of macro-tasks | Loading the next VM state according to the VM scheduler | reprogramming hPMP",
+    "paper_id": "745"
+  }
+]

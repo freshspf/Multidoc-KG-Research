@@ -1,0 +1,217 @@
+[
+  {
+    "section": "intrinsicevaluation2",
+    "path": {
+      "section": "intrinsicevaluation2",
+      "start_entity": "Random_Sampling",
+      "end_entity": "Resource",
+      "hops": [
+        {
+          "from": "Random_Sampling",
+          "relation": "evaluatedOn",
+          "to": "Correctness",
+          "context": "We manually annotate a randomly sampled subset of 385 out of our 1,000 sampled examples across all four settings, for 95% confidence in the correctness results.",
+          "chunk": "4"
+        },
+        {
+          "from": "Correctness",
+          "relation": "requires",
+          "to": "Human_Effort",
+          "context": "Unlike the other metrics, which are fully automated, this metric requires human effort.",
+          "chunk": "4"
+        },
+        {
+          "from": "Human_Effort",
+          "relation": "type",
+          "to": "Resource",
+          "context": "Unlike the other metrics, which are fully automated, this metric requires human effort.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the context of evaluating the correctness of results from a random sampling approach, why is human effort deemed necessary?",
+    "options": {
+      "A": "Human effort is necessary to program the automated systems that perform the random sampling of data.",
+      "B": "Human effort is needed to analyze the statistical methods used in the sampling to ensure they are robust.",
+      "C": "Human effort is required to manually annotate a subset of examples to ensure statistical confidence in the results.",
+      "D": "Human effort is utilized to manage and oversee the automated processes, though not directly involved in sampling."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A because the paper specifies that human effort is necessary for manually annotating a subset of randomly sampled examples. This manual annotation is essential to achieve a high level of confidence in the correctness of the results, distinguishing it from fully automated metrics.",
+    "path_description": "Path: Random_Sampling --[evaluatedOn]--> Correctness --[requires]--> Human_Effort --[type]--> Resource",
+    "context": "We manually annotate a randomly sampled subset of 385 out of our 1,000 sampled examples across all four settings, for 95% confidence in the correctness results. | Unlike the other metrics, which are fully automated, this metric requires human effort. | Unlike the other metrics, which are fully automated, this metric requires human effort.",
+    "paper_id": "785"
+  },
+  {
+    "section": "extrinsicevaluation1",
+    "path": {
+      "section": "extrinsicevaluation1",
+      "start_entity": "KimEtAl",
+      "end_entity": "API",
+      "hops": [
+        {
+          "from": "KimEtAl",
+          "relation": "provides",
+          "to": "Dataset",
+          "context": "using a dataset from Kim et. al. [10].",
+          "chunk": "5"
+        },
+        {
+          "from": "Dataset",
+          "relation": "includes",
+          "to": "OCVN",
+          "context": "OCVN.",
+          "chunk": "5"
+        },
+        {
+          "from": "OCVN",
+          "relation": "type",
+          "to": "API",
+          "context": "OCVN.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "What is the classification type of the 'OCVN' as included in the dataset provided by Kim et al. in the context of their research?",
+    "options": {
+      "A": "OCVN stands as an Online Collaborative Virtual Network in the dataset by Kim et al.",
+      "B": "OCVN is an object classification visual notation used primarily for image processing.",
+      "C": "OCVN is described as a neural network model in the dataset provided by Kim et al.",
+      "D": "OCVN is classified as an Application Programming Interface in the provided dataset."
+    },
+    "correct_answer": "D",
+    "explanation": "Following the knowledge path, Kim et al. provide a dataset which includes 'OCVN.' OCVN is classified as an API (Application Programming Interface). The other options are incorrect classifications of OCVN based on the information provided in the paper.",
+    "path_description": "Path: KimEtAl --[provides]--> Dataset --[includes]--> OCVN --[type]--> API",
+    "context": "using a dataset from Kim et. al. [10]. | OCVN. | OCVN.",
+    "paper_id": "785"
+  },
+  {
+    "section": "extrinsicevaluation2",
+    "path": {
+      "section": "extrinsicevaluation2",
+      "start_entity": "ICICL",
+      "end_entity": "Technology",
+      "hops": [
+        {
+          "from": "ICICL",
+          "relation": "degradesPerformance",
+          "to": "EvoMaster",
+          "context": "EvoMaster does worse with ICICL is their addition of a default value of EVOMASTER to each enum list.",
+          "chunk": "6"
+        },
+        {
+          "from": "EvoMaster",
+          "relation": "evaluatedOn",
+          "to": "APIs",
+          "context": "API performance results for EvoMaster.",
+          "chunk": "6"
+        },
+        {
+          "from": "APIs",
+          "relation": "type",
+          "to": "Technology",
+          "context": "Fuzzers with realistic parameter examples that the fuzzers can use to invoke APIs.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "How does the integration of ICICL into EvoMaster impact its performance when evaluating APIs in technology-related domains?",
+    "options": {
+      "A": "It improves EvoMaster's performance by providing more comprehensive enum lists which enhance API simulation capabilities.",
+      "B": "It degrades EvoMaster's performance by adding a default value of EVOMASTER to each enum list, complicating API interactions.",
+      "C": "It alters EvoMaster's internal architecture leading to faster execution times during API performance evaluations.",
+      "D": "It increases the complexity of EvoMaster's algorithm, thus requiring more resources for evaluating APIs."
+    },
+    "correct_answer": "B",
+    "explanation": "According to the paper, the addition of ICICL to EvoMaster, specifically the integration of a default value of EVOMASTER to each enum list, results in degraded performance. This is because this addition complicates the interactions with APIs, which are a type of technology evaluated by EvoMaster.",
+    "path_description": "Path: ICICL --[degradesPerformance]--> EvoMaster --[evaluatedOn]--> APIs --[type]--> Technology",
+    "context": "EvoMaster does worse with ICICL is their addition of a default value of EVOMASTER to each enum list. | API performance results for EvoMaster. | Fuzzers with realistic parameter examples that the fuzzers can use to invoke APIs.",
+    "paper_id": "785"
+  },
+  {
+    "section": "extrinsicevaluation4",
+    "path": {
+      "section": "extrinsicevaluation4",
+      "start_entity": "TaskCompletionTime",
+      "end_entity": "Technology",
+      "hops": [
+        {
+          "from": "TaskCompletionTime",
+          "relation": "measures",
+          "to": "HumanAPIUnderstanding",
+          "context": "We also measure the time to complete each task for both settings",
+          "chunk": "8"
+        },
+        {
+          "from": "HumanAPIUnderstanding",
+          "relation": "evaluates",
+          "to": "OpenAPISpecification",
+          "context": "We conduct an exploratory study that aims to evaluate how useful the generated examples are for developers to understand a given OpenAPI Specification",
+          "chunk": "8"
+        },
+        {
+          "from": "OpenAPISpecification",
+          "relation": "type",
+          "to": "Technology",
+          "context": "useful the generated examples are for developers to understand a given OpenAPI Specification",
+          "chunk": "8"
+        }
+      ]
+    },
+    "question": "In the context of evaluating human API understanding, how does the OpenAPI Specification type relate to task completion time?",
+    "options": {
+      "A": "The type of OpenAPI Specification has no significant impact on the task completion time for API understanding.",
+      "B": "OpenAPI Specifications reduce the task completion times by simplifying the technological implementations required.",
+      "C": "Task completion time is inversely proportional to the complexity of the OpenAPI Specification technology.",
+      "D": "Task completion time serves as a metric to measure the effectiveness of OpenAPI Specifications in enhancing technological understanding."
+    },
+    "correct_answer": "D",
+    "explanation": "Task completion time is a direct measure used to evaluate how effectively developers understand an OpenAPI Specification, which is categorized under technology. This metric helps in assessing the practical utility of the OpenAPI Specification in technological contexts.",
+    "path_description": "Path: TaskCompletionTime --[measures]--> HumanAPIUnderstanding --[evaluates]--> OpenAPISpecification --[type]--> Technology",
+    "context": "We also measure the time to complete each task for both settings | We conduct an exploratory study that aims to evaluate how useful the generated examples are for developers to understand a given OpenAPI Specification | useful the generated examples are for developers to understand a given OpenAPI Specification",
+    "paper_id": "785"
+  },
+  {
+    "section": "relatedwork",
+    "path": {
+      "section": "relatedwork",
+      "start_entity": "ICICL",
+      "end_entity": "Model",
+      "hops": [
+        {
+          "from": "ICICL",
+          "relation": "yieldsImprovementOn",
+          "to": "Falcon-40B",
+          "context": "While the results with these models were worse in absolute terms, ICICL yielded similar improvement on these models in relative terms.",
+          "chunk": "12"
+        },
+        {
+          "from": "Falcon-40B",
+          "relation": "comparedWith",
+          "to": "GPT-4",
+          "context": "We chose to not use extremely large models such as GPT-4 or Copilot due to company data leakage concerns and their high operating costs.",
+          "chunk": "12"
+        },
+        {
+          "from": "GPT-4",
+          "relation": "type",
+          "to": "Model",
+          "context": "LLMs such as GPT-4 perform well on a large range of natural language and code and testing tasks with minimal examples.",
+          "chunk": "12"
+        }
+      ]
+    },
+    "question": "In the context of the related work discussed, how does ICICL's performance improvement compare when applied to Falcon-40B and then contrasted with a model like GPT-4?",
+    "options": {
+      "A": "ICICL results in a larger absolute performance improvement on Falcon-40B than on GPT-4 due to lower base capabilities of Falcon-40B.",
+      "B": "ICICL could not be applied to GPT-4 or Falcon-40B due to concerns regarding data leakage and high operating costs.",
+      "C": "ICICL shows similar relative improvement when applied to Falcon-40B as when compared to the performance of GPT-4.",
+      "D": "ICICL's application on Falcon-40B results in poorer performance compared to when applied on GPT-4 due to advanced capabilities of GPT-4."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A because the context indicates that ICICL yields similar improvement in relative terms on the models it is applied to, regardless of their base capabilities. Thus, when comparing its application on Falcon-40B to a high-performing model like GPT-4, the relative improvement remains similar. Options B and C are incorrect as they suggest differences in improvement that contradict the provided context. Option D is misleading because it confuses the reason for not using GPT-4 with an inability to apply ICICL.",
+    "path_description": "Path: ICICL --[yieldsImprovementOn]--> Falcon-40B --[comparedWith]--> GPT-4 --[type]--> Model",
+    "context": "While the results with these models were worse in absolute terms, ICICL yielded similar improvement on these models in relative terms. | We chose to not use extremely large models such as GPT-4 or Copilot due to company data leakage concerns and their high operating costs. | LLMs such as GPT-4 perform well on a large range of natural language and code and testing tasks with minimal examples.",
+    "paper_id": "785"
+  }
+]

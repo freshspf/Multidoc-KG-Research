@@ -1,0 +1,42 @@
+[
+  {
+    "id": "introductionandmotivation",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Introduction and Motivation",
+      "page_start": 1,
+      "page_end": 1
+    },
+    "text": "3\n1  Since  the Solarwind attack report  in 2020 [1], which\n3\nimpacted major enterprises and millions of end users, there\n2\nhas been a growing tend of exploiting third-party supply chain\n0\n. software to launch attacks, including ransomware [2] and APTs\n4\n[3]. The exploitation has also extended to the AI supply chain,\n0\nwhich encompasses pre-trained models, dataset, and dependent\n5\n2 libraries [4]. To counter these threats, most existing solutions\n:\nfocus on detection at the source code level or adopt a prevention-\nv\ni oriented approach. Common methods  include  identifying\nX malicious code or functions through program analysis [5], graph\nr\nmining [6], and machine learning or deep learning techniques\na"
+  },
+  {
+    "id": "backgroundandrelatedwork",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Background and Related Work",
+      "page_start": 1,
+      "page_end": 1
+    },
+    "text": "APTs exploiting SCVs leverage the supply chain as an entry\npoint and follow a multi-stage attack strategy, attributes, making\nthem more stealthy and difficult to identify in the early stages,\nthereby maximizing their impact. SCVs have been observed\ntargeting widely used open-source software repositories such\nas PyPi, NPM, and Ruby. Additionally, the increasing reliance\non pre-trained models hosted on platforms like Hugging Face\nhas introduced new attack vectors within the AI supply chain.\nOnce compromised, these libraries and models can propagate\nmalicious payloads downstream, potentially affecting millions\nof end users and devices.\nDetection efforts for SCVs primarily focus on identifying\nvulnerabilities at the source code level. Tran et al. [11] pro-\nposed a BERT-based architecture that leverages self-attention\nmechanism to detect vulnerabilities in Python code. Lu et al. [7]\nintegrated graph structural information and in-context learning\nto enhance large language model (LLM)-based vulnerability\ndetection,  in which the framework identifies relevant code\nexamples based on semantic, lexical and syntactics similarities.\nHowever, these approaches have a significant limitation: they\nassume access to source code, which is not always available\nin real-world scenarios.\nAPT detection focuses on identifying exploitation chains\nby correlating indicators from multiple data sources, aiming\nto reconstruct attack paths and trace them back to their root\ncauses [12]. Among existing approaches, data provenance has\nbeen widely adopted to correlate timeline-based source data\nand capture system activity [13, 14], particularly in distributed\nsetting ups [15]. However, the datasets commonly used in these\nstudies do not effectively represent supply chain vulnerability\nexploitation. Additionally, most detection methods rely on"
+  },
+  {
+    "id": "methodologyandexperiments",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Methodology and Experiments",
+      "page_start": 2,
+      "page_end": 2
+    },
+    "text": "To address RQ1, we conducted a comprehensive survey [16]\nthat includes a statistical analysis comparing techniques used in\ngeneral APT detection and those tailored for APTs exploiting\nSCVs. The findings reveal the unique exploitation chain of\nAPTs in SCVs.\nFor RQ2, we first simulated a dataset capturing general OSS\nexploitation behavior at runtime [17]. This dataset includes\n9,461 reports across ecosystems such as npm, PyPI, crates.io,\nNuGet, and Packagist, providing insights into runtime exploita-\ntion by analyzing dynamic behavioral patterns. Additionally,\nwe are simulating a second dataset  that models real-world\nadvanced supply chain exploitations on Azure Cloud. This\ndataset focuses on multi-stage exploitation beyond the initial\ntrigger, addressing the gap in available datasets for studying\nAPTs in SCVs.\nTo process multi-source data into dynamic, comprehensive\nprovenance graphs, we developed UTLParser [18], a scalable\n\n(2) Feature Extraction\nport\nread\n10.2.3.10\nconcat\ntime\n/bin/bash\nHeterogeneous Node/Edge\nType/Attrs \nead Temporal Graph  Distributed Training\nLearning\n \nbackward track\nforward track\nAttack\nction  Reconstruction\nexploiting Supply Chain Vulnerabilities\ntool designed to parse diverse structured data into temporal\nprovenance graphs. These graphs serve as the foundation for\nsubsequent detection methods.\nOur current detection approach follows two directions. The\nfirst leverages attention-based graph neural networks to extract\ncritical features from the dataset [17]. The second explores\nthe use of temporal graph models for precise attack detection\nand reconstruction, utilizing the second dataset. To enhance\ndetection accuracy, we implement dynamic threshold-based\nscoring to identify and reconstruct  the most critical attack\npaths, effectively reducing false positives.\nFor RQ3, we plan to implement distributed learning tech-\nniques to accelerate sampling within the graph dataset and\nefficiently allocate training tasks across multiple clusters or\nmachines. Additionally, during graph construction, we aim to\nprune unnecessary structures to optimize message passing and\nreduce computational overhead.\nRegarding continual model updates, we proposed integrating\ntechniques like Elastic Weight Consolidation (EWC) into the\ncontinual learning process [19]. This method mitigates catas-\ntrophic forgetting during model updates, enabling adaptation"
+  },
+  {
+    "id": "evaluationanddiscussion",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Evaluation and Discussion",
+      "page_start": 3,
+      "page_end": 3
+    },
+    "text": "To evaluate the performance of our detection framework,\nwe will utilize two simulated datasets focusing on SCVs and\nAPTs based on SCVs. Additionally, we will conduct benchmark\ntesting using a common dataset [10]. To further assess practical\nperformance, we plan to implement red teaming with advanced\nexploitation techniques, evaluating detection efficiency and\naccuracy in real-world scenarios.\nWe anticipate challenges related to real-time graph construc-\ntion and distributed training due to the large volume of data.\nTo mitigate storage and computational overhead, we plan to\napply clustering and pruning techniques to filter out redundant\ninformation and reduce graph size while preserving essential\nstructures for effective detection."
+  }
+]

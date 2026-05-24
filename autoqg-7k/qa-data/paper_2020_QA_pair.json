@@ -1,0 +1,217 @@
+[
+  {
+    "section": "experiments1",
+    "path": {
+      "section": "experiments1",
+      "start_entity": "AccuracyMetric",
+      "end_entity": "Section",
+      "hops": [
+        {
+          "from": "AccuracyMetric",
+          "relation": "evaluatedOn",
+          "to": "TestSets",
+          "context": "Metric. We evaluate the accuracy on the global t",
+          "chunk": "5"
+        },
+        {
+          "from": "TestSets",
+          "relation": "partOf",
+          "to": "ExperimentalSetup",
+          "context": "test sets derived from the original test sets.",
+          "chunk": "5"
+        },
+        {
+          "from": "ExperimentalSetup",
+          "relation": "type",
+          "to": "Section",
+          "context": "4.1 Experimental Setup",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the context of the experimental setup described in section 4.1 of the paper, what is the role of the test sets in evaluating the accuracy metric?",
+    "options": {
+      "A": "The test sets are random samples from training data used to validate the accuracy metric qualitatively.",
+      "B": "The test sets are utilized to compare different experimental setups rather than measuring accuracy.",
+      "C": "The test sets are control variables that remain unchanged throughout all experimental setups.",
+      "D": "The test sets are modified versions of the original test sets used to specifically measure global accuracy."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A, as the context indicates that the accuracy metric is evaluated on global test sets, which are derived from the original test sets. This implies that the test sets have been modified or selected specifically for assessing global accuracy, as part of the experimental setup in section 4.1.",
+    "path_description": "Path: AccuracyMetric --[evaluatedOn]--> TestSets --[partOf]--> ExperimentalSetup --[type]--> Section",
+    "context": "Metric. We evaluate the accuracy on the global t | test sets derived from the original test sets. | 4.1 Experimental Setup",
+    "paper_id": "506"
+  },
+  {
+    "section": "experiments1",
+    "path": {
+      "section": "experiments1",
+      "start_entity": "CNN",
+      "end_entity": "Dataset",
+      "hops": [
+        {
+          "from": "CNN",
+          "relation": "trainedOn",
+          "to": "TI",
+          "context": "dataset using CNN and ResNet18.",
+          "chunk": "5"
+        },
+        {
+          "from": "TI",
+          "relation": "partOf",
+          "to": "TestSets",
+          "context": "The first imbalanced test set termed TI is sampled",
+          "chunk": "5"
+        },
+        {
+          "from": "TestSets",
+          "relation": "type",
+          "to": "Dataset",
+          "context": "test sets derived from the original test sets.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the context of using CNNs in image classification, what is the role of the TI test set?",
+    "options": {
+      "A": "TI refers to a high-resolution image dataset used for enhancing the feature extraction capabilities of CNNs.",
+      "B": "TI is a specialized test set used to assess the performance of CNNs on imbalanced image data.",
+      "C": "TI is a dataset primarily focused on training CNNs to recognize textual information within images.",
+      "D": "TI test set is utilized for validating the algorithm efficacy before deploying CNN models in real-time applications."
+    },
+    "correct_answer": "B",
+    "explanation": "The TI test set is described as an imbalanced test set, specifically sampled, indicating its usage for assessing how well the CNN performs under conditions where image data classes are not equally represented.",
+    "path_description": "Path: CNN --[trainedOn]--> TI --[partOf]--> TestSets --[type]--> Dataset",
+    "context": "dataset using CNN and ResNet18. | The first imbalanced test set termed TI is sampled | test sets derived from the original test sets.",
+    "paper_id": "506"
+  },
+  {
+    "section": "benchmarkresults1",
+    "path": {
+      "section": "benchmarkresults1",
+      "start_entity": "RS19",
+      "end_entity": "Concept",
+      "hops": [
+        {
+          "from": "RS19",
+          "relation": "partOf",
+          "to": "RemoteSensingDatasets",
+          "context": "-RS19, EuroSAT, AID, NWPU-RESISC45, UCM",
+          "chunk": "10"
+        },
+        {
+          "from": "RemoteSensingDatasets",
+          "relation": "addresses",
+          "to": "Heterogeneity",
+          "context": "remote sensing datasets, ensuring that there is no real-world federated scenarios is the heterogeneity",
+          "chunk": "10"
+        },
+        {
+          "from": "Heterogeneity",
+          "relation": "type",
+          "to": "Concept",
+          "context": "real-world federated scenarios is the heterogeneity",
+          "chunk": "10"
+        }
+      ]
+    },
+    "question": "In the context of remote sensing datasets such as RS19, EuroSAT, AID, NWPU-RESISC45, and UCM, what type of heterogeneity do these datasets address that is crucial for ensuring there are no real-world federated scenarios?",
+    "options": {
+      "A": "Variability in the atmospheric conditions affecting image quality and interpretation.",
+      "B": "Conceptual diversity in representing and analyzing remote sensing data.",
+      "C": "Differences in data collection protocols and processing methodologies.",
+      "D": "Heterogeneity in the types of sensors used across different geographic locations."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is D, 'Conceptual diversity in representing and analyzing remote sensing data.' This is derived from the knowledge path where 'Heterogeneity' addressed by the datasets is identified as a 'Concept'. This implies a focus on conceptual variations or differences in the approach to representing and analyzing data in remote sensing, crucial for preventing real-world federated scenarios, as opposed to more literal forms of heterogeneity like sensor types or atmospheric conditions.",
+    "path_description": "Path: RS19 --[partOf]--> RemoteSensingDatasets --[addresses]--> Heterogeneity --[type]--> Concept",
+    "context": "-RS19, EuroSAT, AID, NWPU-RESISC45, UCM | remote sensing datasets, ensuring that there is no real-world federated scenarios is the heterogeneity | real-world federated scenarios is the heterogeneity",
+    "paper_id": "506"
+  },
+  {
+    "section": "benchmarkresults3",
+    "path": {
+      "section": "benchmarkresults3",
+      "start_entity": "MOON",
+      "end_entity": "DataPartition",
+      "hops": [
+        {
+          "from": "MOON",
+          "relation": "showsPerformanceIn",
+          "to": "FedRS",
+          "context": "For instance, SCAFFOLD outperforms the simpler CNN, whereas MOON shows strong performance in certain settings.",
+          "chunk": "12"
+        },
+        {
+          "from": "FedRS",
+          "relation": "evaluatedOn",
+          "to": "NIID-1",
+          "context": "Figure 8 and Figure 9 present the local training accuracies for each of the 135 clients on the FedRS and FedRS-5 datasets, respectively.",
+          "chunk": "12"
+        },
+        {
+          "from": "NIID-1",
+          "relation": "type",
+          "to": "DataPartition",
+          "context": "architectures, under NIID-1 and NIID-2 data partitions, the imbalanced test set TI and the balanced test set TB.",
+          "chunk": "12"
+        }
+      ]
+    },
+    "question": "In the context of federated learning, how does the MOON model's performance specifically relate to the type of data partition used in the FedRS methodology?",
+    "options": {
+      "A": "MOON excels uniformly across all types of data partitions, including IID and non-IID, showing no preference.",
+      "B": "MOON struggles significantly when tested on the NIID-2 type data partition, primarily due to its inability to handle balanced datasets.",
+      "C": "MOON's performance is optimized only in scenarios where data is partitioned according to a IID-type, contrary to the settings of NIID-1.",
+      "D": "MOON shows strong performance when evaluated on the NIID-1 type data partition, which is known for its non-IID characteristics."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A. According to the provided path and context, MOON is evaluated on the FedRS methodology under NIID-1 data partitions, which are characterized by their non-IID nature. The paper mentions that MOON shows strong performance in certain settings, implying that its performance is notably good under the NIID-1 data partition type.",
+    "path_description": "Path: MOON --[showsPerformanceIn]--> FedRS --[evaluatedOn]--> NIID-1 --[type]--> DataPartition",
+    "context": "For instance, SCAFFOLD outperforms the simpler CNN, whereas MOON shows strong performance in certain settings. | Figure 8 and Figure 9 present the local training accuracies for each of the 135 clients on the FedRS and FedRS-5 datasets, respectively. | architectures, under NIID-1 and NIID-2 data partitions, the imbalanced test set TI and the balanced test set TB.",
+    "paper_id": "506"
+  },
+  {
+    "section": "benchmarkresults3",
+    "path": {
+      "section": "benchmarkresults3",
+      "start_entity": "MOON",
+      "end_entity": "DataPartition",
+      "hops": [
+        {
+          "from": "MOON",
+          "relation": "showsPerformanceIn",
+          "to": "FedRS",
+          "context": "For instance, SCAFFOLD outperforms the simpler CNN, whereas MOON shows strong performance in certain settings.",
+          "chunk": "12"
+        },
+        {
+          "from": "FedRS",
+          "relation": "evaluatedOn",
+          "to": "NIID-2",
+          "context": "Figure 8 and Figure 9 present the local training accuracies for each of the 135 clients on the FedRS and FedRS-5 datasets, respectively.",
+          "chunk": "12"
+        },
+        {
+          "from": "NIID-2",
+          "relation": "type",
+          "to": "DataPartition",
+          "context": "architectures, under NIID-1 and NIID-2 data partitions, the imbalanced test set TI and the balanced test set TB.",
+          "chunk": "12"
+        }
+      ]
+    },
+    "question": "In the context of the benchmark results discussed, how does MOON's performance in Federated Learning relate to the type of data partition used?",
+    "options": {
+      "A": "MOON's performance is unrelated to the type of data partition in FedRS, as it is generally consistent.",
+      "B": "MOON is least effective in FedRS-5 evaluated on NIID-1, specifically due to its architecture preferences.",
+      "C": "MOON performs poorly in FedRS evaluated on NIID-1, because it is not suitable for balanced data partitions.",
+      "D": "MOON shows strong performance in FedRS evaluated on NIID-2, which is a type of data partition."
+    },
+    "correct_answer": "D",
+    "explanation": "The question leverages the provided knowledge path to clarify the relationship of MOON’s performance in a federated learning setting (FedRS), evaluated particularly on an NIID-2 data partition type. The correct answer is 'A' because it directly connects MOON’s strong performance to the setting and specific data partition type mentioned in the path and context. The other options introduce incorrect contexts or relationships not supported by the given information.",
+    "path_description": "Path: MOON --[showsPerformanceIn]--> FedRS --[evaluatedOn]--> NIID-2 --[type]--> DataPartition",
+    "context": "For instance, SCAFFOLD outperforms the simpler CNN, whereas MOON shows strong performance in certain settings. | Figure 8 and Figure 9 present the local training accuracies for each of the 135 clients on the FedRS and FedRS-5 datasets, respectively. | architectures, under NIID-1 and NIID-2 data partitions, the imbalanced test set TI and the balanced test set TB.",
+    "paper_id": "506"
+  }
+]

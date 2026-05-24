@@ -1,0 +1,45 @@
+[
+  {
+    "section": "collocationbasedcontroller",
+    "path": {
+      "section": "collocationbasedcontroller",
+      "start_entity": "MinimumNormalForce",
+      "end_entity": "StateVector",
+      "hops": [
+        {
+          "from": "MinimumNormalForce",
+          "relation": "appliesTo",
+          "to": "ThrustWrench",
+          "context": "Other constraints include maintaining a minimum normal force",
+          "chunk": "2"
+        },
+        {
+          "from": "ThrustWrench",
+          "relation": "partOf",
+          "to": "TemporalDiscretization",
+          "context": "ui contains the values of the thrust wrench at the ith sample time",
+          "chunk": "2"
+        },
+        {
+          "from": "TemporalDiscretization",
+          "relation": "enables",
+          "to": "StateVector",
+          "context": "Through temporal discretization of the dynamics, we obtain equations of the following form",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the context of a collocation-based controller, how does maintaining a minimum normal force on a thrust wrench influence the control system's state vector?",
+    "options": {
+      "A": "By applying a constraint on the thrust wrench, it facilitates temporal discretization leading to precise state vector calculations.",
+      "B": "By eliminating temporal discretization requirements, enabling a direct measurement approach to update the state vector.",
+      "C": "Minimum normal force increases the overall system inertia, indirectly affecting the thrust wrench and state vector calculations.",
+      "D": "It reduces the need for temporal discretization, thus directly simplifying the computation of the state vector."
+    },
+    "correct_answer": "A",
+    "explanation": "Minimum normal force as a constraint on the thrust wrench is critical for enabling effective temporal discretization of the dynamics. This discretization is essential for deriving precise equations that define the state vector at each sample time, thus impacting the control system's ability to accurately model and predict system behavior.",
+    "path_description": "Path: MinimumNormalForce --[appliesTo]--> ThrustWrench --[partOf]--> TemporalDiscretization --[enables]--> StateVector",
+    "context": "Other constraints include maintaining a minimum normal force | ui contains the values of the thrust wrench at the ith sample time | Through temporal discretization of the dynamics, we obtain equations of the following form",
+    "paper_id": "347"
+  }
+]

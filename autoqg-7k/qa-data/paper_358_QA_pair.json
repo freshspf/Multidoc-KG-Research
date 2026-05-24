@@ -1,0 +1,131 @@
+[
+  {
+    "section": "multicontinentalglucosepredictionframeworkexperiments1",
+    "path": {
+      "section": "multicontinentalglucosepredictionframeworkexperiments1",
+      "start_entity": "FML_Token",
+      "end_entity": "MajorVote",
+      "hops": [
+        {
+          "from": "FML_Token",
+          "relation": "usedIn",
+          "to": "FL_Training_Process",
+          "context": "Participants need to stake a fixed amount of $FML tokens into the smart contract to be eligible to participate in the FL training process.",
+          "chunk": "4"
+        },
+        {
+          "from": "FL_Training_Process",
+          "relation": "evaluates",
+          "to": "GlobalModel",
+          "context": "Voters aggregate all the local model updates for that round to obtain the global model update. They evaluate the global model by running it on their evaluation data to propose voting results.",
+          "chunk": "4"
+        },
+        {
+          "from": "GlobalModel",
+          "relation": "updatedBy",
+          "to": "MajorVote",
+          "context": "For each round r, the finalized aggregated global model update is determined by the majoriting voting result.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In a federated learning scenario described in the multicontinental glucose prediction framework, how is the updated global model evaluated and finalized?",
+    "options": {
+      "A": "The global model is automatically updated by a central system without any input or voting from participants.",
+      "B": "The global model is evaluated by running it through a set of predetermined evaluation data and updated by majority vote.",
+      "C": "Participants vote on local model updates using their private datasets before an aggregation into the global model.",
+      "D": "Local models are directly integrated into the global model without participant voting or evaluation."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is B. According to the knowledge path, the global model is evaluated by voters running it on their evaluation data. These evaluations are then aggregated and the model is updated based on the majority vote, as confirmed by the context provided in the paper section.",
+    "path_description": "Path: FML_Token --[usedIn]--> FL_Training_Process --[evaluates]--> GlobalModel --[updatedBy]--> MajorVote",
+    "context": "Participants need to stake a fixed amount of $FML tokens into the smart contract to be eligible to participate in the FL training process. | Voters aggregate all the local model updates for that round to obtain the global model update. They evaluate the global model by running it on their evaluation data to propose voting results. | For each round r, the finalized aggregated global model update is determined by the majoriting voting result.",
+    "paper_id": "1104"
+  },
+  {
+    "section": "multicontinentalglucosepredictionframeworkexperiments1",
+    "path": {
+      "section": "multicontinentalglucosepredictionframeworkexperiments1",
+      "start_entity": "FML_Token",
+      "end_entity": "Database",
+      "hops": [
+        {
+          "from": "FML_Token",
+          "relation": "usedIn",
+          "to": "FL_Training_Process",
+          "context": "Participants need to stake a fixed amount of $FML tokens into the smart contract to be eligible to participate in the FL training process.",
+          "chunk": "4"
+        },
+        {
+          "from": "FL_Training_Process",
+          "relation": "uses",
+          "to": "IPFS",
+          "context": "A training node is responsible for performing local training using its own data and uploading the local model updates to a public database (e.g., IPFS).",
+          "chunk": "4"
+        },
+        {
+          "from": "IPFS",
+          "relation": "type",
+          "to": "Database",
+          "context": "A training node is responsible for performing local training using its own data and uploading the local model updates to a public database (e.g., IPFS).",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the Federated Learning (FL) training process described, which sequence accurately represents the role of $FML tokens and how updates are managed?",
+    "options": {
+      "A": "Participants receive $FML tokens as a reward, use them to access training data, and share updates via a private network.",
+      "B": "Participants stake $FML tokens to join, train locally on their data, and upload updates to a public database like IPFS.",
+      "C": "Participants purchase $FML tokens to access training materials, conduct group trainings, and store updates on a centralized server.",
+      "D": "Participants use $FML tokens to vote on model updates, collaborate on training via a shared platform, and download updates from a cloud service."
+    },
+    "correct_answer": "B",
+    "explanation": "Option A is correct as it correctly describes the use of $FML tokens for staking to participate in the FL training process, performing local training using individual data, and uploading the model updates to a public database like IPFS, as outlined in the given context.",
+    "path_description": "Path: FML_Token --[usedIn]--> FL_Training_Process --[uses]--> IPFS --[type]--> Database",
+    "context": "Participants need to stake a fixed amount of $FML tokens into the smart contract to be eligible to participate in the FL training process. | A training node is responsible for performing local training using its own data and uploading the local model updates to a public database (e.g., IPFS). | A training node is responsible for performing local training using its own data and uploading the local model updates to a public database (e.g., IPFS).",
+    "paper_id": "1104"
+  },
+  {
+    "section": "multicontinentalglucosepredictionframeworkexperiments3",
+    "path": {
+      "section": "multicontinentalglucosepredictionframeworkexperiments3",
+      "start_entity": "MCGP",
+      "end_entity": "Metric",
+      "hops": [
+        {
+          "from": "MCGP",
+          "relation": "outperforms",
+          "to": "TotalCentral",
+          "context": "While MCGP can globally learn from all participants’ knowledge, its advantage over TotalCentral diminishes in most tests on unseen patients from current patients.",
+          "chunk": "6"
+        },
+        {
+          "from": "TotalCentral",
+          "relation": "measures",
+          "to": "RMSE",
+          "context": "Evaluation metrics are RMSE (upper table) and MARD (bottom table).",
+          "chunk": "6"
+        },
+        {
+          "from": "RMSE",
+          "relation": "type",
+          "to": "Metric",
+          "context": "Evaluation metrics are RMSE (upper table) and MARD (bottom table).",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the evaluation of the multicontinental glucose prediction framework, how does the MCGP model's performance compare to the TotalCentral model in terms of the RMSE metric?",
+    "options": {
+      "A": "MCGP and TotalCentral perform equally well in all tests measured by the RMSE metric.",
+      "B": "MCGP generally outperforms TotalCentral across most tests on unseen patients using the RMSE metric.",
+      "C": "TotalCentral consistently outperforms MCGP in tests on current patients measured by the RMSE metric.",
+      "D": "MCGP's advantage over TotalCentral diminishes in most tests on unseen patients measured by the RMSE metric."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is D. The context indicates that while MCGP can globally learn from all participants' knowledge, its advantage over TotalCentral model diminishes in most tests on unseen patients. The RMSE metric, specifically mentioned in the evaluation metrics section, is the basis for this comparison.",
+    "path_description": "Path: MCGP --[outperforms]--> TotalCentral --[measures]--> RMSE --[type]--> Metric",
+    "context": "While MCGP can globally learn from all participants’ knowledge, its advantage over TotalCentral diminishes in most tests on unseen patients from current patients. | Evaluation metrics are RMSE (upper table) and MARD (bottom table). | Evaluation metrics are RMSE (upper table) and MARD (bottom table).",
+    "paper_id": "1104"
+  }
+]

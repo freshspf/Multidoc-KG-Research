@@ -1,0 +1,260 @@
+[
+  {
+    "section": "introduction",
+    "path": {
+      "section": "introduction",
+      "start_entity": "Bitcoin",
+      "end_entity": "Transactions",
+      "hops": [
+        {
+          "from": "Bitcoin",
+          "relation": "type",
+          "to": "Blockchain",
+          "context": "Prominent blockchains such as Bitcoin and Ethereum can only process 7 and 30 transactions per second (TPS), respectively.",
+          "chunk": "1"
+        },
+        {
+          "from": "Blockchain",
+          "relation": "hasNodeSet",
+          "to": "Validators",
+          "context": "A blockchain is a distributed system that consists of two sets of nodes: validators and clients.",
+          "chunk": "1"
+        },
+        {
+          "from": "Validators",
+          "relation": "receive",
+          "to": "Transactions",
+          "context": "Clients submit transactions to validators.",
+          "chunk": "1"
+        }
+      ]
+    },
+    "question": "In the Bitcoin blockchain, why is the processing capacity limited to approximately 7 transactions per second?",
+    "options": {
+      "A": "Bitcoin utilizes a single-threaded validation process which inherently limits the number of transactions that can be processed.",
+      "B": "Because the validator nodes in the Bitcoin blockchain can only handle a limited number of transactions from clients at a given time.",
+      "C": "Due to the high volume of transactions submitted by clients exceeding the processing capabilities of the blockchain.",
+      "D": "Validators prioritize transactions based on the transaction fees, thereby slowing down the overall process."
+    },
+    "correct_answer": "B",
+    "explanation": "The limitation of processing capacity to about 7 transactions per second in Bitcoin is primarily due to the capacity of validator nodes to handle only a limited number of transactions at a given time. This limitation is a consequence of the design and capacity constraints of the validator nodes within the blockchain network.",
+    "path_description": "Path: Bitcoin --[type]--> Blockchain --[hasNodeSet]--> Validators --[receive]--> Transactions",
+    "context": "Prominent blockchains such as Bitcoin and Ethereum can only process 7 and 30 transactions per second (TPS), respectively. | A blockchain is a distributed system that consists of two sets of nodes: validators and clients. | Clients submit transactions to validators.",
+    "paper_id": "618"
+  },
+  {
+    "section": "background2",
+    "path": {
+      "section": "background2",
+      "start_entity": "Paper",
+      "end_entity": "Technology",
+      "hops": [
+        {
+          "from": "Paper",
+          "relation": "enhances",
+          "to": "BlockSTM",
+          "context": "As a secondary contribution, the paper enhances BlockSTM with a rolling commit mechanism.",
+          "chunk": "3"
+        },
+        {
+          "from": "BlockSTM",
+          "relation": "originallyUsed",
+          "to": "LazyCommitMechanism",
+          "context": "Block-STM’s original lazy commit mechanism.",
+          "chunk": "3"
+        },
+        {
+          "from": "LazyCommitMechanism",
+          "relation": "type",
+          "to": "Technology",
+          "context": "Block-STM’s original lazy commit mechanism.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the context of the paper's secondary contribution, what type of technology did the enhancement of BlockSTM originally utilize before the introduction of a rolling commit mechanism?",
+    "options": {
+      "A": "A distributed ledger technology that synchronized data across multiple nodes",
+      "B": "An eager commit mechanism that executed transactions immediately upon request",
+      "C": "A rollback technology that undid transactions in response to errors or security threats",
+      "D": "A lazy commit mechanism that delayed transactions until a specific condition was met"
+    },
+    "correct_answer": "D",
+    "explanation": "The paper's secondary contribution involved enhancing BlockSTM with a rolling commit mechanism. Originally, BlockSTM used a lazy commit mechanism, a type of technology where transactions are delayed until a specific condition is met.",
+    "path_description": "Path: Paper --[enhances]--> BlockSTM --[originallyUsed]--> LazyCommitMechanism --[type]--> Technology",
+    "context": "As a secondary contribution, the paper enhances BlockSTM with a rolling commit mechanism. | Block-STM’s original lazy commit mechanism. | Block-STM’s original lazy commit mechanism.",
+    "paper_id": "618"
+  },
+  {
+    "section": "rapidlane1",
+    "path": {
+      "section": "rapidlane1",
+      "start_entity": "RapidLane",
+      "end_entity": "DataType",
+      "hops": [
+        {
+          "from": "RapidLane",
+          "relation": "uses",
+          "to": "DeferredObjects",
+          "context": "RapidLane leverages deferred objects by capturing the logs provided by the VM for each transaction, and replaying them at commit time.",
+          "chunk": "6"
+        },
+        {
+          "from": "DeferredObjects",
+          "relation": "canBeOfType",
+          "to": "SmallSizedStrings",
+          "context": "In our implementation, we restrict the types that can be wrapped as deferred objects to integer counters and small-sized strings (up to 256 bytes).",
+          "chunk": "6"
+        },
+        {
+          "from": "SmallSizedStrings",
+          "relation": "type",
+          "to": "DataType",
+          "context": "In our implementation, we restrict the types that can be wrapped as deferred objects to integer counters and small-sized strings (up to 256 bytes).",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the RapidLane system, which data type is specifically classified to be wrapped as a deferred object for efficient transaction log handling?",
+    "options": {
+      "A": "Small-sized strings that do not exceed 256 bytes in size",
+      "B": "Integer counters that exceed a certain system-defined threshold",
+      "C": "Large-sized strings that exceed 1024 bytes in size",
+      "D": "Floating-point numbers used for high precision calculations"
+    },
+    "correct_answer": "A",
+    "explanation": "According to the paper, RapidLane uses deferred objects for capturing logs and only small-sized strings (up to 256 bytes) and integer counters are specified as types that can be wrapped as deferred objects. Therefore, the correct answer is small-sized strings that do not exceed 256 bytes.",
+    "path_description": "Path: RapidLane --[uses]--> DeferredObjects --[canBeOfType]--> SmallSizedStrings --[type]--> DataType",
+    "context": "RapidLane leverages deferred objects by capturing the logs provided by the VM for each transaction, and replaying them at commit time. | In our implementation, we restrict the types that can be wrapped as deferred objects to integer counters and small-sized strings (up to 256 bytes). | In our implementation, we restrict the types that can be wrapped as deferred objects to integer counters and small-sized strings (up to 256 bytes).",
+    "paper_id": "618"
+  },
+  {
+    "section": "rapidlane1",
+    "path": {
+      "section": "rapidlane1",
+      "start_entity": "RapidLane",
+      "end_entity": "DataType",
+      "hops": [
+        {
+          "from": "RapidLane",
+          "relation": "uses",
+          "to": "DeferredObjects",
+          "context": "RapidLane leverages deferred objects by capturing the logs provided by the VM for each transaction, and replaying them at commit time.",
+          "chunk": "6"
+        },
+        {
+          "from": "DeferredObjects",
+          "relation": "canBeOfType",
+          "to": "IntegerCounters",
+          "context": "In our implementation, we restrict the types that can be wrapped as deferred objects to integer counters and small-sized strings (up to 256 bytes).",
+          "chunk": "6"
+        },
+        {
+          "from": "IntegerCounters",
+          "relation": "type",
+          "to": "DataType",
+          "context": "In our implementation, we restrict the types that can be wrapped as deferred objects to integer counters and small-sized strings (up to 256 bytes).",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the context of RapidLane's implementation using deferred objects, which data type is not suitable for wrapping as a deferred object?",
+    "options": {
+      "A": "Strings that exceed 256 bytes, typically used for more extensive data storage needs",
+      "B": "Small-sized strings, specifically limited to a maximum of 256 bytes for efficiency",
+      "C": "Floating point numbers, which are used for precise calculations and measurements",
+      "D": "Integer counters that primarily function to track incremental values within transactions"
+    },
+    "correct_answer": "C",
+    "explanation": "The paper specifies that in RapidLane's implementation, deferred objects can only be integer counters and small-sized strings (up to 256 bytes). Therefore, floating point numbers, which are not mentioned in the options provided for deferred object types, are not suitable for wrapping as deferred objects.",
+    "path_description": "Path: RapidLane --[uses]--> DeferredObjects --[canBeOfType]--> IntegerCounters --[type]--> DataType",
+    "context": "RapidLane leverages deferred objects by capturing the logs provided by the VM for each transaction, and replaying them at commit time. | In our implementation, we restrict the types that can be wrapped as deferred objects to integer counters and small-sized strings (up to 256 bytes). | In our implementation, we restrict the types that can be wrapped as deferred objects to integer counters and small-sized strings (up to 256 bytes).",
+    "paper_id": "618"
+  },
+  {
+    "section": "rapidlane4",
+    "path": {
+      "section": "rapidlane4",
+      "start_entity": "InductiveCondition",
+      "end_entity": "Function",
+      "hops": [
+        {
+          "from": "InductiveCondition",
+          "relation": "appliesTo",
+          "to": "TransactionValidation",
+          "context": "The inductive condition (1) comes into play here, as no such validations for tx𝑖 can get scheduled after time 𝑇.",
+          "chunk": "9"
+        },
+        {
+          "from": "TransactionValidation",
+          "relation": "uses",
+          "to": "ScheduleSuffixValidation",
+          "context": "this design requires schedule_suffix_validation(i) to atomically traverse and update these counters for transactions.",
+          "chunk": "9"
+        },
+        {
+          "from": "ScheduleSuffixValidation",
+          "relation": "type",
+          "to": "Function",
+          "context": "this design requires schedule_suffix_validation(i) to atomically traverse and update these counters for transactions.",
+          "chunk": "9"
+        }
+      ]
+    },
+    "question": "In the context of the 'rapidlane4' section, how does the inductive condition affect the process of transaction validation?",
+    "options": {
+      "A": "It ensures that all transaction validations are performed before the transaction is scheduled, without needing schedule suffix validation.",
+      "B": "It allows for continuous scheduling of transaction validations beyond the specified time, leveraging function-type validations.",
+      "C": "It prevents any transaction validations from being scheduled after a specific time, utilizing schedule suffix validation for atomic updates.",
+      "D": "It mandates the re-scheduling of transaction validations to prioritize newer transactions, bypassing the need for schedule suffix validation."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A. The inductive condition specified prevents any transaction validations from being scheduled after a designated time, T. This condition necessitates the use of schedule suffix validation, which atomically traverses and updates counters for transactions, ensuring that no further validations are scheduled post the cutoff time.",
+    "path_description": "Path: InductiveCondition --[appliesTo]--> TransactionValidation --[uses]--> ScheduleSuffixValidation --[type]--> Function",
+    "context": "The inductive condition (1) comes into play here, as no such validations for tx𝑖 can get scheduled after time 𝑇. | this design requires schedule_suffix_validation(i) to atomically traverse and update these counters for transactions. | this design requires schedule_suffix_validation(i) to atomically traverse and update these counters for transactions.",
+    "paper_id": "618"
+  },
+  {
+    "section": "evaluation2",
+    "path": {
+      "section": "evaluation2",
+      "start_entity": "SequentialBaseline",
+      "end_entity": "CollectionType",
+      "hops": [
+        {
+          "from": "SequentialBaseline",
+          "relation": "comparedWith",
+          "to": "LimitedCollection",
+          "context": "The estimation is correct nearly at all times, as demonstrated by the high throughput for the limited collection minting, with a speedup of up to 10.1× compared to the sequential baseline.",
+          "chunk": "11"
+        },
+        {
+          "from": "LimitedCollection",
+          "relation": "comparedWith",
+          "to": "UnlimitedCollection",
+          "context": "Minting the limited collection is only 1.4× worse compared to the unlimited one.",
+          "chunk": "11"
+        },
+        {
+          "from": "UnlimitedCollection",
+          "relation": "type",
+          "to": "CollectionType",
+          "context": "The dashed line shows the throughput of the sequential execution when minting an unlimited collection.",
+          "chunk": "11"
+        }
+      ]
+    },
+    "question": "What can be inferred about the throughput efficiency when comparing SequentialBaseline, LimitedCollection, and UnlimitedCollection types of minting?",
+    "options": {
+      "A": "Minting an UnlimitedCollection has a higher throughput compared to SequentialBaseline by 10.1×.",
+      "B": "Minting a LimitedCollection is 1.4× more efficient compared to minting an UnlimitedCollection.",
+      "C": "SequentialBaseline has a throughput speedup of 10.1× when compared to LimitedCollection minting.",
+      "D": "LimitedCollection minting achieves a throughput speedup of 10.1× when compared to SequentialBaseline."
+    },
+    "correct_answer": "D",
+    "explanation": "The context states that the Limited Collection minting resulted in a speedup of up to 10.1× compared to the Sequential Baseline, which means the throughput of Limited Collection is significantly more efficient than that of the Sequential Baseline. This matches option B.",
+    "path_description": "Path: SequentialBaseline --[comparedWith]--> LimitedCollection --[comparedWith]--> UnlimitedCollection --[type]--> CollectionType",
+    "context": "The estimation is correct nearly at all times, as demonstrated by the high throughput for the limited collection minting, with a speedup of up to 10.1× compared to the sequential baseline. | Minting the limited collection is only 1.4× worse compared to the unlimited one. | The dashed line shows the throughput of the sequential execution when minting an unlimited collection.",
+    "paper_id": "618"
+  }
+]

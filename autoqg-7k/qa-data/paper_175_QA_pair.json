@@ -1,0 +1,88 @@
+[
+  {
+    "section": "qmdbdesign1",
+    "path": {
+      "section": "qmdbdesign1",
+      "start_entity": "UpperNode",
+      "end_entity": "QMDB",
+      "hops": [
+        {
+          "from": "UpperNode",
+          "relation": "connectedTo",
+          "to": "ShardRoot",
+          "context": "The shard root itself is connected to a set of upper nodes...",
+          "chunk": "2"
+        },
+        {
+          "from": "ShardRoot",
+          "relation": "connectedTo",
+          "to": "GlobalRoot",
+          "context": "At the top is a single global root that connects a set of shard roots...",
+          "chunk": "2"
+        },
+        {
+          "from": "GlobalRoot",
+          "relation": "partOf",
+          "to": "QMDB",
+          "context": "At the top is a single global root that connects a set of shard roots...",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the design of a Quantum Multidatabase (QMDB) as described in the 'qmdbdesign1' section, which of the following best describes the hierarchical relationship between nodes?",
+    "options": {
+      "A": "Multiple global roots exist and each connects to separate shard roots, which then connect to upper nodes within the QMDB.",
+      "B": "A single global root connects directly to upper nodes, bypassing the shard roots, forming the structure of the QMDB.",
+      "C": "Shard roots connect directly to the QMDB without intermediate nodes or a global root in the hierarchical structure.",
+      "D": "Upper nodes are connected to shard roots, which in turn connect to a single global root, encompassing the QMDB."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is based on the hierarchical structure described in the 'qmdbdesign1' section of the paper. The configuration starts with upper nodes that are connected to shard roots. These shard roots are then connected to a single global root, which is part of the overall Quantum Multidatabase (QMDB). Options B, C, and D misrepresent the relationships or the number of global roots involved.",
+    "path_description": "Path: UpperNode --[connectedTo]--> ShardRoot --[connectedTo]--> GlobalRoot --[partOf]--> QMDB",
+    "context": "The shard root itself is connected to a set of upper nodes... | At the top is a single global root that connects a set of shard roots... | At the top is a single global root that connects a set of shard roots...",
+    "paper_id": "1342"
+  },
+  {
+    "section": "evaluation2",
+    "path": {
+      "section": "evaluation2",
+      "start_entity": "QMDB",
+      "end_entity": "AWSInstance",
+      "hops": [
+        {
+          "from": "QMDB",
+          "relation": "outperforms",
+          "to": "NOMT",
+          "context": "QMDB is up to 8× faster than NOMT",
+          "chunk": "7"
+        },
+        {
+          "from": "NOMT",
+          "relation": "evaluatedOn",
+          "to": "i8g_metal_24xl",
+          "context": "We also evaluated NOMT with a lower capacity of 1 billion entries on the same instances (i8g.metal-24xl and i8g.8xlarge)",
+          "chunk": "7"
+        },
+        {
+          "from": "i8g_metal_24xl",
+          "relation": "type",
+          "to": "AWSInstance",
+          "context": "measured 2.28 million updates/second on i8g.metal-24xl (6 SSDs)",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "Considering the performance comparisons and evaluations in the paper, which statement best describes the relationship between QMDB, NOMT, and the i8g.metal-24xl?",
+    "options": {
+      "A": "QMDB and NOMT perform similarly when evaluated on AWS instance type i8g.metal-24xl, both achieving around 2.28 million updates per second.",
+      "B": "NOMT is faster than QMDB when both are tested on the AWS instance i8g.metal-24xl, particularly in environments with high data entry requirements.",
+      "C": "QMDB outperforms NOMT, which was evaluated on an AWS instance type i8g.metal-24xl, achieving significant performance improvements.",
+      "D": "Neither QMDB nor NOMT was tested on the i8g.metal-24xl, which is not an AWS instance type commonly used for such evaluations."
+    },
+    "correct_answer": "C",
+    "explanation": "Based on the provided context, QMDB outperforms NOMT, and NOMT was evaluated on the i8g.metal-24xl, an AWS instance type. Therefore, option A is the correct answer as it accurately reflects the relationships and results from the evaluation. Options B, C, and D are incorrect as they do not accurately represent the performance comparison or the types of AWS instances used.",
+    "path_description": "Path: QMDB --[outperforms]--> NOMT --[evaluatedOn]--> i8g_metal_24xl --[type]--> AWSInstance",
+    "context": "QMDB is up to 8× faster than NOMT | We also evaluated NOMT with a lower capacity of 1 billion entries on the same instances (i8g.metal-24xl and i8g.8xlarge) | measured 2.28 million updates/second on i8g.metal-24xl (6 SSDs)",
+    "paper_id": "1342"
+  }
+]

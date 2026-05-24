@@ -1,0 +1,88 @@
+[
+  {
+    "section": "introduction",
+    "path": {
+      "section": "introduction",
+      "start_entity": "SafetyCertificate",
+      "end_entity": "SystemModel",
+      "hops": [
+        {
+          "from": "SafetyCertificate",
+          "relation": "appliesTo",
+          "to": "RealWorldController",
+          "context": "In this paper, we assume that the real world controller (RWC) or 𝜋 (.) in AS is safety certified with control affine assumption.",
+          "chunk": "1"
+        },
+        {
+          "from": "RealWorldController",
+          "relation": "certifiedWith",
+          "to": "ControlAffineSystemModel",
+          "context": "In this paper, we assume that the real world controller (RWC) or 𝜋 (.) in AS is safety certified with control affine assumption.",
+          "chunk": "1"
+        },
+        {
+          "from": "ControlAffineSystemModel",
+          "relation": "type",
+          "to": "SystemModel",
+          "context": "Existing safety certification process assume a control affine system model.",
+          "chunk": "1"
+        }
+      ]
+    },
+    "question": "Which of the following statements best describes the sequence of relationships and entities leading to the safety certification of a real-world controller?",
+    "options": {
+      "A": "A Safety Certificate applies to a Real World Controller, which is certified with a Control Affine System Model, categorized under System Models.",
+      "B": "A Real World Controller uses a System Model, which is certified by a Safety Certificate through a Control Affine System Model.",
+      "C": "A Safety Certificate directly certifies a Control Affine System Model, which then applies to a Real World Controller within the System Model category.",
+      "D": "A System Model is defined by a Control Affine System Model, which then certifies a Real World Controller to receive a Safety Certificate."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct sequence, as described in the context and knowledge path, starts with a Safety Certificate that applies to a Real World Controller. This controller is then certified with a Control Affine System Model, which itself is a type of System Model. Thus, option A correctly reflects the sequence from the knowledge graph provided.",
+    "path_description": "Path: SafetyCertificate --[appliesTo]--> RealWorldController --[certifiedWith]--> ControlAffineSystemModel --[type]--> SystemModel",
+    "context": "In this paper, we assume that the real world controller (RWC) or 𝜋 (.) in AS is safety certified with control affine assumption. | In this paper, we assume that the real world controller (RWC) or 𝜋 (.) in AS is safety certified with control affine assumption. | Existing safety certification process assume a control affine system model.",
+    "paper_id": "484"
+  },
+  {
+    "section": "systemmodelandpreliminaries",
+    "path": {
+      "section": "systemmodelandpreliminaries",
+      "start_entity": "SafetyCertificate",
+      "end_entity": "Sensor",
+      "hops": [
+        {
+          "from": "SafetyCertificate",
+          "relation": "appliesTo",
+          "to": "RWC",
+          "context": "Safety certificate for an RWC",
+          "chunk": "2"
+        },
+        {
+          "from": "RWC",
+          "relation": "uses",
+          "to": "CGM",
+          "context": "An autonomous real world controller (RWC) uses sensors (CGM for AID)",
+          "chunk": "2"
+        },
+        {
+          "from": "CGM",
+          "relation": "type",
+          "to": "Sensor",
+          "context": "sensors (CGM for AID)",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the context of an autonomous real world controller (RWC) using a CGM sensor, what is the primary type of safety certificate applicable?",
+    "options": {
+      "A": "A safety certification for software algorithms used in autonomous controllers.",
+      "B": "A general safety certificate for all types of electronic devices including computers and smartphones.",
+      "C": "A safety certificate that specifically governs the use of sensors in autonomous controllers.",
+      "D": "A regulatory compliance certificate for manufacturing standards in electronics."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A because the safety certificate applies to the RWC which specifically uses a CGM sensor. This sensor is classified under the type 'Sensor', indicating that the safety certificate must cover aspects related to sensor usage in autonomous controllers, rather than general electronics or software algorithms.",
+    "path_description": "Path: SafetyCertificate --[appliesTo]--> RWC --[uses]--> CGM --[type]--> Sensor",
+    "context": "Safety certificate for an RWC | An autonomous real world controller (RWC) uses sensors (CGM for AID) | sensors (CGM for AID)",
+    "paper_id": "484"
+  }
+]

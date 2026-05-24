@@ -1,0 +1,131 @@
+[
+  {
+    "section": "designalgorithms1",
+    "path": {
+      "section": "designalgorithms1",
+      "start_entity": "CostFunctionRho",
+      "end_entity": "Matrix",
+      "hops": [
+        {
+          "from": "CostFunctionRho",
+          "relation": "usedIn",
+          "to": "NaiveGreedyAlgorithm",
+          "context": "ρ(·) = Tr  (·)  .",
+          "chunk": "3"
+        },
+        {
+          "from": "NaiveGreedyAlgorithm",
+          "relation": "selectsFrom",
+          "to": "ReachabilityMatrix",
+          "context": "It selects columns from the reachability matrix Φ until the budget is exhausted or the cost cannot be reduced.",
+          "chunk": "3"
+        },
+        {
+          "from": "ReachabilityMatrix",
+          "relation": "type",
+          "to": "Matrix",
+          "context": "It selects columns from the reachability matrix Φ until the budget is exhausted or the cost cannot be reduced.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the design of the Naive Greedy Algorithm, why is the Cost Function ρ(·) essential when selecting columns from the Reachability Matrix Φ?",
+    "options": {
+      "A": "It provides a heuristic to balance between the matrix dimensions and the computational cost of column selection.",
+      "B": "It calculates the overall performance impact of each column, guiding the selection process until resources are depleted.",
+      "C": "It measures the computational complexity of matrix operations, ensuring the algorithm remains efficient.",
+      "D": "It is used to track the trace of the matrix until the budget is exhausted or further cost reduction is unachievable."
+    },
+    "correct_answer": "D",
+    "explanation": "The Cost Function ρ(·), which is the trace of the matrix, is crucial in evaluating the impact of selecting specific columns from the Reachability Matrix Φ. It guides the algorithm to continue selecting columns until no further cost reduction is possible or the budget is exhausted, ensuring optimal use of resources.",
+    "path_description": "Path: CostFunctionRho --[usedIn]--> NaiveGreedyAlgorithm --[selectsFrom]--> ReachabilityMatrix --[type]--> Matrix",
+    "context": "ρ(·) = Tr  (·)  . | It selects columns from the reachability matrix Φ until the budget is exhausted or the cost cannot be reduced. | It selects columns from the reachability matrix Φ until the budget is exhausted or the cost cannot be reduced.",
+    "paper_id": "398"
+  },
+  {
+    "section": "numericalexperiments",
+    "path": {
+      "section": "numericalexperiments",
+      "start_entity": "SSparseGreedyAlgorithm",
+      "end_entity": "Algorithm",
+      "hops": [
+        {
+          "from": "SSparseGreedyAlgorithm",
+          "relation": "comparedWith",
+          "to": "SSparseMCMC",
+          "context": "Finally, we compare the costs achieved with the s-sparse greedy selection (Algorithm 1) and s-sparse MCMC (Algorithm 4).",
+          "chunk": "7"
+        },
+        {
+          "from": "SSparseMCMC",
+          "relation": "yieldsLowerCostsThan",
+          "to": "SSparseGreedyAlgorithm",
+          "context": "Also, while MCMC yields smaller costs thanks to its exploratory approach, the costs obtained with the s-sparse greedy are only slightly larger in most cases.",
+          "chunk": "7"
+        },
+        {
+          "from": "SSparseGreedyAlgorithm",
+          "relation": "type",
+          "to": "Algorithm",
+          "context": "Our proposed s-sparse greedy algorithm picks the key input channel 4.",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "In the context of comparing s-sparse greedy and s-sparse MCMC algorithms in terms of cost efficiency, what can be inferred about their relative performance?",
+    "options": {
+      "A": "The s-sparse MCMC algorithm consistently yields lower costs than the s-sparse greedy algorithm due to its exploratory approach.",
+      "B": "Both the s-sparse greedy and s-sparse MCMC algorithms yield the same costs, as they utilize similar computational techniques.",
+      "C": "The s-sparse MCMC algorithm results in significantly higher costs compared to the s-sparse greedy algorithm due to its complexity.",
+      "D": "The s-sparse greedy algorithm is slightly less costly than the s-sparse MCMC, making it more efficient in most scenarios."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A because, as per the context provided, the s-sparse MCMC yields smaller costs compared to the s-sparse greedy algorithm thanks to its exploratory nature. This indicates that MCMC consistently outperforms the greedy algorithm in terms of cost efficiency.",
+    "path_description": "Path: SSparseGreedyAlgorithm --[comparedWith]--> SSparseMCMC --[yieldsLowerCostsThan]--> SSparseGreedyAlgorithm --[type]--> Algorithm",
+    "context": "Finally, we compare the costs achieved with the s-sparse greedy selection (Algorithm 1) and s-sparse MCMC (Algorithm 4). | Also, while MCMC yields smaller costs thanks to its exploratory approach, the costs obtained with the s-sparse greedy are only slightly larger in most cases. | Our proposed s-sparse greedy algorithm picks the key input channel 4.",
+    "paper_id": "398"
+  },
+  {
+    "section": "designalgorithms3",
+    "path": {
+      "section": "designalgorithms3",
+      "start_entity": "Algorithm3",
+      "end_entity": "InputParameter",
+      "hops": [
+        {
+          "from": "Algorithm3",
+          "relation": "proposes",
+          "to": "GreedySubroutine",
+          "context": "Algorithm 3: Subroutine greedy",
+          "chunk": "5"
+        },
+        {
+          "from": "GreedySubroutine",
+          "relation": "uses",
+          "to": "FlagRk",
+          "context": "Input: Channels cand, schedule S, ϵ ≥ 0, flag rk.",
+          "chunk": "5"
+        },
+        {
+          "from": "FlagRk",
+          "relation": "type",
+          "to": "InputParameter",
+          "context": "Input: Channels cand, schedule S, ϵ ≥ 0, flag rk.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the context of Algorithm 3 as described in the section 'designalgorithms3', what is the role of the parameter 'flag rk' within the GreedySubroutine?",
+    "options": {
+      "A": "Flag rk serves as an identifier for the type of channels, either candidate or scheduled.",
+      "B": "Flag rk is used to determine the maximum number of iterations for the GreedySubroutine.",
+      "C": "Flag rk defines the initial conditions for the greedy approach, setting the starting schedule.",
+      "D": "Flag rk acts as a control parameter to adjust the precision of the greedy algorithm."
+    },
+    "correct_answer": "D",
+    "explanation": "In the knowledge graph path, 'flag rk' is classified as an 'InputParameter' used within 'GreedySubroutine' as proposed by 'Algorithm3'. Since it's an input parameter in the context of a greedy algorithm, its most plausible role is to control precision, adjusting how the subroutine behaves during its execution. The other options, while related to parameters, do not directly address the role of controlling precision or execution behavior as an input parameter.",
+    "path_description": "Path: Algorithm3 --[proposes]--> GreedySubroutine --[uses]--> FlagRk --[type]--> InputParameter",
+    "context": "Algorithm 3: Subroutine greedy | Input: Channels cand, schedule S, ϵ ≥ 0, flag rk. | Input: Channels cand, schedule S, ϵ ≥ 0, flag rk.",
+    "paper_id": "398"
+  }
+]

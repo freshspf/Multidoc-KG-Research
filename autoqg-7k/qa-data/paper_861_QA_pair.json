@@ -1,0 +1,217 @@
+[
+  {
+    "section": "proposedsnncorearchitecture1",
+    "path": {
+      "section": "proposedsnncorearchitecture1",
+      "start_entity": "SNNCore",
+      "end_entity": "Buffer",
+      "hops": [
+        {
+          "from": "SNNCore",
+          "relation": "contains",
+          "to": "ComputeUnit",
+          "context": "Fig. 6 shows the proposed SNN core with 9 compute units (CU) and 3 neuron units (NU).",
+          "chunk": "2"
+        },
+        {
+          "from": "ComputeUnit",
+          "relation": "includes",
+          "to": "IFspad",
+          "context": "Each compute unit consists of an input spike memory (IFmem), input loader (IL), input scratchpad buffer (IFspad), spike-to-address converter (S2A), and a CIM compute macro (CM).",
+          "chunk": "2"
+        },
+        {
+          "from": "IFspad",
+          "relation": "type",
+          "to": "Buffer",
+          "context": "The input loader transfers data from IFmem to IFspad, aligning for convolution (Conv) or fully connected (FC) layer operations.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the proposed SNN core architecture, what is the primary function of the IFspad within the compute units?",
+    "options": {
+      "A": "It acts as the final processing unit where all computational operations are concluded.",
+      "B": "It converts spike signals into addressable memory locations for computational operations.",
+      "C": "It serves as a buffer for temporarily storing data transferred by the input loader from IFmem.",
+      "D": "It directly executes both convolution and fully connected layer operations using stored data."
+    },
+    "correct_answer": "C",
+    "explanation": "The IFspad in each compute unit is described as a component where data from the IFmem is transferred to. This aligns with its role as a buffer, which temporarily holds data for further processing, specifically for convolution or fully connected layer operations.",
+    "path_description": "Path: SNNCore --[contains]--> ComputeUnit --[includes]--> IFspad --[type]--> Buffer",
+    "context": "Fig. 6 shows the proposed SNN core with 9 compute units (CU) and 3 neuron units (NU). | Each compute unit consists of an input spike memory (IFmem), input loader (IL), input scratchpad buffer (IFspad), spike-to-address converter (S2A), and a CIM compute macro (CM). | The input loader transfers data from IFmem to IFspad, aligning for convolution (Conv) or fully connected (FC) layer operations.",
+    "paper_id": "726"
+  },
+  {
+    "section": "proposedsnncorearchitecture2",
+    "path": {
+      "section": "proposedsnncorearchitecture2",
+      "start_entity": "SoftReset",
+      "end_entity": "Macro",
+      "hops": [
+        {
+          "from": "SoftReset",
+          "relation": "optionFor",
+          "to": "LeakyIntegrateAndFire",
+          "context": "while the soft reset option subtracts the threshold voltage from the Vmem, retaining some residual potential.",
+          "chunk": "3"
+        },
+        {
+          "from": "LeakyIntegrateAndFire",
+          "relation": "supportedBy",
+          "to": "NeuronMacros",
+          "context": "The neuron macros support integrate-and-fire (IF) and leaky-integrate-and-fire (LIF) neuron models with soft and hard reset options following a neuron spike.",
+          "chunk": "3"
+        },
+        {
+          "from": "NeuronMacros",
+          "relation": "type",
+          "to": "Macro",
+          "context": "The design of neuron macros is similar to compute macros, with a 72 × 48 memory array.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the context of the proposed SNN core architecture, how does the Soft Reset option influence the behavior of Leaky Integrate and Fire (LIF) neurons within neuron macros?",
+    "options": {
+      "A": "It increases the threshold voltage for subsequent spikes, making the neuron less likely to fire consecutively.",
+      "B": "It completely resets the Vmem to zero, ensuring that all previous neuronal activity influence is eliminated.",
+      "C": "It adjusts the memory array dimensions within the neuron macros to optimize for faster processing speeds.",
+      "D": "It subtracts the threshold voltage from the Vmem, effectively retaining some residual potential after a neuron spike."
+    },
+    "correct_answer": "D",
+    "explanation": "The Soft Reset option, as mentioned in the paper, subtracts the threshold voltage from the Vmem (membrane potential), thus retaining some of the residual potential after a neuron spike. This is specific to the behavior of Leaky Integrate and Fire (LIF) neurons within the neuron macros, which are designed with a memory array similar to compute macros. Options B, C, and D are incorrect as they either describe a hard reset, modify neuron firing thresholds, or incorrectly attribute changes to the memory array dimensions which relate to physical design rather than neuron model behavior.",
+    "path_description": "Path: SoftReset --[optionFor]--> LeakyIntegrateAndFire --[supportedBy]--> NeuronMacros --[type]--> Macro",
+    "context": "while the soft reset option subtracts the threshold voltage from the Vmem, retaining some residual potential. | The neuron macros support integrate-and-fire (IF) and leaky-integrate-and-fire (LIF) neuron models with soft and hard reset options following a neuron spike. | The design of neuron macros is similar to compute macros, with a 72 × 48 memory array.",
+    "paper_id": "726"
+  },
+  {
+    "section": "discussion",
+    "path": {
+      "section": "discussion",
+      "start_entity": "AsynchronousDesigns",
+      "end_entity": "Publication",
+      "hops": [
+        {
+          "from": "AsynchronousDesigns",
+          "relation": "uses",
+          "to": "FixedNetworkArchitectures",
+          "context": "Although asynchronous designs with fixed network architectures consume very low power.",
+          "chunk": "7"
+        },
+        {
+          "from": "FixedNetworkArchitectures",
+          "relation": "citedBy",
+          "to": "Reference10",
+          "context": "Although asynchronous designs with fixed network architectures [10] consume very low power.",
+          "chunk": "7"
+        },
+        {
+          "from": "Reference10",
+          "relation": "type",
+          "to": "Publication",
+          "context": "Although asynchronous designs with fixed network architectures [10] consume very low power.",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "Which type of design, cited in Reference 10, is known for consuming very low power due to its architectural characteristics?",
+    "options": {
+      "A": "Asynchronous designs that utilize variable network architectures, often discussed for their efficiency.",
+      "B": "Synchronous designs that rely on adaptive network architectures, commonly cited in low power discussions.",
+      "C": "Synchronous designs that use fixed network architectures, as might be inferred from traditional design discussions.",
+      "D": "Asynchronous designs that employ fixed network architectures, as cited in Reference 10."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A because the provided knowledge path and context explicitly mention that asynchronous designs with fixed network architectures (as cited in Reference 10) consume very low power. Options B, C, and D introduce different design types and architectural characteristics not supported by the given context.",
+    "path_description": "Path: AsynchronousDesigns --[uses]--> FixedNetworkArchitectures --[citedBy]--> Reference10 --[type]--> Publication",
+    "context": "Although asynchronous designs with fixed network architectures consume very low power. | Although asynchronous designs with fixed network architectures [10] consume very low power. | Although asynchronous designs with fixed network architectures [10] consume very low power.",
+    "paper_id": "726"
+  },
+  {
+    "section": "discussion",
+    "path": {
+      "section": "discussion",
+      "start_entity": "AsynchronousDesigns",
+      "end_entity": "Publication",
+      "hops": [
+        {
+          "from": "AsynchronousDesigns",
+          "relation": "uses",
+          "to": "FixedNetworkArchitectures",
+          "context": "Although asynchronous designs with fixed network architectures consume very low power.",
+          "chunk": "7"
+        },
+        {
+          "from": "FixedNetworkArchitectures",
+          "relation": "citedBy",
+          "to": "Reference9",
+          "context": "Although asynchronous designs with fixed network architectures [9] consume very low power.",
+          "chunk": "7"
+        },
+        {
+          "from": "Reference9",
+          "relation": "type",
+          "to": "Publication",
+          "context": "Although asynchronous designs with fixed network architectures [9] consume very low power.",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "In the context of asynchronous designs utilizing fixed network architectures, what characteristic of Reference 9's publication primarily supports their usage?",
+    "options": {
+      "A": "Reference 9, a publication, claims that these designs enhance network reliability over time.",
+      "B": "Reference 9, a publication, suggests that these designs significantly reduce power consumption.",
+      "C": "Reference 9, a publication, argues that these designs simplify the implementation process.",
+      "D": "Reference 9, a publication, indicates that these designs substantially increase processing speed."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A because the context explicitly states that asynchronous designs with fixed network architectures consume very low power, which is supported by Reference 9. The other options mention benefits not discussed in the given context.",
+    "path_description": "Path: AsynchronousDesigns --[uses]--> FixedNetworkArchitectures --[citedBy]--> Reference9 --[type]--> Publication",
+    "context": "Although asynchronous designs with fixed network architectures consume very low power. | Although asynchronous designs with fixed network architectures [9] consume very low power. | Although asynchronous designs with fixed network architectures [9] consume very low power.",
+    "paper_id": "726"
+  },
+  {
+    "section": "discussion",
+    "path": {
+      "section": "discussion",
+      "start_entity": "TableIII",
+      "end_entity": "Technology",
+      "hops": [
+        {
+          "from": "TableIII",
+          "relation": "compares",
+          "to": "SpiDR",
+          "context": "Table III compares SpiDR with contemporary digital SNN accelerators.",
+          "chunk": "7"
+        },
+        {
+          "from": "SpiDR",
+          "relation": "comparedWith",
+          "to": "DigitalSNNAccelerators",
+          "context": "Table III compares SpiDR with contemporary digital SNN accelerators.",
+          "chunk": "7"
+        },
+        {
+          "from": "DigitalSNNAccelerators",
+          "relation": "type",
+          "to": "Technology",
+          "context": "Table III compares SpiDR with contemporary digital SNN accelerators.",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "In the context of digital SNN accelerators, how does the SpiDR technology primarily differ from other technologies discussed in Table III?",
+    "options": {
+      "A": "SpiDR focuses on enhanced computational efficiency specifically tailored for neural network applications.",
+      "B": "SpiDR employs traditional transistor-based mechanisms to improve power consumption over its competitors.",
+      "C": "SpiDR is mainly concerned with wireless communication improvements, unlike other digital SNN accelerators.",
+      "D": "SpiDR utilizes an older, more established technology that prioritizes cost over performance."
+    },
+    "correct_answer": "A",
+    "explanation": "Table III compares SpiDR with other digital SNN accelerators, focusing on technological advancements. The correct answer is A, as SpiDR's primary distinction lies in its enhanced computational efficiency tailored for neural network applications, which is a key aspect of digital SNN accelerators. Options B, C, and D are misleading as they suggest focuses (traditional mechanisms, older technology, wireless communication) that diverge from the main purpose of SNN accelerators.",
+    "path_description": "Path: TableIII --[compares]--> SpiDR --[comparedWith]--> DigitalSNNAccelerators --[type]--> Technology",
+    "context": "Table III compares SpiDR with contemporary digital SNN accelerators. | Table III compares SpiDR with contemporary digital SNN accelerators. | Table III compares SpiDR with contemporary digital SNN accelerators.",
+    "paper_id": "726"
+  }
+]

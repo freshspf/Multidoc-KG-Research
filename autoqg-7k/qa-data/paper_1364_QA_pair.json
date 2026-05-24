@@ -1,0 +1,131 @@
+[
+  {
+    "section": "results1",
+    "path": {
+      "section": "results1",
+      "start_entity": "AdaptiveSNNController",
+      "end_entity": "CaseStudy",
+      "hops": [
+        {
+          "from": "AdaptiveSNNController",
+          "relation": "outperforms",
+          "to": "LQRController",
+          "context": "adaptive SNN controller outperforms a benchmark LQR controller in wall-following and tracking performance",
+          "chunk": "3"
+        },
+        {
+          "from": "LQRController",
+          "relation": "appliedTo",
+          "to": "CaseStudyA",
+          "context": "Straight-Line Tracking with Actuator Failure",
+          "chunk": "3"
+        },
+        {
+          "from": "CaseStudyA",
+          "relation": "type",
+          "to": "CaseStudy",
+          "context": "Straight-Line Tracking with Actuator Failure",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the context of the 'Straight-Line Tracking with Actuator Failure' case study, which controller showed superior performance?",
+    "options": {
+      "A": "The LQR controller exhibited superior capabilities in handling actuator failure during straight-line tracking.",
+      "B": "The fuzzy logic controller outperformed other controllers in terms of adaptability and precision.",
+      "C": "The adaptive SNN controller demonstrated enhanced performance in wall-following and tracking abilities.",
+      "D": "The PID controller proved to be more effective, although it was not directly compared in this study."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A because the adaptive SNN controller was specifically mentioned to outperform the LQR controller in the case study of 'Straight-Line Tracking with Actuator Failure,' particularly in wall-following and tracking performance.",
+    "path_description": "Path: AdaptiveSNNController --[outperforms]--> LQRController --[appliedTo]--> CaseStudyA --[type]--> CaseStudy",
+    "context": "adaptive SNN controller outperforms a benchmark LQR controller in wall-following and tracking performance | Straight-Line Tracking with Actuator Failure | Straight-Line Tracking with Actuator Failure",
+    "paper_id": "1263"
+  },
+  {
+    "section": "results1",
+    "path": {
+      "section": "results1",
+      "start_entity": "AdaptiveSNNController",
+      "end_entity": "Task",
+      "hops": [
+        {
+          "from": "AdaptiveSNNController",
+          "relation": "outperforms",
+          "to": "LQRController",
+          "context": "adaptive SNN controller outperforms a benchmark LQR controller in wall-following and tracking performance",
+          "chunk": "3"
+        },
+        {
+          "from": "LQRController",
+          "relation": "fails",
+          "to": "TrackingPerformance",
+          "context": "whereas the benchmark LQR controller fails to achieve the control objective within the 20-second timeframe",
+          "chunk": "3"
+        },
+        {
+          "from": "TrackingPerformance",
+          "relation": "type",
+          "to": "Task",
+          "context": "adaptive SNN controller outperforms a benchmark LQR controller in wall-following and tracking performance",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the context of comparing controller performance in a tracking task, what is the primary reason the LQR controller fails compared to the Adaptive SNN Controller?",
+    "options": {
+      "A": "The LQR controller cannot maintain the control objective within a 20-second timeframe for wall-following and tracking tasks.",
+      "B": "The LQR controller lacks the computational power needed to process input data effectively in real-time.",
+      "C": "The Adaptive SNN Controller uses more advanced algorithms that are not based on linear dynamics unlike the LQR controller.",
+      "D": "The LQR controller was not tested under the same conditions as the Adaptive SNN Controller, leading to incomparable results."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A. The LQR controller's failure is specifically stated to be due to its inability to achieve the control objective within a 20-second timeframe, particularly in tasks involving wall-following and tracking. Options B, C, and D are plausible distractions, but they are not supported by the context given in the paper section 'results1'.",
+    "path_description": "Path: AdaptiveSNNController --[outperforms]--> LQRController --[fails]--> TrackingPerformance --[type]--> Task",
+    "context": "adaptive SNN controller outperforms a benchmark LQR controller in wall-following and tracking performance | whereas the benchmark LQR controller fails to achieve the control objective within the 20-second timeframe | adaptive SNN controller outperforms a benchmark LQR controller in wall-following and tracking performance",
+    "paper_id": "1263"
+  },
+  {
+    "section": "conclusions",
+    "path": {
+      "section": "conclusions",
+      "start_entity": "B-splineFitting",
+      "end_entity": "ControlMethod",
+      "hops": [
+        {
+          "from": "B-splineFitting",
+          "relation": "generates",
+          "to": "ReferenceTrajectory",
+          "context": "Initially, B-spline fitting is utilized to model the unknown wall shape and generate the reference trajectory for the LQR to track.",
+          "chunk": "5"
+        },
+        {
+          "from": "ReferenceTrajectory",
+          "relation": "usedFor",
+          "to": "LQR",
+          "context": "Initially, B-spline fitting is utilized to model the unknown wall shape and generate the reference trajectory for the LQR to track.",
+          "chunk": "5"
+        },
+        {
+          "from": "LQR",
+          "relation": "type",
+          "to": "ControlMethod",
+          "context": "Initially, B-spline fitting is utilized to model the unknown wall shape and generate the reference trajectory for the LQR to track.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the process of trajectory control, which sequence correctly describes the application of methods and technologies leading to the implementation of a control method?",
+    "options": {
+      "A": "Reference trajectory is developed through LQR and then refined using B-spline fitting before applying a control method.",
+      "B": "B-spline fitting generates a reference trajectory, which is then used for LQR, a type of control method.",
+      "C": "B-spline fitting refines the LQR output, which then generates a reference trajectory used in another control method.",
+      "D": "LQR generates a reference trajectory which is then processed by B-spline fitting, used as a control method."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct sequence starts with B-spline fitting, which is used to generate the reference trajectory. This trajectory is then used in an LQR (Linear Quadratic Regulator), which is identified as a type of control method. The other options incorrectly rearrange the sequence of operations and their purpose.",
+    "path_description": "Path: B-splineFitting --[generates]--> ReferenceTrajectory --[usedFor]--> LQR --[type]--> ControlMethod",
+    "context": "Initially, B-spline fitting is utilized to model the unknown wall shape and generate the reference trajectory for the LQR to track. | Initially, B-spline fitting is utilized to model the unknown wall shape and generate the reference trajectory for the LQR to track. | Initially, B-spline fitting is utilized to model the unknown wall shape and generate the reference trajectory for the LQR to track.",
+    "paper_id": "1263"
+  }
+]

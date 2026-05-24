@@ -1,0 +1,131 @@
+[
+  {
+    "section": "systemmodelandproblemformulation2",
+    "path": {
+      "section": "systemmodelandproblemformulation2",
+      "start_entity": "BinaryVariableBeta",
+      "end_entity": "Trilateration",
+      "hops": [
+        {
+          "from": "BinaryVariableBeta",
+          "relation": "controlsActivity",
+          "to": "AP_MLD",
+          "context": "Define a binary variable β of value 1 or 0 when the AP MLD decides to conduct sensing or communications, respectively.",
+          "chunk": "2"
+        },
+        {
+          "from": "AP_MLD",
+          "relation": "coordinates",
+          "to": "STA_MLD",
+          "context": "the AP MLD (with its lth interface serving as SI) involves three STA MLDs (with their lth interface serving as SR)",
+          "chunk": "2"
+        },
+        {
+          "from": "STA_MLD",
+          "relation": "participatesIn",
+          "to": "Trilateration",
+          "context": "executing trilateration to obtain a measurement in terms of target position",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the described system model, if the binary variable β is set to 1, what subsequent activity involving AP MLD and STA MLD would most likely be affected in terms of its execution?",
+    "options": {
+      "A": "The AP MLD would enhance the communication bandwidth, thereby increasing the accuracy of the trilateration process.",
+      "B": "The AP MLD and STA MLDs would disable their interfaces, ceasing all forms of measurement and communication activities.",
+      "C": "The AP MLD would switch to communication mode, preventing any sort of position-related measurement activity.",
+      "D": "The AP MLD would decide to conduct sensing, which involves STA MLDs in executing trilateration for position measurement."
+    },
+    "correct_answer": "D",
+    "explanation": "The binary variable β, when set to 1, leads to the AP MLD conducting sensing rather than communications. Given the context that the AP MLD involves STA MLDs in executing trilateration for position measurement, setting β to 1 directly affects this activity by enabling it, as opposed to setting β to 0 which would shift the focus to communications, not supporting the trilateration process.",
+    "path_description": "Path: BinaryVariableBeta --[controlsActivity]--> AP_MLD --[coordinates]--> STA_MLD --[participatesIn]--> Trilateration",
+    "context": "Define a binary variable β of value 1 or 0 when the AP MLD decides to conduct sensing or communications, respectively. | the AP MLD (with its lth interface serving as SI) involves three STA MLDs (with their lth interface serving as SR) | executing trilateration to obtain a measurement in terms of target position",
+    "paper_id": "945"
+  },
+  {
+    "section": "noncooperativeapproach",
+    "path": {
+      "section": "noncooperativeapproach",
+      "start_entity": "NonCooperativeApproach",
+      "end_entity": "Activity",
+      "hops": [
+        {
+          "from": "NonCooperativeApproach",
+          "relation": "proposes",
+          "to": "STAMLDSelection",
+          "context": "Depending on the value of β in (25), the proposed non-cooperative approach executes the procedure of STA MLD selection.",
+          "chunk": "5"
+        },
+        {
+          "from": "STAMLDSelection",
+          "relation": "involves",
+          "to": "DataTransmission",
+          "context": "If an action of communications is determined (β = 0), then we are required to select some STA MLDs of indices Il ⊆ Il for data transmission in DL communications.",
+          "chunk": "5"
+        },
+        {
+          "from": "DataTransmission",
+          "relation": "type",
+          "to": "Activity",
+          "context": "If an action of communications is determined (β = 0), then we are required to select some STA MLDs of indices Il ⊆ Il for data transmission in DL communications.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the context of the non-cooperative approach, how does the value of β influence the STA MLD selection for data transmission in DL communications?",
+    "options": {
+      "A": "A β value of 0 prompts the selection of specific STA MLDs for data transmission activities in DL communications.",
+      "B": "A β value of 1 automatically selects all STA MLDs without further filtering for any data transmission.",
+      "C": "A β value greater than 0 leads to the termination of all data transmission activities in DL communications.",
+      "D": "A β value less than 0 initiates a random selection of STA MLDs for UL communications instead of DL."
+    },
+    "correct_answer": "A",
+    "explanation": "According to the non-cooperative approach, a β value of 0 is specifically linked to the action of selecting STA MLDs for data transmission in DL communications. Other values of β, as described in the options, do not align with the documented behavior of the system under the non-cooperative approach.",
+    "path_description": "Path: NonCooperativeApproach --[proposes]--> STAMLDSelection --[involves]--> DataTransmission --[type]--> Activity",
+    "context": "Depending on the value of β in (25), the proposed non-cooperative approach executes the procedure of STA MLD selection. | If an action of communications is determined (β = 0), then we are required to select some STA MLDs of indices Il ⊆ Il for data transmission in DL communications. | If an action of communications is determined (β = 0), then we are required to select some STA MLDs of indices Il ⊆ Il for data transmission in DL communications.",
+    "paper_id": "945"
+  },
+  {
+    "section": "cooperativeapproach2",
+    "path": {
+      "section": "cooperativeapproach2",
+      "start_entity": "Algorithm4",
+      "end_entity": "MeasurementProcess",
+      "hops": [
+        {
+          "from": "Algorithm4",
+          "relation": "enables",
+          "to": "AccessToAllSTAMLDs",
+          "context": "If an action of sensing is determined (β = 1), then the lth interface has access to all of M STA MLDs (i.e., Il = M), given the enabled cooperation among all interfaces.",
+          "chunk": "7"
+        },
+        {
+          "from": "AccessToAllSTAMLDs",
+          "relation": "facilitates",
+          "to": "TrilaterationMeasurement",
+          "context": "With access to all of M STA MLDs, we are required to select three STA MLDs of indices Il ∈ [M] for trilateration in UL sensing.",
+          "chunk": "7"
+        },
+        {
+          "from": "TrilaterationMeasurement",
+          "relation": "type",
+          "to": "MeasurementProcess",
+          "context": "Trilateration measurement: z",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "In the context of cooperative approaches using Algorithm4, how does enabling access to all STA MLDs influence the process of UL sensing?",
+    "options": {
+      "A": "It restricts the selection process to only those STA MLDs that are closest to the sensing device, ensuring faster data processing.",
+      "B": "It necessitates the use of all available STA MLDs simultaneously, increasing computational complexity and power consumption.",
+      "C": "It allows for the selection of any three STA MLDs from the total available, facilitating accurate trilateration measurements.",
+      "D": "It enables the random selection of STA MLDs, which might reduce the precision of the trilateration measurement process."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A because, with access to all STA MLDs enabled by Algorithm4, there is flexibility in selecting any three STA MLDs for trilateration in UL sensing. This access facilitates the trilateration measurement process, which is a type of measurement process crucial for accurate UL sensing.",
+    "path_description": "Path: Algorithm4 --[enables]--> AccessToAllSTAMLDs --[facilitates]--> TrilaterationMeasurement --[type]--> MeasurementProcess",
+    "context": "If an action of sensing is determined (β = 1), then the lth interface has access to all of M STA MLDs (i.e., Il = M), given the enabled cooperation among all interfaces. | With access to all of M STA MLDs, we are required to select three STA MLDs of indices Il ∈ [M] for trilateration in UL sensing. | Trilateration measurement: z",
+    "paper_id": "945"
+  }
+]

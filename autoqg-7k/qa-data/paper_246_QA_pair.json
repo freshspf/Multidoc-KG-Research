@@ -1,0 +1,174 @@
+[
+  {
+    "section": "preliminaries2",
+    "path": {
+      "section": "preliminaries2",
+      "start_entity": "ExtendedBispecialFactor",
+      "end_entity": "Concept",
+      "hops": [
+        {
+          "from": "ExtendedBispecialFactor",
+          "relation": "isCalledFor",
+          "to": "Substring",
+          "context": "∗ is called an extended bispecial factor.",
+          "chunk": "2"
+        },
+        {
+          "from": "Substring",
+          "relation": "hasProperty",
+          "to": "MaximalRepeat",
+          "context": "A substring u of S is said to be a maximal repeat if occ (u) ≥ 2.",
+          "chunk": "2"
+        },
+        {
+          "from": "MaximalRepeat",
+          "relation": "type",
+          "to": "Concept",
+          "context": "A substring u of S is said to be a maximal repeat if occ (u) ≥ 2.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the context of string theory, what does it signify when a substring is identified as an extended bispecial factor and also qualifies as a maximal repeat?",
+    "options": {
+      "A": "It means that the substring cannot be extended on either side without losing its property of repetition.",
+      "B": "It suggests that this substring is unique and appears only once within the entire string.",
+      "C": "It implies that the substring is the longest possible sequence that does not repeat anywhere in the string.",
+      "D": "It indicates that the substring appears at least twice and has unique extensions on both sides within the string."
+    },
+    "correct_answer": "D",
+    "explanation": "An extended bispecial factor by definition suggests that the substring has unique extensions on both sides, and being a maximal repeat (with occurrences of at least two) confirms its repetitive nature across the string. Options B, C, and D are incorrect as they contradict the definitions and properties of extended bispecial factors and maximal repeats.",
+    "path_description": "Path: ExtendedBispecialFactor --[isCalledFor]--> Substring --[hasProperty]--> MaximalRepeat --[type]--> Concept",
+    "context": "∗ is called an extended bispecial factor. | A substring u of S is said to be a maximal repeat if occ (u) ≥ 2. | A substring u of S is said to be a maximal repeat if occ (u) ≥ 2.",
+    "paper_id": "488"
+  },
+  {
+    "section": "computingmawsandebfswithcdawg1",
+    "path": {
+      "section": "computingmawsandebfswithcdawg1",
+      "start_entity": "CDAWG",
+      "end_entity": "slink_u",
+      "hops": [
+        {
+          "from": "CDAWG",
+          "relation": "hasNode",
+          "to": "v",
+          "context": "Let v be any node in the longest path tree LPT.",
+          "chunk": "4"
+        },
+        {
+          "from": "v",
+          "relation": "hasOutGoingEdge",
+          "to": "u",
+          "context": "CDAWG(S) has a secondary out-going edge (v, u).",
+          "chunk": "4"
+        },
+        {
+          "from": "u",
+          "relation": "hasSuffixLink",
+          "to": "slink_u",
+          "context": "slink(u) = ℓ1 slink(ℓi) = ℓi+1 1 ≤ i < k.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the context of computing maximal absent words and extended bifix-free sets with CDAWG, what is the correct description of the relationship between node v and slink_u in the longest path tree LPT?",
+    "options": {
+      "A": "Node v has a primary out-going edge to node u, which subsequently connects to slink_u through a secondary suffix link.",
+      "B": "Node v has a secondary out-going edge to node u, which has a suffix link pointing directly to slink_u.",
+      "C": "Node v and slink_u are connected through a primary suffix link without any intermediary node.",
+      "D": "Node v directly connects to slink_u through a primary out-going edge, bypassing node u."
+    },
+    "correct_answer": "B",
+    "explanation": "The knowledge path indicates that node v has an out-going edge to node u, and node u has a suffix link (slink) that leads to slink_u. The path does not suggest any primary connections or bypassing of node u, making option A the correct and only direct description of the relationships among the nodes as described.",
+    "path_description": "Path: CDAWG --[hasNode]--> v --[hasOutGoingEdge]--> u --[hasSuffixLink]--> slink_u",
+    "context": "Let v be any node in the longest path tree LPT. | CDAWG(S) has a secondary out-going edge (v, u). | slink(u) = ℓ1 slink(ℓi) = ℓi+1 1 ≤ i < k.",
+    "paper_id": "488"
+  },
+  {
+    "section": "computingmawsandebfswithcdawg2",
+    "path": {
+      "section": "computingmawsandebfswithcdawg2",
+      "start_entity": "Theorem2",
+      "end_entity": "Algorithm",
+      "hops": [
+        {
+          "from": "Theorem2",
+          "relation": "proves",
+          "to": "Lemma4",
+          "context": "Theorem 2. For any string S, |MAW(S)| = O(σ",
+          "chunk": "5"
+        },
+        {
+          "from": "Lemma4",
+          "relation": "appliesTo",
+          "to": "MAW",
+          "context": "by Lemma 4, accessing each node u can be charged to any one of the MAWs reported.",
+          "chunk": "5"
+        },
+        {
+          "from": "MAW",
+          "relation": "type",
+          "to": "Algorithm",
+          "context": "Therefore, cu b = cbcb is a MAW.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the context of the theorem discussed in the section 'computingmawsandebfswithcdawg2', how does Lemma 4 apply to the concept of MAW in relation to the efficiency of the algorithm?",
+    "options": {
+      "A": "Lemma 4 reduces the efficiency by increasing the computational cost as the size of the string S and the number of MAWs increase linearly.",
+      "B": "Lemma 4 asserts that each node in the graph represents a separate MAW, thereby complicating the algorithm's execution.",
+      "C": "Lemma 4 indicates that the algorithm's efficiency is independent of the number of MAWs, focusing instead on the length of string S.",
+      "D": "Lemma 4 facilitates the efficiency by ensuring that the computational cost of accessing each node is proportional to the number of MAWs reported."
+    },
+    "correct_answer": "D",
+    "explanation": "Lemma 4 applies to the concept of MAW by making the computational cost of accessing each node proportional to the number of MAWs reported, which directly impacts the efficiency of the algorithm as discussed in the theorem.",
+    "path_description": "Path: Theorem2 --[proves]--> Lemma4 --[appliesTo]--> MAW --[type]--> Algorithm",
+    "context": "Theorem 2. For any string S, |MAW(S)| = O(σ | by Lemma 4, accessing each node u can be charged to any one of the MAWs reported. | Therefore, cu b = cbcb is a MAW.",
+    "paper_id": "488"
+  },
+  {
+    "section": "computingmrws",
+    "path": {
+      "section": "computingmrws",
+      "start_entity": "MRW0",
+      "end_entity": "MathematicalConcept",
+      "hops": [
+        {
+          "from": "MRW0",
+          "relation": "equals",
+          "to": "MAW",
+          "context": "MRW0(S) = MAW(S).",
+          "chunk": "7"
+        },
+        {
+          "from": "MAW",
+          "relation": "doesNotIntersect",
+          "to": "EBF",
+          "context": "Clearly, MAW(S)∩EBF(S) = ∅.",
+          "chunk": "7"
+        },
+        {
+          "from": "EBF",
+          "relation": "type",
+          "to": "MathematicalConcept",
+          "context": "Clearly, MAW(S)∩EBF(S) = ∅.",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "Considering the relationships in the knowledge graph from the 'computingmrws' section, what can be inferred about the nature of EBF in relation to MAW?",
+    "options": {
+      "A": "EBF is a subset of MAW, implying that every element of EBF is also an element of MAW.",
+      "B": "EBF and MAW are equivalent sets, sharing all elements and properties.",
+      "C": "EBF intersects with MAW, sharing some common elements and properties.",
+      "D": "EBF is a mathematical concept that has no intersection or overlap with the sets defined by MAW."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A. The knowledge graph shows that MRW0 equals MAW and does not intersect with EBF, which is a type of Mathematical Concept. This indicates that EBF and MAW have no common elements, thus option A, stating that EBF has no intersection with MAW, is correct.",
+    "path_description": "Path: MRW0 --[equals]--> MAW --[doesNotIntersect]--> EBF --[type]--> MathematicalConcept",
+    "context": "MRW0(S) = MAW(S). | Clearly, MAW(S)∩EBF(S) = ∅. | Clearly, MAW(S)∩EBF(S) = ∅.",
+    "paper_id": "488"
+  }
+]

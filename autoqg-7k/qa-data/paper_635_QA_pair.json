@@ -1,0 +1,475 @@
+[
+  {
+    "section": "systemmodel2",
+    "path": {
+      "section": "systemmodel2",
+      "start_entity": "Adversary",
+      "end_entity": "Entity",
+      "hops": [
+        {
+          "from": "Adversary",
+          "relation": "changesAddressOf",
+          "to": "TransactionTX",
+          "context": "and a conflicting transaction tx where the adversary simply changes the address of the same funds...",
+          "chunk": "5"
+        },
+        {
+          "from": "TransactionTX",
+          "relation": "involvedIn",
+          "to": "DoubleSpendingEvent",
+          "context": "Double-Spending If tx is confirmed but does not make it into the offset chain, we call the event Double-Spending.",
+          "chunk": "5"
+        },
+        {
+          "from": "DoubleSpendingEvent",
+          "relation": "type",
+          "to": "Entity",
+          "context": "Double-Spending If tx is confirmed but does not make it into the offset chain, we call the event Double-Spending.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In a blockchain system, what type of event is likely to occur if an adversary manipulates a transaction's address and that transaction is confirmed but fails to be recorded in the offset chain?",
+    "options": {
+      "A": "This usually results in a Transaction Malleability event, altering the transaction ID.",
+      "B": "The system will typically experience a Double-Spending event, indicating a security breach.",
+      "C": "Such an action generally leads to a Block Reorganization event, modifying the blockchain structure.",
+      "D": "The system might trigger a Consensus Failure event, leading to network instability."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is 'A' because, as described in the context, when an adversary changes the address in a transaction (tx) and the transaction is confirmed but not included in the offset chain, it is specifically identified as a Double-Spending event.",
+    "path_description": "Path: Adversary --[changesAddressOf]--> TransactionTX --[involvedIn]--> DoubleSpendingEvent --[type]--> Entity",
+    "context": "and a conflicting transaction tx where the adversary simply changes the address of the same funds... | Double-Spending If tx is confirmed but does not make it into the offset chain, we call the event Double-Spending. | Double-Spending If tx is confirmed but does not make it into the offset chain, we call the event Double-Spending.",
+    "paper_id": "1329"
+  },
+  {
+    "section": "revenuedoublespendingoflstubbornmining2",
+    "path": {
+      "section": "revenuedoublespendingoflstubbornmining2",
+      "start_entity": "WaldsIdentity",
+      "end_entity": "BlockchainOutcome",
+      "hops": [
+        {
+          "from": "WaldsIdentity",
+          "relation": "usedIn",
+          "to": "StubbornMining",
+          "context": "using Wald’s identity provided in Section 2.3,",
+          "chunk": "7"
+        },
+        {
+          "from": "StubbornMining",
+          "relation": "hasOutcome",
+          "to": "Service",
+          "context": "stubborn mining ends with Service, Move-Funds or Double-Spending with probabilities,",
+          "chunk": "7"
+        },
+        {
+          "from": "Service",
+          "relation": "type",
+          "to": "BlockchainOutcome",
+          "context": "stubborn mining ends with Service, Move-Funds or Double-Spending with probabilities,",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "In the context of blockchain, how does Wald's Identity influence the outcomes of stubborn mining activities?",
+    "options": {
+      "A": "Wald's Identity provides a secure method to encrypt the data involved in stubborn mining.",
+      "B": "Wald's Identity predicts the time it takes for a blockchain to achieve consensus on stubborn mining.",
+      "C": "Wald's Identity directly determines the financial revenue generated from stubborn mining.",
+      "D": "Wald's Identity is used to calculate the probabilities of outcomes like Service, Move-Funds, or Double-Spending."
+    },
+    "correct_answer": "D",
+    "explanation": "Wald's Identity is utilized to calculate the probabilities of different outcomes (Service, Move-Funds, or Double-Spending) in stubborn mining scenarios, as outlined in the provided context from the paper section 'revenuedoublespendingoflstubbornmining2'.",
+    "path_description": "Path: WaldsIdentity --[usedIn]--> StubbornMining --[hasOutcome]--> Service --[type]--> BlockchainOutcome",
+    "context": "using Wald’s identity provided in Section 2.3, | stubborn mining ends with Service, Move-Funds or Double-Spending with probabilities, | stubborn mining ends with Service, Move-Funds or Double-Spending with probabilities,",
+    "paper_id": "1329"
+  },
+  {
+    "section": "sstealthmining1",
+    "path": {
+      "section": "sstealthmining1",
+      "start_entity": "A-chain",
+      "end_entity": "Service",
+      "hops": [
+        {
+          "from": "A-chain",
+          "relation": "partOf",
+          "to": "S-stealthMining",
+          "context": "the A-chain which has length S-1",
+          "chunk": "10"
+        },
+        {
+          "from": "S-stealthMining",
+          "relation": "addresses",
+          "to": "Double-Spending",
+          "context": "aiming to make the detection of the double-spending attack difficult and to increase P(Double-Spending) in each attack cycle",
+          "chunk": "10"
+        },
+        {
+          "from": "Double-Spending",
+          "relation": "resultIn",
+          "to": "Service",
+          "context": "Under the k-confirmation rule, each attack cycle of (k +1)-stealth mining ends with Service or Double-Spending",
+          "chunk": "10"
+        }
+      ]
+    },
+    "question": "In the context of blockchain security, how does the A-chain, which is part of S-stealthMining, influence the outcome of a transaction under the k-confirmation rule?",
+    "options": {
+      "A": "The A-chain extends the block verification time, effectively decreasing the efficiency of the transaction service.",
+      "B": "The A-chain increases the probability of a double-spending attack, thereby impacting the reliability of the transaction service.",
+      "C": "The A-chain reduces the overall block size, which directly decreases the security of the transaction service.",
+      "D": "The A-chain enhances the cryptographic security, which ensures the integrity of each transaction service."
+    },
+    "correct_answer": "B",
+    "explanation": "The A-chain, being a component of S-stealthMining, is designed to make the detection of double-spending attacks more difficult, thereby increasing the probability of such attacks occurring. This directly threatens the reliability of the transaction service by raising the chance of double-spending under the k-confirmation rule.",
+    "path_description": "Path: A-chain --[partOf]--> S-stealthMining --[addresses]--> Double-Spending --[resultIn]--> Service",
+    "context": "the A-chain which has length S-1 | aiming to make the detection of the double-spending attack difficult and to increase P(Double-Spending) in each attack cycle | Under the k-confirmation rule, each attack cycle of (k +1)-stealth mining ends with Service or Double-Spending",
+    "paper_id": "1329"
+  },
+  {
+    "section": "sstealthmining1",
+    "path": {
+      "section": "sstealthmining1",
+      "start_entity": "A-chain",
+      "end_entity": "BlockchainAttack",
+      "hops": [
+        {
+          "from": "A-chain",
+          "relation": "partOf",
+          "to": "S-stealthMining",
+          "context": "the A-chain which has length S-1",
+          "chunk": "10"
+        },
+        {
+          "from": "S-stealthMining",
+          "relation": "addresses",
+          "to": "Double-Spending",
+          "context": "aiming to make the detection of the double-spending attack difficult and to increase P(Double-Spending) in each attack cycle",
+          "chunk": "10"
+        },
+        {
+          "from": "Double-Spending",
+          "relation": "type",
+          "to": "BlockchainAttack",
+          "context": "both P(Double-Spending) and P(Service) decrease",
+          "chunk": "10"
+        }
+      ]
+    },
+    "question": "In the context of blockchain security, how does the S-stealthMining strategy within an A-chain specifically address the risk of double-spending attacks?",
+    "options": {
+      "A": "By enhancing the security features of the A-chain to prevent the initiation of double-spending attacks.",
+      "B": "By increasing the probability of double-spending in each attack cycle, thereby complicating its detection.",
+      "C": "By decreasing the length of the A-chain to reduce the overall time for double-spending detection.",
+      "D": "By directly interfacing with transaction validators to alert them of potential double-spending activities."
+    },
+    "correct_answer": "B",
+    "explanation": "The S-stealthMining strategy is mentioned as part of an A-chain aiming to make double-spending attack detection more difficult and increase the probability of successful double-spending in each attack cycle. This strategy does not involve reducing the length of the A-chain or enhancing security features to prevent attacks, nor does it interface directly with transaction validators; rather, it manipulates the attack's probability and detection difficulty.",
+    "path_description": "Path: A-chain --[partOf]--> S-stealthMining --[addresses]--> Double-Spending --[type]--> BlockchainAttack",
+    "context": "the A-chain which has length S-1 | aiming to make the detection of the double-spending attack difficult and to increase P(Double-Spending) in each attack cycle | both P(Double-Spending) and P(Service) decrease",
+    "paper_id": "1329"
+  },
+  {
+    "section": "sstealthmining1",
+    "path": {
+      "section": "sstealthmining1",
+      "start_entity": "H-chain",
+      "end_entity": "Service",
+      "hops": [
+        {
+          "from": "H-chain",
+          "relation": "partOf",
+          "to": "S-stealthMining",
+          "context": "the probability that the prefix of H-chain switches",
+          "chunk": "10"
+        },
+        {
+          "from": "S-stealthMining",
+          "relation": "addresses",
+          "to": "Double-Spending",
+          "context": "aiming to make the detection of the double-spending attack difficult and to increase P(Double-Spending) in each attack cycle",
+          "chunk": "10"
+        },
+        {
+          "from": "Double-Spending",
+          "relation": "resultIn",
+          "to": "Service",
+          "context": "Under the k-confirmation rule, each attack cycle of (k +1)-stealth mining ends with Service or Double-Spending",
+          "chunk": "10"
+        }
+      ]
+    },
+    "question": "In the context of blockchain security, how does the structure of H-chain within S-stealthMining specifically aim to impact network services?",
+    "options": {
+      "A": "By stabilizing the transaction verification process, it reduces the chances of double-spending and improves network trust.",
+      "B": "By enhancing the encryption mechanisms, it directly secures transaction data against potential threats.",
+      "C": "By increasing the probability of double-spending, it complicates the detection of attacks enhancing network vulnerability.",
+      "D": "By decreasing the transaction confirmation time, it allows faster transaction approvals improving network efficiency."
+    },
+    "correct_answer": "C",
+    "explanation": "The H-chain in the S-stealthMining setup aims to increase the probability of Double-Spending by making its detection difficult, thereby impacting the network's service by increasing its vulnerability to such attacks. Options B, C, and D describe effects that are not aligned with the purpose of increasing Double-Spending probability in stealth mining scenarios.",
+    "path_description": "Path: H-chain --[partOf]--> S-stealthMining --[addresses]--> Double-Spending --[resultIn]--> Service",
+    "context": "the probability that the prefix of H-chain switches | aiming to make the detection of the double-spending attack difficult and to increase P(Double-Spending) in each attack cycle | Under the k-confirmation rule, each attack cycle of (k +1)-stealth mining ends with Service or Double-Spending",
+    "paper_id": "1329"
+  },
+  {
+    "section": "revenuedoublespendingoflstubbornmining4",
+    "path": {
+      "section": "revenuedoublespendingoflstubbornmining4",
+      "start_entity": "Assumption",
+      "end_entity": "BlockchainComponent",
+      "hops": [
+        {
+          "from": "Assumption",
+          "relation": "relatedTo",
+          "to": "DoubleSpendingEvent",
+          "context": "In this case, we assume that double-spending event",
+          "chunk": "9"
+        },
+        {
+          "from": "DoubleSpendingEvent",
+          "relation": "involves",
+          "to": "FirstBlock",
+          "context": "In this case, we assume that double-spending event, i.e., only the first block",
+          "chunk": "9"
+        },
+        {
+          "from": "FirstBlock",
+          "relation": "type",
+          "to": "BlockchainComponent",
+          "context": "In this case, we assume that double-spending event, i.e., only the first block",
+          "chunk": "9"
+        }
+      ]
+    },
+    "question": "In the context of blockchain technology, how does a double-spending event specifically relate to the structure of a blockchain?",
+    "options": {
+      "A": "During a double-spending event, the last block of the blockchain is typically targeted for maximum impact on network security.",
+      "B": "Double-spending events are primarily concerned with the creation of new blocks, rather than manipulation of existing ones.",
+      "C": "Double-spending focuses on the decentralized applications running atop the blockchain, rather than its structure.",
+      "D": "A double-spending event involves manipulating the first block, which is a crucial component of the blockchain's structure."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A, as the knowledge graph path and the context from the paper indicate that a double-spending event involves the first block of the blockchain. This block is a key component of the blockchain's structure, and manipulation of this block is central to executing a double-spending event. Options B, C, and D are incorrect as they either reference incorrect parts of the blockchain or misinterpret the focus of a double-spending event.",
+    "path_description": "Path: Assumption --[relatedTo]--> DoubleSpendingEvent --[involves]--> FirstBlock --[type]--> BlockchainComponent",
+    "context": "In this case, we assume that double-spending event | In this case, we assume that double-spending event, i.e., only the first block | In this case, we assume that double-spending event, i.e., only the first block",
+    "paper_id": "1329"
+  },
+  {
+    "section": "numericalresults2",
+    "path": {
+      "section": "numericalresults2",
+      "start_entity": "L-StubbornMining",
+      "end_entity": "Event",
+      "hops": [
+        {
+          "from": "L-StubbornMining",
+          "relation": "relatedTo",
+          "to": "StealthMining",
+          "context": "to the L-stubborn mining, this is the other cost of performing the attack by stealth and increasing P(Double-Spending).",
+          "chunk": "13"
+        },
+        {
+          "from": "StealthMining",
+          "relation": "increasesProbabilityOf",
+          "to": "Double-Spending",
+          "context": "selﬁsh mining, in stealth mining, for a given α, increasing γ increases the probability of Double-Spending as we were aiming.",
+          "chunk": "13"
+        },
+        {
+          "from": "Double-Spending",
+          "relation": "type",
+          "to": "Event",
+          "context": "Double-Spending is decreasing in γ due to",
+          "chunk": "13"
+        }
+      ]
+    },
+    "question": "In the context of blockchain security, how does increasing the parameter γ in stealth mining impact the event of Double-Spending?",
+    "options": {
+      "A": "Increasing γ in stealth mining increases the probability of Double-Spending, posing a risk to blockchain integrity.",
+      "B": "Increasing γ in stealth mining decreases the probability of Double-Spending, contributing to blockchain security.",
+      "C": "Increasing γ in stealth mining stabilizes the probability of Double-Spending, ensuring a constant threat level.",
+      "D": "Increasing γ in stealth mining eliminates the probability of Double-Spending, completely securing the blockchain."
+    },
+    "correct_answer": "B",
+    "explanation": "The context from the paper states that Double-Spending probability is decreasing in γ despite the intentions of increasing it through stealth mining. Thus, increasing γ actually leads to a decrease in the likelihood of Double-Spending, enhancing blockchain security.",
+    "path_description": "Path: L-StubbornMining --[relatedTo]--> StealthMining --[increasesProbabilityOf]--> Double-Spending --[type]--> Event",
+    "context": "to the L-stubborn mining, this is the other cost of performing the attack by stealth and increasing P(Double-Spending). | selﬁsh mining, in stealth mining, for a given α, increasing γ increases the probability of Double-Spending as we were aiming. | Double-Spending is decreasing in γ due to",
+    "paper_id": "1329"
+  },
+  {
+    "section": "numericalresults2",
+    "path": {
+      "section": "numericalresults2",
+      "start_entity": "StealthMining",
+      "end_entity": "Figure",
+      "hops": [
+        {
+          "from": "StealthMining",
+          "relation": "increasesProbabilityOf",
+          "to": "Double-Spending",
+          "context": "selﬁsh mining, in stealth mining, for a given α, increasing γ increases the probability of Double-Spending as we were aiming.",
+          "chunk": "13"
+        },
+        {
+          "from": "Double-Spending",
+          "relation": "partOf",
+          "to": "Figure4",
+          "context": "Further, as mentioned earlier, in Figure 4, we provide the probabilities of the events Double-Spending and Service for each attack cycle of (k + 1)-stealth mining with k = 6.",
+          "chunk": "13"
+        },
+        {
+          "from": "Figure4",
+          "relation": "type",
+          "to": "Figure",
+          "context": "Further, as mentioned earlier, in Figure 4, we provide the probabilities of the events Double-Spending and Service for each attack cycle of (k + 1)-stealth mining with k = 6.",
+          "chunk": "13"
+        }
+      ]
+    },
+    "question": "In the context of stealth mining, as depicted in Figure 4 of the 'numericalresults2' section, how does an increase in the parameter γ affect the probability of double-spending for a given α?",
+    "options": {
+      "A": "Increasing γ proportionally increases the probability of double-spending due to enhanced chances of successful stealth mining.",
+      "B": "Increasing γ decreases the probability of double-spending as it reduces the effectiveness of stealth mining.",
+      "C": "Increasing γ increases the probability of service interruptions, which indirectly reduces double-spending.",
+      "D": "Increasing γ does not affect the probability of double-spending as it is independent of stealth mining parameters."
+    },
+    "correct_answer": "A",
+    "explanation": "According to the discussed knowledge graph path and the context from the 'numericalresults2' section, in stealth mining, increasing the parameter γ for a given α enhances the probability of successfully executing a double-spending attack. This is shown in Figure 4 where the probabilities of events like double-spending are mapped against each attack cycle of (k + 1)-stealth mining.",
+    "path_description": "Path: StealthMining --[increasesProbabilityOf]--> Double-Spending --[partOf]--> Figure4 --[type]--> Figure",
+    "context": "selﬁsh mining, in stealth mining, for a given α, increasing γ increases the probability of Double-Spending as we were aiming. | Further, as mentioned earlier, in Figure 4, we provide the probabilities of the events Double-Spending and Service for each attack cycle of (k + 1)-stealth mining with k = 6. | Further, as mentioned earlier, in Figure 4, we provide the probabilities of the events Double-Spending and Service for each attack cycle of (k + 1)-stealth mining with k = 6.",
+    "paper_id": "1329"
+  },
+  {
+    "section": "appendixaproofoftheorem3andalgorithm11",
+    "path": {
+      "section": "appendixaproofoftheorem3andalgorithm11",
+      "start_entity": "Corollary1",
+      "end_entity": "MiningStrategy",
+      "hops": [
+        {
+          "from": "Corollary1",
+          "relation": "extends",
+          "to": "Lemma3",
+          "context": "Corollary 1 If ρL+1 > ρL, then wρL+1 (L, L - 1) > wρL (L, L - 1).",
+          "chunk": "15"
+        },
+        {
+          "from": "Lemma3",
+          "relation": "determines",
+          "to": "L-stubbornMiningStrategy",
+          "context": "Lemma 3 If ρL+1 < ρL, then wρL (L, L - 1) < wρL+1 (L, L - 1).",
+          "chunk": "15"
+        },
+        {
+          "from": "L-stubbornMiningStrategy",
+          "relation": "type",
+          "to": "MiningStrategy",
+          "context": "L-stubborn mining strategy associated with the current cycle.",
+          "chunk": "15"
+        }
+      ]
+    },
+    "question": "How does the type of mining strategy change in response to the relationship between ρL+1 and ρL as described in Corollary 1 and Lemma 3?",
+    "options": {
+      "A": "If ρL+1 is less than ρL, then an L-stubborn mining strategy becomes more effective than the previous cycle.",
+      "B": "If ρL remains equal to ρL+1, then an L-stubborn mining strategy maintains consistent effectiveness with the previous cycle.",
+      "C": "If ρL+1 is greater than ρL, then an L-stubborn mining strategy becomes less effective than the previous cycle.",
+      "D": "If ρL+1 is greater than ρL, then an L-stubborn mining strategy becomes more effective than the previous cycle."
+    },
+    "correct_answer": "D",
+    "explanation": "Corollary 1 states that if ρL+1 is greater than ρL, then the weight wρL+1 (L, L - 1) increases relative to wρL (L, L - 1), suggesting a more favorable outcome for the mining strategy used in that scenario. Thus, an L-stubborn mining strategy becomes more effective when ρL+1 is greater than ρL. Lemma 3, which discusses the opposite relationship, supports this interpretation by describing a decrease in effectiveness when ρL+1 is less than ρL.",
+    "path_description": "Path: Corollary1 --[extends]--> Lemma3 --[determines]--> L-stubbornMiningStrategy --[type]--> MiningStrategy",
+    "context": "Corollary 1 If ρL+1 > ρL, then wρL+1 (L, L - 1) > wρL (L, L - 1). | Lemma 3 If ρL+1 < ρL, then wρL (L, L - 1) < wρL+1 (L, L - 1). | L-stubborn mining strategy associated with the current cycle.",
+    "paper_id": "1329"
+  },
+  {
+    "section": "appendixaproofoftheorem3andalgorithm11",
+    "path": {
+      "section": "appendixaproofoftheorem3andalgorithm11",
+      "start_entity": "L-stubbornMiningStrategy",
+      "end_entity": "MiningStrategy",
+      "hops": [
+        {
+          "from": "L-stubbornMiningStrategy",
+          "relation": "isBasedOn",
+          "to": "Lemma4",
+          "context": "Lemma 4 Given A = H+1 = L, the average strategy is related to L-stubborn mining strategy.",
+          "chunk": "15"
+        },
+        {
+          "from": "Lemma4",
+          "relation": "determines",
+          "to": "L-stubbornMiningStrategy",
+          "context": "Lemma 4 Given A = H+1 = L, the average strategy is related to L-stubborn mining strategy.",
+          "chunk": "15"
+        },
+        {
+          "from": "L-stubbornMiningStrategy",
+          "relation": "type",
+          "to": "MiningStrategy",
+          "context": "L-stubborn mining strategy associated with the current cycle.",
+          "chunk": "15"
+        }
+      ]
+    },
+    "question": "In the context of the appendixaproofoftheorem3andalgorithm11, how does Lemma 4 influence the classification of mining strategies?",
+    "options": {
+      "A": "Lemma 4 supports the classification of L-stubborn mining strategy as a distinct type of aggressive mining strategy.",
+      "B": "Lemma 4 establishes a relationship that classifies L-stubborn mining strategy as a type of average strategy.",
+      "C": "Lemma 4 identifies the L-stubborn mining strategy as a type of Mining Strategy based on its determinative properties.",
+      "D": "Lemma 4 has no influence on the classification but rather focuses on the profitability of the L-stubborn mining strategy."
+    },
+    "correct_answer": "C",
+    "explanation": "Lemma 4 determines the relationship and classification of the L-stubborn mining strategy by establishing it as a type of Mining Strategy. This is based on the path from Lemma 4 determining the characteristics of L-stubborn mining strategy and classifying it under Mining Strategy.",
+    "path_description": "Path: L-stubbornMiningStrategy --[isBasedOn]--> Lemma4 --[determines]--> L-stubbornMiningStrategy --[type]--> MiningStrategy",
+    "context": "Lemma 4 Given A = H+1 = L, the average strategy is related to L-stubborn mining strategy. | Lemma 4 Given A = H+1 = L, the average strategy is related to L-stubborn mining strategy. | L-stubborn mining strategy associated with the current cycle.",
+    "paper_id": "1329"
+  },
+  {
+    "section": "appendixaproofoftheorem3andalgorithm11",
+    "path": {
+      "section": "appendixaproofoftheorem3andalgorithm11",
+      "start_entity": "Lemma3",
+      "end_entity": "Lemma4",
+      "hops": [
+        {
+          "from": "Lemma3",
+          "relation": "implies",
+          "to": "Corollary1",
+          "context": "Corollary 1 If ρL+1 > ρL, then wρL+1 (L, L - 1) > wρL (L, L - 1).",
+          "chunk": "15"
+        },
+        {
+          "from": "Corollary1",
+          "relation": "extends",
+          "to": "Lemma3",
+          "context": "Corollary 1 If ρL+1 > ρL, then wρL+1 (L, L - 1) > wρL (L, L - 1).",
+          "chunk": "15"
+        },
+        {
+          "from": "Lemma3",
+          "relation": "provesInequality",
+          "to": "Lemma4",
+          "context": "Lemma 3 If ρL+1 < ρL, then wρL (L, L - 1) < wρL+1 (L, L - 1).",
+          "chunk": "15"
+        }
+      ]
+    },
+    "question": "Based on the implications and extensions of Lemma 3 and Corollary 1, what can be inferred about weight functions w when ρL and ρL+1 are compared?",
+    "options": {
+      "A": "If ρL+1 is greater than ρL, the weight function wρL+1 (L, L - 1) is less than wρL (L, L - 1).",
+      "B": "If ρL+1 equals ρL, then the weight function wρL+1 (L, L - 1) will be greater than wρL (L, L - 1).",
+      "C": "If ρL+1 is less than ρL, then the weight function wρL+1 (L, L - 1) remains equal to wρL (L, L - 1).",
+      "D": "If ρL+1 is greater than ρL, the weight function wρL+1 (L, L - 1) is greater than wρL (L, L - 1)."
+    },
+    "correct_answer": "D",
+    "explanation": "Corollary 1 explicitly states that if ρL+1 is greater than ρL, then the weight function wρL+1 (L, L - 1) is greater than wρL (L, L - 1). This is a direct application of the relationship described in the corollary, which extends the implications of Lemma 3.",
+    "path_description": "Path: Lemma3 --[implies]--> Corollary1 --[extends]--> Lemma3 --[provesInequality]--> Lemma4",
+    "context": "Corollary 1 If ρL+1 > ρL, then wρL+1 (L, L - 1) > wρL (L, L - 1). | Corollary 1 If ρL+1 > ρL, then wρL+1 (L, L - 1) > wρL (L, L - 1). | Lemma 3 If ρL+1 < ρL, then wρL (L, L - 1) < wρL+1 (L, L - 1).",
+    "paper_id": "1329"
+  }
+]

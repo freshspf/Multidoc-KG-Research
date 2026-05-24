@@ -1,0 +1,52 @@
+[
+  {
+    "id": "introduction",
+    "metadata": {
+      "lang": "en",
+      "section_title": "INTRODUCTION",
+      "page_start": 1,
+      "page_end": 1
+    },
+    "text": "2\n:\nBject recognition has always been a significant research\nv\ni  area within  the field of  computer vision due  to  its\nO\nX extensive applications in medical diagnostics, industry manu-\nr\nfacturing, human-computer interaction domain. With the great\na\ndevelopment of the deep learning recently, feature extraction\nand recognition algorithms have already made remarkable\nachievements. The event  camera  is proposed as a neuro-\nmorphic vision sensor that designed to trigger ”event” asyn-\nchronously in terms of whether the brightness change per-pixel\nexceeds the threshold [1], [2], [3]. The output event is single\npoint that can be represented as a quadruple ei = {x, y, t, p}\ncontaining the spatial position, timestamp and polarity infor-\nmation. Obviously, this mechanism enables the event camera\nto solely concentrate on the dynamic outline while discarding\nthe redundant and static background.  Its advantages include\nT. Xie and R. H. M. Chan are with the Department of Electrical Engineer-\ning, City University of Hong Kong, e-mail: rosachan@cityu.edu.hk. Pengpai\nWang is with the Shenzhen Research Institute, City University of Hong Kong,\nShenzhen, China. Pengpai Wang and Rosa H.M. Chan are with the State Key\nLaboratory of Terahertz and Millimeter Waves, City University of Hong Kong,\nHong Kong, China.\n\n1\nLearning Framework for\nject Recognition\nH. M. Chan, Senior Member, IEEE\nhigh time resolution (microsecond-level), high dynamic range,\nlow power consumption,  low motion blur, etc, and has been\nwidely utilized in the light flow estimation, attitude estimation,\n3D reconstruction[4], automatic driving[5] and other fields.\nHowever,  the single event point typically lacks the mean-\ningful  representation ability, and the event stream is essen-\ntially a set of discrete points possessing correlation in the\nspatial-temporal domain. Consequently, extracting the spatial-\ntemporal correspondence of the discrete events plays a crucial\nrole in this task. To accommodate the existed mature vision\nalgorithms, most work resort  to adopt  the image-like repre-\nsentations. Among them,  the commonly employed methods\ncontain  the event-frame  representations  [6],  [7],  [8],  time\nsurface [9], or  the fusion representations[10]. While in the\nrealm of neural network, variety of complicated mechanism\nor module have been integrated into the end-to-end learning\nframework [11], [12]. However, merely expanding the depth\nor complexity of the network structure can obtain satisfactory\nperformance  to a certain extent,  but  theirs huge number\nof parameters and complicated implementation of algorithm\nhave rendered a certain demand for the computing resources.\nBesides,  the hardness of training the spiking neural network\nand its intrinsic high requirements on hardware suitability have\nbeen an hinder for the development.\nIn consequence, blindly proposing more complex represen-\ntations or network structures is not the optimal solution to the\nproblem. In this paper, we aim to establish a concise overall\narchitecture for  the event-based recognition. Consequently,\nwe equipped the VGG networkwith the convolutional block\nattention (CBAM) module  [13],  [14], which  is enable  to\neffectively extract the spatial-temporal feature while maintain-\ning a simple network structure. We adopted the SpikingJelly\nopen-source framework for event data pre-processing [15]  ,\nwhose parameters can be adjusted flexibly and expansively.\nOur proposed framework can not only achieves satisfactory\naccuracy on CIFAR10-DVS[16]and N-Caltech101 dataset[17],\nbut also provides inspiration for developing more accurate and\nenergy-saving event-based recognition systems in the future."
+  },
+  {
+    "id": "relatedwork",
+    "metadata": {
+      "lang": "en",
+      "section_title": "RELATED WORK",
+      "page_start": 1,
+      "page_end": 1
+    },
+    "text": "A. Event Representations\nEvent data are usually converted into event-frame,  time\nsurface or grid-like representation for subsequent processing.\nThe commonly employed event-frame methods adopted the\nconstant  time window or  constant  event  number methods\nfor converting events into image representations [6], [7], [8],\nthereby facilitating object recognition and orientation estima-\ntion through neural network. Traditional time surface usually"
+  },
+  {
+    "id": "experimentdesign",
+    "metadata": {
+      "lang": "en",
+      "section_title": "EXPERIMENT DESIGN",
+      "page_start": 2,
+      "page_end": 2
+    },
+    "text": "A. Event Data\nSpikingJelly is an open-source deep learning based frame-\nwork [15], which possesses the superior extensibility, flexi-\nbility and user-friendliness. Especially,  it provides numerous\nwidely-used neuromorphic datasets, offers an intuitive user\ninterface and integrated functions, which also greatly facilities\nusers’ opportunities for further adaptive development. Here,\nwe utilize its embedded integrate approach for slicing the\ndiscrete events into frames [33].\nIn this way, we acquire the two-channels frame representa-\ntion through dividing the number of events into sequences of\nequal sizes. Among them, we assume the total number of event\npoints as N, the slices of frames as T, and the floor operation\n⌊N/T⌋ represents the number of events in each slice. We utilize\nnL = ⌊N/T⌋ · n and nR = ⌊N/T⌋ · (n + 1) as the left and\nright boundaries of the either selected slice, and the function\nΓp,x,y(pi, xi, yi) equals to 1 only when (p, x, y) = (pi, xi, yi).\nTherefore its formula can be expressed as the following (1).\nnR\n(cid:88)\nFrame(n, p, x, y) =  Γp,x,y(pi, xi, yi)  (1)\ni=nL\nB. Network Architecture\nDifferent from the architecture utilized in previous methods,\nwe aim to propose a  light-weight  spatial-temporal  learn-\ning framework for the event-based recognition. Fig.1 shows"
+  },
+  {
+    "id": "results",
+    "metadata": {
+      "lang": "en",
+      "section_title": "RESULTS",
+      "page_start": 3,
+      "page_end": 3
+    },
+    "text": "We evaluated our  lightweight  framework on the publicly\navailable datasets: CIFAR10-DVS [16] and N-Caltech101 [17].\nCIFAR10-DVS [16] is collected through utilizing the dynamic\nvision sensor to do the repeated closed-loop smooth movement\nin front of  the original CIFAR10 dataset.  It  contains  ten\ndifferent classes: airplane, automobile, bird, cat, deer, dog,\nfrog, horse, ship and truck, and possesses 128×128 resolution\ntogether with average 1200ms duration time. Similarly, N-\nCaltech101 [17] is collected by a rotary asynchronous time-\nbased image sensor (ATIS), possessing 8246 samples and 101\nclasses.\nTable 1 demonstrates our framework’s performance against\nfive state-of-the-art ResNet-based methods,  categorized by\npretrained and non-pretrained approaches. Our VGG-CBAM\narchitecture without pretraining achieves 71.3% accuracy on\nCIFAR10-DVS and 72.4% on N-Caltech101, while the pre-\ntrained model achieves 76.4% accuracy on CIFAR10-DVS and\n85.0% on N-Caltech101. Compared to the residual structure\nof ResNet, VGG has a simpler and flexible structure for using\nthe repeated stacking of small convolution cores, which has\nadvantages like plug and play components. In this way, it can\nnot only increase the nonlinear mapping but also improve the\nfitting expression ability of network. Simultaneously, because\nwe adopt to integrate two-channels representation of the event\ndata. Thus, compared to the original VGG module, the number\nof parameters in our framework has been favorably reduced\n2.3%,  and the floating-point operations  (FLOPs) has been\naveragely reduced 15.9 MFLOPs."
+  },
+  {
+    "id": "conclusion",
+    "metadata": {
+      "lang": "en",
+      "section_title": "CONCLUSION",
+      "page_start": 3,
+      "page_end": 4
+    },
+    "text": "In this work, we propose a novel spatial-temporal learning\nframework for the event-based object recognition and test its\nperformance on two publicly available datasets. It  leverages\nthe SpikingJelly platform for the pre-processing of the event\ndata, and utilizes the VGG equipped with the CBAM mod-\nule as the classifier, which dynamically recalibrates feature\n\n3\nresponses through both channel and spatial attention mecha-\nnisms.\nThe  framework makes  several  key contributions  to  the\nfield of event-based vision. First, we demonstrate a compar-\natively flexible and simple network architecture that achieves\ncompetitive accuracy on CIFAR10-DVS and N-Caltech101\ndatasets among the existing approaches. Second, our com-\nprehensive evaluation on standard event-based datasets shows\nrobust performance across diverse object categories. Finally,\nour  successful  integration of attention mechanisms  in this\nspatiotemporal pipeline opens new possibilities for efficient\nevent-based recognition.\nIn the future, we expect  to further reduce the parameters\nand computation efficiency of the framework, responding to\nthe growing need of neuromorphic sensors  in autonomous\ndrones and high-speed robotics. In these applications, where\nrapid motion detection and low-latency response are essential.\nOur approach provides a potential pathway for deploying\nevent-based recognition systems in resource-constrained en-\nvironments, demonstrating particular promise for applications\nrequiring both high-speed vision processing and energy effi-\nciency.\nACKNOWLEDGMENT\nThis work was supported in part by the Shenzhen Science\nand Technology Program JCYJ20230807114907015, and in\npart by the Research Grants Council of the Hong Kong Special\nAdministrative Region, China, under Projects CityU 11214020\nand CUHK-R4022-18.\n\nJOURNAL OF LAT X CLASS FILES, VOL. 14, NO. 8, AUGUST 2024\nE\nTABLE I: Performance comparison of our method with other a\nsecond-best accuracy is underlined.\nImageNet  Method  Event Representation  Data\nEST[12]  Grid-based\nE2VID[34]  Grid-based\nM-LSTM[30]  Ordered event sequences\nPretrained\nAMAE[35]  Event-based frame\nMVF-Net [20]  Event-based frame\nOurs  Event-based frame\nEST[12]  Grid-based\nE2VID[34]  Grid-based\nM-LSTM[30]  Ordered event sequences\nNot Pretrained\nAMAE[35]  Event-based frame\nMVF-Net[20]  Event-based frame\nOurs  Event-based frame"
+  }
+]

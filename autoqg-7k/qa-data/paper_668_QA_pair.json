@@ -1,0 +1,346 @@
+[
+  {
+    "section": "spacecraftdynamics1",
+    "path": {
+      "section": "spacecraftdynamics1",
+      "start_entity": "LocalVerticalLocalHorizontalFrame",
+      "end_entity": "EarthCenter",
+      "hops": [
+        {
+          "from": "LocalVerticalLocalHorizontalFrame",
+          "relation": "definedInRelationTo",
+          "to": "Moon-CenteredInertialFrame",
+          "context": "The LVLH frame is defined in relation to the MCI frame.",
+          "chunk": "2"
+        },
+        {
+          "from": "Moon-CenteredInertialFrame",
+          "relation": "definedInRelationTo",
+          "to": "Earth-CenteredInertialFrame",
+          "context": "The Moon-Centered Inertial frame (MCI) is defined in relation to the ECI frame.",
+          "chunk": "2"
+        },
+        {
+          "from": "Earth-CenteredInertialFrame",
+          "relation": "hasOrigin",
+          "to": "EarthCenter",
+          "context": "The Earth-Centered Inertial frame (ECI) has its origin at the Earth’s center.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "Which statement best describes the hierarchical relationship of the Local Vertical Local Horizontal (LVLH) frame in relation to the Earth?",
+    "options": {
+      "A": "The LVLH frame is indirectly related to the Earth's center through the Moon-Centered Inertial and Earth-Centered Inertial frames.",
+      "B": "The LVLH frame is a standalone frame that does not reference any Earth-related or Moon-related inertial frames.",
+      "C": "The LVLH frame is primarily defined by its direct connection to the Earth-Centered Inertial frame without any lunar influence.",
+      "D": "The LVLH frame directly originates from the Earth's center, bypassing any lunar-related frames."
+    },
+    "correct_answer": "A",
+    "explanation": "The LVLH frame is defined in relation to the Moon-Centered Inertial (MCI) frame, which in turn is defined in relation to the Earth-Centered Inertial (ECI) frame, having its origin at the Earth's center. This establishes an indirect hierarchical relationship from the LVLH frame through the MCI and ECI frames to the Earth's center.",
+    "path_description": "Path: LocalVerticalLocalHorizontalFrame --[definedInRelationTo]--> Moon-CenteredInertialFrame --[definedInRelationTo]--> Earth-CenteredInertialFrame --[hasOrigin]--> EarthCenter",
+    "context": "The LVLH frame is defined in relation to the MCI frame. | The Moon-Centered Inertial frame (MCI) is defined in relation to the ECI frame. | The Earth-Centered Inertial frame (ECI) has its origin at the Earth’s center.",
+    "paper_id": "312"
+  },
+  {
+    "section": "spacecraftdynamics2",
+    "path": {
+      "section": "spacecraftdynamics2",
+      "start_entity": "EarthGravitationalParameter",
+      "end_entity": "CelestialObject",
+      "hops": [
+        {
+          "from": "EarthGravitationalParameter",
+          "relation": "type",
+          "to": "GravitationalParameter",
+          "context": "Earth's gravitational parameter is 3.9860e5 km^3/s^2.",
+          "chunk": "3"
+        },
+        {
+          "from": "GravitationalParameter",
+          "relation": "measuredFor",
+          "to": "Sun",
+          "context": "Table 1 reports the gravitational parameters of the relevant celestial bodies including the Sun.",
+          "chunk": "3"
+        },
+        {
+          "from": "Sun",
+          "relation": "type",
+          "to": "CelestialObject",
+          "context": "The gravitational action of the Sun must be taken into account.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "Which of the following best describes the relationship between the Earth's gravitational parameter and its designation in celestial mechanics?",
+    "options": {
+      "A": "The Earth's gravitational parameter is a subset of universal gravitational constants applicable to all celestial bodies.",
+      "B": "The Earth's gravitational parameter is a distinct value that uniquely identifies Earth among celestial objects.",
+      "C": "The Earth's gravitational parameter categorizes it as a specific type of gravitational parameter measured for the Sun.",
+      "D": "The Earth's gravitational parameter specifies the rate of acceleration due to gravity measured at the Earth's surface."
+    },
+    "correct_answer": "C",
+    "explanation": "The Earth's gravitational parameter is classified under the type 'Gravitational Parameter,' which is also used to measure the gravitational parameters of other celestial bodies such as the Sun. This connection categorizes it specifically within celestial mechanics, distinguishing it from other types of gravitational measurements.",
+    "path_description": "Path: EarthGravitationalParameter --[type]--> GravitationalParameter --[measuredFor]--> Sun --[type]--> CelestialObject",
+    "context": "Earth's gravitational parameter is 3.9860e5 km^3/s^2. | Table 1 reports the gravitational parameters of the relevant celestial bodies including the Sun. | The gravitational action of the Sun must be taken into account.",
+    "paper_id": "312"
+  },
+  {
+    "section": "minimumtimeorbittransfer2",
+    "path": {
+      "section": "minimumtimeorbittransfer2",
+      "start_entity": "HamiltonianFunction",
+      "end_entity": "MathematicalConcept",
+      "hops": [
+        {
+          "from": "HamiltonianFunction",
+          "relation": "comparedWith",
+          "to": "HamiltonianFunction",
+          "context": "Hamiltonian function when no thrust is applied is compared with the Hamiltonian function at t0 when the propulsion system is ignited.",
+          "chunk": "5"
+        },
+        {
+          "from": "HamiltonianFunction",
+          "relation": "hasCondition",
+          "to": "InequalityConstraint",
+          "context": "Inequality constraint Hf < 0 must be satisfied concerning the Hamiltonian function.",
+          "chunk": "5"
+        },
+        {
+          "from": "InequalityConstraint",
+          "relation": "type",
+          "to": "MathematicalConcept",
+          "context": "Inequality constraint Hf < 0 must be satisfied.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the context of minimum time orbit transfer, why must the inequality constraint Hf < 0 be satisfied when comparing Hamiltonian functions across different propulsion states?",
+    "options": {
+      "A": "To confirm that the energy output matches the energy input, ensuring a balanced energy state throughout the orbit transfer",
+      "B": "To ensure that the total energy remains below a critical value, preventing excessive accumulation when propulsion is initiated",
+      "C": "To guarantee that the system returns to a lower energy state after the propulsion system is ignited, maintaining system efficiency",
+      "D": "To validate that the gravitational pull exceeds the thrust force, ensuring orbit stability during transfer"
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A because the inequality constraint Hf < 0 ensures that the total energy of the system remains below a certain threshold when the propulsion system is ignited. This prevents any excessive accumulation of energy, which could lead to unstable orbit transfers.",
+    "path_description": "Path: HamiltonianFunction --[comparedWith]--> HamiltonianFunction --[hasCondition]--> InequalityConstraint --[type]--> MathematicalConcept",
+    "context": "Hamiltonian function when no thrust is applied is compared with the Hamiltonian function at t0 when the propulsion system is ignited. | Inequality constraint Hf < 0 must be satisfied concerning the Hamiltonian function. | Inequality constraint Hf < 0 must be satisfied.",
+    "paper_id": "312"
+  },
+  {
+    "section": "minimumtimeorbittransfer2",
+    "path": {
+      "section": "minimumtimeorbittransfer2",
+      "start_entity": "HamiltonianFunction",
+      "end_entity": "InequalityConstraint",
+      "hops": [
+        {
+          "from": "HamiltonianFunction",
+          "relation": "comparedWith",
+          "to": "HamiltonianFunction",
+          "context": "Hamiltonian function when no thrust is applied is compared with the Hamiltonian function at t0 when the propulsion system is ignited.",
+          "chunk": "5"
+        },
+        {
+          "from": "HamiltonianFunction",
+          "relation": "comparedWith",
+          "to": "HamiltonianFunction",
+          "context": "Hamiltonian function when no thrust is applied is compared with the Hamiltonian function at t0 when the propulsion system is ignited.",
+          "chunk": "5"
+        },
+        {
+          "from": "HamiltonianFunction",
+          "relation": "hasCondition",
+          "to": "InequalityConstraint",
+          "context": "Inequality constraint Hf < 0 must be satisfied concerning the Hamiltonian function.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the context of minimum time orbit transfer, when comparing Hamiltonian functions under different conditions of a propulsion system, what condition must the final Hamiltonian function satisfy?",
+    "options": {
+      "A": "The final Hamiltonian function must satisfy the inequality constraint Hf = 0 regardless of the propulsion system's state.",
+      "B": "The final Hamiltonian function must satisfy the inequality constraint Hf < 0 when the propulsion system is ignited.",
+      "C": "The final Hamiltonian function must satisfy the inequality constraint Hf < 0 when no thrust is applied.",
+      "D": "The final Hamiltonian function must satisfy the inequality constraint Hf > 0 when no thrust is applied."
+    },
+    "correct_answer": "C",
+    "explanation": "The Hamiltonian function comparisons indicate changes upon the ignition of the propulsion system at t0. The inequality constraint Hf < 0 must be satisfied, specifically when no thrust is applied, indicating that this condition is necessary to ensure the proper functioning of the system in this scenario.",
+    "path_description": "Path: HamiltonianFunction --[comparedWith]--> HamiltonianFunction --[comparedWith]--> HamiltonianFunction --[hasCondition]--> InequalityConstraint",
+    "context": "Hamiltonian function when no thrust is applied is compared with the Hamiltonian function at t0 when the propulsion system is ignited. | Hamiltonian function when no thrust is applied is compared with the Hamiltonian function at t0 when the propulsion system is ignited. | Inequality constraint Hf < 0 must be satisfied concerning the Hamiltonian function.",
+    "paper_id": "312"
+  },
+  {
+    "section": "guidanceattitudecontrolandactuation3",
+    "path": {
+      "section": "guidanceattitudecontrolandactuation3",
+      "start_entity": "GainSelection",
+      "end_entity": "Matrix",
+      "hops": [
+        {
+          "from": "GainSelection",
+          "relation": "involves",
+          "to": "LyapunovBasedControllers",
+          "context": "In order to achieve convergence to the desired conditions, it is essential to determine the appropriate gain matrices for the Lyapunov-based controllers",
+          "chunk": "9"
+        },
+        {
+          "from": "LyapunovBasedControllers",
+          "relation": "uses",
+          "to": "MatrixA",
+          "context": "and 𝑨 and 𝑩 for the attitude feedback law",
+          "chunk": "9"
+        },
+        {
+          "from": "MatrixA",
+          "relation": "type",
+          "to": "Matrix",
+          "context": "Matrix 𝑨 is also symmetric.",
+          "chunk": "9"
+        }
+      ]
+    },
+    "question": "In the context of guidance, attitude control, and actuation systems, what is the characteristic of Matrix A that is crucial for the correct functioning of Lyapunov-based controllers?",
+    "options": {
+      "A": "Matrix A needs to be symmetric to ensure stability in the feedback control system.",
+      "B": "Matrix A requires to be an upper triangular matrix to facilitate easier computation.",
+      "C": "Matrix A should be a diagonal matrix to simplify the calculation of control laws.",
+      "D": "Matrix A must be non-singular to allow for the calculation of the inverse during control adjustments."
+    },
+    "correct_answer": "A",
+    "explanation": "The paper specifies that Matrix A is symmetric in the context of Lyapunov-based controllers. This symmetry is crucial for ensuring the stability of the feedback control system, aligning with the properties needed for effective implementation of Lyapunov-based control strategies.",
+    "path_description": "Path: GainSelection --[involves]--> LyapunovBasedControllers --[uses]--> MatrixA --[type]--> Matrix",
+    "context": "In order to achieve convergence to the desired conditions, it is essential to determine the appropriate gain matrices for the Lyapunov-based controllers | and 𝑨 and 𝑩 for the attitude feedback law | Matrix 𝑨 is also symmetric.",
+    "paper_id": "312"
+  },
+  {
+    "section": "guidanceattitudecontrolandactuation3",
+    "path": {
+      "section": "guidanceattitudecontrolandactuation3",
+      "start_entity": "GainSelection",
+      "end_entity": "Matrix",
+      "hops": [
+        {
+          "from": "GainSelection",
+          "relation": "involves",
+          "to": "LyapunovBasedControllers",
+          "context": "In order to achieve convergence to the desired conditions, it is essential to determine the appropriate gain matrices for the Lyapunov-based controllers",
+          "chunk": "9"
+        },
+        {
+          "from": "LyapunovBasedControllers",
+          "relation": "uses",
+          "to": "MatrixB",
+          "context": "and 𝑨 and 𝑩 for the attitude feedback law",
+          "chunk": "9"
+        },
+        {
+          "from": "MatrixB",
+          "relation": "type",
+          "to": "Matrix",
+          "context": "and 𝑨 and 𝑩 for the attitude feedback law",
+          "chunk": "9"
+        }
+      ]
+    },
+    "question": "In the context of Lyapunov-based controllers for attitude control as discussed in the guidance, attitude control, and actuation section, what is the role of Matrix B?",
+    "options": {
+      "A": "Matrix B is used as a feedback law element to directly control the actuators in the system.",
+      "B": "Matrix B serves as an input-output relationship mapper that linearly transforms input vectors into output vectors.",
+      "C": "Matrix B is a gain matrix used to ensure the stability of the system by satisfying the Lyapunov conditions.",
+      "D": "Matrix B acts as a scalar multiplication factor to adjust the response time of the controller."
+    },
+    "correct_answer": "C",
+    "explanation": "Matrix B in the context of Lyapunov-based controllers is critical as a gain matrix, which helps in achieving system stability by ensuring that the Lyapunov conditions are met. This is deduced from the knowledge path which connects Gain Selection to Lyapunov Based Controllers using Matrix B, indicating the role of Matrix B as essential in the feedback mechanism to stabilize the system.",
+    "path_description": "Path: GainSelection --[involves]--> LyapunovBasedControllers --[uses]--> MatrixB --[type]--> Matrix",
+    "context": "In order to achieve convergence to the desired conditions, it is essential to determine the appropriate gain matrices for the Lyapunov-based controllers | and 𝑨 and 𝑩 for the attitude feedback law | and 𝑨 and 𝑩 for the attitude feedback law",
+    "paper_id": "312"
+  },
+  {
+    "section": "guidanceattitudecontrolandactuation4",
+    "path": {
+      "section": "guidanceattitudecontrolandactuation4",
+      "start_entity": "AttitudeActuationSystem",
+      "end_entity": "Entity",
+      "hops": [
+        {
+          "from": "AttitudeActuationSystem",
+          "relation": "representedBy",
+          "to": "ReactionWheelsArray",
+          "context": "The attitude actuation system is represented by an array of reaction wheels organized in a proper geometry.",
+          "chunk": "10"
+        },
+        {
+          "from": "ReactionWheelsArray",
+          "relation": "hasGeometry",
+          "to": "PyramidalArray",
+          "context": "Due to redundancy requirements, this work uses a pyramidal array composed of 4 reaction wheels.",
+          "chunk": "10"
+        },
+        {
+          "from": "PyramidalArray",
+          "relation": "type",
+          "to": "Entity",
+          "context": "Due to redundancy requirements, this work uses a pyramidal array composed of 4 reaction wheels.",
+          "chunk": "10"
+        }
+      ]
+    },
+    "question": "In the context of spacecraft attitude control systems, which configuration of reaction wheels is used to achieve redundancy and maintain proper orientation?",
+    "options": {
+      "A": "A linear arrangement that includes 3 reaction wheels aligned along the spacecraft's main axes.",
+      "B": "A triangular array configuration that includes 3 reaction wheels installed.",
+      "C": "A circular array configuration that arranges wheels evenly around the spacecraft's perimeter.",
+      "D": "A pyramidal array configuration that includes 4 reaction wheels installed."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A because the knowledge graph specifies that the attitude actuation system uses a pyramidal array of reaction wheels, particularly including 4 wheels, which is mentioned to meet redundancy requirements.",
+    "path_description": "Path: AttitudeActuationSystem --[representedBy]--> ReactionWheelsArray --[hasGeometry]--> PyramidalArray --[type]--> Entity",
+    "context": "The attitude actuation system is represented by an array of reaction wheels organized in a proper geometry. | Due to redundancy requirements, this work uses a pyramidal array composed of 4 reaction wheels. | Due to redundancy requirements, this work uses a pyramidal array composed of 4 reaction wheels.",
+    "paper_id": "312"
+  },
+  {
+    "section": "concludingremarks",
+    "path": {
+      "section": "concludingremarks",
+      "start_entity": "GuidanceControlAndActuationArchitecture",
+      "end_entity": "Technology",
+      "hops": [
+        {
+          "from": "GuidanceControlAndActuationArchitecture",
+          "relation": "implementedIn",
+          "to": "NonlinearFeedbackAlgorithms",
+          "context": "Moreover, this study designs and numerically tests an overall guidance, control, and actuation architecture, in the context of Gateway transfer problem. Nonlinear feedback algorithms are implemented and employed for both orbit control and attitude tracking.",
+          "chunk": "12"
+        },
+        {
+          "from": "NonlinearFeedbackAlgorithms",
+          "relation": "appliedTo",
+          "to": "PyramidalArrayOfReactionWheels",
+          "context": "Nonlinear feedback algorithms are implemented and employed for both orbit control and attitude tracking, while attitude actuation is demanded to a pyramidal array of reaction wheels.",
+          "chunk": "12"
+        },
+        {
+          "from": "PyramidalArrayOfReactionWheels",
+          "relation": "type",
+          "to": "Technology",
+          "context": "Nonlinear feedback algorithms are implemented and employed for both orbit control and attitude tracking, while attitude actuation is demanded to a pyramidal array of reaction wheels.",
+          "chunk": "12"
+        }
+      ]
+    },
+    "question": "In the context of Gateway transfer problem, how is the guidance, control, and actuation architecture specifically applied to enable effective attitude tracking?",
+    "options": {
+      "A": "By employing adaptive control strategies interfaced with a spherical array of thrusters to adjust the Gateway's attitude.",
+      "B": "By implementing nonlinear feedback algorithms applied to a pyramidal array of reaction wheels, enhancing the precision of attitude control.",
+      "C": "Through the use of linear feedback systems connected to conventional reaction wheel configurations to stabilize the Gateway's orbit.",
+      "D": "Utilizing deterministic algorithms linked to a single-axis reaction wheel to ensure robust control over the Gateway's orientation."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A because the paper discusses the implementation of nonlinear feedback algorithms for both orbit control and attitude tracking, specifically employing these algorithms in a pyramidal array of reaction wheels for attitude actuation. This setup enhances the precision and effectiveness of attitude control in the Gateway transfer problem. The other options are misleading as they suggest different configurations or control strategies that were not mentioned in the context of the paper.",
+    "path_description": "Path: GuidanceControlAndActuationArchitecture --[implementedIn]--> NonlinearFeedbackAlgorithms --[appliedTo]--> PyramidalArrayOfReactionWheels --[type]--> Technology",
+    "context": "Moreover, this study designs and numerically tests an overall guidance, control, and actuation architecture, in the context of Gateway transfer problem. Nonlinear feedback algorithms are implemented and employed for both orbit control and attitude tracking. | Nonlinear feedback algorithms are implemented and employed for both orbit control and attitude tracking, while attitude actuation is demanded to a pyramidal array of reaction wheels. | Nonlinear feedback algorithms are implemented and employed for both orbit control and attitude tracking, while attitude actuation is demanded to a pyramidal array of reaction wheels.",
+    "paper_id": "312"
+  }
+]

@@ -1,0 +1,131 @@
+[
+  {
+    "section": "characterizationofmemorycellperformance1",
+    "path": {
+      "section": "characterizationofmemorycellperformance1",
+      "start_entity": "BitErrorRate",
+      "end_entity": "Tool",
+      "hops": [
+        {
+          "from": "BitErrorRate",
+          "relation": "measuredDuring",
+          "to": "WriteOperation",
+          "context": "Throughout this work, we characterized memory cells by measuring the bit error rate (BER) across varying read and write bias conditions.",
+          "chunk": "3"
+        },
+        {
+          "from": "WriteOperation",
+          "relation": "uses",
+          "to": "LowPassFilter",
+          "context": "Signals associated with the Low Pass Filter during a write operation.",
+          "chunk": "3"
+        },
+        {
+          "from": "LowPassFilter",
+          "relation": "type",
+          "to": "Tool",
+          "context": "Signals associated with the Low Pass Filter during a write operation.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the characterization of memory cell performance, which tool is primarily used during the write operation to manage the bit error rate by handling signal frequencies?",
+    "options": {
+      "A": "An Oscilloscope used to visually monitor the signal integrity",
+      "B": "A specialized software algorithm designed to optimize write speed and accuracy",
+      "C": "A High Pass Filter that amplifies the required frequency components",
+      "D": "A Low Pass Filter that reduces high-frequency noise in the signal"
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is B, A Low Pass Filter. The question path indicates that during the write operation, a Low Pass Filter is used. This tool is essential for reducing high-frequency noise, thus managing the bit error rate (BER) as characterized in the study.",
+    "path_description": "Path: BitErrorRate --[measuredDuring]--> WriteOperation --[uses]--> LowPassFilter --[type]--> Tool",
+    "context": "Throughout this work, we characterized memory cells by measuring the bit error rate (BER) across varying read and write bias conditions. | Signals associated with the Low Pass Filter during a write operation. | Signals associated with the Low Pass Filter during a write operation.",
+    "paper_id": "1940"
+  },
+  {
+    "section": "superconductingnanowirememoryarray2",
+    "path": {
+      "section": "superconductingnanowirememoryarray2",
+      "start_entity": "SuperconductingThinFilm",
+      "end_entity": "TemperatureControl",
+      "hops": [
+        {
+          "from": "SuperconductingThinFilm",
+          "relation": "depositedOn",
+          "to": "EnableLine",
+          "context": "superconducting thin film deposited on enable line",
+          "chunk": "2"
+        },
+        {
+          "from": "EnableLine",
+          "relation": "isolatedFrom",
+          "to": "DioxideLayer",
+          "context": "enable line, galvanically isolated from the dioxide layer",
+          "chunk": "2"
+        },
+        {
+          "from": "DioxideLayer",
+          "relation": "usedFor",
+          "to": "TemperatureControl",
+          "context": "dioxide layer deposited via plasma-enhanced provides local temperature control during write",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "How does the configuration of superconducting thin film in a superconducting nanowire memory array contribute to effective memory operation?",
+    "options": {
+      "A": "The superconducting thin film enhances magnetic field resistance by interacting directly with the dioxide layer to stabilize data storage at high temperatures.",
+      "B": "The superconducting thin film is deposited on the enable line, which is isolated from the dioxide layer, ensuring efficient local temperature control during the write process.",
+      "C": "The superconducting thin film is layered above the enable line without isolation, causing frequent overheating and damage to the memory integrity.",
+      "D": "The superconducting thin film directly contacts the dioxide layer, enhancing electrical conductivity for faster data processing in the memory array."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A because the superconducting thin film is deposited on the enable line, and the enable line is galvanically isolated from the dioxide layer. This isolation allows the dioxide layer, which is deposited via plasma-enhanced methods, to provide local temperature control effectively during the write process, crucial for the operation of the memory array.",
+    "path_description": "Path: SuperconductingThinFilm --[depositedOn]--> EnableLine --[isolatedFrom]--> DioxideLayer --[usedFor]--> TemperatureControl",
+    "context": "superconducting thin film deposited on enable line | enable line, galvanically isolated from the dioxide layer | dioxide layer deposited via plasma-enhanced provides local temperature control during write",
+    "paper_id": "1940"
+  },
+  {
+    "section": "characterizationofmemorycellperformance4",
+    "path": {
+      "section": "characterizationofmemorycellperformance4",
+      "start_entity": "BitErrorRateFunction",
+      "end_entity": "Measurement",
+      "hops": [
+        {
+          "from": "BitErrorRateFunction",
+          "relation": "appliesTo",
+          "to": "ReadZeroOperation",
+          "context": "bit error rate (BER) as a function of read current amplitude",
+          "chunk": "6"
+        },
+        {
+          "from": "ReadZeroOperation",
+          "relation": "hasCriticalCurrent",
+          "to": "CriticalCurrents",
+          "context": "Dashed lines indicate the corresponding critical currents for write-zero (W0), read-one (R1), and read-zero (R0) operations",
+          "chunk": "6"
+        },
+        {
+          "from": "CriticalCurrents",
+          "relation": "type",
+          "to": "Measurement",
+          "context": "Dashed lines indicate the corresponding critical currents",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the context of memory cell performance, how does the bit error rate (BER) for a read-zero operation correlate with the measurement of critical currents?",
+    "options": {
+      "A": "BER increases when the read current amplitude surpasses the critical currents measured for write-zero operations.",
+      "B": "BER is unaffected by the critical currents as they apply only to write operations in memory cells.",
+      "C": "BER remains constant regardless of changes in the read current amplitude for all types of operations.",
+      "D": "BER decreases as the read current amplitude approaches the critical current specifically measured for read-zero operations."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A because the question specifically refers to the bit error rate function as applied to a read-zero operation, where the critical current is a determining factor. As the read current amplitude approaches this critical current specifically for read-zero, the BER generally decreases, highlighting the sensitivity of the read operation to its critical current threshold.",
+    "path_description": "Path: BitErrorRateFunction --[appliesTo]--> ReadZeroOperation --[hasCriticalCurrent]--> CriticalCurrents --[type]--> Measurement",
+    "context": "bit error rate (BER) as a function of read current amplitude | Dashed lines indicate the corresponding critical currents for write-zero (W0), read-one (R1), and read-zero (R0) operations | Dashed lines indicate the corresponding critical currents",
+    "paper_id": "1940"
+  }
+]

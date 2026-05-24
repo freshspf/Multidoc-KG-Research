@@ -1,0 +1,174 @@
+[
+  {
+    "section": "experimentalsetup1",
+    "path": {
+      "section": "experimentalsetup1",
+      "start_entity": "PerturbVar",
+      "end_entity": "Metric",
+      "hops": [
+        {
+          "from": "PerturbVar",
+          "relation": "affects",
+          "to": "UntrustVul",
+          "context": "A prediction is deemed untrustworthy if the perturbations by PerturbVar alter it.",
+          "chunk": "6"
+        },
+        {
+          "from": "UntrustVul",
+          "relation": "evaluatesEffectiveness",
+          "to": "Specificity",
+          "context": "We use the following metrics to measure UntrustVul’s effectiveness: Specificity.",
+          "chunk": "6"
+        },
+        {
+          "from": "Specificity",
+          "relation": "type",
+          "to": "Metric",
+          "context": "Specificity is the proportion of correctly detected trustworthy predictions.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the context of evaluating the effectiveness of detecting untrustworthy predictions, what role does Specificity play based on the PerturbVar's influence?",
+    "options": {
+      "A": "Specificity is used to determine the percentage of trustworthy predictions correctly identified when PerturbVar is applied.",
+      "B": "Specificity measures the proportion of correctly detected untrustworthy predictions as affected by PerturbVar.",
+      "C": "Specificity is the metric that quantifies the overall error rate in predictions altered by PerturbVar.",
+      "D": "Specificity calculates the total number of predictions unaffected by PerturbVar, hence proving trustworthiness."
+    },
+    "correct_answer": "A",
+    "explanation": "Specificity, in the given context, acts as a metric to evaluate the effectiveness of detecting trustworthy predictions, specifically how well the system identifies predictions that remain trustworthy even when perturbed by PerturbVar.",
+    "path_description": "Path: PerturbVar --[affects]--> UntrustVul --[evaluatesEffectiveness]--> Specificity --[type]--> Metric",
+    "context": "A prediction is deemed untrustworthy if the perturbations by PerturbVar alter it. | We use the following metrics to measure UntrustVul’s effectiveness: Specificity. | Specificity is the proportion of correctly detected trustworthy predictions.",
+    "paper_id": "250"
+  },
+  {
+    "section": "experimentalresults3",
+    "path": {
+      "section": "experimentalresults3",
+      "start_entity": "line-levelOnly",
+      "end_entity": "Accuracy",
+      "hops": [
+        {
+          "from": "line-levelOnly",
+          "relation": "occasionallyOutperforms",
+          "to": "dependency-levelOnly",
+          "context": "While these variants occasionally achieve better in some metrics.",
+          "chunk": "10"
+        },
+        {
+          "from": "dependency-levelOnly",
+          "relation": "occasionallyOutperforms",
+          "to": "line-levelOnly",
+          "context": "While these variants occasionally achieve better in some metrics.",
+          "chunk": "10"
+        },
+        {
+          "from": "line-levelOnly",
+          "relation": "decreasesMetric",
+          "to": "Accuracy",
+          "context": "significantly decrease the effectiveness of UntrustVul by 11%–42% in Accuracy.",
+          "chunk": "10"
+        }
+      ]
+    },
+    "question": "In the context of comparing different data analysis levels, how does the performance of 'dependency-levelOnly' in terms of accuracy relate to 'line-levelOnly'?",
+    "options": {
+      "A": "Dependency-levelOnly and line-levelOnly perform equally well, maintaining a stable accuracy rate throughout tests.",
+      "B": "Dependency-levelOnly occasionally outperforms line-levelOnly but ultimately decreases accuracy significantly.",
+      "C": "Dependency-levelOnly consistently surpasses line-levelOnly and significantly improves accuracy by 11%–42%.",
+      "D": "Line-levelOnly is always superior to dependency-levelOnly and enhances accuracy in all tested metrics."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A because the knowledge path indicates that while 'dependency-levelOnly' can occasionally outperform 'line-levelOnly', it ultimately leads to a significant decrease in accuracy, as evidenced by the 11%–42% drop specified in the context.",
+    "path_description": "Path: line-levelOnly --[occasionallyOutperforms]--> dependency-levelOnly --[occasionallyOutperforms]--> line-levelOnly --[decreasesMetric]--> Accuracy",
+    "context": "While these variants occasionally achieve better in some metrics. | While these variants occasionally achieve better in some metrics. | significantly decrease the effectiveness of UntrustVul by 11%–42% in Accuracy.",
+    "paper_id": "250"
+  },
+  {
+    "section": "experimentalresults3",
+    "path": {
+      "section": "experimentalresults3",
+      "start_entity": "line-levelOnly",
+      "end_entity": "UntrustVul",
+      "hops": [
+        {
+          "from": "line-levelOnly",
+          "relation": "occasionallyOutperforms",
+          "to": "dependency-levelOnly",
+          "context": "While these variants occasionally achieve better in some metrics.",
+          "chunk": "10"
+        },
+        {
+          "from": "dependency-levelOnly",
+          "relation": "occasionallyOutperforms",
+          "to": "line-levelOnly",
+          "context": "While these variants occasionally achieve better in some metrics.",
+          "chunk": "10"
+        },
+        {
+          "from": "line-levelOnly",
+          "relation": "decreasesEffectiveness",
+          "to": "UntrustVul",
+          "context": "The line-level only variant significantly decreases the effectiveness of UntrustVul.",
+          "chunk": "10"
+        }
+      ]
+    },
+    "question": "In the context of the experimental results presented in experimentalresults3, how does the line-level only variant influence the effectiveness of UntrustVul compared to the dependency-level only variant?",
+    "options": {
+      "A": "The dependency-level only variant decreases the effectiveness of UntrustVul more significantly than the line-level only variant.",
+      "B": "The line-level only variant significantly decreases the effectiveness of UntrustVul compared to the dependency-level only variant.",
+      "C": "The line-level only variant significantly increases the effectiveness of UntrustVul compared to the dependency-level only variant.",
+      "D": "Both the line-level only and dependency-level only variants have no impact on the effectiveness of UntrustVul."
+    },
+    "correct_answer": "B",
+    "explanation": "Based on the knowledge graph path, the line-level only variant occasionally outperforms the dependency-level only variant, but it significantly decreases the effectiveness of UntrustVul compared to when using the dependency-level only variant.",
+    "path_description": "Path: line-levelOnly --[occasionallyOutperforms]--> dependency-levelOnly --[occasionallyOutperforms]--> line-levelOnly --[decreasesEffectiveness]--> UntrustVul",
+    "context": "While these variants occasionally achieve better in some metrics. | While these variants occasionally achieve better in some metrics. | The line-level only variant significantly decreases the effectiveness of UntrustVul.",
+    "paper_id": "250"
+  },
+  {
+    "section": "experimentalresults3",
+    "path": {
+      "section": "experimentalresults3",
+      "start_entity": "line-levelOnly",
+      "end_entity": "Metric",
+      "hops": [
+        {
+          "from": "line-levelOnly",
+          "relation": "occasionallyOutperforms",
+          "to": "dependency-levelOnly",
+          "context": "While these variants occasionally achieve better in some metrics.",
+          "chunk": "10"
+        },
+        {
+          "from": "dependency-levelOnly",
+          "relation": "decreasesMetric",
+          "to": "G-mean",
+          "context": "significantly decrease the effectiveness of UntrustVul by 4%–42% in G-mean.",
+          "chunk": "10"
+        },
+        {
+          "from": "G-mean",
+          "relation": "type",
+          "to": "Metric",
+          "context": "significantly decrease the effectiveness of UntrustVul by 4%–42% in G-mean.",
+          "chunk": "10"
+        }
+      ]
+    },
+    "question": "How does the performance of the 'line-levelOnly' configuration in the 'UntrustVul' system typically compare to the 'dependency-levelOnly' configuration in terms of the G-mean metric?",
+    "options": {
+      "A": "The 'line-levelOnly' configuration significantly reduces the effectiveness of G-mean, contrary to the 'dependency-levelOnly' configuration.",
+      "B": "Both configurations perform similarly, typically enhancing the G-mean by a substantial margin across various benchmarks.",
+      "C": "The 'dependency-levelOnly' configuration consistently outperforms the 'line-levelOnly' configuration, increasing the G-mean significantly.",
+      "D": "The 'line-levelOnly' configuration occasionally outperforms the 'dependency-levelOnly' configuration, which generally decreases the G-mean by 4% to 42%."
+    },
+    "correct_answer": "D",
+    "explanation": "The given path indicates that the 'line-levelOnly' configuration occasionally outperforms the 'dependency-levelOnly' configuration. The 'dependency-levelOnly' configuration is noted to decrease the G-mean metric by a significant margin (4%–42%). Thus, option A correctly captures the relationship and effect of these configurations on the G-mean metric.",
+    "path_description": "Path: line-levelOnly --[occasionallyOutperforms]--> dependency-levelOnly --[decreasesMetric]--> G-mean --[type]--> Metric",
+    "context": "While these variants occasionally achieve better in some metrics. | significantly decrease the effectiveness of UntrustVul by 4%–42% in G-mean. | significantly decrease the effectiveness of UntrustVul by 4%–42% in G-mean.",
+    "paper_id": "250"
+  }
+]

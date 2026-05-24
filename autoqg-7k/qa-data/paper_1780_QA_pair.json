@@ -1,0 +1,131 @@
+[
+  {
+    "section": "evaluation3",
+    "path": {
+      "section": "evaluation3",
+      "start_entity": "LinuxInterferenceVM",
+      "end_entity": "Resource",
+      "hops": [
+        {
+          "from": "LinuxInterferenceVM",
+          "relation": "increases",
+          "to": "MeanExecutionTime",
+          "context": "causes a 3% increase in the mean",
+          "chunk": "7"
+        },
+        {
+          "from": "MeanExecutionTime",
+          "relation": "affectedBy",
+          "to": "CacheResources",
+          "context": "the mean execution time may increase due to the reduced cache resources available",
+          "chunk": "7"
+        },
+        {
+          "from": "CacheResources",
+          "relation": "type",
+          "to": "Resource",
+          "context": "the mean execution time may increase due to the reduced cache resources available",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "In a virtual machine environment running Linux, what is the most likely consequence of interference on cache resources in terms of system performance?",
+    "options": {
+      "A": "It triggers a higher rate of disk I/O operations, which compensates for the loss in cache resources.",
+      "B": "It leads to a 3% increase in the mean execution time of processes due to reduced cache availability.",
+      "C": "It causes a significant reduction in CPU utilization, leading to decreased overall system performance.",
+      "D": "It results in an improved allocation of network bandwidth which enhances system throughput."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A. According to the knowledge path, Linux interference in a virtual machine environment leads to increased mean execution time, which is affected by the availability of cache resources. The interference reduces cache resources, thus, increasing the mean execution time.",
+    "path_description": "Path: LinuxInterferenceVM --[increases]--> MeanExecutionTime --[affectedBy]--> CacheResources --[type]--> Resource",
+    "context": "causes a 3% increase in the mean | the mean execution time may increase due to the reduced cache resources available | the mean execution time may increase due to the reduced cache resources available",
+    "paper_id": "702"
+  },
+  {
+    "section": "evaluation3",
+    "path": {
+      "section": "evaluation3",
+      "start_entity": "TLBPartitioning",
+      "end_entity": "Scenario",
+      "hops": [
+        {
+          "from": "TLBPartitioning",
+          "relation": "reduces",
+          "to": "ExecutionTimeStandardDeviation",
+          "context": "interference through the TLBs still harms the standard deviation of the execution time, as our TLB partitioning (e)",
+          "chunk": "7"
+        },
+        {
+          "from": "ExecutionTimeStandardDeviation",
+          "relation": "improves",
+          "to": "UnmitigatedCase",
+          "context": "a decrease in execution time standard deviation of around 91% compared to the unmitigated case that is not using SPM",
+          "chunk": "7"
+        },
+        {
+          "from": "UnmitigatedCase",
+          "relation": "type",
+          "to": "Scenario",
+          "context": "compared to the unmitigated case that is not using SPM",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "How does TLB partitioning influence the performance of systems, specifically in scenarios where SPM is not utilized?",
+    "options": {
+      "A": "TLB partitioning has no significant effect on execution time standard deviation in scenarios using or not using SPM.",
+      "B": "TLB partitioning reduces the standard deviation of execution time by about 91% compared to cases without SPM usage.",
+      "C": "TLB partitioning reduces the average execution time, but not the standard deviation, in scenarios not using SPM.",
+      "D": "TLB partitioning increases the standard deviation of execution time by approximately 91% in scenarios not implementing SPM."
+    },
+    "correct_answer": "B",
+    "explanation": "The question requires understanding how TLB partitioning affects execution time standard deviation in specific scenarios. TLB partitioning significantly reduces this deviation (by about 91%) in cases where SPM is not used, improving system performance consistency.",
+    "path_description": "Path: TLBPartitioning --[reduces]--> ExecutionTimeStandardDeviation --[improves]--> UnmitigatedCase --[type]--> Scenario",
+    "context": "interference through the TLBs still harms the standard deviation of the execution time, as our TLB partitioning (e) | a decrease in execution time standard deviation of around 91% compared to the unmitigated case that is not using SPM | compared to the unmitigated case that is not using SPM",
+    "paper_id": "702"
+  },
+  {
+    "section": "acknowledgments",
+    "path": {
+      "section": "acknowledgments",
+      "start_entity": "SwissChipsInitiative",
+      "end_entity": "Austria",
+      "hops": [
+        {
+          "from": "SwissChipsInitiative",
+          "relation": "partOf",
+          "to": "ISOLDEProject",
+          "context": "initiative and was partly supported through the ISOLDE project",
+          "chunk": "11"
+        },
+        {
+          "from": "ISOLDEProject",
+          "relation": "receivedFundingFrom",
+          "to": "ChipsJointUndertaking",
+          "context": "was partly supported through the ISOLDE project that has received funding from Chips Joint Undertaking (CHIPS-JU)",
+          "chunk": "11"
+        },
+        {
+          "from": "ChipsJointUndertaking",
+          "relation": "supportedBy",
+          "to": "Austria",
+          "context": "CHIPS JU receives support from Austria",
+          "chunk": "11"
+        }
+      ]
+    },
+    "question": "Which statement correctly traces the support structure for the SwissChipsInitiative, based on the relationships described?",
+    "options": {
+      "A": "The SwissChipsInitiative is a part of the ISOLDE Project, which received funding from Chips Joint Undertaking, supported by Austria.",
+      "B": "The SwissChipsInitiative independently partnered with the ISOLDE Project and separately received support from Chips Joint Undertaking.",
+      "C": "The SwissChipsInitiative directly received funding from Chips Joint Undertaking, which in turn is an initiative directly managed by Austria.",
+      "D": "The SwissChipsInitiative was initially supported by Austria, which also backs the ISOLDE Project through the Chips Joint Undertaking."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct path from the knowledge graph indicates that the SwissChipsInitiative is part of the ISOLDE Project, which received funding from the Chips Joint Undertaking; this undertaking is supported by Austria. Options B, C, and D incorrectly describe the direct relationships and the source of support.",
+    "path_description": "Path: SwissChipsInitiative --[partOf]--> ISOLDEProject --[receivedFundingFrom]--> ChipsJointUndertaking --[supportedBy]--> Austria",
+    "context": "initiative and was partly supported through the ISOLDE project | was partly supported through the ISOLDE project that has received funding from Chips Joint Undertaking (CHIPS-JU) | CHIPS JU receives support from Austria",
+    "paper_id": "702"
+  }
+]

@@ -1,0 +1,389 @@
+[
+  {
+    "section": "experimentalsetup",
+    "path": {
+      "section": "experimentalsetup",
+      "start_entity": "UnitreeB2",
+      "end_entity": "AthleticTask",
+      "hops": [
+        {
+          "from": "UnitreeB2",
+          "relation": "partOf",
+          "to": "UnitreeZ1ProArm",
+          "context": "We chose the Unitree B2 with Unitree Z1 Pro arm as our hardware platform.",
+          "chunk": "3"
+        },
+        {
+          "from": "UnitreeZ1ProArm",
+          "relation": "usedFor",
+          "to": "Throwing",
+          "context": "We consider three athletic tasks: throwing, weight lifting, and sled pulling.",
+          "chunk": "3"
+        },
+        {
+          "from": "Throwing",
+          "relation": "type",
+          "to": "AthleticTask",
+          "context": "We consider three athletic tasks: throwing, weight lifting, and sled pulling.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "Which of the following best describes the specific utilization of the Unitree Z1 Pro Arm in the experimental setup?",
+    "options": {
+      "A": "The Unitree Z1 Pro Arm is primarily used for sled pulling, which is an athletic task.",
+      "B": "The Unitree Z1 Pro Arm is primarily used for throwing, a type of athletic task.",
+      "C": "The Unitree Z1 Pro Arm is used exclusively for non-athletic tasks such as object manipulation.",
+      "D": "The Unitree Z1 Pro Arm is primarily used for weight lifting, another form of athletic task."
+    },
+    "correct_answer": "B",
+    "explanation": "The question required understanding the specific application of the Unitree Z1 Pro Arm as part of the Unitree B2 system, which was used for throwing, an athletic task as identified in the paper's 'experimentalsetup' section. Choices B and C are incorrect as they suggest other tasks, and D is incorrect because it denies the setup's athletic purpose.",
+    "path_description": "Path: UnitreeB2 --[partOf]--> UnitreeZ1ProArm --[usedFor]--> Throwing --[type]--> AthleticTask",
+    "context": "We chose the Unitree B2 with Unitree Z1 Pro arm as our hardware platform. | We consider three athletic tasks: throwing, weight lifting, and sled pulling. | We consider three athletic tasks: throwing, weight lifting, and sled pulling.",
+    "paper_id": "1184"
+  },
+  {
+    "section": "method1",
+    "path": {
+      "section": "method1",
+      "start_entity": "TrainingPipeline",
+      "end_entity": "SubPhase",
+      "hops": [
+        {
+          "from": "TrainingPipeline",
+          "relation": "includes",
+          "to": "WBCtraining",
+          "context": "Our training pipeline (see Figure 2) is separated into two phases: 1) real-to-sim calibration (Section II-A) and 2) WBC training (Sections II-B and II-C).",
+          "chunk": "1"
+        },
+        {
+          "from": "WBCtraining",
+          "relation": "includes",
+          "to": "PreTraining",
+          "context": "Similar to past work [7, 21, 31, 42], our WBC training is split into two distinct sub-phases: pre-training (Section II-B) and fine-tuning (Section II-C).",
+          "chunk": "1"
+        },
+        {
+          "from": "PreTraining",
+          "relation": "type",
+          "to": "SubPhase",
+          "context": "After pre-training, the policy can track reference trajectories if provided as a sequence of base velocity and end effector pose commands.",
+          "chunk": "1"
+        }
+      ]
+    },
+    "question": "In the context of the training pipeline described in the paper's 'method1' section, what is the primary purpose of the pre-training phase within the WBC training?",
+    "options": {
+      "A": "During the pre-training phase, the model is primarily calibrated to simulate real-world physics to enhance its learning capability.",
+      "B": "The pre-training phase focuses on fine-tuning the policy to adapt to diverse environmental conditions and obstacles.",
+      "C": "This phase is utilized to initially train the policy on generic tasks before specializing in specific, complex tasks.",
+      "D": "The pre-training phase is specifically designed to enable the policy to track reference trajectories using base velocity and end effector pose commands."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is 'A' as the context specifies that after the pre-training phase in the WBC training, the policy can track reference trajectories if provided as a sequence of base velocity and end effector pose commands. This indicates that the primary purpose of the pre-training phase is to enable this specific capability.",
+    "path_description": "Path: TrainingPipeline --[includes]--> WBCtraining --[includes]--> PreTraining --[type]--> SubPhase",
+    "context": "Our training pipeline (see Figure 2) is separated into two phases: 1) real-to-sim calibration (Section II-A) and 2) WBC training (Sections II-B and II-C). | Similar to past work [7, 21, 31, 42], our WBC training is split into two distinct sub-phases: pre-training (Section II-B) and fine-tuning (Section II-C). | After pre-training, the policy can track reference trajectories if provided as a sequence of base velocity and end effector pose commands.",
+    "paper_id": "1184"
+  },
+  {
+    "section": "experimentalsetup",
+    "path": {
+      "section": "experimentalsetup",
+      "start_entity": "UnitreeB2",
+      "end_entity": "DocumentSection",
+      "hops": [
+        {
+          "from": "UnitreeB2",
+          "relation": "usedFor",
+          "to": "Throwing",
+          "context": "We consider three athletic tasks: throwing, weight lifting, and sled pulling.",
+          "chunk": "3"
+        },
+        {
+          "from": "Throwing",
+          "relation": "describedIn",
+          "to": "SectionIV-C",
+          "context": "See Section IV-C.",
+          "chunk": "3"
+        },
+        {
+          "from": "SectionIV-C",
+          "relation": "type",
+          "to": "DocumentSection",
+          "context": "See Section IV-C.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the context of the experimental setup for athletic tasks, what specific role does the UnitreeB2 play in the described experiments?",
+    "options": {
+      "A": "UnitreeB2 is used for sled pulling, which is highlighted in Section IV-C of the document.",
+      "B": "UnitreeB2 is utilized specifically for the task of throwing as detailed in Section IV-C of the document.",
+      "C": "UnitreeB2 is a general-purpose robot used interchangeably for all athletic tasks mentioned in the document.",
+      "D": "UnitreeB2 is employed for the task of weight lifting, as outlined in Section IV-C of the document."
+    },
+    "correct_answer": "B",
+    "explanation": "The question follows the knowledge graph path indicating that UnitreeB2 is used specifically for the task of throwing. This is confirmed by tracing the path from UnitreeB2 to Throwing, and then to Section IV-C which describes this setup. The correct answer is supported by the specified section of the document where only the throwing task is associated with UnitreeB2.",
+    "path_description": "Path: UnitreeB2 --[usedFor]--> Throwing --[describedIn]--> SectionIV-C --[type]--> DocumentSection",
+    "context": "We consider three athletic tasks: throwing, weight lifting, and sled pulling. | See Section IV-C. | See Section IV-C.",
+    "paper_id": "1184"
+  },
+  {
+    "section": "experimentalsetup",
+    "path": {
+      "section": "experimentalsetup",
+      "start_entity": "UnitreeB2",
+      "end_entity": "DocumentSection",
+      "hops": [
+        {
+          "from": "UnitreeB2",
+          "relation": "usedFor",
+          "to": "WeightLifting",
+          "context": "We consider three athletic tasks: throwing, weight lifting, and sled pulling.",
+          "chunk": "3"
+        },
+        {
+          "from": "WeightLifting",
+          "relation": "describedIn",
+          "to": "SectionIV-C",
+          "context": "See Section IV-C.",
+          "chunk": "3"
+        },
+        {
+          "from": "SectionIV-C",
+          "relation": "type",
+          "to": "DocumentSection",
+          "context": "See Section IV-C.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the context of the experimental setup described in Section IV-C of the document, what specific role does the UnitreeB2 robot play in the athletic task of weight lifting?",
+    "options": {
+      "A": "The UnitreeB2 robot provides mechanical assistance to athletes during their weight lifting sessions.",
+      "B": "The UnitreeB2 robot is utilized to demonstrate advanced robotic strength and precision in weight lifting.",
+      "C": "The UnitreeB2 robot is primarily used to observe and analyze human weight lifting techniques.",
+      "D": "The UnitreeB2 robot serves as a competitor against humans in a weight lifting competition."
+    },
+    "correct_answer": "B",
+    "explanation": "The logical reasoning follows from the knowledge graph path indicating that the UnitreeB2 is used for weight lifting, as described in Section IV-C, which is a document section about experimental setup. Here, 'used for' implies an active and functional role, making A the correct choice as it specifically states the robot demonstrates strength and precision in the task.",
+    "path_description": "Path: UnitreeB2 --[usedFor]--> WeightLifting --[describedIn]--> SectionIV-C --[type]--> DocumentSection",
+    "context": "We consider three athletic tasks: throwing, weight lifting, and sled pulling. | See Section IV-C. | See Section IV-C.",
+    "paper_id": "1184"
+  },
+  {
+    "section": "experimentalresults1",
+    "path": {
+      "section": "experimentalresults1",
+      "start_entity": "UAN",
+      "end_entity": "Method",
+      "hops": [
+        {
+          "from": "UAN",
+          "relation": "outperforms",
+          "to": "ActuatorNet",
+          "context": "UAN achieves a better real throw distance compared to Actuator Net.",
+          "chunk": "4"
+        },
+        {
+          "from": "ActuatorNet",
+          "relation": "improves",
+          "to": "Default",
+          "context": "Actuator Net can improve over the baseline by capturing lag effects.",
+          "chunk": "4"
+        },
+        {
+          "from": "Default",
+          "relation": "type",
+          "to": "Method",
+          "context": "Default: The baseline simulator with no additional modifications.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "Which statement best describes the progression in improving real throw distance in the context of the knowledge graph?",
+    "options": {
+      "A": "UAN and ActuatorNet perform equally when compared to the default baseline method in terms of real throw distance.",
+      "B": "The default method surpasses both UAN and ActuatorNet in achieving the longest real throw distance.",
+      "C": "ActuatorNet outperforms UAN by significantly improving upon the default baseline method in real throw distance.",
+      "D": "UAN, by outperforming ActuatorNet, which itself improves the baseline method, achieves superior real throw distance."
+    },
+    "correct_answer": "D",
+    "explanation": "According to the knowledge graph and context, UAN outperforms ActuatorNet, which in turn improves upon the default method. Therefore, UAN indirectly achieves a superior real throw distance compared to the default method through its superiority over ActuatorNet.",
+    "path_description": "Path: UAN --[outperforms]--> ActuatorNet --[improves]--> Default --[type]--> Method",
+    "context": "UAN achieves a better real throw distance compared to Actuator Net. | Actuator Net can improve over the baseline by capturing lag effects. | Default: The baseline simulator with no additional modifications.",
+    "paper_id": "1184"
+  },
+  {
+    "section": "experimentalsetup",
+    "path": {
+      "section": "experimentalsetup",
+      "start_entity": "UnitreeB2",
+      "end_entity": "SectionIV-C",
+      "hops": [
+        {
+          "from": "UnitreeB2",
+          "relation": "partOf",
+          "to": "UnitreeZ1ProArm",
+          "context": "We chose the Unitree B2 with Unitree Z1 Pro arm as our hardware platform.",
+          "chunk": "3"
+        },
+        {
+          "from": "UnitreeZ1ProArm",
+          "relation": "usedFor",
+          "to": "SledPulling",
+          "context": "We consider three athletic tasks: throwing, weight lifting, and sled pulling.",
+          "chunk": "3"
+        },
+        {
+          "from": "SledPulling",
+          "relation": "describedIn",
+          "to": "SectionIV-C",
+          "context": "See Section IV-C.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the context of the experimental setup described in the paper, what specific role does the Unitree Z1 Pro arm, a part of the Unitree B2, primarily serve?",
+    "options": {
+      "A": "The Unitree Z1 Pro arm functions mainly to increase the speed of movement in athletic tasks per Section IV-C.",
+      "B": "The Unitree Z1 Pro arm is designed to enhance weight lifting capabilities as outlined in Section IV-C.",
+      "C": "The Unitree Z1 Pro arm is primarily used for precision in throwing tasks as detailed in Section IV-C.",
+      "D": "The Unitree Z1 Pro arm is primarily used for sled pulling activities as described in Section IV-C."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A because the knowledge graph path indicates that the Unitree Z1 Pro arm, which is part of the Unitree B2, is used for sled pulling. This is explicitly connected in the path from the paper's section IV-C which describes the sled pulling task.",
+    "path_description": "Path: UnitreeB2 --[partOf]--> UnitreeZ1ProArm --[usedFor]--> SledPulling --[describedIn]--> SectionIV-C",
+    "context": "We chose the Unitree B2 with Unitree Z1 Pro arm as our hardware platform. | We consider three athletic tasks: throwing, weight lifting, and sled pulling. | See Section IV-C.",
+    "paper_id": "1184"
+  },
+  {
+    "section": "conclusion",
+    "path": {
+      "section": "conclusion",
+      "start_entity": "UnitreeRobotics",
+      "end_entity": "Technique",
+      "hops": [
+        {
+          "from": "UnitreeRobotics",
+          "relation": "providedTechnicalSupport",
+          "to": "TrainingPipeline",
+          "context": "We acknowledge Unitree Robotics for technical support provided for their robots.",
+          "chunk": "9"
+        },
+        {
+          "from": "TrainingPipeline",
+          "relation": "uses",
+          "to": "UAN",
+          "context": "reducing the sim-to-real gap via our UAN.",
+          "chunk": "9"
+        },
+        {
+          "from": "UAN",
+          "relation": "type",
+          "to": "Technique",
+          "context": "reducing the sim-to-real gap via our UAN.",
+          "chunk": "9"
+        }
+      ]
+    },
+    "question": "How does Unitree Robotics contribute to reducing the simulation-to-reality gap in robotics training?",
+    "options": {
+      "A": "By offering financial assistance to research teams focusing on robotic simulations.",
+      "B": "By manufacturing robots that inherently possess reduced simulation-to-reality discrepancies.",
+      "C": "By providing technical support crucial for implementing the UAN technique in the training pipeline.",
+      "D": "By developing new simulation software that closely mimics real-world physics."
+    },
+    "correct_answer": "C",
+    "explanation": "Unitree Robotics provided technical support for their robots, which is essential for the application of the UAN technique in the training pipeline, as indicated by the knowledge path. This UAN technique specifically aims to reduce the simulation-to-reality gap, making option A the correct answer. The other options, while related to robotics, do not directly relate to the support Unitree Robotics provided in implementing the UAN technique.",
+    "path_description": "Path: UnitreeRobotics --[providedTechnicalSupport]--> TrainingPipeline --[uses]--> UAN --[type]--> Technique",
+    "context": "We acknowledge Unitree Robotics for technical support provided for their robots. | reducing the sim-to-real gap via our UAN. | reducing the sim-to-real gap via our UAN.",
+    "paper_id": "1184"
+  },
+  {
+    "section": "conclusion",
+    "path": {
+      "section": "conclusion",
+      "start_entity": "ImprobableAILab",
+      "end_entity": "Task",
+      "hops": [
+        {
+          "from": "ImprobableAILab",
+          "relation": "providedFeedback",
+          "to": "TrainingPipeline",
+          "context": "We thank the members of the Improbable AI lab—especially Sandor Felber, Chen Bo Calvin Zhang, Srinath Mahankali, and Zhang-Wei Hong—for helpful discussions and feedback.",
+          "chunk": "9"
+        },
+        {
+          "from": "TrainingPipeline",
+          "relation": "evaluatedOn",
+          "to": "DumbbellLifting",
+          "context": "Our experimental results on ball throwing, dumbbell lifting, and sled pulling demonstrate the viability of this approach.",
+          "chunk": "9"
+        },
+        {
+          "from": "DumbbellLifting",
+          "relation": "type",
+          "to": "Task",
+          "context": "Our experimental results on ball throwing, dumbbell lifting, and sled pulling demonstrate the viability of this approach.",
+          "chunk": "9"
+        }
+      ]
+    },
+    "question": "In the Improbable AI lab's research, what type of task was dumbbell lifting evaluated as in the training pipeline?",
+    "options": {
+      "A": "Dumbbell lifting was evaluated as a cognitive development task in the training pipeline.",
+      "B": "Dumbbell lifting was evaluated as a physical strength training task in the training pipeline.",
+      "C": "Dumbbell lifting was evaluated as a coordination skill task in the training pipeline.",
+      "D": "Dumbbell lifting was evaluated as an endurance enhancement task in the training pipeline."
+    },
+    "correct_answer": "B",
+    "explanation": "The paper's context implies that dumbbell lifting is related to the physical aspects of the training tasks evaluated. It fits within the category of physical strength training tasks, more so than cognitive, endurance, or coordination tasks.",
+    "path_description": "Path: ImprobableAILab --[providedFeedback]--> TrainingPipeline --[evaluatedOn]--> DumbbellLifting --[type]--> Task",
+    "context": "We thank the members of the Improbable AI lab—especially Sandor Felber, Chen Bo Calvin Zhang, Srinath Mahankali, and Zhang-Wei Hong—for helpful discussions and feedback. | Our experimental results on ball throwing, dumbbell lifting, and sled pulling demonstrate the viability of this approach. | Our experimental results on ball throwing, dumbbell lifting, and sled pulling demonstrate the viability of this approach.",
+    "paper_id": "1184"
+  },
+  {
+    "section": "appendixatrainingdetails1",
+    "path": {
+      "section": "appendixatrainingdetails1",
+      "start_entity": "BallThrowingTask",
+      "end_entity": "Reward",
+      "hops": [
+        {
+          "from": "BallThrowingTask",
+          "relation": "hasState",
+          "to": "ThrowState",
+          "context": "The ball throwing task has three separate task states: throw-set-up, throw, and settle.",
+          "chunk": "10"
+        },
+        {
+          "from": "ThrowState",
+          "relation": "hasReward",
+          "to": "TaskReward",
+          "context": "Each state has a separate task reward for the desired behavior.",
+          "chunk": "10"
+        },
+        {
+          "from": "TaskReward",
+          "relation": "type",
+          "to": "Reward",
+          "context": "Each state has a separate task reward for the desired behavior.",
+          "chunk": "10"
+        }
+      ]
+    },
+    "question": "In the context of the ball throwing task described, what type of reward is associated with the 'Throw' state after following the knowledge graph path?",
+    "options": {
+      "A": "A reward that is specifically tailored to encourage proper throwing technique during the task.",
+      "B": "A general reward based on the overall performance of the individual throughout the task.",
+      "C": "A reward for the speed at which the task is completed, regardless of the throwing technique.",
+      "D": "A reward that is given for the accuracy of the ball's landing position after being thrown."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A because the 'Throw' state in the ball throwing task is directly linked to a 'TaskReward' as specified in the knowledge graph path. The reward in this state is specifically designed to promote the desired behavior, which in the context of a throw would logically include proper throwing technique.",
+    "path_description": "Path: BallThrowingTask --[hasState]--> ThrowState --[hasReward]--> TaskReward --[type]--> Reward",
+    "context": "The ball throwing task has three separate task states: throw-set-up, throw, and settle. | Each state has a separate task reward for the desired behavior. | Each state has a separate task reward for the desired behavior.",
+    "paper_id": "1184"
+  }
+]

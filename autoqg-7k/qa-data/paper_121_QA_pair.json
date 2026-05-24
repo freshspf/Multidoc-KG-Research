@@ -1,0 +1,174 @@
+[
+  {
+    "section": "results3",
+    "path": {
+      "section": "results3",
+      "start_entity": "LinearPartition",
+      "end_entity": "Dataset",
+      "hops": [
+        {
+          "from": "LinearPartition",
+          "relation": "outperforms",
+          "to": "ViennaRNAfold",
+          "context": "LinearPartition has lower ensemble defects for longer sequences, esp. 16S and 23S rRNAs.",
+          "chunk": "5"
+        },
+        {
+          "from": "ViennaRNAfold",
+          "relation": "evaluatedOn",
+          "to": "ShortSequences",
+          "context": "Vienna RNAfold and LinearPartition have similar ensemble defects for short sequences.",
+          "chunk": "5"
+        },
+        {
+          "from": "ShortSequences",
+          "relation": "type",
+          "to": "Dataset",
+          "context": "Vienna RNAfold and LinearPartition have similar ensemble defects for short sequences.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "Given the performance evaluations mentioned, which dataset would likely best demonstrate the superiority of LinearPartition over ViennaRNAfold in terms of ensemble defects?",
+    "options": {
+      "A": "A dataset that includes a balanced mix of protein-coding and non-coding RNA sequences",
+      "B": "A dataset primarily composed of short RNA sequences under 200 nucleotides",
+      "C": "A dataset primarily composed of long 16S and 23S rRNA sequences",
+      "D": "A dataset focused on short DNA sequences related to genomic stability"
+    },
+    "correct_answer": "C",
+    "explanation": "LinearPartition demonstrates lower ensemble defects particularly for longer sequences such as 16S and 23S rRNAs, as mentioned in the paper. Therefore, a dataset consisting mainly of these long RNA sequences would best showcase the advantages of LinearPartition over ViennaRNAfold, which performs similarly to LinearPartition on short sequences.",
+    "path_description": "Path: LinearPartition --[outperforms]--> ViennaRNAfold --[evaluatedOn]--> ShortSequences --[type]--> Dataset",
+    "context": "LinearPartition has lower ensemble defects for longer sequences, esp. 16S and 23S rRNAs. | Vienna RNAfold and LinearPartition have similar ensemble defects for short sequences. | Vienna RNAfold and LinearPartition have similar ensemble defects for short sequences.",
+    "paper_id": "26"
+  },
+  {
+    "section": "thelinearpartitionalgorithm",
+    "path": {
+      "section": "thelinearpartitionalgorithm",
+      "start_entity": "Y",
+      "end_entity": "SequenceLength",
+      "hops": [
+        {
+          "from": "Y",
+          "relation": "containsStructuresOf",
+          "to": "x",
+          "context": "Y(x) as the set of all possible secondary structures of x",
+          "chunk": "2"
+        },
+        {
+          "from": "x",
+          "relation": "hasLength",
+          "to": "n",
+          "context": "We denote x=x1...xn as the input RNA sequence of length n",
+          "chunk": "2"
+        },
+        {
+          "from": "n",
+          "relation": "type",
+          "to": "SequenceLength",
+          "context": "We denote x=x1...xn as the input RNA sequence of length n",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the context of RNA secondary structure prediction using the linear partition algorithm, how does the complexity of the algorithm scale with the length of the RNA sequence?",
+    "options": {
+      "A": "The complexity of the algorithm is inversely proportional to the sequence length.",
+      "B": "The complexity of the algorithm increases linearly with the sequence length.",
+      "C": "The complexity of the algorithm doubles with each additional nucleotide in the sequence.",
+      "D": "The complexity of the algorithm is proportionate to the cube of the sequence length."
+    },
+    "correct_answer": "D",
+    "explanation": "The complexity of RNA secondary structure prediction algorithms typically scales with the cube of the sequence length due to the need to evaluate possible base pairings and interactions across the entire sequence.",
+    "path_description": "Path: Y --[containsStructuresOf]--> x --[hasLength]--> n --[type]--> SequenceLength",
+    "context": "Y(x) as the set of all possible secondary structures of x | We denote x=x1...xn as the input RNA sequence of length n | We denote x=x1...xn as the input RNA sequence of length n",
+    "paper_id": "26"
+  },
+  {
+    "section": "results4",
+    "path": {
+      "section": "results4",
+      "start_entity": "LinearPartition",
+      "end_entity": "Method",
+      "hops": [
+        {
+          "from": "LinearPartition",
+          "relation": "outperforms",
+          "to": "RNAfold",
+          "context": "but more importantly, LinearPartition + MEA consistently outperforms RNAfold + MEA in both PPV and sensitivity with the same γ...",
+          "chunk": "6"
+        },
+        {
+          "from": "RNAfold",
+          "relation": "uses",
+          "to": "MEA",
+          "context": "Fig. 7A shows MEA predictions (RNAfold + MEA and LinearPartition +MEA) are more accurate than MFE ones (RNAfold MFE and LinearFold-V)...",
+          "chunk": "6"
+        },
+        {
+          "from": "MEA",
+          "relation": "type",
+          "to": "Method",
+          "context": "We conclude that MEA predictions based on e based on Vienna RNAfold for all γ’s, while ThreshKnot predictions based better on long-distance base pairs in both MEA and ThreshKnot predictions.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "Which statement best describes the relationship between LinearPartition, RNAfold, and MEA in terms of RNA secondary structure prediction accuracy?",
+    "options": {
+      "A": "LinearPartition and RNAfold show similar performance when combined with MFE rather than MEA, regardless of the gamma setting.",
+      "B": "MEA, when used alone, surpasses both LinearPartition and RNAfold in terms of prediction accuracy for RNA secondary structures.",
+      "C": "LinearPartition combined with MEA demonstrates higher PPV and sensitivity compared to RNAfold combined with MEA, using the same gamma setting.",
+      "D": "RNAfold combined with MEA shows superior performance in PPV and sensitivity when compared to LinearPartition using any gamma setting."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A, as the context from the paper clearly states that LinearPartition combined with MEA outperforms RNAfold combined with MEA in both PPV and sensitivity metrics using the same gamma settings.",
+    "path_description": "Path: LinearPartition --[outperforms]--> RNAfold --[uses]--> MEA --[type]--> Method",
+    "context": "but more importantly, LinearPartition + MEA consistently outperforms RNAfold + MEA in both PPV and sensitivity with the same γ... | Fig. 7A shows MEA predictions (RNAfold + MEA and LinearPartition +MEA) are more accurate than MFE ones (RNAfold MFE and LinearFold-V)... | We conclude that MEA predictions based on e based on Vienna RNAfold for all γ’s, while ThreshKnot predictions based better on long-distance base pairs in both MEA and ThreshKnot predictions.",
+    "paper_id": "26"
+  },
+  {
+    "section": "results7",
+    "path": {
+      "section": "results7",
+      "start_entity": "RNAfold",
+      "end_entity": "Model",
+      "hops": [
+        {
+          "from": "RNAfold",
+          "relation": "comparedWith",
+          "to": "LinearPartition-V",
+          "context": "Fig. SI 7 provides the comparison of counts in each bin between RNAfold and LinearPartition-V.",
+          "chunk": "9"
+        },
+        {
+          "from": "LinearPartition-V",
+          "relation": "outperforms",
+          "to": "RNAfold",
+          "context": "The count of LinearPartition-V in bin [99,100) is slightly higher than RNAfold.",
+          "chunk": "9"
+        },
+        {
+          "from": "RNAfold",
+          "relation": "type",
+          "to": "Model",
+          "context": "we visualize the averaged change of base pairing probabilities between RNAfold and LinearPartition for each bin.",
+          "chunk": "9"
+        }
+      ]
+    },
+    "question": "In the study comparing RNAfold and LinearPartition-V, what characteristic of LinearPartition-V is highlighted by outperforming RNAfold in the context of model performance?",
+    "options": {
+      "A": "LinearPartition-V demonstrates a broader range of applicable RNA sequences than RNAfold.",
+      "B": "LinearPartition-V requires less computational time than RNAfold while maintaining similar accuracy.",
+      "C": "LinearPartition-V uses a fundamentally different algorithmic approach than RNAfold.",
+      "D": "LinearPartition-V shows a higher count of base pairing probabilities in the highest accuracy bin [99,100)."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A. The context provided in the paper indicates that LinearPartition-V has a slightly higher count than RNAfold in the highest accuracy bin [99,100), which implies it outperforms RNAfold in terms of model accuracy for base pairing probabilities. The other options, while plausible, do not directly derive from the information given in the specific context of the paper.",
+    "path_description": "Path: RNAfold --[comparedWith]--> LinearPartition-V --[outperforms]--> RNAfold --[type]--> Model",
+    "context": "Fig. SI 7 provides the comparison of counts in each bin between RNAfold and LinearPartition-V. | The count of LinearPartition-V in bin [99,100) is slightly higher than RNAfold. | we visualize the averaged change of base pairing probabilities between RNAfold and LinearPartition for each bin.",
+    "paper_id": "26"
+  }
+]

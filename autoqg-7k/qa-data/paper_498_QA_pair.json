@@ -1,0 +1,131 @@
+[
+  {
+    "section": "acceleratordesign2",
+    "path": {
+      "section": "acceleratordesign2",
+      "start_entity": "MatrixData",
+      "end_entity": "Algorithm",
+      "hops": [
+        {
+          "from": "MatrixData",
+          "relation": "multipliedIn",
+          "to": "ALUArray",
+          "context": "the first row of matrix data is multiplied",
+          "chunk": "3"
+        },
+        {
+          "from": "ALUArray",
+          "relation": "executes",
+          "to": "SpMM",
+          "context": "The sparse primitives, specifically SpDMM and SpMM, are executed on the ALU Arrays",
+          "chunk": "3"
+        },
+        {
+          "from": "SpMM",
+          "relation": "type",
+          "to": "Algorithm",
+          "context": "The sparse primitives, specifically SpDMM and SpMM, are executed on the ALU Arrays",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the context of accelerator design, which algorithm type is primarily executed on ALU Arrays when the first row of matrix data is multiplied?",
+    "options": {
+      "A": "Dense Matrix Multiplication, given its reliance on continuous data blocks.",
+      "B": "Single Instruction, Multiple Data (SIMD) operations for parallel processing.",
+      "C": "Sparse Matrix-Vector Multiplication (SpMV) primarily utilizes the multiplication of vector data.",
+      "D": "Sparse Matrix-Matrix Multiplication (SpMM) is executed, leveraging matrix data multiplication."
+    },
+    "correct_answer": "D",
+    "explanation": "The question follows the knowledge path from Matrix Data being multiplied in ALU Arrays that execute SpMM, which is a type of algorithm. The correct answer is Sparse Matrix-Matrix Multiplication (SpMM), as it is specified in the context that SpMM is executed on the ALU Arrays using multiplied matrix data. The other options are incorrect as they either refer to different types of data operations (SpMV, Dense Matrix Multiplication) or a different processing approach (SIMD) not mentioned in the context.",
+    "path_description": "Path: MatrixData --[multipliedIn]--> ALUArray --[executes]--> SpMM --[type]--> Algorithm",
+    "context": "the first row of matrix data is multiplied | The sparse primitives, specifically SpDMM and SpMM, are executed on the ALU Arrays | The sparse primitives, specifically SpDMM and SpMM, are executed on the ALU Arrays",
+    "paper_id": "385"
+  },
+  {
+    "section": "experimentalresults3",
+    "path": {
+      "section": "experimentalresults3",
+      "start_entity": "ThisSection",
+      "end_entity": "Algorithm",
+      "hops": [
+        {
+          "from": "ThisSection",
+          "relation": "evaluates",
+          "to": "RuntimeSystemOverhead",
+          "context": "Runtime System Overhead: The runtime system overhead corresponds to the execution time of Algorithm 4",
+          "chunk": "6"
+        },
+        {
+          "from": "RuntimeSystemOverhead",
+          "relation": "measures",
+          "to": "Algorithm4",
+          "context": "The runtime system overhead corresponds to the execution time of Algorithm 4",
+          "chunk": "6"
+        },
+        {
+          "from": "Algorithm4",
+          "relation": "type",
+          "to": "Algorithm",
+          "context": "The runtime system overhead corresponds to the execution time of Algorithm 4",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the context of the experimental results section of the paper, what does the runtime system overhead primarily measure?",
+    "options": {
+      "A": "The total time taken by all algorithms in the system to complete execution",
+      "B": "The overhead involved in the system's hardware during the execution of algorithms",
+      "C": "The execution time of Algorithm 4, as it is specifically evaluated in the section",
+      "D": "The time needed to initialize the runtime system before any algorithm execution"
+    },
+    "correct_answer": "C",
+    "explanation": "The runtime system overhead, as described in the paper's experimental results section, specifically corresponds to the execution time of Algorithm 4. This is directly mentioned in the context, making option B the correct answer. Other options, while plausible, do not precisely reflect the evaluation focus described in the paper.",
+    "path_description": "Path: ThisSection --[evaluates]--> RuntimeSystemOverhead --[measures]--> Algorithm4 --[type]--> Algorithm",
+    "context": "Runtime System Overhead: The runtime system overhead corresponds to the execution time of Algorithm 4 | The runtime system overhead corresponds to the execution time of Algorithm 4 | The runtime system overhead corresponds to the execution time of Algorithm 4",
+    "paper_id": "385"
+  },
+  {
+    "section": "acceleratordesign2",
+    "path": {
+      "section": "acceleratordesign2",
+      "start_entity": "ComputationPipelines",
+      "end_entity": "Algorithm",
+      "hops": [
+        {
+          "from": "ComputationPipelines",
+          "relation": "partOf",
+          "to": "ALUArray",
+          "context": "This array consists of p computation pipelines",
+          "chunk": "3"
+        },
+        {
+          "from": "ALUArray",
+          "relation": "executes",
+          "to": "SpMM",
+          "context": "The sparse primitives, specifically SpDMM and SpMM, are executed on the ALU Arrays",
+          "chunk": "3"
+        },
+        {
+          "from": "SpMM",
+          "relation": "type",
+          "to": "Algorithm",
+          "context": "The sparse primitives, specifically SpDMM and SpMM, are executed on the ALU Arrays",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the context of accelerator design discussed in section 'acceleratordesign2', what type of algorithm is executed by the ALU Array through its computation pipelines?",
+    "options": {
+      "A": "Convolutional Network Algorithms, typically used in deep learning for image analysis",
+      "B": "General Matrix-Matrix Multiplication (GEMM), commonly used in dense matrix operations",
+      "C": "Fast Fourier Transform (FFT), primarily used for signal processing applications",
+      "D": "Sparse Matrix-Matrix Multiplication (SpMM), a specialized algorithm for sparse data operations"
+    },
+    "correct_answer": "D",
+    "explanation": "The knowledge path indicates that the SpMM, which is a Sparse Matrix-Matrix Multiplication algorithm, is executed on the ALU Array via its computation pipelines. This type of algorithm is specialized for handling sparse data, distinguishing it from more general or unrelated algorithms like GEMM, FFT, or convolutional networks.",
+    "path_description": "Path: ComputationPipelines --[partOf]--> ALUArray --[executes]--> SpMM --[type]--> Algorithm",
+    "context": "This array consists of p computation pipelines | The sparse primitives, specifically SpDMM and SpMM, are executed on the ALU Arrays | The sparse primitives, specifically SpDMM and SpMM, are executed on the ALU Arrays",
+    "paper_id": "385"
+  }
+]

@@ -1,0 +1,60 @@
+# ============================================================================
+# 医学文献子领域识别配置
+# ============================================================================
+# 当前策略：
+# 1. 以 Neo4j 中已有的 Subdomain hierarchy 作为主上下文
+# 2. 让 LLM 判断论文应归入已有子领域还是提出新子领域
+# 3. 新子领域通过 new_relations(subclass_of) 写回图谱
+# 4. 关键词规则仅作为轻量兜底，不再作为主分类逻辑
+# ============================================================================
+
+# 输入长度限制
+max_input_chars: 6000
+
+# 顶层领域名称
+root_domain: Biomedicine
+
+# prompt 中最多提供多少条现有层级边
+max_hierarchy_edges: 200
+
+# 允许 LLM 提出新的子领域
+allow_new_subdomain: true
+
+# 新子领域与已有子领域语义相近时，优先复用已有节点
+reuse_similarity_threshold: 0.72
+
+# refinement 阶段最多处理多少个 candidate
+refinement_max_candidates: 50
+
+# refinement prompt 中最多提供多少个 confirmed subdomain
+refinement_max_confirmed: 200
+
+# 轻量回退规则，仅在 LLM 失败时使用
+keyword_rules:
+  oncology:
+    cancer immunotherapy:
+      - immunotherapy
+      - checkpoint inhibitor
+      - pd-1
+      - pd-l1
+      - ctla-4
+    cancer liquid biopsy:
+      - circulating tumor cell
+      - liquid biopsy
+      - ctc
+      - cell-free dna
+      - cfdna
+  obstetrics and gynecology:
+    maternal-fetal medicine:
+      - pregnancy
+      - pregnant
+      - maternal
+      - fetal
+      - placenta
+  pathology and molecular diagnostics:
+    molecular pathology:
+      - biomarker
+      - sequencing
+      - mutation
+      - genomic
+      - transcriptomic

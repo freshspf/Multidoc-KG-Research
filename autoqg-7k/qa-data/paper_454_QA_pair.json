@@ -1,0 +1,174 @@
+[
+  {
+    "section": "background1",
+    "path": {
+      "section": "background1",
+      "start_entity": "SWSharp",
+      "end_entity": "SemiGlobalAlignment",
+      "hops": [
+        {
+          "from": "SWSharp",
+          "relation": "applies",
+          "to": "PairwiseAlignment",
+          "context": "SW# can compute pairwise alignments as well as database similarity searches, for both protein and DNA sequences.",
+          "chunk": "1"
+        },
+        {
+          "from": "PairwiseAlignment",
+          "relation": "partOf",
+          "to": "BiologicalSequenceAlignment",
+          "context": "Pairwise alignments (one-to-one).",
+          "chunk": "1"
+        },
+        {
+          "from": "BiologicalSequenceAlignment",
+          "relation": "uses",
+          "to": "SemiGlobalAlignment",
+          "context": "Sequence alignment can be global, local, or semi-global.",
+          "chunk": "1"
+        }
+      ]
+    },
+    "question": "In the context of using SWSharp for sequence alignment tasks, which alignment method is considered part of the broader category that includes pairwise alignment and is specifically used by SWSharp?",
+    "options": {
+      "A": "Global alignment, which aligns two sequences from start to finish with no free ends allowed.",
+      "B": "Local alignment, which focuses on aligning the most similar region between any two sequences.",
+      "C": "Semi-global alignment, which aligns sequences from end to end or with free ends depending on the configuration.",
+      "D": "Multiple sequence alignment, which aligns three or more biological sequences."
+    },
+    "correct_answer": "C",
+    "explanation": "The question requires understanding the relationships within the knowledge graph: SWSharp applies Pairwise Alignment, which is part of Biological Sequence Alignment, and uses SemiGlobal Alignment. Thus, Semi-global alignment, which can be tailored to align sequences either fully or with some degree of freedom at the ends, fits this description and is specifically mentioned as being used by SWSharp.",
+    "path_description": "Path: SWSharp --[applies]--> PairwiseAlignment --[partOf]--> BiologicalSequenceAlignment --[uses]--> SemiGlobalAlignment",
+    "context": "SW# can compute pairwise alignments as well as database similarity searches, for both protein and DNA sequences. | Pairwise alignments (one-to-one). | Sequence alignment can be global, local, or semi-global.",
+    "paper_id": "272"
+  },
+  {
+    "section": "background1",
+    "path": {
+      "section": "background1",
+      "start_entity": "SWSharp",
+      "end_entity": "SemiGlobalAlignment",
+      "hops": [
+        {
+          "from": "SWSharp",
+          "relation": "applies",
+          "to": "DatabaseSimilaritySearch",
+          "context": "SW# can compute pairwise alignments as well as database similarity searches, for both protein and DNA sequences.",
+          "chunk": "1"
+        },
+        {
+          "from": "DatabaseSimilaritySearch",
+          "relation": "partOf",
+          "to": "BiologicalSequenceAlignment",
+          "context": "Database similarity searches (one-to-many).",
+          "chunk": "1"
+        },
+        {
+          "from": "BiologicalSequenceAlignment",
+          "relation": "uses",
+          "to": "SemiGlobalAlignment",
+          "context": "Sequence alignment can be global, local, or semi-global.",
+          "chunk": "1"
+        }
+      ]
+    },
+    "question": "In the context of SW#, which type of sequence alignment is employed when conducting a database similarity search as part of biological sequence alignment?",
+    "options": {
+      "A": "Local alignment, focusing on aligning the most similar region without aligning the ends, is used in database similarity searches.",
+      "B": "Circular sequence alignment, aligning sequences in a circular manner, is used in database similarity searches.",
+      "C": "Semi-global alignment, which does not require both sequence ends to be aligned, is used in database similarity searches.",
+      "D": "Global alignment, requiring alignment from start to finish of both sequences, is used in database similarity searches."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A because the knowledge path indicates that SemiGlobalAlignment is used in BiologicalSequenceAlignment which is a part of DatabaseSimilaritySearch as applied in SW#. Semi-global alignment is suitable here as it allows for database searches without requiring alignment of both sequence ends.",
+    "path_description": "Path: SWSharp --[applies]--> DatabaseSimilaritySearch --[partOf]--> BiologicalSequenceAlignment --[uses]--> SemiGlobalAlignment",
+    "context": "SW# can compute pairwise alignments as well as database similarity searches, for both protein and DNA sequences. | Database similarity searches (one-to-many). | Sequence alignment can be global, local, or semi-global.",
+    "paper_id": "272"
+  },
+  {
+    "section": "background1",
+    "path": {
+      "section": "background1",
+      "start_entity": "SWSharp",
+      "end_entity": "GlobalAlignment",
+      "hops": [
+        {
+          "from": "SWSharp",
+          "relation": "applies",
+          "to": "DatabaseSimilaritySearch",
+          "context": "SW# can compute pairwise alignments as well as database similarity searches, for both protein and DNA sequences.",
+          "chunk": "1"
+        },
+        {
+          "from": "DatabaseSimilaritySearch",
+          "relation": "partOf",
+          "to": "BiologicalSequenceAlignment",
+          "context": "Database similarity searches (one-to-many).",
+          "chunk": "1"
+        },
+        {
+          "from": "BiologicalSequenceAlignment",
+          "relation": "uses",
+          "to": "GlobalAlignment",
+          "context": "Sequence alignment can be global, local, or semi-global.",
+          "chunk": "1"
+        }
+      ]
+    },
+    "question": "In the context of SWSharp's functionality, how does its application of Database Similarity Search contribute to Biological Sequence Alignment?",
+    "options": {
+      "A": "It restricts the alignment process to local alignments, focusing on the most similar parts of the sequences.",
+      "B": "It primarily facilitates the alignment of amino acids in proteins without considering nucleotide sequences in DNA.",
+      "C": "It supports the comparison of a single sequence against multiple sequences, using global alignment for thorough pairwise comparisons.",
+      "D": "Database Similarity Search is only used in SWSharp for filtering out non-relevant DNA sequences before alignment."
+    },
+    "correct_answer": "C",
+    "explanation": "SWSharp utilizes Database Similarity Search to enable one-to-many comparisons (one sequence against a database of sequences). This feature is crucial for Biological Sequence Alignment, where it uses Global Alignment to ensure comprehensive pairwise comparisons across sequences.",
+    "path_description": "Path: SWSharp --[applies]--> DatabaseSimilaritySearch --[partOf]--> BiologicalSequenceAlignment --[uses]--> GlobalAlignment",
+    "context": "SW# can compute pairwise alignments as well as database similarity searches, for both protein and DNA sequences. | Database similarity searches (one-to-many). | Sequence alignment can be global, local, or semi-global.",
+    "paper_id": "272"
+  },
+  {
+    "section": "resultsanddiscussion3",
+    "path": {
+      "section": "resultsanddiscussion3",
+      "start_entity": "HighOrderEpistasisDetectionAlgorithm",
+      "end_entity": "ApplicationDomain",
+      "hops": [
+        {
+          "from": "HighOrderEpistasisDetectionAlgorithm",
+          "relation": "translatedTo",
+          "to": "SYCL",
+          "context": "translating a CUDA implementation of a high-order epistasis detection algorithm to SYCL",
+          "chunk": "8"
+        },
+        {
+          "from": "SYCL",
+          "relation": "evaluatedOn",
+          "to": "Math",
+          "context": "found in simulation, math",
+          "chunk": "8"
+        },
+        {
+          "from": "Math",
+          "relation": "type",
+          "to": "ApplicationDomain",
+          "context": "found in simulation, math",
+          "chunk": "8"
+        }
+      ]
+    },
+    "question": "In the context of translating a high-order epistasis detection algorithm to SYCL, which application domain was primarily evaluated in the study?",
+    "options": {
+      "A": "Mathematics was the primary application domain evaluated for its implications and performance.",
+      "B": "Computer graphics was evaluated because of high computational requirements.",
+      "C": "Biomedical research was primarily evaluated due to its reliance on genetic interactions.",
+      "D": "Environmental science was evaluated considering the complex data analysis involved."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is Mathematics, as the knowledge path indicates that SYCL, used for translating the algorithm, was evaluated on Math, categorized under the Application Domain. The context confirms the evaluation in math, distinguishing it from other fields mentioned in the wrong options.",
+    "path_description": "Path: HighOrderEpistasisDetectionAlgorithm --[translatedTo]--> SYCL --[evaluatedOn]--> Math --[type]--> ApplicationDomain",
+    "context": "translating a CUDA implementation of a high-order epistasis detection algorithm to SYCL | found in simulation, math | found in simulation, math",
+    "paper_id": "272"
+  }
+]

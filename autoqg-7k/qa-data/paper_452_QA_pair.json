@@ -1,0 +1,260 @@
+[
+  {
+    "section": "mosaic2",
+    "path": {
+      "section": "mosaic2",
+      "start_entity": "Mosaic",
+      "end_entity": "TransactionType",
+      "hops": [
+        {
+          "from": "Mosaic",
+          "relation": "includesPhase",
+          "to": "TransactionProposalPhase",
+          "context": "Mosaic consists of three logical phases: transaction proposal, transaction commitment, and account migration.",
+          "chunk": "3"
+        },
+        {
+          "from": "TransactionProposalPhase",
+          "relation": "proposesTransactionType",
+          "to": "CommonTransaction",
+          "context": "During the transaction proposal phase, clients propose two types of transactions, common transactions Tx and migration requests MR.",
+          "chunk": "3"
+        },
+        {
+          "from": "CommonTransaction",
+          "relation": "type",
+          "to": "TransactionType",
+          "context": "During the transaction proposal phase, clients propose two types of transactions, common transactions Tx and migration requests MR.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the Mosaic protocol, what type of transaction is proposed during the Transaction Proposal Phase and is classified under the general category of TransactionType?",
+    "options": {
+      "A": "Common transactions that exclusively consist of financial transfers and payments",
+      "B": "Migration requests that specifically cater to client-initiated account transitions",
+      "C": "Common transactions that include both typical financial transactions and account migrations",
+      "D": "Migration requests that are only used for updating transaction security protocols"
+    },
+    "correct_answer": "A",
+    "explanation": "The TransactionProposalPhase in the Mosaic protocol includes proposing common transactions (Tx), which are classified under the general category of TransactionType. These common transactions typically involve financial transfers and payments, which is why option C is correct. Options A and B incorrectly mix transaction types or purposes, and option D incorrectly defines the purpose of migration requests.",
+    "path_description": "Path: Mosaic --[includesPhase]--> TransactionProposalPhase --[proposesTransactionType]--> CommonTransaction --[type]--> TransactionType",
+    "context": "Mosaic consists of three logical phases: transaction proposal, transaction commitment, and account migration. | During the transaction proposal phase, clients propose two types of transactions, common transactions Tx and migration requests MR. | During the transaction proposal phase, clients propose two types of transactions, common transactions Tx and migration requests MR.",
+    "paper_id": "1640"
+  },
+  {
+    "section": "mosaic2",
+    "path": {
+      "section": "mosaic2",
+      "start_entity": "Mosaic",
+      "end_entity": "TransactionType",
+      "hops": [
+        {
+          "from": "Mosaic",
+          "relation": "includesPhase",
+          "to": "TransactionCommitmentPhase",
+          "context": "Mosaic consists of three logical phases: transaction proposal, transaction commitment, and account migration.",
+          "chunk": "3"
+        },
+        {
+          "from": "TransactionCommitmentPhase",
+          "relation": "commitsTransactionType",
+          "to": "MigrationRequest",
+          "context": "During the transaction commitment phase, miners MSi in each shard, i = 1, 2, ..., k, execute a consensus protocol to commit transactions Tx and include them into the new block of Si.",
+          "chunk": "3"
+        },
+        {
+          "from": "MigrationRequest",
+          "relation": "type",
+          "to": "TransactionType",
+          "context": "During the transaction proposal phase, clients propose two types of transactions, common transactions Tx and migration requests MR.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the context of the Mosaic framework, what type of transaction is specifically committed during the transaction commitment phase?",
+    "options": {
+      "A": "Migration requests, which are a type of transaction proposed by clients during the transaction proposal phase.",
+      "B": "Common transactions, which involve basic data processing unrelated to migration or new block creation.",
+      "C": "Account migrations, which are autonomously initiated by the system during the account migration phase.",
+      "D": "Consensus protocols, which are methods used by miners to agree on the validity of a transaction."
+    },
+    "correct_answer": "A",
+    "explanation": "During the transaction commitment phase described in the Mosaic system, miners execute a consensus protocol to commit transactions, including migration requests, which are one of the two types of transactions proposed by clients during the transaction proposal phase. The other type, common transactions, is not specifically mentioned as being committed during this phase.",
+    "path_description": "Path: Mosaic --[includesPhase]--> TransactionCommitmentPhase --[commitsTransactionType]--> MigrationRequest --[type]--> TransactionType",
+    "context": "Mosaic consists of three logical phases: transaction proposal, transaction commitment, and account migration. | During the transaction commitment phase, miners MSi in each shard, i = 1, 2, ..., k, execute a consensus protocol to commit transactions Tx and include them into the new block of Si. | During the transaction proposal phase, clients propose two types of transactions, common transactions Tx and migration requests MR.",
+    "paper_id": "1640"
+  },
+  {
+    "section": "pilot2",
+    "path": {
+      "section": "pilot2",
+      "start_entity": "clients",
+      "end_entity": "workloadBalance",
+      "hops": [
+        {
+          "from": "clients",
+          "relation": "tendToResideIn",
+          "to": "Si",
+          "context": "clients tend to reside in the shard Si with higher ψi to achieve higher potential Pi.",
+          "chunk": "7"
+        },
+        {
+          "from": "Si",
+          "relation": "hasMinimum",
+          "to": "ui",
+          "context": "From the above analysis, the shard Si with a minimum of ui is the one with a maximum of Pi.",
+          "chunk": "7"
+        },
+        {
+          "from": "ui",
+          "relation": "alignsWith",
+          "to": "workloadBalance",
+          "context": "Although ui is designed from the perspective of clients to reduce their costs, it aligns well with system-level metrics, cross-shard ratio and workload balance.",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "In the context of distributed computing systems, how does the minimum value of ui in a shard Si influence system-level optimizations?",
+    "options": {
+      "A": "A lower ui value in shard Si minimizes the potential Pi, which inadvertently increases the cross-shard ratio and disrupts workload balance.",
+      "B": "A consistent ui value across shards leads to a uniform potential Pi, thereby avoiding any influence on the system's workload balance.",
+      "C": "A higher ui value in shard Si, by reducing client costs, directly decreases the workload balance, leading to system inefficiency.",
+      "D": "A lower ui value in shard Si maximizes the potential Pi, aligning with improved workload balance across the system."
+    },
+    "correct_answer": "D",
+    "explanation": "From the knowledge graph path and the paper's context, it is clear that clients residing in shard Si with a higher potential Pi (which is inversely related to ui) leads to a better workload balance. Therefore, a lower ui (indicating a higher Pi) aligns with improved workload balance across the system.",
+    "path_description": "Path: clients --[tendToResideIn]--> Si --[hasMinimum]--> ui --[alignsWith]--> workloadBalance",
+    "context": "clients tend to reside in the shard Si with higher ψi to achieve higher potential Pi. | From the above analysis, the shard Si with a minimum of ui is the one with a maximum of Pi. | Although ui is designed from the perspective of clients to reduce their costs, it aligns well with system-level metrics, cross-shard ratio and workload balance.",
+    "paper_id": "1640"
+  },
+  {
+    "section": "comparisonofframeworks",
+    "path": {
+      "section": "comparisonofframeworks",
+      "start_entity": "Mosaic",
+      "end_entity": "Function",
+      "hops": [
+        {
+          "from": "Mosaic",
+          "relation": "outperforms",
+          "to": "HashBasedMethods",
+          "context": "In contrast, Mosaic relies on clients to run the allocation algorithms individually according to their needs and demands, based only on their local transactions.",
+          "chunk": "10"
+        },
+        {
+          "from": "HashBasedMethods",
+          "relation": "uses",
+          "to": "HashFunction",
+          "context": "Additionally, the underlying hash function, which only takes the address ID as input, is significantly faster than graph-based algorithms.",
+          "chunk": "10"
+        },
+        {
+          "from": "HashFunction",
+          "relation": "type",
+          "to": "Function",
+          "context": "Additionally, the underlying hash function, which only takes the address ID as input, is significantly faster than graph-based algorithms.",
+          "chunk": "10"
+        }
+      ]
+    },
+    "question": "Why does the Mosaic framework outperform hash-based methods in terms of speed in the context of client-specific allocation algorithms?",
+    "options": {
+      "A": "Because the hash function in hash-based methods requires complex graph-based algorithms to process data.",
+      "B": "Because Mosaic does not require a centralized processing unit, allowing clients to operate independently based on local transactions.",
+      "C": "Because Mosaic uses a simpler form of hash function that only requires the address ID, making it faster than other functions.",
+      "D": "Because hash-based methods utilize a more complex hash function that takes multiple parameters besides the address ID."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is D. According to the paper, the hash function used in Mosaic only requires the address ID as input, which simplifies the process and increases the speed compared to hash-based methods that might use more complex functions or require additional parameters.",
+    "path_description": "Path: Mosaic --[outperforms]--> HashBasedMethods --[uses]--> HashFunction --[type]--> Function",
+    "context": "In contrast, Mosaic relies on clients to run the allocation algorithms individually according to their needs and demands, based only on their local transactions. | Additionally, the underlying hash function, which only takes the address ID as input, is significantly faster than graph-based algorithms. | Additionally, the underlying hash function, which only takes the address ID as input, is significantly faster than graph-based algorithms.",
+    "paper_id": "1640"
+  },
+  {
+    "section": "discussions",
+    "path": {
+      "section": "discussions",
+      "start_entity": "Mosaic",
+      "end_entity": "Shards",
+      "hops": [
+        {
+          "from": "Mosaic",
+          "relation": "enables",
+          "to": "ShardAllocation",
+          "context": "Mosaic enables clients to use future knowledge for shard allocation.",
+          "chunk": "11"
+        },
+        {
+          "from": "ShardAllocation",
+          "relation": "raises",
+          "to": "PrivacyConcerns",
+          "context": "Mosaic enables clients to use future knowledge for shard allocation, which may raise potential privacy concerns about future transaction leakage.",
+          "chunk": "11"
+        },
+        {
+          "from": "PrivacyConcerns",
+          "relation": "relatedTo",
+          "to": "Shards",
+          "context": "However, this only reveals the shards a client is likely to interact with, not the specific accounts.",
+          "chunk": "11"
+        }
+      ]
+    },
+    "question": "In the context of the Mosaic system, how does the use of future knowledge for shard allocation potentially raise privacy concerns?",
+    "options": {
+      "A": "It completely secures all details about future transactions, eliminating all privacy concerns.",
+      "B": "It risks revealing the shards a client is likely to interact with, but not the specific accounts.",
+      "C": "It may expose the specific accounts and transactions a client will engage with in the future.",
+      "D": "It allows other clients to predict and interfere with a client's future transactions."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is B. The use of future knowledge for shard allocation in the Mosaic system raises potential privacy concerns by revealing the shards a client is likely to interact with. However, it does not expose the specific accounts or the details of future transactions. Options A, C, and D are incorrect as they either overstate the extent of the information revealed or inaccurately describe the security implications.",
+    "path_description": "Path: Mosaic --[enables]--> ShardAllocation --[raises]--> PrivacyConcerns --[relatedTo]--> Shards",
+    "context": "Mosaic enables clients to use future knowledge for shard allocation. | Mosaic enables clients to use future knowledge for shard allocation, which may raise potential privacy concerns about future transaction leakage. | However, this only reveals the shards a client is likely to interact with, not the specific accounts.",
+    "paper_id": "1640"
+  },
+  {
+    "section": "conclusions",
+    "path": {
+      "section": "conclusions",
+      "start_entity": "ClientDrivenMethods",
+      "end_entity": "UserBehaviors",
+      "hops": [
+        {
+          "from": "ClientDrivenMethods",
+          "relation": "require",
+          "to": "FutureResearch",
+          "context": "As this is a pioneering work exploring client-driven methods, a lot of future research is desired.",
+          "chunk": "12"
+        },
+        {
+          "from": "FutureResearch",
+          "relation": "desiredFor",
+          "to": "ComprehensiveGameTheoreticalModeling",
+          "context": "A lot of future research is desired, especially the comprehensive game theoretical modeling of user behaviors.",
+          "chunk": "12"
+        },
+        {
+          "from": "ComprehensiveGameTheoreticalModeling",
+          "relation": "focusesOn",
+          "to": "UserBehaviors",
+          "context": "A lot of future research is desired, especially the comprehensive game theoretical modeling of user behaviors.",
+          "chunk": "12"
+        }
+      ]
+    },
+    "question": "What is the primary focus of future research as outlined in the conclusions of the paper discussing client-driven methods?",
+    "options": {
+      "A": "Developing a comprehensive game theoretical model that focuses on predicting user behaviors.",
+      "B": "Investigating the economic impacts of different user behaviors on market dynamics.",
+      "C": "Designing algorithms that can efficiently process large datasets of user interactions.",
+      "D": "Creating a database of client-driven methodologies to enhance user experience."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A, as the paper specifically mentions the desire for future research in comprehensive game theoretical modeling of user behaviors. Options B, C, and D, while related to research and user behaviors, do not directly address the focus on game theoretical modeling as outlined in the conclusions of the paper.",
+    "path_description": "Path: ClientDrivenMethods --[require]--> FutureResearch --[desiredFor]--> ComprehensiveGameTheoreticalModeling --[focusesOn]--> UserBehaviors",
+    "context": "As this is a pioneering work exploring client-driven methods, a lot of future research is desired. | A lot of future research is desired, especially the comprehensive game theoretical modeling of user behaviors. | A lot of future research is desired, especially the comprehensive game theoretical modeling of user behaviors.",
+    "paper_id": "1640"
+  }
+]

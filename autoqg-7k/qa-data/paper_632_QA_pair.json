@@ -1,0 +1,45 @@
+[
+  {
+    "section": "iiimethodology2",
+    "path": {
+      "section": "iiimethodology2",
+      "start_entity": "fCNN",
+      "end_entity": "Feature",
+      "hops": [
+        {
+          "from": "fCNN",
+          "relation": "partOf",
+          "to": "DeepLearningModule",
+          "context": "Our design allows to modify fCNN or replace it by other end-to-end deep learning models",
+          "chunk": "3"
+        },
+        {
+          "from": "DeepLearningModule",
+          "relation": "uses",
+          "to": "PatientAge",
+          "context": "The input of deep learning module includes the patient’s age",
+          "chunk": "3"
+        },
+        {
+          "from": "PatientAge",
+          "relation": "type",
+          "to": "Feature",
+          "context": "the patient’s age (encoded as a one-hot vector of size 10)",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the context of the described deep learning module, how is the feature related to patient age utilized?",
+    "options": {
+      "A": "Patient age is stored as categorical data in the database before being used in the deep learning model.",
+      "B": "Patient age is used as a feature encoded as a one-hot vector of size 10 within the fCNN.",
+      "C": "Patient age is converted into a continuous variable before being processed by the deep learning module.",
+      "D": "Patient age is directly inputted as a numerical value without any encoding in the deep learning module."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A because the context indicates that the patient's age is encoded as a one-hot vector of size 10. This encoding method transforms the age into a binary vector format which is then used as a feature within the fCNN, part of the deep learning module.",
+    "path_description": "Path: fCNN --[partOf]--> DeepLearningModule --[uses]--> PatientAge --[type]--> Feature",
+    "context": "Our design allows to modify fCNN or replace it by other end-to-end deep learning models | The input of deep learning module includes the patient’s age | the patient’s age (encoded as a one-hot vector of size 10)",
+    "paper_id": "216"
+  }
+]

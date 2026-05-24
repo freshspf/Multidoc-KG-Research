@@ -1,0 +1,88 @@
+[
+  {
+    "section": "method3",
+    "path": {
+      "section": "method3",
+      "start_entity": "Dropout",
+      "end_entity": "SupervisionMethod",
+      "hops": [
+        {
+          "from": "Dropout",
+          "relation": "inspires",
+          "to": "RDR",
+          "context": "Although inspired by dropout, RDR excludes its compensation strategy.",
+          "chunk": "4"
+        },
+        {
+          "from": "RDR",
+          "relation": "comparedWith",
+          "to": "GroundtruthColor",
+          "context": "RDR using rendered color is compared with using groundtruth color for supervision.",
+          "chunk": "4"
+        },
+        {
+          "from": "GroundtruthColor",
+          "relation": "type",
+          "to": "SupervisionMethod",
+          "context": "Groundtruth color is used as a supervision method in contrast to the rendered color.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "How does the RDR method's approach to color supervision differ from traditional dropout methods in neural network training?",
+    "options": {
+      "A": "RDR uses only rendered color for supervision, similarly employing dropout's strategies.",
+      "B": "RDR incorporates dropout's compensation strategies using rendered color for supervision.",
+      "C": "RDR combines both groundtruth and rendered color for a mixed supervision methodology.",
+      "D": "RDR uses groundtruth color for supervision, avoiding dropout's compensation strategies."
+    },
+    "correct_answer": "D",
+    "explanation": "The question requires understanding that RDR, although inspired by dropout, does not use its compensation strategies and instead uses groundtruth color for supervision. This contrasts with dropout methods that may employ different strategies, including the avoidance of direct groundtruth usage.",
+    "path_description": "Path: Dropout --[inspires]--> RDR --[comparedWith]--> GroundtruthColor --[type]--> SupervisionMethod",
+    "context": "Although inspired by dropout, RDR excludes its compensation strategy. | RDR using rendered color is compared with using groundtruth color for supervision. | Groundtruth color is used as a supervision method in contrast to the rendered color.",
+    "paper_id": "221"
+  },
+  {
+    "section": "method3",
+    "path": {
+      "section": "method3",
+      "start_entity": "LowComplexitySubModels",
+      "end_entity": "SupervisionMethod",
+      "hops": [
+        {
+          "from": "LowComplexitySubModels",
+          "relation": "partOf",
+          "to": "RDR",
+          "context": "RDR's optimization process can be considered as training of several low-complexity sub-models.",
+          "chunk": "4"
+        },
+        {
+          "from": "RDR",
+          "relation": "uses",
+          "to": "RenderedColor",
+          "context": "Instead of using the groundtruth color, the rendered color produced by the full model is employed for supervision in RDR.",
+          "chunk": "4"
+        },
+        {
+          "from": "RenderedColor",
+          "relation": "type",
+          "to": "SupervisionMethod",
+          "context": "Rendered color produced by the full model is employed for supervision.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the context of Recursive Document Representation (RDR), how does the use of rendered color as a supervision method affect the training of low-complexity sub-models?",
+    "options": {
+      "A": "It enhances the precision of sub-models by directly comparing their outputs to high-fidelity color renderings.",
+      "B": "It decreases the effectiveness of the sub-models by introducing high levels of noise from rendered images.",
+      "C": "It significantly reduces the computational resources needed by avoiding the use of real-time color rendering in the training process.",
+      "D": "It allows sub-models to better generalize to new data by learning from approximations rather than precise groundtruth."
+    },
+    "correct_answer": "D",
+    "explanation": "Since the RDR uses rendered color, which is an output from the full model, rather than the groundtruth color for supervision, it implies that the sub-models are trained using approximations of the final output. This method helps in generalizing better by learning to approximate rather than to replicate exactly, allowing for better adaptation when encountering new or slightly different data scenarios.",
+    "path_description": "Path: LowComplexitySubModels --[partOf]--> RDR --[uses]--> RenderedColor --[type]--> SupervisionMethod",
+    "context": "RDR's optimization process can be considered as training of several low-complexity sub-models. | Instead of using the groundtruth color, the rendered color produced by the full model is employed for supervision in RDR. | Rendered color produced by the full model is employed for supervision.",
+    "paper_id": "221"
+  }
+]

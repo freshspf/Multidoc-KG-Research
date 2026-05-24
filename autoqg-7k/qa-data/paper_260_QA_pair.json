@@ -1,0 +1,131 @@
+[
+  {
+    "section": "systemarchitecture2",
+    "path": {
+      "section": "systemarchitecture2",
+      "start_entity": "DatabaseEngineLayer",
+      "end_entity": "Log",
+      "hops": [
+        {
+          "from": "DatabaseEngineLayer",
+          "relation": "comprises",
+          "to": "DatabaseEngineNode",
+          "context": "The Database Engine layer comprises multiple database engine nodes.",
+          "chunk": "3"
+        },
+        {
+          "from": "DatabaseEngineNode",
+          "relation": "maintains",
+          "to": "PublicLog",
+          "context": "We maintain a public log of each node’s public key along with their weight wi (it is described later).",
+          "chunk": "3"
+        },
+        {
+          "from": "PublicLog",
+          "relation": "type",
+          "to": "Log",
+          "context": "We maintain a public log of each node’s public key along with their weight wi (it is described later).",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the context of a database engine layer architecture, what is the primary purpose of maintaining a public log within each database engine node?",
+    "options": {
+      "A": "To log user activities for compliance with data protection regulations and privacy laws.",
+      "B": "To store transaction histories for auditing and recovery in case of system failures.",
+      "C": "To monitor real-time data exchange among nodes to optimize system performance.",
+      "D": "To record each node's public key and associated weight for security and load balancing purposes."
+    },
+    "correct_answer": "D",
+    "explanation": "The public log within each database engine node is maintained to record each node's public key along with their weight, which is crucial for security measures and effective load balancing within the system. This purpose aligns with the provided knowledge graph path from the 'DatabaseEngineLayer' to the 'Log' type of 'PublicLog'. Options B, C, and D, while plausible in a database context, do not directly relate to the specific function of the public log described in the paper.",
+    "path_description": "Path: DatabaseEngineLayer --[comprises]--> DatabaseEngineNode --[maintains]--> PublicLog --[type]--> Log",
+    "context": "The Database Engine layer comprises multiple database engine nodes. | We maintain a public log of each node’s public key along with their weight wi (it is described later). | We maintain a public log of each node’s public key along with their weight wi (it is described later).",
+    "paper_id": "1602"
+  },
+  {
+    "section": "instantiationandimplementationweb3db",
+    "path": {
+      "section": "instantiationandimplementationweb3db",
+      "start_entity": "Web3DB",
+      "end_entity": "AccessControlList",
+      "hops": [
+        {
+          "from": "Web3DB",
+          "relation": "implements",
+          "to": "DataInjectionLayer",
+          "context": "Data Injection Layer: The Data Injection Layer serves as the interactive interface for users.",
+          "chunk": "6"
+        },
+        {
+          "from": "DataInjectionLayer",
+          "relation": "uses",
+          "to": "APIs",
+          "context": "The APIs in the Data Injection Layer is implemented in C#.",
+          "chunk": "6"
+        },
+        {
+          "from": "APIs",
+          "relation": "manages",
+          "to": "AccessControlList",
+          "context": "It handles incoming API requests, including transmitting user keys to the blockchain’s Access Control List (ACL).",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the context of Web3DB's implementation, how does the Data Injection Layer manage to enforce security measures for incoming API requests?",
+    "options": {
+      "A": "By utilizing a special software module to automatically reject any API requests that do not comply with the Data Injection Layer’s security protocols.",
+      "B": "By directly encrypting the data using a proprietary algorithm before sending any information to the blockchain network.",
+      "C": "By storing user keys in a local database before transmitting them to ensure data integrity and confidentiality.",
+      "D": "By using APIs implemented in C# to transmit user keys to the blockchain's Access Control List for authentication and authorization."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A, as the Data Injection Layer handles incoming API requests by transmitting user keys to the blockchain's Access Control List (ACL). This process uses the APIs implemented in C# to manage access control, which ensures that only authorized users can interact with the blockchain, effectively enforcing security measures.",
+    "path_description": "Path: Web3DB --[implements]--> DataInjectionLayer --[uses]--> APIs --[manages]--> AccessControlList",
+    "context": "Data Injection Layer: The Data Injection Layer serves as the interactive interface for users. | The APIs in the Data Injection Layer is implemented in C#. | It handles incoming API requests, including transmitting user keys to the blockchain’s Access Control List (ACL).",
+    "paper_id": "1602"
+  },
+  {
+    "section": "discussionfuturework",
+    "path": {
+      "section": "discussionfuturework",
+      "start_entity": "DatabaseEngines",
+      "end_entity": "SystemProperty",
+      "hops": [
+        {
+          "from": "DatabaseEngines",
+          "relation": "assumedStableBy",
+          "to": "OurSystemDesign",
+          "context": "A key assumption in our design is the stability of the database engines.",
+          "chunk": "8"
+        },
+        {
+          "from": "OurSystemDesign",
+          "relation": "exploresImprovementIn",
+          "to": "PartitionTolerance",
+          "context": "exploring ways to improve partition tolerance without significantly compromising consistency or availability would be a valuable area of research.",
+          "chunk": "8"
+        },
+        {
+          "from": "PartitionTolerance",
+          "relation": "type",
+          "to": "SystemProperty",
+          "context": "the system may be less resilient to network partitions compared to CP or AP systems.",
+          "chunk": "8"
+        }
+      ]
+    },
+    "question": "In the context of our system design which assumes stable database engines, how does exploring improvements in partition tolerance impact the type of system property?",
+    "options": {
+      "A": "It directly increases the system's computational power and processing speed by optimizing database queries.",
+      "B": "It leads to a higher likelihood of data inconsistency and system unavailability during network failures.",
+      "C": "It enhances the system's ability to maintain consistency and availability in the face of network partitions.",
+      "D": "It primarily focuses on reducing the data storage requirements and increasing the data retrieval speed."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A because improving partition tolerance, as part of system properties, aims to maintain system consistency and availability during network partitions, making the system more resilient. The other options do not correctly reflect the impact of improving partition tolerance on system properties as discussed in the knowledge path.",
+    "path_description": "Path: DatabaseEngines --[assumedStableBy]--> OurSystemDesign --[exploresImprovementIn]--> PartitionTolerance --[type]--> SystemProperty",
+    "context": "A key assumption in our design is the stability of the database engines. | exploring ways to improve partition tolerance without significantly compromising consistency or availability would be a valuable area of research. | the system may be less resilient to network partitions compared to CP or AP systems.",
+    "paper_id": "1602"
+  }
+]

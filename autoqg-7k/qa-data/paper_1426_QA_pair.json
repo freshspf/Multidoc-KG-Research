@@ -1,0 +1,131 @@
+[
+  {
+    "section": "modelingofprotonirradiateddiodes3",
+    "path": {
+      "section": "modelingofprotonirradiateddiodes3",
+      "start_entity": "ModifiedSRHLifetime",
+      "end_entity": "Process",
+      "hops": [
+        {
+          "from": "ModifiedSRHLifetime",
+          "relation": "basedOn",
+          "to": "gF",
+          "context": "This is equivalent to applying (4) while using a modified SRH lifetime τ0 τ(F) = (7) 1 + g(F).",
+          "chunk": "6"
+        },
+        {
+          "from": "gF",
+          "relation": "accountsFor",
+          "to": "TunnelingProcess",
+          "context": "Where g(F) accounts for the tunneling process.",
+          "chunk": "6"
+        },
+        {
+          "from": "TunnelingProcess",
+          "relation": "type",
+          "to": "Process",
+          "context": "Considering the tunneling process, the generated current density considering the electric field dependence [36] can be expressed as J = (1 + g(F))JSRH (6).",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the context of modeling proton-irradiated diodes, how does the modified Shockley-Read-Hall (SRH) lifetime τ0 τ(F) incorporate the effects of the tunneling process?",
+    "options": {
+      "A": "The modified SRH lifetime uses the g(F) function to account for tunneling, which inversely adjusts the lifetime based on the electric field's strength.",
+      "B": "The modified SRH lifetime incorporates the tunneling effect by using the function g(F) in its calculation, where g(F) is directly proportional to the tunneling current density.",
+      "C": "The modified SRH lifetime calculation excludes the impact of the tunneling process, focusing instead on the direct recombination mechanisms without field influence.",
+      "D": "The modified SRH lifetime is calculated independently of the tunneling process, considering only the temperature variation and dopant concentration."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A. The paper specifies that the modified SRH lifetime τ0 τ(F) uses the formula 1 + g(F). This function, g(F), accounts for the tunneling process, meaning it influences the lifetime calculation based on the tunneling effects induced by the electric field. This is a direct proportionality where an increase in tunneling effect (accounted by g(F)) would modify the SRH lifetime in the context of the electric field.",
+    "path_description": "Path: ModifiedSRHLifetime --[basedOn]--> gF --[accountsFor]--> TunnelingProcess --[type]--> Process",
+    "context": "This is equivalent to applying (4) while using a modified SRH lifetime τ0 τ(F) = (7) 1 + g(F). | Where g(F) accounts for the tunneling process. | Considering the tunneling process, the generated current density considering the electric field dependence [36] can be expressed as J = (1 + g(F))JSRH (6).",
+    "paper_id": "1420"
+  },
+  {
+    "section": "modelingofprotonirradiateddiodes3",
+    "path": {
+      "section": "modelingofprotonirradiateddiodes3",
+      "start_entity": "ModifiedSRHLifetime",
+      "end_entity": "Factor",
+      "hops": [
+        {
+          "from": "ModifiedSRHLifetime",
+          "relation": "basedOn",
+          "to": "gF",
+          "context": "This is equivalent to applying (4) while using a modified SRH lifetime τ0 τ(F) = (7) 1 + g(F).",
+          "chunk": "6"
+        },
+        {
+          "from": "gF",
+          "relation": "type",
+          "to": "FieldEnhancementFactor",
+          "context": "Where g(F) accounts for the tunneling process.",
+          "chunk": "6"
+        },
+        {
+          "from": "FieldEnhancementFactor",
+          "relation": "type",
+          "to": "Factor",
+          "context": "expressed by means of field-enhancement factor g(F).",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the context of modeling proton irradiated diodes, what does the field-enhancement factor g(F) primarily account for, influencing the modified SRH lifetime?",
+    "options": {
+      "A": "g(F) primarily accounts for the direct recombination rate, adjusting the modified SRH lifetime based on carrier concentration.",
+      "B": "g(F) primarily accounts for the impact ionization rate, modifying the SRH lifetime as per the electric field intensity.",
+      "C": "g(F) primarily accounts for the tunneling process, thereby influencing the modified SRH lifetime according to the field strength.",
+      "D": "g(F) primarily accounts for the thermal emission rate, affecting the modified SRH lifetime through temperature variations."
+    },
+    "correct_answer": "C",
+    "explanation": "According to the context provided, the field-enhancement factor g(F) in the modeling of proton irradiated diodes is used to account for the tunneling process. This influences the modified Shockley-Read-Hall (SRH) lifetime by being incorporated into the equation τ(F) = τ0 / (1 + g(F)), where g(F) is expressed through the field strength. Options B, C, and D incorrectly attribute g(F) to other processes not mentioned in the context.",
+    "path_description": "Path: ModifiedSRHLifetime --[basedOn]--> gF --[type]--> FieldEnhancementFactor --[type]--> Factor",
+    "context": "This is equivalent to applying (4) while using a modified SRH lifetime τ0 τ(F) = (7) 1 + g(F). | Where g(F) accounts for the tunneling process. | expressed by means of field-enhancement factor g(F).",
+    "paper_id": "1420"
+  },
+  {
+    "section": "conclusion",
+    "path": {
+      "section": "conclusion",
+      "start_entity": "g-factor",
+      "end_entity": "TestMethod",
+      "hops": [
+        {
+          "from": "g-factor",
+          "relation": "usedIn",
+          "to": "DLCM_SimulationModel",
+          "context": "To describe the change in doping concentration after irradiation, we introduced the g factor and developed an equivalent physical structure for C-V characteristic simulation, the results of which show good agreement with experimental data.",
+          "chunk": "7"
+        },
+        {
+          "from": "DLCM_SimulationModel",
+          "relation": "basedOn",
+          "to": "TRPL",
+          "context": "The DLCM simulation model was constructed using input parameters derived from DLTS and TRPL test results.",
+          "chunk": "7"
+        },
+        {
+          "from": "TRPL",
+          "relation": "type",
+          "to": "TestMethod",
+          "context": "The DLCM simulation model was constructed using input parameters derived from DLTS and TRPL test results.",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "Which of the following statements accurately describes the relationship and sequence of methodologies applied in the research of doping concentration changes in semiconductors?",
+    "options": {
+      "A": "The DLCM Simulation Model was derived directly from the g-factor analysis, bypassing the need for TRPL or any Test Method type analysis.",
+      "B": "The DLCM Simulation Model, incorporating the g-factor, utilized TRPL as a foundational Test Method to simulate changes in doping concentrations.",
+      "C": "The g-factor was used in the DLCM Simulation Model, which was based on TRPL results to analyze the type of Test Method applied in experiments.",
+      "D": "TRPL, as a type of Test Method, was used to develop the g-factor which was then applied in the DLCM Simulation Model for analyzing doping concentrations."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct sequence as described in the paper starts with the g-factor being utilized in the DLCM Simulation Model. This model is then based on the TRPL which is categorized as a type of Test Method. The relationships and sequence are accurately represented in option A.",
+    "path_description": "Path: g-factor --[usedIn]--> DLCM_SimulationModel --[basedOn]--> TRPL --[type]--> TestMethod",
+    "context": "To describe the change in doping concentration after irradiation, we introduced the g factor and developed an equivalent physical structure for C-V characteristic simulation, the results of which show good agreement with experimental data. | The DLCM simulation model was constructed using input parameters derived from DLTS and TRPL test results. | The DLCM simulation model was constructed using input parameters derived from DLTS and TRPL test results.",
+    "paper_id": "1420"
+  }
+]

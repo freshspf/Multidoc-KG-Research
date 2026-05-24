@@ -1,0 +1,45 @@
+[
+  {
+    "section": "datasetgeneration2",
+    "path": {
+      "section": "datasetgeneration2",
+      "start_entity": "SoccerNet-v3",
+      "end_entity": "PnLCalib",
+      "hops": [
+        {
+          "from": "SoccerNet-v3",
+          "relation": "provides",
+          "to": "BoundingBox",
+          "context": "Although SoccerNet-v3 provides manually labeled ball annotations in the form of bounding boxes...",
+          "chunk": "4"
+        },
+        {
+          "from": "BoundingBox",
+          "relation": "optimizedBy",
+          "to": "Triangulation3DBallLocalization",
+          "context": "methodology to refine the dimensions of the bounding box, ensuring consistency with the 3D representation.",
+          "chunk": "4"
+        },
+        {
+          "from": "Triangulation3DBallLocalization",
+          "relation": "uses",
+          "to": "PnLCalib",
+          "context": "The PnLCalib calibration pipeline is used to recover rotations.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the process of refining 3D ball localization in SoccerNet-v3, which sequence correctly represents the methodology used for optimizing bounding box dimensions?",
+    "options": {
+      "A": "Triangulation3DBallLocalization provides bounding boxes, which are then refined using SoccerNet-v3 and calibrated with PnLCalib.",
+      "B": "PnLCalib provides initial bounding boxes, which are optimized by SoccerNet-v3 and refined through Triangulation3DBallLocalization.",
+      "C": "SoccerNet-v3 uses PnLCalib to generate bounding boxes, which are then optimized with Triangulation3DBallLocalization.",
+      "D": "Bounding boxes are provided by SoccerNet-v3, optimized by Triangulation3DBallLocalization using PnLCalib calibration."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct sequence begins with SoccerNet-v3 providing bounding boxes. These boxes are then optimized by Triangulation3DBallLocalization, which ultimately uses the PnLCalib calibration pipeline to ensure accuracy in the 3D representation. This path aligns with the paper's description of the methodology for refining the bounding box dimensions to ensure consistency with the 3D representation.",
+    "path_description": "Path: SoccerNet-v3 --[provides]--> BoundingBox --[optimizedBy]--> Triangulation3DBallLocalization --[uses]--> PnLCalib",
+    "context": "Although SoccerNet-v3 provides manually labeled ball annotations in the form of bounding boxes... | methodology to refine the dimensions of the bounding box, ensuring consistency with the 3D representation. | The PnLCalib calibration pipeline is used to recover rotations.",
+    "paper_id": "956"
+  }
+]

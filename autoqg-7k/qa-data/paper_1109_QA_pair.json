@@ -1,0 +1,174 @@
+[
+  {
+    "section": "methodology3",
+    "path": {
+      "section": "methodology3",
+      "start_entity": "DataNormalizationModule",
+      "end_entity": "DataInput",
+      "hops": [
+        {
+          "from": "DataNormalizationModule",
+          "relation": "requiresModificationDueTo",
+          "to": "SalsaNext",
+          "context": "As a result, the data normalization module also needs modification.",
+          "chunk": "4"
+        },
+        {
+          "from": "SalsaNext",
+          "relation": "modifiedToAccept",
+          "to": "BEVGrids",
+          "context": "We modify it to accept LiDAR BEV grids.",
+          "chunk": "4"
+        },
+        {
+          "from": "BEVGrids",
+          "relation": "type",
+          "to": "DataInput",
+          "context": "We modify SalsaNext to accept LiDAR BEV grids.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "What type of modification is necessary for the DataNormalizationModule to optimally integrate with SalsaNext for processing LiDAR data?",
+    "options": {
+      "A": "The DataNormalizationModule must be modified to accept Bird's Eye View (BEV) grids generated from LiDAR data.",
+      "B": "The DataNormalizationModule needs to be adjusted to improve its processing of raw LiDAR point cloud data.",
+      "C": "The DataNormalizationModule should be enhanced to accept 3D voxel grids derived from LiDAR scans.",
+      "D": "The DataNormalizationModule requires adjustments to integrate radar data with SalsaNext."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A, as the knowledge path indicates that the DataNormalizationModule is modified specifically to accept BEV grids, which are Bird's Eye View representations derived from LiDAR data. This is essential for its integration with SalsaNext, which has also been adapted to accept LiDAR BEV grids. Options B, C, and D are misleading: B and C suggest different types of data formats, whereas D introduces an unrelated data type (radar).",
+    "path_description": "Path: DataNormalizationModule --[requiresModificationDueTo]--> SalsaNext --[modifiedToAccept]--> BEVGrids --[type]--> DataInput",
+    "context": "As a result, the data normalization module also needs modification. | We modify it to accept LiDAR BEV grids. | We modify SalsaNext to accept LiDAR BEV grids.",
+    "paper_id": "1714"
+  },
+  {
+    "section": "experiments1",
+    "path": {
+      "section": "experiments1",
+      "start_entity": "SemanticKITTI",
+      "end_entity": "Model",
+      "hops": [
+        {
+          "from": "SemanticKITTI",
+          "relation": "evaluatedOn",
+          "to": "EndToEndBaseline",
+          "context": "We utilize KITTI for model training following [11] and evaluate performance in SemanticKITTI sequences",
+          "chunk": "6"
+        },
+        {
+          "from": "EndToEndBaseline",
+          "relation": "comparedWith",
+          "to": "SegmentationBaseline",
+          "context": "We select the latest end-to-end trajectory prediction work using topometric map [11] as the end-to-end baseline and a segmentation-based method that plans trajectories based on segmented free space [34] as segmentation baseline",
+          "chunk": "6"
+        },
+        {
+          "from": "SegmentationBaseline",
+          "relation": "type",
+          "to": "Model",
+          "context": "and a segmentation-based method that plans trajectories based on segmented free space [34] as segmentation baseline",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the context of autonomous driving model evaluation, how does the EndToEndBaseline, evaluated on SemanticKITTI, differ in its foundational approach from the SegmentationBaseline?",
+    "options": {
+      "A": "The SegmentationBaseline uses a topometric map for trajectory prediction, contrasting with the EndToEndBaseline's use of raw sensor data.",
+      "B": "The EndToEndBaseline and the SegmentationBaseline are identical in approach, both utilizing end-to-end learning methods for trajectory prediction.",
+      "C": "Both the EndToEndBaseline and the SegmentationBaseline employ segmented free space for trajectory planning without any differentiation.",
+      "D": "The EndToEndBaseline utilizes a topometric map for trajectory prediction, whereas the SegmentationBaseline plans based on segmented free space."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A because it accurately reflects the differences between the two models as described in the context: the EndToEndBaseline is based on a topometric map for trajectory prediction, while the SegmentationBaseline uses segmented free space to plan trajectories, highlighting distinct methodologies in handling trajectory predictions in autonomous driving.",
+    "path_description": "Path: SemanticKITTI --[evaluatedOn]--> EndToEndBaseline --[comparedWith]--> SegmentationBaseline --[type]--> Model",
+    "context": "We utilize KITTI for model training following [11] and evaluate performance in SemanticKITTI sequences | We select the latest end-to-end trajectory prediction work using topometric map [11] as the end-to-end baseline and a segmentation-based method that plans trajectories based on segmented free space [34] as segmentation baseline | and a segmentation-based method that plans trajectories based on segmented free space [34] as segmentation baseline",
+    "paper_id": "1714"
+  },
+  {
+    "section": "conclusion",
+    "path": {
+      "section": "conclusion",
+      "start_entity": "DeepLearningNetwork",
+      "end_entity": "DataInput",
+      "hops": [
+        {
+          "from": "DeepLearningNetwork",
+          "relation": "optimizes",
+          "to": "OrField",
+          "context": "we propose a deep learning network to optimize the initial OrField solely derived from OSM route.",
+          "chunk": "12"
+        },
+        {
+          "from": "OrField",
+          "relation": "optimizedFrom",
+          "to": "OSMRoute",
+          "context": "To optimize the OrField jointly from LiDAR scans and OSM route.",
+          "chunk": "12"
+        },
+        {
+          "from": "OSMRoute",
+          "relation": "type",
+          "to": "DataInput",
+          "context": "To optimize the OrField jointly from LiDAR scans and OSM route.",
+          "chunk": "12"
+        }
+      ]
+    },
+    "question": "Which of the following best describes the sequence of data inputs and optimizations in the development of the OrField for a deep learning network?",
+    "options": {
+      "A": "An OSM route is used to provide initial optimization for the deep learning network without subsequent integration of LiDAR scans.",
+      "B": "The deep learning network first optimizes the OrField using data solely from an OSM route, then considers integration with LiDAR scans.",
+      "C": "The deep learning network initially uses LiDAR scans to optimize the OrField, then integrates data from the OSM route.",
+      "D": "LiDAR scans are used to optimize the deep learning network before any data integration with the OSM route or OrField."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct sequence, as described in the provided context, starts with the deep learning network optimizing the OrField using data solely derived from an OSM route. Subsequently, it considers the integration of LiDAR scans for further optimization, which aligns with option A.",
+    "path_description": "Path: DeepLearningNetwork --[optimizes]--> OrField --[optimizedFrom]--> OSMRoute --[type]--> DataInput",
+    "context": "we propose a deep learning network to optimize the initial OrField solely derived from OSM route. | To optimize the OrField jointly from LiDAR scans and OSM route. | To optimize the OrField jointly from LiDAR scans and OSM route.",
+    "paper_id": "1714"
+  },
+  {
+    "section": "experiments3",
+    "path": {
+      "section": "experiments3",
+      "start_entity": "Field-Bezier",
+      "end_entity": "Technology",
+      "hops": [
+        {
+          "from": "Field-Bezier",
+          "relation": "evaluatedOn",
+          "to": "CampusDataset",
+          "context": "We created a campus dataset consisting of five scenes (scenes 1, 2, 3, 4, and 5) for both offline and online testing.",
+          "chunk": "8"
+        },
+        {
+          "from": "CampusDataset",
+          "relation": "comparedWith",
+          "to": "VelodyneHDL-64",
+          "context": "Compared to the Velodyne HDL-64, this LiDAR produces significantly lower point density with shorter sensor range.",
+          "chunk": "8"
+        },
+        {
+          "from": "VelodyneHDL-64",
+          "relation": "type",
+          "to": "Technology",
+          "context": "Compared to the Velodyne HDL-64, this LiDAR produces significantly lower point density with shorter sensor range.",
+          "chunk": "8"
+        }
+      ]
+    },
+    "question": "In the context of evaluating the Field-Bezier on the Campus Dataset, how does its performance likely compare to the Velodyne HDL-64 in terms of technology?",
+    "options": {
+      "A": "The Field-Bezier, being newer, probably surpasses the Velodyne HDL-64 in both point density and sensor range.",
+      "B": "The Field-Bezier may offer a longer sensor range with the same point density as the Velodyyne HDL-64, optimizing data collection.",
+      "C": "The Field-Bezier likely has comparable point density and sensor range to the Velodyne HDL-64, ensuring similar performance.",
+      "D": "The Field-Bezier likely features advanced sensing technology but with a reduced point density and range compared to Velodyne HDL-64."
+    },
+    "correct_answer": "D",
+    "explanation": "Based on the paper, the Field-Bezier, when evaluated on the Campus Dataset and compared with Velodyne HDL-64, is noted to have a significantly lower point density and shorter sensor range. This suggests an advanced technology but with specific limitations in comparison to the Velodyne HDL-64.",
+    "path_description": "Path: Field-Bezier --[evaluatedOn]--> CampusDataset --[comparedWith]--> VelodyneHDL-64 --[type]--> Technology",
+    "context": "We created a campus dataset consisting of five scenes (scenes 1, 2, 3, 4, and 5) for both offline and online testing. | Compared to the Velodyne HDL-64, this LiDAR produces significantly lower point density with shorter sensor range. | Compared to the Velodyne HDL-64, this LiDAR produces significantly lower point density with shorter sensor range.",
+    "paper_id": "1714"
+  }
+]

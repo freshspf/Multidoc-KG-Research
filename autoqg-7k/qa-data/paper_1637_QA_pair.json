@@ -1,0 +1,131 @@
+[
+  {
+    "section": "datacollection1",
+    "path": {
+      "section": "datacollection1",
+      "start_entity": "GitHubRESTAPI",
+      "end_entity": "ProjectType",
+      "hops": [
+        {
+          "from": "GitHubRESTAPI",
+          "relation": "usedFor",
+          "to": "RepositorySampling",
+          "context": "Leveraging the GitHub REST API, the top one thousand repositories with the highest star count each week were queried.",
+          "chunk": "3"
+        },
+        {
+          "from": "RepositorySampling",
+          "relation": "excludes",
+          "to": "SchoolProjects",
+          "context": "Excluded school projects and smaller repositories.",
+          "chunk": "3"
+        },
+        {
+          "from": "SchoolProjects",
+          "relation": "type",
+          "to": "ProjectType",
+          "context": "Excluded school projects and smaller repositories.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the process of repository sampling using the GitHub REST API for data collection, which type of projects are specifically excluded to maintain the focus on significant and broadly relevant projects?",
+    "options": {
+      "A": "Projects classified as extensive enterprise applications with high commercial value.",
+      "B": "Projects that involve governmental and non-profit organization collaborations.",
+      "C": "Projects that are categorized under personal development and small-scale learning.",
+      "D": "Projects identified as school projects, typically used for educational purposes."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is C because the knowledge graph path from the paper indicates that the GitHub REST API was used for Repository Sampling, which specifically excludes School Projects, categorizing them under the type 'ProjectType'. This suggests that school projects, being primarily educational, are not included in the sampling of top repositories.",
+    "path_description": "Path: GitHubRESTAPI --[usedFor]--> RepositorySampling --[excludes]--> SchoolProjects --[type]--> ProjectType",
+    "context": "Leveraging the GitHub REST API, the top one thousand repositories with the highest star count each week were queried. | Excluded school projects and smaller repositories. | Excluded school projects and smaller repositories.",
+    "paper_id": "181"
+  },
+  {
+    "section": "introduction2",
+    "path": {
+      "section": "introduction2",
+      "start_entity": "Section3",
+      "end_entity": "Entity",
+      "hops": [
+        {
+          "from": "Section3",
+          "relation": "presents",
+          "to": "Methodology",
+          "context": "In Section 3, we present this methodology includes how we found what information we have collected from the repositories",
+          "chunk": "1"
+        },
+        {
+          "from": "Methodology",
+          "relation": "includes",
+          "to": "ResearchQuestions",
+          "context": "our research questions, how we used the repositories, and how we organized the repositories",
+          "chunk": "1"
+        },
+        {
+          "from": "ResearchQuestions",
+          "relation": "type",
+          "to": "Entity",
+          "context": "our research questions, how we used the repositories, and how we organized the repositories",
+          "chunk": "1"
+        }
+      ]
+    },
+    "question": "What type of entity is primarily discussed in the methodology section of the paper, particularly in relation to the organization and usage of repositories?",
+    "options": {
+      "A": "The entity type discussed is primarily the research questions derived from repository data.",
+      "B": "The entity type discussed is primarily the statistical models used to analyze repository data.",
+      "C": "The entity type discussed is primarily the software development teams that contributed to the repositories.",
+      "D": "The entity type discussed is primarily the technological tools used to manage the repositories."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A because the knowledge path from Section 3 through the methodology to the research questions shows that the entity primarily discussed involves the research questions themselves, which were derived from the organization and usage of the repositories.",
+    "path_description": "Path: Section3 --[presents]--> Methodology --[includes]--> ResearchQuestions --[type]--> Entity",
+    "context": "In Section 3, we present this methodology includes how we found what information we have collected from the repositories | our research questions, how we used the repositories, and how we organized the repositories | our research questions, how we used the repositories, and how we organized the repositories",
+    "paper_id": "181"
+  },
+  {
+    "section": "discussion",
+    "path": {
+      "section": "discussion",
+      "start_entity": "Repositories",
+      "end_entity": "Entity",
+      "hops": [
+        {
+          "from": "Repositories",
+          "relation": "evaluatedOn",
+          "to": "CI_CD_Technology_Stack",
+          "context": "changes in the CI/CD technology stack the set of repositories active from 2012.",
+          "chunk": "10"
+        },
+        {
+          "from": "CI_CD_Technology_Stack",
+          "relation": "partOf",
+          "to": "Repositories",
+          "context": "changes in the CI/CD technology stack the set of repositories active from 2012.",
+          "chunk": "10"
+        },
+        {
+          "from": "Repositories",
+          "relation": "type",
+          "to": "Entity",
+          "context": "more than 600 thousand repositories coll CI/CD technologies.",
+          "chunk": "10"
+        }
+      ]
+    },
+    "question": "In the context of analyzing changes in the CI/CD technology stack since 2012, which statement best describes the relationship between CI/CD technologies and repositories?",
+    "options": {
+      "A": "Repositories form a subset of CI/CD technologies, primarily serving as auxiliary components in the automation process.",
+      "B": "Repositories were directly influenced by advances in unrelated technological fields, altering their core functionalities.",
+      "C": "CI/CD technologies typically operate independently of repositories, with minimal interaction or dependency.",
+      "D": "CI/CD technology stacks, evaluated on a set of repositories, form part of the repository's structural framework defining its entity type."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A because it reflects the knowledge path where CI/CD technology stacks are evaluated on repositories and are part of the repository structure, influencing their entity type. The other options are misleading by suggesting incorrect relationships or independence between CI/CD technologies and repositories.",
+    "path_description": "Path: Repositories --[evaluatedOn]--> CI_CD_Technology_Stack --[partOf]--> Repositories --[type]--> Entity",
+    "context": "changes in the CI/CD technology stack the set of repositories active from 2012. | changes in the CI/CD technology stack the set of repositories active from 2012. | more than 600 thousand repositories coll CI/CD technologies.",
+    "paper_id": "181"
+  }
+]

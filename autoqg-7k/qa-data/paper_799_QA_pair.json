@@ -1,0 +1,561 @@
+[
+  {
+    "section": "networkmodel2",
+    "path": {
+      "section": "networkmodel2",
+      "start_entity": "DigraphModel",
+      "end_entity": "NeuronType",
+      "hops": [
+        {
+          "from": "DigraphModel",
+          "relation": "isTypeOf",
+          "to": "HierarchyGraph",
+          "context": "our abstract network model is a very general weighted digraph model.",
+          "chunk": "3"
+        },
+        {
+          "from": "HierarchyGraph",
+          "relation": "hasLeafType",
+          "to": "LeafNeurons",
+          "context": "The leaf neurons are the input neurons.",
+          "chunk": "3"
+        },
+        {
+          "from": "LeafNeurons",
+          "relation": "type",
+          "to": "NeuronType",
+          "context": "The leaf neurons are the input neurons.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the context of a hierarchical digraph model described as a general weighted digraph, what is the primary role of the neuron type described as leaf neurons?",
+    "options": {
+      "A": "Leaf neurons primarily function as storage neurons, holding information temporarily within the network.",
+      "B": "Leaf neurons primarily function as input neurons, receiving signals to start processing within the network.",
+      "C": "Leaf neurons primarily function as intermediary neurons, facilitating communication between input and output neurons.",
+      "D": "Leaf neurons primarily function as output neurons, sending final processed signals out of the network."
+    },
+    "correct_answer": "B",
+    "explanation": "According to the knowledge path, the leaf neurons, classified under neuron types in the hierarchy graph of the digraph model, are defined as input neurons. This classification indicates their primary role as the initial receivers of signals in the network.",
+    "path_description": "Path: DigraphModel --[isTypeOf]--> HierarchyGraph --[hasLeafType]--> LeafNeurons --[type]--> NeuronType",
+    "context": "our abstract network model is a very general weighted digraph model. | The leaf neurons are the input neurons. | The leaf neurons are the input neurons.",
+    "paper_id": "436"
+  },
+  {
+    "section": "networkmodel2",
+    "path": {
+      "section": "networkmodel2",
+      "start_entity": "Parameter_r",
+      "end_entity": "Neuron",
+      "hops": [
+        {
+          "from": "Parameter_r",
+          "relation": "usedIn",
+          "to": "HierarchyGraph",
+          "context": "every non-input neuron is rk, where r is a parameter.",
+          "chunk": "3"
+        },
+        {
+          "from": "HierarchyGraph",
+          "relation": "hasTopLevelNeuron",
+          "to": "Neuron_vλ",
+          "context": "Hierarchy graphs were the directed graph G = (V, E) that is a tree with ℓmax + neuron, vλ, at the top level, level ℓmax.",
+          "chunk": "3"
+        },
+        {
+          "from": "Neuron_vλ",
+          "relation": "type",
+          "to": "Neuron",
+          "context": "Hierarchy graphs were the directed graph G = (V, E) that is a tree with ℓmax + neuron, vλ, at the top level, level ℓmax.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the context of the hierarchy graph described in the 'networkmodel2' section, what is the role of parameter 'r' in defining the properties of the non-input neuron vλ?",
+    "options": {
+      "A": "Parameter 'r' determines the type of each non-input neuron in the hierarchy graph as Neuron.",
+      "B": "Parameter 'r' is used to calculate the total number of edges in the hierarchy graph.",
+      "C": "Parameter 'r' specifies the maximum level, ℓmax, of the hierarchy graph where neuron vλ is located.",
+      "D": "Parameter 'r' indicates the number of hierarchy levels below neuron vλ in the graph."
+    },
+    "correct_answer": "A",
+    "explanation": "Parameter 'r' is used to define each non-input neuron, including vλ, in the hierarchy graph. Specifically, it categorizes these neurons as a 'Neuron' type, as indicated by the path from 'Parameter_r' through 'HierarchyGraph' and 'Neuron_vλ' to 'Neuron'. The other options, while related to graphs and parameters, do not accurately reflect the role of 'r' in defining neuron properties.",
+    "path_description": "Path: Parameter_r --[usedIn]--> HierarchyGraph --[hasTopLevelNeuron]--> Neuron_vλ --[type]--> Neuron",
+    "context": "every non-input neuron is rk, where r is a parameter. | Hierarchy graphs were the directed graph G = (V, E) that is a tree with ℓmax + neuron, vλ, at the top level, level ℓmax. | Hierarchy graphs were the directed graph G = (V, E) that is a tree with ℓmax + neuron, vλ, at the top level, level ℓmax.",
+    "paper_id": "436"
+  },
+  {
+    "section": "correspondingnetworks1",
+    "path": {
+      "section": "correspondingnetworks1",
+      "start_entity": "A1",
+      "end_entity": "Parameter",
+      "hops": [
+        {
+          "from": "A1",
+          "relation": "derivedInto",
+          "to": "D",
+          "context": "Here we describe how to construct the detailed network D directly from the given abstract network A1.",
+          "chunk": "4"
+        },
+        {
+          "from": "D",
+          "relation": "hasWeightReductionFactor",
+          "to": "m",
+          "context": "That is, we divide the weights of edges of A1 by m.",
+          "chunk": "4"
+        },
+        {
+          "from": "m",
+          "relation": "type",
+          "to": "Parameter",
+          "context": "uses a positive integer parameter m.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the process of constructing the detailed network D from the abstract network A1, what role does the parameter m play?",
+    "options": {
+      "A": "It denotes the number of edges added to A1 to form the detailed network D.",
+      "B": "It serves as a divisor to scale down the weights of edges in A1 during the derivation of network D.",
+      "C": "It represents the total number of nodes that should be in the detailed network D.",
+      "D": "It is used as a multiplier to increase the weights of edges in A1 to produce the detailed network D."
+    },
+    "correct_answer": "B",
+    "explanation": "The parameter m is used as a divisor for the weights of the edges in the abstract network A1 during the construction of the detailed network D. This is consistent with the description in the paper that weights of A1 are divided by m to derive D, making m a weight reduction factor.",
+    "path_description": "Path: A1 --[derivedInto]--> D --[hasWeightReductionFactor]--> m --[type]--> Parameter",
+    "context": "Here we describe how to construct the detailed network D directly from the given abstract network A1. | That is, we divide the weights of edges of A1 by m. | uses a positive integer parameter m.",
+    "paper_id": "436"
+  },
+  {
+    "section": "correspondingnetworks1",
+    "path": {
+      "section": "correspondingnetworks1",
+      "start_entity": "A1",
+      "end_entity": "A2",
+      "hops": [
+        {
+          "from": "A1",
+          "relation": "derivedInto",
+          "to": "D",
+          "context": "Here we describe how to construct the detailed network D directly from the given abstract network A1.",
+          "chunk": "4"
+        },
+        {
+          "from": "D",
+          "relation": "containsMultipleCopiesOfEachEdge",
+          "to": "A1",
+          "context": "D also contains multiple copies of each edge in A1.",
+          "chunk": "4"
+        },
+        {
+          "from": "A1",
+          "relation": "derivedInto",
+          "to": "A2",
+          "context": "From abstract network A1, we also derive a second abstract network A2, by simply reducing the thresholds of A1.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the construction of network D from abstract network A1, what transformation occurs to the edges of A1 in network D?",
+    "options": {
+      "A": "Each edge of A1 is represented as a single, isolated node in D, disconnecting the original network structure.",
+      "B": "Edges from A1 are expanded into nodes in D, creating a more detailed node-based representation.",
+      "C": "Each edge of A1 is duplicated multiple times in network D to enhance its structural complexity.",
+      "D": "Edges of A1 are simplified in network D, reducing their overall number to streamline the network."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A. The paper specifies that network D contains multiple copies of each edge from A1, implying a duplication process to increase the complexity or robustness of the network structure. Options B, C, and D are misleading as they suggest simplification, transformation of edges into nodes, or isolation, none of which align with the given description in the paper.",
+    "path_description": "Path: A1 --[derivedInto]--> D --[containsMultipleCopiesOfEachEdge]--> A1 --[derivedInto]--> A2",
+    "context": "Here we describe how to construct the detailed network D directly from the given abstract network A1. | D also contains multiple copies of each edge in A1. | From abstract network A1, we also derive a second abstract network A2, by simply reducing the thresholds of A1.",
+    "paper_id": "436"
+  },
+  {
+    "section": "correspondingnetworks1",
+    "path": {
+      "section": "correspondingnetworks1",
+      "start_entity": "A1",
+      "end_entity": "A2",
+      "hops": [
+        {
+          "from": "A1",
+          "relation": "derivedInto",
+          "to": "D",
+          "context": "Here we describe how to construct the detailed network D directly from the given abstract network A1.",
+          "chunk": "4"
+        },
+        {
+          "from": "D",
+          "relation": "compensatesForLimitedNumberOfEdgeFailures",
+          "to": "A1",
+          "context": "D contains an edge from each copy to compensate for a limited number of edge failures.",
+          "chunk": "4"
+        },
+        {
+          "from": "A1",
+          "relation": "derivedInto",
+          "to": "A2",
+          "context": "From abstract network A1, we also derive a second abstract network A2, by simply reducing the thresholds of A1.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the context of the construction of network D from abstract network A1, what is the primary purpose of the edge design in network D?",
+    "options": {
+      "A": "To facilitate the flow of information between nodes more efficiently than in A1.",
+      "B": "To reduce the operational costs associated with maintaining network A1.",
+      "C": "To increase the connectivity speed between the network nodes compared to A1.",
+      "D": "To ensure robustness by compensating for a limited number of edge failures."
+    },
+    "correct_answer": "D",
+    "explanation": "The text describes that network D is derived from abstract network A1 and contains an edge from each copy specifically to compensate for a limited number of edge failures. This design aims at ensuring robustness in the face of potential disruptions, not primarily for efficiency, speed, or cost reduction.",
+    "path_description": "Path: A1 --[derivedInto]--> D --[compensatesForLimitedNumberOfEdgeFailures]--> A1 --[derivedInto]--> A2",
+    "context": "Here we describe how to construct the detailed network D directly from the given abstract network A1. | D contains an edge from each copy to compensate for a limited number of edge failures. | From abstract network A1, we also derive a second abstract network A2, by simply reducing the thresholds of A1.",
+    "paper_id": "436"
+  },
+  {
+    "section": "correspondingnetworks2",
+    "path": {
+      "section": "correspondingnetworks2",
+      "start_entity": "Neuron",
+      "end_entity": "NetworkModel",
+      "hops": [
+        {
+          "from": "Neuron",
+          "relation": "partOf",
+          "to": "DetailedNetwork",
+          "context": "For every neuron v of A1, the highest-numbered neuron in copies(v) fails.",
+          "chunk": "5"
+        },
+        {
+          "from": "DetailedNetwork",
+          "relation": "correspondsTo",
+          "to": "AbstractNetwork",
+          "context": "We consider the detailed network corresponding to the abstract network of Example 2.1.",
+          "chunk": "5"
+        },
+        {
+          "from": "AbstractNetwork",
+          "relation": "type",
+          "to": "NetworkModel",
+          "context": "We consider the detailed network corresponding to the abstract network of Example 2.1.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the context of network modeling, if a neuron is part of a detailed network that corresponds to an abstract network, which type of model likely governs the behavior of the neuron according to the provided knowledge graph path?",
+    "options": {
+      "A": "A model where the highest-numbered neuron in any neuron's copies consistently fails",
+      "B": "A model that enhances the synaptic connections between neurons based on their spatial positioning",
+      "C": "A model that predicts random neuron failure irrespective of neuron numbering or copies",
+      "D": "A model that primarily focuses on the energy efficiency of neuron operations within the network"
+    },
+    "correct_answer": "A",
+    "explanation": "Following the knowledge graph path from Neuron to DetailedNetwork, then to AbstractNetwork, and finally to NetworkModel, we understand that the specific behavior of neurons (failure of the highest-numbered neuron in copies) is governed by the type of network model. This model is described as one where the highest-numbered neuron fails, which is directly linked to the structure and behavior described in the network model. The other options do not directly reflect the described relationship and behavior in the network model.",
+    "path_description": "Path: Neuron --[partOf]--> DetailedNetwork --[correspondsTo]--> AbstractNetwork --[type]--> NetworkModel",
+    "context": "For every neuron v of A1, the highest-numbered neuron in copies(v) fails. | We consider the detailed network corresponding to the abstract network of Example 2.1. | We consider the detailed network corresponding to the abstract network of Example 2.1.",
+    "paper_id": "436"
+  },
+  {
+    "section": "correspondingnetworks1",
+    "path": {
+      "section": "correspondingnetworks1",
+      "start_entity": "A1",
+      "end_entity": "A2",
+      "hops": [
+        {
+          "from": "A1",
+          "relation": "derivedInto",
+          "to": "D",
+          "context": "Here we describe how to construct the detailed network D directly from the given abstract network A1.",
+          "chunk": "4"
+        },
+        {
+          "from": "D",
+          "relation": "containsMultipleCopiesOfEachNeuron",
+          "to": "A1",
+          "context": "D contains multiple copies of each neuron of A1.",
+          "chunk": "4"
+        },
+        {
+          "from": "A1",
+          "relation": "derivedInto",
+          "to": "A2",
+          "context": "From abstract network A1, we also derive a second abstract network A2, by simply reducing the thresholds of A1.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "If network D is derived from abstract network A1 and contains multiple copies of each neuron from A1, what transformation is most likely applied when deriving abstract network A2 from A1?",
+    "options": {
+      "A": "Duplicating the synaptic connections of A1 to increase network redundancy in A2",
+      "B": "Implementing a higher firing rate for each neuron in A1 to increase the overall activity in A2",
+      "C": "Reducing the thresholds of neurons in A1 to form a less complex but faster processing network in A2",
+      "D": "Increasing the number of neurons in A1 to enhance the computational power in A2"
+    },
+    "correct_answer": "C",
+    "explanation": "The correct transformation when deriving A2 from A1 is reducing the thresholds of neurons in A1. This results in a network (A2) that is potentially less complex but capable of faster processing due to lower activation thresholds. Options B, C, and D suggest changes that are not aligned with the context of 'simply reducing the thresholds' as mentioned in the paper.",
+    "path_description": "Path: A1 --[derivedInto]--> D --[containsMultipleCopiesOfEachNeuron]--> A1 --[derivedInto]--> A2",
+    "context": "Here we describe how to construct the detailed network D directly from the given abstract network A1. | D contains multiple copies of each neuron of A1. | From abstract network A1, we also derive a second abstract network A2, by simply reducing the thresholds of A1.",
+    "paper_id": "436"
+  },
+  {
+    "section": "correspondingnetworks2",
+    "path": {
+      "section": "correspondingnetworks2",
+      "start_entity": "FailurePattern",
+      "end_entity": "Pattern",
+      "hops": [
+        {
+          "from": "FailurePattern",
+          "relation": "appliedTo",
+          "to": "DetailedNetwork",
+          "context": "First, we consider the same failure pattern as in the previous two examples: For every neuron v of A1, the highest-numbered neuron in copies(v) fails.",
+          "chunk": "5"
+        },
+        {
+          "from": "DetailedNetwork",
+          "relation": "implements",
+          "to": "FailurePattern",
+          "context": "First, we consider the same failure pattern as in the previous two examples: For every neuron v of A1, the highest-numbered neuron in copies(v) fails.",
+          "chunk": "5"
+        },
+        {
+          "from": "FailurePattern",
+          "relation": "type",
+          "to": "Pattern",
+          "context": "First, we consider the same failure pattern as in the previous two examples: For every neuron v of A1, the highest-numbered neuron in copies(v) fails.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the context of the 'correspondingnetworks2' paper section, how does the implementation of a failure pattern in a Detailed Network manifest specifically?",
+    "options": {
+      "A": "Every neuron in network A1 fails simultaneously, leading to a complete network shutdown.",
+      "B": "Neurons in network A1 fail randomly without any specific pattern or sequence.",
+      "C": "For each neuron in network A1, the neuron with the lowest number in its copies set experiences failure.",
+      "D": "For each neuron in network A1, the neuron with the highest number in its copies set experiences failure."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A because, according to the paper, the specific failure pattern applied to the Detailed Network causes the highest-numbered neuron in copies(v) of each neuron v in A1 to fail. The other options are misleading by suggesting alternative failure scenarios.",
+    "path_description": "Path: FailurePattern --[appliedTo]--> DetailedNetwork --[implements]--> FailurePattern --[type]--> Pattern",
+    "context": "First, we consider the same failure pattern as in the previous two examples: For every neuron v of A1, the highest-numbered neuron in copies(v) fails. | First, we consider the same failure pattern as in the previous two examples: For every neuron v of A1, the highest-numbered neuron in copies(v) fails. | First, we consider the same failure pattern as in the previous two examples: For every neuron v of A1, the highest-numbered neuron in copies(v) fails.",
+    "paper_id": "436"
+  },
+  {
+    "section": "correspondingnetworks2",
+    "path": {
+      "section": "correspondingnetworks2",
+      "start_entity": "FailurePattern",
+      "end_entity": "NetworkModel",
+      "hops": [
+        {
+          "from": "FailurePattern",
+          "relation": "appliedTo",
+          "to": "DetailedNetwork",
+          "context": "First, we consider the same failure pattern as in the previous two examples: For every neuron v of A1, the highest-numbered neuron in copies(v) fails.",
+          "chunk": "5"
+        },
+        {
+          "from": "DetailedNetwork",
+          "relation": "correspondsTo",
+          "to": "AbstractNetwork",
+          "context": "We consider the detailed network corresponding to the abstract network of Example 2.1.",
+          "chunk": "5"
+        },
+        {
+          "from": "AbstractNetwork",
+          "relation": "type",
+          "to": "NetworkModel",
+          "context": "We consider the detailed network corresponding to the abstract network of Example 2.1.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the study of network models, how is a failure pattern applied in a detailed network that corresponds to an abstract network?",
+    "options": {
+      "A": "Every neuron in the detailed network fails if it does not have a corresponding neuron in the abstract network.",
+      "B": "Neurons in the detailed network fail randomly, without correspondence to their abstract network counterparts.",
+      "C": "For every neuron in the abstract network, the lowest-numbered neuron in its detailed copy fails.",
+      "D": "For every neuron in the abstract network, the highest-numbered neuron in its detailed copy fails."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A, as the failure pattern described applies to each neuron in the abstract network by causing the highest-numbered neuron in its detailed counterpart (copies) to fail, maintaining the same pattern as established in previous examples.",
+    "path_description": "Path: FailurePattern --[appliedTo]--> DetailedNetwork --[correspondsTo]--> AbstractNetwork --[type]--> NetworkModel",
+    "context": "First, we consider the same failure pattern as in the previous two examples: For every neuron v of A1, the highest-numbered neuron in copies(v) fails. | We consider the detailed network corresponding to the abstract network of Example 2.1. | We consider the detailed network corresponding to the abstract network of Example 2.1.",
+    "paper_id": "436"
+  },
+  {
+    "section": "mappingtheorems1",
+    "path": {
+      "section": "mappingtheorems1",
+      "start_entity": "NetworkA2",
+      "end_entity": "Theorem",
+      "hops": [
+        {
+          "from": "NetworkA2",
+          "relation": "relatedTo",
+          "to": "NetworkD",
+          "context": "We assume that D and A2 use the same values of sV and sE.",
+          "chunk": "7"
+        },
+        {
+          "from": "NetworkD",
+          "relation": "partOf",
+          "to": "Theorem4_7",
+          "context": "We also include a third mapping theorem, Theorem 4.7. This theorem compares the external effects of the three corresponding networks when they are used to trigger a reliable external 'actuator' neuron.",
+          "chunk": "7"
+        },
+        {
+          "from": "Theorem4_7",
+          "relation": "type",
+          "to": "Theorem",
+          "context": "We also include a third mapping theorem, Theorem 4.7. This theorem compares the external effects of the three corresponding networks when they are used to trigger a reliable external 'actuator' neuron.",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "According to the mappings in Theorem 4.7, how do the external effects of networks A2 and D contribute when triggering a reliable external 'actuator' neuron?",
+    "options": {
+      "A": "Both networks A2 and D use the same values of sV and sE to uniformly influence the actuator neuron.",
+      "B": "Network D alone is responsible for triggering the actuator neuron without influence from Network A2.",
+      "C": "Network A2 uses different values of sV and sE compared to Network D, resulting in varied actuation.",
+      "D": "Network A2 enhances the triggering of the actuator neuron by modifying the values of sV and sE."
+    },
+    "correct_answer": "A",
+    "explanation": "The question requires understanding the mappings involved in Theorem 4.7 which indicates that both Network A2 and Network D use the same values of sV and sE, implying a uniform approach to triggering the actuator neuron. This is directly stated in the context, making option A the correct choice. Options B, C, and D are incorrect as they suggest differences or individual effects that contradict the shared values stated.",
+    "path_description": "Path: NetworkA2 --[relatedTo]--> NetworkD --[partOf]--> Theorem4_7 --[type]--> Theorem",
+    "context": "We assume that D and A2 use the same values of sV and sE. | We also include a third mapping theorem, Theorem 4.7. This theorem compares the external effects of the three corresponding networks when they are used to trigger a reliable external 'actuator' neuron. | We also include a third mapping theorem, Theorem 4.7. This theorem compares the external effects of the three corresponding networks when they are used to trigger a reliable external 'actuator' neuron.",
+    "paper_id": "436"
+  },
+  {
+    "section": "networkmodel1",
+    "path": {
+      "section": "networkmodel1",
+      "start_entity": "Execution",
+      "end_entity": "NeuronThreshold",
+      "hops": [
+        {
+          "from": "Execution",
+          "relation": "sequenceOfConfigurations",
+          "to": "Configuration",
+          "context": "An execution of the network is a finite or infinite sequence C(0), C(1), ..., where C(0) is an initial configuration.",
+          "chunk": "2"
+        },
+        {
+          "from": "Configuration",
+          "relation": "mapsNeuronsToFiringState",
+          "to": "Neuron",
+          "context": "A configuration of the network is a mapping from the neurons in the network to {0, 1}.",
+          "chunk": "2"
+        },
+        {
+          "from": "Neuron",
+          "relation": "hasAssociatedInformation",
+          "to": "NeuronThreshold",
+          "context": "Each neuron also has the following associated information: threshold, a real number.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the context of a neural network model, which option correctly describes the relationship between an execution, configuration, and neuron threshold?",
+    "options": {
+      "A": "Neuron thresholds are set during the configuration and affect the sequence of executions by altering neuron inputs.",
+      "B": "An execution, composed of configurations, directly determines the firing state of a neuron based on its threshold.",
+      "C": "A configuration is a sequence of executions that maps neurons to their binary firing states without threshold influence.",
+      "D": "An execution includes configurations mapping each neuron's binary state, influenced by the neuron's threshold."
+    },
+    "correct_answer": "D",
+    "explanation": "Option D accurately outlines the relationship where an execution is a sequence of configurations. Each configuration maps neurons to a binary state (0 or 1). The state of each neuron, as set in these configurations, is influenced by the neuron's threshold, which is a piece of associated information specific to each neuron.",
+    "path_description": "Path: Execution --[sequenceOfConfigurations]--> Configuration --[mapsNeuronsToFiringState]--> Neuron --[hasAssociatedInformation]--> NeuronThreshold",
+    "context": "An execution of the network is a finite or infinite sequence C(0), C(1), ..., where C(0) is an initial configuration. | A configuration of the network is a mapping from the neurons in the network to {0, 1}. | Each neuron also has the following associated information: threshold, a real number.",
+    "paper_id": "436"
+  },
+  {
+    "section": "mappingtheorems2",
+    "path": {
+      "section": "mappingtheorems2",
+      "start_entity": "Theorem4_4",
+      "end_entity": "DetailedNetwork",
+      "hops": [
+        {
+          "from": "Theorem4_4",
+          "relation": "appliesTo",
+          "to": "A2",
+          "context": "Theorem 4.4 refers to these executions.",
+          "chunk": "8"
+        },
+        {
+          "from": "A2",
+          "relation": "hasExecutionWith",
+          "to": "D",
+          "context": "Now we consider corresponding executions of A2 and D",
+          "chunk": "8"
+        },
+        {
+          "from": "D",
+          "relation": "type",
+          "to": "DetailedNetwork",
+          "context": "Let D be the corresponding detailed network from Example 3.3, this time with more copies of each neuron of A1 and larger values of the survival parameters sV and sE.",
+          "chunk": "8"
+        }
+      ]
+    },
+    "question": "According to Theorem 4.4 in the context of mapping theorems, when applied to A2 and its execution with D as a detailed network, which of the following statements is true?",
+    "options": {
+      "A": "A2 when executed with D does not modify the survival parameters sV and sE but changes the network's structural complexity.",
+      "B": "Detailed network D primarily focuses on reducing the survival parameters sV and sE compared to A1.",
+      "C": "D, as a detailed network, is characterized by having more neurons and higher survival parameters than its simpler counterpart A1.",
+      "D": "The execution of A2 with D leads to a reduction in the network complexity and neuron count compared to A1."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A because it aligns with the description given in the paper where D, as a detailed network from Example 3.3, has more copies of each neuron of A1 and larger values of the survival parameters sV and sE.",
+    "path_description": "Path: Theorem4_4 --[appliesTo]--> A2 --[hasExecutionWith]--> D --[type]--> DetailedNetwork",
+    "context": "Theorem 4.4 refers to these executions. | Now we consider corresponding executions of A2 and D | Let D be the corresponding detailed network from Example 3.3, this time with more copies of each neuron of A1 and larger values of the survival parameters sV and sE.",
+    "paper_id": "436"
+  },
+  {
+    "section": "conclusions",
+    "path": {
+      "section": "conclusions",
+      "start_entity": "HigherLevelSNNModels",
+      "end_entity": "Anomaly",
+      "hops": [
+        {
+          "from": "HigherLevelSNNModels",
+          "relation": "basedOn",
+          "to": "SpikingNeuralNetworkModel",
+          "context": "algorithms using simpler, higher-level SNN models as well.",
+          "chunk": "11"
+        },
+        {
+          "from": "SpikingNeuralNetworkModel",
+          "relation": "addresses",
+          "to": "TransientNodeAnomalies",
+          "context": "For SNNs, the first extension would be such as allowing a bounded number of transient node anomalies.",
+          "chunk": "11"
+        },
+        {
+          "from": "TransientNodeAnomalies",
+          "relation": "type",
+          "to": "Anomaly",
+          "context": "such as allowing a bounded number of transient node anomalies",
+          "chunk": "11"
+        }
+      ]
+    },
+    "question": "In the context of Spiking Neural Network (SNN) models, the proposal to allow a bounded number of transient node anomalies primarily addresses which type of problem?",
+    "options": {
+      "A": "It addresses the problem of anomaly detection within neural network operations.",
+      "B": "It enhances the robustness of SNN models against hardware malfunctions.",
+      "C": "It improves the computational efficiency of SNN models during large-scale simulations.",
+      "D": "It facilitates the integration of external data sources into existing SNN frameworks."
+    },
+    "correct_answer": "A",
+    "explanation": "The proposal to allow a bounded number of transient node anomalies in Spiking Neural Network (SNN) models specifically addresses problems related to anomaly detection within the operations of neural networks. Transient node anomalies are a type of anomaly, and allowing a bounded number in SNN models helps in managing and detecting such anomalies effectively.",
+    "path_description": "Path: HigherLevelSNNModels --[basedOn]--> SpikingNeuralNetworkModel --[addresses]--> TransientNodeAnomalies --[type]--> Anomaly",
+    "context": "algorithms using simpler, higher-level SNN models as well. | For SNNs, the first extension would be such as allowing a bounded number of transient node anomalies. | such as allowing a bounded number of transient node anomalies",
+    "paper_id": "436"
+  }
+]

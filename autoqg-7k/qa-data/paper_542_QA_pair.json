@@ -1,0 +1,432 @@
+[
+  {
+    "section": "pitfallsinteebasedblockchains4",
+    "path": {
+      "section": "pitfallsinteebasedblockchains4",
+      "start_entity": "StoringStateInBlockchain",
+      "end_entity": "ClientSet",
+      "hops": [
+        {
+          "from": "StoringStateInBlockchain",
+          "relation": "prevents",
+          "to": "CloningAttack",
+          "context": "It can also prevent cloning attacks since state updates are tied to the previous state and the hash of the enclave code.",
+          "chunk": "6"
+        },
+        {
+          "from": "CloningAttack",
+          "relation": "cannotBePreventedBy",
+          "to": "FixedSetOfClients",
+          "context": "Relying on a fixed and mutually trusted set of smart contract clients can prevent rollback attacks; however, it cannot prevent cloning attacks if the enclave is non-deterministic.",
+          "chunk": "6"
+        },
+        {
+          "from": "FixedSetOfClients",
+          "relation": "type",
+          "to": "ClientSet",
+          "context": "Relying on a fixed and mutually trusted set of smart contract clients can prevent rollback attacks; however, it cannot prevent cloning attacks if the enclave is non-deterministic.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the context of TEE-based blockchains, why does relying on a fixed set of clients fail to prevent cloning attacks?",
+    "options": {
+      "A": "Because fixed client sets are better suited for preventing data breaches rather than cloning attacks within blockchains.",
+      "B": "Because the fixed set of clients, while ensuring transaction integrity, cannot alter the deterministic behavior of the blockchain's enclave.",
+      "C": "Because cloning attacks are unrelated to the number of clients but are instead influenced by the deterministic nature of the enclave.",
+      "D": "Because cloning attacks are primarily mitigated through dynamic state updates and hash dependencies, not client consistency."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A because the paper specifies that cloning attacks are prevented by tying state updates to previous states and the hash of enclave code, implying that it's the system’s dynamic state dependencies that prevent such attacks, not merely the consistency or composition of the client set.",
+    "path_description": "Path: StoringStateInBlockchain --[prevents]--> CloningAttack --[cannotBePreventedBy]--> FixedSetOfClients --[type]--> ClientSet",
+    "context": "It can also prevent cloning attacks since state updates are tied to the previous state and the hash of the enclave code. | Relying on a fixed and mutually trusted set of smart contract clients can prevent rollback attacks; however, it cannot prevent cloning attacks if the enclave is non-deterministic. | Relying on a fixed and mutually trusted set of smart contract clients can prevent rollback attacks; however, it cannot prevent cloning attacks if the enclave is non-deterministic.",
+    "paper_id": "1219"
+  },
+  {
+    "section": "pitfallsinteebasedblockchains4",
+    "path": {
+      "section": "pitfallsinteebasedblockchains4",
+      "start_entity": "StoringStateInBlockchain",
+      "end_entity": "ClientSet",
+      "hops": [
+        {
+          "from": "StoringStateInBlockchain",
+          "relation": "prevents",
+          "to": "RollbackAttack",
+          "context": "This strategy can protect against rollback attacks if the enclave can always access the latest state in the consistent layer.",
+          "chunk": "6"
+        },
+        {
+          "from": "RollbackAttack",
+          "relation": "cannotBePreventedBy",
+          "to": "FixedSetOfClients",
+          "context": "Relying on a fixed and mutually trusted set of smart contract clients can prevent rollback attacks; however, it cannot prevent cloning attacks if the enclave is non-deterministic.",
+          "chunk": "6"
+        },
+        {
+          "from": "FixedSetOfClients",
+          "relation": "type",
+          "to": "ClientSet",
+          "context": "Relying on a fixed and mutually trusted set of smart contract clients can prevent rollback attacks; however, it cannot prevent cloning attacks if the enclave is non-deterministic.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the context of TEE-based blockchains, why is relying solely on a fixed set of clients insufficient for preventing all types of security threats?",
+    "options": {
+      "A": "Because a fixed set of clients can enhance the performance of the blockchain, but not necessarily its security against attacks.",
+      "B": "Because a fixed set of clients can prevent rollback attacks, but not cloning attacks if the enclave is non-deterministic.",
+      "C": "Because a fixed set of clients are often not updated with the latest security protocols, making them vulnerable to new types of cyber threats.",
+      "D": "Because a fixed set of clients can only secure transactions within their network, but cannot secure the blockchain from external threats."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A because the context specifically states that while a fixed set of smart contract clients can prevent rollback attacks, they cannot prevent cloning attacks if the enclave behaves in a non-deterministic manner. This highlights the limitation of using a fixed client set for security in TEE-based blockchains.",
+    "path_description": "Path: StoringStateInBlockchain --[prevents]--> RollbackAttack --[cannotBePreventedBy]--> FixedSetOfClients --[type]--> ClientSet",
+    "context": "This strategy can protect against rollback attacks if the enclave can always access the latest state in the consistent layer. | Relying on a fixed and mutually trusted set of smart contract clients can prevent rollback attacks; however, it cannot prevent cloning attacks if the enclave is non-deterministic. | Relying on a fixed and mutually trusted set of smart contract clients can prevent rollback attacks; however, it cannot prevent cloning attacks if the enclave is non-deterministic.",
+    "paper_id": "1219"
+  },
+  {
+    "section": "pitfallsinteebasedblockchains4",
+    "path": {
+      "section": "pitfallsinteebasedblockchains4",
+      "start_entity": "TransactionReplay",
+      "end_entity": "ClientSet",
+      "hops": [
+        {
+          "from": "TransactionReplay",
+          "relation": "prevents",
+          "to": "CloningAttack",
+          "context": "It can also protect against cloning if the blockchain cannot be forked.",
+          "chunk": "6"
+        },
+        {
+          "from": "CloningAttack",
+          "relation": "cannotBePreventedBy",
+          "to": "FixedSetOfClients",
+          "context": "Relying on a fixed and mutually trusted set of smart contract clients can prevent rollback attacks; however, it cannot prevent cloning attacks if the enclave is non-deterministic.",
+          "chunk": "6"
+        },
+        {
+          "from": "FixedSetOfClients",
+          "relation": "type",
+          "to": "ClientSet",
+          "context": "Relying on a fixed and mutually trusted set of smart contract clients can prevent rollback attacks; however, it cannot prevent cloning attacks if the enclave is non-deterministic.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the context of blockchain security, why does reliance on a fixed set of mutually trusted smart contract clients fail to prevent cloning attacks?",
+    "options": {
+      "A": "Because cloning attacks exploit vulnerabilities that arise when the blockchain can be forked, which is unrelated to the client set.",
+      "B": "Because the fixed set of clients lacks the necessary cryptographic measures to detect and prevent cloning attacks.",
+      "C": "Because cloning attacks primarily use social engineering tactics that are not dependent on the technological setup of the client set.",
+      "D": "Because a non-deterministic enclave is involved, which allows cloning attacks despite the fixed client set."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is B because the paper specifies that cloning attacks cannot be prevented if the enclave is non-deterministic, even when a fixed and mutually trusted set of smart contract clients is used. This non-deterministic nature of the enclave is the direct reason why cloning attacks can still occur, making other factors like the ability to fork the blockchain (option A), absence of cryptographic measures (option C), or reliance on social engineering (option D) less relevant in this specific context.",
+    "path_description": "Path: TransactionReplay --[prevents]--> CloningAttack --[cannotBePreventedBy]--> FixedSetOfClients --[type]--> ClientSet",
+    "context": "It can also protect against cloning if the blockchain cannot be forked. | Relying on a fixed and mutually trusted set of smart contract clients can prevent rollback attacks; however, it cannot prevent cloning attacks if the enclave is non-deterministic. | Relying on a fixed and mutually trusted set of smart contract clients can prevent rollback attacks; however, it cannot prevent cloning attacks if the enclave is non-deterministic.",
+    "paper_id": "1219"
+  },
+  {
+    "section": "pitfallsinteebasedblockchains4",
+    "path": {
+      "section": "pitfallsinteebasedblockchains4",
+      "start_entity": "TransactionReplay",
+      "end_entity": "ClientSet",
+      "hops": [
+        {
+          "from": "TransactionReplay",
+          "relation": "prevents",
+          "to": "RollbackAttack",
+          "context": "This option can prevent rollback attacks if the enclave obtains the complete set of blocks up to the current one.",
+          "chunk": "6"
+        },
+        {
+          "from": "RollbackAttack",
+          "relation": "cannotBePreventedBy",
+          "to": "FixedSetOfClients",
+          "context": "Relying on a fixed and mutually trusted set of smart contract clients can prevent rollback attacks; however, it cannot prevent cloning attacks if the enclave is non-deterministic.",
+          "chunk": "6"
+        },
+        {
+          "from": "FixedSetOfClients",
+          "relation": "type",
+          "to": "ClientSet",
+          "context": "Relying on a fixed and mutually trusted set of smart contract clients can prevent rollback attacks; however, it cannot prevent cloning attacks if the enclave is non-deterministic.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the context of TEE-based blockchains, why is a fixed set of clients ineffective in preventing rollback attacks?",
+    "options": {
+      "A": "Because a fixed set of clients cannot change dynamically with the network, making it prone to security vulnerabilities like rollback attacks.",
+      "B": "Because the fixed set of clients does not ensure non-determinism of the enclave, which is crucial for preventing rollback attacks.",
+      "C": "Because relying solely on a fixed set of clients does not address all attack vectors, such as those that exploit the deterministic nature of the enclave.",
+      "D": "Because cloning attacks cannot be prevented even if a fixed set of smart contract clients is mutually trusted and deterministic."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is D because the setup of a fixed set of clients mainly targets a specific trust model and does not comprehensively address other underlying vulnerabilities like those that might be exploited through the deterministic nature of the enclave, which can lead to rollback attacks. The other options incorrectly interpret the role of non-determinism or conflate the prevention capabilities regarding different types of attacks.",
+    "path_description": "Path: TransactionReplay --[prevents]--> RollbackAttack --[cannotBePreventedBy]--> FixedSetOfClients --[type]--> ClientSet",
+    "context": "This option can prevent rollback attacks if the enclave obtains the complete set of blocks up to the current one. | Relying on a fixed and mutually trusted set of smart contract clients can prevent rollback attacks; however, it cannot prevent cloning attacks if the enclave is non-deterministic. | Relying on a fixed and mutually trusted set of smart contract clients can prevent rollback attacks; however, it cannot prevent cloning attacks if the enclave is non-deterministic.",
+    "paper_id": "1219"
+  },
+  {
+    "section": "pitfallsinteebasedblockchains8",
+    "path": {
+      "section": "pitfallsinteebasedblockchains8",
+      "start_entity": "SecretNetwork",
+      "end_entity": "BlockchainFeature",
+      "hops": [
+        {
+          "from": "SecretNetwork",
+          "relation": "type",
+          "to": "BlockchainPlatform",
+          "context": "Only one application requires existential honesty (cf. Limitation 6): the Secret Network [13] does not validate the order of transactions the host provides.",
+          "chunk": "10"
+        },
+        {
+          "from": "BlockchainPlatform",
+          "relation": "reliesOn",
+          "to": "ConsistentConsensusLayer",
+          "context": "Nine applications rely on a fully consistent consensus layer [13], [32], [35], [37], [38], [47], [48], [51], [54] to serialize events.",
+          "chunk": "10"
+        },
+        {
+          "from": "ConsistentConsensusLayer",
+          "relation": "type",
+          "to": "BlockchainFeature",
+          "context": "Nine applications rely on a fully consistent consensus layer [13], [32], [35], [37], [38], [47], [48], [51], [54] to serialize events.",
+          "chunk": "10"
+        }
+      ]
+    },
+    "question": "Which feature of the Secret Network blockchain platform relies on a fully consistent consensus layer to function correctly?",
+    "options": {
+      "A": "Serialization of events to ensure the order of transactions is maintained",
+      "B": "Smart contract execution environment to enable decentralized application hosting",
+      "C": "Encryption mechanisms that safeguard transaction privacy and confidentiality",
+      "D": "Peer discovery protocols to enhance network scalability and performance"
+    },
+    "correct_answer": "A",
+    "explanation": "The Secret Network relies on a fully consistent consensus layer specifically to serialize events, which ensures the correct order of transactions. This feature is crucial for maintaining the integrity and chronological accuracy of transactions on the blockchain.",
+    "path_description": "Path: SecretNetwork --[type]--> BlockchainPlatform --[reliesOn]--> ConsistentConsensusLayer --[type]--> BlockchainFeature",
+    "context": "Only one application requires existential honesty (cf. Limitation 6): the Secret Network [13] does not validate the order of transactions the host provides. | Nine applications rely on a fully consistent consensus layer [13], [32], [35], [37], [38], [47], [48], [51], [54] to serialize events. | Nine applications rely on a fully consistent consensus layer [13], [32], [35], [37], [38], [47], [48], [51], [54] to serialize events.",
+    "paper_id": "1219"
+  },
+  {
+    "section": "pitfallsinteebasedblockchains8",
+    "path": {
+      "section": "pitfallsinteebasedblockchains8",
+      "start_entity": "SecretNetwork",
+      "end_entity": "Capability",
+      "hops": [
+        {
+          "from": "SecretNetwork",
+          "relation": "type",
+          "to": "BlockchainPlatform",
+          "context": "Only one application requires existential honesty (cf. Limitation 6): the Secret Network [13] does not validate the order of transactions the host provides.",
+          "chunk": "10"
+        },
+        {
+          "from": "BlockchainPlatform",
+          "relation": "canTolerate",
+          "to": "BlockchainForkTolerance",
+          "context": "18 platforms can tolerate blockchain forks (cf. Limitation 7).",
+          "chunk": "10"
+        },
+        {
+          "from": "BlockchainForkTolerance",
+          "relation": "type",
+          "to": "Capability",
+          "context": "18 platforms can tolerate blockchain forks (cf. Limitation 7).",
+          "chunk": "10"
+        }
+      ]
+    },
+    "question": "Which capability uniquely distinguishes Secret Network from other blockchain platforms in terms of transaction order validation and fork tolerance?",
+    "options": {
+      "A": "Secret Network and all other blockchain platforms lack the capability to validate transaction orders but can tolerate blockchain forks.",
+      "B": "Secret Network uniquely has the capability to validate the order of transactions and cannot tolerate blockchain forks.",
+      "C": "All blockchain platforms, including Secret Network, have the capability to validate transaction orders and tolerate blockchain forks.",
+      "D": "Secret Network uniquely lacks the capability to validate transaction orders, but can tolerate blockchain forks."
+    },
+    "correct_answer": "D",
+    "explanation": "According to the paper, Secret Network does not validate the order of transactions provided by the host, distinguishing it from other platforms that may have this capability. Moreover, like many other platforms, it can tolerate blockchain forks. Thus, its unique position is its inability to validate transaction orders while still being able to handle forks.",
+    "path_description": "Path: SecretNetwork --[type]--> BlockchainPlatform --[canTolerate]--> BlockchainForkTolerance --[type]--> Capability",
+    "context": "Only one application requires existential honesty (cf. Limitation 6): the Secret Network [13] does not validate the order of transactions the host provides. | 18 platforms can tolerate blockchain forks (cf. Limitation 7). | 18 platforms can tolerate blockchain forks (cf. Limitation 7).",
+    "paper_id": "1219"
+  },
+  {
+    "section": "pitfallsinteebasedblockchains8",
+    "path": {
+      "section": "pitfallsinteebasedblockchains8",
+      "start_entity": "CreDB",
+      "end_entity": "BlockchainFeature",
+      "hops": [
+        {
+          "from": "CreDB",
+          "relation": "type",
+          "to": "BlockchainPlatform",
+          "context": "Note that CreDB [52] does not provide enough details about the underlying blockchain to determine if it is subject to any limitation.",
+          "chunk": "10"
+        },
+        {
+          "from": "BlockchainPlatform",
+          "relation": "provides",
+          "to": "CurrentBlockAvailability",
+          "context": "two applications make the current block available to their clients [1], [43].",
+          "chunk": "10"
+        },
+        {
+          "from": "CurrentBlockAvailability",
+          "relation": "type",
+          "to": "BlockchainFeature",
+          "context": "two applications make the current block available to their clients [1], [43].",
+          "chunk": "10"
+        }
+      ]
+    },
+    "question": "Considering the CreDB system in the context of blockchain platforms, which feature related to the availability of the current block is most accurately described?",
+    "options": {
+      "A": "CreDB primarily focuses on historical data blocks rather than providing access to the current block.",
+      "B": "CreDB inherently includes features that allow current block availability to be accessed by clients.",
+      "C": "CreDB guarantees that all transactional data in the current block is available to all participants.",
+      "D": "CreDB, while a blockchain platform, does not specify features that ensure current block availability."
+    },
+    "correct_answer": "D",
+    "explanation": "The paper notes that CreDB does not provide sufficient detail about its underlying blockchain, particularly in terms of features related to the availability of the current block. Therefore, it cannot be confirmed that CreDB has specific features ensuring current block availability, making option B the correct answer.",
+    "path_description": "Path: CreDB --[type]--> BlockchainPlatform --[provides]--> CurrentBlockAvailability --[type]--> BlockchainFeature",
+    "context": "Note that CreDB [52] does not provide enough details about the underlying blockchain to determine if it is subject to any limitation. | two applications make the current block available to their clients [1], [43]. | two applications make the current block available to their clients [1], [43].",
+    "paper_id": "1219"
+  },
+  {
+    "section": "casestudies6",
+    "path": {
+      "section": "casestudies6",
+      "start_entity": "Adversary",
+      "end_entity": "Entity",
+      "hops": [
+        {
+          "from": "Adversary",
+          "relation": "feeds",
+          "to": "CloneOfEnclave",
+          "context": "Next, the adversary receives a new block from an L1 node (step 1) and feeds it to both clones (step 2).",
+          "chunk": "16"
+        },
+        {
+          "from": "CloneOfEnclave",
+          "relation": "generates",
+          "to": "NonceN",
+          "context": "The enclaves generate random nonces N and N′, respectively, and include them in the proposed rollup (step 3).",
+          "chunk": "16"
+        },
+        {
+          "from": "NonceN",
+          "relation": "type",
+          "to": "Entity",
+          "context": "The enclaves generate random nonces N and N′, respectively, and include them in the proposed rollup (step 3).",
+          "chunk": "16"
+        }
+      ]
+    },
+    "question": "In the context of adversarial actions within a blockchain security framework, how does the adversary utilize the clone of an enclave to manipulate rollup proposals?",
+    "options": {
+      "A": "The adversary feeds a new block to the clone of the enclave, which generates a random nonce that is included in the rollup proposal.",
+      "B": "The adversary intercepts the nonce from the original enclave before it reaches the clone, thereby disrupting the rollup process.",
+      "C": "The adversary reprograms the clone of the enclave to prevent it from generating any nonce, thus stalling the rollup proposal.",
+      "D": "The adversary directly manipulates the nonce generated by the clone of the enclave to alter the hash of the rollup proposal."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A, as the adversary feeds a new block to the clone of the enclave which then generates a random nonce N. This nonce is included in the proposed rollup, as stated in the context from the paper. Options B, C, and D provide plausible scenarios but do not align with the described process in which the clone independently generates a nonce upon receiving a block from the adversary.",
+    "path_description": "Path: Adversary --[feeds]--> CloneOfEnclave --[generates]--> NonceN --[type]--> Entity",
+    "context": "Next, the adversary receives a new block from an L1 node (step 1) and feeds it to both clones (step 2). | The enclaves generate random nonces N and N′, respectively, and include them in the proposed rollup (step 3). | The enclaves generate random nonces N and N′, respectively, and include them in the proposed rollup (step 3).",
+    "paper_id": "1219"
+  },
+  {
+    "section": "casestudies6",
+    "path": {
+      "section": "casestudies6",
+      "start_entity": "Adversary",
+      "end_entity": "Entity",
+      "hops": [
+        {
+          "from": "Adversary",
+          "relation": "starts",
+          "to": "TenEnclave",
+          "context": "The adversary starts a Ten enclave that completes enrollment, obtains the master seed, and seals cryptographic keys to disk.",
+          "chunk": "16"
+        },
+        {
+          "from": "TenEnclave",
+          "relation": "obtains",
+          "to": "MasterSeed",
+          "context": "The adversary starts a Ten enclave that completes enrollment, obtains the master seed, and seals cryptographic keys to disk.",
+          "chunk": "16"
+        },
+        {
+          "from": "MasterSeed",
+          "relation": "type",
+          "to": "Entity",
+          "context": "The adversary starts a Ten enclave that completes enrollment, obtains the master seed, and seals cryptographic keys to disk.",
+          "chunk": "16"
+        }
+      ]
+    },
+    "question": "In the process described in the 'casestudies6' section, what is the role of the master seed in the context of the adversary starting the TenEnclave?",
+    "options": {
+      "A": "The master seed is used by the adversary to decrypt the cryptographic keys sealed to disk.",
+      "B": "The master seed acts as a random number generator for creating session IDs in the TenEnclave.",
+      "C": "The master seed is a cryptographic entity that aids in the enrollment process of the TenEnclave.",
+      "D": "The master seed is primarily a backup mechanism for data recovery in case of enclave compromise."
+    },
+    "correct_answer": "A",
+    "explanation": "The master seed is obtained by the adversary after starting and completing enrollment in the TenEnclave. It is then used to decrypt cryptographic keys that have been sealed to disk, aligning with typical use cases of master seeds in cryptographic processes, which include decryption of sealed data.",
+    "path_description": "Path: Adversary --[starts]--> TenEnclave --[obtains]--> MasterSeed --[type]--> Entity",
+    "context": "The adversary starts a Ten enclave that completes enrollment, obtains the master seed, and seals cryptographic keys to disk. | The adversary starts a Ten enclave that completes enrollment, obtains the master seed, and seals cryptographic keys to disk. | The adversary starts a Ten enclave that completes enrollment, obtains the master seed, and seals cryptographic keys to disk.",
+    "paper_id": "1219"
+  },
+  {
+    "section": "casestudies6",
+    "path": {
+      "section": "casestudies6",
+      "start_entity": "Adversary",
+      "end_entity": "Entity",
+      "hops": [
+        {
+          "from": "Adversary",
+          "relation": "creates",
+          "to": "CloneOfEnclave",
+          "context": "Hence, the adversary creates a clone of the enclave on the same machine.",
+          "chunk": "16"
+        },
+        {
+          "from": "CloneOfEnclave",
+          "relation": "generates",
+          "to": "NonceN",
+          "context": "The enclaves generate random nonces N and N′, respectively, and include them in the proposed rollup (step 3).",
+          "chunk": "16"
+        },
+        {
+          "from": "NonceN",
+          "relation": "type",
+          "to": "Entity",
+          "context": "The enclaves generate random nonces N and N′, respectively, and include them in the proposed rollup (step 3).",
+          "chunk": "16"
+        }
+      ]
+    },
+    "question": "In the context of secure computing, how does the adversary utilize the clone of an enclave to manipulate a cryptographic protocol?",
+    "options": {
+      "A": "The adversary directs the clone to alter the encryption algorithms within the enclave, thus weakening the cryptographic protocol.",
+      "B": "The adversary uses the clone to generate a random nonce that is included in a cryptographic rollup, potentially compromising its integrity.",
+      "C": "The cloned enclave is employed to create duplicate security certificates, which are then used to impersonate the original enclave.",
+      "D": "The clone of the enclave is used by the adversary to directly decrypt secure communications without generating any additional cryptographic entities."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A because the knowledge path indicates that the clone of the enclave, created by the adversary, generates a nonce (NonceN). This nonce is included in a cryptographic rollup as part of the protocol, which could compromise the integrity of the protocol if the adversary manipulates or predicts the nonce.",
+    "path_description": "Path: Adversary --[creates]--> CloneOfEnclave --[generates]--> NonceN --[type]--> Entity",
+    "context": "Hence, the adversary creates a clone of the enclave on the same machine. | The enclaves generate random nonces N and N′, respectively, and include them in the proposed rollup (step 3). | The enclaves generate random nonces N and N′, respectively, and include them in the proposed rollup (step 3).",
+    "paper_id": "1219"
+  }
+]

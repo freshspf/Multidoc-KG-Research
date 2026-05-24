@@ -1,0 +1,45 @@
+[
+  {
+    "section": "linearizationoftheerrorstatedynamics",
+    "path": {
+      "section": "linearizationoftheerrorstatedynamics",
+      "start_entity": "ErrorState",
+      "end_entity": "State",
+      "hops": [
+        {
+          "from": "ErrorState",
+          "relation": "controlledBy",
+          "to": "ErrorControl",
+          "context": "where δx is the current error state and δu is the current error control",
+          "chunk": "2"
+        },
+        {
+          "from": "ErrorControl",
+          "relation": "partOf",
+          "to": "ErrorState",
+          "context": "where δx is the current error state and δu is the current error control",
+          "chunk": "2"
+        },
+        {
+          "from": "ErrorState",
+          "relation": "type",
+          "to": "State",
+          "context": "where δx is the current error state and δu is the current error control",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the process of linearizing the error state dynamics, how does the error control influence the error state type?",
+    "options": {
+      "A": "Error control stabilizes the system state, but does not influence the type of error state as they are independent variables.",
+      "B": "Error control modifies the output state, which subsequently alters the type of error state via external feedback.",
+      "C": "Error control adjusts the system parameters, indirectly affecting the type of error state through system feedback mechanisms.",
+      "D": "Error control directly controls the error state, which is a specific type of state in the system dynamics."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A because, according to the knowledge path, the error control (δu) directly controls the error state (δx). The error state, in turn, is a specific type of the overall system state, illustrating a direct influence of error control on the type of error state.",
+    "path_description": "Path: ErrorState --[controlledBy]--> ErrorControl --[partOf]--> ErrorState --[type]--> State",
+    "context": "where δx is the current error state and δu is the current error control | where δx is the current error state and δu is the current error control | where δx is the current error state and δu is the current error control",
+    "paper_id": "1098"
+  }
+]

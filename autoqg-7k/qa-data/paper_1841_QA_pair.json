@@ -1,0 +1,303 @@
+[
+  {
+    "section": "draftoverview",
+    "path": {
+      "section": "draftoverview",
+      "start_entity": "OnlineComponent",
+      "end_entity": "LLMCapacity",
+      "hops": [
+        {
+          "from": "OnlineComponent",
+          "relation": "partOf",
+          "to": "DRAFT",
+          "context": "As demonstrated in Figure 5, DRAFT has an offline and an online component.",
+          "chunk": "4"
+        },
+        {
+          "from": "DRAFT",
+          "relation": "combines",
+          "to": "FineTuning",
+          "context": "DRAFT combines few-shot RAG and fine-tuning to overcome their individual limitations.",
+          "chunk": "4"
+        },
+        {
+          "from": "FineTuning",
+          "relation": "enhances",
+          "to": "LLMCapacity",
+          "context": "Furthermore, our previous research demonstrated that fine-tuning not only enhances LLMs capacity to generate more accurate ADDs.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "Which component of DRAFT specifically contributes to enhancing the capacity of LLMs through the process of fine-tuning?",
+    "options": {
+      "A": "The fine-tuning process that is a combined effort of both the online and offline components.",
+      "B": "The offline component that exclusively handles data preprocessing and management.",
+      "C": "The integration of external datasets that are not part of the original DRAFT framework.",
+      "D": "The online component which includes few-shot RAG as part of the DRAFT framework."
+    },
+    "correct_answer": "D",
+    "explanation": "The online component of DRAFT, which incorporates few-shot RAG and fine-tuning, specifically contributes to enhancing the capacity of LLMs. The fine-tuning aspect is a part of the online component, as indicated by the knowledge path: OnlineComponent --[partOf]--> DRAFT --[combines]--> FineTuning --[enhances]--> LLMCapacity.",
+    "path_description": "Path: OnlineComponent --[partOf]--> DRAFT --[combines]--> FineTuning --[enhances]--> LLMCapacity",
+    "context": "As demonstrated in Figure 5, DRAFT has an offline and an online component. | DRAFT combines few-shot RAG and fine-tuning to overcome their individual limitations. | Furthermore, our previous research demonstrated that fine-tuning not only enhances LLMs capacity to generate more accurate ADDs.",
+    "paper_id": "876"
+  },
+  {
+    "section": "draftdomainspecificretrievalaugmentedfewshottuning1",
+    "path": {
+      "section": "draftdomainspecificretrievalaugmentedfewshottuning1",
+      "start_entity": "DRAFT",
+      "end_entity": "PromptProcessing",
+      "hops": [
+        {
+          "from": "DRAFT",
+          "relation": "hasPhase",
+          "to": "OfflinePhase",
+          "context": "DRAFT operates in 2 phases: an offline and an online phase.",
+          "chunk": "5"
+        },
+        {
+          "from": "OfflinePhase",
+          "relation": "uses",
+          "to": "GeneratorTraining",
+          "context": "In this phase, we execute the Generator Training procedure to fine-tune a foundational model for producing Decision based on given Contexts and similar retrieved examples.",
+          "chunk": "5"
+        },
+        {
+          "from": "GeneratorTraining",
+          "relation": "includes",
+          "to": "PromptProcessing",
+          "context": "Algorithm 2 then takes over to construct few-shot prompts for fine-tuning the generative LLM.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the DRAFT model's offline phase, which component is primarily responsible for the construction of few-shot prompts to fine-tune the generative language model?",
+    "options": {
+      "A": "The foundational model itself, which autonomously generates few-shot prompts without additional processing.",
+      "B": "The Prompt Processing step, which directly handles the construction of few-shot prompts for fine-tuning.",
+      "C": "The Algorithm 2 process, which utilizes the output of the Generator Training to construct few-shot prompts.",
+      "D": "The Generator Training procedure, which fine-tunes foundational models based on contexts and retrieved examples."
+    },
+    "correct_answer": "C",
+    "explanation": "Following the knowledge path from the DRAFT model, the offline phase uses Generator Training to fine-tune foundational models, which then feed into Algorithm 2. Algorithm 2 is responsible for constructing few-shot prompts based on the output of the Generator Training, aligning with the correct answer.",
+    "path_description": "Path: DRAFT --[hasPhase]--> OfflinePhase --[uses]--> GeneratorTraining --[includes]--> PromptProcessing",
+    "context": "DRAFT operates in 2 phases: an offline and an online phase. | In this phase, we execute the Generator Training procedure to fine-tune a foundational model for producing Decision based on given Contexts and similar retrieved examples. | Algorithm 2 then takes over to construct few-shot prompts for fine-tuning the generative LLM.",
+    "paper_id": "876"
+  },
+  {
+    "section": "draftdomainspecificretrievalaugmentedfewshottuning2",
+    "path": {
+      "section": "draftdomainspecificretrievalaugmentedfewshottuning2",
+      "start_entity": "GenerativeLlmFineTuning",
+      "end_entity": "Dataset",
+      "hops": [
+        {
+          "from": "GenerativeLlmFineTuning",
+          "relation": "appliedTo",
+          "to": "LLMbase",
+          "context": "1: procedure GenerativeLlmFineTuning(LLMbase, Pdataset)",
+          "chunk": "6"
+        },
+        {
+          "from": "LLMbase",
+          "relation": "trainedOn",
+          "to": "Pdataset",
+          "context": "1: procedure GenerativeLlmFineTuning(LLMbase, Pdataset)",
+          "chunk": "6"
+        },
+        {
+          "from": "Pdataset",
+          "relation": "type",
+          "to": "Dataset",
+          "context": "1: procedure GenerativeLlmFineTuning(LLMbase, Pdataset)",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the context of the procedure GenerativeLlmFineTuning applied to an LLMbase that is trained on Pdataset, what type of data best describes Pdataset?",
+    "options": {
+      "A": "Pdataset includes primarily numerical data used for statistical analysis.",
+      "B": "Pdataset is primarily a collection of general, non-specialized text data.",
+      "C": "Pdataset is a specialized dataset tailored for domain-specific applications.",
+      "D": "Pdataset is an image dataset used primarily for vision-based machine learning models."
+    },
+    "correct_answer": "C",
+    "explanation": "GenerativeLlmFineTuning implies a specific approach to fine-tuning language models (LLMs) for particular tasks or domains. The base LLM being trained on Pdataset, which is a type of dataset, indicates that Pdataset must be specialized to effectively augment the LLM's performance in those specific domains or tasks.",
+    "path_description": "Path: GenerativeLlmFineTuning --[appliedTo]--> LLMbase --[trainedOn]--> Pdataset --[type]--> Dataset",
+    "context": "1: procedure GenerativeLlmFineTuning(LLMbase, Pdataset) | 1: procedure GenerativeLlmFineTuning(LLMbase, Pdataset) | 1: procedure GenerativeLlmFineTuning(LLMbase, Pdataset)",
+    "paper_id": "876"
+  },
+  {
+    "section": "experimentsandevaluation4",
+    "path": {
+      "section": "experimentsandevaluation4",
+      "start_entity": "Authors",
+      "end_entity": "Insights",
+      "hops": [
+        {
+          "from": "Authors",
+          "relation": "reviewed",
+          "to": "Feedback",
+          "context": "two of the authors independently reviewed the feedback provided by each participant and compiled a list of observations.",
+          "chunk": "11"
+        },
+        {
+          "from": "Feedback",
+          "relation": "compiledInto",
+          "to": "Observations",
+          "context": "This list was subsequently consolidated into a single document, and meaningful insights were extracted during a meeting with all the authors.",
+          "chunk": "11"
+        },
+        {
+          "from": "Observations",
+          "relation": "extractedTo",
+          "to": "Insights",
+          "context": "This list was subsequently consolidated into a single document, and meaningful insights were extracted during a meeting with all the authors.",
+          "chunk": "11"
+        }
+      ]
+    },
+    "question": "In the process described in the 'experimentsandevaluation4' section, what was the immediate outcome of consolidating the list of observations into a single document?",
+    "options": {
+      "A": "The document was published as a preliminary report for public commentary.",
+      "B": "Meaningful insights were extracted during a meeting with all the authors.",
+      "C": "The observations were distributed among external reviewers for further analysis.",
+      "D": "A new round of participant feedback was initiated to refine the observations."
+    },
+    "correct_answer": "B",
+    "explanation": "According to the context provided, after the observations were compiled and consolidated into a single document, the next step involved extracting meaningful insights, which occurred during a meeting with all authors. Options A, C, and D, although plausible, do not directly follow from the consolidation of the document into insights, as described in the paper.",
+    "path_description": "Path: Authors --[reviewed]--> Feedback --[compiledInto]--> Observations --[extractedTo]--> Insights",
+    "context": "two of the authors independently reviewed the feedback provided by each participant and compiled a list of observations. | This list was subsequently consolidated into a single document, and meaningful insights were extracted during a meeting with all the authors. | This list was subsequently consolidated into a single document, and meaningful insights were extracted during a meeting with all the authors.",
+    "paper_id": "876"
+  },
+  {
+    "section": "experimentsandevaluation5",
+    "path": {
+      "section": "experimentsandevaluation5",
+      "start_entity": "Llama-3-8b-it",
+      "end_entity": "Method",
+      "hops": [
+        {
+          "from": "Llama-3-8b-it",
+          "relation": "performsBetterWith",
+          "to": "DRAFT",
+          "context": "In contrast, users reported better overall performance when using Llama-3-8b-it alongside DRAFT, as reflected in their feedback.",
+          "chunk": "12"
+        },
+        {
+          "from": "DRAFT",
+          "relation": "comparedWith",
+          "to": "Prompting",
+          "context": "Responses generated by DRAFT tended to be shorter, and contained less reasoning compared to those produced by Prompting and RAG.",
+          "chunk": "12"
+        },
+        {
+          "from": "Prompting",
+          "relation": "type",
+          "to": "Method",
+          "context": "Responses generated by DRAFT tended to be shorter, and contained less reasoning compared to those produced by Prompting and RAG.",
+          "chunk": "12"
+        }
+      ]
+    },
+    "question": "Which method, when utilized with Llama-3-8b-it, was reported to perform better than when using traditional prompting techniques?",
+    "options": {
+      "A": "RAG, as it generates longer responses with more detailed reasoning than DRAFT.",
+      "B": "Prompting alone, noted for its ability to generate extensive reasoning in responses.",
+      "C": "A combination of RAG and Prompting, to leverage both detailed and extensive reasoning.",
+      "D": "DRAFT, as it was specifically compared and reviewed for performance benefits in the study."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A. According to the context provided, users reported better overall performance specifically when using Llama-3-8b-it alongside DRAFT, compared to traditional prompting methods. This information derives specifically from user feedback noting the performance benefits of DRAFT over Prompting in the context of working with Llama-3-8b-it.",
+    "path_description": "Path: Llama-3-8b-it --[performsBetterWith]--> DRAFT --[comparedWith]--> Prompting --[type]--> Method",
+    "context": "In contrast, users reported better overall performance when using Llama-3-8b-it alongside DRAFT, as reflected in their feedback. | Responses generated by DRAFT tended to be shorter, and contained less reasoning compared to those produced by Prompting and RAG. | Responses generated by DRAFT tended to be shorter, and contained less reasoning compared to those produced by Prompting and RAG.",
+    "paper_id": "876"
+  },
+  {
+    "section": "relatedwork",
+    "path": {
+      "section": "relatedwork",
+      "start_entity": "ChatGPT",
+      "end_entity": "Documentation",
+      "hops": [
+        {
+          "from": "ChatGPT",
+          "relation": "type",
+          "to": "AIAssistant",
+          "context": "With the rise of general-purpose AI assistants like ChatGPT and Gemini...",
+          "chunk": "15"
+        },
+        {
+          "from": "AIAssistant",
+          "relation": "proposedFor",
+          "to": "ADRs",
+          "context": "To address this issue, researchers have proposed various approaches, including the development of an AI assistant.",
+          "chunk": "15"
+        },
+        {
+          "from": "ADRs",
+          "relation": "type",
+          "to": "Documentation",
+          "context": "The domain of documenting ADDs and maintaining ADRs has always been challenging.",
+          "chunk": "15"
+        }
+      ]
+    },
+    "question": "What is the primary purpose of developing AI assistants like ChatGPT in the context of handling ADRs?",
+    "options": {
+      "A": "To improve the efficiency of machine learning models in data analysis tasks.",
+      "B": "To enhance the speed and accuracy of documenting architecture design rationales.",
+      "C": "To provide entertainment and general information to users through conversation.",
+      "D": "To facilitate real-time communication between different AI systems."
+    },
+    "correct_answer": "B",
+    "explanation": "The question requires understanding the proposed function of AI assistants like ChatGPT in relation to ADRs, which is architecture design rationales. Option A is correct as it directly addresses the use of AI assistants for enhancing the documentation process, which aligns with the information in the paper about the challenges in documenting ADDs and maintaining ADRs. The other options, while related to potential uses of AI assistants, do not pertain specifically to ADRs and the context provided.",
+    "path_description": "Path: ChatGPT --[type]--> AIAssistant --[proposedFor]--> ADRs --[type]--> Documentation",
+    "context": "With the rise of general-purpose AI assistants like ChatGPT and Gemini... | To address this issue, researchers have proposed various approaches, including the development of an AI assistant. | The domain of documenting ADDs and maintaining ADRs has always been challenging.",
+    "paper_id": "876"
+  },
+  {
+    "section": "discussion",
+    "path": {
+      "section": "discussion",
+      "start_entity": "SmallerLLMs",
+      "end_entity": "ModelType",
+      "hops": [
+        {
+          "from": "SmallerLLMs",
+          "relation": "performWellWith",
+          "to": "DRAFT",
+          "context": "Our study demonstrated that smaller LLMs tend to perform well with DRAFT.",
+          "chunk": "13"
+        },
+        {
+          "from": "DRAFT",
+          "relation": "enhances",
+          "to": "LLMs",
+          "context": "DRAFT significantly enhances the performance of LLMs in generating ADDs.",
+          "chunk": "13"
+        },
+        {
+          "from": "LLMs",
+          "relation": "type",
+          "to": "ModelType",
+          "context": "DRAFT significantly enhances the performance of LLMs in generating ADDs.",
+          "chunk": "13"
+        }
+      ]
+    },
+    "question": "In the context of the model types enhanced by the DRAFT protocol, what is the primary effect observed in smaller LLMs when utilizing DRAFT?",
+    "options": {
+      "A": "Smaller LLMs using DRAFT primarily show enhanced capabilities in basic natural language understanding tasks.",
+      "B": "Smaller LLMs leveraging DRAFT show improved performance in generating advanced dialogue directives (ADDs).",
+      "C": "DRAFT primarily helps smaller LLMs in reducing the computational resources needed for complex model training.",
+      "D": "The primary effect of DRAFT on smaller LLMs is the increased speed of model training without quality compromise."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A, as the knowledge graph and the context clearly indicate that DRAFT enhances the performance of smaller LLMs specifically in generating advanced dialogue directives (ADDs). The other options, while plausible, do not align with the specific enhancement described in the context.",
+    "path_description": "Path: SmallerLLMs --[performWellWith]--> DRAFT --[enhances]--> LLMs --[type]--> ModelType",
+    "context": "Our study demonstrated that smaller LLMs tend to perform well with DRAFT. | DRAFT significantly enhances the performance of LLMs in generating ADDs. | DRAFT significantly enhances the performance of LLMs in generating ADDs.",
+    "paper_id": "876"
+  }
+]

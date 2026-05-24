@@ -1,0 +1,174 @@
+[
+  {
+    "section": "problemformulation",
+    "path": {
+      "section": "problemformulation",
+      "start_entity": "RapidlyExploringRandomTreeStarVariant",
+      "end_entity": "OutputConstraints",
+      "hops": [
+        {
+          "from": "RapidlyExploringRandomTreeStarVariant",
+          "relation": "isTypeOf",
+          "to": "Planner",
+          "context": "or a Rapidly-exploring Random Tree Star variant.",
+          "chunk": "2"
+        },
+        {
+          "from": "Planner",
+          "relation": "mapsStateToInput",
+          "to": "SystemSigma",
+          "context": "Assume we are given a planner that maps the state x(t) of Σ to a control input u(t).",
+          "chunk": "2"
+        },
+        {
+          "from": "SystemSigma",
+          "relation": "hasOutputConstraint",
+          "to": "OutputConstraints",
+          "context": "output constraints y(t) ∈ Y.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the context of a planner using a Rapidly-exploring Random Tree Star variant, which statement correctly describes the relationship between the planner and the system's output constraints?",
+    "options": {
+      "A": "Output constraints y(t) ∈ Y directly influence the planner's ability to generate a state mapping via the system Sigma.",
+      "B": "The planner's primary function is to modify the output constraints to achieve optimal state transitions over time.",
+      "C": "The planner translates the system's state into control inputs, which subsequently adhere to predefined output constraints y(t) ∈ Y.",
+      "D": "The planner maps the state of the system directly to the output constraints within the set Y."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is B because it correctly traces the relationship from the planner (which maps the system's state to control inputs) through the system Sigma to the output constraints, maintaining the logical flow and dependencies indicated in the knowledge path. A, C, and D are incorrect because they either misrepresent the direction of influence or the function of the planner and its interaction with the system Sigma and output constraints.",
+    "path_description": "Path: RapidlyExploringRandomTreeStarVariant --[isTypeOf]--> Planner --[mapsStateToInput]--> SystemSigma --[hasOutputConstraint]--> OutputConstraints",
+    "context": "or a Rapidly-exploring Random Tree Star variant. | Assume we are given a planner that maps the state x(t) of Σ to a control input u(t). | output constraints y(t) ∈ Y.",
+    "paper_id": "462"
+  },
+  {
+    "section": "layeredmultiratecontrolofconstrainedlinearsystems",
+    "path": {
+      "section": "layeredmultiratecontrolofconstrainedlinearsystems",
+      "start_entity": "Planner",
+      "end_entity": "Algorithm",
+      "hops": [
+        {
+          "from": "Planner",
+          "relation": "parametrizedBy",
+          "to": "PolyhedralConstraintSets",
+          "context": "parametrized by constraint sets",
+          "chunk": "6"
+        },
+        {
+          "from": "PolyhedralConstraintSets",
+          "relation": "usedIn",
+          "to": "ControlLaw",
+          "context": "we consider polyhedral constraint sets for",
+          "chunk": "6"
+        },
+        {
+          "from": "ControlLaw",
+          "relation": "type",
+          "to": "Algorithm",
+          "context": "control law in (11)",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the context of the layered multirate control of constrained linear systems, how does the parametrization of planner by polyhedral constraint sets influence the type of control law algorithm?",
+    "options": {
+      "A": "Using polyhedral constraint sets in the planner simplifies the relationship mapping in the algorithm, enhancing system flexibility.",
+      "B": "Parametrization by polyhedral constraint sets primarily affects the computational complexity of the control algorithm, making it faster.",
+      "C": "Polyhedral constraint sets enable a more precise formulation of the control law, leading to more robust algorithmic performance.",
+      "D": "The planner's parametrization by polyhedral sets allows for simpler linear programming approaches, which simplifies the control algorithm."
+    },
+    "correct_answer": "C",
+    "explanation": "Polyhedral constraint sets provide a precise, geometrically defined framework for constraints in the planner. This precision directly affects how the control law is formulated, allowing for a more robust and effective algorithm to manage these constraints within the constraints of the linear system.",
+    "path_description": "Path: Planner --[parametrizedBy]--> PolyhedralConstraintSets --[usedIn]--> ControlLaw --[type]--> Algorithm",
+    "context": "parametrized by constraint sets | we consider polyhedral constraint sets for | control law in (11)",
+    "paper_id": "462"
+  },
+  {
+    "section": "computationofthematricesmandkusingsemidefiniteprogramming",
+    "path": {
+      "section": "computationofthematricesmandkusingsemidefiniteprogramming",
+      "start_entity": "A_Matrix",
+      "end_entity": "Parameter",
+      "hops": [
+        {
+          "from": "A_Matrix",
+          "relation": "relatedTo",
+          "to": "M_Tilde",
+          "context": "(A M˜ +B K˜ )",
+          "chunk": "12"
+        },
+        {
+          "from": "M_Tilde",
+          "relation": "optimizedFor",
+          "to": "Lambda",
+          "context": "max λ  (M˜ )",
+          "chunk": "12"
+        },
+        {
+          "from": "Lambda",
+          "relation": "type",
+          "to": "Parameter",
+          "context": "For a given λ (0, 1/2), we can compute the",
+          "chunk": "12"
+        }
+      ]
+    },
+    "question": "In the context of computing matrices using semidefinite programming, how does the optimization of matrix M˜ relate to the parameter λ?",
+    "options": {
+      "A": "Optimization of matrix M˜ indirectly affects λ by altering the constraints within the semidefinite program.",
+      "B": "The matrix M˜ is optimized without consideration of the parameter λ, focusing solely on computational efficiency.",
+      "C": "The optimization of matrix M˜ is directly related to maximizing the parameter λ, which ranges between 0 and 1/2.",
+      "D": "Matrix M˜ is optimized to minimize the parameter λ, ensuring stability in the resulting computational model."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A because the paper outlines that the optimization of matrix M˜ (M Tilde) is specifically for maximizing the parameter λ within the specified range of 0 to 1/2. This indicates a direct relationship aimed at maximizing λ as part of the semidefinite programming process.",
+    "path_description": "Path: A_Matrix --[relatedTo]--> M_Tilde --[optimizedFor]--> Lambda --[type]--> Parameter",
+    "context": "(A M˜ +B K˜ ) | max λ  (M˜ ) | For a given λ (0, 1/2), we can compute the",
+    "paper_id": "462"
+  },
+  {
+    "section": "computationofthematricesmandkusingsemidefiniteprogramming",
+    "path": {
+      "section": "computationofthematricesmandkusingsemidefiniteprogramming",
+      "start_entity": "IdentityMatrix",
+      "end_entity": "Parameter",
+      "hops": [
+        {
+          "from": "IdentityMatrix",
+          "relation": "relatedTo",
+          "to": "M_Tilde",
+          "context": "M˜ ≻0,K˜ I  CM˜",
+          "chunk": "12"
+        },
+        {
+          "from": "M_Tilde",
+          "relation": "optimizedFor",
+          "to": "Lambda",
+          "context": "max λ  (M˜ )",
+          "chunk": "12"
+        },
+        {
+          "from": "Lambda",
+          "relation": "type",
+          "to": "Parameter",
+          "context": "For a given λ (0, 1/2), we can compute the",
+          "chunk": "12"
+        }
+      ]
+    },
+    "question": "In the context of semidefinite programming used for optimizing matrices, what does the parameter λ represent when computing M˜ and K˜?",
+    "options": {
+      "A": "λ is the scaling factor for matrix K˜, affecting its alignment with the identity matrix.",
+      "B": "λ symbolizes the eigenvalue maximum, crucial for determining the stability of matrix M˜.",
+      "C": "λ represents a regularization parameter that influences the condition number of matrix M˜.",
+      "D": "λ denotes the boundary parameter that specifies the computational limits within the matrix K˜."
+    },
+    "correct_answer": "B",
+    "explanation": "In the given context, λ represents the maximum eigenvalue, which is crucial for determining the stability and performance of the matrix M˜ in semidefinite programming. This is derived from the reference to 'max λ (M˜)', indicating optimization focused on eigenvalues.",
+    "path_description": "Path: IdentityMatrix --[relatedTo]--> M_Tilde --[optimizedFor]--> Lambda --[type]--> Parameter",
+    "context": "M˜ ≻0,K˜ I  CM˜ | max λ  (M˜ ) | For a given λ (0, 1/2), we can compute the",
+    "paper_id": "462"
+  }
+]

@@ -1,0 +1,42 @@
+[
+  {
+    "id": "background",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Background",
+      "page_start": 2,
+      "page_end": 2
+    },
+    "text": "Consider a continuous time control-affine system:\nx˙ = f(x) + g(x)u,  u ∈ U,  (1)\nRn  Rn  Rn  Rn×m\nwhere f :  →  , g :  →  are locally Lipschitz\nRn\ncontinuous, x ∈ D ⊆  is the state with domain D, u is\nRm\nthe control input, and U ⊆  is the control input constraint\n\nset, which we assume to be a convex polyhedron. We denote\nthe solution of (1) at time t ≥ 0 by x(t).\nGiven a set X ⊆ D that represents a safe subset of the\nstate space, the general objective of safe control design is\nto find a control law π(x) that renders X forward invariant\nunder the closed-loop dynamics x˙ = f(x)+g(x)π(x), i.e., if\nx(t0) ∈ X for some t0 ≥ 0, then x(t) ∈ X for all t ≥ t0. In\nthis paper, we assume that the safe set can be characterized\n0\nby the 0-superlevel set of a continuous function c(·) ∈ C ,\n+\nX = L0 (c) = {x | c(x) ≥ 0}.  (2)\nA. Control Barrier Functions (CBFs)\nRn  R\nA continuously differentiable function h:  →  is a\nCBF if the following conditions hold: (i) The 0-super level\nset of h is contained in X , i.e,\n+\nL0 (h) = {x | h(x) ≥ 0} ⊆ X.  (3)\n(ii) A Lyapunov-like condition on the whole domain:\n⊤\nsup{∇h(x)  (f(x) + g(x)u)}+α(h(x)) ≥ 0 ∀x ∈ D,  (4)\nu∈U\nwhere α is an extended class K function, typically chosen\nto be linear, α(h(x)) = γh(x), γ > 0. If the system has\nRm\nunbounded actuation, u ∈  , (4) becomes equivalent to\n⊤  ⊤\n∇h(x)  g(x) = 0 =⇒ ∇h(x)  f(x) + α(h(x)) ≥ 0.  (5)\n+\nThe above conditions together ensure that L0 (h) is a control\ninvariant subset of X .\nWe denote the class of all admissible CBFs by H:\n1\nH = {h ∈ C  | h  satisfies (3) and (4)}.  (6)\nThe CBF can be used as a safety filter, framed as a convex\nQP, to ensure safety for a given baseline control policy ur(x),\n2\nus(x) := argminu∈U ∥u − ur(x)∥  (7)\n⊤\ns.t. ∇h(x)  (f(x) + g(x)u) + α(h(x)) ≥ 0,\nB. Neural Network-based CBF\nThe function c(·), which defines the boundary of the safe\nset X , often fails to qualify as a CBF, either due to a lack of\ndifferentiability or because it does not satisfy the invariance\ncondition (4). Thus, we must construct a CBF, either on a case-\nby-case basis or using function approximation techniques.\nRn  R\nSpecifically,  let hθ(x) :  →  be the parameterized\nfunction approximator. The parameters θ can be found\nby solving the following self-supervise risk minimization\nproblem, in which the violation of both conditions (3) and\n(4) is penalized:\n2  2\nminEx∼ρ[(−Iγ(hθ(x)))+ + λ(hθ(x) − c(x))  ],  (8)\n+\nθ\nHere ρ is typically a uniform distribution over D and\n⊤\nIγ(h) := sup{∇h(x)  (f(x) + g(x)u)}+γh(x).\n(9)\nu∈U\nThis approach, however,  focuses solely on satisfying the\ninvariance conditions and does not  incorporate notions of\nperformance. Consequently,  it may  result  in an overly\nconservative CBF in practice."
+  },
+  {
+    "id": "mainideadomainadaptationviaoperatorlearning",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Main Idea: Domain Adaptation via Operator Learning",
+      "page_start": 3,
+      "page_end": 3
+    },
+    "text": "The learned solution of problem (15) will be valid only\nfor a specific environment defined by the function c(·). As a\nresult, it cannot be deployed in novel environments without\nretraining. This limits its generalization and usefulness in\nreal-time applications.\nInstead of retraining a new CBF for each different envi-\nronment, we propose to learn the solution operator of the\n0\nPDE. Formally, given any c(·) ∈ C and the corresponding\n1\nsolution h(·) ∈ C  that satisfies Nγ(c(x), h(x)) = 0 ∀x, we\n0  1\ndefine the solution operator G : C → C  as\nh(x) = G(c(x)).  (16)\nG(·)  is a nonlinear operator  that maps between infinite\ndimensional Banach spaces. To approximately learn this\nmap, we assume that the input function c(·) is parameterized\nRne\nby a finite-dimensional vector e ∈  that represents the\nparameters of the environment, e.g., the location and sizes\nof obstacles. Under this assumption, we can abstract the safe\nset as X = {x | c(x, e) ≥ 0}.\nBy viewing the environment parameters as “virtual” states\nwithout dynamics, i.e., e˙ = 0, we define the augmented state\nas ξ = (x, e), obeying the following dynamics,\n˙  aug  aug\nξ = f  (ξ) + g  (ξ)u,  (17)\nwhere\n(cid:20)  (cid:21)  (cid:20)  (cid:21)\naug  f(x)  aug  g(x)\nf  (ξ) =  ,  g  (ξ) =  .  (18)\n0  0\nUsing this augmentation, our approach is to learn a neural\nCBF in the joint space of the states and the environment\nparameters using a loss akin to (15),\nE  2\nmin  ξ∼ρ[(Nγ(c(ξ), hθ(ξ))) ].  (19)\nθ\nIn the next subsection, we provide the details of the proposed\ntraining loss.\nA. Training Loss Function\nTo train the CBF operator, hθ(x, e), we adopt a similar\nprocedure as [6] which for each environment approximates\nthe maximal control invariant set characterized by the HJ\nPDE (14) and enhances the feasibility of the safety filter\nwith a CBF condition penalty term. We uniformly sample\nM\nthe environmental parameters E = {ei}i=1 and the states\nj N\nXe = {xe}j=1 for each environment. Then, we construct the\n(cid:83)M\ntotal dataset of joint states as Ξ =  i=1{ei} ×Xei , where\n× denotes the Cartesian product of sets. We train the CBF\noperator hθ(x, e) using two loss functions LHJ and LCBF.\nLHJ for Maximal Control Invariant Set Approximation:\nThis loss guides the CBF hθ(·, e) to approximate the maximal\ncontrol invariant set for each environment\n1 (cid:88)  2\nLHJ(θ) =  (Nγ(c(ξ), hθ(ξ))) .\n(20)\n|Ξ|\nξ∈Ξ\nWhen the control input set U is polyhedral, the maximum\nover u ∈ U in the PDE is achieved at one of the vertices and\ncan be obtained in closed form."
+  },
+  {
+    "id": "experiments",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Experiments",
+      "page_start": 4,
+      "page_end": 4
+    },
+    "text": "We evaluate the performance of the CBF operator learning\nframework and demonstrate its effectiveness as an adaptive\nsafety filter through numerical experiments. In all experiments,\nthe MLP δθ consists of four hidden layers, each with 50"
+  },
+  {
+    "id": "conclusion",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Conclusion",
+      "page_start": 5,
+      "page_end": 6
+    },
+    "text": "We proposed a deep operator learning framework to learn\ndomain-adaptive control barrier functions that can adapt to\nnovel environments without retraining. Leveraging domain\nrandomization, the proposed framework learns the solution\noperator of a Hamilton-Jacobi PDE that maps the environment\nparameters to a control barrier function that approximates\nthe maximal control invariant set. Our numerical experiments\n\nshow the effectiveness of the learned CBF to ensure safe\nnavigation in new environments. For future work, we will\nincorporate a falsification/verification module to refine the\nlearned model based on counter-examples."
+  }
+]

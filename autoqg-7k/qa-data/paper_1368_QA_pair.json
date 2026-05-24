@@ -1,0 +1,88 @@
+[
+  {
+    "section": "theproposedframework",
+    "path": {
+      "section": "theproposedframework",
+      "start_entity": "TrainingPhase",
+      "end_entity": "RoyEtAlMethod",
+      "hops": [
+        {
+          "from": "TrainingPhase",
+          "relation": "uses",
+          "to": "Bagging",
+          "context": "Training Phase. Given the training dataset (Γ), this phase generates a diverse pool of classifiers by first applying 'Bagging'.",
+          "chunk": "2"
+        },
+        {
+          "from": "Bagging",
+          "relation": "creates",
+          "to": "BootstrapSamples",
+          "context": "Training Phase. Given the training dataset (Γ), this phase generates a diverse pool of classifiers by first applying 'Bagging', a random procedure that creates n bootstraps (Γ1, Γ2, . . . , Γn).",
+          "chunk": "2"
+        },
+        {
+          "from": "BootstrapSamples",
+          "relation": "balancedBy",
+          "to": "RoyEtAlMethod",
+          "context": "After, each bootstrap (Γi) is balanced separately, similarly as performed by Roy et al. [15], generating n bootstraps ({Γ1, Γ2, . . . , Γn}).",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the training phase described in 'theproposedframework', how does the application of the Roy et al. method influence the bagging process?",
+    "options": {
+      "A": "It balances each bootstrap sample individually after they are created by the bagging process.",
+      "B": "It replaces the need for bagging by directly generating balanced bootstrap samples.",
+      "C": "It decreases the diversity of the pool of classifiers by modifying the bagging technique.",
+      "D": "It increases the number of classifiers generated during the bagging process."
+    },
+    "correct_answer": "A",
+    "explanation": "The Roy et al. method is used after the bagging process to balance each bootstrap sample individually. This method does not increase the number of classifiers, alter the diversity directly, or replace the bagging process, but rather it ensures the bootstrap samples are balanced.",
+    "path_description": "Path: TrainingPhase --[uses]--> Bagging --[creates]--> BootstrapSamples --[balancedBy]--> RoyEtAlMethod",
+    "context": "Training Phase. Given the training dataset (Γ), this phase generates a diverse pool of classifiers by first applying 'Bagging'. | Training Phase. Given the training dataset (Γ), this phase generates a diverse pool of classifiers by first applying 'Bagging', a random procedure that creates n bootstraps (Γ1, Γ2, . . . , Γn). | After, each bootstrap (Γi) is balanced separately, similarly as performed by Roy et al. [15], generating n bootstraps ({Γ1, Γ2, . . . , Γn}).",
+    "paper_id": "2063"
+  },
+  {
+    "section": "resultsanddiscussion",
+    "path": {
+      "section": "resultsanddiscussion",
+      "start_entity": "NaiveBayes",
+      "end_entity": "Model",
+      "hops": [
+        {
+          "from": "NaiveBayes",
+          "relation": "underperforms",
+          "to": "DecisionTree",
+          "context": "In contrast, Naive Bayes and MLP underperformed.",
+          "chunk": "4"
+        },
+        {
+          "from": "DecisionTree",
+          "relation": "outperforms",
+          "to": "NaiveBayes",
+          "context": "Among the classifiers, Decision Tree excelled in Recall and G-Mean, effectively identifying positive instances due to its hierarchical structure.",
+          "chunk": "4"
+        },
+        {
+          "from": "NaiveBayes",
+          "relation": "type",
+          "to": "Model",
+          "context": "In contrast, Naive Bayes and MLP underperformed.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "Considering the performance comparison between different classifiers as discussed, which model would you expect to show superior G-Mean and Recall metrics due to its hierarchical structure?",
+    "options": {
+      "A": "MLP, because it benefits from multiple layers which improve performance on all metrics.",
+      "B": "Random Forest, since it includes multiple Decision Trees and therefore inherits its superior metrics.",
+      "C": "Decision Tree, as it outperforms Naive Bayes which is mentioned to underperform in such metrics.",
+      "D": "Naive Bayes, since it has a non-hierarchical structure, which is ideal for G-Mean and Recall metrics."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A. The question specifically mentions the hierarchical structure of the Decision Tree, which is known to excel in Recall and G-Mean metrics. This hierarchical structure allows Decision Trees to effectively identify positive instances, as opposed to Naive Bayes which underperformed in comparison. Options B, C, and D are incorrect as they either misrepresent the structure's impact (B and C) or introduce an irrelevant model (D).",
+    "path_description": "Path: NaiveBayes --[underperforms]--> DecisionTree --[outperforms]--> NaiveBayes --[type]--> Model",
+    "context": "In contrast, Naive Bayes and MLP underperformed. | Among the classifiers, Decision Tree excelled in Recall and G-Mean, effectively identifying positive instances due to its hierarchical structure. | In contrast, Naive Bayes and MLP underperformed.",
+    "paper_id": "2063"
+  }
+]

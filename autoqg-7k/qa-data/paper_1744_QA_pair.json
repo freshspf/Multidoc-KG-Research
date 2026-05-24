@@ -1,0 +1,88 @@
+[
+  {
+    "section": "design",
+    "path": {
+      "section": "design",
+      "start_entity": "MixDiT",
+      "end_entity": "LayerType",
+      "hops": [
+        {
+          "from": "MixDiT",
+          "relation": "uses",
+          "to": "MXQuantization",
+          "context": "This section describes the MX-based mixed-precision quantization scheme and the MixDiT accelerator architecture.",
+          "chunk": "2"
+        },
+        {
+          "from": "MXQuantization",
+          "relation": "appliedTo",
+          "to": "LinearLayer",
+          "context": "Mixed-precision quantization for linear layers.",
+          "chunk": "2"
+        },
+        {
+          "from": "LinearLayer",
+          "relation": "type",
+          "to": "LayerType",
+          "context": "Mixed-precision quantization for linear layers.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the context of the MixDiT accelerator architecture, what type of layer is primarily targeted by the MXQuantization scheme for enhanced performance?",
+    "options": {
+      "A": "MXQuantization is primarily targeted at linear layers to optimize computational efficiency.",
+      "B": "MXQuantization is extensively used for pooling layers to accelerate data summarization tasks.",
+      "C": "MXQuantization is broadly applied to convolutional layers for general performance enhancement.",
+      "D": "MXQuantization is mainly utilized for recurrent layers to improve sequential data processing."
+    },
+    "correct_answer": "A",
+    "explanation": "The 3-hop path from the knowledge graph indicates that MXQuantization is used in the MixDiT architecture and is applied to linear layers, which are categorized under the LayerType. The correct answer is thus linear layers which are specifically optimized by MXQuantization for computational efficiency in the MixDiT architecture.",
+    "path_description": "Path: MixDiT --[uses]--> MXQuantization --[appliedTo]--> LinearLayer --[type]--> LayerType",
+    "context": "This section describes the MX-based mixed-precision quantization scheme and the MixDiT accelerator architecture. | Mixed-precision quantization for linear layers. | Mixed-precision quantization for linear layers.",
+    "paper_id": "314"
+  },
+  {
+    "section": "methodology",
+    "path": {
+      "section": "methodology",
+      "start_entity": "ViDiT-Q",
+      "end_entity": "Dataset",
+      "hops": [
+        {
+          "from": "ViDiT-Q",
+          "relation": "comparedWith",
+          "to": "Pixart-Sigma",
+          "context": "Since ViDiT-Q provides an INT8 model only for Pixart-Sigma, we conduct our comparison with ViDiT-Q exclusively on Pixart-Sigma",
+          "chunk": "3"
+        },
+        {
+          "from": "Pixart-Sigma",
+          "relation": "evaluatedOn",
+          "to": "MSCOCO-1k",
+          "context": "To evaluate the quality, we employ MS COCO-1k for Pixart-Sigma and SD3",
+          "chunk": "3"
+        },
+        {
+          "from": "MSCOCO-1k",
+          "relation": "type",
+          "to": "Dataset",
+          "context": "To evaluate the quality, we employ MS COCO-1k for Pixart-Sigma and SD3",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "Considering the methodology described for evaluating image processing models, what distinguishes Pixart-Sigma's evaluation using the ViDiT-Q INT8 model?",
+    "options": {
+      "A": "Pixart-Sigma used the ViDiT-Q INT8 model exclusively for internal testing purposes without employing any datasets.",
+      "B": "Pixart-Sigma was evaluated using multiple models including ViDiT-Q INT8 on various datasets including MSCOCO-1k.",
+      "C": "Pixart-Sigma and SD3 both utilized the ViDiT-Q INT8 model for evaluation exclusively on the MSCOCO-1k dataset.",
+      "D": "Pixart-Sigma was exclusively evaluated using the ViDiT-Q INT8 model on the MSCOCO-1k dataset."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A because it accurately reflects the unique pairing of the ViDiT-Q INT8 model with Pixart-Sigma for evaluation on the MSCOCO-1k dataset, as described in the methodology section. The other options either incorrectly suggest the use of multiple models or datasets, or imply that both Pixart-Sigma and SD3 used the ViDiT-Q model, which contradicts the specific pairing mentioned in the context.",
+    "path_description": "Path: ViDiT-Q --[comparedWith]--> Pixart-Sigma --[evaluatedOn]--> MSCOCO-1k --[type]--> Dataset",
+    "context": "Since ViDiT-Q provides an INT8 model only for Pixart-Sigma, we conduct our comparison with ViDiT-Q exclusively on Pixart-Sigma | To evaluate the quality, we employ MS COCO-1k for Pixart-Sigma and SD3 | To evaluate the quality, we employ MS COCO-1k for Pixart-Sigma and SD3",
+    "paper_id": "314"
+  }
+]

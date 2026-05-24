@@ -1,0 +1,88 @@
+[
+  {
+    "section": "onlinelearningsystem",
+    "path": {
+      "section": "onlinelearningsystem",
+      "start_entity": "JMM",
+      "end_entity": "Data",
+      "hops": [
+        {
+          "from": "JMM",
+          "relation": "updatedBy",
+          "to": "AntagonismUpdater",
+          "context": "Also, we update this JMM online using two types of methods. The first method is online learning using estimated joint angles and the actual muscle lengths (Antagonism Updater).",
+          "chunk": "2"
+        },
+        {
+          "from": "AntagonismUpdater",
+          "relation": "uses",
+          "to": "θest",
+          "context": "The first method is online learning using estimated joint angles and the actual muscle lengths (Antagonism Updater).",
+          "chunk": "2"
+        },
+        {
+          "from": "θest",
+          "relation": "type",
+          "to": "Data",
+          "context": "the data set is the current estimated joint angles θest and actual muscle lengths l as shown below.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the online learning system described, what type of data is utilized by the Antagonism Updater to update the JMM?",
+    "options": {
+      "A": "Data consisting of historical muscle lengths and past joint angle measurements",
+      "B": "Data consisting of real-time muscle activity and estimated joint torques",
+      "C": "Data consisting of estimated joint angles and actual muscle lengths",
+      "D": "Data consisting of biofeedback from external sensors and joint angle derivatives"
+    },
+    "correct_answer": "C",
+    "explanation": "The Antagonism Updater uses the dataset of current estimated joint angles θest and actual muscle lengths, as specified in the context from the paper. This dataset enables the online updating of the JMM. Options B, C, and D mention data types that are not specified in the section for use by the Antagonism Updater.",
+    "path_description": "Path: JMM --[updatedBy]--> AntagonismUpdater --[uses]--> θest --[type]--> Data",
+    "context": "Also, we update this JMM online using two types of methods. The first method is online learning using estimated joint angles and the actual muscle lengths (Antagonism Updater). | The first method is online learning using estimated joint angles and the actual muscle lengths (Antagonism Updater). | the data set is the current estimated joint angles θest and actual muscle lengths l as shown below.",
+    "paper_id": "242"
+  },
+  {
+    "section": "experiments1",
+    "path": {
+      "section": "experiments1",
+      "start_entity": "JMM",
+      "end_entity": "ActivationFunction",
+      "hops": [
+        {
+          "from": "JMM",
+          "relation": "uses",
+          "to": "NN",
+          "context": "we constructed 4 JMMs using NN",
+          "chunk": "3"
+        },
+        {
+          "from": "NN",
+          "relation": "uses",
+          "to": "Sigmoid",
+          "context": "the activation function of NN is sigmoid.",
+          "chunk": "3"
+        },
+        {
+          "from": "Sigmoid",
+          "relation": "type",
+          "to": "ActivationFunction",
+          "context": "the activation function of NN is sigmoid.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the construction of the 4 JMMs discussed in the 'experiments1' section, which type of function is specifically utilized within the neural networks as an integral component?",
+    "options": {
+      "A": "ReLU, commonly used to increase computational efficiency and mitigate the vanishing gradient problem.",
+      "B": "Tanh, which shifts the data to have zero mean, commonly used for simpler networks.",
+      "C": "Softmax, primarily used in the output layer for multi-class classification problems.",
+      "D": "Sigmoid, serving as an activation function to introduce non-linearity in the neural networks."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is 'A' because the knowledge graph path indicates that the neural networks (NN) use a sigmoid function as their activation function. This type of function adds non-linearity to the network, allowing it to learn more complex patterns.",
+    "path_description": "Path: JMM --[uses]--> NN --[uses]--> Sigmoid --[type]--> ActivationFunction",
+    "context": "we constructed 4 JMMs using NN | the activation function of NN is sigmoid. | the activation function of NN is sigmoid.",
+    "paper_id": "242"
+  }
+]

@@ -1,0 +1,88 @@
+[
+  {
+    "section": "design3",
+    "path": {
+      "section": "design3",
+      "start_entity": "Perigee",
+      "end_entity": "Function",
+      "hops": [
+        {
+          "from": "Perigee",
+          "relation": "type",
+          "to": "NeighborSelectionAlgorithm",
+          "context": "Perigee is an adaptive approach to select neighbors, it is purely based on a node’s historical interactions with its neighbors to determine which neighbors it should stay connected.",
+          "chunk": "4"
+        },
+        {
+          "from": "NeighborSelectionAlgorithm",
+          "relation": "uses",
+          "to": "GetScores",
+          "context": "The getScores function used here is directly derived from the Perigee strategy calculation method.",
+          "chunk": "4"
+        },
+        {
+          "from": "GetScores",
+          "relation": "type",
+          "to": "Function",
+          "context": "The getScores function used here is directly derived from the Perigee strategy calculation method.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the design of the Perigee Neighbor Selection Algorithm, what is the primary purpose of the 'getScores' function?",
+    "options": {
+      "A": "To determine the geographical proximity of neighbors for better network stability.",
+      "B": "To encrypt the data exchanged between nodes to enhance security measures.",
+      "C": "To randomly assign scores to neighbors to ensure an unbiased selection process.",
+      "D": "To calculate the potential scores based on a node's historical interactions with its neighbors."
+    },
+    "correct_answer": "D",
+    "explanation": "The 'getScores' function in the Perigee Neighbor Selection Algorithm is used to calculate the scores based on a node's historical interactions with its neighbors. This function is a key component of the Perigee approach, focusing on adaptive neighbor selection through analysis of past interactions, rather than random assignment, geographical proximity, or security enhancements.",
+    "path_description": "Path: Perigee --[type]--> NeighborSelectionAlgorithm --[uses]--> GetScores --[type]--> Function",
+    "context": "Perigee is an adaptive approach to select neighbors, it is purely based on a node’s historical interactions with its neighbors to determine which neighbors it should stay connected. | The getScores function used here is directly derived from the Perigee strategy calculation method. | The getScores function used here is directly derived from the Perigee strategy calculation method.",
+    "paper_id": "1254"
+  },
+  {
+    "section": "relatedwork",
+    "path": {
+      "section": "relatedwork",
+      "start_entity": "MEV-Peri",
+      "end_entity": "Model",
+      "hops": [
+        {
+          "from": "MEV-Peri",
+          "relation": "appliedTo",
+          "to": "Pioplat",
+          "context": "The idea can be further applied to Pioplat to provide elastic, low-latency services for MEV.",
+          "chunk": "12"
+        },
+        {
+          "from": "Pioplat",
+          "relation": "outperforms",
+          "to": "Peri_Perigee",
+          "context": "Pioplat deploys an expirable blocklist to solve this issue.",
+          "chunk": "12"
+        },
+        {
+          "from": "Peri_Perigee",
+          "relation": "type",
+          "to": "Model",
+          "context": "Peri/Perigee provided a p2p neighbor selection strategy based on timestamps of receiving transactions.",
+          "chunk": "12"
+        }
+      ]
+    },
+    "question": "Which model type is outperformed by Pioplat, primarily due to its application of an expirable blocklist to provide elastic, low-latency services for MEV?",
+    "options": {
+      "A": "Peri_Perigee, which employs a peer-to-peer neighbor selection strategy using transaction timestamps.",
+      "B": "Peri_Perigee, which focuses exclusively on high-latency, inelastic computational services.",
+      "C": "MEV-Peri, known for its static, high-latency transaction handling methods.",
+      "D": "Pioplat itself, utilizing a non-expirable blocklist for managing network traffic."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A because the question and information provided indicate that Pioplat, through its innovative use of an expirable blocklist, outperforms Peri_Perigee. Peri_Perigee uses a different approach of a peer-to-peer neighbor selection strategy based on timestamps, which is less effective in providing the elastic, low-latency services that MEV requires.",
+    "path_description": "Path: MEV-Peri --[appliedTo]--> Pioplat --[outperforms]--> Peri_Perigee --[type]--> Model",
+    "context": "The idea can be further applied to Pioplat to provide elastic, low-latency services for MEV. | Pioplat deploys an expirable blocklist to solve this issue. | Peri/Perigee provided a p2p neighbor selection strategy based on timestamps of receiving transactions.",
+    "paper_id": "1254"
+  }
+]

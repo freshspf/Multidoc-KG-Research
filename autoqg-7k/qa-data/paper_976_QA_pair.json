@@ -1,0 +1,131 @@
+[
+  {
+    "section": "iintroduction1",
+    "path": {
+      "section": "iintroduction1",
+      "start_entity": "ScienceFoundationIreland",
+      "end_entity": "Organization",
+      "hops": [
+        {
+          "from": "ScienceFoundationIreland",
+          "relation": "supports",
+          "to": "GMOD",
+          "context": "This work is supported by Science Foundation Ireland (SFI) under grant number 17/CDA/4723",
+          "chunk": "0"
+        },
+        {
+          "from": "GMOD",
+          "relation": "developedBy",
+          "to": "UniversityCollegeDublin",
+          "context": "GMOD developed by University College Dublin as part of the European Space Agency (ESA) Fly Your Satellite! (FYS) programme",
+          "chunk": "0"
+        },
+        {
+          "from": "UniversityCollegeDublin",
+          "relation": "type",
+          "to": "Organization",
+          "context": "School of Physics, University College Dublin",
+          "chunk": "0"
+        }
+      ]
+    },
+    "question": "Which of the following best describes the relationship between the entities involved in the development of GMOD?",
+    "options": {
+      "A": "GMOD was developed by University College Dublin, which is an organization supported by Science Foundation Ireland.",
+      "B": "Science Foundation Ireland developed GMOD independently and later involved University College Dublin for additional research.",
+      "C": "GMOD is a direct project of Science Foundation Ireland and University College Dublin was only involved as a collaborator.",
+      "D": "University College Dublin is the financial supporter of GMOD, while Science Foundation Ireland is the developer."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A because the knowledge path indicates that Science Foundation Ireland supports GMOD, which was developed by University College Dublin, classified as an Organization. The other options incorrectly represent the relationship and roles of the entities involved.",
+    "path_description": "Path: ScienceFoundationIreland --[supports]--> GMOD --[developedBy]--> UniversityCollegeDublin --[type]--> Organization",
+    "context": "This work is supported by Science Foundation Ireland (SFI) under grant number 17/CDA/4723 | GMOD developed by University College Dublin as part of the European Space Agency (ESA) Fly Your Satellite! (FYS) programme | School of Physics, University College Dublin",
+    "paper_id": "194"
+  },
+  {
+    "section": "vinitialperformanceanalysis2",
+    "path": {
+      "section": "vinitialperformanceanalysis2",
+      "start_entity": "MSP430",
+      "end_entity": "Configuration",
+      "hops": [
+        {
+          "from": "MSP430",
+          "relation": "showsPerformance",
+          "to": "SummedChannelReadout",
+          "context": "The MSP430 still shows good performance even at high trigger rates, particularly the summed channel configuration...",
+          "chunk": "12"
+        },
+        {
+          "from": "SummedChannelReadout",
+          "relation": "comparedWith",
+          "to": "SummedOnlyConfiguration",
+          "context": "more TTEs are dropped as compared to the summed only configuration.",
+          "chunk": "12"
+        },
+        {
+          "from": "SummedOnlyConfiguration",
+          "relation": "type",
+          "to": "Configuration",
+          "context": "more TTEs are dropped as compared to the summed only configuration.",
+          "chunk": "12"
+        }
+      ]
+    },
+    "question": "In the context of high trigger rates in the MSP430 microcontroller, how does the performance of the summed channel readout configuration compare to the summed only configuration?",
+    "options": {
+      "A": "The summed channel readout configuration drops more TTEs compared to the summed only configuration.",
+      "B": "The summed channel readout configuration enhances the trigger rate without affecting TTE drop rate.",
+      "C": "The summed channel readout configuration and the summed only configuration drop an equal number of TTEs.",
+      "D": "The summed channel readout configuration drops fewer TTEs compared to the summed only configuration."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is B. The context from the paper indicates that, at high trigger rates, more TTEs (Time to Event) are dropped in the summed channel readout configuration as compared to the summed only configuration. This suggests that the performance regarding TTE management is worse in the summed channel readout configuration under conditions of high trigger rates.",
+    "path_description": "Path: MSP430 --[showsPerformance]--> SummedChannelReadout --[comparedWith]--> SummedOnlyConfiguration --[type]--> Configuration",
+    "context": "The MSP430 still shows good performance even at high trigger rates, particularly the summed channel configuration... | more TTEs are dropped as compared to the summed only configuration. | more TTEs are dropped as compared to the summed only configuration.",
+    "paper_id": "194"
+  },
+  {
+    "section": "ivmsp430fr5994firmwareoperation4",
+    "path": {
+      "section": "ivmsp430fr5994firmwareoperation4",
+      "start_entity": "OBC",
+      "end_entity": "MemoryType",
+      "hops": [
+        {
+          "from": "OBC",
+          "relation": "receivesDataFrom",
+          "to": "StreamingBuffers",
+          "context": "When a page has been loaded into either streaming buffer, it may be transmitted to the OBC.",
+          "chunk": "10"
+        },
+        {
+          "from": "StreamingBuffers",
+          "relation": "reservedIn",
+          "to": "FRAM",
+          "context": "A pair of ∼4 kB “streaming” buffers are reserved in FRAM",
+          "chunk": "10"
+        },
+        {
+          "from": "FRAM",
+          "relation": "type",
+          "to": "MemoryType",
+          "context": "A pair of ∼4 kB “streaming” buffers are reserved in FRAM",
+          "chunk": "10"
+        }
+      ]
+    },
+    "question": "In the architecture described, how does the OBC manage to receive data for processing from the FRAM?",
+    "options": {
+      "A": "The OBC receives data through streaming buffers, which are specifically reserved areas in FRAM for data transmission.",
+      "B": "Data flows from FRAM to OBC through a series of volatile memory units, not through any designated streaming buffers.",
+      "C": "The OBC uses a direct memory access (DMA) method, bypassing streaming buffers to retrieve data from FRAM.",
+      "D": "Data is directly transmitted from FRAM to OBC without any intermediate storage or buffering mechanism."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A because the knowledge path indicates that data flows from OBC to FRAM specifically through reserved streaming buffers. These buffers are designed for data transmission, acting as an intermediate stage before data reaches the OBC. Options B, C, and D are incorrect as they suggest either direct transmission without buffers or incorrect pathways such as using DMA or volatile memory units, which are not supported by the information in the paper.",
+    "path_description": "Path: OBC --[receivesDataFrom]--> StreamingBuffers --[reservedIn]--> FRAM --[type]--> MemoryType",
+    "context": "When a page has been loaded into either streaming buffer, it may be transmitted to the OBC. | A pair of ∼4 kB “streaming” buffers are reserved in FRAM | A pair of ∼4 kB “streaming” buffers are reserved in FRAM",
+    "paper_id": "194"
+  }
+]

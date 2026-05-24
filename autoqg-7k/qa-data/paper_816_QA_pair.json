@@ -1,0 +1,217 @@
+[
+  {
+    "section": "modulesandqc1",
+    "path": {
+      "section": "modulesandqc1",
+      "start_entity": "ASICs",
+      "end_entity": "Component",
+      "hops": [
+        {
+          "from": "ASICs",
+          "relation": "gluedTo",
+          "to": "Hybrids",
+          "context": "To assemble a module, the ASICs are glued and wirebonded to the hybrids.",
+          "chunk": "1"
+        },
+        {
+          "from": "Hybrids",
+          "relation": "wirebondedTo",
+          "to": "Sensor",
+          "context": "To assemble a module, the ASICs are glued and wirebonded to the hybrids, then the hybrids and powerboard are glued to the sensor, following which the hybrids and sensor are wirebonded together.",
+          "chunk": "1"
+        },
+        {
+          "from": "Sensor",
+          "relation": "type",
+          "to": "Component",
+          "context": "To assemble a module, the ASICs are glued and wirebonded to the hybrids, then the hybrids and powerboard are glued to the sensor, following which the hybrids and sensor are wirebonded together.",
+          "chunk": "1"
+        }
+      ]
+    },
+    "question": "In the assembly process of a module as described in the 'modulesandqc1' section, what is the final type of component that the sensor is classified as after being wirebonded with hybrids?",
+    "options": {
+      "A": "The sensor is classified as a passive electronic component.",
+      "B": "The sensor is classified as a powerboard integration unit.",
+      "C": "The sensor is classified as a complex hybrid component.",
+      "D": "The sensor is classified as a standard semiconductor component."
+    },
+    "correct_answer": "D",
+    "explanation": "According to the paper section 'modulesandqc1', ASICs are glued and wirebonded to hybrids, then hybrids and a powerboard are glued to the sensor, followed by wirebonding of hybrids and sensor. Given the final product in this sequence involves sensor and hybrids, and considering typical electronic assembly processes, the sensor maintains its classification as a standard semiconductor component, integral to the module's functionality.",
+    "path_description": "Path: ASICs --[gluedTo]--> Hybrids --[wirebondedTo]--> Sensor --[type]--> Component",
+    "context": "To assemble a module, the ASICs are glued and wirebonded to the hybrids. | To assemble a module, the ASICs are glued and wirebonded to the hybrids, then the hybrids and powerboard are glued to the sensor, following which the hybrids and sensor are wirebonded together. | To assemble a module, the ASICs are glued and wirebonded to the hybrids, then the hybrids and powerboard are glued to the sensor, following which the hybrids and sensor are wirebonded together.",
+    "paper_id": "1298"
+  },
+  {
+    "section": "introduction",
+    "path": {
+      "section": "introduction",
+      "start_entity": "Silicon_Strip_Detector_Module",
+      "end_entity": "DetectorComponent",
+      "hops": [
+        {
+          "from": "Silicon_Strip_Detector_Module",
+          "relation": "partOf",
+          "to": "ITk",
+          "context": "The strip detector is composed of an array of modules in a central barrel region, along with two endcap regions on either side.",
+          "chunk": "0"
+        },
+        {
+          "from": "ITk",
+          "relation": "contains",
+          "to": "Outer_Strip_Detector_Region",
+          "context": "containing an inner pixel detector region surrounded by an outer strip detector region.",
+          "chunk": "0"
+        },
+        {
+          "from": "Outer_Strip_Detector_Region",
+          "relation": "type",
+          "to": "DetectorComponent",
+          "context": "containing an inner pixel detector region surrounded by an outer strip detector region.",
+          "chunk": "0"
+        }
+      ]
+    },
+    "question": "In the context of the ITk's structural design, which component is directly classified as a type of DetectorComponent within the outer strip detector region?",
+    "options": {
+      "A": "The Inner Pixel Detector Region, which is surrounded by the outer strip detector region but not a type of DetectorComponent.",
+      "B": "The Outer Strip Detector Region, which encapsulates the detector modules including strip and pixel detectors.",
+      "C": "The Silicon Strip Detector Module, as part of the overall module configuration in the central barrel.",
+      "D": "The ITk itself, which is a composite of various detector regions and components."
+    },
+    "correct_answer": "B",
+    "explanation": "The Outer Strip Detector Region, as indicated in the provided knowledge path, is directly classified as a type of DetectorComponent within the ITk's structure. This region specifically contains various detector modules, including but not limited to the Silicon Strip Detector Module. The other options are misleading as they either refer to components that are part of the region or misclassify the structural hierarchy.",
+    "path_description": "Path: Silicon_Strip_Detector_Module --[partOf]--> ITk --[contains]--> Outer_Strip_Detector_Region --[type]--> DetectorComponent",
+    "context": "The strip detector is composed of an array of modules in a central barrel region, along with two endcap regions on either side. | containing an inner pixel detector region surrounded by an outer strip detector region. | containing an inner pixel detector region surrounded by an outer strip detector region.",
+    "paper_id": "1298"
+  },
+  {
+    "section": "modulesandqc1",
+    "path": {
+      "section": "modulesandqc1",
+      "start_entity": "ASICs",
+      "end_entity": "Component",
+      "hops": [
+        {
+          "from": "ASICs",
+          "relation": "gluedTo",
+          "to": "Hybrids",
+          "context": "To assemble a module, the ASICs are glued and wirebonded to the hybrids.",
+          "chunk": "1"
+        },
+        {
+          "from": "Hybrids",
+          "relation": "gluedTo",
+          "to": "Sensor",
+          "context": "To assemble a module, the ASICs are glued and wirebonded to the hybrids, then the hybrids and powerboard are glued to the sensor.",
+          "chunk": "1"
+        },
+        {
+          "from": "Sensor",
+          "relation": "type",
+          "to": "Component",
+          "context": "To assemble a module, the ASICs are glued and wirebonded to the hybrids, then the hybrids and powerboard are glued to the sensor, following which the hybrids and sensor are wirebonded together.",
+          "chunk": "1"
+        }
+      ]
+    },
+    "question": "In the assembly of a module as described in the 'modulesandqc1' section, what role does the sensor primarily serve?",
+    "options": {
+      "A": "The sensor acts as a base component to which both hybrids and powerboards are attached.",
+      "B": "The sensor generates the necessary power to activate the ASICs and hybrids.",
+      "C": "The sensor is primarily used to wirebond the ASICs directly without using hybrids.",
+      "D": "The sensor functions mainly to transmit data between the hybrids and the external systems."
+    },
+    "correct_answer": "A",
+    "explanation": "The sensor in the module assembly process described serves as a foundational component to which both hybrids and powerboards are glued. This is inferred from the assembly sequence where the ASICs are first attached to the hybrids, and then these assemblies are connected to the sensor. Options B, C, and D are incorrect as they describe roles not mentioned or implied in the provided context.",
+    "path_description": "Path: ASICs --[gluedTo]--> Hybrids --[gluedTo]--> Sensor --[type]--> Component",
+    "context": "To assemble a module, the ASICs are glued and wirebonded to the hybrids. | To assemble a module, the ASICs are glued and wirebonded to the hybrids, then the hybrids and powerboard are glued to the sensor. | To assemble a module, the ASICs are glued and wirebonded to the hybrids, then the hybrids and powerboard are glued to the sensor, following which the hybrids and sensor are wirebonded together.",
+    "paper_id": "1298"
+  },
+  {
+    "section": "modulesandqc2",
+    "path": {
+      "section": "modulesandqc2",
+      "start_entity": "Sensor",
+      "end_entity": "SensorManufacturingProcess",
+      "hops": [
+        {
+          "from": "Sensor",
+          "relation": "partOf",
+          "to": "ModuleAssemblyProcess",
+          "context": "measured on bare sensors, prior to module assembly.",
+          "chunk": "2"
+        },
+        {
+          "from": "ModuleAssemblyProcess",
+          "relation": "doesNotAffect",
+          "to": "IntrinsicSensorDeformation",
+          "context": "deformation is not significantly affected by the module assembly process.",
+          "chunk": "2"
+        },
+        {
+          "from": "IntrinsicSensorDeformation",
+          "relation": "causedBy",
+          "to": "SensorManufacturingProcess",
+          "context": "Intrinsic sensor deformation is known to be an effect of the sensor manufacturing process.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "Which statement best explains the relationship between sensor manufacturing, module assembly, and sensor deformation?",
+    "options": {
+      "A": "Sensor deformation is mainly attributed to the module assembly process, which affects the sensor's structural integrity.",
+      "B": "The module assembly process introduces significant deformation to the sensor, which is exacerbated by flaws in sensor manufacturing.",
+      "C": "Sensor deformation is an intrinsic quality not significantly influenced by the module assembly, but primarily caused by the manufacturing process.",
+      "D": "Both sensor manufacturing and module assembly processes contribute equally to the intrinsic sensor deformation."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is B. According to the knowledge graph pathway and context, sensor deformation is not significantly affected by the module assembly process. Instead, it is an intrinsic effect primarily caused by the sensor manufacturing process. Options A, C, and D are incorrect as they incorrectly attribute the cause of deformation to the module assembly process or equate its impact with that of the manufacturing process.",
+    "path_description": "Path: Sensor --[partOf]--> ModuleAssemblyProcess --[doesNotAffect]--> IntrinsicSensorDeformation --[causedBy]--> SensorManufacturingProcess",
+    "context": "measured on bare sensors, prior to module assembly. | deformation is not significantly affected by the module assembly process. | Intrinsic sensor deformation is known to be an effect of the sensor manufacturing process.",
+    "paper_id": "1298"
+  },
+  {
+    "section": "conclusions",
+    "path": {
+      "section": "conclusions",
+      "start_entity": "Glue",
+      "end_entity": "HigherShapeCoefficients",
+      "hops": [
+        {
+          "from": "Glue",
+          "relation": "initiates",
+          "to": "HeatingMechanism",
+          "context": "which initiated the mechanism for the post-cycling",
+          "chunk": "5"
+        },
+        {
+          "from": "HeatingMechanism",
+          "relation": "resultsIn",
+          "to": "TemperatureIncrease",
+          "context": "mechanism was found to be the heating of the module temperature",
+          "chunk": "5"
+        },
+        {
+          "from": "TemperatureIncrease",
+          "relation": "leadsTo",
+          "to": "HigherShapeCoefficients",
+          "context": "increased temperatures showed that temperatures lead to higher shape coefficients",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the context of material science, how does the application of glue influence the geometric properties of a module?",
+    "options": {
+      "A": "Glue application enhances the absorption of heat, maintaining steady shape coefficients despite temperature variations.",
+      "B": "The glue initiates a heating mechanism that results in temperature increase, leading to higher shape coefficients.",
+      "C": "Applying glue reduces the module's temperature, which subsequently reduces the shape coefficients of the material.",
+      "D": "The glue acts as an insulating layer, which prevents temperature change and maintains the shape coefficients."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A because, according to the knowledge path, the application of glue initiates a heating mechanism. This increase in temperature then results in higher shape coefficients, demonstrating a direct relationship between the initial application of glue and the final geometric properties of the module.",
+    "path_description": "Path: Glue --[initiates]--> HeatingMechanism --[resultsIn]--> TemperatureIncrease --[leadsTo]--> HigherShapeCoefficients",
+    "context": "which initiated the mechanism for the post-cycling | mechanism was found to be the heating of the module temperature | increased temperatures showed that temperatures lead to higher shape coefficients",
+    "paper_id": "1298"
+  }
+]

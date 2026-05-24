@@ -1,0 +1,131 @@
+[
+  {
+    "section": "relatedwork",
+    "path": {
+      "section": "relatedwork",
+      "start_entity": "WILSS",
+      "end_entity": "AnnotationType",
+      "hops": [
+        {
+          "from": "WILSS",
+          "relation": "uses",
+          "to": "SemanticSegmentationNetwork",
+          "context": "Given a semantic segmentation network trained on base classes using pixel-level labels.",
+          "chunk": "1"
+        },
+        {
+          "from": "SemanticSegmentationNetwork",
+          "relation": "uses",
+          "to": "ImageLevelAnnotations",
+          "context": "incrementally train the network on novel classes using only image-level annotations.",
+          "chunk": "1"
+        },
+        {
+          "from": "ImageLevelAnnotations",
+          "relation": "type",
+          "to": "AnnotationType",
+          "context": "incrementally train the network on novel classes using only image-level annotations.",
+          "chunk": "1"
+        }
+      ]
+    },
+    "question": "In the context of semantic segmentation network training as discussed in related work, what type of annotations are specifically identified for training on novel classes?",
+    "options": {
+      "A": "Pixel-level annotations, which offer detailed positional and classification data for each pixel in an image",
+      "B": "Image-level annotations, which provide labels for entire images rather than detailed pixel-level information",
+      "C": "Scene-level annotations, which categorize the scene as a whole without identifying individual elements",
+      "D": "Object-level annotations, which identify and categorize individual objects within images without pixel specificity"
+    },
+    "correct_answer": "B",
+    "explanation": "The paper specifically mentions the use of 'image-level annotations' for incrementally training the semantic segmentation network on novel classes. This type of annotation provides general labels for entire images rather than detailed information at the pixel level, which differentiates it from the other options listed.",
+    "path_description": "Path: WILSS --[uses]--> SemanticSegmentationNetwork --[uses]--> ImageLevelAnnotations --[type]--> AnnotationType",
+    "context": "Given a semantic segmentation network trained on base classes using pixel-level labels. | incrementally train the network on novel classes using only image-level annotations. | incrementally train the network on novel classes using only image-level annotations.",
+    "paper_id": "789"
+  },
+  {
+    "section": "relatedwork",
+    "path": {
+      "section": "relatedwork",
+      "start_entity": "CermelliEtAl",
+      "end_entity": "Model",
+      "hops": [
+        {
+          "from": "CermelliEtAl",
+          "relation": "proposes",
+          "to": "WILSS",
+          "context": "Cermelli et al. [3] introduced a novel task, weakly-supervised incremental learning for semantic segmentation (WILSS).",
+          "chunk": "1"
+        },
+        {
+          "from": "WILSS",
+          "relation": "uses",
+          "to": "SemanticSegmentationNetwork",
+          "context": "Given a semantic segmentation network trained on base classes using pixel-level labels.",
+          "chunk": "1"
+        },
+        {
+          "from": "SemanticSegmentationNetwork",
+          "relation": "type",
+          "to": "Model",
+          "context": "Given a semantic segmentation network trained on base classes using pixel-level labels.",
+          "chunk": "1"
+        }
+      ]
+    },
+    "question": "What type of model does the system proposed by Cermelli et al., known as WILSS, primarily utilize for the task of weakly-supervised incremental learning for semantic segmentation?",
+    "options": {
+      "A": "A semantic segmentation network specifically designed for processing base classes using pixel-level labels.",
+      "B": "A reinforcement learning model that adapts through trial and error in segmented environments.",
+      "C": "A general-purpose convolutional neural network retrained periodically with additional data.",
+      "D": "An unsupervised clustering algorithm used to categorize unlabelled data effectively."
+    },
+    "correct_answer": "A",
+    "explanation": "Cermelli et al. propose the task of weakly-supervised incremental learning for semantic segmentation (WILSS), which utilizes a semantic segmentation network. This network is specifically described as being trained on base classes with pixel-level labels, indicating that it is tailored to handle detailed, pixel-wise classification rather than general image features or unsupervised learning approaches.",
+    "path_description": "Path: CermelliEtAl --[proposes]--> WILSS --[uses]--> SemanticSegmentationNetwork --[type]--> Model",
+    "context": "Cermelli et al. [3] introduced a novel task, weakly-supervised incremental learning for semantic segmentation (WILSS). | Given a semantic segmentation network trained on base classes using pixel-level labels. | Given a semantic segmentation network trained on base classes using pixel-level labels.",
+    "paper_id": "789"
+  },
+  {
+    "section": "relatedwork",
+    "path": {
+      "section": "relatedwork",
+      "start_entity": "CermelliEtAl",
+      "end_entity": "PixelLevelLabels",
+      "hops": [
+        {
+          "from": "CermelliEtAl",
+          "relation": "proposes",
+          "to": "WILSS",
+          "context": "Cermelli et al. [3] introduced a novel task, weakly-supervised incremental learning for semantic segmentation (WILSS).",
+          "chunk": "1"
+        },
+        {
+          "from": "WILSS",
+          "relation": "uses",
+          "to": "SemanticSegmentationNetwork",
+          "context": "Given a semantic segmentation network trained on base classes using pixel-level labels.",
+          "chunk": "1"
+        },
+        {
+          "from": "SemanticSegmentationNetwork",
+          "relation": "uses",
+          "to": "PixelLevelLabels",
+          "context": "Given a semantic segmentation network trained on base classes using pixel-level labels.",
+          "chunk": "1"
+        }
+      ]
+    },
+    "question": "Which statement accurately describes the novel task introduced by Cermelli et al. in the context of semantic segmentation?",
+    "options": {
+      "A": "Weakly-supervised incremental learning for semantic segmentation (WILSS) focuses on using semantic networks without any prior training.",
+      "B": "Weakly-supervised incremental learning for semantic segmentation (WILSS) primarily utilizes high-level annotations instead of pixel-level labels.",
+      "C": "Weakly-supervised incremental learning for semantic segmentation (WILSS) uses a network trained on base classes with pixel-level labels.",
+      "D": "Weakly-supervised incremental learning for semantic segmentation (WILSS) completely eliminates the need for pixel-level labels in training."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A, as it accurately reflects the method introduced by Cermelli et al. wherein the WILSS uses a semantic segmentation network that is trained on base classes using pixel-level labels. Options B, C, and D are incorrect as they either misrepresent the involvement of pixel-level labels or the training prerequisites of the semantic segmentation network.",
+    "path_description": "Path: CermelliEtAl --[proposes]--> WILSS --[uses]--> SemanticSegmentationNetwork --[uses]--> PixelLevelLabels",
+    "context": "Cermelli et al. [3] introduced a novel task, weakly-supervised incremental learning for semantic segmentation (WILSS). | Given a semantic segmentation network trained on base classes using pixel-level labels. | Given a semantic segmentation network trained on base classes using pixel-level labels.",
+    "paper_id": "789"
+  }
+]

@@ -1,0 +1,174 @@
+[
+  {
+    "section": "preliminary2",
+    "path": {
+      "section": "preliminary2",
+      "start_entity": "OP_RETURN",
+      "end_entity": "CryptographicSignature",
+      "hops": [
+        {
+          "from": "OP_RETURN",
+          "relation": "doesNotRequire",
+          "to": "UnlockingScript",
+          "context": "The distinguishing feature of the OP RETURN transaction output is that it does not need any associated unlocking script to unlock it, making it essentially an unspendable output.",
+          "chunk": "2"
+        },
+        {
+          "from": "UnlockingScript",
+          "relation": "contains",
+          "to": "Digital_Signature",
+          "context": "To spend a P2PKH type of transaction output, it is required to supply a public key <Public Key> and a digital signature <Sig> as the unlocking script in the input that spends BTC in the P2PKH output.",
+          "chunk": "2"
+        },
+        {
+          "from": "Digital_Signature",
+          "relation": "type",
+          "to": "CryptographicSignature",
+          "context": "To spend a P2PKH type of transaction output, it is required to supply a public key <Public Key> and a digital signature <Sig> as the unlocking script in the input that spends BTC in the P2PKH output.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "Which of the following best describes the necessity of a cryptographic signature in different Bitcoin transaction outputs?",
+    "options": {
+      "A": "A cryptographic signature is not necessary to spend BTC in an OP_RETURN transaction output as it is unspendable.",
+      "B": "In a P2PKH transaction output, a cryptographic signature is required as part of the unlocking script to spend BTC.",
+      "C": "For both P2PKH and OP_RETURN transaction outputs, cryptographic signatures are essential for the unlocking process.",
+      "D": "Cryptographic signatures are optional for all types of transaction outputs in Bitcoin, including P2PKH."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A, as it accurately reflects the knowledge path. OP_RETURN outputs do not require any unlocking script and thus no cryptographic signature. In contrast, P2PKH outputs require an unlocking script that includes a cryptographic signature to spend the BTC.",
+    "path_description": "Path: OP_RETURN --[doesNotRequire]--> UnlockingScript --[contains]--> Digital_Signature --[type]--> CryptographicSignature",
+    "context": "The distinguishing feature of the OP RETURN transaction output is that it does not need any associated unlocking script to unlock it, making it essentially an unspendable output. | To spend a P2PKH type of transaction output, it is required to supply a public key <Public Key> and a digital signature <Sig> as the unlocking script in the input that spends BTC in the P2PKH output. | To spend a P2PKH type of transaction output, it is required to supply a public key <Public Key> and a digital signature <Sig> as the unlocking script in the input that spends BTC in the P2PKH output.",
+    "paper_id": "1023"
+  },
+  {
+    "section": "ordinalsprotocolandbrc20standard1",
+    "path": {
+      "section": "ordinalsprotocolandbrc20standard1",
+      "start_entity": "OrdinalsProtocol",
+      "end_entity": "BlockchainProtocol",
+      "hops": [
+        {
+          "from": "OrdinalsProtocol",
+          "relation": "introduces",
+          "to": "NumberScheme",
+          "context": "The core of the Ordinals protocol includes three parts: Number Scheme, Transfer Scheme, and Inscriptions.",
+          "chunk": "8"
+        },
+        {
+          "from": "NumberScheme",
+          "relation": "partOf",
+          "to": "OrdinalsProtocol",
+          "context": "The core of the Ordinals protocol includes three parts: Number Scheme, Transfer Scheme, and Inscriptions.",
+          "chunk": "8"
+        },
+        {
+          "from": "OrdinalsProtocol",
+          "relation": "type",
+          "to": "BlockchainProtocol",
+          "context": "This section will introduce the Ordinals protocol and its derivative BRC-20 token standard.",
+          "chunk": "8"
+        }
+      ]
+    },
+    "question": "In the context of the Ordinals Protocol, which component is integral to its operation and is specifically categorized under the type of Blockchain Protocol?",
+    "options": {
+      "A": "The Number Scheme is integral to the Ordinals Protocol and is part of its classification as a Blockchain Protocol.",
+      "B": "The BRC-20 token standard is fundamental to the Ordinals Protocol and marks it as a distinct type of Blockchain Protocol.",
+      "C": "The Transfer Scheme is crucial to the Ordinals Protocol and distinguishes it as a unique Blockchain Protocol.",
+      "D": "The Inscriptions are essential for the Ordinals Protocol's function and define its primary mechanism as a Blockchain Protocol."
+    },
+    "correct_answer": "A",
+    "explanation": "The Number Scheme is explicitly mentioned in the knowledge graph as being introduced by the Ordinals Protocol and is part of this protocol, which is defined as a type of Blockchain Protocol. The other options, while integral parts of the protocol, do not directly fit the description given in the relationship path provided.",
+    "path_description": "Path: OrdinalsProtocol --[introduces]--> NumberScheme --[partOf]--> OrdinalsProtocol --[type]--> BlockchainProtocol",
+    "context": "The core of the Ordinals protocol includes three parts: Number Scheme, Transfer Scheme, and Inscriptions. | The core of the Ordinals protocol includes three parts: Number Scheme, Transfer Scheme, and Inscriptions. | This section will introduce the Ordinals protocol and its derivative BRC-20 token standard.",
+    "paper_id": "1023"
+  },
+  {
+    "section": "ordinalsprotocolandbrc20standard2",
+    "path": {
+      "section": "ordinalsprotocolandbrc20standard2",
+      "start_entity": "InscriptionsProcess",
+      "end_entity": "InscriptionContent",
+      "hops": [
+        {
+          "from": "InscriptionsProcess",
+          "relation": "introduces",
+          "to": "RevealTransaction",
+          "context": "The inscription process mainly involves two transactions, called the commit transaction and the reveal transaction.",
+          "chunk": "9"
+        },
+        {
+          "from": "RevealTransaction",
+          "relation": "makesPublic",
+          "to": "TaprootWizards",
+          "context": "At this point, the inscription content “Taproot Wizards” is publicly available on the Bitcoin mainnet in the form of Tapscript in the unlocking script.",
+          "chunk": "9"
+        },
+        {
+          "from": "TaprootWizards",
+          "relation": "type",
+          "to": "InscriptionContent",
+          "context": "Fig. 10 illustrates the steps of the inscription process using the text string “Taproot Wizards” as the inscription content.",
+          "chunk": "9"
+        }
+      ]
+    },
+    "question": "In the context of the Bitcoin inscription process described in the paper section 'ordinalsprotocolandbrc20standard2', how is the inscription content 'Taproot Wizards' made publicly available?",
+    "options": {
+      "A": "The content is directly stored in the blockchain's header, accessible through a standard query.",
+      "B": "It is embedded within the metadata of a commit transaction on the Bitcoin network.",
+      "C": "It is encrypted and only visible to authorized nodes within the Bitcoin network.",
+      "D": "It becomes publicly accessible via Tapscript in the unlocking script during the reveal transaction."
+    },
+    "correct_answer": "D",
+    "explanation": "The inscription content 'Taproot Wizards' is made publicly available through Tapscript in the unlocking script as part of the reveal transaction, as specified in the knowledge graph path from the paper section 'ordinalsprotocolandbrc20standard2'. This process is explicitly detailed, indicating that the reveal transaction plays a crucial role in making the inscription content public.",
+    "path_description": "Path: InscriptionsProcess --[introduces]--> RevealTransaction --[makesPublic]--> TaprootWizards --[type]--> InscriptionContent",
+    "context": "The inscription process mainly involves two transactions, called the commit transaction and the reveal transaction. | At this point, the inscription content “Taproot Wizards” is publicly available on the Bitcoin mainnet in the form of Tapscript in the unlocking script. | Fig. 10 illustrates the steps of the inscription process using the text string “Taproot Wizards” as the inscription content.",
+    "paper_id": "1023"
+  },
+  {
+    "section": "bitcoinlayer2protocols3",
+    "path": {
+      "section": "bitcoinlayer2protocols3",
+      "start_entity": "Prover",
+      "end_entity": "BlockchainComponent",
+      "hops": [
+        {
+          "from": "Prover",
+          "relation": "revealsPreimageTo",
+          "to": "Verifier",
+          "context": "After that, the prover reveals the preimage corresponding to either <HashA1>or <HashA0>to the verifier by fulfilling the unlocking conditions of the UTXO containing the Bit Value Commitment.",
+          "chunk": "16"
+        },
+        {
+          "from": "Verifier",
+          "relation": "verifies",
+          "to": "Bit_Value_Commitment",
+          "context": "The verifier then verifies the correctness of the prover’s Bit Value Commitment by using the script-locked <HashA0>or <HashA1>along with the revealed preimage to check the integrity of the commitment.",
+          "chunk": "16"
+        },
+        {
+          "from": "Bit_Value_Commitment",
+          "relation": "type",
+          "to": "BlockchainComponent",
+          "context": "After that, the prover reveals the preimage corresponding to either <HashA1>or <HashA0>to the verifier by fulfilling the unlocking conditions of the UTXO containing the Bit Value Commitment.",
+          "chunk": "16"
+        }
+      ]
+    },
+    "question": "In the context of Bitcoin's layer 2 protocols, how does the verifier ensure the integrity of a Bit Value Commitment in the blockchain?",
+    "options": {
+      "A": "By requesting additional proof of transaction history from the prover to ensure no double-spending has occurred.",
+      "B": "By directly querying the blockchain for the authenticity of the Bit Value Commitment using a smart contract.",
+      "C": "By using a previously shared preimage to verify the script-locked hashes that correspond to the commitment.",
+      "D": "By independently recalculating the hash values and comparing them to the prover's publicly recorded commitment."
+    },
+    "correct_answer": "C",
+    "explanation": "The verifier checks the integrity of the Bit Value Commitment by using a script-locked hash (either <HashA0> or <HashA1>) and the preimage revealed by the prover. This process ensures that the commitment made by the prover is accurate and unaltered, confirming the correct unlocking of the UTXO as per the described protocol in the knowledge graph path.",
+    "path_description": "Path: Prover --[revealsPreimageTo]--> Verifier --[verifies]--> Bit_Value_Commitment --[type]--> BlockchainComponent",
+    "context": "After that, the prover reveals the preimage corresponding to either <HashA1>or <HashA0>to the verifier by fulfilling the unlocking conditions of the UTXO containing the Bit Value Commitment. | The verifier then verifies the correctness of the prover’s Bit Value Commitment by using the script-locked <HashA0>or <HashA1>along with the revealed preimage to check the integrity of the commitment. | After that, the prover reveals the preimage corresponding to either <HashA1>or <HashA0>to the verifier by fulfilling the unlocking conditions of the UTXO containing the Bit Value Commitment.",
+    "paper_id": "1023"
+  }
+]

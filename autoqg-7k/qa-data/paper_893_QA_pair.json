@@ -1,0 +1,217 @@
+[
+  {
+    "section": "problemdescription3",
+    "path": {
+      "section": "problemdescription3",
+      "start_entity": "AerodynamicActuator",
+      "end_entity": "PhysicalQuantity",
+      "hops": [
+        {
+          "from": "AerodynamicActuator",
+          "relation": "applies",
+          "to": "ForceVector",
+          "context": "Our aerodynamic actuators apply a force calculated",
+          "chunk": "3"
+        },
+        {
+          "from": "ForceVector",
+          "relation": "perpendicularTo",
+          "to": "VelocityVector",
+          "context": "perpendicular to the velocity vector that then induces a force",
+          "chunk": "3"
+        },
+        {
+          "from": "VelocityVector",
+          "relation": "type",
+          "to": "PhysicalQuantity",
+          "context": "perpendicular to the velocity vector that then induces a force",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the context of aerodynamics, when an aerodynamic actuator applies a force, how does the direction of this force relate to the velocity vector of the object being acted upon?",
+    "options": {
+      "A": "The force applied by the aerodynamic actuator is parallel to the velocity vector of the object.",
+      "B": "The force applied by the aerodynamic actuator has no definitive directional relationship to the velocity vector of the object.",
+      "C": "The force applied by the aerodynamic actuator is the same as the velocity vector of the object.",
+      "D": "The force applied by the aerodynamic actuator is perpendicular to the velocity vector of the object."
+    },
+    "correct_answer": "D",
+    "explanation": "The force applied by the aerodynamic actuator is calculated to be perpendicular to the velocity vector of the object. This relationship is crucial for achieving desired changes in motion, as a perpendicular force influences the object's direction without altering its speed directly.",
+    "path_description": "Path: AerodynamicActuator --[applies]--> ForceVector --[perpendicularTo]--> VelocityVector --[type]--> PhysicalQuantity",
+    "context": "Our aerodynamic actuators apply a force calculated | perpendicular to the velocity vector that then induces a force | perpendicular to the velocity vector that then induces a force",
+    "paper_id": "1489"
+  },
+  {
+    "section": "methods2",
+    "path": {
+      "section": "methods2",
+      "start_entity": "Chan",
+      "end_entity": "MinFuelObjective",
+      "hops": [
+        {
+          "from": "Chan",
+          "relation": "proposes",
+          "to": "HullAlgorithm",
+          "context": "hull algorithm proposed by Chan [8]",
+          "chunk": "6"
+        },
+        {
+          "from": "HullAlgorithm",
+          "relation": "appliedTo",
+          "to": "ReachabilityAnalysis",
+          "context": "hull algorithm proposed by Chan [8] to perform reachability",
+          "chunk": "6"
+        },
+        {
+          "from": "ReachabilityAnalysis",
+          "relation": "aimsFor",
+          "to": "MinFuelObjective",
+          "context": "min-fuel objective begetting an ignition point 𝑛𝐼,𝑖 𝑝",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the context of the methods described by Chan, how does the Hull Algorithm contribute to optimizing the MinFuelObjective in reachability analysis?",
+    "options": {
+      "A": "The Hull Algorithm streamlines data processing speeds, indirectly affecting fuel calculations in reachability analysis.",
+      "B": "The Hull Algorithm restructures the input data format to be more amenable to fuel optimization algorithms.",
+      "C": "The Hull Algorithm assists in geometrically shaping the reachability boundaries to reduce computational overhead.",
+      "D": "The Hull Algorithm enables precise calculation of ignition points to optimize fuel usage during reachability analysis."
+    },
+    "correct_answer": "D",
+    "explanation": "The Hull Algorithm, as proposed by Chan, is applied to reachability analysis with the specific aim of achieving a MinFuelObjective. This means it helps in precisely calculating ignition points that are crucial for optimizing fuel usage, which is the most direct contribution among the provided options.",
+    "path_description": "Path: Chan --[proposes]--> HullAlgorithm --[appliedTo]--> ReachabilityAnalysis --[aimsFor]--> MinFuelObjective",
+    "context": "hull algorithm proposed by Chan [8] | hull algorithm proposed by Chan [8] to perform reachability | min-fuel objective begetting an ignition point 𝑛𝐼,𝑖 𝑝",
+    "paper_id": "1489"
+  },
+  {
+    "section": "methods2",
+    "path": {
+      "section": "methods2",
+      "start_entity": "MinFuelObjective",
+      "end_entity": "ConvexHull",
+      "hops": [
+        {
+          "from": "MinFuelObjective",
+          "relation": "resultsIn",
+          "to": "IgnitionPoint",
+          "context": "min-fuel objective begetting an ignition point 𝑛𝐼,𝑖 𝑝",
+          "chunk": "6"
+        },
+        {
+          "from": "IgnitionPoint",
+          "relation": "selectedFrom",
+          "to": "SurfaceOfPi",
+          "context": "cks a point 𝑛𝐼,𝑜 on the surface of 𝑃𝑖 and selects a random e defect hull problem",
+          "chunk": "6"
+        },
+        {
+          "from": "SurfaceOfPi",
+          "relation": "expandedTo",
+          "to": "ConvexHull",
+          "context": "e is then expanded to  𝑖+1 = convexhull(  𝑖  𝐼 )",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the context of optimizing the min-fuel objective in aerospace engineering, what does the ignition point 𝑛𝐼,𝑖 on the surface of 𝑃𝑖 lead to in the computational process?",
+    "options": {
+      "A": "It directly calculates the next iteration's convex hull without additional geometric transformations.",
+      "B": "It results in selecting a random edge defect hull, which is then expanded into the next iteration's convex hull.",
+      "C": "It adjusts the min-fuel objective to accommodate all possible ignition points on the surface of 𝑃𝑖.",
+      "D": "It bypasses the convex hull computation, leading directly to a solution for the min-fuel objective."
+    },
+    "correct_answer": "B",
+    "explanation": "According to the knowledge path, the ignition point 𝑛𝐼,𝑖 leads to selecting a point on the surface of 𝑃𝑖, which is involved in a random edge defect hull problem. This problem is subsequently expanded to form the convex hull in the next iteration.",
+    "path_description": "Path: MinFuelObjective --[resultsIn]--> IgnitionPoint --[selectedFrom]--> SurfaceOfPi --[expandedTo]--> ConvexHull",
+    "context": "min-fuel objective begetting an ignition point 𝑛𝐼,𝑖 𝑝 | cks a point 𝑛𝐼,𝑜 on the surface of 𝑃𝑖 and selects a random e defect hull problem | e is then expanded to  𝑖+1 = convexhull(  𝑖  𝐼 )",
+    "paper_id": "1489"
+  },
+  {
+    "section": "methods2",
+    "path": {
+      "section": "methods2",
+      "start_entity": "HullAlgorithm",
+      "end_entity": "IgnitionPoint",
+      "hops": [
+        {
+          "from": "HullAlgorithm",
+          "relation": "appliedTo",
+          "to": "ReachabilityAnalysis",
+          "context": "hull algorithm proposed by Chan [8] to perform reachability",
+          "chunk": "6"
+        },
+        {
+          "from": "ReachabilityAnalysis",
+          "relation": "aimsFor",
+          "to": "MinFuelObjective",
+          "context": "min-fuel objective begetting an ignition point 𝑛𝐼,𝑖 𝑝",
+          "chunk": "6"
+        },
+        {
+          "from": "MinFuelObjective",
+          "relation": "resultsIn",
+          "to": "IgnitionPoint",
+          "context": "min-fuel objective begetting an ignition point 𝑛𝐼,𝑖 𝑝",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the context of using the Hull Algorithm for reachability analysis, what is the primary objective that directly contributes to achieving an ignition point?",
+    "options": {
+      "A": "Minimizing fuel consumption to efficiently reach the desired ignition point in a controlled manner.",
+      "B": "Maximizing the speed of reachability to rapidly achieve the ignition point and commence operations.",
+      "C": "Enhancing the accuracy of the reachability predictions to ensure safety during ignition.",
+      "D": "Reducing the computational complexity of the Hull Algorithm to speed up the analysis process."
+    },
+    "correct_answer": "A",
+    "explanation": "The Hull Algorithm is applied in a reachability analysis with the specific aim of achieving a minimum fuel objective. This objective is directly linked to the result of reaching an ignition point efficiently, thus minimizing fuel consumption is key to reaching this goal.",
+    "path_description": "Path: HullAlgorithm --[appliedTo]--> ReachabilityAnalysis --[aimsFor]--> MinFuelObjective --[resultsIn]--> IgnitionPoint",
+    "context": "hull algorithm proposed by Chan [8] to perform reachability | min-fuel objective begetting an ignition point 𝑛𝐼,𝑖 𝑝 | min-fuel objective begetting an ignition point 𝑛𝐼,𝑖 𝑝",
+    "paper_id": "1489"
+  },
+  {
+    "section": "conclusion",
+    "path": {
+      "section": "conclusion",
+      "start_entity": "NaiveApproach",
+      "end_entity": "Stage",
+      "hops": [
+        {
+          "from": "NaiveApproach",
+          "relation": "evaluatedOn",
+          "to": "FiveDegreeOfFreedomModel",
+          "context": ", as our approach described here was rather naive.",
+          "chunk": "9"
+        },
+        {
+          "from": "FiveDegreeOfFreedomModel",
+          "relation": "subjectTo",
+          "to": "AxisymmetricFirstStage",
+          "context": "s axisymmetric first stage while subject to many practical",
+          "chunk": "9"
+        },
+        {
+          "from": "AxisymmetricFirstStage",
+          "relation": "type",
+          "to": "Stage",
+          "context": "s axisymmetric first stage while subject to many practical",
+          "chunk": "9"
+        }
+      ]
+    },
+    "question": "In evaluating a naive approach on the Five Degree of Freedom Model, what specific type of stage in rocket design is primarily considered?",
+    "options": {
+      "A": "The bi-axial second stage, which is crucial for maintaining the rocket’s trajectory post-launch.",
+      "B": "The axisymmetric first stage, which is critical due to its symmetrical nature around its longitudinal axis.",
+      "C": "The spherical booster stage, used mainly for initial thrust and lift-off.",
+      "D": "The cylindrical third stage, important for deploying payloads into orbit."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A because the knowledge path indicates that the Five Degree of Freedom Model was subject to an axisymmetric first stage. The term 'axisymmetric' relates to symmetry around the axis, which is a feature of the first stage in the model discussed.",
+    "path_description": "Path: NaiveApproach --[evaluatedOn]--> FiveDegreeOfFreedomModel --[subjectTo]--> AxisymmetricFirstStage --[type]--> Stage",
+    "context": ", as our approach described here was rather naive. | s axisymmetric first stage while subject to many practical | s axisymmetric first stage while subject to many practical",
+    "paper_id": "1489"
+  }
+]

@@ -1,0 +1,131 @@
+[
+  {
+    "section": "relatedworks",
+    "path": {
+      "section": "relatedworks",
+      "start_entity": "Spatial_Adaptive_Graph_Generation_Methods",
+      "end_entity": "Author",
+      "hops": [
+        {
+          "from": "Spatial_Adaptive_Graph_Generation_Methods",
+          "relation": "improves",
+          "to": "ST-GCNs",
+          "context": "some spatial adaptive graph generation methods based on no-local mechanisms were proposed to increase the flexibility of the skeleton graph structure",
+          "chunk": "1"
+        },
+        {
+          "from": "ST-GCNs",
+          "relation": "proposedBy",
+          "to": "Yan_et_al",
+          "context": "Yan et al. [51] introduced a pre-defined skeleton graph according to the human body’s natural link and proposed the ST-GCN",
+          "chunk": "1"
+        },
+        {
+          "from": "Yan_et_al",
+          "relation": "type",
+          "to": "Author",
+          "context": "Yan et al. [51] introduced a pre-defined skeleton graph",
+          "chunk": "1"
+        }
+      ]
+    },
+    "question": "Which of the following best describes the contribution of Yan et al. in the development of Spatial Adaptive Graph Generation Methods for ST-GCNs?",
+    "options": {
+      "A": "Yan et al. developed a novel algorithm to automatically generate spatial adaptive graphs using non-local mechanisms for ST-GCNs.",
+      "B": "Yan et al. introduced machine learning techniques to replace the need for graph structures in spatial adaptive methods.",
+      "C": "Yan et al. utilized dynamic programming to optimize the computational efficiency of ST-GCNs without altering the graph structure.",
+      "D": "Yan et al. proposed the use of pre-defined skeleton graphs based on the human body's natural link to enhance the structural flexibility of ST-GCNs."
+    },
+    "correct_answer": "D",
+    "explanation": "Yan et al. are credited with proposing Spatial Adaptive Graph Generation Methods that enhance the flexibility of skeleton graph structures in ST-GCNs, specifically through the introduction of a pre-defined skeleton graph based on the human body's natural link, as stated in the context from the paper.",
+    "path_description": "Path: Spatial_Adaptive_Graph_Generation_Methods --[improves]--> ST-GCNs --[proposedBy]--> Yan_et_al --[type]--> Author",
+    "context": "some spatial adaptive graph generation methods based on no-local mechanisms were proposed to increase the flexibility of the skeleton graph structure | Yan et al. [51] introduced a pre-defined skeleton graph according to the human body’s natural link and proposed the ST-GCN | Yan et al. [51] introduced a pre-defined skeleton graph",
+    "paper_id": "769"
+  },
+  {
+    "section": "method2",
+    "path": {
+      "section": "method2",
+      "start_entity": "LotteryTicketPerspective",
+      "end_entity": "Method",
+      "hops": [
+        {
+          "from": "LotteryTicketPerspective",
+          "relation": "relatedTo",
+          "to": "SparseST-GCN",
+          "context": "the Lottery Ticket Perspective of Sparse ST-GCNs, where the weights are learnable and the mask is pre-defined and kept fixed.",
+          "chunk": "3"
+        },
+        {
+          "from": "SparseST-GCN",
+          "relation": "uses",
+          "to": "StaticMask",
+          "context": "our proposed sparse ST-GCNs generator maintains a static mask while allowing the network weights to be trainable.",
+          "chunk": "3"
+        },
+        {
+          "from": "StaticMask",
+          "relation": "type",
+          "to": "Method",
+          "context": "our proposed sparse ST-GCNs generator maintains a static mask while allowing the network weights to be trainable.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the context of the Lottery Ticket Perspective as applied to Sparse ST-GCNs, what is the key characteristic of the mask used in the method?",
+    "options": {
+      "A": "The mask evolves independently of the training process but is predefined.",
+      "B": "The mask is pre-defined and remains static throughout the training process.",
+      "C": "The mask is initially undefined and is generated during the training.",
+      "D": "The mask is dynamically updated at each epoch of the training process."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A because the context from the paper mentions that the mask is pre-defined and kept fixed, indicating that it remains static during the training process of Sparse ST-GCNs under the Lottery Ticket Perspective. The other options suggest dynamic or undefined initial states of the mask, which contradicts the information provided.",
+    "path_description": "Path: LotteryTicketPerspective --[relatedTo]--> SparseST-GCN --[uses]--> StaticMask --[type]--> Method",
+    "context": "the Lottery Ticket Perspective of Sparse ST-GCNs, where the weights are learnable and the mask is pre-defined and kept fixed. | our proposed sparse ST-GCNs generator maintains a static mask while allowing the network weights to be trainable. | our proposed sparse ST-GCNs generator maintains a static mask while allowing the network weights to be trainable.",
+    "paper_id": "769"
+  },
+  {
+    "section": "method2",
+    "path": {
+      "section": "method2",
+      "start_entity": "WarmUpStage",
+      "end_entity": "Model",
+      "hops": [
+        {
+          "from": "WarmUpStage",
+          "relation": "partOf",
+          "to": "TrainingProcess",
+          "context": "During the warm-up stage, all network parameters (θ, ω) are optimized and the Lc is incorporated to extract relevant information from the masked portion and then direct it toward the designated sparse network.",
+          "chunk": "3"
+        },
+        {
+          "from": "TrainingProcess",
+          "relation": "partOf",
+          "to": "SparseST-GCN",
+          "context": "we divided the whole training process into two stages: warm-up and fine-tuning.",
+          "chunk": "3"
+        },
+        {
+          "from": "SparseST-GCN",
+          "relation": "type",
+          "to": "Model",
+          "context": "Different from Section 3.2, where the sparse ST-GCN is achieved by training masks for the network’s weights, our proposed sparse ST-GCNs generator maintains a static mask while allowing the network weights to be trainable.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the context of the SparseST-GCN model, what is the primary function of the WarmUpStage in the TrainingProcess?",
+    "options": {
+      "A": "To start with fine-tuning the network's weights before any initial parameter optimization is conducted.",
+      "B": "To immediately apply a static mask to the network's weights, preventing any training of the network parameters.",
+      "C": "To remove all masks from the network's parameters and optimize them based solely on external data inputs.",
+      "D": "To optimize network parameters and incorporate a loss function to handle the masked portion for information extraction."
+    },
+    "correct_answer": "D",
+    "explanation": "The WarmUpStage, as a part of the TrainingProcess for SparseST-GCN, focuses on optimizing all network parameters and incorporating a loss function (Lc) to effectively extract and utilize information from the masked portions of the network. This stage is crucial for setting up the parameters before directing them towards the designated sparse network architecture. Options B, C, and D are incorrect as they describe actions that are either opposite to or not mentioned as part of the WarmUpStage in the provided context.",
+    "path_description": "Path: WarmUpStage --[partOf]--> TrainingProcess --[partOf]--> SparseST-GCN --[type]--> Model",
+    "context": "During the warm-up stage, all network parameters (θ, ω) are optimized and the Lc is incorporated to extract relevant information from the masked portion and then direct it toward the designated sparse network. | we divided the whole training process into two stages: warm-up and fine-tuning. | Different from Section 3.2, where the sparse ST-GCN is achieved by training masks for the network’s weights, our proposed sparse ST-GCNs generator maintains a static mask while allowing the network weights to be trainable.",
+    "paper_id": "769"
+  }
+]

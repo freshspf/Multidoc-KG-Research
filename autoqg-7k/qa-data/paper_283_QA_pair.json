@@ -1,0 +1,174 @@
+[
+  {
+    "section": "experimentalmethodology1",
+    "path": {
+      "section": "experimentalmethodology1",
+      "start_entity": "MiningSystem",
+      "end_entity": "ComputationTime",
+      "hops": [
+        {
+          "from": "MiningSystem",
+          "relation": "hasParticipants",
+          "to": "Participant",
+          "context": "In our simulation configuration, we modeled a mining system with a total of n = 1,600 participants.",
+          "chunk": "3"
+        },
+        {
+          "from": "Participant",
+          "relation": "groupedInto",
+          "to": "Team",
+          "context": "Throughout the simulation, participants were grouped into teams of fixed sizes, denoted as N.",
+          "chunk": "3"
+        },
+        {
+          "from": "Team",
+          "relation": "assignedComputationTime",
+          "to": "ComputationTime",
+          "context": "Each team was assigned a fixed base computation time of 600 seconds per round.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the context of the described mining system simulation, if a team consists of 100 participants, how much total computation time would the team use in 10 rounds?",
+    "options": {
+      "A": "Each team is assigned 6,000 seconds per round, so in 10 rounds, a team of 100 would use 60,000 seconds.",
+      "B": "Each participant is assigned 600 seconds per round, so in 10 rounds, a team of 100 would use 60,000 seconds.",
+      "C": "Each participant is assigned 60 seconds per round, so in 10 rounds, a team of 100 would use 6,000 seconds.",
+      "D": "Each team is assigned 600 seconds per round, so in 10 rounds, a team of 100 would use 6,000 seconds."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is B. According to the simulation setup, each team, regardless of size, was assigned a fixed base computation time of 600 seconds per round. Therefore, for 10 rounds, the computation time would be 600 seconds multiplied by 10, totaling 6,000 seconds.",
+    "path_description": "Path: MiningSystem --[hasParticipants]--> Participant --[groupedInto]--> Team --[assignedComputationTime]--> ComputationTime",
+    "context": "In our simulation configuration, we modeled a mining system with a total of n = 1,600 participants. | Throughout the simulation, participants were grouped into teams of fixed sizes, denoted as N. | Each team was assigned a fixed base computation time of 600 seconds per round.",
+    "paper_id": "1563"
+  },
+  {
+    "section": "experimentalmethodology1",
+    "path": {
+      "section": "experimentalmethodology1",
+      "start_entity": "MiningSystem",
+      "end_entity": "Process",
+      "hops": [
+        {
+          "from": "MiningSystem",
+          "relation": "hasParticipants",
+          "to": "Participant",
+          "context": "In our simulation configuration, we modeled a mining system with a total of n = 1,600 participants.",
+          "chunk": "3"
+        },
+        {
+          "from": "Participant",
+          "relation": "contributesTo",
+          "to": "BlockGeneration",
+          "context": "Within each team, participants took turns processing, sequentially contributing to block generation.",
+          "chunk": "3"
+        },
+        {
+          "from": "BlockGeneration",
+          "relation": "type",
+          "to": "Process",
+          "context": "Within each team, participants took turns processing, sequentially contributing to block generation.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the context of a simulated mining system as described, what role do participants predominantly play in the process of block generation?",
+    "options": {
+      "A": "Participants are primarily involved in the verification of blocks after they are generated.",
+      "B": "Participants focus on developing the software required for processing blocks rather than generating them.",
+      "C": "Each participant sequentially processes tasks as part of the overall block generation process.",
+      "D": "The participants' main role is to independently generate blocks without sequential coordination."
+    },
+    "correct_answer": "C",
+    "explanation": "According to the provided context, in the mining system simulation, the participants sequentially contribute to block generation by processing tasks. This indicates that their primary role is in the processing steps, which form part of the block generation process.",
+    "path_description": "Path: MiningSystem --[hasParticipants]--> Participant --[contributesTo]--> BlockGeneration --[type]--> Process",
+    "context": "In our simulation configuration, we modeled a mining system with a total of n = 1,600 participants. | Within each team, participants took turns processing, sequentially contributing to block generation. | Within each team, participants took turns processing, sequentially contributing to block generation.",
+    "paper_id": "1563"
+  },
+  {
+    "section": "results1",
+    "path": {
+      "section": "results1",
+      "start_entity": "HighPerformanceNode",
+      "end_entity": "ConsensusMechanism",
+      "hops": [
+        {
+          "from": "HighPerformanceNode",
+          "relation": "evaluatedOn",
+          "to": "PoTS",
+          "context": "under PoTS, the dominance was reduced, with the node achieving first place in only 54 out of 100 runs",
+          "chunk": "5"
+        },
+        {
+          "from": "PoTS",
+          "relation": "outperforms",
+          "to": "PoW",
+          "context": "PoTS exhibits a more balanced reward distribution",
+          "chunk": "5"
+        },
+        {
+          "from": "PoW",
+          "relation": "type",
+          "to": "ConsensusMechanism",
+          "context": "Table 2 presents the reward distribution statistics for PoW",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "Considering the evaluation of HighPerformanceNode on PoTS compared to PoW, what attribute of PoTS most likely contributes to its ability to outperform PoW in the context of a Consensus Mechanism?",
+    "options": {
+      "A": "PoTS uses less computational power per transaction, directly increasing the efficiency of nodes.",
+      "B": "PoTS supports a larger number of nodes, which diversifies the network and improves resilience.",
+      "C": "PoTS allows for a higher transaction throughput which inherently enhances node performance.",
+      "D": "PoTS promotes a more balanced reward distribution, leading to reduced dominance in node performance."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A because the context indicates that under PoTS, the dominance of the HighPerformanceNode was reduced, and it achieved first place fewer times compared to when evaluated under PoW. This suggests that PoTS's more balanced reward distribution is a crucial factor in its performance as a consensus mechanism, leading to more equitable node performance outcomes.",
+    "path_description": "Path: HighPerformanceNode --[evaluatedOn]--> PoTS --[outperforms]--> PoW --[type]--> ConsensusMechanism",
+    "context": "under PoTS, the dominance was reduced, with the node achieving first place in only 54 out of 100 runs | PoTS exhibits a more balanced reward distribution | Table 2 presents the reward distribution statistics for PoW",
+    "paper_id": "1563"
+  },
+  {
+    "section": "results2",
+    "path": {
+      "section": "results2",
+      "start_entity": "PoTS",
+      "end_entity": "MathematicalConcept",
+      "hops": [
+        {
+          "from": "PoTS",
+          "relation": "reduces",
+          "to": "ActiveTime",
+          "context": "As expected, PoTS significantly reduces active time follows an approximately 1/N scaling trend.",
+          "chunk": "6"
+        },
+        {
+          "from": "ActiveTime",
+          "relation": "follows",
+          "to": "ScalingTrend",
+          "context": "Active time follows an approximately 1/N scaling trend.",
+          "chunk": "6"
+        },
+        {
+          "from": "ScalingTrend",
+          "relation": "type",
+          "to": "MathematicalConcept",
+          "context": "Active time follows an approximately 1/N scaling trend.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "How does the phenomenon of PoTS influence the scaling trend of active time in relation to a known mathematical concept?",
+    "options": {
+      "A": "PoTS has no effect on active time, which follows a quadratic scaling trend showing squared growth.",
+      "B": "PoTS stabilizes active time, aligning with a linear scaling trend that reflects direct proportionality.",
+      "C": "PoTS increases active time, which correlates with an exponential scaling trend demonstrating rapid growth.",
+      "D": "PoTS reduces active time, which then follows a 1/N scaling trend, indicative of inverse proportionality."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A because PoTS reduces active time, and the active time follows a 1/N scaling trend. This trend indicates an inverse proportional relationship, which is a known mathematical concept illustrating how one quantity decreases as another increases.",
+    "path_description": "Path: PoTS --[reduces]--> ActiveTime --[follows]--> ScalingTrend --[type]--> MathematicalConcept",
+    "context": "As expected, PoTS significantly reduces active time follows an approximately 1/N scaling trend. | Active time follows an approximately 1/N scaling trend. | Active time follows an approximately 1/N scaling trend.",
+    "paper_id": "1563"
+  }
+]

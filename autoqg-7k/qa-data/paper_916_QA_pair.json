@@ -1,0 +1,131 @@
+[
+  {
+    "section": "furtheranalyses",
+    "path": {
+      "section": "furtheranalyses",
+      "start_entity": "kNN-LM",
+      "end_entity": "ResplitTestData",
+      "hops": [
+        {
+          "from": "kNN-LM",
+          "relation": "worsensPredictionFor",
+          "to": "LOW",
+          "context": "kNN-LM worsens the prediction probabilities for low-frequency tokens.",
+          "chunk": "9"
+        },
+        {
+          "from": "LOW",
+          "relation": "hasLowerProbabilityWith",
+          "to": "kNN-LM",
+          "context": "the kNN probability varies little with the number of neighbors and consistently remains lower than the LM probability for tokens in the low-frequency category.",
+          "chunk": "9"
+        },
+        {
+          "from": "kNN-LM",
+          "relation": "evaluatedOn",
+          "to": "ResplitTestData",
+          "context": "on the resplit test data.",
+          "chunk": "9"
+        }
+      ]
+    },
+    "question": "In the context of using kNN-LM for language modeling, how does the prediction for low-frequency (LOW) tokens on resplit test data compare to the traditional language model?",
+    "options": {
+      "A": "The kNN-LM shows improved prediction probabilities for low-frequency tokens compared to traditional LM on resplit test data.",
+      "B": "The kNN-LM does not affect the prediction probabilities for low-frequency tokens when compared to traditional LM.",
+      "C": "The kNN-LM shows decreased prediction probabilities for low-frequency tokens compared to traditional LM on resplit test data.",
+      "D": "The kNN-LM prediction probabilities vary significantly with the number of neighbors for low-frequency tokens on resplit test data."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is B. According to the paper, kNN-LM worsens the prediction probabilities for low-frequency tokens, and these probabilities consistently remain lower than those predicted by the traditional language model, especially on the resplit test data. The options A, C, and D are misleading as they suggest either improvement, no change, or high variability with the number of neighbors, none of which align with the findings presented in the paper.",
+    "path_description": "Path: kNN-LM --[worsensPredictionFor]--> LOW --[hasLowerProbabilityWith]--> kNN-LM --[evaluatedOn]--> ResplitTestData",
+    "context": "kNN-LM worsens the prediction probabilities for low-frequency tokens. | the kNN probability varies little with the number of neighbors and consistently remains lower than the LM probability for tokens in the low-frequency category. | on the resplit test data.",
+    "paper_id": "1911"
+  },
+  {
+    "section": "furtheranalyses",
+    "path": {
+      "section": "furtheranalyses",
+      "start_entity": "LOW",
+      "end_entity": "Dataset",
+      "hops": [
+        {
+          "from": "LOW",
+          "relation": "hasLowerProbabilityWith",
+          "to": "kNN-LM",
+          "context": "the kNN probability varies little with the number of neighbors and consistently remains lower than the LM probability for tokens in the low-frequency category.",
+          "chunk": "9"
+        },
+        {
+          "from": "kNN-LM",
+          "relation": "evaluatedOn",
+          "to": "ResplitTestData",
+          "context": "on the resplit test data.",
+          "chunk": "9"
+        },
+        {
+          "from": "ResplitTestData",
+          "relation": "type",
+          "to": "Dataset",
+          "context": "on the resplit test data.",
+          "chunk": "9"
+        }
+      ]
+    },
+    "question": "In the context of language modeling, what is the implication of using kNN-LM on Resplit Test Data specifically for low-frequency tokens?",
+    "options": {
+      "A": "kNN-LM provides higher accuracy for low-frequency tokens than for high-frequency tokens.",
+      "B": "kNN-LM maintains a lower probability for low-frequency tokens compared to standard language models.",
+      "C": "The number of neighbors significantly increases kNN-LM's probability for low-frequency tokens.",
+      "D": "The dataset type does not influence the probability outcomes for low-frequency tokens in kNN-LM."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A because the context indicates that kNN-LM consistently shows lower probability for low-frequency tokens compared to traditional language models, regardless of the number of neighbors. This relationship is specifically evaluated on the resplit test data type of dataset, confirming the performance characteristic of kNN-LM under these conditions.",
+    "path_description": "Path: LOW --[hasLowerProbabilityWith]--> kNN-LM --[evaluatedOn]--> ResplitTestData --[type]--> Dataset",
+    "context": "the kNN probability varies little with the number of neighbors and consistently remains lower than the LM probability for tokens in the low-frequency category. | on the resplit test data. | on the resplit test data.",
+    "paper_id": "1911"
+  },
+  {
+    "section": "furtheranalyses",
+    "path": {
+      "section": "furtheranalyses",
+      "start_entity": "kNN-LM",
+      "end_entity": "Category",
+      "hops": [
+        {
+          "from": "kNN-LM",
+          "relation": "worsensPredictionFor",
+          "to": "LOW",
+          "context": "kNN-LM worsens the prediction probabilities for low-frequency tokens.",
+          "chunk": "9"
+        },
+        {
+          "from": "LOW",
+          "relation": "type",
+          "to": "TokenFrequencyCategory",
+          "context": "divided them into three equal categories: LOW, MED, and HIGH.",
+          "chunk": "9"
+        },
+        {
+          "from": "TokenFrequencyCategory",
+          "relation": "type",
+          "to": "Category",
+          "context": "divided them into three equal categories: LOW, MED, and HIGH.",
+          "chunk": "9"
+        }
+      ]
+    },
+    "question": "In the study of k-nearest neighbor language models (kNN-LM), how does the model's performance differ when predicting probabilities for tokens categorized under different token frequency categories?",
+    "options": {
+      "A": "The model only predicts probabilities for tokens in the HIGH frequency category, ignoring LOW and MED categories.",
+      "B": "The model enhances prediction probabilities specifically for tokens in the LOW frequency category, compared to MED and HIGH.",
+      "C": "The model maintains consistent prediction probabilities across all frequency categories: LOW, MED, and HIGH.",
+      "D": "The model worsens prediction probabilities specifically for tokens in the LOW frequency category, compared to MED and HIGH."
+    },
+    "correct_answer": "D",
+    "explanation": "According to the knowledge graph path, kNN-LM specifically worsens the prediction for tokens in the LOW category of token frequency. This indicates a decrease in prediction performance for lower frequency tokens, as opposed to either improving or maintaining consistent prediction probabilities across all categories.",
+    "path_description": "Path: kNN-LM --[worsensPredictionFor]--> LOW --[type]--> TokenFrequencyCategory --[type]--> Category",
+    "context": "kNN-LM worsens the prediction probabilities for low-frequency tokens. | divided them into three equal categories: LOW, MED, and HIGH. | divided them into three equal categories: LOW, MED, and HIGH.",
+    "paper_id": "1911"
+  }
+]

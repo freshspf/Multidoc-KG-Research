@@ -1,0 +1,303 @@
+[
+  {
+    "section": "introduction2",
+    "path": {
+      "section": "introduction2",
+      "start_entity": "LLM-List",
+      "end_entity": "Dataset",
+      "hops": [
+        {
+          "from": "LLM-List",
+          "relation": "comparedWith",
+          "to": "DSL-List",
+          "context": "LLM-List and DSL-List are different datasets evaluated",
+          "chunk": "1"
+        },
+        {
+          "from": "DSL-List",
+          "relation": "comparedWith",
+          "to": "LeetCode",
+          "context": "DSL-List and LeetCode are different datasets evaluated",
+          "chunk": "1"
+        },
+        {
+          "from": "LeetCode",
+          "relation": "type",
+          "to": "Dataset",
+          "context": "LeetCode: separate into those before and after the knowledge",
+          "chunk": "1"
+        }
+      ]
+    },
+    "question": "Which of the following statements correctly describes the hierarchical relationship between the datasets mentioned in the paper?",
+    "options": {
+      "A": "LeetCode is the primary dataset from which both LLM-List and DSL-List have been derived for comparative analysis.",
+      "B": "LLM-List and DSL-List are evaluated datasets, and LeetCode is a type of dataset further categorized in the study.",
+      "C": "DSL-List serves as a foundational dataset for LLM-List, which in turn, categorizes LeetCode into sub-datasets.",
+      "D": "LLM-List is a subset of DSL-List, which is then used to categorize LeetCode into its subsequent types."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A because the knowledge path illustrates that LLM-List and DSL-List are compared with each other, and both are also compared with LeetCode, which is identified as a type of dataset broken down further in the study.",
+    "path_description": "Path: LLM-List --[comparedWith]--> DSL-List --[comparedWith]--> LeetCode --[type]--> Dataset",
+    "context": "LLM-List and DSL-List are different datasets evaluated | DSL-List and LeetCode are different datasets evaluated | LeetCode: separate into those before and after the knowledge",
+    "paper_id": "686"
+  },
+  {
+    "section": "introduction2",
+    "path": {
+      "section": "introduction2",
+      "start_entity": "LeetCode",
+      "end_entity": "Reversion",
+      "hops": [
+        {
+          "from": "LeetCode",
+          "relation": "comparedWith",
+          "to": "LLM-List",
+          "context": "LeetCode and LLM-List are different datasets evaluated",
+          "chunk": "1"
+        },
+        {
+          "from": "LLM-List",
+          "relation": "comparedWith",
+          "to": "DSL-List",
+          "context": "LLM-List and DSL-List are different datasets evaluated",
+          "chunk": "1"
+        },
+        {
+          "from": "DSL-List",
+          "relation": "evaluatedOn",
+          "to": "Reversion",
+          "context": "On DSL-List, correctness and reversion is low for each model",
+          "chunk": "1"
+        }
+      ]
+    },
+    "question": "Given the comparative evaluations among different datasets, if a model performs poorly on the DSL-List in terms of correctness and reversion, how is it likely to perform on LeetCode?",
+    "options": {
+      "A": "Performance on LeetCode can't be predicted as there is no direct correlation indicated in the evaluation data.",
+      "B": "The model is likely to perform similarly on LeetCode, given that both are part of the comparative evaluations.",
+      "C": "The model is likely to perform poorly on LeetCode due to issues in reversion being common across datasets.",
+      "D": "The model will perform better on LeetCode since the issues with DSL-List are unique to its structure and content."
+    },
+    "correct_answer": "A",
+    "explanation": "The knowledge path and context indicate evaluations of different datasets but do not provide a direct correlation or performance extrapolation from one dataset to another. Thus, performance on LeetCode cannot be accurately predicted based solely on performance on DSL-List.",
+    "path_description": "Path: LeetCode --[comparedWith]--> LLM-List --[comparedWith]--> DSL-List --[evaluatedOn]--> Reversion",
+    "context": "LeetCode and LLM-List are different datasets evaluated | LLM-List and DSL-List are different datasets evaluated | On DSL-List, correctness and reversion is low for each model",
+    "paper_id": "686"
+  },
+  {
+    "section": "introduction2",
+    "path": {
+      "section": "introduction2",
+      "start_entity": "DSL-List",
+      "end_entity": "Metric",
+      "hops": [
+        {
+          "from": "DSL-List",
+          "relation": "comparedWith",
+          "to": "LeetCode",
+          "context": "DSL-List and LeetCode are different datasets evaluated",
+          "chunk": "1"
+        },
+        {
+          "from": "LeetCode",
+          "relation": "evaluatedOn",
+          "to": "Reversion",
+          "context": "On LeetCode, earlier LLMs exhibit correctness before and after cutoff",
+          "chunk": "1"
+        },
+        {
+          "from": "Reversion",
+          "relation": "type",
+          "to": "Metric",
+          "context": "introduce the novel metric of reversion, which measures",
+          "chunk": "1"
+        }
+      ]
+    },
+    "question": "How does the novel metric of reversion, introduced in the paper, specifically evaluate the performance of earlier Language Learning Models (LLMs) on LeetCode compared to DSL-List?",
+    "options": {
+      "A": "It calculates the percentage of correct solutions by LLMs on DSL-List that become incorrect when tested on LeetCode.",
+      "B": "It measures the frequency with which LLMs revert to incorrect answers after initially being correct on LeetCode, not DSL-List.",
+      "C": "Reversion tracks the ability of LLMs to maintain consistent output quality over multiple runs on both LeetCode and DSL-List.",
+      "D": "It assesses the improvement in runtime efficiency of LLMs on LeetCode, compared to their performance on DSL-List."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A because 'reversion' as a metric, according to the provided path and context, is used to measure the tendency of language learning models to revert to incorrect answers after initially giving correct answers specifically on the LeetCode dataset. The other options either incorrectly include DSL-List or describe a different type of evaluation metric not mentioned in the context.",
+    "path_description": "Path: DSL-List --[comparedWith]--> LeetCode --[evaluatedOn]--> Reversion --[type]--> Metric",
+    "context": "DSL-List and LeetCode are different datasets evaluated | On LeetCode, earlier LLMs exhibit correctness before and after cutoff | introduce the novel metric of reversion, which measures",
+    "paper_id": "686"
+  },
+  {
+    "section": "codereasoningbenchmarksets2",
+    "path": {
+      "section": "codereasoningbenchmarksets2",
+      "start_entity": "GPT-4o",
+      "end_entity": "Function",
+      "hops": [
+        {
+          "from": "GPT-4o",
+          "relation": "type",
+          "to": "Model",
+          "context": "We use GPT-4o to generate three test ataset.",
+          "chunk": "6"
+        },
+        {
+          "from": "Model",
+          "relation": "generates",
+          "to": "IntersectionFunction",
+          "context": "The model produces t, value)) and their natural language descriptions.",
+          "chunk": "6"
+        },
+        {
+          "from": "IntersectionFunction",
+          "relation": "type",
+          "to": "Function",
+          "context": "ude merge, slice, and intersection.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the development of test datasets using GPT-4o for code reasoning, what type of function does the model specifically generate to handle data operations as described?",
+    "options": {
+      "A": "The model generates a ConcatenationFunction to combine multiple datasets into a single unified set.",
+      "B": "The model generates a SortingFunction to arrange data elements in a specific order for analysis.",
+      "C": "The model generates an IntersectionFunction to manage the overlap of data sets based on specified conditions.",
+      "D": "The model generates a FilteringFunction to exclude data that does not meet certain criteria."
+    },
+    "correct_answer": "C",
+    "explanation": "Based on the provided knowledge path, GPT-4o is used to generate an IntersectionFunction, which is a specific type of function dealing with the intersection of data sets. This function is designed to manage the overlap of data sets based on specified conditions, aligning with the path: Model --[generates]--> IntersectionFunction.",
+    "path_description": "Path: GPT-4o --[type]--> Model --[generates]--> IntersectionFunction --[type]--> Function",
+    "context": "We use GPT-4o to generate three test ataset. | The model produces t, value)) and their natural language descriptions. | ude merge, slice, and intersection.",
+    "paper_id": "686"
+  },
+  {
+    "section": "results4",
+    "path": {
+      "section": "results4",
+      "start_entity": "QC-32B",
+      "end_entity": "Model",
+      "hops": [
+        {
+          "from": "QC-32B",
+          "relation": "comparedWith",
+          "to": "GPT-4o",
+          "context": "less capable models (e.g., DC-33B, GPT-4o-mini) while more capable models (e.g., QC-32B, GPT-4o).",
+          "chunk": "12"
+        },
+        {
+          "from": "GPT-4o",
+          "relation": "comparedWith",
+          "to": "DC-33B",
+          "context": "less capable models (e.g., DC-33B, GPT-4o-mini) while more capable models (e.g., QC-32B, GPT-4o).",
+          "chunk": "12"
+        },
+        {
+          "from": "DC-33B",
+          "relation": "type",
+          "to": "Model",
+          "context": "less capable models (e.g., DC-33B, GPT-4o-mini)...",
+          "chunk": "12"
+        }
+      ]
+    },
+    "question": "In the comparative evaluation of language models, if DC-33B is classified as a less capable model, which model among the following is considered more capable?",
+    "options": {
+      "A": "GPT-4o, despite being indirectly compared through its mini version with DC-33B",
+      "B": "DC-33B, given its direct comparison with more advanced models like GPT-4o",
+      "C": "QC-32B, which was directly compared with GPT-4o and indirectly with DC-33B",
+      "D": "GPT-4o-mini, which shares similar capabilities with DC-33B"
+    },
+    "correct_answer": "C",
+    "explanation": "The question follows the knowledge path from QC-32B through GPT-4o to DC-33B, and identifies the classification of the model type. Since DC-33B is considered less capable, and QC-32B is directly compared and implied to be more capable than GPT-4o, which in turn is compared with DC-33B, QC-32B thus emerges as the more capable model.",
+    "path_description": "Path: QC-32B --[comparedWith]--> GPT-4o --[comparedWith]--> DC-33B --[type]--> Model",
+    "context": "less capable models (e.g., DC-33B, GPT-4o-mini) while more capable models (e.g., QC-32B, GPT-4o). | less capable models (e.g., DC-33B, GPT-4o-mini) while more capable models (e.g., QC-32B, GPT-4o). | less capable models (e.g., DC-33B, GPT-4o-mini)...",
+    "paper_id": "686"
+  },
+  {
+    "section": "codereasoningbenchmarksets2",
+    "path": {
+      "section": "codereasoningbenchmarksets2",
+      "start_entity": "GPT-4o",
+      "end_entity": "Function",
+      "hops": [
+        {
+          "from": "GPT-4o",
+          "relation": "type",
+          "to": "Model",
+          "context": "We use GPT-4o to generate three test ataset.",
+          "chunk": "6"
+        },
+        {
+          "from": "Model",
+          "relation": "generates",
+          "to": "MergeFunction",
+          "context": "The model produces t, value)) and their natural language descriptions.",
+          "chunk": "6"
+        },
+        {
+          "from": "MergeFunction",
+          "relation": "type",
+          "to": "Function",
+          "context": "ude merge, slice, and intersection.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the context of the GPT-4o model used to generate test datasets, what type of function is explicitly generated by the model as part of its output?",
+    "options": {
+      "A": "A function that sorts datasets based on a specific criterion or attribute.",
+      "B": "A function that filters data entries according to predetermined conditions.",
+      "C": "A function that duplicates each entry in the dataset to expand the dataset size.",
+      "D": "A function that merges two or more datasets into a single dataset."
+    },
+    "correct_answer": "D",
+    "explanation": "The model generates a MergeFunction, which implies a function designed to merge datasets. This is supported by the context mentioning the inclusion of a 'merge' type alongside other operations like slice and intersection.",
+    "path_description": "Path: GPT-4o --[type]--> Model --[generates]--> MergeFunction --[type]--> Function",
+    "context": "We use GPT-4o to generate three test ataset. | The model produces t, value)) and their natural language descriptions. | ude merge, slice, and intersection.",
+    "paper_id": "686"
+  },
+  {
+    "section": "datasetdetails3",
+    "path": {
+      "section": "datasetdetails3",
+      "start_entity": "f1",
+      "end_entity": "a1",
+      "hops": [
+        {
+          "from": "f1",
+          "relation": "comparedWith",
+          "to": "f1",
+          "context": "Comparison between two versions of f1 function with different results.",
+          "chunk": "17"
+        },
+        {
+          "from": "f1",
+          "relation": "comparedWith",
+          "to": "f1",
+          "context": "Comparison between two versions of f1 function with different results.",
+          "chunk": "17"
+        },
+        {
+          "from": "f1",
+          "relation": "evaluatedOn",
+          "to": "a1",
+          "context": "def f1(a1, a2): v1 = [] v1.append(a1) a2.pop() a2.pop(0) for i in range(len(v1)): v1[i] = v1[i][3] a2.append(2) if len(a1) < a1[0]: v2 = a2 else: v2 = v1 for i in range(len(v2)): if a1[0] == 5: v3 = a2[len(a1)] else: v3 = v2[i] v2[i] = v3 return v2",
+          "chunk": "17"
+        }
+      ]
+    },
+    "question": "Considering the dual comparisons between two versions of the function f1 and its evaluation on a1, what would be the result if a1 initially contains all elements less than 5 and a2 is a list with more than two elements?",
+    "options": {
+      "A": "The resulting list will be a version of a1 with all elements replaced by their third character.",
+      "B": "The resulting list will be a modified version of a2, containing exactly one element altered.",
+      "C": "The resulting list will only contain the integer 2, repeatedly appended based on the length of a1.",
+      "D": "The resulting list will consist of the original list a2 with the first and last elements removed."
+    },
+    "correct_answer": "B",
+    "explanation": "Since none of the elements in a1 are equal to 5, the function will not modify a2 based on the condition a1[0] == 5. Instead, since a2 has more than two elements, two elements are popped from a2, and then 2 is appended. This results in a modified version of a2 with one element changed (appended with 2).",
+    "path_description": "Path: f1 --[comparedWith]--> f1 --[comparedWith]--> f1 --[evaluatedOn]--> a1",
+    "context": "Comparison between two versions of f1 function with different results. | Comparison between two versions of f1 function with different results. | def f1(a1, a2): v1 = [] v1.append(a1) a2.pop() a2.pop(0) for i in range(len(v1)): v1[i] = v1[i][3] a2.append(2) if len(a1) < a1[0]: v2 = a2 else: v2 = v1 for i in range(len(v2)): if a1[0] == 5: v3 = a2[len(a1)] else: v3 = v2[i] v2[i] = v3 return v2",
+    "paper_id": "686"
+  }
+]

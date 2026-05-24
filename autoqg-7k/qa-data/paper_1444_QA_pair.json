@@ -1,0 +1,88 @@
+[
+  {
+    "section": "systemdesign",
+    "path": {
+      "section": "systemdesign",
+      "start_entity": "ScalerEval",
+      "end_entity": "Format",
+      "hops": [
+        {
+          "from": "ScalerEval",
+          "relation": "scans",
+          "to": "ObjectConfigurationFile",
+          "context": "At the beginning of experiments, ScalerEval automatically scans the specified benchmark’s object configuration file.",
+          "chunk": "3"
+        },
+        {
+          "from": "ObjectConfigurationFile",
+          "relation": "inFormat",
+          "to": "YAML",
+          "context": "For each benchmark, users need to prepare an object configuration file in YAML format.",
+          "chunk": "3"
+        },
+        {
+          "from": "YAML",
+          "relation": "type",
+          "to": "Format",
+          "context": "For each benchmark, users need to prepare an object configuration file in YAML format.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the system design described, what is the primary role of the ScalerEval in relation to the configuration of benchmarks?",
+    "options": {
+      "A": "ScalerEval scans the object configuration file to ensure it is in the correct YAML format for each benchmark.",
+      "B": "ScalerEval generates a new object configuration file for each benchmark in a predetermined format.",
+      "C": "ScalerEval modifies the object configuration file to adapt various benchmarks to a more suitable format.",
+      "D": "ScalerEval compiles data from multiple configuration files into a single YAML formatted document."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A because, according to the knowledge path, ScalerEval scans the object configuration file, which must be prepared by users in YAML format for each benchmark. This indicates that ScalerEval's primary role is to ensure the configuration file is in the correct YAML format, rather than modifying, generating, or compiling configuration files.",
+    "path_description": "Path: ScalerEval --[scans]--> ObjectConfigurationFile --[inFormat]--> YAML --[type]--> Format",
+    "context": "At the beginning of experiments, ScalerEval automatically scans the specified benchmark’s object configuration file. | For each benchmark, users need to prepare an object configuration file in YAML format. | For each benchmark, users need to prepare an object configuration file in YAML format.",
+    "paper_id": "30"
+  },
+  {
+    "section": "evaluation",
+    "path": {
+      "section": "evaluation",
+      "start_entity": "PBScaler",
+      "end_entity": "KHPA50Percent",
+      "hops": [
+        {
+          "from": "PBScaler",
+          "relation": "comparedWith",
+          "to": "Showar",
+          "context": "We reproduced and evaluated three state-of-the-art horizontal auto-scalers from academia and industry: PBScaler [1], Showar [7]",
+          "chunk": "4"
+        },
+        {
+          "from": "Showar",
+          "relation": "comparedWith",
+          "to": "KubernetesHorizontalPodAutoScaler",
+          "context": "Showar [7], and Kubernetes horizontal pod auto-scaler (KHPA) [19]",
+          "chunk": "4"
+        },
+        {
+          "from": "KubernetesHorizontalPodAutoScaler",
+          "relation": "hasVariant",
+          "to": "KHPA50Percent",
+          "context": "50%",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "Which horizontal auto-scaler is noted for having a specific variant that operates at 50% efficiency in the evaluation?",
+    "options": {
+      "A": "Showar is specifically noted for having a variant operating at 50% efficiency.",
+      "B": "PBScaler is specifically noted for having a variant operating at 50% efficiency.",
+      "C": "Kubernetes horizontal pod auto-scaler (KHPA) is specifically noted for having a variant operating at 50% efficiency.",
+      "D": "All evaluated auto-scalers are noted for having a variant that operates at 50% efficiency."
+    },
+    "correct_answer": "C",
+    "explanation": "The knowledge path indicates a connection from PBScaler to Showar, and from Showar to Kubernetes Horizontal Pod Auto-Scaler (KHPA), which specifically has a variant (KHPA50Percent) that operates at 50% efficiency. Therefore, the correct answer is A.",
+    "path_description": "Path: PBScaler --[comparedWith]--> Showar --[comparedWith]--> KubernetesHorizontalPodAutoScaler --[hasVariant]--> KHPA50Percent",
+    "context": "We reproduced and evaluated three state-of-the-art horizontal auto-scalers from academia and industry: PBScaler [1], Showar [7] | Showar [7], and Kubernetes horizontal pod auto-scaler (KHPA) [19] | 50%",
+    "paper_id": "30"
+  }
+]

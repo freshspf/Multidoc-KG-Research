@@ -1,0 +1,88 @@
+[
+  {
+    "section": "simulationsandexperiments2",
+    "path": {
+      "section": "simulationsandexperiments2",
+      "start_entity": "SPMethod",
+      "end_entity": "Scenario",
+      "hops": [
+        {
+          "from": "SPMethod",
+          "relation": "comparedWith",
+          "to": "EAMethod",
+          "context": "we also implement the Euler-Angle-based method (EA method) for additional comparison.",
+          "chunk": "5"
+        },
+        {
+          "from": "EAMethod",
+          "relation": "usedIn",
+          "to": "ScenarioC",
+          "context": "The comparison experiment is carried out in a virtual environment that is basically the same as Scenario C.",
+          "chunk": "5"
+        },
+        {
+          "from": "ScenarioC",
+          "relation": "type",
+          "to": "Scenario",
+          "context": "Scenario C: We expect the vehicle to pass through a 30m×10m×8m area containing 1000 randomly distributed floating cuboid obstacles.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the virtual environment used for the comparison experiment, which method is implemented and what specific scenario does it compare with?",
+    "options": {
+      "A": "The Simulation Prediction method is implemented and compared in a scenario that involves navigating through a narrow tunnel without obstacles.",
+      "B": "The Euler-Angle-based method is implemented and compared specifically in a scenario involving a vehicle navigating through a large area filled with numerous floating obstacles.",
+      "C": "The Euler-Angle-based method is used for comparison in a scenario that tests the vehicle's speed in an obstacle-free environment.",
+      "D": "The Simulation Prediction method is implemented and compared in a scenario involving an underwater simulation with floating obstacles."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A as the Euler-Angle-based method (EA method) is specifically mentioned as being used for comparison in the virtual environment described as Scenario C. This scenario involves a vehicle navigating through a space with many floating obstacles, as detailed in the provided context.",
+    "path_description": "Path: SPMethod --[comparedWith]--> EAMethod --[usedIn]--> ScenarioC --[type]--> Scenario",
+    "context": "we also implement the Euler-Angle-based method (EA method) for additional comparison. | The comparison experiment is carried out in a virtual environment that is basically the same as Scenario C. | Scenario C: We expect the vehicle to pass through a 30m×10m×8m area containing 1000 randomly distributed floating cuboid obstacles.",
+    "paper_id": "258"
+  },
+  {
+    "section": "systemmodelingandcontrol1",
+    "path": {
+      "section": "systemmodelingandcontrol1",
+      "start_entity": "R",
+      "end_entity": "CoordinateSystem",
+      "hops": [
+        {
+          "from": "R",
+          "relation": "describesRotation",
+          "to": "Fb",
+          "context": "Denote R the rotation matrix of the body frame Fb w.r.t. the world frame FW.",
+          "chunk": "1"
+        },
+        {
+          "from": "Fb",
+          "relation": "usesCoordinateSystem",
+          "to": "ENU",
+          "context": "FW uses the east-north-up (ENU) coordinate system.",
+          "chunk": "1"
+        },
+        {
+          "from": "ENU",
+          "relation": "type",
+          "to": "CoordinateSystem",
+          "context": "FW uses the east-north-up (ENU) coordinate system.",
+          "chunk": "1"
+        }
+      ]
+    },
+    "question": "In the context of a rotation matrix R describing the transformation from body frame Fb to world frame FW, what is the nature of the coordinate system FW uses, and how does this impact the interpretation of R?",
+    "options": {
+      "A": "FW utilizes a North-East-Down (NED) coordinate system, altering how R is interpreted relative to geographic directions.",
+      "B": "FW uses a Cartesian coordinate system, affecting R's interpretation in terms of standard x, y, z axes.",
+      "C": "FW uses the East-North-Up (ENU) coordinate system, which influences R's interpretation in terms of geographical directions.",
+      "D": "FW employs a spherical coordinate system, impacting R's interpretation in terms of radial, azimuthal, and polar coordinates."
+    },
+    "correct_answer": "C",
+    "explanation": "The paper specifies that the world frame FW uses the East-North-Up (ENU) coordinate system. This directly affects how the rotation matrix R, which describes the orientation of the body frame Fb with respect to FW, is interpreted in terms of the geographical directions (East, North, and Up).",
+    "path_description": "Path: R --[describesRotation]--> Fb --[usesCoordinateSystem]--> ENU --[type]--> CoordinateSystem",
+    "context": "Denote R the rotation matrix of the body frame Fb w.r.t. the world frame FW. | FW uses the east-north-up (ENU) coordinate system. | FW uses the east-north-up (ENU) coordinate system.",
+    "paper_id": "258"
+  }
+]

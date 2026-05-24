@@ -1,0 +1,174 @@
+[
+  {
+    "section": "background1",
+    "path": {
+      "section": "background1",
+      "start_entity": "Positron",
+      "end_entity": "MedicalImagingTechnique",
+      "hops": [
+        {
+          "from": "Positron",
+          "relation": "emittedBy",
+          "to": "Ga",
+          "context": "However, Ga emits positrons with an average large energy compared to other standard PET radionuclides such as F and C.",
+          "chunk": "0"
+        },
+        {
+          "from": "Ga",
+          "relation": "usedIn",
+          "to": "PET_Imaging",
+          "context": "The use of Ga in PET imaging is growing significantly in both preclinical and clinical applications.",
+          "chunk": "0"
+        },
+        {
+          "from": "PET_Imaging",
+          "relation": "type",
+          "to": "MedicalImagingTechnique",
+          "context": "The use of Ga in PET imaging is growing significantly in both preclinical and clinical applications.",
+          "chunk": "0"
+        }
+      ]
+    },
+    "question": "Why is Gallium (Ga) increasingly used in PET imaging despite emitting positrons with higher average energy compared to other radionuclides like Fluorine (F) and Carbon (C)?",
+    "options": {
+      "A": "Ga's high positron energy allows for more precise imaging in medical applications, enhancing image clarity in PET scans.",
+      "B": "Ga is more readily available and cheaper than other radionuclides, making it more practical for widespread clinical use.",
+      "C": "The higher energy of Ga's positrons reduces the radiation exposure to patients, making it safer for clinical and preclinical applications.",
+      "D": "Ga emits lower energy positrons, which are more effective at penetrating biological tissues compared to other radionuclides."
+    },
+    "correct_answer": "A",
+    "explanation": "Despite Ga emitting positrons with higher average energy, which could be seen as a disadvantage, this property actually enables more precise imaging. Higher energy positrons can provide clearer images in PET scans, which is crucial for medical imaging techniques. This advantage outweighs the comparative energy levels of positrons emitted by other radionuclides like F and C, leading to its increased use in both preclinical and clinical settings.",
+    "path_description": "Path: Positron --[emittedBy]--> Ga --[usedIn]--> PET_Imaging --[type]--> MedicalImagingTechnique",
+    "context": "However, Ga emits positrons with an average large energy compared to other standard PET radionuclides such as F and C. | The use of Ga in PET imaging is growing significantly in both preclinical and clinical applications. | The use of Ga in PET imaging is growing significantly in both preclinical and clinical applications.",
+    "paper_id": "14"
+  },
+  {
+    "section": "results1",
+    "path": {
+      "section": "results1",
+      "start_entity": "TwoChannelModel",
+      "end_entity": "F18",
+      "hops": [
+        {
+          "from": "TwoChannelModel",
+          "relation": "outperforms",
+          "to": "RichardsonLucyPRC",
+          "context": "The output of the three models (Single-channel, Two-channel and DualEncoder 3D RED-CNN).",
+          "chunk": "5"
+        },
+        {
+          "from": "RichardsonLucyPRC",
+          "relation": "outperforms",
+          "to": "Ga68",
+          "context": "The Richardson-Lucy (RL-PRC) and the 68Ga image shows significant blur.",
+          "chunk": "5"
+        },
+        {
+          "from": "Ga68",
+          "relation": "evaluatedOn",
+          "to": "F18",
+          "context": "The 68Ga image shows significant blur in both 18F images.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "Which model, when comparing the effectiveness of image deblurring techniques for 18F images, is shown to outperform the others according to the multi-hop knowledge path presented?",
+    "options": {
+      "A": "Ga68 produced clearer deblurred images than the Richardson-Lucy PRC and Two-Channel Model.",
+      "B": "DualEncoder 3D RED-CNN outperformed all other models in deblurring 18F images.",
+      "C": "The Two-Channel Model outperformed others by providing clearer images than Richardson-Lucy PRC and Ga68.",
+      "D": "The Richardson-Lucy PRC showed superior deblurring results compared to the Two-Channel Model and Ga68."
+    },
+    "correct_answer": "C",
+    "explanation": "Following the knowledge path, the Two-Channel Model outperforms Richardson-Lucy PRC, which in turn outperforms Ga68 evaluated on F18 images. The correct answer is A, as it indicates the Two-Channel Model's superior performance in deblurring 18F images compared to the other models mentioned in the path.",
+    "path_description": "Path: TwoChannelModel --[outperforms]--> RichardsonLucyPRC --[outperforms]--> Ga68 --[evaluatedOn]--> F18",
+    "context": "The output of the three models (Single-channel, Two-channel and DualEncoder 3D RED-CNN). | The Richardson-Lucy (RL-PRC) and the 68Ga image shows significant blur. | The 68Ga image shows significant blur in both 18F images.",
+    "paper_id": "14"
+  },
+  {
+    "section": "results1",
+    "path": {
+      "section": "results1",
+      "start_entity": "Table2",
+      "end_entity": "ChemicalCompound",
+      "hops": [
+        {
+          "from": "Table2",
+          "relation": "containsDataFrom",
+          "to": "RichardsonLucyPRC",
+          "context": "Table 2 Level of noise in liver (%) from 20 RL-PRC, and CNN-method images.",
+          "chunk": "5"
+        },
+        {
+          "from": "RichardsonLucyPRC",
+          "relation": "outperforms",
+          "to": "Ga68",
+          "context": "The Richardson-Lucy (RL-PRC) and the 68Ga image shows significant blur.",
+          "chunk": "5"
+        },
+        {
+          "from": "Ga68",
+          "relation": "type",
+          "to": "ChemicalCompound",
+          "context": "The 68Ga image shows significant blur in both 18F images.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "Which of the following best describes the relationship between the Richardson-Lucy PRC and 68Ga in the context of image clarity based on data from Table 2?",
+    "options": {
+      "A": "68Ga demonstrates superior image clarity and less blur compared to Richardson-Lucy PRC as per Table 2 data.",
+      "B": "Richardson-Lucy PRC shows less noise and blur compared to 68Ga as indicated in Table 2.",
+      "C": "68Ga and Richardson-Lucy PRC are not comparable in terms of image clarity as they belong to different categories.",
+      "D": "Both Richardson-Lucy PRC and 68Ga show similar levels of noise and blur as reported in Table 2."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A because the knowledge path indicates that Richardson-Lucy PRC outperforms 68Ga, which is a type of Chemical Compound, in terms of reducing noise and blur in images as detailed in Table 2. The other options are misleading by either reversing the comparison, suggesting equivalence, or incorrectly stating non-comparability.",
+    "path_description": "Path: Table2 --[containsDataFrom]--> RichardsonLucyPRC --[outperforms]--> Ga68 --[type]--> ChemicalCompound",
+    "context": "Table 2 Level of noise in liver (%) from 20 RL-PRC, and CNN-method images. | The Richardson-Lucy (RL-PRC) and the 68Ga image shows significant blur. | The 68Ga image shows significant blur in both 18F images.",
+    "paper_id": "14"
+  },
+  {
+    "section": "discussion1",
+    "path": {
+      "section": "discussion1",
+      "start_entity": "Single-Channel",
+      "end_entity": "Model",
+      "hops": [
+        {
+          "from": "Single-Channel",
+          "relation": "outperforms",
+          "to": "Richardson-Lucy_PRC",
+          "context": "All the studied strategies led to enhanced results compared to RL deconvolution where the average CR enhancement was of only 9.9%",
+          "chunk": "7"
+        },
+        {
+          "from": "Richardson-Lucy_PRC",
+          "relation": "comparedWith",
+          "to": "Single-Channel",
+          "context": "outputs from three DL models (Single-Channel, Two-Channel, and DualEncoder 3D RED-CNN)",
+          "chunk": "7"
+        },
+        {
+          "from": "Single-Channel",
+          "relation": "type",
+          "to": "Model",
+          "context": "outputs from three DL models (Single-Channel, Two-Channel, and DualEncoder 3D RED-CNN)",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "In the context of deconvolution models discussed in the paper, how does the Single-Channel model's performance in terms of contrast ratio enhancement compare to that of the Richardson-Lucy (RL) deconvolution?",
+    "options": {
+      "A": "The Single-Channel model and Richardson-Lucy deconvolution perform equally in terms of contrast ratio enhancement.",
+      "B": "The Single-Channel model shows no significant difference in performance when compared to other deep learning models like Two-Channel.",
+      "C": "The Single-Channel model performs slightly worse than the Richardson-Lucy deconvolution, showing an enhancement of less than 9.9%.",
+      "D": "The Single-Channel model significantly outperforms the Richardson-Lucy deconvolution with an enhancement of more than 9.9%."
+    },
+    "correct_answer": "D",
+    "explanation": "The question requires understanding that the Single-Channel model, as a type of deep learning model, outperforms the traditional Richardson-Lucy deconvolution process. The context specifies that the average contrast ratio (CR) enhancement of Richardson-Lucy deconvolution was only 9.9%, indicating that the Single-Channel model's performance exceeded this figure.",
+    "path_description": "Path: Single-Channel --[outperforms]--> Richardson-Lucy_PRC --[comparedWith]--> Single-Channel --[type]--> Model",
+    "context": "All the studied strategies led to enhanced results compared to RL deconvolution where the average CR enhancement was of only 9.9% | outputs from three DL models (Single-Channel, Two-Channel, and DualEncoder 3D RED-CNN) | outputs from three DL models (Single-Channel, Two-Channel, and DualEncoder 3D RED-CNN)",
+    "paper_id": "14"
+  }
+]

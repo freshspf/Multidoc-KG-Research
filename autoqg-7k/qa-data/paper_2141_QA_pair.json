@@ -1,0 +1,131 @@
+[
+  {
+    "section": "introduction",
+    "path": {
+      "section": "introduction",
+      "start_entity": "Leifeld_et_al_2018",
+      "end_entity": "OutputStabilization",
+      "hops": [
+        {
+          "from": "Leifeld_et_al_2018",
+          "relation": "proposes",
+          "to": "DataDrivenApproach_to_OutputStabilization",
+          "context": "Leifeld et al. (2018), where a one-step data-driven approach to solve the output stabilization problem is proposed",
+          "chunk": "0"
+        },
+        {
+          "from": "DataDrivenApproach_to_OutputStabilization",
+          "relation": "uses",
+          "to": "OutputPredictionMatrix",
+          "context": "first reconstruct from the available data the output prediction matrix that maps the current input/output pair to the set of all possible next outputs",
+          "chunk": "0"
+        },
+        {
+          "from": "OutputPredictionMatrix",
+          "relation": "usedFor",
+          "to": "OutputStabilization",
+          "context": "first reconstruct from the available data the output prediction matrix that maps the current input/output pair to the set of all possible next outputs",
+          "chunk": "0"
+        }
+      ]
+    },
+    "question": "In the study by Leifeld et al. (2018), which component is crucial for the one-step data-driven approach to achieve output stabilization?",
+    "options": {
+      "A": "The feedback loop mechanism, which assesses output errors to adjust future inputs dynamically.",
+      "B": "The input stabilization matrix, which directly stabilizes the system's current input without predicting outputs.",
+      "C": "The data acquisition system, which collects external environmental data to inform input adjustments.",
+      "D": "The output prediction matrix, which maps the current input/output pair to all possible next outputs."
+    },
+    "correct_answer": "D",
+    "explanation": "The output prediction matrix is crucial as it is used to map the current input/output pair to all possible next outputs, enabling the data-driven approach to output stabilization proposed by Leifeld et al. (2018). This matrix is the primary component that is reconstructed from the data to stabilize the output, according to the paper's approach.",
+    "path_description": "Path: Leifeld_et_al_2018 --[proposes]--> DataDrivenApproach_to_OutputStabilization --[uses]--> OutputPredictionMatrix --[usedFor]--> OutputStabilization",
+    "context": "Leifeld et al. (2018), where a one-step data-driven approach to solve the output stabilization problem is proposed | first reconstruct from the available data the output prediction matrix that maps the current input/output pair to the set of all possible next outputs | first reconstruct from the available data the output prediction matrix that maps the current input/output pair to the set of all possible next outputs",
+    "paper_id": "991"
+  },
+  {
+    "section": "datadrivenstabilization1",
+    "path": {
+      "section": "datadrivenstabilization1",
+      "start_entity": "Bd",
+      "end_entity": "Model",
+      "hops": [
+        {
+          "from": "Bd",
+          "relation": "contains",
+          "to": "DescribingMatrix",
+          "context": "Obviously, the matrix L of the BCN that has generated the data belongs to Bd.",
+          "chunk": "2"
+        },
+        {
+          "from": "DescribingMatrix",
+          "relation": "bijectivelyCorrespondsTo",
+          "to": "BCN",
+          "context": "As a BCN (4a) bijectively corresponds to its describing matrix.",
+          "chunk": "2"
+        },
+        {
+          "from": "BCN",
+          "relation": "type",
+          "to": "Model",
+          "context": "In this section we restrict our attention to the state equation (4a) of the BCN.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the context of data-driven stabilization, how does the relationship between a describing matrix and its corresponding BCN influence model classification?",
+    "options": {
+      "A": "The describing matrix bijectively corresponds to the BCN, hence they share identical properties that classify them under the same model type.",
+      "B": "The describing matrix is a subset of the BCN, leading to partial property sharing and a similar but not identical model classification.",
+      "C": "The describing matrix transforms to fit the BCN, altering its properties to adapt to a different model classification.",
+      "D": "Since the BCN contains the describing matrix, the BCN's model type is broader, encompassing more variations than the describing matrix."
+    },
+    "correct_answer": "A",
+    "explanation": "The describing matrix and the BCN bijectively correspond to each other, meaning there is a one-to-one correspondence between them that preserves their properties. This bijective relationship implies that both the describing matrix and the BCN are classified under the same model type due to their identical properties.",
+    "path_description": "Path: Bd --[contains]--> DescribingMatrix --[bijectivelyCorrespondsTo]--> BCN --[type]--> Model",
+    "context": "Obviously, the matrix L of the BCN that has generated the data belongs to Bd. | As a BCN (4a) bijectively corresponds to its describing matrix. | In this section we restrict our attention to the state equation (4a) of the BCN.",
+    "paper_id": "991"
+  },
+  {
+    "section": "datadrivenstabilization2",
+    "path": {
+      "section": "datadrivenstabilization2",
+      "start_entity": "NonzeroEntries",
+      "end_entity": "NetworkType",
+      "hops": [
+        {
+          "from": "NonzeroEntries",
+          "relation": "represent",
+          "to": "EquilibriumPoints",
+          "context": "the first (i.e., row) indices of these positions are the indices of the logical vectors that represent equilibrium points of all the BCNs in Bd",
+          "chunk": "3"
+        },
+        {
+          "from": "EquilibriumPoints",
+          "relation": "partOf",
+          "to": "BCNs",
+          "context": "equilibrium points of all the BCNs in Bd",
+          "chunk": "3"
+        },
+        {
+          "from": "BCNs",
+          "relation": "type",
+          "to": "NetworkType",
+          "context": "equilibrium points of all the BCNs in Bd",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the study of Boolean Control Networks (BCNs) within the context of data-driven stabilization, how do the nonzero entries of a matrix relate to network types in terms of system behavior?",
+    "options": {
+      "A": "Nonzero entries correspond to external inputs that control the operational speed of the BCNs, not their type.",
+      "B": "Nonzero entries indicate active nodes in the network, directly influencing the dynamic range and efficiency of BCNs.",
+      "C": "Nonzero entries represent equilibrium points which are critical for determining the stability and type of network within BCNs.",
+      "D": "Nonzero entries are placeholders for potential faults in the network, affecting the reliability but not the type of BCNs."
+    },
+    "correct_answer": "C",
+    "explanation": "Nonzero entries in the matrix represent equilibrium points, which are essential for understanding the behavior of BCNs in terms of stability. These points are part of the BCNs which are identified as a specific type of network under study. Thus, understanding how these nonzero entries (equilibrium points) influence the network type is crucial in data-driven stabilization studies.",
+    "path_description": "Path: NonzeroEntries --[represent]--> EquilibriumPoints --[partOf]--> BCNs --[type]--> NetworkType",
+    "context": "the first (i.e., row) indices of these positions are the indices of the logical vectors that represent equilibrium points of all the BCNs in Bd | equilibrium points of all the BCNs in Bd | equilibrium points of all the BCNs in Bd",
+    "paper_id": "991"
+  }
+]

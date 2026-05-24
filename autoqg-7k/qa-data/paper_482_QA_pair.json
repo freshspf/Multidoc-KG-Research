@@ -1,0 +1,346 @@
+[
+  {
+    "section": "linearsequenceswithoutduplicatedgenes1",
+    "path": {
+      "section": "linearsequenceswithoutduplicatedgenes1",
+      "start_entity": "LCS",
+      "end_entity": "GeneCount",
+      "hops": [
+        {
+          "from": "LCS",
+          "relation": "appliedTo",
+          "to": "mSequences",
+          "context": "Each gene has occurrences of 1, . . . , n, we need to find the LCS.",
+          "chunk": "4"
+        },
+        {
+          "from": "mSequences",
+          "relation": "contains",
+          "to": "nGenes",
+          "context": "In Scenario 1, consider m linear gene sequences, where each sequence contains n genes 1, . . . , n.",
+          "chunk": "4"
+        },
+        {
+          "from": "nGenes",
+          "relation": "type",
+          "to": "GeneCount",
+          "context": "In Scenario 1, consider m linear gene sequences, where each sequence contains n genes 1, . . . , n.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In a computational biology study focused on identifying the Longest Common Subsequence (LCS) in m linear gene sequences, each containing n unique genes numbered from 1 to n, what does the 'GeneCount' specifically refer to in this context?",
+    "options": {
+      "A": "GeneCount indicates the number of sequences that contain at least one gene.",
+      "B": "GeneCount is the number of genes that are common across all m sequences.",
+      "C": "GeneCount represents the sum of all gene occurrences across the m sequences.",
+      "D": "GeneCount refers to the total number of unique genes present in each of the m sequences."
+    },
+    "correct_answer": "D",
+    "explanation": "In this context, each of the m sequences contains n unique genes numbered from 1 to n. Thus, the 'GeneCount' refers to the total number of unique genes present in each sequence, which is n. This is consistent with the information provided that each sequence contains n genes, and there are no duplicates within a sequence.",
+    "path_description": "Path: LCS --[appliedTo]--> mSequences --[contains]--> nGenes --[type]--> GeneCount",
+    "context": "Each gene has occurrences of 1, . . . , n, we need to find the LCS. | In Scenario 1, consider m linear gene sequences, where each sequence contains n genes 1, . . . , n. | In Scenario 1, consider m linear gene sequences, where each sequence contains n genes 1, . . . , n.",
+    "paper_id": "293"
+  },
+  {
+    "section": "linearsequenceswithduplicatedgenes3",
+    "path": {
+      "section": "linearsequenceswithduplicatedgenes3",
+      "start_entity": "Algorithm5",
+      "end_entity": "ProbabilityRange",
+      "hops": [
+        {
+          "from": "Algorithm5",
+          "relation": "evaluatedOn",
+          "to": "RandomGraphs",
+          "context": "We test Algorithm 5 on random graphs.",
+          "chunk": "10"
+        },
+        {
+          "from": "RandomGraphs",
+          "relation": "hasEdgeProbability",
+          "to": "VariousProbabilities",
+          "context": "Construct a random graph with n genes, and any two genes have probability p to have an edge between them.",
+          "chunk": "10"
+        },
+        {
+          "from": "VariousProbabilities",
+          "relation": "type",
+          "to": "ProbabilityRange",
+          "context": "For each 5 ≤ n ≤ 12 and p = 0.01, 0.1, 0.3, 0.5, 0.7, 0.9, 0.99, we repeat this for 10000 times.",
+          "chunk": "10"
+        }
+      ]
+    },
+    "question": "What range of edge probabilities p is used in Algorithm 5 to evaluate its performance on random graphs with n genes?",
+    "options": {
+      "A": "Probabilities are fixed at either 0.1 or 0.9, reflecting very sparse or very dense gene connectivity.",
+      "B": "Probabilities range from 0.05 to 0.95, omitting the more extreme probabilities to avoid outlier effects.",
+      "C": "Probabilities range from 0.01 to 0.99, inclusive, covering a broad spectrum of connectivity scenarios.",
+      "D": "Probabilities are set only at extremes, 0.01 and 0.99, to test the algorithm under minimal and maximal edge conditions."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct range is from 0.01 to 0.99, as specified in the paper. This range was chosen to test the algorithm's performance under a wide variety of connectivity conditions, from very sparse to very dense gene interactions in the random graphs.",
+    "path_description": "Path: Algorithm5 --[evaluatedOn]--> RandomGraphs --[hasEdgeProbability]--> VariousProbabilities --[type]--> ProbabilityRange",
+    "context": "We test Algorithm 5 on random graphs. | Construct a random graph with n genes, and any two genes have probability p to have an edge between them. | For each 5 ≤ n ≤ 12 and p = 0.01, 0.1, 0.3, 0.5, 0.7, 0.9, 0.99, we repeat this for 10000 times.",
+    "paper_id": "293"
+  },
+  {
+    "section": "circularsequenceswithduplicatedgenes1",
+    "path": {
+      "section": "circularsequenceswithduplicatedgenes1",
+      "start_entity": "Scenario3",
+      "end_entity": "Conjecture",
+      "hops": [
+        {
+          "from": "Scenario3",
+          "relation": "isReducibleTo",
+          "to": "Scenario4",
+          "context": "Proof. From Corollary 1, Scenario 3 is a problem can be reduced to Scenario 3 in polynomial time.",
+          "chunk": "12"
+        },
+        {
+          "from": "Scenario4",
+          "relation": "isChallengedBy",
+          "to": "Conjecture2",
+          "context": "Conjecture 2. In Scenario 4, if any three genes gi, gj, gl in g1, ..., gk form a common subsequence, then g1, ..., gk form a common subsequence.",
+          "chunk": "12"
+        },
+        {
+          "from": "Conjecture2",
+          "relation": "type",
+          "to": "Conjecture",
+          "context": "Conjecture 2. In Scenario 4, if any three genes gi, gj, gl in g1, ..., gk form a common subsequence, then g1, ..., gk form a common subsequence.",
+          "chunk": "12"
+        }
+      ]
+    },
+    "question": "In the context of computational genetics, which statement correctly interprets the proof and conjecture relationship from Scenario 3 to Scenario 4 regarding gene subsequences?",
+    "options": {
+      "A": "If a sequence in Scenario 3 can be solved in polynomial time, then any subsequence challenge in Scenario 4 cannot form a common subsequence.",
+      "B": "The proof from Scenario 3 applies directly to Scenario 4, allowing all subsequences to be common regardless of gene arrangement.",
+      "C": "Scenario 3 reduction to Scenario 4 only occurs if each gene in the sequence is unique and not duplicated.",
+      "D": "If any three genes in a sequence from Scenario 4 form a common subsequence, it implies that the entire sequence forms a common subsequence."
+    },
+    "correct_answer": "D",
+    "explanation": "The proof outlines that Scenario 3 can be reduced to Scenario 4, indicating that issues or solutions in Scenario 3 are applicable to Scenario 4. Conjecture 2 then specifies that if any three genes in Scenario 4 form a common subsequence, this implies the entire sequence of genes forms a common subsequence. Option A is the only one that directly relates this relationship and correctly interprets the implications of the conjecture based on the reduction from Scenario 3.",
+    "path_description": "Path: Scenario3 --[isReducibleTo]--> Scenario4 --[isChallengedBy]--> Conjecture2 --[type]--> Conjecture",
+    "context": "Proof. From Corollary 1, Scenario 3 is a problem can be reduced to Scenario 3 in polynomial time. | Conjecture 2. In Scenario 4, if any three genes gi, gj, gl in g1, ..., gk form a common subsequence, then g1, ..., gk form a common subsequence. | Conjecture 2. In Scenario 4, if any three genes gi, gj, gl in g1, ..., gk form a common subsequence, then g1, ..., gk form a common subsequence.",
+    "paper_id": "293"
+  },
+  {
+    "section": "linearsequenceswithduplicatedgenes4",
+    "path": {
+      "section": "linearsequenceswithduplicatedgenes4",
+      "start_entity": "AuxiliaryGraph",
+      "end_entity": "GraphComponent",
+      "hops": [
+        {
+          "from": "AuxiliaryGraph",
+          "relation": "hasVertex",
+          "to": "Gene",
+          "context": "Vertices of G are all the genes 1, . . . , n",
+          "chunk": "11"
+        },
+        {
+          "from": "Gene",
+          "relation": "connectedBy",
+          "to": "UndirectedEdge",
+          "context": "Add an undirected edge between gi and gj in G",
+          "chunk": "11"
+        },
+        {
+          "from": "UndirectedEdge",
+          "relation": "type",
+          "to": "GraphComponent",
+          "context": "Add an undirected edge between gi and gj in G",
+          "chunk": "11"
+        }
+      ]
+    },
+    "question": "In the context of constructing a graph G with gene vertices, what determines the nature of the connection between two vertices gi and gj in G?",
+    "options": {
+      "A": "A directed edge from gi to gj is established, showing a one-way genetic influence from gi to gj.",
+      "B": "A weighted edge is used between gi and gj, with weights representing the strength of genetic similarities.",
+      "C": "An undirected edge is added between gi and gj, indicating a non-directional relationship between these genes.",
+      "D": "No edge is added between gi and gj, as they represent independent genetic functions without interaction."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is based on the knowledge graph path and paper context, which specify that an undirected edge is used to connect vertices gi and gj. This indicates a non-directional relationship where there is no inherent directionality or hierarchy between the genes, unlike directed edges which would imply a one-way relationship.",
+    "path_description": "Path: AuxiliaryGraph --[hasVertex]--> Gene --[connectedBy]--> UndirectedEdge --[type]--> GraphComponent",
+    "context": "Vertices of G are all the genes 1, . . . , n | Add an undirected edge between gi and gj in G | Add an undirected edge between gi and gj in G",
+    "paper_id": "293"
+  },
+  {
+    "section": "linearsequenceswithduplicatedgenes4",
+    "path": {
+      "section": "linearsequenceswithduplicatedgenes4",
+      "start_entity": "Gene",
+      "end_entity": "Clique",
+      "hops": [
+        {
+          "from": "Gene",
+          "relation": "evaluatedBy",
+          "to": "TransposableGeneDetectionAlgorithm",
+          "context": "Algorithm 5: A heuristic method for detecting transposable genes in",
+          "chunk": "11"
+        },
+        {
+          "from": "TransposableGeneDetectionAlgorithm",
+          "relation": "appliedTo",
+          "to": "Gene",
+          "context": "Algorithm 5: A heuristic method for detecting transposable genes in",
+          "chunk": "11"
+        },
+        {
+          "from": "Gene",
+          "relation": "partOf",
+          "to": "Clique",
+          "context": "The final G is a clique of the largest one",
+          "chunk": "11"
+        }
+      ]
+    },
+    "question": "In the context of detecting transposable genes using Algorithm 5, what specifically characterizes the final output 'G' when applied to a linear sequence with duplicated genes?",
+    "options": {
+      "A": "G signifies a clique of genes, indicating the largest group of interconnected genes evaluated as transposable.",
+      "B": "G is an isolated gene that has been identified as non-transposable and is separate from other gene clusters.",
+      "C": "G represents a network of interconnected genes that all share similar transposable features.",
+      "D": "G is a list of all genes in the sequence, ranked by their likelihood of being transposable."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is D. According to the context, the final output 'G' of Algorithm 5 in detecting transposable genes is described as a clique of the largest group of interconnected genes that have been evaluated as transposable. This implies a specific network of genes that are closely related in terms of their transposability, distinguishing it from other options which do not capture the interconnected and evaluative nature of the result.",
+    "path_description": "Path: Gene --[evaluatedBy]--> TransposableGeneDetectionAlgorithm --[appliedTo]--> Gene --[partOf]--> Clique",
+    "context": "Algorithm 5: A heuristic method for detecting transposable genes in | Algorithm 5: A heuristic method for detecting transposable genes in | The final G is a clique of the largest one",
+    "paper_id": "293"
+  },
+  {
+    "section": "linearsequenceswithduplicatedgenes4",
+    "path": {
+      "section": "linearsequenceswithduplicatedgenes4",
+      "start_entity": "AuxiliaryGraph",
+      "end_entity": "Algorithm",
+      "hops": [
+        {
+          "from": "AuxiliaryGraph",
+          "relation": "hasVertex",
+          "to": "Gene",
+          "context": "Vertices of G are all the genes 1, . . . , n",
+          "chunk": "11"
+        },
+        {
+          "from": "Gene",
+          "relation": "notIdentifiedAsTransposable",
+          "to": "TransposableGeneDetectionAlgorithm",
+          "context": "genes not in the final G are not transposable",
+          "chunk": "11"
+        },
+        {
+          "from": "TransposableGeneDetectionAlgorithm",
+          "relation": "type",
+          "to": "Algorithm",
+          "context": "Algorithm 5: A heuristic method for detecting transposable genes in",
+          "chunk": "11"
+        }
+      ]
+    },
+    "question": "In the context of graph-based gene analysis, what does the presence of a gene vertex in the AuxiliaryGraph primarily indicate according to Algorithm 5?",
+    "options": {
+      "A": "The gene vertex implies that the gene is part of a linear sequence with no significant genetic mutations.",
+      "B": "The gene vertex represents a gene that has not been identified as transposable by the detection algorithm.",
+      "C": "The gene vertex indicates that the gene is likely a transposable element identified by Algorithm 5.",
+      "D": "The gene vertex represents a gene that has been flagged for further analysis due to its duplicated nature."
+    },
+    "correct_answer": "B",
+    "explanation": "According to the context, vertices in AuxiliaryGraph represent genes that are not transposable, as stated that genes not in the final graph G are not transposable. Additionally, Algorithm 5 is a heuristic method for detecting transposable genes, indicating that if a gene is not identified as transposable, it remains in the AuxiliaryGraph.",
+    "path_description": "Path: AuxiliaryGraph --[hasVertex]--> Gene --[notIdentifiedAsTransposable]--> TransposableGeneDetectionAlgorithm --[type]--> Algorithm",
+    "context": "Vertices of G are all the genes 1, . . . , n | genes not in the final G are not transposable | Algorithm 5: A heuristic method for detecting transposable genes in",
+    "paper_id": "293"
+  },
+  {
+    "section": "circularsequenceswithduplicatedgenes1",
+    "path": {
+      "section": "circularsequenceswithduplicatedgenes1",
+      "start_entity": "Scenario3",
+      "end_entity": "Lemma",
+      "hops": [
+        {
+          "from": "Scenario3",
+          "relation": "isReducibleTo",
+          "to": "Scenario4",
+          "context": "Proof. From Corollary 1, Scenario 3 is a problem can be reduced to Scenario 3 in polynomial time.",
+          "chunk": "12"
+        },
+        {
+          "from": "Scenario4",
+          "relation": "supports",
+          "to": "Lemma6",
+          "context": "Lemma 6. In Scenario 4, if any three genes gi, gj, gl in g1, ..., gk form a common subsequence, and one gene g in each sequence, then g1, ..., gk form a common subsequence.",
+          "chunk": "12"
+        },
+        {
+          "from": "Lemma6",
+          "relation": "type",
+          "to": "Lemma",
+          "context": "Lemma 6. In Scenario 4, if any three genes gi, gj, gl in g1, ..., gk form a common subsequence, and one gene g in each sequence, then g1, ..., gk form a common subsequence.",
+          "chunk": "12"
+        }
+      ]
+    },
+    "question": "In the context of computational biology, which statement correctly reflects the logical deduction from Scenario 3 to Scenario 4 as supported by Lemma 6?",
+    "options": {
+      "A": "Scenario 4 only deals with non-reducible gene sequences from Scenario 3, disproving common subsequences.",
+      "B": "If a gene from Scenario 4 appears more than once, it automatically implies the presence of a common subsequence.",
+      "C": "If any three genes in a sequence from Scenario 4 form a common subsequence, then all genes in the sequence form a common subsequence.",
+      "D": "In Scenario 4, the presence of any single duplicated gene ensures the formation of a common subsequence across multiple genes."
+    },
+    "correct_answer": "C",
+    "explanation": "Based on Lemma 6 as applied to Scenario 4, the correct deduction is that if any three specific genes (gi, gj, gl) from a sequence form a common subsequence, then it logically follows that the entire sequence of genes (g1, ..., gk) forms a common subsequence. This conclusion directly utilizes the reducibility of Scenario 3 to Scenario 4 and the specific condition given in Lemma 6. Options B, C, and D introduce incorrect or unrelated concepts not supported by the given pathway.",
+    "path_description": "Path: Scenario3 --[isReducibleTo]--> Scenario4 --[supports]--> Lemma6 --[type]--> Lemma",
+    "context": "Proof. From Corollary 1, Scenario 3 is a problem can be reduced to Scenario 3 in polynomial time. | Lemma 6. In Scenario 4, if any three genes gi, gj, gl in g1, ..., gk form a common subsequence, and one gene g in each sequence, then g1, ..., gk form a common subsequence. | Lemma 6. In Scenario 4, if any three genes gi, gj, gl in g1, ..., gk form a common subsequence, and one gene g in each sequence, then g1, ..., gk form a common subsequence.",
+    "paper_id": "293"
+  },
+  {
+    "section": "circularsequenceswithduplicatedgenes1",
+    "path": {
+      "section": "circularsequenceswithduplicatedgenes1",
+      "start_entity": "Scenario3",
+      "end_entity": "Lemma",
+      "hops": [
+        {
+          "from": "Scenario3",
+          "relation": "isReducibleTo",
+          "to": "Scenario4",
+          "context": "Proof. From Corollary 1, Scenario 3 is a problem can be reduced to Scenario 3 in polynomial time.",
+          "chunk": "12"
+        },
+        {
+          "from": "Scenario4",
+          "relation": "doesNotSupport",
+          "to": "Lemma4",
+          "context": "However, Lemma 4 does not hold in Scenario 4.",
+          "chunk": "12"
+        },
+        {
+          "from": "Lemma4",
+          "relation": "type",
+          "to": "Lemma",
+          "context": "However, Lemma 4 does not hold in Scenario 4.",
+          "chunk": "12"
+        }
+      ]
+    },
+    "question": "Considering the reducibility and implications of scenarios in circular sequences with duplicated genes, why does Lemma 4 not hold in Scenario 4?",
+    "options": {
+      "A": "Because Scenario 4 introduces additional variables that contradict the assumptions made in Lemma 4.",
+      "B": "Because Scenario 4 is an extension of Scenario 3 that simplifies the conditions of Lemma 4, making it inapplicable.",
+      "C": "Because Scenario 4 directly supports Lemma 4 by enhancing the constraints provided in Scenario 3.",
+      "D": "Because Scenario 3, which is reducible to Scenario 4 in polynomial time, inherently lacks the properties necessary to support Lemma 4."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A because the path from the knowledge graph indicates that Scenario 3 is reducible to Scenario 4, and Lemma 4 does not hold in Scenario 4. This implies that the properties of Scenario 3, which do not suffice to support Lemma 4, carry over to Scenario 4 due to the reducibility, thus making Lemma 4 inapplicable in Scenario 4.",
+    "path_description": "Path: Scenario3 --[isReducibleTo]--> Scenario4 --[doesNotSupport]--> Lemma4 --[type]--> Lemma",
+    "context": "Proof. From Corollary 1, Scenario 3 is a problem can be reduced to Scenario 3 in polynomial time. | However, Lemma 4 does not hold in Scenario 4. | However, Lemma 4 does not hold in Scenario 4.",
+    "paper_id": "293"
+  }
+]

@@ -1,0 +1,174 @@
+[
+  {
+    "section": "experimentalsetup1",
+    "path": {
+      "section": "experimentalsetup1",
+      "start_entity": "Agent",
+      "end_entity": "Rule",
+      "hops": [
+        {
+          "from": "Agent",
+          "relation": "interactsWith",
+          "to": "Machine",
+          "context": "An agent trying to solve the Blicket Test needs to interact with the environment to figure out which objects turn on the machine",
+          "chunk": "1"
+        },
+        {
+          "from": "Machine",
+          "relation": "turnsOnUnder",
+          "to": "ConjunctiveRule",
+          "context": "the 'conjunctive' rule describes an AND relationship, where the machine only turns on when all blicket objects are placed on it",
+          "chunk": "1"
+        },
+        {
+          "from": "ConjunctiveRule",
+          "relation": "type",
+          "to": "Rule",
+          "context": "the 'conjunctive' rule describes an AND relationship",
+          "chunk": "1"
+        }
+      ]
+    },
+    "question": "In an experimental setup investigating the Blicket Test, what rule determines the condition under which a machine is activated by an agent?",
+    "options": {
+      "A": "An exclusive rule that only activates the machine when exactly one blicket object is present on it.",
+      "B": "A conditional rule that activates the machine if at least one blicket object is removed from the environment.",
+      "C": "A conjunctive rule that requires all specific objects, designated as blickets, to be simultaneously present.",
+      "D": "A disjunctive rule where the presence of any one of the blicket objects can activate the machine."
+    },
+    "correct_answer": "C",
+    "explanation": "The 'conjunctive' rule described in the context implies an AND relationship, meaning all specified conditions (blicket objects) must be met simultaneously for the machine to turn on. This aligns with option A, which correctly captures the conjunctive nature required for activation.",
+    "path_description": "Path: Agent --[interactsWith]--> Machine --[turnsOnUnder]--> ConjunctiveRule --[type]--> Rule",
+    "context": "An agent trying to solve the Blicket Test needs to interact with the environment to figure out which objects turn on the machine | the 'conjunctive' rule describes an AND relationship, where the machine only turns on when all blicket objects are placed on it | the 'conjunctive' rule describes an AND relationship",
+    "paper_id": "101"
+  },
+  {
+    "section": "experimentalsetup1",
+    "path": {
+      "section": "experimentalsetup1",
+      "start_entity": "Object1",
+      "end_entity": "Rule",
+      "hops": [
+        {
+          "from": "Object1",
+          "relation": "placedOn",
+          "to": "Machine",
+          "context": "> put object 1 on machine",
+          "chunk": "1"
+        },
+        {
+          "from": "Machine",
+          "relation": "turnsOnUnder",
+          "to": "DisjunctiveRule",
+          "context": "the 'disjunctive' rule describes an OR relationship, where the machine turns on when any blicket objects are placed on it",
+          "chunk": "1"
+        },
+        {
+          "from": "DisjunctiveRule",
+          "relation": "type",
+          "to": "Rule",
+          "context": "the 'disjunctive' rule describes an OR relationship",
+          "chunk": "1"
+        }
+      ]
+    },
+    "question": "In the experimental setup described, if Object1 is placed on a certain machine and the machine activates, what type of logical rule does this scenario likely demonstrate?",
+    "options": {
+      "A": "A conjunctive rule where all specified conditions must be met for the machine to activate.",
+      "B": "A negation rule where the machine activates only when specific conditions are not met.",
+      "C": "A conditional rule where the activation of the machine depends on a single, specific condition.",
+      "D": "A disjunctive rule where the machine activates if any of several specific conditions are met."
+    },
+    "correct_answer": "D",
+    "explanation": "The scenario adheres to a disjunctive rule, as indicated by the description that the machine turns on under a 'disjunctive' rule type when any of the required objects (blicket objects) are placed on it. This rule type establishes an OR relationship among conditions.",
+    "path_description": "Path: Object1 --[placedOn]--> Machine --[turnsOnUnder]--> DisjunctiveRule --[type]--> Rule",
+    "context": "> put object 1 on machine | the 'disjunctive' rule describes an OR relationship, where the machine turns on when any blicket objects are placed on it | the 'disjunctive' rule describes an OR relationship",
+    "paper_id": "101"
+  },
+  {
+    "section": "conclusion1",
+    "path": {
+      "section": "conclusion1",
+      "start_entity": "TestTimeHypothesisSamplingMethod",
+      "end_entity": "Bias",
+      "hops": [
+        {
+          "from": "TestTimeHypothesisSamplingMethod",
+          "relation": "steers",
+          "to": "LanguageModelAgents",
+          "context": "Our test-time hypothesis sampling method steers LMs toward more scientifically rigorous causal decision-making systems",
+          "chunk": "7"
+        },
+        {
+          "from": "LanguageModelAgents",
+          "relation": "exhibit",
+          "to": "DisjunctiveBias",
+          "context": "Our study reveals that language model agents exhibit a disjunctive bias",
+          "chunk": "7"
+        },
+        {
+          "from": "DisjunctiveBias",
+          "relation": "type",
+          "to": "Bias",
+          "context": "Our study reveals that language model agents exhibit a disjunctive bias",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "How does the TestTimeHypothesisSamplingMethod influence the behavior of Language Model Agents in terms of bias?",
+    "options": {
+      "A": "It enhances their anchoring bias by focusing too heavily on initial information presented.",
+      "B": "It decreases their overall effectiveness by introducing a high degree of random bias in decision-making.",
+      "C": "It reduces their disjunctive bias by steering them towards more scientifically rigorous causal decision-making systems.",
+      "D": "It increases their susceptibility to confirmation bias by making them rely more on existing hypotheses."
+    },
+    "correct_answer": "C",
+    "explanation": "The TestTimeHypothesisSamplingMethod steers Language Model Agents to make more scientifically rigorous causal decisions, which directly impacts their tendency toward disjunctive bias by reducing it, as described in the knowledge path and context.",
+    "path_description": "Path: TestTimeHypothesisSamplingMethod --[steers]--> LanguageModelAgents --[exhibit]--> DisjunctiveBias --[type]--> Bias",
+    "context": "Our test-time hypothesis sampling method steers LMs toward more scientifically rigorous causal decision-making systems | Our study reveals that language model agents exhibit a disjunctive bias | Our study reveals that language model agents exhibit a disjunctive bias",
+    "paper_id": "101"
+  },
+  {
+    "section": "makinglmsmorescientificthroughinferencetimehypothesissampling",
+    "path": {
+      "section": "makinglmsmorescientificthroughinferencetimehypothesissampling",
+      "start_entity": "Sampling",
+      "end_entity": "Method",
+      "hops": [
+        {
+          "from": "Sampling",
+          "relation": "basedOn",
+          "to": "p_F",
+          "context": "We do this by sampling discrete hypotheses from p(F) and rejecting identical samples.",
+          "chunk": "6"
+        },
+        {
+          "from": "p_F",
+          "relation": "flattenedBy",
+          "to": "WeightUpdates",
+          "context": "One way to fix this is to “flatten” the skewed prior p(F)...",
+          "chunk": "6"
+        },
+        {
+          "from": "WeightUpdates",
+          "relation": "type",
+          "to": "Method",
+          "context": "One way to fix this is to “flatten” the skewed prior p(F)...",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the context of making LMs more scientific through inference time hypothesis sampling, how does flattening the skewed prior p(F) affect the method of weight updates?",
+    "options": {
+      "A": "Flattening p(F) prioritizes the lower probability hypotheses, thus biasing the weight updates.",
+      "B": "Flattening p(F) reduces the likelihood of duplicate samples leading to more uniform weight updates.",
+      "C": "Flattening p(F) increases the computational complexity, making weight updates slower and less efficient.",
+      "D": "Flattening p(F) eliminates the need for sampling, thereby directly applying the most probable hypothesis in weight updates."
+    },
+    "correct_answer": "B",
+    "explanation": "Flattening the skewed prior p(F) is used to reduce the probability of selecting duplicate hypotheses during sampling. This process leads to a more uniform distribution of hypotheses, which in turn supports more evenly distributed weight updates in the learning method. Options B, C, and D are misleading by suggesting effects that do not align with the primary purpose of flattening p(F).",
+    "path_description": "Path: Sampling --[basedOn]--> p_F --[flattenedBy]--> WeightUpdates --[type]--> Method",
+    "context": "We do this by sampling discrete hypotheses from p(F) and rejecting identical samples. | One way to fix this is to “flatten” the skewed prior p(F)... | One way to fix this is to “flatten” the skewed prior p(F)...",
+    "paper_id": "101"
+  }
+]

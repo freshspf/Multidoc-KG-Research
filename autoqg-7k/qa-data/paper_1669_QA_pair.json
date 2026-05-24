@@ -1,0 +1,260 @@
+[
+  {
+    "section": "briefoverviewonnetworkfunctionvirtualizationandconnectedparadigms1",
+    "path": {
+      "section": "briefoverviewonnetworkfunctionvirtualizationandconnectedparadigms1",
+      "start_entity": "ETSI_NFV_Architecture",
+      "end_entity": "ResourceType",
+      "hops": [
+        {
+          "from": "ETSI_NFV_Architecture",
+          "relation": "contains",
+          "to": "Network_Function_Virtualization_Infrastructure",
+          "context": "ETSI NFV architecture is depicted on the left part",
+          "chunk": "5"
+        },
+        {
+          "from": "Network_Function_Virtualization_Infrastructure",
+          "relation": "contains",
+          "to": "Virtual_Resources",
+          "context": "The Network Function Virtualization Infrastructure (NFVI) block contains virtual resources",
+          "chunk": "5"
+        },
+        {
+          "from": "Virtual_Resources",
+          "relation": "type",
+          "to": "ResourceType",
+          "context": "The Network Function Virtualization Infrastructure (NFVI) block contains virtual resources (virtual machines)",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the ETSI NFV architecture, what specific type of resource is included within the Network Function Virtualization Infrastructure (NFVI) as per the standard classification?",
+    "options": {
+      "A": "Physical resources such as dedicated servers and hardware accelerators",
+      "B": "Network resources like switches and routers used for data transmission",
+      "C": "Virtual resources such as virtual machines, which simulate hardware platforms",
+      "D": "Storage resources including hard drives and distributed file systems"
+    },
+    "correct_answer": "C",
+    "explanation": "The ETSI NFV architecture includes the NFVI block, which specifically contains virtual resources. Among these, virtual machines are highlighted as they simulate hardware platforms. Other options refer to different types of resources not specified under virtual resources within NFVI.",
+    "path_description": "Path: ETSI_NFV_Architecture --[contains]--> Network_Function_Virtualization_Infrastructure --[contains]--> Virtual_Resources --[type]--> ResourceType",
+    "context": "ETSI NFV architecture is depicted on the left part | The Network Function Virtualization Infrastructure (NFVI) block contains virtual resources | The Network Function Virtualization Infrastructure (NFVI) block contains virtual resources (virtual machines)",
+    "paper_id": "486"
+  },
+  {
+    "section": "standardizationefforts5",
+    "path": {
+      "section": "standardizationefforts5",
+      "start_entity": "ReliabilityBlockDiagram",
+      "end_entity": "Component",
+      "hops": [
+        {
+          "from": "ReliabilityBlockDiagram",
+          "relation": "models",
+          "to": "VirtualDataCenter",
+          "context": "Authors in [48] propose an RBD formalization to perform a reliability assessment of a virtual data center (VDC).",
+          "chunk": "12"
+        },
+        {
+          "from": "VirtualDataCenter",
+          "relation": "hasComponent",
+          "to": "Cluster",
+          "context": "𝑛 clusters are connected in series, whereas 𝑚 cloud servers in parallel form each cluster.",
+          "chunk": "12"
+        },
+        {
+          "from": "Cluster",
+          "relation": "type",
+          "to": "Component",
+          "context": "𝑛 clusters are connected in series, whereas 𝑚 cloud servers in parallel form each cluster.",
+          "chunk": "12"
+        }
+      ]
+    },
+    "question": "In a reliability assessment of a virtual data center modeled by an Reliability Block Diagram (RBD), how is the arrangement of clusters and cloud servers described?",
+    "options": {
+      "A": "Both clusters and cloud servers are connected in a mixed-mode, neither purely in series nor purely in parallel.",
+      "B": "The clusters are connected in parallel, and within each cluster, cloud servers are connected in series.",
+      "C": "Each cluster and its internal cloud servers are connected in series, forming a linear configuration.",
+      "D": "The clusters are connected in series, and within each cluster, cloud servers are connected in parallel."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A, as the paper specifies that the clusters in the virtual data center are connected in series, and within each of these clusters, the cloud servers are configured in parallel. This series-parallel arrangement is essential for understanding the reliability distribution across the virtual data center.",
+    "path_description": "Path: ReliabilityBlockDiagram --[models]--> VirtualDataCenter --[hasComponent]--> Cluster --[type]--> Component",
+    "context": "Authors in [48] propose an RBD formalization to perform a reliability assessment of a virtual data center (VDC). | 𝑛 clusters are connected in series, whereas 𝑚 cloud servers in parallel form each cluster. | 𝑛 clusters are connected in series, whereas 𝑚 cloud servers in parallel form each cluster.",
+    "paper_id": "486"
+  },
+  {
+    "section": "standardizationefforts5",
+    "path": {
+      "section": "standardizationefforts5",
+      "start_entity": "ReliabilityBlockDiagram",
+      "end_entity": "ConfigurationType",
+      "hops": [
+        {
+          "from": "ReliabilityBlockDiagram",
+          "relation": "evaluatedOn",
+          "to": "VirtualDataCenter",
+          "context": "Authors in [48] propose an RBD formalization to perform a reliability assessment of a virtual data center (VDC).",
+          "chunk": "12"
+        },
+        {
+          "from": "VirtualDataCenter",
+          "relation": "usesConfiguration",
+          "to": "SeriesConfiguration",
+          "context": "𝑛 clusters are connected in series.",
+          "chunk": "12"
+        },
+        {
+          "from": "SeriesConfiguration",
+          "relation": "type",
+          "to": "ConfigurationType",
+          "context": "Configurations: series (top panel).",
+          "chunk": "12"
+        }
+      ]
+    },
+    "question": "In the formalization proposed by authors in [48] for assessing the reliability of a virtual data center, how is the ConfigurationType of the VirtualDataCenter defined?",
+    "options": {
+      "A": "It is defined as a ModularConfiguration allowing for dynamic reconfiguration based on load demands.",
+      "B": "It is defined as a SeriesConfiguration where multiple clusters are connected in series to ensure reliability.",
+      "C": "It is defined as a HybridConfiguration blending both series and parallel arrangements for optimal performance.",
+      "D": "It is defined as a ParallelConfiguration where multiple clusters operate independently for increased fault tolerance."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A, as the context states that the configuration used in the virtual data center is a series configuration, where multiple clusters are connected in series. This is directly indicated by the knowledge path from ReliabilityBlockDiagram evaluated on the VirtualDataCenter, which uses a SeriesConfiguration, identified as the ConfigurationType.",
+    "path_description": "Path: ReliabilityBlockDiagram --[evaluatedOn]--> VirtualDataCenter --[usesConfiguration]--> SeriesConfiguration --[type]--> ConfigurationType",
+    "context": "Authors in [48] propose an RBD formalization to perform a reliability assessment of a virtual data center (VDC). | 𝑛 clusters are connected in series. | Configurations: series (top panel).",
+    "paper_id": "486"
+  },
+  {
+    "section": "standardizationefforts7",
+    "path": {
+      "section": "standardizationefforts7",
+      "start_entity": "FTRE",
+      "end_entity": "CloudDataCenter",
+      "hops": [
+        {
+          "from": "FTRE",
+          "relation": "typeOf",
+          "to": "FaultTreeModel",
+          "context": "We finally mention a particular type of FT, namely the fault tree with repeated events (FTRE)",
+          "chunk": "14"
+        },
+        {
+          "from": "FaultTreeModel",
+          "relation": "basedOn",
+          "to": "FTA",
+          "context": "A fault tree model of the 5G core network fault is advocated in [62]",
+          "chunk": "14"
+        },
+        {
+          "from": "FTA",
+          "relation": "appliedTo",
+          "to": "CloudDataCenter",
+          "context": "Authors in [63] advance a failure-aware virtual machine (VM) migration technique based on FTA to create a fault-tolerant cloud data center",
+          "chunk": "14"
+        }
+      ]
+    },
+    "question": "Which type of fault analysis model, when applied to a specific technology, advocates for a fault-tolerant cloud data center through VM migration techniques?",
+    "options": {
+      "A": "A fault tree analysis model applied to virtual machine migrations to establish a fault-tolerant cloud data center.",
+      "B": "A fault tree model based on traditional infrastructure faults applied to cloud data center configurations.",
+      "C": "A failure-aware virtual machine migration model based on fault tree analysis, applied to general network systems.",
+      "D": "A fault tree with repeated events model applied to 5G core network faults to improve cloud data center resilience."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is option B, which directly reflects the knowledge path from the fault tree model (FTA) to its application in creating a fault-tolerant cloud data center through failure-aware VM migration techniques. Options A, C, and D, while plausible and related to fault analysis or cloud data centers, do not correctly connect the specific use of FTA in the context of VM migration as described in the context.",
+    "path_description": "Path: FTRE --[typeOf]--> FaultTreeModel --[basedOn]--> FTA --[appliedTo]--> CloudDataCenter",
+    "context": "We finally mention a particular type of FT, namely the fault tree with repeated events (FTRE) | A fault tree model of the 5G core network fault is advocated in [62] | Authors in [63] advance a failure-aware virtual machine (VM) migration technique based on FTA to create a fault-tolerant cloud data center",
+    "paper_id": "486"
+  },
+  {
+    "section": "reliabilityavailabilityandconnectedattributes",
+    "path": {
+      "section": "reliabilityavailabilityandconnectedattributes",
+      "start_entity": "Dependability",
+      "end_entity": "Organization",
+      "hops": [
+        {
+          "from": "Dependability",
+          "relation": "partOf",
+          "to": "Reliability",
+          "context": "Dependability serves as a comprehensive umbrella term, encapsulating essential attributes including reliability.",
+          "chunk": "7"
+        },
+        {
+          "from": "Reliability",
+          "relation": "definedBy",
+          "to": "ETSI",
+          "context": "ETSI [40] defines reliability as the probability that a component can perform a required function or service for a given time interval.",
+          "chunk": "7"
+        },
+        {
+          "from": "ETSI",
+          "relation": "type",
+          "to": "Organization",
+          "context": "Moreover, being availability and reliability officially recognized as standardized metrics (see next Section), for these two attributes we provide both definitions from [7] and from ETSI standard documents.",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "Which organization is responsible for defining reliability in the context of dependability, as referenced in the section on reliability, availability, and connected attributes?",
+    "options": {
+      "A": "ISO, which focuses on standardization across various fields, defines reliability related to dependability.",
+      "B": "ANSI, primarily involved in overseeing standards for products and services, manages definitions of reliability.",
+      "C": "ETSI, an organization, defines reliability as the probability of a component performing as required over time.",
+      "D": "IEEE, known for its contributions to engineering and computing, outlines reliability in its publications."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A. The question is derived from the knowledge graph path that connects 'Dependability' to 'Reliability' and identifies ETSI as the defining organization. Options B, C, and D are misleading as they mention other renowned standardization and technical organizations, but only ETSI is mentioned in the paper as defining reliability in this specific context.",
+    "path_description": "Path: Dependability --[partOf]--> Reliability --[definedBy]--> ETSI --[type]--> Organization",
+    "context": "Dependability serves as a comprehensive umbrella term, encapsulating essential attributes including reliability. | ETSI [40] defines reliability as the probability that a component can perform a required function or service for a given time interval. | Moreover, being availability and reliability officially recognized as standardized metrics (see next Section), for these two attributes we provide both definitions from [7] and from ETSI standard documents.",
+    "paper_id": "486"
+  },
+  {
+    "section": "standardizationefforts16",
+    "path": {
+      "section": "standardizationefforts16",
+      "start_entity": "HypervisorAging",
+      "end_entity": "System",
+      "hops": [
+        {
+          "from": "HypervisorAging",
+          "relation": "detectedIn",
+          "to": "PrimaryHost",
+          "context": "If hypervisor aging is detected during job execution on the primary host, the backup host is selected to take over the job.",
+          "chunk": "23"
+        },
+        {
+          "from": "PrimaryHost",
+          "relation": "partOf",
+          "to": "VirtualizedSystem",
+          "context": "The system consists of two hosts, a primary host with robust computational capabilities hosting an active VM.",
+          "chunk": "23"
+        },
+        {
+          "from": "VirtualizedSystem",
+          "relation": "type",
+          "to": "System",
+          "context": "Figure 18 shows the technological representation and the corresponding SMP model of a virtualized system.",
+          "chunk": "23"
+        }
+      ]
+    },
+    "question": "In a virtualized system described where hypervisor aging is detected during job execution, what is the immediate consequence for the primary host?",
+    "options": {
+      "A": "The primary host's VM is paused until the aging issue is resolved, delaying job execution.",
+      "B": "The backup host is selected to take over the job, ensuring system stability and performance continuity.",
+      "C": "The primary host is upgraded to enhance its computational capabilities and continue hosting the active VM.",
+      "D": "The job is distributed between the primary and backup hosts to mitigate the effects of hypervisor aging."
+    },
+    "correct_answer": "B",
+    "explanation": "When hypervisor aging is detected, the immediate action taken is to select the backup host to take over the job. This ensures that the system remains stable and job execution is not interrupted, as supported by the described system setup in the paper.",
+    "path_description": "Path: HypervisorAging --[detectedIn]--> PrimaryHost --[partOf]--> VirtualizedSystem --[type]--> System",
+    "context": "If hypervisor aging is detected during job execution on the primary host, the backup host is selected to take over the job. | The system consists of two hosts, a primary host with robust computational capabilities hosting an active VM. | Figure 18 shows the technological representation and the corresponding SMP model of a virtualized system.",
+    "paper_id": "486"
+  }
+]

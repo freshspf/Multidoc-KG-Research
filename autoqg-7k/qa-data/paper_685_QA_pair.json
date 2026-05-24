@@ -1,0 +1,174 @@
+[
+  {
+    "section": "framework1",
+    "path": {
+      "section": "framework1",
+      "start_entity": "JARVIS_framework",
+      "end_entity": "ProcessPhase",
+      "hops": [
+        {
+          "from": "JARVIS_framework",
+          "relation": "consistsOf",
+          "to": "High-level_flow",
+          "context": "The JARVIS framework, depicted in Figure 1, can be described as a sequence of three main phases.",
+          "chunk": "3"
+        },
+        {
+          "from": "High-level_flow",
+          "relation": "includes",
+          "to": "Phase1_Configuration",
+          "context": "1) configuring the hardware-software setup.",
+          "chunk": "3"
+        },
+        {
+          "from": "Phase1_Configuration",
+          "relation": "type",
+          "to": "ProcessPhase",
+          "context": "1) configuring the hardware-software setup.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the JARVIS framework, what type of phase does the initial step of configuring the hardware-software setup represent?",
+    "options": {
+      "A": "It represents an EvaluationPhase, where the system's performance parameters are assessed.",
+      "B": "It represents a ProcessPhase, which is fundamental in defining system operations.",
+      "C": "It represents a DevelopmentPhase, focusing on the creation of software components.",
+      "D": "It represents an IntegrationPhase, involving the merging of different software modules."
+    },
+    "correct_answer": "B",
+    "explanation": "The initial step in the JARVIS framework involves configuring the hardware-software setup, which is part of the High-level flow. According to the knowledge graph path, this configuration step is classified as a 'ProcessPhase', indicating its role in establishing procedures for system operations.",
+    "path_description": "Path: JARVIS_framework --[consistsOf]--> High-level_flow --[includes]--> Phase1_Configuration --[type]--> ProcessPhase",
+    "context": "The JARVIS framework, depicted in Figure 1, can be described as a sequence of three main phases. | 1) configuring the hardware-software setup. | 1) configuring the hardware-software setup.",
+    "paper_id": "411"
+  },
+  {
+    "section": "microarchitecture2",
+    "path": {
+      "section": "microarchitecture2",
+      "start_entity": "GlobalDebugUnit",
+      "end_entity": "BusMaster",
+      "hops": [
+        {
+          "from": "GlobalDebugUnit",
+          "relation": "communicatesWith",
+          "to": "LocalDebugUnit",
+          "context": "The global debug unit communicates both with the other bus masters, through point-to-point connections to local debug units.",
+          "chunk": "7"
+        },
+        {
+          "from": "LocalDebugUnit",
+          "relation": "actsAsAdapterFor",
+          "to": "DFSActuator",
+          "context": "Two local debug units are instantiated for the CPU core and for the DFS actuator, respectively, to act as adapters between the global debug unit and the two bus masters.",
+          "chunk": "7"
+        },
+        {
+          "from": "DFSActuator",
+          "relation": "type",
+          "to": "BusMaster",
+          "context": "Two local debug units are instantiated for the CPU core and for the DFS actuator, respectively.",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "In the microarchitecture described, what role does the DFS actuator primarily serve in the communication between the global debug unit and the bus masters?",
+    "options": {
+      "A": "The DFS actuator directly controls data flow between the CPU core and the global debug unit.",
+      "B": "The DFS actuator serves as a local debug unit adapter for the CPU core and other bus masters.",
+      "C": "The DFS actuator acts as a direct communication link between the global debug unit and the bus masters.",
+      "D": "The DFS actuator functions as a bus master, facilitated by the local debug unit acting as an adapter."
+    },
+    "correct_answer": "D",
+    "explanation": "The DFS actuator is described as being connected to the global debug unit through a local debug unit, which acts as an adapter. This setup classifies the DFS actuator as a bus master in the communication hierarchy, as indicated by the knowledge path.",
+    "path_description": "Path: GlobalDebugUnit --[communicatesWith]--> LocalDebugUnit --[actsAsAdapterFor]--> DFSActuator --[type]--> BusMaster",
+    "context": "The global debug unit communicates both with the other bus masters, through point-to-point connections to local debug units. | Two local debug units are instantiated for the CPU core and for the DFS actuator, respectively, to act as adapters between the global debug unit and the two bus masters. | Two local debug units are instantiated for the CPU core and for the DFS actuator, respectively.",
+    "paper_id": "411"
+  },
+  {
+    "section": "experimentalevaluation2",
+    "path": {
+      "section": "experimentalevaluation2",
+      "start_entity": "CPU",
+      "end_entity": "HardwareComponent",
+      "hops": [
+        {
+          "from": "CPU",
+          "relation": "drivenBy",
+          "to": "DFSActuator",
+          "context": "Table I lists the FPGA resource utilization resulting from synthesis and place-and-route targeting 100 MHz and 50MHz clock frequencies for the CPU, driven by the DFS actuator, and the rest of the SoC.",
+          "chunk": "11"
+        },
+        {
+          "from": "DFSActuator",
+          "relation": "targetsFrequencies",
+          "to": "CPU",
+          "context": "Clock frequency randomization: The DFS actuator can be used to continuously vary, in a random fashion, the frequency of the clock signal fed to the CPU.",
+          "chunk": "11"
+        },
+        {
+          "from": "CPU",
+          "relation": "type",
+          "to": "HardwareComponent",
+          "context": "Table I lists the FPGA resource utilization resulting from synthesis and place-and-route targeting 100 MHz and 50MHz clock frequencies for the CPU, driven by the DFS actuator, and the rest of the SoC.",
+          "chunk": "11"
+        }
+      ]
+    },
+    "question": "In the experimental setup described in the 'experimentalevaluation2' section, how does the DFS actuator influence the CPU within the context of clock frequency management?",
+    "options": {
+      "A": "The DFS actuator decreases the clock frequency to below 50 MHz, reducing the CPU's power consumption.",
+      "B": "The DFS actuator continuously varies the clock frequency in a random fashion, impacting the CPU's processing speed.",
+      "C": "The DFS actuator increases the clock frequency to above 100 MHz, enhancing the computational capabilities of the CPU.",
+      "D": "The DFS actuator stabilizes the clock frequency to either 100 MHz or 50 MHz, ensuring constant CPU performance."
+    },
+    "correct_answer": "B",
+    "explanation": "The DFS actuator is described as varying the clock frequency in a random fashion. This directly impacts the clock signal fed to the CPU, modifying its processing speed based on the frequency. Options B, C, and D are incorrect as they suggest specific stabilizations or changes not supported by the random variation mentioned.",
+    "path_description": "Path: CPU --[drivenBy]--> DFSActuator --[targetsFrequencies]--> CPU --[type]--> HardwareComponent",
+    "context": "Table I lists the FPGA resource utilization resulting from synthesis and place-and-route targeting 100 MHz and 50MHz clock frequencies for the CPU, driven by the DFS actuator, and the rest of the SoC. | Clock frequency randomization: The DFS actuator can be used to continuously vary, in a random fashion, the frequency of the clock signal fed to the CPU. | Table I lists the FPGA resource utilization resulting from synthesis and place-and-route targeting 100 MHz and 50MHz clock frequencies for the CPU, driven by the DFS actuator, and the rest of the SoC.",
+    "paper_id": "411"
+  },
+  {
+    "section": "experimentalevaluation4",
+    "path": {
+      "section": "experimentalevaluation4",
+      "start_entity": "HardwareSoftwareFramework",
+      "end_entity": "CryptographicAlgorithm",
+      "hops": [
+        {
+          "from": "HardwareSoftwareFramework",
+          "relation": "evaluates",
+          "to": "TemplateAttack",
+          "context": "To further demonstrate the flexibility of the proposed hardware-software framework, Table III reports the results of the template attack when the computing platform executes three additional cryptographic applications from the OpenSSL suite.",
+          "chunk": "13"
+        },
+        {
+          "from": "TemplateAttack",
+          "relation": "appliedTo",
+          "to": "Camellia",
+          "context": "To further demonstrate the flexibility of the proposed hardware-software framework, Table III reports the results of the template attack when the computing platform executes three additional cryptographic applications from the OpenSSL suite, namely, the Camellia, Clefia, and Seed block ciphers.",
+          "chunk": "13"
+        },
+        {
+          "from": "Camellia",
+          "relation": "type",
+          "to": "CryptographicAlgorithm",
+          "context": "To further demonstrate the flexibility of the proposed hardware-software framework, Table III reports the results of the template attack when the computing platform executes three additional cryptographic applications from the OpenSSL suite, namely, the Camellia, Clefia, and Seed block ciphers.",
+          "chunk": "13"
+        }
+      ]
+    },
+    "question": "In the context of evaluating the flexibility of a hardware-software framework, which cryptographic algorithm's susceptibility to a template attack was specifically documented in the experimental results?",
+    "options": {
+      "A": "RSA, a widely recognized cryptographic algorithm, was the primary focus of the template attacks as noted in the findings.",
+      "B": "Blowfish, another cryptographic standard, was not mentioned as part of the template attack evaluation in the study.",
+      "C": "AES, although a common cryptographic standard, was not included in the reported template attack assessments.",
+      "D": "Camellia, as a part of the OpenSSL suite, was reported to be tested under template attacks in Table III."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A because the paper specifically mentions that Camellia, along with Clefia and Seed, were evaluated under template attacks as a part of the hardware-software framework's flexibility demonstration. Options B, C, and D mention RSA, AES, and Blowfish, respectively, which were not mentioned in the context provided from the paper.",
+    "path_description": "Path: HardwareSoftwareFramework --[evaluates]--> TemplateAttack --[appliedTo]--> Camellia --[type]--> CryptographicAlgorithm",
+    "context": "To further demonstrate the flexibility of the proposed hardware-software framework, Table III reports the results of the template attack when the computing platform executes three additional cryptographic applications from the OpenSSL suite. | To further demonstrate the flexibility of the proposed hardware-software framework, Table III reports the results of the template attack when the computing platform executes three additional cryptographic applications from the OpenSSL suite, namely, the Camellia, Clefia, and Seed block ciphers. | To further demonstrate the flexibility of the proposed hardware-software framework, Table III reports the results of the template attack when the computing platform executes three additional cryptographic applications from the OpenSSL suite, namely, the Camellia, Clefia, and Seed block ciphers.",
+    "paper_id": "411"
+  }
+]

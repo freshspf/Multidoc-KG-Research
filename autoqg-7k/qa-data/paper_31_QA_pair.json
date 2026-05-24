@@ -1,0 +1,217 @@
+[
+  {
+    "section": "introduction3",
+    "path": {
+      "section": "introduction3",
+      "start_entity": "Shard",
+      "end_entity": "ContinuousExtension",
+      "hops": [
+        {
+          "from": "Shard",
+          "relation": "hasParameter",
+          "to": "QuorumSize",
+          "context": "the quorum size of votes can be achieved to advance consensus within each shard",
+          "chunk": "2"
+        },
+        {
+          "from": "QuorumSize",
+          "relation": "enables",
+          "to": "Consensus",
+          "context": "the quorum size of votes can be achieved to advance consensus within each shard",
+          "chunk": "2"
+        },
+        {
+          "from": "Consensus",
+          "relation": "ensures",
+          "to": "ContinuousExtension",
+          "context": "ensuring the continuous extension of the linked endorsement",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the context of blockchain technology, how does adjusting the quorum size within a shard directly influence the blockchain's ability to sustain its operations?",
+    "options": {
+      "A": "It increases the transaction processing speed by minimizing the number of validations needed for each transaction.",
+      "B": "It enables a consensus mechanism that ensures the continuous extension of the blockchain, preventing disruptions in data linkage.",
+      "C": "It directly affects the user interface by simplifying the transaction verification process for end-users.",
+      "D": "It decreases the overall security of the blockchain by reducing the number of required participant votes for consensus."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A. The quorum size is a parameter within a shard that determines the number of votes needed to achieve consensus. Achieving consensus is crucial for the continuous extension of the blockchain, ensuring that each block is securely and effectively linked to form a continuous and unbroken chain. This prevents any disruptions in data linkage and supports the overall functionality and security of the blockchain system.",
+    "path_description": "Path: Shard --[hasParameter]--> QuorumSize --[enables]--> Consensus --[ensures]--> ContinuousExtension",
+    "context": "the quorum size of votes can be achieved to advance consensus within each shard | the quorum size of votes can be achieved to advance consensus within each shard | ensuring the continuous extension of the linked endorsement",
+    "paper_id": "795"
+  },
+  {
+    "section": "introduction3",
+    "path": {
+      "section": "introduction3",
+      "start_entity": "Consensus",
+      "end_entity": "DocumentSection",
+      "hops": [
+        {
+          "from": "Consensus",
+          "relation": "achievedIn",
+          "to": "Shard",
+          "context": "the quorum size of votes can be achieved to advance consensus within each shard",
+          "chunk": "2"
+        },
+        {
+          "from": "Shard",
+          "relation": "guidedBy",
+          "to": "SectionV",
+          "context": "These measures are guided by our rigorous theoretical analysis presented in Section V",
+          "chunk": "2"
+        },
+        {
+          "from": "SectionV",
+          "relation": "type",
+          "to": "DocumentSection",
+          "context": "our rigorous theoretical analysis presented in Section V",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the context of a sharded blockchain system, how is consensus within each shard advanced according to the paper's introduction?",
+    "options": {
+      "A": "Through a single leader who manages all shards, as suggested by the practical applications in Section II",
+      "B": "By achieving a quorum size of votes within each shard, as directed by the theoretical analysis in Section V",
+      "C": "By using a proof-of-work mechanism in each shard, as detailed in the appendices of the document",
+      "D": "Through randomized leader election in each shard, as outlined in the preliminary discussions of the paper"
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A, as the paper specifies that the quorum size of votes is achieved to advance consensus within each shard, and this process is guided by the rigorous theoretical analysis presented in Section V. The other options introduce elements (like leader election, proof-of-work, or a single leader for all shards) that are not mentioned in the provided context.",
+    "path_description": "Path: Consensus --[achievedIn]--> Shard --[guidedBy]--> SectionV --[type]--> DocumentSection",
+    "context": "the quorum size of votes can be achieved to advance consensus within each shard | These measures are guided by our rigorous theoretical analysis presented in Section V | our rigorous theoretical analysis presented in Section V",
+    "paper_id": "795"
+  },
+  {
+    "section": "systemdesign2",
+    "path": {
+      "section": "systemdesign2",
+      "start_entity": "BlockB3",
+      "end_entity": "Block",
+      "hops": [
+        {
+          "from": "BlockB3",
+          "relation": "endorsedBy",
+          "to": "BlockA2",
+          "context": "Block B3 is endorsed by C4 or C4'. Block A2 is finalized since it is endorsed by all shards within the endorsement group.",
+          "chunk": "6"
+        },
+        {
+          "from": "BlockA2",
+          "relation": "finalizedBy",
+          "to": "BlockC4",
+          "context": "Block A2 is finalized since it is endorsed by all shards within the endorsement group.",
+          "chunk": "6"
+        },
+        {
+          "from": "BlockC4",
+          "relation": "type",
+          "to": "Block",
+          "context": "In corrupted Shard2, the malicious block proposer forks the shard chain by proposing two blocks (C4 and C4'), both of which can only endorse B3 after Shard1’s endorsement decision.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "Why is Block B3 considered to be finalized within the system described?",
+    "options": {
+      "A": "Block B3, being part of Block A2, is automatically finalized without needing endorsements from any blocks.",
+      "B": "Block B3 is finalized as it is endorsed by Block C4, which is part of a corrupted shard but follows Shard1's endorsement.",
+      "C": "Block B3 requires additional endorsements from other blocks outside the described shards to be considered finalized.",
+      "D": "Block B3 is not finalized because it is only endorsed by Block C4, which is a malicious proposal from a corrupted shard."
+    },
+    "correct_answer": "B",
+    "explanation": "Block B3 is considered finalized because it is endorsed by Block C4. Despite C4 being part of a corrupted shard, the endorsement is valid as it follows the endorsement decision of Shard1, which is implied to be trustworthy. The path demonstrates Block B3 is endorsed by Block A2, which is finalized by the endorsement of all shards in the group, including the corrupted one that still adheres to Shard1's decision.",
+    "path_description": "Path: BlockB3 --[endorsedBy]--> BlockA2 --[finalizedBy]--> BlockC4 --[type]--> Block",
+    "context": "Block B3 is endorsed by C4 or C4'. Block A2 is finalized since it is endorsed by all shards within the endorsement group. | Block A2 is finalized since it is endorsed by all shards within the endorsement group. | In corrupted Shard2, the malicious block proposer forks the shard chain by proposing two blocks (C4 and C4'), both of which can only endorse B3 after Shard1’s endorsement decision.",
+    "paper_id": "795"
+  },
+  {
+    "section": "systemdesign3",
+    "path": {
+      "section": "systemdesign3",
+      "start_entity": "EndorsementList",
+      "end_entity": "BlockchainComponent",
+      "hops": [
+        {
+          "from": "EndorsementList",
+          "relation": "partOf",
+          "to": "BlockHeader",
+          "context": "with two additional fields for endorsement and finalization",
+          "chunk": "7"
+        },
+        {
+          "from": "BlockHeader",
+          "relation": "partOf",
+          "to": "BeaconChain",
+          "context": "we reuse the block header (instead of the whole block)",
+          "chunk": "7"
+        },
+        {
+          "from": "BeaconChain",
+          "relation": "type",
+          "to": "BlockchainComponent",
+          "context": "With the nodes’ identity recorded in the beacon chain",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "In the context of blockchain system design as described in the paper, which component specifically records the nodes' identity and includes a block header with fields for endorsement and finalization?",
+    "options": {
+      "A": "A Blockchain Component that is not part of the Beacon Chain but includes an EndorsementList for nodes' identities.",
+      "B": "The EndorsementList, which is a part of the BlockHeader, includes additional fields for recording nodes' identities.",
+      "C": "The Beacon Chain, which is a type of Blockchain Component, includes a block header part that records nodes' identities.",
+      "D": "The BlockHeader itself records the nodes' identity directly and connects directly to the primary blockchain database."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A. The question requires understanding the hierarchical structure and functionality within the blockchain system. Given the path, the Beacon Chain is identified as a Blockchain Component that includes the BlockHeader, which in turn contains the EndorsementList. The nodes' identities are specifically recorded in the Beacon Chain, which uses the block header to manage key functionalities such as endorsements and finalization.",
+    "path_description": "Path: EndorsementList --[partOf]--> BlockHeader --[partOf]--> BeaconChain --[type]--> BlockchainComponent",
+    "context": "with two additional fields for endorsement and finalization | we reuse the block header (instead of the whole block) | With the nodes’ identity recorded in the beacon chain",
+    "paper_id": "795"
+  },
+  {
+    "section": "systemdesign3",
+    "path": {
+      "section": "systemdesign3",
+      "start_entity": "BlockA2",
+      "end_entity": "BlockchainBlock",
+      "hops": [
+        {
+          "from": "BlockA2",
+          "relation": "finalizedBy",
+          "to": "BlockA3",
+          "context": "Block A1 and A2 can also be considered finalized since they are parents of block A3",
+          "chunk": "7"
+        },
+        {
+          "from": "BlockA3",
+          "relation": "endorsedBy",
+          "to": "BlockB2",
+          "context": "Once block C5 is produced to endorse block B2, block A3 is endorsed by all the shards within the endorsement group",
+          "chunk": "7"
+        },
+        {
+          "from": "BlockB2",
+          "relation": "type",
+          "to": "BlockchainBlock",
+          "context": "Then Shard1 produces block B2 endorsing the latest block A3 from Shard0",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "Which statement accurately describes the process and relationship between the blocks and shards as outlined in the paper section 'systemdesign3'?",
+    "options": {
+      "A": "Block B2, produced by Shard0, finalizes Block A3 and is subsequently endorsed by Block C5 from Shard1.",
+      "B": "Block A3 is finalized by Block A2 and endorsed by Block B2, which is a type of Blockchain Block produced by Shard1.",
+      "C": "Block C5 finalizes Block A3 by producing Block B2 within the same shard, endorsing the prior blocks indirectly.",
+      "D": "Block A3, being a Blockchain Block, is endorsed directly by Block C5, leading to the production of Block B2 by Shard0."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A, as it correctly follows the knowledge path and the context provided. Block A2 finalizes Block A3, and then Block A3 is endorsed by Block B2, which is identified as a Blockchain Block and produced by Shard1. The other options incorrectly assign roles and relationships among the blocks and shards.",
+    "path_description": "Path: BlockA2 --[finalizedBy]--> BlockA3 --[endorsedBy]--> BlockB2 --[type]--> BlockchainBlock",
+    "context": "Block A1 and A2 can also be considered finalized since they are parents of block A3 | Once block C5 is produced to endorse block B2, block A3 is endorsed by all the shards within the endorsement group | Then Shard1 produces block B2 endorsing the latest block A3 from Shard0",
+    "paper_id": "795"
+  }
+]

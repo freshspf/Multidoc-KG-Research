@@ -1,0 +1,131 @@
+[
+  {
+    "section": "fiberpool2",
+    "path": {
+      "section": "fiberpool2",
+      "start_entity": "BlockTemplate",
+      "end_entity": "BlockchainMetric",
+      "hops": [
+        {
+          "from": "BlockTemplate",
+          "relation": "includes",
+          "to": "Transaction",
+          "context": "The template also includes a transaction linking the block reward to the total PoW.",
+          "chunk": "5"
+        },
+        {
+          "from": "Transaction",
+          "relation": "links",
+          "to": "BlockReward",
+          "context": "The template also includes a transaction linking the block reward to the total PoW.",
+          "chunk": "5"
+        },
+        {
+          "from": "BlockReward",
+          "relation": "type",
+          "to": "BlockchainMetric",
+          "context": "The template also includes a transaction linking the block reward to the total PoW.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the context of the BlockTemplate in blockchain technology, which metric is directly influenced by the transaction that links the block reward to the total Proof of Work (PoW)?",
+    "options": {
+      "A": "The blockchain scalability, which pertains to the network's ability to handle large amounts of transactions",
+      "B": "The transaction throughput rate, which measures the number of transactions per second",
+      "C": "The block generation time, which relates to the interval at which new blocks are found",
+      "D": "The overall network hashing power, which assesses the computational efforts of the miners"
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A, as the blockchain metric influenced by the transaction linking the block reward to the total PoW is the overall network hashing power. This metric reflects the computational efforts of the miners which is directly impacted by how the block rewards motivate the Proof of Work activities.",
+    "path_description": "Path: BlockTemplate --[includes]--> Transaction --[links]--> BlockReward --[type]--> BlockchainMetric",
+    "context": "The template also includes a transaction linking the block reward to the total PoW. | The template also includes a transaction linking the block reward to the total PoW. | The template also includes a transaction linking the block reward to the total PoW.",
+    "paper_id": "1398"
+  },
+  {
+    "section": "evaluation1",
+    "path": {
+      "section": "evaluation1",
+      "start_entity": "miner_m2",
+      "end_entity": "Property",
+      "hops": [
+        {
+          "from": "miner_m2",
+          "relation": "participatesIn",
+          "to": "FIBERPOOL",
+          "context": "Assume three miners: miner m2, who participates in FIBERPOOL.",
+          "chunk": "7"
+        },
+        {
+          "from": "FIBERPOOL",
+          "relation": "evaluates",
+          "to": "RewardStability",
+          "context": "We evaluated FIBERPOOL by examining key desirable properties of a mining pool within the system.",
+          "chunk": "7"
+        },
+        {
+          "from": "RewardStability",
+          "relation": "type",
+          "to": "Property",
+          "context": "These properties include mining fairness, budget balance, reward stability, and incentive compatibility.",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "In the evaluation of FIBERPOOL, which property did the participation of miner m2 help to specifically assess?",
+    "options": {
+      "A": "Determining the incentive compatibility based on the contributions of individual miners",
+      "B": "The role of miner m2 in enhancing the mining fairness among participants",
+      "C": "How the miner's involvement influences the overall budget balance of the pool",
+      "D": "The effect of miner participation on the stability of reward distribution within the pool"
+    },
+    "correct_answer": "D",
+    "explanation": "The question traces the path from miner m2's participation in FIBERPOOL, through the pool's evaluation specifically focusing on 'RewardStability,' a property of the system. The other options, while related to properties of mining pools, do not directly connect to 'RewardStability' as evaluated in the context provided.",
+    "path_description": "Path: miner_m2 --[participatesIn]--> FIBERPOOL --[evaluates]--> RewardStability --[type]--> Property",
+    "context": "Assume three miners: miner m2, who participates in FIBERPOOL. | We evaluated FIBERPOOL by examining key desirable properties of a mining pool within the system. | These properties include mining fairness, budget balance, reward stability, and incentive compatibility.",
+    "paper_id": "1398"
+  },
+  {
+    "section": "evaluation2",
+    "path": {
+      "section": "evaluation2",
+      "start_entity": "MinerM1",
+      "end_entity": "MiningStrategy",
+      "hops": [
+        {
+          "from": "MinerM1",
+          "relation": "participatesIn",
+          "to": "FIBERPOOL",
+          "context": "Suppose that miner m1 participates in FIBERPOOL.",
+          "chunk": "8"
+        },
+        {
+          "from": "FIBERPOOL",
+          "relation": "resistantTo",
+          "to": "PoolHopping",
+          "context": "Pool Hopping: FIBERPOOL is resistant to pool hopping.",
+          "chunk": "8"
+        },
+        {
+          "from": "PoolHopping",
+          "relation": "type",
+          "to": "MiningStrategy",
+          "context": "Pool Hopping: FIBERPOOL is resistant to pool hopping.",
+          "chunk": "8"
+        }
+      ]
+    },
+    "question": "Considering the relationships in the knowledge graph, why is MinerM1 less likely to engage in Pool Hopping when participating in FIBERPOOL?",
+    "options": {
+      "A": "The geographic location of FIBERPOOL's servers provides a latency advantage that prevents Pool Hopping.",
+      "B": "Due to the high computational power required by FIBERPOOL, which discourages MinerM1 from Pool Hopping.",
+      "C": "Because FIBERPOOL employs a specific mining strategy that makes it resistant to the Pool Hopping tactic.",
+      "D": "FIBERPOOL offers higher rewards for longer participation, which discourages short-term strategies like Pool Hopping."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A because the information provided indicates that FIBERPOOL is resistant to Pool Hopping. This resistance is derived from its mining strategy, which is specifically designed to mitigate the effects of Pool Hopping, ensuring that miners like MinerM1 are less likely to engage in such strategies.",
+    "path_description": "Path: MinerM1 --[participatesIn]--> FIBERPOOL --[resistantTo]--> PoolHopping --[type]--> MiningStrategy",
+    "context": "Suppose that miner m1 participates in FIBERPOOL. | Pool Hopping: FIBERPOOL is resistant to pool hopping. | Pool Hopping: FIBERPOOL is resistant to pool hopping.",
+    "paper_id": "1398"
+  }
+]

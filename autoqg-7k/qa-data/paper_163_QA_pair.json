@@ -1,0 +1,131 @@
+[
+  {
+    "section": "methodology1",
+    "path": {
+      "section": "methodology1",
+      "start_entity": "BlockchainNetworksB",
+      "end_entity": "Entity",
+      "hops": [
+        {
+          "from": "BlockchainNetworksB",
+          "relation": "hosts",
+          "to": "TransactionsTb",
+          "context": "We model a system of blockchain networks B, where each blockchain b ∈ B hosts a set of transactions Tb.",
+          "chunk": "2"
+        },
+        {
+          "from": "TransactionsTb",
+          "relation": "partOf",
+          "to": "AggregatedTransactionsT",
+          "context": "The aggregated set of transactions across all blockchains is T = Tb.",
+          "chunk": "2"
+        },
+        {
+          "from": "AggregatedTransactionsT",
+          "relation": "type",
+          "to": "Entity",
+          "context": "The aggregated set of transactions across all blockchains is T = Tb.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the context of blockchain technology, how does the aggregation of transactions across various blockchain networks relate to the classification of these transactions?",
+    "options": {
+      "A": "Aggregated transactions are primarily classified based on their monetary value in the respective blockchains.",
+      "B": "Each transaction retains its individual classification, independent of the blockchain network aggregation.",
+      "C": "The classification of aggregated transactions depends on the volume rather than the type of blockchain networks.",
+      "D": "The aggregated transactions are classified as a type of entity relevant to the blockchain network they originated from."
+    },
+    "correct_answer": "D",
+    "explanation": "According to the knowledge path, transactions from individual blockchains (Tb) are aggregated into a set (T). This aggregated set is then classified as a type of entity, suggesting that the aggregation process influences their classification, tying them to the characteristics of the originating networks.",
+    "path_description": "Path: BlockchainNetworksB --[hosts]--> TransactionsTb --[partOf]--> AggregatedTransactionsT --[type]--> Entity",
+    "context": "We model a system of blockchain networks B, where each blockchain b ∈ B hosts a set of transactions Tb. | The aggregated set of transactions across all blockchains is T = Tb. | The aggregated set of transactions across all blockchains is T = Tb.",
+    "paper_id": "1408"
+  },
+  {
+    "section": "methodology4",
+    "path": {
+      "section": "methodology4",
+      "start_entity": "TokenTransferEvent",
+      "end_entity": "ArbitrageType",
+      "hops": [
+        {
+          "from": "TokenTransferEvent",
+          "relation": "partOf",
+          "to": "CrossChainBridgeTransaction",
+          "context": "If we find two token transfer events, one on each chain, meeting the aforementioned criteria, we assume that both transfer events belong together and mark their originating transactions as cross-chain bridge transactions.",
+          "chunk": "5"
+        },
+        {
+          "from": "CrossChainBridgeTransaction",
+          "relation": "classifiedAs",
+          "to": "SDA",
+          "context": "If we find two token transfer events, one on each chain, meeting the aforementioned criteria, we assume that both transfer events belong together and mark their originating transactions as cross-chain bridge transactions and hence the cross-chain arbitrage as SDA.",
+          "chunk": "5"
+        },
+        {
+          "from": "SDA",
+          "relation": "type",
+          "to": "ArbitrageType",
+          "context": "If we find two token transfer events, one on each chain, meeting the aforementioned criteria, we assume that both transfer events belong together and mark their originating transactions as cross-chain bridge transactions and hence the cross-chain arbitrage as SDA.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the context of blockchain technology, what does the classification of a cross-chain bridge transaction as SDA imply about its type?",
+    "options": {
+      "A": "It implies that the transaction is of the ArbitrageType, involving strategic discrepancy arbitrage across chains.",
+      "B": "It indicates that the transaction is a standard direct asset transfer without involving arbitrage strategies.",
+      "C": "It denotes that the transaction exclusively deals with data synchronization between two distinct blockchains.",
+      "D": "It suggests that the transaction is primarily concerned with security and decentralized application operations."
+    },
+    "correct_answer": "A",
+    "explanation": "The path in the knowledge graph indicates a classification system where CrossChainBridgeTransaction, when classified as SDA (Strategic Discrepancy Arbitrage), is further defined as ArbitrageType. This means the transaction is strategically exploiting price differences between different chains, characteristic of arbitrage activities in financial contexts.",
+    "path_description": "Path: TokenTransferEvent --[partOf]--> CrossChainBridgeTransaction --[classifiedAs]--> SDA --[type]--> ArbitrageType",
+    "context": "If we find two token transfer events, one on each chain, meeting the aforementioned criteria, we assume that both transfer events belong together and mark their originating transactions as cross-chain bridge transactions. | If we find two token transfer events, one on each chain, meeting the aforementioned criteria, we assume that both transfer events belong together and mark their originating transactions as cross-chain bridge transactions and hence the cross-chain arbitrage as SDA. | If we find two token transfer events, one on each chain, meeting the aforementioned criteria, we assume that both transfer events belong together and mark their originating transactions as cross-chain bridge transactions and hence the cross-chain arbitrage as SDA.",
+    "paper_id": "1408"
+  },
+  {
+    "section": "methodology3",
+    "path": {
+      "section": "methodology3",
+      "start_entity": "RedeemScheduled",
+      "end_entity": "BlockchainPlatform",
+      "hops": [
+        {
+          "from": "RedeemScheduled",
+          "relation": "triggeredBy",
+          "to": "Arbitrum",
+          "context": "for example, for Arbitrum we scan for the “InboxMessageDelivered” event on Ethereum and the corresponding “RedeemScheduled” event on Arbitrum.",
+          "chunk": "4"
+        },
+        {
+          "from": "Arbitrum",
+          "relation": "linkedWith",
+          "to": "zkSync",
+          "context": "adapt it to link native bridge transactions on Arbitrum, Base, Optimism, Scroll, and zkSync.",
+          "chunk": "4"
+        },
+        {
+          "from": "zkSync",
+          "relation": "type",
+          "to": "BlockchainPlatform",
+          "context": "adapt it to link native bridge transactions on Arbitrum, Base, Optimism, Scroll, and zkSync.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the context of blockchain platforms, what is the relationship between the 'RedeemScheduled' event in Arbitrum and zkSync?",
+    "options": {
+      "A": "The 'RedeemScheduled' event in Arbitrum is a result of direct user transactions specifically within the zkSync platform.",
+      "B": "The 'RedeemScheduled' event in Arbitrum is unrelated to zkSync and functions independently as a separate Blockchain Platform.",
+      "C": "The 'RedeemScheduled' event in Arbitrum is triggered by a process that is linked with zkSync as another Blockchain Platform.",
+      "D": "The 'RedeemScheduled' event in Arbitrum directly influences the operational mechanisms of zkSync without involving other platforms."
+    },
+    "correct_answer": "C",
+    "explanation": "The 'RedeemScheduled' event in Arbitrum is triggered by activities in Arbitrum and is linked with zkSync, indicating a relationship between the two as part of the broader Blockchain Platform category. Options B, C, and D are incorrect as they either misrepresent the relationship or incorrectly suggest independence or direct influence.",
+    "path_description": "Path: RedeemScheduled --[triggeredBy]--> Arbitrum --[linkedWith]--> zkSync --[type]--> BlockchainPlatform",
+    "context": "for example, for Arbitrum we scan for the “InboxMessageDelivered” event on Ethereum and the corresponding “RedeemScheduled” event on Arbitrum. | adapt it to link native bridge transactions on Arbitrum, Base, Optimism, Scroll, and zkSync. | adapt it to link native bridge transactions on Arbitrum, Base, Optimism, Scroll, and zkSync.",
+    "paper_id": "1408"
+  }
+]

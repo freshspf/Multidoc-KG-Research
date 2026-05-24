@@ -1,0 +1,45 @@
+[
+  {
+    "section": "numericalsimulationsanddiscussion",
+    "path": {
+      "section": "numericalsimulationsanddiscussion",
+      "start_entity": "SUMO",
+      "end_entity": "TimeStepLength",
+      "hops": [
+        {
+          "from": "SUMO",
+          "relation": "runsFor",
+          "to": "T",
+          "context": "The simulations are run for a total time of T = 40 minutes.",
+          "chunk": "4"
+        },
+        {
+          "from": "T",
+          "relation": "dividedIntoSteps",
+          "to": "DeltaT",
+          "context": "divided into time steps of length ∆t = 1 s.",
+          "chunk": "4"
+        },
+        {
+          "from": "DeltaT",
+          "relation": "type",
+          "to": "TimeStepLength",
+          "context": "divided into time steps of length ∆t = 1 s.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In a numerical simulation using SUMO, if the total simulation time T is set to 40 minutes, and the simulation is divided into time steps of ∆t = 1 second each, how many time steps will the simulation comprise?",
+    "options": {
+      "A": "The simulation will comprise 40 time steps, equating each minute to one time step.",
+      "B": "The simulation will comprise 4800 time steps, assuming each minute holds 120 seconds.",
+      "C": "The simulation will comprise 2400 time steps, as each minute contains 60 seconds.",
+      "D": "The simulation will comprise 400 time steps, as each minute is counted as 10 seconds."
+    },
+    "correct_answer": "C",
+    "explanation": "Given that T = 40 minutes and ∆t = 1 second, the number of time steps is calculated by converting the total time from minutes to seconds (40 minutes * 60 seconds/minute = 2400 seconds) and then dividing by the time step length (∆t = 1 second), resulting in 2400 time steps.",
+    "path_description": "Path: SUMO --[runsFor]--> T --[dividedIntoSteps]--> DeltaT --[type]--> TimeStepLength",
+    "context": "The simulations are run for a total time of T = 40 minutes. | divided into time steps of length ∆t = 1 s. | divided into time steps of length ∆t = 1 s.",
+    "paper_id": "656"
+  }
+]

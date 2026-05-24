@@ -1,0 +1,131 @@
+[
+  {
+    "section": "consensus2",
+    "path": {
+      "section": "consensus2",
+      "start_entity": "GenesisBlock",
+      "end_entity": "Parameter",
+      "hops": [
+        {
+          "from": "GenesisBlock",
+          "relation": "partOf",
+          "to": "ProofOfAuthority",
+          "context": "The genesis block must include the following initial parameters.",
+          "chunk": "5"
+        },
+        {
+          "from": "ProofOfAuthority",
+          "relation": "uses",
+          "to": "DIFF_NOTURN",
+          "context": "The difficulty for no-turn blocks (DIFF_NOTURN) is set to 1.",
+          "chunk": "5"
+        },
+        {
+          "from": "DIFF_NOTURN",
+          "relation": "type",
+          "to": "Parameter",
+          "context": "The difficulty for no-turn blocks (DIFF_NOTURN) is set to 1.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In a blockchain using Proof of Authority, what initial parameter is set for the genesis block concerning the difficulty of no-turn blocks?",
+    "options": {
+      "A": "The difficulty for no-turn blocks (DIFF_NOTURN) is initially set to 1 in the genesis block.",
+      "B": "The difficulty for no-turn blocks (DIFF_NOTURN) is initially set to 0 in the genesis block.",
+      "C": "The difficulty for no-turn blocks (DIFF_NOTURN) is initially set to 2 in the genesis block.",
+      "D": "The difficulty for no-turn blocks (DIFF_NOTURN) is not set in the genesis block, but determined later."
+    },
+    "correct_answer": "A",
+    "explanation": "According to the paper, in a Proof of Authority blockchain, the initial difficulty for no-turn blocks, referred to as DIFF_NOTURN, is set to 1 within the genesis block. This specific parameter is critical for defining the initial state and behavior of the blockchain.",
+    "path_description": "Path: GenesisBlock --[partOf]--> ProofOfAuthority --[uses]--> DIFF_NOTURN --[type]--> Parameter",
+    "context": "The genesis block must include the following initial parameters. | The difficulty for no-turn blocks (DIFF_NOTURN) is set to 1. | The difficulty for no-turn blocks (DIFF_NOTURN) is set to 1.",
+    "paper_id": "1440"
+  },
+  {
+    "section": "consensus1",
+    "path": {
+      "section": "consensus1",
+      "start_entity": "ProofOfAuthority",
+      "end_entity": "Class",
+      "hops": [
+        {
+          "from": "ProofOfAuthority",
+          "relation": "type",
+          "to": "ConsensusProtocol",
+          "context": "For the time being, two consensus protocols are implemented: Proof-of-Work and Proof-of-Authority.",
+          "chunk": "4"
+        },
+        {
+          "from": "ConsensusProtocol",
+          "relation": "hasElement",
+          "to": "GenesisBlock",
+          "context": "The consensus protocol must have at least the following elements: genesis.",
+          "chunk": "4"
+        },
+        {
+          "from": "GenesisBlock",
+          "relation": "type",
+          "to": "Class",
+          "context": "genesis: genesis block that will be the first block.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In blockchain technology, which consensus protocol is categorized to necessarily include a genesis block as its initial element?",
+    "options": {
+      "A": "Delegated Proof-of-Stake, where stakeholders delegate others to validate and create blocks",
+      "B": "Proof-of-Stake, where the creation of new blocks is based on the stake of the participants",
+      "C": "Proof-of-Authority, where validators are pre-selected based on their identity and reputation",
+      "D": "Proof-of-Work, which is primarily based on a complex computational puzzle"
+    },
+    "correct_answer": "C",
+    "explanation": "Proof-of-Authority is mentioned in the context as a consensus protocol that has the genesis block as a fundamental element. This block serves as the initial block in the blockchain under this protocol.",
+    "path_description": "Path: ProofOfAuthority --[type]--> ConsensusProtocol --[hasElement]--> GenesisBlock --[type]--> Class",
+    "context": "For the time being, two consensus protocols are implemented: Proof-of-Work and Proof-of-Authority. | The consensus protocol must have at least the following elements: genesis. | genesis: genesis block that will be the first block.",
+    "paper_id": "1440"
+  },
+  {
+    "section": "futurework",
+    "path": {
+      "section": "futurework",
+      "start_entity": "MarcoDorigo",
+      "end_entity": "Project",
+      "hops": [
+        {
+          "from": "MarcoDorigo",
+          "relation": "acknowledgesSupportFrom",
+          "to": "DFG",
+          "context": "Volker Strobel and Marco Dorigo acknowledge support from DFG under Germany’s Excellence Strategy - EXC 2142.",
+          "chunk": "6"
+        },
+        {
+          "from": "DFG",
+          "relation": "supports",
+          "to": "GermanyExcellenceStrategy",
+          "context": "Volker Strobel and Marco Dorigo acknowledge support from DFG under Germany’s Excellence Strategy - EXC 2142.",
+          "chunk": "6"
+        },
+        {
+          "from": "GermanyExcellenceStrategy",
+          "relation": "type",
+          "to": "Project",
+          "context": "Volker Strobel and Marco Dorigo acknowledge support from DFG under Germany’s Excellence Strategy - EXC 2142.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "What type of initiative under Germany's Excellence Strategy, specifically supported by DFG, was acknowledged for support by Marco Dorigo in their future work?",
+    "options": {
+      "A": "A project aimed at enhancing research infrastructure and capabilities in Germany",
+      "B": "A funding scheme for startup incubation and entrepreneurial skill development in Germany",
+      "C": "A domestic educational program promoting undergraduate studies in Germany",
+      "D": "An international collaborative research initiative focusing on technological advancements"
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is 'A project aimed at enhancing research infrastructure and capabilities in Germany.' The 3-hop knowledge path from Marco Dorigo to the Germany Excellence Strategy indicates that the type of initiative supported is a 'Project'. The context provided further supports that this project falls under the umbrella of improving research capabilities and infrastructure within Germany, as part of the Excellence Strategy.",
+    "path_description": "Path: MarcoDorigo --[acknowledgesSupportFrom]--> DFG --[supports]--> GermanyExcellenceStrategy --[type]--> Project",
+    "context": "Volker Strobel and Marco Dorigo acknowledge support from DFG under Germany’s Excellence Strategy - EXC 2142. | Volker Strobel and Marco Dorigo acknowledge support from DFG under Germany’s Excellence Strategy - EXC 2142. | Volker Strobel and Marco Dorigo acknowledge support from DFG under Germany’s Excellence Strategy - EXC 2142.",
+    "paper_id": "1440"
+  }
+]

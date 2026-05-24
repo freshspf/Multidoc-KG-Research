@@ -1,0 +1,45 @@
+[
+  {
+    "section": "characterizationofmalta2sensor",
+    "path": {
+      "section": "characterizationofmalta2sensor",
+      "start_entity": "CustomFirmwareProject",
+      "end_entity": "RandomTelegraphSignalNoise",
+      "hops": [
+        {
+          "from": "CustomFirmwareProject",
+          "relation": "communicatesWith",
+          "to": "KC705FPGABoard",
+          "context": "utilizes a custom firmware project and communicates between the carrier board and the FPGA.",
+          "chunk": "2"
+        },
+        {
+          "from": "KC705FPGABoard",
+          "relation": "controls",
+          "to": "MALTA2",
+          "context": "uses (KC705) FPGA board, which is responsible for controlling the sensor.",
+          "chunk": "2"
+        },
+        {
+          "from": "MALTA2",
+          "relation": "retains",
+          "to": "RandomTelegraphSignalNoise",
+          "context": "While retaining random telegraph signal noise.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the context of the MALTA2 sensor characterization, how does the custom firmware project impact the handling of noise in the sensor?",
+    "options": {
+      "A": "The custom firmware project increases the sensitivity of the MALTA2 sensor to random telegraph signal noise through enhanced data processing techniques.",
+      "B": "The custom firmware project interfaces with the sensor's hardware to filter out random telegraph signal noise before it reaches the KC705 FPGA board.",
+      "C": "The custom firmware project allows communication with the KC705 FPGA board, which controls the MALTA2 sensor and manages random telegraph signal noise.",
+      "D": "The custom firmware project directly modifies the structure of the MALTA2 sensor to eliminate all forms of noise including random telegraph signal noise."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A because the custom firmware project communicates with the KC705 FPGA board, which in turn controls the MALTA2 sensor. This control includes retaining or managing random telegraph signal noise, as indicated in the knowledge path and context from the paper.",
+    "path_description": "Path: CustomFirmwareProject --[communicatesWith]--> KC705FPGABoard --[controls]--> MALTA2 --[retains]--> RandomTelegraphSignalNoise",
+    "context": "utilizes a custom firmware project and communicates between the carrier board and the FPGA. | uses (KC705) FPGA board, which is responsible for controlling the sensor. | While retaining random telegraph signal noise.",
+    "paper_id": "1138"
+  }
+]

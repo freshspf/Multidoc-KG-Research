@@ -1,0 +1,131 @@
+[
+  {
+    "section": "materialsandmethods1",
+    "path": {
+      "section": "materialsandmethods1",
+      "start_entity": "HiveStand",
+      "end_entity": "Technology",
+      "hops": [
+        {
+          "from": "HiveStand",
+          "relation": "equippedWith",
+          "to": "LoadCells",
+          "context": "We designed and manufactured a hive stand with adjustable legs and a platform under the hive bottom with four load cells in the corners.",
+          "chunk": "1"
+        },
+        {
+          "from": "LoadCells",
+          "relation": "dataStoredIn",
+          "to": "Database",
+          "context": "The readings were made ten times, and the average value of each load cell was calculated using formula (1) and stored in the experimental database.",
+          "chunk": "1"
+        },
+        {
+          "from": "Database",
+          "relation": "type",
+          "to": "Technology",
+          "context": "The readings were made ten times, and the average value of each load cell was calculated using formula (1) and stored in the experimental database.",
+          "chunk": "1"
+        }
+      ]
+    },
+    "question": "In the study described in the paper's 'materialsandmethods1' section, what type of technology is the experimental database, where data from the load cells equipped to the hive stand is stored?",
+    "options": {
+      "A": "A blockchain technology ensuring data integrity and traceability of scientific measurements.",
+      "B": "A cloud-based storage technology that allows for real-time data analysis and sharing.",
+      "C": "A locally installed database system designed specifically for scientific data collection.",
+      "D": "A technology designed for general business data storage, not optimized for scientific experiments."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is B because the context describes a specific setup for a scientific experiment involving load cells and data storage. Typically, such setups use specialized local database systems designed to handle and process scientific data accurately, rather than general business storage solutions or more complex and unrelated technologies like blockchain.",
+    "path_description": "Path: HiveStand --[equippedWith]--> LoadCells --[dataStoredIn]--> Database --[type]--> Technology",
+    "context": "We designed and manufactured a hive stand with adjustable legs and a platform under the hive bottom with four load cells in the corners. | The readings were made ten times, and the average value of each load cell was calculated using formula (1) and stored in the experimental database. | The readings were made ten times, and the average value of each load cell was calculated using formula (1) and stored in the experimental database.",
+    "paper_id": "1315"
+  },
+  {
+    "section": "materialsandmethods2",
+    "path": {
+      "section": "materialsandmethods2",
+      "start_entity": "ExperimentalModelling",
+      "end_entity": "Concept",
+      "hops": [
+        {
+          "from": "ExperimentalModelling",
+          "relation": "uses",
+          "to": "BeeColony",
+          "context": "Experimental modelling of bee colony movement in winter described in [24-26].",
+          "chunk": "2"
+        },
+        {
+          "from": "BeeColony",
+          "relation": "hasTrajectory",
+          "to": "Trajectory",
+          "context": "The trajectory of bee colony movement upwards and then horizontally to the back was shown in Figure 3.",
+          "chunk": "2"
+        },
+        {
+          "from": "Trajectory",
+          "relation": "type",
+          "to": "Concept",
+          "context": "The trajectory of bee colony movement upwards and then horizontally to the back was shown in Figure 3.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the context of experimental modeling of bee colony movement in winter, what is the correct characterization of a bee colony's trajectory?",
+    "options": {
+      "A": "The trajectory involves stationary positioning followed by a sudden vertical ascent.",
+      "B": "The trajectory involves movement upwards and then horizontally towards the front of the hive.",
+      "C": "The trajectory involves movement upwards and then horizontally to the back of the hive.",
+      "D": "The trajectory involves movement downwards and then horizontally towards the back of the hive."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is 'C' as it precisely describes the trajectory of the bee colony's movement as detailed in the paper, which states that the trajectory involved movement upwards and then horizontally to the back. Options A, B, and D describe incorrect directions or patterns of movement not supported by the experimental findings.",
+    "path_description": "Path: ExperimentalModelling --[uses]--> BeeColony --[hasTrajectory]--> Trajectory --[type]--> Concept",
+    "context": "Experimental modelling of bee colony movement in winter described in [24-26]. | The trajectory of bee colony movement upwards and then horizontally to the back was shown in Figure 3. | The trajectory of bee colony movement upwards and then horizontally to the back was shown in Figure 3.",
+    "paper_id": "1315"
+  },
+  {
+    "section": "results",
+    "path": {
+      "section": "results",
+      "start_entity": "LoadCells",
+      "end_entity": "Taring",
+      "hops": [
+        {
+          "from": "LoadCells",
+          "relation": "connectedTo",
+          "to": "RP2040Controller",
+          "context": "we connected the load cells to the RP2040 controller",
+          "chunk": "3"
+        },
+        {
+          "from": "RP2040Controller",
+          "relation": "type",
+          "to": "Controller",
+          "context": "we connected the load cells to the RP2040 controller",
+          "chunk": "3"
+        },
+        {
+          "from": "Controller",
+          "relation": "usedFor",
+          "to": "Taring",
+          "context": "Next, we connected the load cells to the RP2040 controller and performed the taring",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the process of setting up a precision weighing system, how is the RP2040 controller utilized after connecting it to the load cells?",
+    "options": {
+      "A": "The RP2040 controller is primarily used to amplify the signal from the load cells for better reading.",
+      "B": "The RP2040 controller acts as a power source to ensure the load cells receive consistent voltage.",
+      "C": "The RP2040 controller is used to digitize the analog signal from the load cells for data processing.",
+      "D": "The RP2040 controller is used to calibrate the load cells through a process known as taring."
+    },
+    "correct_answer": "D",
+    "explanation": "The RP2040 controller, after being connected to the load cells, is used for taring. Taring involves setting the scale to zero to account for any pre-existing weight, ensuring accurate measurements. This is a calibration process crucial for precision in weight systems.",
+    "path_description": "Path: LoadCells --[connectedTo]--> RP2040Controller --[type]--> Controller --[usedFor]--> Taring",
+    "context": "we connected the load cells to the RP2040 controller | we connected the load cells to the RP2040 controller | Next, we connected the load cells to the RP2040 controller and performed the taring",
+    "paper_id": "1315"
+  }
+]

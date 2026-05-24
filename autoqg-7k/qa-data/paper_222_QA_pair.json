@@ -1,0 +1,88 @@
+[
+  {
+    "section": "model3",
+    "path": {
+      "section": "model3",
+      "start_entity": "DeviceOwners",
+      "end_entity": "Actor",
+      "hops": [
+        {
+          "from": "DeviceOwners",
+          "relation": "provisionDataTo",
+          "to": "SmartContracts",
+          "context": "device owners provision data obtained from the devices to the smart contracts",
+          "chunk": "4"
+        },
+        {
+          "from": "SmartContracts",
+          "relation": "deployedBy",
+          "to": "dAppInitiator",
+          "context": "They are deployed by the dApp initiator",
+          "chunk": "4"
+        },
+        {
+          "from": "dAppInitiator",
+          "relation": "type",
+          "to": "Actor",
+          "context": "They are deployed by the dApp initiator",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the context of a decentralized application (dApp), what role does the actor identified as the dApp initiator play in the deployment of smart contracts?",
+    "options": {
+      "A": "The dApp initiator acts as a mediator, facilitating the transfer of data from device owners to smart contracts without deploying them.",
+      "B": "The dApp initiator directly deploys the smart contracts which are provisioned with data by device owners.",
+      "C": "The dApp initiator primarily handles the frontend interaction, while backend deployment is managed by device owners.",
+      "D": "The dApp initiator is responsible for writing the smart contracts' code and directly deploying them to the blockchain."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is D, based on the knowledge graph path. The dApp initiator deploys the smart contracts, which are then provisioned with data from device owners. This relationship is crucial in understanding the deployment and operational mechanism of decentralized applications.",
+    "path_description": "Path: DeviceOwners --[provisionDataTo]--> SmartContracts --[deployedBy]--> dAppInitiator --[type]--> Actor",
+    "context": "device owners provision data obtained from the devices to the smart contracts | They are deployed by the dApp initiator | They are deployed by the dApp initiator",
+    "paper_id": "747"
+  },
+  {
+    "section": "evaluation",
+    "path": {
+      "section": "evaluation",
+      "start_entity": "CDRMechanism",
+      "end_entity": "BabyjubjubCurve",
+      "hops": [
+        {
+          "from": "CDRMechanism",
+          "relation": "implementedIn",
+          "to": "PythonScript",
+          "context": "To demonstrate the technical feasibility of our proposal, we prototypically implement the CDR mechanism.",
+          "chunk": "6"
+        },
+        {
+          "from": "PythonScript",
+          "relation": "creates",
+          "to": "EdDSASignatures",
+          "context": "The attestation is realized with a Python script that creates EdDSA signatures...",
+          "chunk": "6"
+        },
+        {
+          "from": "EdDSASignatures",
+          "relation": "basedOn",
+          "to": "BabyjubjubCurve",
+          "context": "The elliptic curve applied for signature creation must be supported by the proof system and the verification environment.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the context of implementing a CDR mechanism, which elliptic curve is essential for creating EdDSA signatures, considering the proof system and verification environment?",
+    "options": {
+      "A": "The secp256k1 curve, commonly used in blockchain technologies and digital signatures.",
+      "B": "The P-256 curve, known for its widespread use in internet security protocols.",
+      "C": "The Babyjubjub curve, due to its compatibility with the proof system used in the Python script for signature creation.",
+      "D": "The Curve25519, primarily recognized for its speed and security in mobile and web applications."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is the Babyjubjub curve, as the Python script creates EdDSA signatures based on this curve, highlighting its support by the proof system and verification environment necessary for the CDR mechanism implementation.",
+    "path_description": "Path: CDRMechanism --[implementedIn]--> PythonScript --[creates]--> EdDSASignatures --[basedOn]--> BabyjubjubCurve",
+    "context": "To demonstrate the technical feasibility of our proposal, we prototypically implement the CDR mechanism. | The attestation is realized with a Python script that creates EdDSA signatures... | The elliptic curve applied for signature creation must be supported by the proof system and the verification environment.",
+    "paper_id": "747"
+  }
+]

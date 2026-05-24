@@ -1,0 +1,174 @@
+[
+  {
+    "section": "background2",
+    "path": {
+      "section": "background2",
+      "start_entity": "IntraChannelBankAccess",
+      "end_entity": "Technology",
+      "hops": [
+        {
+          "from": "IntraChannelBankAccess",
+          "relation": "comparedWith",
+          "to": "InterChannelRemoteBankAccess",
+          "context": "The memory access bandwidth and latency are different for the three cases.",
+          "chunk": "3"
+        },
+        {
+          "from": "InterChannelRemoteBankAccess",
+          "relation": "uses",
+          "to": "TSVs",
+          "context": "The PIM unit accessing a remote memory bank in other channels via the periphery I/O and TSVs.",
+          "chunk": "3"
+        },
+        {
+          "from": "TSVs",
+          "relation": "type",
+          "to": "Technology",
+          "context": "The PIM unit accessing a remote memory bank in other channels via the periphery I/O and TSVs.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "How does the use of Through-Silicon Vias (TSVs) in the PIM unit impact memory access when compared between intra-channel and inter-channel bank access?",
+    "options": {
+      "A": "TSVs degrade the bandwidth and increase latency in inter-channel remote bank access compared to intra-channel bank access.",
+      "B": "TSVs are only utilized in intra-channel bank access to improve performance metrics like bandwidth and latency.",
+      "C": "TSVs enhance the bandwidth and reduce latency in inter-channel remote bank access compared to intra-channel bank access.",
+      "D": "TSVs eliminate the need for periphery I/O in both intra-channel and inter-channel bank access configurations."
+    },
+    "correct_answer": "C",
+    "explanation": "Through-Silicon Vias (TSVs) are utilized in InterChannelRemoteBankAccess to connect different memory banks across channels efficiently. They enhance the performance by offering a shorter and more direct route for data transmission, thus improving bandwidth and reducing latency compared to the longer routes typically associated with IntraChannelBankAccess, which does not utilize TSVs in this context.",
+    "path_description": "Path: IntraChannelBankAccess --[comparedWith]--> InterChannelRemoteBankAccess --[uses]--> TSVs --[type]--> Technology",
+    "context": "The memory access bandwidth and latency are different for the three cases. | The PIM unit accessing a remote memory bank in other channels via the periphery I/O and TSVs. | The PIM unit accessing a remote memory bank in other channels via the periphery I/O and TSVs.",
+    "paper_id": "362"
+  },
+  {
+    "section": "thedesignofpimminerframework1",
+    "path": {
+      "section": "thedesignofpimminerframework1",
+      "start_entity": "PIMMiner",
+      "end_entity": "Processor",
+      "hops": [
+        {
+          "from": "PIMMiner",
+          "relation": "worksOnTopOf",
+          "to": "HBM",
+          "context": "Our framework works on top of a system with both HBM and HBM-PIM memory.",
+          "chunk": "6"
+        },
+        {
+          "from": "HBM",
+          "relation": "interactsWith",
+          "to": "HostCPU",
+          "context": "The two types of HBMs are placed in separate memory channels and can directly interact with the host CPU.",
+          "chunk": "6"
+        },
+        {
+          "from": "HostCPU",
+          "relation": "type",
+          "to": "Processor",
+          "context": "The two types of HBMs are placed in separate memory channels and can directly interact with the host CPU.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the PIMMiner framework described in 'thedesignofpimminerframework1', which type of processor does the host CPU, interacting directly with HBM memory, represent?",
+    "options": {
+      "A": "A processor that primarily functions by managing memory rather than computing",
+      "B": "A processor integrated within the memory module, enhancing direct memory access",
+      "C": "A standard processor without any specialized memory interaction capabilities",
+      "D": "A specialized processor designed for high-performance computing applications"
+    },
+    "correct_answer": "B",
+    "explanation": "The host CPU in the PIMMiner framework, which directly interacts with HBM memory, is a type of processor integrated within the memory module. This setup enhances direct memory access, essential for the performance of the PIMMiner framework.",
+    "path_description": "Path: PIMMiner --[worksOnTopOf]--> HBM --[interactsWith]--> HostCPU --[type]--> Processor",
+    "context": "Our framework works on top of a system with both HBM and HBM-PIM memory. | The two types of HBMs are placed in separate memory channels and can directly interact with the host CPU. | The two types of HBMs are placed in separate memory channels and can directly interact with the host CPU.",
+    "paper_id": "362"
+  },
+  {
+    "section": "relatedwork",
+    "path": {
+      "section": "relatedwork",
+      "start_entity": "GraphZero",
+      "end_entity": "SoftwareGPMISystem",
+      "hops": [
+        {
+          "from": "GraphZero",
+          "relation": "basedOn",
+          "to": "Automine",
+          "context": "GraphZero[21] and GraphPi[30] are also based on the mining algorithm proposed in Automine with more compiler support and computation redundancy elimination",
+          "chunk": "13"
+        },
+        {
+          "from": "Automine",
+          "relation": "outperforms",
+          "to": "Pangolin",
+          "context": "which are much less efficient compared to Automine [23]",
+          "chunk": "13"
+        },
+        {
+          "from": "Pangolin",
+          "relation": "type",
+          "to": "SoftwareGPMISystem",
+          "context": "Arabesque[37], RStream [39], Pangolin[5], DistGraph [35], ScaleMine [1], Fractal[10] are all exploration based",
+          "chunk": "13"
+        }
+      ]
+    },
+    "question": "Considering the efficiency and technology basis in software graph pattern mining systems, which statement best describes the relationship between GraphZero, Automine, and Pangolin?",
+    "options": {
+      "A": "All of these systems, including GraphZero and Pangolin, are less efficient than Automine and do not base their algorithms on it.",
+      "B": "Pangolin outperforms GraphZero in efficiency, due to its reliance on the Automine algorithm, a fundamental mining system.",
+      "C": "GraphZero is based on Automine, which is more efficient than Pangolin, a software graph pattern mining system.",
+      "D": "Automine is an algorithm utilized by GraphZero, but not by Pangolin, which instead uses a more efficient algorithm."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A because GraphZero is based on Automine, and Automine outperforms Pangolin, which is classified as a software graph pattern mining system. This aligns with the knowledge path that GraphZero is based on Automine, which in turn is more efficient than Pangolin.",
+    "path_description": "Path: GraphZero --[basedOn]--> Automine --[outperforms]--> Pangolin --[type]--> SoftwareGPMISystem",
+    "context": "GraphZero[21] and GraphPi[30] are also based on the mining algorithm proposed in Automine with more compiler support and computation redundancy elimination | which are much less efficient compared to Automine [23] | Arabesque[37], RStream [39], Pangolin[5], DistGraph [35], ScaleMine [1], Fractal[10] are all exploration based",
+    "paper_id": "362"
+  },
+  {
+    "section": "relatedwork",
+    "path": {
+      "section": "relatedwork",
+      "start_entity": "GraphZero",
+      "end_entity": "SoftwareGPMISystem",
+      "hops": [
+        {
+          "from": "GraphZero",
+          "relation": "basedOn",
+          "to": "Automine",
+          "context": "GraphZero[21] and GraphPi[30] are also based on the mining algorithm proposed in Automine with more compiler support and computation redundancy elimination",
+          "chunk": "13"
+        },
+        {
+          "from": "Automine",
+          "relation": "outperforms",
+          "to": "ScaleMine",
+          "context": "which are much less efficient compared to Automine [23]",
+          "chunk": "13"
+        },
+        {
+          "from": "ScaleMine",
+          "relation": "type",
+          "to": "SoftwareGPMISystem",
+          "context": "Arabesque[37], RStream [39], Pangolin[5], DistGraph [35], ScaleMine [1], Fractal[10] are all exploration based",
+          "chunk": "13"
+        }
+      ]
+    },
+    "question": "Considering the advancements in graph pattern mining systems, why does GraphZero outperform ScaleMine?",
+    "options": {
+      "A": "ScaleMine focuses on a different algorithm that requires less computational power compared to GraphZero.",
+      "B": "GraphZero incorporates more advanced compiler support and computation redundancy elimination than ScaleMine.",
+      "C": "ScaleMine uses a different type of graph pattern mining system that is not as advanced as the one used by GraphZero.",
+      "D": "GraphZero is based on the Automine algorithm, which is more efficient than the exploration-based method used by ScaleMine."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A because GraphZero is based on the Automine algorithm, which is explicitly mentioned to outperform the exploration-based method used by ScaleMine. This can be deduced from the knowledge graph path showing that Automine outperforms ScaleMine and knowing that GraphZero is based on Automine.",
+    "path_description": "Path: GraphZero --[basedOn]--> Automine --[outperforms]--> ScaleMine --[type]--> SoftwareGPMISystem",
+    "context": "GraphZero[21] and GraphPi[30] are also based on the mining algorithm proposed in Automine with more compiler support and computation redundancy elimination | which are much less efficient compared to Automine [23] | Arabesque[37], RStream [39], Pangolin[5], DistGraph [35], ScaleMine [1], Fractal[10] are all exploration based",
+    "paper_id": "362"
+  }
+]

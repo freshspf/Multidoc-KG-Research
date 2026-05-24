@@ -1,0 +1,42 @@
+[
+  {
+    "id": "introduction",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Introduction",
+      "page_start": 2,
+      "page_end": 2
+    },
+    "text": "A. Background and Motivations\nThe growing urgency to address climate change and envi-\nronmental degradation, driven by greenhouse gases like CO2,\nhas led to a global shift towards sustainability. International\nagreements such as the Paris Agreement 2015 and the EU’s\nplanned ban on ICE vehicle sales by 2035 underscore the need\nfor emission reduction and greener alternatives [1]. Transition-\ning to electric power, especially from renewable sources, offers\nan effective path to not only mitigating environmental impacts\nbut also enhances operational efﬁciency. In the off-highway\nmachines (OHMs) and heavy machinery sector,  traditionally\nreliant on ICEs, electrifying powertrains represents a major\ntechnological advancement [2]. With a growing focus on sus-\ntainability, the shift towards electric vehicles (EVs), including\nOHMs, is accelerating due to several key beneﬁts:\n• Substantial Emission Reductions: Replacing ICEs with\nelectric alternatives lowers emissions, aiding in global\nCO2 reduction and compliance with environmental regu-\nlations, especially in heavy-duty applications.\n• Superior Energy Efﬁciency: Electric powertrains are more\nenergy-efﬁcient than traditional ICEs, leading to reduced"
+  },
+  {
+    "id": "modelingandanalysisofemlamechanism",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Modeling and Analysis of EMLA Mechanism",
+      "page_start": 3,
+      "page_end": 3
+    },
+    "text": "In this paper, we develop the model of a gear-equipped\nPMSM-powered EMLA mechanism (see Fig. 2)  to analyze\ngoverning dynamics. The model includes equivalent circuits of\nthe inverter, motor, gearbox, screw mechanism, and load. We"
+  },
+  {
+    "id": "sensitivityofperformancemetricsinhdmm",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Sensitivity of Performance Metrics in HDMM",
+      "page_start": 4,
+      "page_end": 5
+    },
+    "text": "A. Manipulator Motion Generation\nOur study focuses on heavy-duty parallel  serial HDMM\npowered by EMLAs, as depicted in Fig. 1, capable of high-\npower  tasks where payload analysis  is crucial  for actuator\nselection. The robot’s conﬁgurational state is deﬁned in its\nn\nactuators’  space as q  where n is  the number of\n∈ R\nDoF and number of mechanisms in the manipulator. Motion\ngeneration is performed via second-order inverse differential\nkinematics, as coded in Algorithm 1, where xr(t), x˙ r(t),\nand x¨r(t) represent the position, velocity, and acceleration of\na reference trajectory. The payload, assumed as a mass point\nin the robot’s TCP reference frame, is denoted by mTCP . To\noutline the algorithm, line 4 updates the payload in robot( ),\n·\ncontaining all kinematic, inertial, and topological robot data.\nLine 5 initiates a time loop with ﬁnal value M, where lines\n7-9 compute the ﬁrst and second-order differential  inverse\nkinematics based on the reference trajectory. The manipulator\nJacobian (J) [11] and its ﬁrst time derivative (J˙) are computed\nin lines 14-25. By following a screw theory notation [11],\n\n[12]: si  is the screw vector of the i-th actuator expressed at\nlocal coordinates, Ad  i  is the adjoint operator parameterized\nG0\ni\nby the homogeneous transformation matrix G0  SE(3) that\n∈  s\nrepresents the motion of frame i with respect to 0 frame, J  is\n˙s\nthe spatial Jacobian, J  is its time derivative and the subscript\nTCP\n[:, i] refers to their i-th column. Also r0  is the distance\nvector from 0 reference frame to TCP frame and adsi stands\nfor the adjoint operator that performs a Lie bracket, see [13]\nfor a detailed form of these adjoints operators. The superscript\n+ stands for the generalized pseudoinverse. Line 10 computes\nthe robot’s inverse dynamics [14] based on q, its ﬁrst two time\nderivatives q˙ and q¨, and the robot( ) structure [15] [16]. The\n·  Ψ\nsensitivity metrics for this work are represented by  which is\ncomputed in line 11 and it is a function of the linear velocities\nand forces of the actuators denoted by vx and fx, respectively.\nB. Simulation and Results\nThe sensitivity analysis is conducted on a 3-DoF HDMM\nto monitor  the behaviour of  the performance metrics with\nrespect to the payload. The parallel-serial manipulator under\nstudy is  illustrated in Fig. 1, which is composed by two\nclosed-kinematic chains and one telescope mechanism. The\nmanipulator is forced to track a spiral reference trajectory that\ncovers most of its operational space in a time of M = 8π\n(s). We vary the payload mTCP  from 0 to 200 (kg) and\nperform the PD of Ψ with respect  to mTCP  by means\nof ﬁnite differences with a payload perturbation factor of\n−24\n∆m = 2  10  (kg), as (3).\n×\n∂Ψ  Ψ(mTCP +∆m)  Ψ(mTCP )\n−  (3)\n∂mTCP ≈  ∆m\nThe four scalar sensitivity metrics under study are deﬁned\nas follows, computed and stacked in the variable Ψ for each\nEMLA at lift, tilt, and telescope, as itemized below:\n• Delivered power:  It  is  the power  retrieved from the\nEMLA at an instant of time at the load side of actuator:\nψ1i = vxifxi  (4)\nwhere vxi and fxi are the scalar linear velocity and force\nof the i-th actuator. The evaluation of the power metric\n(ψ1) and its PD (∂ψ1/∂mTCP ) are depicted in Fig. 7.\nFig. 7: Delivered power and its PD with respect to TCP payload in\n3-DoF HDMM joints over time\n\n• Actuators’ linear force: The linear force exerted by the\nEMLA in the direction of motion at the load side:\nψ2i = fxi  (5)\nThe assessment of  the force metric (ψ2) and its PD\n(∂ψ2/∂mTCP ) are shown in Fig. 8.\nFig. 8: Linear Force and its PD with respect to TCP payload in 3-\nDoF HDMM joints over time\n• Energy expenditure: The total energy consumed by the\nEMLA over a period, calculated as the sum of the output\npower divided by the efﬁciency, integrated over time:\nM\nvxifxi\nψ3i = ∆t  (6)\n=0 ηEMLAi(fxi , vxi)\nXt\nwhere ∆t is the increment of time. Fig. 9 illustrates the\nenergy metric (ψ3) and its PD with respect to the TCP\npayload (∂ψ3/∂mTCP ).\nFig. 9: Energy consumption and its PD with respect to TCP payload\nin 3 HDMM joints\n• Efﬁciency: The efﬁciency of the EMLAs, calculated as\nthe ratio of  the output mechanical power  to the input\nelectrical power at an instant of time:\nvxifxi\nψ4i =  (7)\n√3VLLILL cos(φ)\nFig. 10 presents the efﬁciency metric (ψ4) and its PD\nwith respect to the TCP payload (∂ψ4/∂mTCP )."
+  },
+  {
+    "id": "conclusions",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Conclusions",
+      "page_start": 6,
+      "page_end": 6
+    },
+    "text": "This study has presented a sensitivity analysis of a PMSM-\npowered EMLA-driven HDMM, focusing on how varying pay-\nload masses impact performance metrics such as power, force,\nenergy expenditure, and efﬁciency. The ﬁndings offer crucial\ninsights into the behavior of these actuators under different\nloading conditions, providing an insight for the development\nof next-generation, fully-electriﬁed HDMMs.\nThe key contributions of this research are:\n•  Introducing a mathematical model of a gear-equipped\nPMSM-powered EMLA. This model encompasses equiv-\nalent circuit representations for the inverter, EM, gearbox,\nscrew mechanism, and load. By employing the analogy\nof force-to-voltage and speed-to-current, this framework\nfacilitates a  thorough understanding of  the governing\n\ndynamics and enables precise performance analysis of\nthe EMLA.\n• Assisting in the informed selection of EMLAs for each\njoint of the manipulator by analyzing the sensitivity of\nrequired force and delivered power with respect  to the\nTCP payloads.\n• Facilitating the optimal  sizing of batteries required to\nensure effective operation of electric HDMM,  thereby\nenhancing their performance and efﬁciency.\nThese contributions are vital  for appropriate selection of\nactuators and battery capacity,  and paves  the way for  the\ndesign of high-performance, autonomous HDMMs capable\nof efﬁcient and sustainable operation. Future research could\nexpand this sensitivity analysis to encompass a broader range\nof manipulator designs and operational conditions."
+  }
+]

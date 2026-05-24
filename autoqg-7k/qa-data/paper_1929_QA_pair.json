@@ -1,0 +1,88 @@
+[
+  {
+    "section": "evaluationwithfourbdausecases2",
+    "path": {
+      "section": "evaluationwithfourbdausecases2",
+      "start_entity": "CSVReader",
+      "end_entity": "Technology",
+      "hops": [
+        {
+          "from": "CSVReader",
+          "relation": "sendsDataTo",
+          "to": "ENSO_Predictor",
+          "context": "we read the historic data from 1980 to 1998 (178,080 records) using a CSV reader (ingestor) component, which sends the data to the ENSO predictor",
+          "chunk": "8"
+        },
+        {
+          "from": "ENSO_Predictor",
+          "relation": "storesDataIn",
+          "to": "DistributedFileSystem",
+          "context": "ENSO predictor is a estimator component that forecasts air temperature, and stores the prediction in a distributed file system",
+          "chunk": "8"
+        },
+        {
+          "from": "DistributedFileSystem",
+          "relation": "type",
+          "to": "Technology",
+          "context": "and stores the prediction in a distributed file system",
+          "chunk": "8"
+        }
+      ]
+    },
+    "question": "In the process of forecasting air temperature using historical data, which technology is primarily utilized to store the output from the ENSO Predictor?",
+    "options": {
+      "A": "The technology employed is a Local Server Storage system, ensuring data security and control.",
+      "B": "The primary technology is a High-Performance Computing system optimized for quick data processing.",
+      "C": "A Cloud Storage solution is used, providing scalable and remotely accessible storage space.",
+      "D": "The technology utilized is a Distributed FileSystem, which stores extensive data efficiently."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A, as the knowledge path shows that the ENSO Predictor, which forecasts air temperature, stores its predictions in a Distributed FileSystem. This suggests that the Distributed FileSystem is the primary technology used for storing the output, as indicated in the provided context from the paper section.",
+    "path_description": "Path: CSVReader --[sendsDataTo]--> ENSO_Predictor --[storesDataIn]--> DistributedFileSystem --[type]--> Technology",
+    "context": "we read the historic data from 1980 to 1998 (178,080 records) using a CSV reader (ingestor) component, which sends the data to the ENSO predictor | ENSO predictor is a estimator component that forecasts air temperature, and stores the prediction in a distributed file system | and stores the prediction in a distributed file system",
+    "paper_id": "75"
+  },
+  {
+    "section": "evaluationwithfourbdausecases2",
+    "path": {
+      "section": "evaluationwithfourbdausecases2",
+      "start_entity": "ACCORDANT",
+      "end_entity": "SoftwareFramework",
+      "hops": [
+        {
+          "from": "ACCORDANT",
+          "relation": "comparedWith",
+          "to": "SpringX",
+          "context": "To compare ACCORDANT, SpringX",
+          "chunk": "8"
+        },
+        {
+          "from": "SpringX",
+          "relation": "comparedWith",
+          "to": "FastScore",
+          "context": "and FastScore, we measured the time",
+          "chunk": "8"
+        },
+        {
+          "from": "FastScore",
+          "relation": "type",
+          "to": "SoftwareFramework",
+          "context": "and FastScore, we measured the time",
+          "chunk": "8"
+        }
+      ]
+    },
+    "question": "In the evaluation of ACCORDANT, SpringX, and FastScore as described in 'evaluationwithfourbdausecases2', which is identified as a Software Framework?",
+    "options": {
+      "A": "None of the systems were explicitly classified as a Software Framework in the evaluation.",
+      "B": "SpringX, though it was compared with ACCORDANT, it is not classified as such.",
+      "C": "ACCORDANT, as it was the basis of comparison with other systems.",
+      "D": "FastScore, which was the final entity compared and classified as a Software Framework."
+    },
+    "correct_answer": "D",
+    "explanation": "Following the knowledge graph path, FastScore is the entity that is linked through the 'type' relationship to being a Software Framework. ACCORDANT and SpringX were only compared and no type classification was directly mentioned for them.",
+    "path_description": "Path: ACCORDANT --[comparedWith]--> SpringX --[comparedWith]--> FastScore --[type]--> SoftwareFramework",
+    "context": "To compare ACCORDANT, SpringX | and FastScore, we measured the time | and FastScore, we measured the time",
+    "paper_id": "75"
+  }
+]

@@ -1,0 +1,389 @@
+[
+  {
+    "section": "architecture2",
+    "path": {
+      "section": "architecture2",
+      "start_entity": "EntityRegistry",
+      "end_entity": "Component",
+      "hops": [
+        {
+          "from": "EntityRegistry",
+          "relation": "maintainsRecordOf",
+          "to": "Oracles",
+          "context": "EntityRegistry maintains a record of all Oracles and Indexers registered within the system.",
+          "chunk": "2"
+        },
+        {
+          "from": "Oracles",
+          "relation": "collectDataFrom",
+          "to": "Producers",
+          "context": "They collect IoT data from these Producers, evaluate it, and execute a consensus process to ensure data integrity.",
+          "chunk": "2"
+        },
+        {
+          "from": "Producers",
+          "relation": "type",
+          "to": "Component",
+          "context": "They keep this information up to date and decide which Producers to index.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the system described in the 'architecture2' section, how does the EntityRegistry ensure the integrity of data collected from Producers?",
+    "options": {
+      "A": "By directly collecting and analyzing data from Producers to perform real-time updates.",
+      "B": "By executing machine learning algorithms to predict the reliability of data sources.",
+      "C": "By indexing all data transactions and using blockchain for consensus among Producers.",
+      "D": "By maintaining records of Oracles that evaluate IoT data and execute a consensus process."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A because the EntityRegistry maintains records of Oracles, which are responsible for collecting IoT data from Producers, evaluating this data, and executing a consensus process to ensure data integrity. This role of Oracles as intermediaries in data integrity is key to understanding the system's architecture.",
+    "path_description": "Path: EntityRegistry --[maintainsRecordOf]--> Oracles --[collectDataFrom]--> Producers --[type]--> Component",
+    "context": "EntityRegistry maintains a record of all Oracles and Indexers registered within the system. | They collect IoT data from these Producers, evaluate it, and execute a consensus process to ensure data integrity. | They keep this information up to date and decide which Producers to index.",
+    "paper_id": "1069"
+  },
+  {
+    "section": "performanceevaluation3",
+    "path": {
+      "section": "performanceevaluation3",
+      "start_entity": "Oracles",
+      "end_entity": "WorkloadCondition",
+      "hops": [
+        {
+          "from": "Oracles",
+          "relation": "partOf",
+          "to": "OracleCommittee",
+          "context": "Oracles 15000 Indexers 15000.",
+          "chunk": "10"
+        },
+        {
+          "from": "OracleCommittee",
+          "relation": "performsBetterAt",
+          "to": "LowWorkload",
+          "context": "A larger committee performs better at lower workloads because more transactions are generated, thus filling the blocks faster.",
+          "chunk": "10"
+        },
+        {
+          "from": "LowWorkload",
+          "relation": "type",
+          "to": "WorkloadCondition",
+          "context": "The average request resolution time varies from nine seconds under low workloads to fifteen seconds under high workloads.",
+          "chunk": "10"
+        }
+      ]
+    },
+    "question": "Why does a larger Oracle Committee result in better performance under low workload conditions according to the paper section 'performanceevaluation3'?",
+    "options": {
+      "A": "Because more transactions are generated under low workloads, which results in faster block filling and improved performance.",
+      "B": "The transaction speed is inherently faster with larger committees, regardless of the workload conditions.",
+      "C": "Because a larger committee can handle more simultaneous requests, leading to faster resolution times under all conditions.",
+      "D": "Due to fewer transactions under low workloads, which allows for quicker processing and reduced system strain."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A because the paper notes that a larger Oracle Committee leads to better performance under low workloads by generating more transactions, which in turn fill the blocks faster, enhancing performance. Options B, C, and D are misleading as they either contradict or generalize the specific conditions mentioned in the paper.",
+    "path_description": "Path: Oracles --[partOf]--> OracleCommittee --[performsBetterAt]--> LowWorkload --[type]--> WorkloadCondition",
+    "context": "Oracles 15000 Indexers 15000. | A larger committee performs better at lower workloads because more transactions are generated, thus filling the blocks faster. | The average request resolution time varies from nine seconds under low workloads to fifteen seconds under high workloads.",
+    "paper_id": "1069"
+  },
+  {
+    "section": "performanceevaluation5",
+    "path": {
+      "section": "performanceevaluation5",
+      "start_entity": "ZONIA",
+      "end_entity": "ProcessingTime",
+      "hops": [
+        {
+          "from": "ZONIA",
+          "relation": "hasWaitingTime",
+          "to": "W",
+          "context": "Specifically, we consider that the total queuing waiting time W (our end-to-end delay) is given by W = Wp + Wc.",
+          "chunk": "12"
+        },
+        {
+          "from": "W",
+          "relation": "composedOf",
+          "to": "Wp",
+          "context": "W = Wp + Wc, where Wp is the total processing time of operations that do not interact with the chain.",
+          "chunk": "12"
+        },
+        {
+          "from": "Wp",
+          "relation": "type",
+          "to": "ProcessingTime",
+          "context": "W = Wp + Wc, where Wp is the total processing time of operations that do not interact with the chain.",
+          "chunk": "12"
+        }
+      ]
+    },
+    "question": "In the context of evaluating performance, if ZONIA's end-to-end delay is determined by waiting time W, which consists of Wp and Wc, what does Wp represent?",
+    "options": {
+      "A": "Wp represents the total downtime experienced by the system due to maintenance.",
+      "B": "Wp represents the waiting time required for operations that interact with the chain.",
+      "C": "Wp represents the computation time for the initial data processing before entering the chain.",
+      "D": "Wp represents the total processing time of operations that do not interact with the chain."
+    },
+    "correct_answer": "D",
+    "explanation": "According to the paper, W = Wp + Wc, where Wp is defined as the total processing time of operations that do not interact with the chain. This indicates that Wp is solely concerned with processing independent of any chain interaction, distinguishing it from other components of the waiting time.",
+    "path_description": "Path: ZONIA --[hasWaitingTime]--> W --[composedOf]--> Wp --[type]--> ProcessingTime",
+    "context": "Specifically, we consider that the total queuing waiting time W (our end-to-end delay) is given by W = Wp + Wc. | W = Wp + Wc, where Wp is the total processing time of operations that do not interact with the chain. | W = Wp + Wc, where Wp is the total processing time of operations that do not interact with the chain.",
+    "paper_id": "1069"
+  },
+  {
+    "section": "performanceevaluation4",
+    "path": {
+      "section": "performanceevaluation4",
+      "start_entity": "DataAvailabilityThreshold",
+      "end_entity": "OperationType",
+      "hops": [
+        {
+          "from": "DataAvailabilityThreshold",
+          "relation": "remainsConstant",
+          "to": "NumberOfIndexers",
+          "context": "the data availability threshold remains constant at 0.5 in all experiments",
+          "chunk": "11"
+        },
+        {
+          "from": "NumberOfIndexers",
+          "relation": "impactsMore",
+          "to": "OffChainOperations",
+          "context": "the increase in the number of Indexers has a more significant impact on the off-chain operations",
+          "chunk": "11"
+        },
+        {
+          "from": "OffChainOperations",
+          "relation": "type",
+          "to": "OperationType",
+          "context": "the increase in the number of Indexers has a more significant impact on the off-chain operations",
+          "chunk": "11"
+        }
+      ]
+    },
+    "question": "In a decentralized blockchain network, if the data availability threshold is maintained at 0.5, how does an increase in the number of Indexers affect off-chain operations?",
+    "options": {
+      "A": "It slightly reduces the security risks associated with off-chain operations, enhancing overall safety.",
+      "B": "It decreases the time required for off-chain operations, making the system more efficient.",
+      "C": "It significantly increases the complexity of off-chain operations, impacting their type and execution.",
+      "D": "It has no impact on off-chain operations, as they are independent of Indexers' quantity."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A because the paper states that the number of Indexers has a significant impact on off-chain operations. As the number of Indexers increases, it affects the operations conducted off the blockchain network, which includes changes in their complexity and how they are executed. Options B, C, and D are misleading as they suggest effects that are not supported by the context provided.",
+    "path_description": "Path: DataAvailabilityThreshold --[remainsConstant]--> NumberOfIndexers --[impactsMore]--> OffChainOperations --[type]--> OperationType",
+    "context": "the data availability threshold remains constant at 0.5 in all experiments | the increase in the number of Indexers has a more significant impact on the off-chain operations | the increase in the number of Indexers has a more significant impact on the off-chain operations",
+    "paper_id": "1069"
+  },
+  {
+    "section": "resilienceevaluation1",
+    "path": {
+      "section": "resilienceevaluation1",
+      "start_entity": "System",
+      "end_entity": "AttackType",
+      "hops": [
+        {
+          "from": "System",
+          "relation": "type",
+          "to": "System",
+          "context": "In this section, we assess the capabilities of the system to produce trustworthy results in the presence of malicious actors.",
+          "chunk": "13"
+        },
+        {
+          "from": "System",
+          "relation": "evaluatedAgainst",
+          "to": "CollusionAttack",
+          "context": "In particular, we simulate our collusion attack on subsequent client requests for temperature.",
+          "chunk": "13"
+        },
+        {
+          "from": "CollusionAttack",
+          "relation": "type",
+          "to": "AttackType",
+          "context": "In particular, we simulate our collusion attack on subsequent client requests for temperature.",
+          "chunk": "13"
+        }
+      ]
+    },
+    "question": "In the evaluation of a system's resilience, what type of attack is specifically simulated to test the system's capability to handle malicious activities on temperature data requests?",
+    "options": {
+      "A": "A phishing attack aimed at deceiving users into providing sensitive temperature data.",
+      "B": "A denial of service attack aimed at overwhelming the system with excessive data requests.",
+      "C": "A collusion attack categorized under network-based intrusion attempts.",
+      "D": "An SQL injection attack attempting to corrupt database entries through client requests."
+    },
+    "correct_answer": "C",
+    "explanation": "The paper specifically evaluates the system's resilience by simulating a collusion attack, which involves multiple malicious actors working together, on client requests for temperature data. This type of attack falls under the category of AttackType, as indicated in the knowledge graph path provided.",
+    "path_description": "Path: System --[type]--> System --[evaluatedAgainst]--> CollusionAttack --[type]--> AttackType",
+    "context": "In this section, we assess the capabilities of the system to produce trustworthy results in the presence of malicious actors. | In particular, we simulate our collusion attack on subsequent client requests for temperature. | In particular, we simulate our collusion attack on subsequent client requests for temperature.",
+    "paper_id": "1069"
+  },
+  {
+    "section": "performanceevaluation4",
+    "path": {
+      "section": "performanceevaluation4",
+      "start_entity": "IncreaseInOracleSubmission",
+      "end_entity": "System",
+      "hops": [
+        {
+          "from": "IncreaseInOracleSubmission",
+          "relation": "comparedWith",
+          "to": "NumberOfIndexers",
+          "context": "However, this increase is insignificant (less than 10ms), especially when compared to the improvement of the Oracle’s final submission.",
+          "chunk": "11"
+        },
+        {
+          "from": "NumberOfIndexers",
+          "relation": "harmsPerformance",
+          "to": "ZONIASystem",
+          "context": "increasing the number of Indexers in the system harms its performance under higher workloads",
+          "chunk": "11"
+        },
+        {
+          "from": "ZONIASystem",
+          "relation": "type",
+          "to": "System",
+          "context": "We further investigate the scalability of the ZONIA system through an analytical queuing model study.",
+          "chunk": "11"
+        }
+      ]
+    },
+    "question": "In the context of the ZONIA system's performance, how does increasing the number of Indexers compared with the Oracle's final submission impact the system?",
+    "options": {
+      "A": "The increase in the number of Indexers has no impact on the system's performance or the Oracle's final submission.",
+      "B": "Increasing the number of Indexers leads to a negligible delay, less significant than the improvements from the Oracle's final submission.",
+      "C": "Increasing the number of Indexers significantly enhances the system's overall performance more than the Oracle's final submission.",
+      "D": "Reducing the number of Indexers enhances the Oracle's final submission by reducing system workload and improving performance."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A. The context provided indicates that although increasing the number of Indexers harms the system's performance under higher workloads, this negative impact is insignificant compared to the benefits seen from the Oracle’s final submission. This suggests that the harm from additional Indexers introduces less delay than the improvements brought by the Oracle’s final adjustments.",
+    "path_description": "Path: IncreaseInOracleSubmission --[comparedWith]--> NumberOfIndexers --[harmsPerformance]--> ZONIASystem --[type]--> System",
+    "context": "However, this increase is insignificant (less than 10ms), especially when compared to the improvement of the Oracle’s final submission. | increasing the number of Indexers in the system harms its performance under higher workloads | We further investigate the scalability of the ZONIA system through an analytical queuing model study.",
+    "paper_id": "1069"
+  },
+  {
+    "section": "resilienceevaluation1",
+    "path": {
+      "section": "resilienceevaluation1",
+      "start_entity": "System",
+      "end_entity": "MaliciousActor",
+      "hops": [
+        {
+          "from": "System",
+          "relation": "type",
+          "to": "System",
+          "context": "In this section, we assess the capabilities of the system to produce trustworthy results in the presence of malicious actors.",
+          "chunk": "13"
+        },
+        {
+          "from": "System",
+          "relation": "type",
+          "to": "System",
+          "context": "In this section, we assess the capabilities of the system to produce trustworthy results in the presence of malicious actors.",
+          "chunk": "13"
+        },
+        {
+          "from": "System",
+          "relation": "addresses",
+          "to": "MaliciousActor",
+          "context": "In this section, we assess the capabilities of the system to produce trustworthy results in the presence of malicious actors.",
+          "chunk": "13"
+        }
+      ]
+    },
+    "question": "Given a system designed to maintain trustworthiness, how does it typically address threats posed by malicious actors?",
+    "options": {
+      "A": "By deploying frequent software updates to address newly discovered vulnerabilities.",
+      "B": "By conducting user behavior analytics to detect anomalies indicative of security breaches.",
+      "C": "By enhancing physical security measures to prevent unauthorized access to hardware.",
+      "D": "By implementing robust encryption protocols to secure data transmission and storage."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is D because the paper discusses assessing the system's capabilities to produce trustworthy results specifically in the presence of malicious actors. Conducting user behavior analytics to detect anomalies aligns with this goal by identifying potential security threats through unusual user activities, which is a direct method to address threats from malicious actors. The other options, although related to system security, do not directly relate to addressing issues presented by malicious actors in the context of maintaining trustworthiness of the system outputs.",
+    "path_description": "Path: System --[type]--> System --[type]--> System --[addresses]--> MaliciousActor",
+    "context": "In this section, we assess the capabilities of the system to produce trustworthy results in the presence of malicious actors. | In this section, we assess the capabilities of the system to produce trustworthy results in the presence of malicious actors. | In this section, we assess the capabilities of the system to produce trustworthy results in the presence of malicious actors.",
+    "paper_id": "1069"
+  },
+  {
+    "section": "resilienceevaluation2",
+    "path": {
+      "section": "resilienceevaluation2",
+      "start_entity": "Med-R",
+      "end_entity": "Method",
+      "hops": [
+        {
+          "from": "Med-R",
+          "relation": "proposes",
+          "to": "Med-R",
+          "context": "proposed reputation method, which we call Med-R (R stands for reputation).",
+          "chunk": "14"
+        },
+        {
+          "from": "Med-R",
+          "relation": "proposes",
+          "to": "Med-R",
+          "context": "proposed reputation method, which we call Med-R (R stands for reputation).",
+          "chunk": "14"
+        },
+        {
+          "from": "Med-R",
+          "relation": "type",
+          "to": "Method",
+          "context": "proposed reputation method, which we call Med-R (R stands for reputation).",
+          "chunk": "14"
+        }
+      ]
+    },
+    "question": "In the context of the 'resilienceevaluation2' section discussing Med-R, what does the 'R' in Med-R specifically stand for, and how is it categorized?",
+    "options": {
+      "A": "R stands for 'reputation', and Med-R is categorized as a method for medical recovery evaluation.",
+      "B": "R stands for 'resilience', and Med-R is categorized as a method for evaluating reputation.",
+      "C": "R stands for 'reputation', and Med-R is categorized as a method for evaluating resilience.",
+      "D": "R stands for 'resilience', and Med-R is categorized as a method for evaluating medical effectiveness."
+    },
+    "correct_answer": "C",
+    "explanation": "The 'R' in Med-R stands for 'reputation', as indicated multiple times in the provided context. Additionally, the knowledge path concludes with Med-R being a method, specifically used in the context of evaluating resilience, hence it is a method for evaluating resilience.",
+    "path_description": "Path: Med-R --[proposes]--> Med-R --[proposes]--> Med-R --[type]--> Method",
+    "context": "proposed reputation method, which we call Med-R (R stands for reputation). | proposed reputation method, which we call Med-R (R stands for reputation). | proposed reputation method, which we call Med-R (R stands for reputation).",
+    "paper_id": "1069"
+  },
+  {
+    "section": "conclusionsandfuturework2",
+    "path": {
+      "section": "conclusionsandfuturework2",
+      "start_entity": "Equation7",
+      "end_entity": "Function",
+      "hops": [
+        {
+          "from": "Equation7",
+          "relation": "redefines",
+          "to": "Theta",
+          "context": "Equation 7 redefines θ(i).",
+          "chunk": "17"
+        },
+        {
+          "from": "Theta",
+          "relation": "uses",
+          "to": "Phi",
+          "context": "θ(i) uses φi in its conditional part.",
+          "chunk": "17"
+        },
+        {
+          "from": "Phi",
+          "relation": "type",
+          "to": "Function",
+          "context": "φi is used in the conditional part of the equation.",
+          "chunk": "17"
+        }
+      ]
+    },
+    "question": "In the context of Equation 7 from the discussed paper, what type of mathematical entity does θ(i) rely on, through its use of φi, according to the provided knowledge graph path?",
+    "options": {
+      "A": "θ(i) relies on φi, which is a type of variable directly affecting the outcome of the equation.",
+      "B": "θ(i) relies on φi, which is a type of constant used to stabilize the equation's results.",
+      "C": "θ(i) relies on φi, which is a type of function used in conditional parts of equations.",
+      "D": "θ(i) relies on φi, which is a type of matrix utilized in solving linear equations."
+    },
+    "correct_answer": "C",
+    "explanation": "According to the knowledge graph path, θ(i) redefines its use of φi, which itself is classified as a type of function. This function is specifically used in the conditional parts of equations, making option A the correct answer.",
+    "path_description": "Path: Equation7 --[redefines]--> Theta --[uses]--> Phi --[type]--> Function",
+    "context": "Equation 7 redefines θ(i). | θ(i) uses φi in its conditional part. | φi is used in the conditional part of the equation.",
+    "paper_id": "1069"
+  }
+]

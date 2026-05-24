@@ -1,0 +1,217 @@
+[
+  {
+    "section": "twatchprotocol2",
+    "path": {
+      "section": "twatchprotocol2",
+      "start_entity": "Cp",
+      "end_entity": "PublicKey",
+      "hops": [
+        {
+          "from": "Cp",
+          "relation": "isDeployedBy",
+          "to": "Ul",
+          "context": "A user (leader) Ul creates Cp and Cs locally, deploys Cp with ttl.fund.",
+          "chunk": "7"
+        },
+        {
+          "from": "Ul",
+          "relation": "selects",
+          "to": "Ei",
+          "context": "Ul selects Ei for the committee E by picking the first available executor starting from RH(r,i)%|R| in R",
+          "chunk": "7"
+        },
+        {
+          "from": "Ei",
+          "relation": "provides",
+          "to": "PublicKey",
+          "context": "An executor Ei needs to provide a public key for facilitating off-chain communications",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "In the context of the twatchprotocol2, how does the user Ul ensure secure off-chain communications after deploying Cp with ttl.fund?",
+    "options": {
+      "A": "Ul requests all members of R to provide individual PublicKeys, then selects Ei based on their cryptographic strength.",
+      "B": "Ul selects Ei based on a predetermined order in R and requires Ei to provide a PublicKey for secure communications.",
+      "C": "Ul directly provides a PublicKey to Ei without selecting any specific member from the committee E.",
+      "D": "Ul generates a PublicKey independently and distributes it to all members of the committee E to ensure security."
+    },
+    "correct_answer": "B",
+    "explanation": "According to the knowledge path, Ul deploys Cp and then selects Ei for the committee by picking the first available executor based on a specific order in R. Ei, once selected, is required to provide a PublicKey. This PublicKey is crucial for facilitating secure off-chain communications. Options B, C, and D are incorrect as they do not correctly represent the process described in the knowledge path where the PublicKey is specifically tied to the selected executor Ei.",
+    "path_description": "Path: Cp --[isDeployedBy]--> Ul --[selects]--> Ei --[provides]--> PublicKey",
+    "context": "A user (leader) Ul creates Cp and Cs locally, deploys Cp with ttl.fund. | Ul selects Ei for the committee E by picking the first available executor starting from RH(r,i)%|R| in R | An executor Ei needs to provide a public key for facilitating off-chain communications",
+    "paper_id": "631"
+  },
+  {
+    "section": "twatchoverview1",
+    "path": {
+      "section": "twatchoverview1",
+      "start_entity": "T-Watch",
+      "end_entity": "Architecture",
+      "hops": [
+        {
+          "from": "T-Watch",
+          "relation": "hasComponent",
+          "to": "TimedTransaction",
+          "context": "We first present the architectures for sending timed transactions.",
+          "chunk": "3"
+        },
+        {
+          "from": "TimedTransaction",
+          "relation": "hasArchitecture",
+          "to": "ExecutorDrivenArchitecture",
+          "context": "Executor-driven architecture: To completely isolate the service execution from the user side, a natural design option is to make users recruit experienced people from the Ethereum community as executors.",
+          "chunk": "3"
+        },
+        {
+          "from": "ExecutorDrivenArchitecture",
+          "relation": "type",
+          "to": "Architecture",
+          "context": "Executor-driven architecture: To completely isolate the service execution from the user side, a natural design option is to make users recruit experienced people from the Ethereum community as executors.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the context of the T-Watch system, which type of architecture is utilized to ensure that the service execution is completely isolated from the user side?",
+    "options": {
+      "A": "Service-oriented architecture, which relies on automated systems to manage transaction timings without user intervention.",
+      "B": "Executor-driven architecture, where users recruit experienced Ethereum community members as executors.",
+      "C": "Blockchain-native architecture, which uses decentralized apps to autonomously handle transactions.",
+      "D": "User-driven architecture, where users themselves are responsible for executing transactions at specified times."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A, Executor-driven architecture. According to the provided path and context, T-Watch employs an Executor-driven architecture to isolate service execution from the user side by recruiting experienced people from the Ethereum community as executors. This architecture supports the execution of timed transactions independently of the user, aligning with the description in the knowledge path.",
+    "path_description": "Path: T-Watch --[hasComponent]--> TimedTransaction --[hasArchitecture]--> ExecutorDrivenArchitecture --[type]--> Architecture",
+    "context": "We first present the architectures for sending timed transactions. | Executor-driven architecture: To completely isolate the service execution from the user side, a natural design option is to make users recruit experienced people from the Ethereum community as executors. | Executor-driven architecture: To completely isolate the service execution from the user side, a natural design option is to make users recruit experienced people from the Ethereum community as executors.",
+    "paper_id": "631"
+  },
+  {
+    "section": "twatchoverview1",
+    "path": {
+      "section": "twatchoverview1",
+      "start_entity": "T-Watch",
+      "end_entity": "Architecture",
+      "hops": [
+        {
+          "from": "T-Watch",
+          "relation": "hasComponent",
+          "to": "TimedTransaction",
+          "context": "We first present the architectures for sending timed transactions.",
+          "chunk": "3"
+        },
+        {
+          "from": "TimedTransaction",
+          "relation": "hasArchitecture",
+          "to": "UserDrivenArchitecture",
+          "context": "User-driven architecture: A naive design option is to adopt the EOA-only pattern presented in Section III-B to invoke the target contract.",
+          "chunk": "3"
+        },
+        {
+          "from": "UserDrivenArchitecture",
+          "relation": "type",
+          "to": "Architecture",
+          "context": "User-driven architecture: A naive design option is to adopt the EOA-only pattern presented in Section III-B to invoke the target contract.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "What is the primary characteristic of the architecture type used in the T-Watch component for sending timed transactions?",
+    "options": {
+      "A": "It relies on multiple external and internal architectures to ensure robustness.",
+      "B": "It is solely based on the EOA-only pattern for invoking target contracts.",
+      "C": "It integrates both user-driven and system-driven components for versatility.",
+      "D": "It uses a primarily hardware-driven approach to handle transactions."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A because, according to the paper, the T-Watch uses a 'naive design option to adopt the EOA-only pattern' for its user-driven architecture component. This architecture is specified as involving the EOA-only pattern for invoking the target contract, indicating it is primarily characterized by this pattern.",
+    "path_description": "Path: T-Watch --[hasComponent]--> TimedTransaction --[hasArchitecture]--> UserDrivenArchitecture --[type]--> Architecture",
+    "context": "We first present the architectures for sending timed transactions. | User-driven architecture: A naive design option is to adopt the EOA-only pattern presented in Section III-B to invoke the target contract. | User-driven architecture: A naive design option is to adopt the EOA-only pattern presented in Section III-B to invoke the target contract.",
+    "paper_id": "631"
+  },
+  {
+    "section": "implementationandevaluation2",
+    "path": {
+      "section": "implementationandevaluation2",
+      "start_entity": "T-Pes",
+      "end_entity": "Protocol",
+      "hops": [
+        {
+          "from": "T-Pes",
+          "relation": "comparedWith",
+          "to": "Kimono",
+          "context": "We could see that initially, T-Pes has the highest cost because the supplemental contract Cs that costs $11.04 to deploy contains some preventive functions.",
+          "chunk": "12"
+        },
+        {
+          "from": "Kimono",
+          "relation": "costIncreasesAbove",
+          "to": "T-Pes",
+          "context": "The cost of TimedExe and Kimono rises above that of T-Pes at the moment of 20 and 60 executors, respectively.",
+          "chunk": "12"
+        },
+        {
+          "from": "T-Pes",
+          "relation": "type",
+          "to": "Protocol",
+          "context": "T-Pes additionally requires an executor to invoke deploy() to turn the protocol from T-Opt to T-Pes.",
+          "chunk": "12"
+        }
+      ]
+    },
+    "question": "Considering the deployment and execution costs described for T-Pes compared with Kimono, at what point does Kimono's cost exceed that of T-Pes?",
+    "options": {
+      "A": "Kimono's cost exceeds T-Pes immediately upon deployment of the Cs contract.",
+      "B": "Kimono's cost remains lower than T-Pes regardless of the number of executors.",
+      "C": "Kimono's cost exceeds T-Pes when the number of executors reaches 20.",
+      "D": "Kimono's cost exceeds T-Pes when the number of executors reaches 60."
+    },
+    "correct_answer": "D",
+    "explanation": "The paper states that the cost of Kimono rises above that of T-Pes when the number of executors reaches 60. Options B and C are incorrect as they refer to the wrong number of executors and incorrect immediate cost relationship. Option D is incorrect as it contradicts the specified condition in the paper.",
+    "path_description": "Path: T-Pes --[comparedWith]--> Kimono --[costIncreasesAbove]--> T-Pes --[type]--> Protocol",
+    "context": "We could see that initially, T-Pes has the highest cost because the supplemental contract Cs that costs $11.04 to deploy contains some preventive functions. | The cost of TimedExe and Kimono rises above that of T-Pes at the moment of 20 and 60 executors, respectively. | T-Pes additionally requires an executor to invoke deploy() to turn the protocol from T-Opt to T-Pes.",
+    "paper_id": "631"
+  },
+  {
+    "section": "twatchprotocol4",
+    "path": {
+      "section": "twatchprotocol4",
+      "start_entity": "W",
+      "end_entity": "reward",
+      "hops": [
+        {
+          "from": "W",
+          "relation": "prioritizedOver",
+          "to": "executor",
+          "context": "whose invocations of execution or reporting functions in the remaining steps will be prioritized, while invocations made by other executors must wait for a short period of time assigned to",
+          "chunk": "9"
+        },
+        {
+          "from": "executor",
+          "relation": "owns",
+          "to": "security_deposit",
+          "context": "the security deposit of the executor that owns the leaked ski will be confiscated",
+          "chunk": "9"
+        },
+        {
+          "from": "security_deposit",
+          "relation": "splitIntoParts",
+          "to": "reward",
+          "context": "further split into two parts, a larger part that rewards the reporter, as well as a smaller part that rewards Ul",
+          "chunk": "9"
+        }
+      ]
+    },
+    "question": "In the twatchprotocol4, when an executor's security deposit is confiscated due to a leak, how is the deposit subsequently allocated?",
+    "options": {
+      "A": "The security deposit is split into two parts, with a larger share going to the reporter and a smaller share rewarding Ul.",
+      "B": "The security deposit is entirely used to compensate the executor who reported the leak.",
+      "C": "The security deposit is returned to the executor after a deduction for administrative expenses.",
+      "D": "The security deposit is split, with a larger part rewarding the reporter and a smaller part funding future protocol improvements."
+    },
+    "correct_answer": "A",
+    "explanation": "The context indicates that when an executor's security deposit is confiscated, it is split into two parts. The larger part rewards the reporter of the leak, while the smaller part rewards Ul. Thus, option C is correct as it directly aligns with the information provided in the paper.",
+    "path_description": "Path: W --[prioritizedOver]--> executor --[owns]--> security_deposit --[splitIntoParts]--> reward",
+    "context": "whose invocations of execution or reporting functions in the remaining steps will be prioritized, while invocations made by other executors must wait for a short period of time assigned to | the security deposit of the executor that owns the leaked ski will be confiscated | further split into two parts, a larger part that rewards the reporter, as well as a smaller part that rewards Ul",
+    "paper_id": "631"
+  }
+]

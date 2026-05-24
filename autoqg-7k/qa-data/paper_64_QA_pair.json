@@ -1,0 +1,217 @@
+[
+  {
+    "section": "introduction2",
+    "path": {
+      "section": "introduction2",
+      "start_entity": "LookupTableTechniques",
+      "end_entity": "Algorithm",
+      "hops": [
+        {
+          "from": "LookupTableTechniques",
+          "relation": "usedFor",
+          "to": "EditDistance",
+          "context": "using lookup-table techniques",
+          "chunk": "1"
+        },
+        {
+          "from": "EditDistance",
+          "relation": "evaluatedOn",
+          "to": "RLE",
+          "context": "compute the edit distance between RLE strings in O˜(kℓ)",
+          "chunk": "1"
+        },
+        {
+          "from": "RLE",
+          "relation": "type",
+          "to": "Algorithm",
+          "context": "If a string x has k runs, then it is said to have an RLE",
+          "chunk": "1"
+        }
+      ]
+    },
+    "question": "In the context of optimizing the computation of the edit distance between strings with Run Length Encoding (RLE), which algorithm is specifically mentioned for its effectiveness?",
+    "options": {
+      "A": "A divide and conquer strategy reduces the complexity of computing distances by segmenting the RLE strings.",
+      "B": "A lookup table technique utilizes an algorithm to compute the edit distance in O˜(kℓ) time.",
+      "C": "A dynamic programming approach is used to enhance the calculation of edit distances between compressed strings.",
+      "D": "A greedy algorithm is applied to quickly approximate the edit distance without full decomposition of RLE strings."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A because the paper explicitly discusses the use of lookup table techniques to compute the edit distance between RLE strings, leveraging an algorithm that operates in O˜(kℓ) time, where k is the number of runs in the string. The other options, while plausible, do not specifically match the described method and its efficiency.",
+    "path_description": "Path: LookupTableTechniques --[usedFor]--> EditDistance --[evaluatedOn]--> RLE --[type]--> Algorithm",
+    "context": "using lookup-table techniques | compute the edit distance between RLE strings in O˜(kℓ) | If a string x has k runs, then it is said to have an RLE",
+    "paper_id": "222"
+  },
+  {
+    "section": "preliminaries2",
+    "path": {
+      "section": "preliminaries2",
+      "start_entity": "DTW",
+      "end_entity": "EdgeSet",
+      "hops": [
+        {
+          "from": "DTW",
+          "relation": "computedUsing",
+          "to": "GDTW",
+          "context": "Therefore, finding the value of DTW(x,y) is equivalent to finding the shortest distance from v1,1 to vm,n",
+          "chunk": "6"
+        },
+        {
+          "from": "GDTW",
+          "relation": "contains",
+          "to": "E0",
+          "context": "Let G0 = hV0,E0i be the graph GDTW(x,y)",
+          "chunk": "6"
+        },
+        {
+          "from": "E0",
+          "relation": "type",
+          "to": "EdgeSet",
+          "context": "Let G0 = hV0,E0i be the graph GDTW(x,y)",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the context of computing Dynamic Time Warping (DTW) using the Generalized DTW (GDTW) graph method, what is the role of E0 in the graph GDTW(x,y)?",
+    "options": {
+      "A": "E0 denotes a specific vertex in the graph GDTW that initiates the DTW computation.",
+      "B": "E0 represents the set of edges that connects all pairs of vertices in GDTW(x,y).",
+      "C": "E0 is an external function used to optimize the alignment path in DTW.",
+      "D": "E0 is a measure of the computational complexity for GDTW(x,y)."
+    },
+    "correct_answer": "B",
+    "explanation": "E0 in the graph GDTW(x,y) refers to the EdgeSet, which comprises all the edges connecting the vertices within the graph, thus forming the relationships necessary for calculating the shortest distance in DTW.",
+    "path_description": "Path: DTW --[computedUsing]--> GDTW --[contains]--> E0 --[type]--> EdgeSet",
+    "context": "Therefore, finding the value of DTW(x,y) is equivalent to finding the shortest distance from v1,1 to vm,n | Let G0 = hV0,E0i be the graph GDTW(x,y) | Let G0 = hV0,E0i be the graph GDTW(x,y)",
+    "paper_id": "222"
+  },
+  {
+    "section": "preliminaries2",
+    "path": {
+      "section": "preliminaries2",
+      "start_entity": "DTW",
+      "end_entity": "VertexSet",
+      "hops": [
+        {
+          "from": "DTW",
+          "relation": "computedUsing",
+          "to": "GDTW",
+          "context": "Therefore, finding the value of DTW(x,y) is equivalent to finding the shortest distance from v1,1 to vm,n",
+          "chunk": "6"
+        },
+        {
+          "from": "GDTW",
+          "relation": "contains",
+          "to": "V0",
+          "context": "Let G0 = hV0,E0i be the graph GDTW(x,y)",
+          "chunk": "6"
+        },
+        {
+          "from": "V0",
+          "relation": "type",
+          "to": "VertexSet",
+          "context": "Let G0 = hV0,E0i be the graph GDTW(x,y)",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the process of computing Dynamic Time Warping (DTW) between two sequences x and y using Generalized Dynamic Time Warping (GDTW), what does the vertex set V0 in the graph GDTW(x, y) primarily represent?",
+    "options": {
+      "A": "The vertex set V0 represents the computational errors in matching the sequences x and y.",
+      "B": "The vertex set V0 includes the vertices that represent the initial and final elements of sequences x and y only.",
+      "C": "The vertex set V0 represents the set of minimal distances calculated between x and y.",
+      "D": "The vertex set V0 represents all possible matched pairs between elements of sequences x and y."
+    },
+    "correct_answer": "D",
+    "explanation": "The vertex set V0 in the graph GDTW(x, y) represents all possible matched pairs between elements of sequences x and y. This is because the purpose of Generalized Dynamic Time Warping (GDTW) is to find the optimal match between two sequences by considering all possible alignments, and the vertices in V0 correspond to these potential alignments.",
+    "path_description": "Path: DTW --[computedUsing]--> GDTW --[contains]--> V0 --[type]--> VertexSet",
+    "context": "Therefore, finding the value of DTW(x,y) is equivalent to finding the shortest distance from v1,1 to vm,n | Let G0 = hV0,E0i be the graph GDTW(x,y) | Let G0 = hV0,E0i be the graph GDTW(x,y)",
+    "paper_id": "222"
+  },
+  {
+    "section": "a1approximationalgorithmfordtw2",
+    "path": {
+      "section": "a1approximationalgorithmfordtw2",
+      "start_entity": "SnapFunction",
+      "end_entity": "Function",
+      "hops": [
+        {
+          "from": "SnapFunction",
+          "relation": "transforms",
+          "to": "BoundaryPoint",
+          "context": "We can use snap(p) for either snaph(p) or snapv(p)",
+          "chunk": "8"
+        },
+        {
+          "from": "BoundaryPoint",
+          "relation": "optimizedBy",
+          "to": "SnapFunction",
+          "context": "Given a point p = (i, j) on a boundary of some block B in T(x,y), we can compute iˆ = (i0, i1) in O(log(k)) time.",
+          "chunk": "8"
+        },
+        {
+          "from": "SnapFunction",
+          "relation": "type",
+          "to": "Function",
+          "context": "We can use snap(p) for either snaph(p) or snapv(p)",
+          "chunk": "8"
+        }
+      ]
+    },
+    "question": "In the context of the approximation algorithm discussed in 'a1approximationalgorithmfordtw2', how does the SnapFunction transform when applied to a BoundaryPoint in the optimization process?",
+    "options": {
+      "A": "The SnapFunction recalculates the BoundaryPoint position to iˆ = (i0, i1), optimizing the point for computational efficiency.",
+      "B": "The SnapFunction modifies the coordinates of a BoundaryPoint to align with the nearest data block boundary within the matrix T(x,y).",
+      "C": "The SnapFunction converts a BoundaryPoint into a Function type by applying a linear transformation based on the block B's perimeter.",
+      "D": "The SnapFunction transforms a BoundaryPoint by optimizing it to either a horizontal or vertical snap function, which can be computed in logarithmic time."
+    },
+    "correct_answer": "D",
+    "explanation": "The SnapFunction specifically targets a BoundaryPoint to optimize it by determining whether to apply a horizontal or vertical snap (snaph(p) or snapv(p)), which is computationally efficient and can be performed in O(log(k)) time. This reflects the optimal transformation and type conversion within the discussed algorithm.",
+    "path_description": "Path: SnapFunction --[transforms]--> BoundaryPoint --[optimizedBy]--> SnapFunction --[type]--> Function",
+    "context": "We can use snap(p) for either snaph(p) or snapv(p) | Given a point p = (i, j) on a boundary of some block B in T(x,y), we can compute iˆ = (i0, i1) in O(log(k)) time. | We can use snap(p) for either snaph(p) or snapv(p)",
+    "paper_id": "222"
+  },
+  {
+    "section": "technicaloverview3",
+    "path": {
+      "section": "technicaloverview3",
+      "start_entity": "Snap_Point",
+      "end_entity": "Vertex",
+      "hops": [
+        {
+          "from": "Snap_Point",
+          "relation": "connectsTo",
+          "to": "Snap_Point",
+          "context": "We connect each snap point p on a horizontal (resp. vertical) boundary to the next snap point q to its right (resp. above it).",
+          "chunk": "4"
+        },
+        {
+          "from": "Snap_Point",
+          "relation": "connectsTo",
+          "to": "Snap_Point",
+          "context": "We connect each snap point p on a horizontal (resp. vertical) boundary to the next snap point q to its right (resp. above it).",
+          "chunk": "4"
+        },
+        {
+          "from": "Snap_Point",
+          "relation": "type",
+          "to": "Vertex",
+          "context": "snap points p in the grid, we can use a vertex to refer to its corresponding snap point and vice versa.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the context of connecting snap points on a grid, what is the relationship between a snap point at a vertex and another snap point on the same boundary?",
+    "options": {
+      "A": "Each snap point connects directly to all other snap points on the same boundary, forming a fully connected network.",
+      "B": "A snap point on a horizontal boundary is connected to the next snap point to its right, establishing a linear progression.",
+      "C": "A snap point on a vertical boundary connects diagonally to another snap point, creating a cross-sectional linkage.",
+      "D": "Snap points on horizontal and vertical boundaries are not connected to each other, but only to their corresponding vertices."
+    },
+    "correct_answer": "B",
+    "explanation": "According to the paper, snap points on a horizontal boundary connect to the next snap point to their right and on a vertical boundary to the one above, indicating a linear, sequential connection along the same type of boundary. Options B, C, and D are incorrect as they either misrepresent the directionality of connections (B and D) or the type of network formed (C).",
+    "path_description": "Path: Snap_Point --[connectsTo]--> Snap_Point --[connectsTo]--> Snap_Point --[type]--> Vertex",
+    "context": "We connect each snap point p on a horizontal (resp. vertical) boundary to the next snap point q to its right (resp. above it). | We connect each snap point p on a horizontal (resp. vertical) boundary to the next snap point q to its right (resp. above it). | snap points p in the grid, we can use a vertex to refer to its corresponding snap point and vice versa.",
+    "paper_id": "222"
+  }
+]

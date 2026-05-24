@@ -1,0 +1,88 @@
+[
+  {
+    "section": "designandimplementation3",
+    "path": {
+      "section": "designandimplementation3",
+      "start_entity": "TotalPartitionCost",
+      "end_entity": "SchedulingOverhead",
+      "hops": [
+        {
+          "from": "TotalPartitionCost",
+          "relation": "partOf",
+          "to": "NodeSelectionAlgorithm",
+          "context": "The total partition cost is distributed across the number of partitions",
+          "chunk": "4"
+        },
+        {
+          "from": "NodeSelectionAlgorithm",
+          "relation": "evaluatedOn",
+          "to": "EdgeComputingScenarios",
+          "context": "Our experiments demonstrate that in typical edge computing scenarios",
+          "chunk": "4"
+        },
+        {
+          "from": "EdgeComputingScenarios",
+          "relation": "measures",
+          "to": "SchedulingOverhead",
+          "context": "the algorithm’s scheduling overhead is approximately 10ms",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the context of distributing total partition costs in edge computing scenarios, how does the NodeSelectionAlgorithm impact the scheduling overhead?",
+    "options": {
+      "A": "By enhancing the efficiency of partition distribution, it eliminates any scheduling overhead in the system entirely.",
+      "B": "By reducing the complexity of the NodeSelectionAlgorithm, it significantly decreases the scheduling overhead to less than 5ms.",
+      "C": "By increasing the number of partitions, it optimizes resource allocation, leading to a scheduling overhead of approximately 10ms.",
+      "D": "By focusing on partition cost alone, it inadvertently increases the scheduling overhead to over 20ms."
+    },
+    "correct_answer": "C",
+    "explanation": "The NodeSelectionAlgorithm, as part of the total partition cost, influences the scheduling overhead by efficiently distributing the cost across multiple partitions. This distribution leads to an optimized resource allocation, which is reflected in the scheduling overhead of approximately 10ms as evaluated in typical edge computing scenarios.",
+    "path_description": "Path: TotalPartitionCost --[partOf]--> NodeSelectionAlgorithm --[evaluatedOn]--> EdgeComputingScenarios --[measures]--> SchedulingOverhead",
+    "context": "The total partition cost is distributed across the number of partitions | Our experiments demonstrate that in typical edge computing scenarios | the algorithm’s scheduling overhead is approximately 10ms",
+    "paper_id": "2107"
+  },
+  {
+    "section": "designandimplementation3",
+    "path": {
+      "section": "designandimplementation3",
+      "start_entity": "NodeSelectionAlgorithm",
+      "end_entity": "Metric",
+      "hops": [
+        {
+          "from": "NodeSelectionAlgorithm",
+          "relation": "uses",
+          "to": "TotalScore",
+          "context": "The node with the highest score is selected for task allocation",
+          "chunk": "4"
+        },
+        {
+          "from": "TotalScore",
+          "relation": "basedOn",
+          "to": "BalanceScore",
+          "context": "Total Score = 0.2×SR+0.2×SL+0.1×SP +0.5×SB",
+          "chunk": "4"
+        },
+        {
+          "from": "BalanceScore",
+          "relation": "type",
+          "to": "Metric",
+          "context": "SB is the balance score",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the context of the node selection algorithm described in 'designandimplementation3', what primarily determines the total score for node selection?",
+    "options": {
+      "A": "The node's performance score, which contributes the majority of the total score.",
+      "B": "The balance score, which constitutes 50% of the total score, plays the primary role.",
+      "C": "The sum of the scores for resource speed and load, each contributing equally to the total score.",
+      "D": "The average of all individual metrics, uniformly contributing to a cumulative total."
+    },
+    "correct_answer": "B",
+    "explanation": "The total score for node selection is determined primarily by the balance score (SB), which contributes 50% of the total score as indicated by the weight 0.5 in the equation Total Score = 0.2×SR+0.2×SL+0.1×SP +0.5×SB. This significantly outweighs the contributions of the other metrics.",
+    "path_description": "Path: NodeSelectionAlgorithm --[uses]--> TotalScore --[basedOn]--> BalanceScore --[type]--> Metric",
+    "context": "The node with the highest score is selected for task allocation | Total Score = 0.2×SR+0.2×SL+0.1×SP +0.5×SB | SB is the balance score",
+    "paper_id": "2107"
+  }
+]

@@ -1,0 +1,90 @@
+# Multi-Agent Knowledge Graph Pipeline Configuration
+# 完整配置文件 - 包含所有实际使用的配置项
+
+# API Configuration
+api:
+  openai_api_key: ${OPENAI_API_KEY}  # OpenAI API Key (可通过环境变量设置)
+  openai_base_url: ${OPENAI_BASE_URL}  # OpenAI API Base URL (可选)
+  timeout: 600.0  # API 请求超时时间（秒），默认 10 分钟
+
+# Input/Output Paths
+paths:
+  input_dir: "data/processed_data"           # 输入论文JSON文件目录
+  output_dir: "outputs"                      # 主输出目录
+  extraction_dir: "section_based_extractions"  # TTL文件输出目录
+  evaluation_dir: "evaluations"              # 评估元数据输出目录
+  qa_dir: "multi_hop_qa"                     # QA对输出目录
+
+# File Patterns
+file_patterns:
+  input_papers: "*.json"                     # 输入论文文件匹配模式
+  extraction_output: "{paper_name}_extraction.ttl"
+  evaluation_output: "{paper_name}_metadata.json"
+  qa_output_detailed: "{paper_name}_qa_detailed.json"
+  qa_output_simplified: "{paper_name}_qa_simplified.json"
+  qa_output_stats: "{paper_name}_qa_stats.txt"
+
+# Extractor Configuration
+extractor:
+  model: "deepseek-chat"                       # 知识提取使用的模型
+  temperature: 0.1                           # 生成温度（低值确保一致性）
+  max_tokens: 3000                          # 每次提取的最大token数
+
+# Mentor Task Configuration (关系提取与本体构建)
+mentor_task:
+  model: "gpt-4o"                     # 使用的模型
+  temperature: 0.1                           # 生成温度（低值确保一致性）
+  max_tokens: 8000                          # 最大token数（聚类需要更多输出空间）
+  cluster_max_tokens: 12000                  # 聚类任务的最大token数
+  selection_max_tokens: 10000                # 选择任务的最大token数
+
+# Evaluator Configuration
+evaluator:
+  model: "deepseek-chat"                       # 评估使用的模型
+  temperature: 0.1                           # 生成温度（低值确保一致性）
+  max_tokens: 2000                          # 每次评估的最大token数
+  threshold: 7                               # 通过评估的分数阈值(1-10)
+
+# QA Generator Configuration
+qa_generator:
+  model: "deepseek-chat"                       # QA生成使用的模型
+  temperature: 0.7                           # 生成温度（高值增加创造性）
+  max_tokens: 800                           # 每次QA生成的最大token数
+  max_paths_per_section: 10                  # 每节使用的最大知识路径数
+  max_qa_per_section: 5                     # 每节生成的最大QA对数
+
+# Processing Configuration
+processing:
+  batch_size: 1                              # 同时处理的论文数量（保持为1以确保稳定性）
+
+# Retry Configuration
+retry:
+  max_attempts: 3                            # 失败评估的最大重试次数
+  backoff_factor: 1.5                        # 指数退避因子
+  enable_improvement_suggestions: true       # 是否启用改进建议重试
+
+# Workflow Configuration
+workflow:
+  log_level: "INFO"                          # 日志级别: DEBUG, INFO, WARNING, ERROR
+  verbose_logging: true                      # 启用详细日志记录
+  recursion_limit: 100                       # LangGraph递归限制（防止无限循环）
+
+# Large Scale Processing Configuration
+large_scale:
+  batch_size: 50                             # 大规模模式下的每批论文数
+  max_concurrent: 4                          # 最大并发批次数
+  checkpoint_interval: 10                    # 每处理N篇论文输出一次进度
+  enable_parallel: true                      # 是否启用并行处理
+  memory_management:
+    max_memory_per_batch: "2GB"              # 每个批次最大内存使用
+    gc_interval: 5                           # 垃圾回收间隔（论文数）
+  monitoring:
+    enable_progress_bar: true                # 启用进度条
+    log_level: "INFO"                        # 日志级别
+    save_intermediate_reports: true          # 保存中间报告
+
+# 使用说明:
+# 1. 所有代理现在都会从配置文件读取相应的模型配置
+# 2. API配置优先级：配置文件 > 环境变量 > 默认值
+# 3. 可以根据需要调整不同代理使用的模型
+# 4. 大规模处理时可以调整 large_scale 配置以优化性能

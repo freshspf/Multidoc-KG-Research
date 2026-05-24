@@ -1,0 +1,45 @@
+[
+  {
+    "section": "proposedmodel2",
+    "path": {
+      "section": "proposedmodel2",
+      "start_entity": "FLServer",
+      "end_entity": "Technology",
+      "hops": [
+        {
+          "from": "FLServer",
+          "relation": "updates",
+          "to": "GlobalModel",
+          "context": "The FL server aggregates the model weights and updates the global model.",
+          "chunk": "4"
+        },
+        {
+          "from": "GlobalModel",
+          "relation": "encryptedBy",
+          "to": "DABE",
+          "context": "At the end of every aggregation, the new world model is encrypted and sent back to the FL clients (IoT devices and fog nodes) through the blockchain network.",
+          "chunk": "4"
+        },
+        {
+          "from": "DABE",
+          "relation": "type",
+          "to": "Technology",
+          "context": "The FL clients authorize their server via DABE and update their local models with the new world model.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the context of FLServer's role in updating the global model, which encryption technology ensures that updated models are securely communicated back to FL clients?",
+    "options": {
+      "A": "SHA-256 (Secure Hash Algorithm) is responsible for the encryption of global model updates.",
+      "B": "RSA (Rivest-Shamir-Adleman) encryption secures the global model before it is sent to the FL clients.",
+      "C": "AES (Advanced Encryption Standard) is used to encrypt the global model updates before distribution.",
+      "D": "DABE (Decentralized Attribute-Based Encryption) technology encrypts the global model for secure communication."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A because the paper specifies that DABE (Decentralized Attribute-Based Encryption) is used for encrypting the global model updates, ensuring secure communication to the FL clients. This choice directly aligns with the described encryption method, while the other options mention different encryption technologies that are not mentioned in the context of this specific system.",
+    "path_description": "Path: FLServer --[updates]--> GlobalModel --[encryptedBy]--> DABE --[type]--> Technology",
+    "context": "The FL server aggregates the model weights and updates the global model. | At the end of every aggregation, the new world model is encrypted and sent back to the FL clients (IoT devices and fog nodes) through the blockchain network. | The FL clients authorize their server via DABE and update their local models with the new world model.",
+    "paper_id": "1110"
+  }
+]

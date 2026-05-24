@@ -1,0 +1,174 @@
+[
+  {
+    "section": "systemmodel2",
+    "path": {
+      "section": "systemmodel2",
+      "start_entity": "Government",
+      "end_entity": "MerkleTreeRootHash",
+      "hops": [
+        {
+          "from": "Government",
+          "relation": "distributes",
+          "to": "VaccineVial",
+          "context": "Govt distributes the vaccine vials to the registered vaccination centers.",
+          "chunk": "6"
+        },
+        {
+          "from": "VaccineVial",
+          "relation": "transferredTo",
+          "to": "VaccinationCenters",
+          "context": "the corresponding vaccine vials to the VC.",
+          "chunk": "6"
+        },
+        {
+          "from": "VaccinationCenters",
+          "relation": "computes",
+          "to": "MerkleTreeRootHash",
+          "context": "Receiving the vaccine vials, VC also computes the MR based on the vial IDs it got.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the context of vaccine distribution and tracking, how does the government ensure data integrity from the point of distribution to vaccination?",
+    "options": {
+      "A": "Through direct surveillance and monitoring of the transportation vehicles carrying the vaccine vials to vaccination centers.",
+      "B": "By requiring vaccination centers to submit daily reports on the number of vials received and administered to patients.",
+      "C": "Through a centralized database that automatically updates vaccine stock levels at each vaccination center.",
+      "D": "By using a Merkle Tree Root Hash calculated at vaccination centers based on the IDs of received vaccine vials."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A. The government distributes vaccine vials to vaccination centers, which then compute a Merkle Tree Root Hash based on the vial IDs they receive. This hash ensures data integrity by confirming that the data (vial IDs) has not been altered during transit, thus maintaining a secure and verifiable record.",
+    "path_description": "Path: Government --[distributes]--> VaccineVial --[transferredTo]--> VaccinationCenters --[computes]--> MerkleTreeRootHash",
+    "context": "Govt distributes the vaccine vials to the registered vaccination centers. | the corresponding vaccine vials to the VC. | Receiving the vaccine vials, VC also computes the MR based on the vial IDs it got.",
+    "paper_id": "818"
+  },
+  {
+    "section": "systemmodel4",
+    "path": {
+      "section": "systemmodel4",
+      "start_entity": "VaccinePassport",
+      "end_entity": "PKC",
+      "hops": [
+        {
+          "from": "VaccinePassport",
+          "relation": "securedBy",
+          "to": "SC",
+          "context": "this protocol assumes significance as it empowers the SC to verify the accuracy of information provided by the citizen.",
+          "chunk": "8"
+        },
+        {
+          "from": "SC",
+          "relation": "verifies",
+          "to": "VaccinePassport",
+          "context": "If the SC verifies the applicant’s vaccination status as true and confirms the absence of the VP, the government proceeds to the next stage by locking a certain amount on the SC.",
+          "chunk": "8"
+        },
+        {
+          "from": "VaccinePassport",
+          "relation": "encryptedUsing",
+          "to": "PKC",
+          "context": "Encrypts the VP using PKC.",
+          "chunk": "8"
+        }
+      ]
+    },
+    "question": "In the protocol described in 'systemmodel4', how does the Smart Contract (SC) ensure the security and integrity of a Vaccine Passport (VP) throughout the verification process?",
+    "options": {
+      "A": "The SC requires a multi-factor authentication method before accessing the vaccine status and encrypting the VP using PKC.",
+      "B": "The SC verifies the vaccine status, confirms VP absence, and ensures VP encryption using Public Key Cryptography (PKC).",
+      "C": "The SC uses Private Key Cryptography to decrypt the VP, checking its validity before verifying the individual's vaccine status.",
+      "D": "The government directly interacts with the VP to verify its status and uses standard encryption methods to secure the data."
+    },
+    "correct_answer": "B",
+    "explanation": "Option A is correct because it accurately follows the process outlined in the provided knowledge path and context, where the SC verifies the accuracy of vaccine status, checks for VP absence, and uses Public Key Cryptography (PKC) to encrypt the VP, ensuring its security and integrity.",
+    "path_description": "Path: VaccinePassport --[securedBy]--> SC --[verifies]--> VaccinePassport --[encryptedUsing]--> PKC",
+    "context": "this protocol assumes significance as it empowers the SC to verify the accuracy of information provided by the citizen. | If the SC verifies the applicant’s vaccination status as true and confirms the absence of the VP, the government proceeds to the next stage by locking a certain amount on the SC. | Encrypts the VP using PKC.",
+    "paper_id": "818"
+  },
+  {
+    "section": "systemmodel2",
+    "path": {
+      "section": "systemmodel2",
+      "start_entity": "Government",
+      "end_entity": "VaccineRefill",
+      "hops": [
+        {
+          "from": "Government",
+          "relation": "distributes",
+          "to": "VaccineVial",
+          "context": "Govt distributes the vaccine vials to the registered vaccination centers.",
+          "chunk": "6"
+        },
+        {
+          "from": "VaccineVial",
+          "relation": "transferredTo",
+          "to": "VaccinationCenters",
+          "context": "the corresponding vaccine vials to the VC.",
+          "chunk": "6"
+        },
+        {
+          "from": "VaccinationCenters",
+          "relation": "appliesFor",
+          "to": "VaccineRefill",
+          "context": "First, the VC applies to the Govt to refill its vaccine stock.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "How does the process of vaccine distribution and replenishment work according to the system model described?",
+    "options": {
+      "A": "Government first receives applications from vaccination centers, then sends vaccine vials based on these applications.",
+      "B": "Vaccination centers initially request vaccine vials from pharmaceutical companies, then apply to the government for distribution.",
+      "C": "Government distributes vaccine vials to vaccination centers, which later apply to the government for refills.",
+      "D": "Vaccine vials are transferred directly from vaccine manufacturers to vaccination centers without government intermediation."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct process as described in the system model is that the government initially distributes vaccine vials to the registered vaccination centers, and then these centers apply to the government for refilling their vaccine stock. This matches option A. Options B, C, and D incorrectly describe the roles and sequence of actions between the government and vaccination centers.",
+    "path_description": "Path: Government --[distributes]--> VaccineVial --[transferredTo]--> VaccinationCenters --[appliesFor]--> VaccineRefill",
+    "context": "Govt distributes the vaccine vials to the registered vaccination centers. | the corresponding vaccine vials to the VC. | First, the VC applies to the Govt to refill its vaccine stock.",
+    "paper_id": "818"
+  },
+  {
+    "section": "systemmodel8",
+    "path": {
+      "section": "systemmodel8",
+      "start_entity": "Algorithm4",
+      "end_entity": "Proof",
+      "hops": [
+        {
+          "from": "Algorithm4",
+          "relation": "administersVaccine",
+          "to": "VC",
+          "context": "4) Algorithm for  Injecting Vaccine to Citizen: The Algorithm 4 outlines the secure and transparent process through which a VC administers a vaccine dose to a C.",
+          "chunk": "12"
+        },
+        {
+          "from": "VC",
+          "relation": "commitsProof",
+          "to": "MT_Proof",
+          "context": "– commitMTProof → V C commits MT_Proof.",
+          "chunk": "12"
+        },
+        {
+          "from": "MT_Proof",
+          "relation": "type",
+          "to": "Proof",
+          "context": "– commitMTProof → V C commits MT_Proof.",
+          "chunk": "12"
+        }
+      ]
+    },
+    "question": "In the process outlined in Algorithm 4 in the 'systemmodel8' section, what is the primary role of the VC after administering a vaccine dose to a citizen?",
+    "options": {
+      "A": "The VC commits a Merkle Tree Proof, which ensures the authenticity and transparency of the vaccination record.",
+      "B": "The VC sends a notification to the citizen's primary healthcare provider regarding the vaccination event.",
+      "C": "The VC generates a digital certificate, which serves as an official document confirming the vaccination.",
+      "D": "The VC updates the local health database to include the new vaccination data for public health monitoring."
+    },
+    "correct_answer": "A",
+    "explanation": "According to the given knowledge graph path, after administering a vaccine (administersVaccine), the VC (Vaccine Center) commits a Merkle Tree Proof (MT_Proof). This action is defined as 'commitsProof', indicating that the primary role of the VC post-vaccination is to commit a Merkle Tree Proof to ensure the authenticity and transparency of the vaccination record.",
+    "path_description": "Path: Algorithm4 --[administersVaccine]--> VC --[commitsProof]--> MT_Proof --[type]--> Proof",
+    "context": "4) Algorithm for  Injecting Vaccine to Citizen: The Algorithm 4 outlines the secure and transparent process through which a VC administers a vaccine dose to a C. | – commitMTProof → V C commits MT_Proof. | – commitMTProof → V C commits MT_Proof.",
+    "paper_id": "818"
+  }
+]

@@ -1,0 +1,52 @@
+[
+  {
+    "id": "introduction",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Introduction",
+      "page_start": 1,
+      "page_end": 1
+    },
+    "text": "ment via the full stack flow. Implemented in TSMC 28nm\ntechnology, the proposed design achieves superior perfor-\nIn recent years, convolution neural networks (CNNs) have\nmance, with an energy efficiency of 3707.84 TOPS/W and\nhad a profound impact on various applications, including but\na throughput of 26.21 TOPS at 50 MHz.\nnot limited to image classification [1] and speech processing\n[2], owing to their remarkable ability to extract features Theremainderofthepaperisorganizedasfollows.Section"
+  },
+  {
+    "id": "proposedhardwarearchitectureanddataflow1",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Proposed Hardware Architecture and Data Flow",
+      "page_start": 1,
+      "page_end": 2
+    },
+    "text": "in CNNs increases the memory bandwidth and requires larger SectionIIIpresentstheexperimentalresults.Finally,thispaper\ncomputation demands, leading to massive data movement is concluded in Section IV.\nbetween memory and processing elements (PEs). This results\nII. PROPOSEDHARDWAREARCHITECTUREANDDATA\nin high latency and power consumption in current digital\nFLOW\ndeep learning accelerators (DLAs). CIM offers an alternative\napproach by combining storage and computation, resulting in A. The Overall Architecture of CIMR-V.\nhighly parallel computing and high energy efficiency [3].\nHowever, previous SRAM-based CIM designs [4], [5] pri-\nmarily focus on reducing the power consumed during weight\ndata movement, while failing to address the need to minimize\nfeature map data movement throughout the entire model\nexecution. (Fig. 1) Moreover, as these deep learning models\nbecome deeper and larger to achieve higher accuracy, existing\nCIM designs with small array sizes will require frequent\nupdates of model weights from DRAM, leading to high\nlatency.\nWeproposeCIMR-Vtoovercomethelimitationsmentioned\nabove by reducing feature map data movement through CIM\nlayer fusion and pipeline max pooling block, and reducing Fig.2. TheoverallarchitectureofCIMR-V.\n5202\nraM\n82\n]RA.sc[\n1v27022.3052:viXra\n\nFig. 3.  The modified RISC-V core with CIM instruction for AI model\ninference.\nFig. 2 depicts  the comprehensive architecture of CIMR-\nV, which is composed of a 512Kb SRAM-based CIM unit\nfor energy-efficient computing, a modified RISC-V core for\ncontrolling the CIM and conducting high-precision computing,\nan instruction memory, a 256Kb feature map SRAM for layer\nfusion, and a 512Kb weight SRAM for weight fusion. CIMR-\nV is implemented on the PULPissimo platform, featuring the\nibex 32-bit 2-stage RISC-V architecture [6]. In order to reduce\nrouting complexity and power consumption,  the CIM input\nbuffer is designed with a 32-bit shift.\nB. The High-density SRAM-based CIM Macro with X-mode\nand Y-mode\nThis design is based on the SRAM-based CIM [7], which\nsupports two distinct modes:\n1) X-mode, which accommodates high  input  data with\n1024 wordlines  (WLs),  512 bitlines  (BLs),  and 256\nsense amplifiers (SAs).\n2) Y-mode, which accommodates high output data with 512\nWLs, 1024 BLs, and 512 SAs.\nTo minimize power consumption and quantization error, the\noutput of 512 / 1024 MAC operations is sensed by the SA\non the corresponding long BL, and the activation function\n(ReLU) is executed simultaneously. Additionally, to enhance\nthe robustness and accuracy of CNNs, we apply the symmetry\nweight mapping method to mitigate nonlinearity (NL) and cell\nvariation in binary or ternary weights.\nC. The Modified RISC-V Core with CIM Instruction\nFig. 3 illustrates the modified RISC-V core, which incor-\nporates not only the native Arithmetic Logic Unit (ALU) for\nbasic arithmetic operations but also energy-efficient compo-\nnents, specifically the CIM read/write and CIM convolution\nmodules.\nTo reduce pipeline overhead, we employ a two-stage CPU\narchitecture. In the first stage, an instruction is fetched from\nmemory using a prefetch buffer.  In the second stage,  the\nfetched instruction is decoded by the decoder unit, and the\ncontroller adjusts the program counter (PC) address and the\ncontrol and status register (CSR) as needed. Simultaneously,\nthe Load Store Unit (LSU) unit simultaneously loads data from\ndata memory into the register file. Finally, in the execute block,\n\nFig. 4.  The energy-efficient CIM-type instruction for CIMR-V.\nthe input data is computed and the output  is stored in the\nregister file.\nTo achieve optimal efficiency, all CIM instructions, such as\nthe CIM convolution, write, and read instructions, are executed\natomically within a single cycle, thereby minimizing latency\nand storage overhead. Additionally, to reduce feature map data\nmovement, the CIM instructions utilize data from the feature\nmap SRAM or weight SRAM instead of the register file.\nD. The Energy-efficient CIM-type Instruction\nFig. 4 illustrates the energy-efficient CIM-type instruction\n(opcode 1111110) employed in CIMR-V, which includes three\nmain  instructions: CIM convolution, CIM read,  and CIM\nwrite. To improve system throughput,  the CIM convolution\ninstruction is executed within a single cycle by loading FM\nSRAM data from address register 1 (rs1) with the immediate\nsource offset (imms) into the CIM input buffer, performing\n512/1024 Multiply-Accumulate (MAC) operations, and storing\nthe resulting CIM output into FM SRAM at rs2 with the added\noffset immd.\nSimilarly,  the CIM read instruction reads the CIM macro\nweights from rs1 + imms and stores them in SRAM at rs2\n+ immd. Additionally, the CIM write instruction supports the\nwriting of 32-bit data in a single operation, further enhancing\nwriting performance. Overall,  this instruction set contributes\nto the energy efficiency and high performance of CIMR-V.\nE."
+  },
+  {
+    "id": "proposedhardwarearchitectureanddataflow2",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Proposed Hardware Architecture and Data Flow",
+      "page_start": 1,
+      "page_end": 2
+    },
+    "text": "Row-wise Convolution Dataflow: CIM Layer Fusion and\nPipeline with Convolution and Max Pooling\nThe overall dataflow for the CIM convolution instruction\nis depicted in Fig. 5. This involves shifting the input feature\nmap into the input buffer, flattening the CNN weights into\nmacro BLs by output channel, and executing the convolution\nto obtain output data through SA.\nTo minimize power  consumption and feature map data\nmovement,  the CIM convolution instruction supports CIM\nlayer fusion, achieved by dividing the input feature map into\nblocks and storing overlapping data through the CIM input\nbuffer to reduce layer fusion overhead. (Fig. 6) Furthermore,\nCIMR-V supports a pipeline with CIM convolution and max\npooling to reduce latency and storage space. (Fig. 7)."
+  },
+  {
+    "id": "experimentalresult",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Experimental Result",
+      "page_start": 3,
+      "page_end": 3
+    },
+    "text": "A. Network Simulation Result\nTo showcase its efficacy, we adopt  the keyword spotting\ntask as an illustrative example. The architecture of the key-\nword spotting model, as illustrated in Fig. II, comprises pre-\nprocessing, 1-D binary convolution, max pooling, and post-\nprocessing. The model achieves an accuracy of 94.02% in\nthe Google Speech Commands Dataset (GSCD) [10] with 12\nclasses.\nSimulated latency optimization has included DRAM access\nlatency based on DDR4 DRAM [11]. By means of  layer\nfusion, the latency of the convolution execution can be effec-\ntively reduced by 33.16% due to the decreased movement of\nthe feature map between the DRAM and the chip. Moreover,"
+  },
+  {
+    "id": "conclusion",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Conclusion",
+      "page_start": 4,
+      "page_end": 5
+    },
+    "text": "This paper proposes an end-to-end CIM accelerator with\nRISC-V, which supports CIM-type instructions and full stack\nflow. The entire design achieves an 85.14% reduction in execu-\ntion latency for the keyword spotting model through the use of\nCIM layer fusion, weight fusion, and pipeline with convolution\nand maximum pooling. The proposed design, which was\nimplemented using TSMC 28nm CMOS technology, attains\nan impressive 3707.84 TOPS/W and 26.21 TOPS with a 50\nMHz clock rate.\n\n"
+  }
+]

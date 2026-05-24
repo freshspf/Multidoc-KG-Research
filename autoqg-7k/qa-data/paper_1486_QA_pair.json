@@ -1,0 +1,131 @@
+[
+  {
+    "section": "relatedwork",
+    "path": {
+      "section": "relatedwork",
+      "start_entity": "BugClassificationTask",
+      "end_entity": "Task",
+      "hops": [
+        {
+          "from": "BugClassificationTask",
+          "relation": "uses",
+          "to": "BugReportText",
+          "context": "leveraging bug report text for bug classification tasks",
+          "chunk": "2"
+        },
+        {
+          "from": "BugReportText",
+          "relation": "usedFor",
+          "to": "BugClassificationTask",
+          "context": "leveraging bug report text for bug classification tasks",
+          "chunk": "2"
+        },
+        {
+          "from": "BugClassificationTask",
+          "relation": "type",
+          "to": "Task",
+          "context": "leveraging bug report text for bug classification tasks",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the context of leveraging bug report text for classification tasks, what is the primary type of task that bug report text is utilized for?",
+    "options": {
+      "A": "The key task is to predict future bugs based on patterns found in bug report texts.",
+      "B": "The main type of task is to classify the severity of bugs based on the text of the report.",
+      "C": "The primary task is to identify the software component affected by a bug from the bug report text.",
+      "D": "The fundamental task is to automate the generation of bug reports using existing text."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A because the question path and context clearly point to the usage of bug report text in classifying aspects of bugs, typically such as their severity, rather than identification of components, automation of report generation, or prediction of future bugs.",
+    "path_description": "Path: BugClassificationTask --[uses]--> BugReportText --[usedFor]--> BugClassificationTask --[type]--> Task",
+    "context": "leveraging bug report text for bug classification tasks | leveraging bug report text for bug classification tasks | leveraging bug report text for bug classification tasks",
+    "paper_id": "645"
+  },
+  {
+    "section": "experimentalresults2",
+    "path": {
+      "section": "experimentalresults2",
+      "start_entity": "TF-IDF",
+      "end_entity": "Model",
+      "hops": [
+        {
+          "from": "TF-IDF",
+          "relation": "usedIn",
+          "to": "DT",
+          "context": "Among the experiments conducted using TF-IDF, DT achieved the highest F1 score (78%)",
+          "chunk": "8"
+        },
+        {
+          "from": "DT",
+          "relation": "outperforms",
+          "to": "SVM",
+          "context": "DT achieved the highest F1 score (78%), slightly outperforming the highest of seBERT combined with SVM, which achieved 77%",
+          "chunk": "8"
+        },
+        {
+          "from": "SVM",
+          "relation": "type",
+          "to": "Model",
+          "context": "SVM achieved the highest F1 score (77%) as well as AUC-ROC score (66%)",
+          "chunk": "8"
+        }
+      ]
+    },
+    "question": "In the context of text classification, when comparing the performance of different models based on their F1 scores, which model slightly outperformed another according to the experimental results?",
+    "options": {
+      "A": "Decision Tree (DT) significantly outperformed Support Vector Machine (SVM) when both were used with TF-IDF.",
+      "B": "Support Vector Machine (SVM) slightly outperformed Decision Tree (DT) when both were used with TF-IDF.",
+      "C": "Support Vector Machine (SVM) significantly outperformed Decision Tree (DT) when both were used with TF-IDF.",
+      "D": "Decision Tree (DT) slightly outperformed Support Vector Machine (SVM) when both were used with TF-IDF."
+    },
+    "correct_answer": "D",
+    "explanation": "According to the experimental results, Decision Tree (DT) achieved a higher F1 score (78%) than Support Vector Machine (SVM) which achieved a 77% F1 score when both used TF-IDF, indicating that DT slightly outperformed SVM.",
+    "path_description": "Path: TF-IDF --[usedIn]--> DT --[outperforms]--> SVM --[type]--> Model",
+    "context": "Among the experiments conducted using TF-IDF, DT achieved the highest F1 score (78%) | DT achieved the highest F1 score (78%), slightly outperforming the highest of seBERT combined with SVM, which achieved 77% | SVM achieved the highest F1 score (77%) as well as AUC-ROC score (66%)",
+    "paper_id": "645"
+  },
+  {
+    "section": "experimentalresults2",
+    "path": {
+      "section": "experimentalresults2",
+      "start_entity": "OpenStack",
+      "end_entity": "Model",
+      "hops": [
+        {
+          "from": "OpenStack",
+          "relation": "usedIn",
+          "to": "seBERT",
+          "context": "bug report titles collected from OpenStack when utilizing the seBERT embedding technique",
+          "chunk": "8"
+        },
+        {
+          "from": "seBERT",
+          "relation": "appliedTo",
+          "to": "SVM",
+          "context": "utilizing the seBERT embedding technique, SVM achieved the highest F1 score (77%)",
+          "chunk": "8"
+        },
+        {
+          "from": "SVM",
+          "relation": "type",
+          "to": "Model",
+          "context": "SVM achieved the highest F1 score (77%) as well as AUC-ROC score (66%)",
+          "chunk": "8"
+        }
+      ]
+    },
+    "question": "In the context of analyzing bug report titles from OpenStack, what model utilizing the seBERT embedding technique achieved the highest F1 score?",
+    "options": {
+      "A": "A logistic regression model, when used with seBERT embeddings, achieved the highest F1 score of 77% in the experiment.",
+      "B": "A Random Forest model, when used with seBERT embeddings, achieved the highest F1 score of 77% in the experiment.",
+      "C": "SVM, when used with seBERT embeddings, achieved the highest F1 score of 77% in the experiment.",
+      "D": "A neural network model, when used with seBERT embeddings, achieved the highest F1 score of 77% in the experiment."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is SVM, as the paper mentions that SVM achieved the highest F1 score of 77% when utilizing the seBERT embedding technique specifically for analyzing bug report titles from OpenStack.",
+    "path_description": "Path: OpenStack --[usedIn]--> seBERT --[appliedTo]--> SVM --[type]--> Model",
+    "context": "bug report titles collected from OpenStack when utilizing the seBERT embedding technique | utilizing the seBERT embedding technique, SVM achieved the highest F1 score (77%) | SVM achieved the highest F1 score (77%) as well as AUC-ROC score (66%)",
+    "paper_id": "645"
+  }
+]

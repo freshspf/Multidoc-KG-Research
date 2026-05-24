@@ -1,0 +1,88 @@
+[
+  {
+    "section": "delayedaggregatesignature2",
+    "path": {
+      "section": "delayedaggregatesignature2",
+      "start_entity": "Organization",
+      "end_entity": "Parameter",
+      "hops": [
+        {
+          "from": "Organization",
+          "relation": "uses",
+          "to": "ParGen",
+          "context": "the committee S of each organization runs ParGen and KeyGen to obtain the parameters",
+          "chunk": "4"
+        },
+        {
+          "from": "ParGen",
+          "relation": "resultIn",
+          "to": "sp",
+          "context": "the committee S of each organization runs ParGen and KeyGen to obtain the parameters (sp, pp)",
+          "chunk": "4"
+        },
+        {
+          "from": "sp",
+          "relation": "type",
+          "to": "Parameter",
+          "context": "the committee S of each organization runs ParGen and KeyGen to obtain the parameters (sp, pp)",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the context of generating parameters for cryptographic operations in organizations, what specific type of parameter does the ParGen tool produce as a result, as utilized by committee S?",
+    "options": {
+      "A": "ParGen results in the specific parameter known as session parameter (sp), essential for session security.",
+      "B": "ParGen results in the specific parameter known as security parameter, essential for overall data protection.",
+      "C": "ParGen results in the specific parameter known as performance parameter (pp), crucial for optimizing operations.",
+      "D": "ParGen results in the specific parameter known as privacy parameter (pp), crucial for maintaining confidentiality."
+    },
+    "correct_answer": "A",
+    "explanation": "According to the provided context, the committee S of each organization uses ParGen among other tools to obtain specific parameters, notably sp and pp. The knowledge graph path specifically identifies that ParGen results in 'sp', which is referred to as the session parameter essential for session security.",
+    "path_description": "Path: Organization --[uses]--> ParGen --[resultIn]--> sp --[type]--> Parameter",
+    "context": "the committee S of each organization runs ParGen and KeyGen to obtain the parameters | the committee S of each organization runs ParGen and KeyGen to obtain the parameters (sp, pp) | the committee S of each organization runs ParGen and KeyGen to obtain the parameters (sp, pp)",
+    "paper_id": "1269"
+  },
+  {
+    "section": "systemdetailsofasyncsc",
+    "path": {
+      "section": "systemdetailsofasyncsc",
+      "start_entity": "DAS",
+      "end_entity": "ComputationMethod",
+      "hops": [
+        {
+          "from": "DAS",
+          "relation": "utilizes",
+          "to": "DASig",
+          "context": "The core idea of implementing DAS lies in the fact that the DASig algorithm produces a controlled delay.",
+          "chunk": "5"
+        },
+        {
+          "from": "DASig",
+          "relation": "performs",
+          "to": "SNARK",
+          "context": "The core idea of implementing DAS lies in the fact that the DASig algorithm produces a controlled delay by performing a series of sequential computations on the input for a given number of steps, such as the iterative computation of the SNARK utilized in the IVC adopted in this paper.",
+          "chunk": "5"
+        },
+        {
+          "from": "SNARK",
+          "relation": "type",
+          "to": "ComputationMethod",
+          "context": "The core idea of implementing DAS lies in the fact that the DASig algorithm produces a controlled delay by performing a series of sequential computations on the input for a given number of steps, such as the iterative computation of the SNARK utilized in the IVC adopted in this paper.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the context of the DAS implemented in the asynchronous system control (async SC), how does the DASig algorithm utilize SNARK to achieve its function?",
+    "options": {
+      "A": "DASig algorithm uses SNARK to immediately process all inputs simultaneously, reducing the overall system latency.",
+      "B": "DASig algorithm deploys SNARK to encrypt the data before any computation, ensuring data security rather than managing delays.",
+      "C": "DASig algorithm leverages SNARK to bypass the need for sequential computations, thus speeding up the process.",
+      "D": "DASig algorithm uses SNARK to perform a series of sequential computations that introduce a controlled delay in the system."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A, as the DASig algorithm utilizes the SNARK computation method to perform a series of sequential computations on the input for a given number of steps, effectively producing a controlled delay in the system as described in the knowledge path and context from the paper.",
+    "path_description": "Path: DAS --[utilizes]--> DASig --[performs]--> SNARK --[type]--> ComputationMethod",
+    "context": "The core idea of implementing DAS lies in the fact that the DASig algorithm produces a controlled delay. | The core idea of implementing DAS lies in the fact that the DASig algorithm produces a controlled delay by performing a series of sequential computations on the input for a given number of steps, such as the iterative computation of the SNARK utilized in the IVC adopted in this paper. | The core idea of implementing DAS lies in the fact that the DASig algorithm produces a controlled delay by performing a series of sequential computations on the input for a given number of steps, such as the iterative computation of the SNARK utilized in the IVC adopted in this paper.",
+    "paper_id": "1269"
+  }
+]

@@ -1,0 +1,260 @@
+[
+  {
+    "section": "computationallockingandcommunicationoverheadinsfl",
+    "path": {
+      "section": "computationallockingandcommunicationoverheadinsfl",
+      "start_entity": "FullSizeModel",
+      "end_entity": "Entity",
+      "hops": [
+        {
+          "from": "FullSizeModel",
+          "relation": "dividedInto",
+          "to": "DeviceSidePart",
+          "context": "In SFL, the full-size model Θ is divided into two parts: a device-side part, Θ[:j].",
+          "chunk": "2"
+        },
+        {
+          "from": "DeviceSidePart",
+          "relation": "trainedOn",
+          "to": "Device",
+          "context": "Θ[:j] is trained on the device, while Θ[j:] is offloaded to and trained on the server.",
+          "chunk": "2"
+        },
+        {
+          "from": "Device",
+          "relation": "type",
+          "to": "Entity",
+          "context": "In SFL, the later layers of the model trained on a device are offloaded to the server to alleviate the computation burden on devices.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the context of Split Federated Learning (SFL), why might the device-side part Θ[:j] of a full-size model primarily be trained on a device?",
+    "options": {
+      "A": "To enhance the security of the data by maintaining all computations and data storage exclusively on the device.",
+      "B": "To reduce the communication overhead and computational demands on the device by offloading more complex computations to the server.",
+      "C": "To increase the computational complexity on devices, ensuring that devices handle more data-intensive tasks for learning efficiency.",
+      "D": "To utilize the full computational power of the server, thus speeding up the overall training process of the model."
+    },
+    "correct_answer": "B",
+    "explanation": "Option A is correct because, in SFL, the division of the full-size model into a device-side part (Θ[:j]) and a server-side part (Θ[j:]) is strategically done to manage the computational load on the device. By training only part of the model on the device and offloading later layers to the server, the system reduces both the computational burden and communication overhead on the device, making the process more efficient and manageable.",
+    "path_description": "Path: FullSizeModel --[dividedInto]--> DeviceSidePart --[trainedOn]--> Device --[type]--> Entity",
+    "context": "In SFL, the full-size model Θ is divided into two parts: a device-side part, Θ[:j]. | Θ[:j] is trained on the device, while Θ[j:] is offloaded to and trained on the server. | In SFL, the later layers of the model trained on a device are offloaded to the server to alleviate the computation burden on devices.",
+    "paper_id": "2134"
+  },
+  {
+    "section": "emoedgemodeloverlays1",
+    "path": {
+      "section": "emoedgemodeloverlays1",
+      "start_entity": "ActivationReplayCache",
+      "end_entity": "Method",
+      "hops": [
+        {
+          "from": "ActivationReplayCache",
+          "relation": "decouples",
+          "to": "AFL",
+          "context": "The activation replay cache module decouples AFL from the original FL system.",
+          "chunk": "3"
+        },
+        {
+          "from": "AFL",
+          "relation": "runsParallelWith",
+          "to": "FL",
+          "context": "AFL runs parallel with the FL and trains larger models.",
+          "chunk": "3"
+        },
+        {
+          "from": "FL",
+          "relation": "type",
+          "to": "Method",
+          "context": "AFL runs parallel with the FL and trains larger models.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "What is the primary purpose of the Activation Replay Cache in the context of AFL and FL as described in the emoedgemodeloverlays1 section?",
+    "options": {
+      "A": "To synchronize the training schedules between AFL and FL for better model performance.",
+      "B": "To enable AFL to train larger models independently of the FL system's constraints.",
+      "C": "To directly enhance the predictive accuracy of FL by integrating AFL's output.",
+      "D": "To increase the computational efficiency of FL by sharing resources with AFL."
+    },
+    "correct_answer": "B",
+    "explanation": "The Activation Replay Cache decouples AFL from FL, allowing AFL to run parallel with FL and train larger models independently of FL's limitations. The other options incorrectly suggest roles like increasing computational efficiency, synchronizing training, or enhancing predictive accuracy directly, which are not supported by the given context.",
+    "path_description": "Path: ActivationReplayCache --[decouples]--> AFL --[runsParallelWith]--> FL --[type]--> Method",
+    "context": "The activation replay cache module decouples AFL from the original FL system. | AFL runs parallel with the FL and trains larger models. | AFL runs parallel with the FL and trains larger models.",
+    "paper_id": "2134"
+  },
+  {
+    "section": "evaluation1",
+    "path": {
+      "section": "evaluation1",
+      "start_entity": "EMO",
+      "end_entity": "CIFAR-10",
+      "hops": [
+        {
+          "from": "EMO",
+          "relation": "outperforms",
+          "to": "FL-Large",
+          "context": "EMO outperforms all baselines by a considerable margin.",
+          "chunk": "5"
+        },
+        {
+          "from": "FL-Large",
+          "relation": "outperforms",
+          "to": "FL-Small",
+          "context": "However, on CIFAR-100, FL-Large outperforms FL-Small by 8.71%, demonstrating the benefits of increased model size in FL training.",
+          "chunk": "5"
+        },
+        {
+          "from": "FL-Small",
+          "relation": "evaluatedOn",
+          "to": "CIFAR-10",
+          "context": "FL-Small, where a small model is trained on devices.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "Considering the model performance on CIFAR-10 as evaluated in the paper, which statement best explains the hierarchy of model effectiveness?",
+    "options": {
+      "A": "FL-Small outperforms both FL-Large and EMO, suggesting that training smaller models on devices leads to better results on CIFAR-10.",
+      "B": "FL-Large outperforms EMO, which is more effective than FL-Small, showing the importance of model complexity.",
+      "C": "EMO outperforms FL-Large, which in turn outperforms FL-Small, demonstrating advancements in model training strategies.",
+      "D": "FL-Small outperforms FL-Large and both are surpassed by EMO, indicating smaller models are more effective on CIFAR-10."
+    },
+    "correct_answer": "C",
+    "explanation": "The question requires understanding the performance hierarchy on CIFAR-10, where EMO outperforms FL-Large and FL-Large outperforms FL-Small. This sequence matches with Option A, which correctly summarizes the effectiveness of the models based on the provided knowledge graph path.",
+    "path_description": "Path: EMO --[outperforms]--> FL-Large --[outperforms]--> FL-Small --[evaluatedOn]--> CIFAR-10",
+    "context": "EMO outperforms all baselines by a considerable margin. | However, on CIFAR-100, FL-Large outperforms FL-Small by 8.71%, demonstrating the benefits of increased model size in FL training. | FL-Small, where a small model is trained on devices.",
+    "paper_id": "2134"
+  },
+  {
+    "section": "evaluation1",
+    "path": {
+      "section": "evaluation1",
+      "start_entity": "EMO",
+      "end_entity": "Dataset",
+      "hops": [
+        {
+          "from": "EMO",
+          "relation": "outperforms",
+          "to": "FL-Small",
+          "context": "EMO outperforms all baselines by a considerable margin.",
+          "chunk": "5"
+        },
+        {
+          "from": "FL-Small",
+          "relation": "evaluatedOn",
+          "to": "CIFAR-10",
+          "context": "FL-Small, where a small model is trained on devices.",
+          "chunk": "5"
+        },
+        {
+          "from": "CIFAR-10",
+          "relation": "type",
+          "to": "Dataset",
+          "context": "The training tasks are conducted on the CIFAR-10 dataset.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "Which of the following best describes the relationship and evaluation context of EMO within the research study?",
+    "options": {
+      "A": "EMO, a software tool, was used to enhance the image quality on FL-Small, particularly focusing on large datasets other than CIFAR-10.",
+      "B": "FL-Small, a large model, was trained using EMO to achieve better results on datasets unrelated to CIFAR-10.",
+      "C": "EMO, a model architecture, demonstrated superior performance over baseline models using the CIFAR-10 dataset, which is a collection of images.",
+      "D": "EMO was a dataset that was used to improve the performance of FL-Small models on non-image related tasks."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A because it correctly identifies EMO as a model architecture (implied by its performance comparison), that it outperformed baseline models, and specifies that the performance evaluation was carried out on the CIFAR-10 dataset, which aligns with the knowledge path. Choices B, C, and D introduce incorrect roles and relationships such as EMO being a software tool or a dataset, or incorrect uses of the CIFAR-10 dataset.",
+    "path_description": "Path: EMO --[outperforms]--> FL-Small --[evaluatedOn]--> CIFAR-10 --[type]--> Dataset",
+    "context": "EMO outperforms all baselines by a considerable margin. | FL-Small, where a small model is trained on devices. | The training tasks are conducted on the CIFAR-10 dataset.",
+    "paper_id": "2134"
+  },
+  {
+    "section": "evaluation1",
+    "path": {
+      "section": "evaluation1",
+      "start_entity": "EMO",
+      "end_entity": "Dataset",
+      "hops": [
+        {
+          "from": "EMO",
+          "relation": "outperforms",
+          "to": "FL-Large",
+          "context": "EMO outperforms all baselines by a considerable margin.",
+          "chunk": "5"
+        },
+        {
+          "from": "FL-Large",
+          "relation": "evaluatedOn",
+          "to": "CIFAR-100",
+          "context": "FL-Large, where a large model is fully trained on devices.",
+          "chunk": "5"
+        },
+        {
+          "from": "CIFAR-100",
+          "relation": "type",
+          "to": "Dataset",
+          "context": "The training tasks are conducted on the CIFAR-100 dataset.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "Which of the following statements accurately describes the relationship between EMO, FL-Large, and CIFAR-100 as presented in the evaluation1 section of the paper?",
+    "options": {
+      "A": "EMO, a baseline model, underperforms compared to FL-Large when evaluated on the CIFAR-100 dataset.",
+      "B": "CIFAR-100 outperforms both EMO and FL-Large in terms of dataset complexity and variety in image classification tasks.",
+      "C": "FL-Large outperforms EMO by utilizing advanced training techniques on the CIFAR-100, a well-known dataset.",
+      "D": "EMO, which outperforms all baselines, utilizes FL-Large, a model fully trained on devices, evaluated on the CIFAR-100 dataset."
+    },
+    "correct_answer": "D",
+    "explanation": "Option A is correct because it correctly captures the relationships shown in the knowledge graph path: EMO outperforms FL-Large, which is evaluated on CIFAR-100. This option accurately describes how EMO uses FL-Large, which is fully trained on devices and then evaluated using CIFAR-100. The other options either misstate the performance relationships or incorrectly describe the entities' roles and achievements.",
+    "path_description": "Path: EMO --[outperforms]--> FL-Large --[evaluatedOn]--> CIFAR-100 --[type]--> Dataset",
+    "context": "EMO outperforms all baselines by a considerable margin. | FL-Large, where a large model is fully trained on devices. | The training tasks are conducted on the CIFAR-100 dataset.",
+    "paper_id": "2134"
+  },
+  {
+    "section": "evaluation2",
+    "path": {
+      "section": "evaluation2",
+      "start_entity": "SFL",
+      "end_entity": "Model",
+      "hops": [
+        {
+          "from": "SFL",
+          "relation": "hasHigherCommunicationCostThan",
+          "to": "EMO",
+          "context": "Using CIFAR-100 and given that the MobileNet model is lightweight, SFL results in the highest communication cost at 2.44 GB.",
+          "chunk": "6"
+        },
+        {
+          "from": "EMO",
+          "relation": "outperforms",
+          "to": "SFL",
+          "context": "In contrast, EMO achieves a substantial reduction in communication overhead, lowering it to 0.34 GB, which is a 7.17× decrease compared to SFL.",
+          "chunk": "6"
+        },
+        {
+          "from": "SFL",
+          "relation": "type",
+          "to": "Model",
+          "context": "SFL introduces an additional 0.3 GB of communication overhead compared to FL-Small, totaling 0.9 GB.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the context of model types and communication costs using CIFAR-100, how does EMO compare to SFL in terms of performance and overhead?",
+    "options": {
+      "A": "EMO and SFL have the same communication costs but different model types based on performance.",
+      "B": "SFL outperforms EMO by reducing its communication cost to 0.34 GB, a 7.17× decrease from EMO.",
+      "C": "EMO outperforms SFL by significantly reducing communication costs, achieving a 7.17× decrease.",
+      "D": "EMO increases the communication overhead by approximately 0.3 GB when compared to SFL."
+    },
+    "correct_answer": "C",
+    "explanation": "EMO outperforms SFL by significantly lowering the communication cost from 2.44 GB (SFL) to 0.34 GB, which is a 7.17× decrease, as indicated in the described knowledge path and context.",
+    "path_description": "Path: SFL --[hasHigherCommunicationCostThan]--> EMO --[outperforms]--> SFL --[type]--> Model",
+    "context": "Using CIFAR-100 and given that the MobileNet model is lightweight, SFL results in the highest communication cost at 2.44 GB. | In contrast, EMO achieves a substantial reduction in communication overhead, lowering it to 0.34 GB, which is a 7.17× decrease compared to SFL. | SFL introduces an additional 0.3 GB of communication overhead compared to FL-Small, totaling 0.9 GB.",
+    "paper_id": "2134"
+  }
+]

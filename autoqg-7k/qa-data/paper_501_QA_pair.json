@@ -1,0 +1,88 @@
+[
+  {
+    "section": "introduction",
+    "path": {
+      "section": "introduction",
+      "start_entity": "AndrejBalaz",
+      "end_entity": "Publication",
+      "hops": [
+        {
+          "from": "AndrejBalaz",
+          "relation": "authorOf",
+          "to": "ThisPaper",
+          "context": "*Corresponding author $ andrejbalaz001@gmail.com (A. Baláž)",
+          "chunk": "0"
+        },
+        {
+          "from": "ThisPaper",
+          "relation": "publishedIn",
+          "to": "CEURWorkshopProceedings",
+          "context": "Proceedings CEUR Workshop Proceedings (CEUR-WS.org)",
+          "chunk": "0"
+        },
+        {
+          "from": "CEURWorkshopProceedings",
+          "relation": "type",
+          "to": "Publication",
+          "context": "Proceedings CEUR Workshop Proceedings (CEUR-WS.org)",
+          "chunk": "0"
+        }
+      ]
+    },
+    "question": "Which publication type does the paper authored by Andrej Balaz, primarily identified through the email andrejbalaz001@gmail.com, belong to?",
+    "options": {
+      "A": "The paper belongs to a peer-reviewed journal recognized globally for stringent review processes.",
+      "B": "The paper is categorized under commercial magazines focusing on current news and technology trends.",
+      "C": "It is an internal company report aiming to document project progress and is not publicly accessible.",
+      "D": "The paper is part of an online repository that includes academic and professional proceedings."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is B because the paper authored by Andrej Balaz is published in CEUR Workshop Proceedings, which is an online repository hosting academic and professional proceedings, as mentioned in the context.",
+    "path_description": "Path: AndrejBalaz --[authorOf]--> ThisPaper --[publishedIn]--> CEURWorkshopProceedings --[type]--> Publication",
+    "context": "*Corresponding author $ andrejbalaz001@gmail.com (A. Baláž) | Proceedings CEUR Workshop Proceedings (CEUR-WS.org) | Proceedings CEUR Workshop Proceedings (CEUR-WS.org)",
+    "paper_id": "363"
+  },
+  {
+    "section": "suffixarrayconstruction1",
+    "path": {
+      "section": "suffixarrayconstruction1",
+      "start_entity": "SuffixTable",
+      "end_entity": "DataStructure",
+      "hops": [
+        {
+          "from": "SuffixTable",
+          "relation": "stores",
+          "to": "LCPArray",
+          "context": "The resulting suffix array, LCP array, segment ID array and segment positions array are stored in a suffix table as shown in Table 1.",
+          "chunk": "2"
+        },
+        {
+          "from": "LCPArray",
+          "relation": "calculatedFrom",
+          "to": "SegmentJoin",
+          "context": "Next, we calculate the segment join’s suffix array and the longest common prefix (LCP) array.",
+          "chunk": "2"
+        },
+        {
+          "from": "SegmentJoin",
+          "relation": "type",
+          "to": "DataStructure",
+          "context": "First, we concatenate all the segments into a single string using a separator # and append a sentinel $.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the context of constructing suffix arrays as described in the 'suffixarrayconstruction1' section, which data structure facilitates the calculation of the LCP array from segment joins?",
+    "options": {
+      "A": "A concatenated string of all segments using a separator # and a sentinel $, stored as a single data structure.",
+      "B": "A specialized graph structure that directly connects each segment's suffix array to its corresponding LCP array.",
+      "C": "The suffix table, which includes the LCP array and segment ID array, uses separators to distinguish segments.",
+      "D": "A complex tree structure that organizes segments and their joins before computing the LCP array."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is C. The knowledge path indicates that the LCP array is calculated from the segment join, which is facilitated by concatenating all segments into a single string using a separator '#' and appending a sentinel '$'. This concatenated string acts as the data structure needed to calculate the LCP array, which is then stored in the suffix table along with other arrays.",
+    "path_description": "Path: SuffixTable --[stores]--> LCPArray --[calculatedFrom]--> SegmentJoin --[type]--> DataStructure",
+    "context": "The resulting suffix array, LCP array, segment ID array and segment positions array are stored in a suffix table as shown in Table 1. | Next, we calculate the segment join’s suffix array and the longest common prefix (LCP) array. | First, we concatenate all the segments into a single string using a separator # and append a sentinel $.",
+    "paper_id": "363"
+  }
+]

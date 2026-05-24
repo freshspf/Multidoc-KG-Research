@@ -1,0 +1,88 @@
+[
+  {
+    "section": "empiricalstudyofremediationinoss4",
+    "path": {
+      "section": "empiricalstudyofremediationinoss4",
+      "start_entity": "KLOC",
+      "end_entity": "Language",
+      "hops": [
+        {
+          "from": "KLOC",
+          "relation": "hasCorrelationWith",
+          "to": "Commit",
+          "context": "Correlation of Quartiles Across Various Fact Scale Complexity Quartile KLOC #Commit",
+          "chunk": "8"
+        },
+        {
+          "from": "Commit",
+          "relation": "hasCorrelationWith",
+          "to": "Contributor",
+          "context": "Correlation of Quartiles Across Various Fact Scale Complexity Quartile #Commit #Contributor",
+          "chunk": "8"
+        },
+        {
+          "from": "Contributor",
+          "relation": "hasCorrelationWith",
+          "to": "Language",
+          "context": "Correlation of Quartiles Across Various Fact Scale Complexity Quartile #Contributor #Langua",
+          "chunk": "8"
+        }
+      ]
+    },
+    "question": "In an empirical study of remediation in open source software, which factor is most likely to exhibit a direct correlation with the programming language used in terms of complexity quartiles?",
+    "options": {
+      "A": "The number of user downloads, since popular projects often use more common languages.",
+      "B": "The number of bugs reported, as it often reflects the inherent complexity of the software.",
+      "C": "The number of commits, as it is correlated with both KLOC and the number of contributors.",
+      "D": "The size of the software measured in lines of code (KLOC), as it directly determines the number of commits."
+    },
+    "correct_answer": "C",
+    "explanation": "The question requires understanding the correlation path from KLOC to programming language through commits and contributors. KLOC correlates with commits, commits correlate with contributors, and contributors correlate with the programming language, making the number of commits the most directly correlated factor with language when considering the complexity quartiles.",
+    "path_description": "Path: KLOC --[hasCorrelationWith]--> Commit --[hasCorrelationWith]--> Contributor --[hasCorrelationWith]--> Language",
+    "context": "Correlation of Quartiles Across Various Fact Scale Complexity Quartile KLOC #Commit | Correlation of Quartiles Across Various Fact Scale Complexity Quartile #Commit #Contributor | Correlation of Quartiles Across Various Fact Scale Complexity Quartile #Contributor #Langua",
+    "paper_id": "431"
+  },
+  {
+    "section": "empiricalstudyofremediationinoss9",
+    "path": {
+      "section": "empiricalstudyofremediationinoss9",
+      "start_entity": "ReviewPeriod",
+      "end_entity": "Measurement",
+      "hops": [
+        {
+          "from": "ReviewPeriod",
+          "relation": "demandedBy",
+          "to": "Maintainers",
+          "context": "maintainers typically demand longer review periods.",
+          "chunk": "13"
+        },
+        {
+          "from": "Maintainers",
+          "relation": "measureBy",
+          "to": "ContributorsNumber",
+          "context": "measured by the number of maintainers",
+          "chunk": "13"
+        },
+        {
+          "from": "ContributorsNumber",
+          "relation": "type",
+          "to": "Measurement",
+          "context": "illustrates the number of contributors engaged in each",
+          "chunk": "13"
+        }
+      ]
+    },
+    "question": "In the context of OSS remediation, how is the relationship between the length of the review period and the number of contributors indirectly quantified?",
+    "options": {
+      "A": "Through the duration of project completion times as affected by the number of contributors.",
+      "B": "By assessing the impact of contributor feedback on the duration of review periods requested by maintainers.",
+      "C": "By directly comparing the length of the review period with the overall performance of the software project.",
+      "D": "Through the number of maintainers who demand longer review periods, which correlates to the number of active contributors."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A because the question requires understanding that maintainers demand longer review periods (first hop), the number of these maintainers is measured (second hop), and this measurement illustrates the number of contributors engaged in each (third hop). Thus, the indirect quantification is through the count of maintainers which correlates to the number of contributors.",
+    "path_description": "Path: ReviewPeriod --[demandedBy]--> Maintainers --[measureBy]--> ContributorsNumber --[type]--> Measurement",
+    "context": "maintainers typically demand longer review periods. | measured by the number of maintainers | illustrates the number of contributors engaged in each",
+    "paper_id": "431"
+  }
+]

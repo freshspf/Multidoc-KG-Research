@@ -1,0 +1,346 @@
+[
+  {
+    "section": "protocol2",
+    "path": {
+      "section": "protocol2",
+      "start_entity": "MerkleTree",
+      "end_entity": "OnChainContractSetup",
+      "hops": [
+        {
+          "from": "MerkleTree",
+          "relation": "hasRoot",
+          "to": "RT",
+          "context": "its root 𝑅𝑇 is signed by TA.",
+          "chunk": "6"
+        },
+        {
+          "from": "RT",
+          "relation": "signedBy",
+          "to": "TA",
+          "context": "its root 𝑅𝑇 is signed by TA.",
+          "chunk": "6"
+        },
+        {
+          "from": "TA",
+          "relation": "executes",
+          "to": "OnChainContractSetup",
+          "context": "Following these steps, the trusted authority proceeds with the on-chain contract setup, executing a series of initializations.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the protocol described in section 'protocol2', what is the function of the trusted authority (TA) after signing the root RT of the Merkle Tree?",
+    "options": {
+      "A": "The trusted authority (TA) directly updates the Merkle Tree with new data entries after signing the root RT.",
+      "B": "The trusted authority (TA) verifies the integrity of the on-chain transactions subsequent to signing the root RT.",
+      "C": "The trusted authority (TA) executes the on-chain contract setup by initializing various contract parameters.",
+      "D": "The trusted authority (TA) delegates the responsibility of executing the on-chain contract setup to a secondary entity."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A because, following the signing of the root RT of the Merkle Tree by the trusted authority (TA), the TA executes the on-chain contract setup which involves initializing various parameters of the contract, as stated in the context from the paper. Options B, C, and D, while plausible, do not directly follow from the information provided in the paper's protocol description.",
+    "path_description": "Path: MerkleTree --[hasRoot]--> RT --[signedBy]--> TA --[executes]--> OnChainContractSetup",
+    "context": "its root 𝑅𝑇 is signed by TA. | its root 𝑅𝑇 is signed by TA. | Following these steps, the trusted authority proceeds with the on-chain contract setup, executing a series of initializations.",
+    "paper_id": "1345"
+  },
+  {
+    "section": "introduction2",
+    "path": {
+      "section": "introduction2",
+      "start_entity": "Delegate",
+      "end_entity": "Entity",
+      "hops": [
+        {
+          "from": "Delegate",
+          "relation": "castsVote",
+          "to": "Voting",
+          "context": "Voting: called by a delegate wishing to cast a vote.",
+          "chunk": "2"
+        },
+        {
+          "from": "Voting",
+          "relation": "returns",
+          "to": "EncryptedTally",
+          "context": "Upon execution, the on-chain function returns updated election parameters, which include an updated encrypted tally.",
+          "chunk": "2"
+        },
+        {
+          "from": "EncryptedTally",
+          "relation": "type",
+          "to": "Entity",
+          "context": "Upon execution, the on-chain function returns updated election parameters, which include an updated encrypted tally.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In a blockchain-based voting system, what type of entity is primarily updated when a delegate casts a vote using an on-chain function?",
+    "options": {
+      "A": "The entity updated is a smart contract that automatically adjusts to reflect voter preferences.",
+      "B": "The entity updated is a digital ledger that records the transaction details of the vote.",
+      "C": "The entity updated is an encrypted tally that reflects the new vote cast by the delegate.",
+      "D": "The entity updated is a decentralized application managing the voting process."
+    },
+    "correct_answer": "C",
+    "explanation": "Upon a delegate casting a vote, the on-chain function updates election parameters, including an encrypted tally, which reflects the new vote. Thus, the primary entity updated is an encrypted tally.",
+    "path_description": "Path: Delegate --[castsVote]--> Voting --[returns]--> EncryptedTally --[type]--> Entity",
+    "context": "Voting: called by a delegate wishing to cast a vote. | Upon execution, the on-chain function returns updated election parameters, which include an updated encrypted tally. | Upon execution, the on-chain function returns updated election parameters, which include an updated encrypted tally.",
+    "paper_id": "1345"
+  },
+  {
+    "section": "abstract",
+    "path": {
+      "section": "abstract",
+      "start_entity": "Kite",
+      "end_entity": "Blockchain",
+      "hops": [
+        {
+          "from": "Kite",
+          "relation": "implementedAsExtensionTo",
+          "to": "GovernorBravo",
+          "context": "We implement Kite as an extension to the existing Governor Bravo smart contract on the Ethereum blockchain.",
+          "chunk": "0"
+        },
+        {
+          "from": "GovernorBravo",
+          "relation": "locatedOn",
+          "to": "EthereumBlockchain",
+          "context": "We implement Kite as an extension to the existing Governor Bravo smart contract on the Ethereum blockchain.",
+          "chunk": "0"
+        },
+        {
+          "from": "EthereumBlockchain",
+          "relation": "type",
+          "to": "Blockchain",
+          "context": "We implement Kite as an extension to the existing Governor Bravo smart contract on the Ethereum blockchain.",
+          "chunk": "0"
+        }
+      ]
+    },
+    "question": "Which of the following best describes the relationship and sequence of technologies used in the implementation of the Kite smart contract?",
+    "options": {
+      "A": "Kite is a standalone blockchain that uses Governor Bravo for transaction validations on the Ethereum platform.",
+      "B": "Governor Bravo is an extension of Kite, and it functions on a blockchain technology that is not Ethereum.",
+      "C": "Kite operates independently but utilizes the Ethereum blockchain through the Governor Bravo smart contract, a separate blockchain.",
+      "D": "Kite is an extension of the Governor Bravo smart contract, which operates on the Ethereum blockchain, a type of blockchain technology."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A. The question requires understanding the relationship and implementation sequence from the knowledge graph path. Kite is implemented as an extension to the Governor Bravo smart contract, which is located on the Ethereum blockchain, categorized under the general type of blockchain technology.",
+    "path_description": "Path: Kite --[implementedAsExtensionTo]--> GovernorBravo --[locatedOn]--> EthereumBlockchain --[type]--> Blockchain",
+    "context": "We implement Kite as an extension to the existing Governor Bravo smart contract on the Ethereum blockchain. | We implement Kite as an extension to the existing Governor Bravo smart contract on the Ethereum blockchain. | We implement Kite as an extension to the existing Governor Bravo smart contract on the Ethereum blockchain.",
+    "paper_id": "1345"
+  },
+  {
+    "section": "protocol2",
+    "path": {
+      "section": "protocol2",
+      "start_entity": "MerkleTree",
+      "end_entity": "MerkleTreeRoot",
+      "hops": [
+        {
+          "from": "MerkleTree",
+          "relation": "hasRoot",
+          "to": "RT",
+          "context": "its root 𝑅𝑇 is signed by TA.",
+          "chunk": "6"
+        },
+        {
+          "from": "RT",
+          "relation": "signedBy",
+          "to": "TA",
+          "context": "its root 𝑅𝑇 is signed by TA.",
+          "chunk": "6"
+        },
+        {
+          "from": "TA",
+          "relation": "updates",
+          "to": "MerkleTreeRoot",
+          "context": "TA is also tasked with updating the Merkle tree root in response to any changes in the token list.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the protocol described, what is the primary role of the TA in relation to the MerkleTree after its root RT has been signed?",
+    "options": {
+      "A": "TA monitors and logs access to the MerkleTree to ensure compliance with data access policies.",
+      "B": "TA handles the cryptographic hashing of new entries added to the MerkleTree to maintain data integrity.",
+      "C": "TA is responsible for updating the MerkleTree root to reflect changes in the underlying data structure.",
+      "D": "TA is primarily tasked with redistributing the tokens listed in the MerkleTree to appropriate stakeholders."
+    },
+    "correct_answer": "C",
+    "explanation": "The TA, after signing the root RT of the MerkleTree, is responsible for updating the MerkleTree root as necessary to reflect any changes in the token list, as per the information provided in the paper's context. Options B, C, and D are plausible but incorrect as they describe roles not specified for the TA in relation to the MerkleTree.",
+    "path_description": "Path: MerkleTree --[hasRoot]--> RT --[signedBy]--> TA --[updates]--> MerkleTreeRoot",
+    "context": "its root 𝑅𝑇 is signed by TA. | its root 𝑅𝑇 is signed by TA. | TA is also tasked with updating the Merkle tree root in response to any changes in the token list.",
+    "paper_id": "1345"
+  },
+  {
+    "section": "security2",
+    "path": {
+      "section": "security2",
+      "start_entity": "undelegate",
+      "end_entity": "SetOfParties",
+      "hops": [
+        {
+          "from": "undelegate",
+          "relation": "triggeredBy",
+          "to": "Party",
+          "context": "6: – Upon receiving (undelegate) from 𝑝𝑖, set 𝑑𝑖 := 𝑖. Send (undelegate, 𝑝𝑖) to all participants.",
+          "chunk": "11"
+        },
+        {
+          "from": "Party",
+          "relation": "partOf",
+          "to": "P",
+          "context": "For every party 𝑝𝑖 ∈ P, |P| = 𝑛, the functionality maintains a bit reg𝑖 ∈ {0, 1}, integers 𝑑𝑖 ∈ [𝑛] and 𝑡𝑖 ∈ [𝐵].",
+          "chunk": "11"
+        },
+        {
+          "from": "P",
+          "relation": "type",
+          "to": "SetOfParties",
+          "context": "For every party 𝑝𝑖 ∈ P, |P| = 𝑛, the functionality maintains a bit reg𝑖 ∈ {0, 1}, integers 𝑑𝑖 ∈ [𝑛] and 𝑡𝑖 ∈ [𝐵].",
+          "chunk": "11"
+        }
+      ]
+    },
+    "question": "In the security protocol described, when a party 𝑝𝑖 sends an 'undelegate' instruction, what is the immediate consequence for the set of parties P?",
+    "options": {
+      "A": "The functionality recalculates the total number of parties, |P|, adjusting for any changes.",
+      "B": "The instruction 'undelegate' triggers a notification to all parties in the set P to update their status.",
+      "C": "Each party within the set P immediately updates their integer 𝑑𝑖 to reflect their position within the set.",
+      "D": "Every party 𝑝𝑖 in the set P has their bit reg𝑖 toggled from 0 to 1 or from 1 to 0."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is B. According to the provided path and context, upon receiving the 'undelegate' command from party 𝑝𝑖, the integer 𝑑𝑖 for each party is set to the index 𝑖 of the party that issued the command. This reflects their position within the set P. Thus, the immediate consequence is that each party updates their integer 𝑑𝑖. Options A, C, and D, although plausible, do not correctly reflect the specific action that occurs upon the 'undelegate' command as described in the context.",
+    "path_description": "Path: undelegate --[triggeredBy]--> Party --[partOf]--> P --[type]--> SetOfParties",
+    "context": "6: – Upon receiving (undelegate) from 𝑝𝑖, set 𝑑𝑖 := 𝑖. Send (undelegate, 𝑝𝑖) to all participants. | For every party 𝑝𝑖 ∈ P, |P| = 𝑛, the functionality maintains a bit reg𝑖 ∈ {0, 1}, integers 𝑑𝑖 ∈ [𝑛] and 𝑡𝑖 ∈ [𝐵]. | For every party 𝑝𝑖 ∈ P, |P| = 𝑛, the functionality maintains a bit reg𝑖 ∈ {0, 1}, integers 𝑑𝑖 ∈ [𝑛] and 𝑡𝑖 ∈ [𝐵].",
+    "paper_id": "1345"
+  },
+  {
+    "section": "security2",
+    "path": {
+      "section": "security2",
+      "start_entity": "delegate",
+      "end_entity": "SetOfParties",
+      "hops": [
+        {
+          "from": "delegate",
+          "relation": "triggeredBy",
+          "to": "Party",
+          "context": "5: – Upon receiving (delegate, 𝑝𝑗) from 𝑝𝑖, check whether reg𝑖 = 0. In this case, set 𝑑𝑖 := 𝑗. Send (delegate, 𝑝𝑖) to all participants.",
+          "chunk": "11"
+        },
+        {
+          "from": "Party",
+          "relation": "partOf",
+          "to": "P",
+          "context": "For every party 𝑝𝑖 ∈ P, |P| = 𝑛, the functionality maintains a bit reg𝑖 ∈ {0, 1}, integers 𝑑𝑖 ∈ [𝑛] and 𝑡𝑖 ∈ [𝐵].",
+          "chunk": "11"
+        },
+        {
+          "from": "P",
+          "relation": "type",
+          "to": "SetOfParties",
+          "context": "For every party 𝑝𝑖 ∈ P, |P| = 𝑛, the functionality maintains a bit reg𝑖 ∈ {0, 1}, integers 𝑑𝑖 ∈ [𝑛] and 𝑡𝑖 ∈ [𝐵].",
+          "chunk": "11"
+        }
+      ]
+    },
+    "question": "In the context of the described protocol, when a party 𝑝𝑖 delegates to another party 𝑝𝑗, what must be true for 𝑝𝑖 to trigger this delegation effectively?",
+    "options": {
+      "A": "The party 𝑝𝑖 must ensure that the total number of parties |P| is less than the maximum index 𝑛 to delegate to 𝑝𝑗.",
+      "B": "The party 𝑝𝑖 must have its registration bit reg𝑖 set to 1, indicating it is active in the delegation process.",
+      "C": "The party 𝑝𝑖 must have its registration bit reg𝑖 set to 0 to initiate delegation to 𝑝𝑗.",
+      "D": "The party 𝑝𝑖 must have its delegation index 𝑑𝑖 set to the index of 𝑝𝑗 prior to sending any delegation messages."
+    },
+    "correct_answer": "C",
+    "explanation": "According to the protocol described in the paper's 'security2' section, a party 𝑝𝑖 can only initiate delegation to another party 𝑝𝑗 if its registration bit reg𝑖 is set to 0. This condition ensures that only suitably registered parties can delegate, which is a crucial security measure in the protocol.",
+    "path_description": "Path: delegate --[triggeredBy]--> Party --[partOf]--> P --[type]--> SetOfParties",
+    "context": "5: – Upon receiving (delegate, 𝑝𝑗) from 𝑝𝑖, check whether reg𝑖 = 0. In this case, set 𝑑𝑖 := 𝑗. Send (delegate, 𝑝𝑖) to all participants. | For every party 𝑝𝑖 ∈ P, |P| = 𝑛, the functionality maintains a bit reg𝑖 ∈ {0, 1}, integers 𝑑𝑖 ∈ [𝑛] and 𝑡𝑖 ∈ [𝐵]. | For every party 𝑝𝑖 ∈ P, |P| = 𝑛, the functionality maintains a bit reg𝑖 ∈ {0, 1}, integers 𝑑𝑖 ∈ [𝑛] and 𝑡𝑖 ∈ [𝐵].",
+    "paper_id": "1345"
+  },
+  {
+    "section": "security3",
+    "path": {
+      "section": "security3",
+      "start_entity": "Experiment3",
+      "end_entity": "Z",
+      "hops": [
+        {
+          "from": "Experiment3",
+          "relation": "sameAs",
+          "to": "Experiment2",
+          "context": "Experiment 3. Is the same as Experiment 2, except the following change in Delegation – instead of generating 𝒄𝒕 as described in Alg. 4, set 𝒄𝒕 = Enc(Epk, 0; 𝒓), where 𝒓 is drawn randomly.",
+          "chunk": "12"
+        },
+        {
+          "from": "Experiment2",
+          "relation": "sameAs",
+          "to": "Experiment1",
+          "context": "Experiment 2. Experiment 2 is the same as Experiment 1, except the following change in Delegation – the proof 𝜋 is generated by S.",
+          "chunk": "12"
+        },
+        {
+          "from": "Experiment1",
+          "relation": "indistinguishableTo",
+          "to": "Z",
+          "context": "To show that, assume the opposite, so the Experiment 0 and Experiment 1 are not indistinguishable to Z.",
+          "chunk": "12"
+        }
+      ]
+    },
+    "question": "In the context of cryptographic protocol experiments described, how does the variation in Experiment 3 affect the system's indistinguishability to adversary Z compared to Experiment 1?",
+    "options": {
+      "A": "Experiment 3 merely replicates the conditions of Experiment 1, thus maintaining the same level of indistinguishability to adversary Z.",
+      "B": "By having S generate the proof 𝜋, Experiment 3 decreases the system's indistinguishability to Z compared to Experiment 1.",
+      "C": "Experiment 3's use of a fixed encryption method rather than a random selection reduces its indistinguishability to Z compared to Experiment 1.",
+      "D": "Experiment 3 introduces a random element in the delegation process, enhancing indistinguishability to Z compared to Experiment 1."
+    },
+    "correct_answer": "D",
+    "explanation": "Experiment 3 is described as using a random 𝒓 in its encryption process, differing from Experiment 1 which does not specify this randomization. This added randomness can enhance the indistinguishability from the perspective of an adversary Z by introducing additional unpredictability into the encrypted output, making it harder for Z to distinguish between different experiments based on the encrypted outputs.",
+    "path_description": "Path: Experiment3 --[sameAs]--> Experiment2 --[sameAs]--> Experiment1 --[indistinguishableTo]--> Z",
+    "context": "Experiment 3. Is the same as Experiment 2, except the following change in Delegation – instead of generating 𝒄𝒕 as described in Alg. 4, set 𝒄𝒕 = Enc(Epk, 0; 𝒓), where 𝒓 is drawn randomly. | Experiment 2. Experiment 2 is the same as Experiment 1, except the following change in Delegation – the proof 𝜋 is generated by S. | To show that, assume the opposite, so the Experiment 0 and Experiment 1 are not indistinguishable to Z.",
+    "paper_id": "1345"
+  },
+  {
+    "section": "implementation1",
+    "path": {
+      "section": "implementation1",
+      "start_entity": "OpenZeppelinERC20",
+      "end_entity": "SoftwareComponent",
+      "hops": [
+        {
+          "from": "OpenZeppelinERC20",
+          "relation": "extendedBy",
+          "to": "Kite",
+          "context": "Our on-chain Solidity implementation builds on the Open Zeppelin ERC20 and Compound Governor Bravo contracts.",
+          "chunk": "13"
+        },
+        {
+          "from": "Kite",
+          "relation": "includes",
+          "to": "ZeroKnowledgeCircuits",
+          "context": "Our implementation includes zero-knowledge circuits written in Noir (911 lines).",
+          "chunk": "13"
+        },
+        {
+          "from": "ZeroKnowledgeCircuits",
+          "relation": "type",
+          "to": "SoftwareComponent",
+          "context": "Our implementation includes zero-knowledge circuits written in Noir (911 lines).",
+          "chunk": "13"
+        }
+      ]
+    },
+    "question": "In the development of the cryptocurrency platform described in the 'implementation1' section, how does the Kite framework enhance the OpenZeppelin ERC20 base?",
+    "options": {
+      "A": "Kite builds upon OpenZeppelin ERC20 by adding support for Compound Governor Bravo for improved governance capabilities.",
+      "B": "Kite utilizes OpenZeppelin ERC20's basic structure to introduce a new token standard that supports multi-chain operations.",
+      "C": "Kite extends OpenZeppelin ERC20 by incorporating Zero Knowledge Circuits as a software component to enhance transaction privacy.",
+      "D": "Kite replaces the OpenZeppelin ERC20 with a more efficient algorithm to speed up transaction processing on the blockchain."
+    },
+    "correct_answer": "C",
+    "explanation": "The Kite framework extends the OpenZeppelin ERC20 by including Zero Knowledge Circuits, categorized as a Software Component. This addition is aimed at enhancing transaction privacy, a critical factor in many blockchain applications.",
+    "path_description": "Path: OpenZeppelinERC20 --[extendedBy]--> Kite --[includes]--> ZeroKnowledgeCircuits --[type]--> SoftwareComponent",
+    "context": "Our on-chain Solidity implementation builds on the Open Zeppelin ERC20 and Compound Governor Bravo contracts. | Our implementation includes zero-knowledge circuits written in Noir (911 lines). | Our implementation includes zero-knowledge circuits written in Noir (911 lines).",
+    "paper_id": "1345"
+  }
+]

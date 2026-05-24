@@ -1,0 +1,174 @@
+[
+  {
+    "section": "quantifyingeffortofaibasedattacks",
+    "path": {
+      "section": "quantifyingeffortofaibasedattacks",
+      "start_entity": "GraphOfEffort",
+      "end_entity": "Interface",
+      "hops": [
+        {
+          "from": "GraphOfEffort",
+          "relation": "measures",
+          "to": "AIUsage",
+          "context": "Each node describes an advanced level of effort for AI usage the attacker has to muster from top to bottom.",
+          "chunk": "3"
+        },
+        {
+          "from": "AIUsage",
+          "relation": "enabledBy",
+          "to": "GraphicalUserInterface",
+          "context": "The primary assumption is that the simplest way to utilize AI is through ready-to-use systems equipped with a well-designed Graphical User Interface (GUI).",
+          "chunk": "3"
+        },
+        {
+          "from": "GraphicalUserInterface",
+          "relation": "type",
+          "to": "Interface",
+          "context": "The primary assumption is that the simplest way to utilize AI is through ready-to-use systems equipped with a well-designed Graphical User Interface (GUI).",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the context of quantifying the effort of AI-based attacks, which component most directly enables the simplest utilization of AI according to the knowledge graph path?",
+    "options": {
+      "A": "The data storage systems that allow for the accumulation of large datasets necessary for AI training",
+      "B": "The processing power required to perform large-scale data analysis using AI",
+      "C": "Graphical User Interfaces as they provide accessible interaction points for complex systems",
+      "D": "Advanced algorithms that drive the underlying decision-making processes in AI"
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A, as the knowledge graph path and the paper both highlight that the simplest way to utilize AI is through systems equipped with a well-designed Graphical User Interface (GUI). This interface directly enables the use of AI by providing a user-friendly means to interact with AI systems. Options B, C, and D, while related to AI usage, do not directly relate to the 'simplest' utilization based on the GUI as indicated in the path.",
+    "path_description": "Path: GraphOfEffort --[measures]--> AIUsage --[enabledBy]--> GraphicalUserInterface --[type]--> Interface",
+    "context": "Each node describes an advanced level of effort for AI usage the attacker has to muster from top to bottom. | The primary assumption is that the simplest way to utilize AI is through ready-to-use systems equipped with a well-designed Graphical User Interface (GUI). | The primary assumption is that the simplest way to utilize AI is through ready-to-use systems equipped with a well-designed Graphical User Interface (GUI).",
+    "paper_id": "297"
+  },
+  {
+    "section": "examplescoringcve202511562",
+    "path": {
+      "section": "examplescoringcve202511562",
+      "start_entity": "GOESubVector",
+      "end_entity": "AttackType",
+      "hops": [
+        {
+          "from": "GOESubVector",
+          "relation": "calculatedFor",
+          "to": "AIModels",
+          "context": "our recommendation is to calculate the GOE sub-vector for each AI model",
+          "chunk": "5"
+        },
+        {
+          "from": "AIModels",
+          "relation": "canBeUsedFor",
+          "to": "SQLInjections",
+          "context": "One might thus argue that multiple AI models could be used in this step",
+          "chunk": "5"
+        },
+        {
+          "from": "SQLInjections",
+          "relation": "type",
+          "to": "AttackType",
+          "context": "such as SQL injections",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "How can the calculation of the GOE sub-vector for AI models contribute to cybersecurity?",
+    "options": {
+      "A": "It can be used to evaluate AI models' effectiveness in preventing SQL injection attacks, a specific type of attack.",
+      "B": "It can predict the potential for AI models to generate false positives in malware detection systems.",
+      "C": "It helps in determining the amount of data required for training AI models effectively for network security.",
+      "D": "It assists in analyzing the cost-efficiency of AI models in large-scale cybersecurity applications."
+    },
+    "correct_answer": "A",
+    "explanation": "The GOE sub-vector calculated for AI models is used to determine their effectiveness against specific types of attacks like SQL injections. This directly contributes to enhancing cybersecurity measures against such attacks.",
+    "path_description": "Path: GOESubVector --[calculatedFor]--> AIModels --[canBeUsedFor]--> SQLInjections --[type]--> AttackType",
+    "context": "our recommendation is to calculate the GOE sub-vector for each AI model | One might thus argue that multiple AI models could be used in this step | such as SQL injections",
+    "paper_id": "297"
+  },
+  {
+    "section": "examplescoringcve202430384",
+    "path": {
+      "section": "examplescoringcve202430384",
+      "start_entity": "CVE-2024-30384",
+      "end_entity": "PFEcrash",
+      "hops": [
+        {
+          "from": "CVE-2024-30384",
+          "relation": "causes",
+          "to": "DoS",
+          "context": "allows a locally authenticated attacker with low privileges to cause a Denial-of-Service (DoS).",
+          "chunk": "6"
+        },
+        {
+          "from": "DoS",
+          "relation": "resultIn",
+          "to": "TrafficInterruption",
+          "context": "This will cause traffic forwarding to be interrupted until the system self-recovers.",
+          "chunk": "6"
+        },
+        {
+          "from": "TrafficInterruption",
+          "relation": "causedBy",
+          "to": "PFEcrash",
+          "context": "If a specific CLI command is issued, a PFE crash will occur.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "What is the sequence of events that leads to traffic interruption as described in CVE-2024-30384?",
+    "options": {
+      "A": "An external attacker initiates a network flood, resulting in a DoS and subsequent traffic interruption due to PFE crash.",
+      "B": "A locally authenticated attacker with low privileges causes a DoS, leading to a PFE crash and traffic interruption.",
+      "C": "An attacker exploits a vulnerability in the CLI command, causing a DoS that interrupts traffic by crashing the PFE.",
+      "D": "A system administrator mistakenly issues a specific CLI command, causing a DoS and traffic interruption due to a PFE crash."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct series of events starts with a locally authenticated attacker causing a Denial-of-Service (DoS), which results in a Packet Forwarding Engine (PFE) crash and subsequent traffic interruption. The other options incorrectly describe the source of the attack or the sequence of events.",
+    "path_description": "Path: CVE-2024-30384 --[causes]--> DoS --[resultIn]--> TrafficInterruption --[causedBy]--> PFEcrash",
+    "context": "allows a locally authenticated attacker with low privileges to cause a Denial-of-Service (DoS). | This will cause traffic forwarding to be interrupted until the system self-recovers. | If a specific CLI command is issued, a PFE crash will occur.",
+    "paper_id": "297"
+  },
+  {
+    "section": "examplescoringcve202430384",
+    "path": {
+      "section": "examplescoringcve202430384",
+      "start_entity": "DoS",
+      "end_entity": "SpecificCLICommand",
+      "hops": [
+        {
+          "from": "DoS",
+          "relation": "resultIn",
+          "to": "TrafficInterruption",
+          "context": "This will cause traffic forwarding to be interrupted until the system self-recovers.",
+          "chunk": "6"
+        },
+        {
+          "from": "TrafficInterruption",
+          "relation": "causedBy",
+          "to": "PFEcrash",
+          "context": "If a specific CLI command is issued, a PFE crash will occur.",
+          "chunk": "6"
+        },
+        {
+          "from": "PFEcrash",
+          "relation": "triggeredBy",
+          "to": "SpecificCLICommand",
+          "context": "If a specific CLI command is issued, a PFE crash will occur.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "What is the most likely immediate consequence of issuing a specific CLI command according to the sequence described in the knowledge path?",
+    "options": {
+      "A": "It activates additional security protocols to mitigate any potential threats.",
+      "B": "It results in a denial of service (DoS) attack due to the subsequent traffic interruption.",
+      "C": "It directly causes an increase in network bandwidth usage by overwhelming the system.",
+      "D": "It triggers an automatic system shutdown to prevent further damage to the network."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A because the knowledge path indicates that issuing a specific CLI command triggers a PFE crash, which then causes traffic interruption, ultimately resulting in a DoS scenario. Options B, C, and D, while plausible concerns in network operations, do not follow the specific causality outlined in the path.",
+    "path_description": "Path: DoS --[resultIn]--> TrafficInterruption --[causedBy]--> PFEcrash --[triggeredBy]--> SpecificCLICommand",
+    "context": "This will cause traffic forwarding to be interrupted until the system self-recovers. | If a specific CLI command is issued, a PFE crash will occur. | If a specific CLI command is issued, a PFE crash will occur.",
+    "paper_id": "297"
+  }
+]

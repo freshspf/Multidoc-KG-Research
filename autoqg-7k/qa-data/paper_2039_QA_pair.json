@@ -1,0 +1,88 @@
+[
+  {
+    "section": "relatedwork4",
+    "path": {
+      "section": "relatedwork4",
+      "start_entity": "ZhongkaiXue",
+      "end_entity": "Author",
+      "hops": [
+        {
+          "from": "ZhongkaiXue",
+          "relation": "coauthoredWith",
+          "to": "YiyangZhou",
+          "context": "Haibo Tong, Zhaoyang Wang, Zhaorun Chen, Zhongkai Xue, Yiyang Zhou, Peng Xia, et al.",
+          "chunk": "11"
+        },
+        {
+          "from": "YiyangZhou",
+          "relation": "coauthoredWith",
+          "to": "PengXia",
+          "context": "Haibo Tong, Zhaoyang Wang, Zhaorun Chen, Zhongkai Xue, Yiyang Zhou, Peng Xia, et al.",
+          "chunk": "11"
+        },
+        {
+          "from": "PengXia",
+          "relation": "type",
+          "to": "Author",
+          "context": "Haibo Tong, Zhaoyang Wang, Zhaorun Chen, Zhongkai Xue, Yiyang Zhou, Peng Xia, et al.",
+          "chunk": "11"
+        }
+      ]
+    },
+    "question": "Which author, in a collaboration chain starting with Zhongkai Xue, is directly connected to an individual who coauthored with Peng Xia, who is categorized as an author?",
+    "options": {
+      "A": "Zhaorun Chen, who directly collaborated with Yiyang Zhou, bypassing Zhongkai Xue's connection to Peng Xia.",
+      "B": "Haibo Tong, who only worked with Zhaoyang Wang and Zhaorun Chen, unrelated to this chain.",
+      "C": "Peng Xia, who collaborated with Yiyang Zhou following their joint work with Zhongkai Xue.",
+      "D": "Zhongkai Xue who directly collaborated with Yiyang Zhou, who then coauthored with Peng Xia."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct reasoning path as per the knowledge graph starts with Zhongkai Xue, who coauthored with Yiyang Zhou. Yiyang Zhou then coauthored with Peng Xia, making Zhongkai Xue the correct starting point in the chain leading to Peng Xia.",
+    "path_description": "Path: ZhongkaiXue --[coauthoredWith]--> YiyangZhou --[coauthoredWith]--> PengXia --[type]--> Author",
+    "context": "Haibo Tong, Zhaoyang Wang, Zhaorun Chen, Zhongkai Xue, Yiyang Zhou, Peng Xia, et al. | Haibo Tong, Zhaoyang Wang, Zhaorun Chen, Zhongkai Xue, Yiyang Zhou, Peng Xia, et al. | Haibo Tong, Zhaoyang Wang, Zhaorun Chen, Zhongkai Xue, Yiyang Zhou, Peng Xia, et al.",
+    "paper_id": "20"
+  },
+  {
+    "section": "evaluationcriteriaandprompts2",
+    "path": {
+      "section": "evaluationcriteriaandprompts2",
+      "start_entity": "ManualEvaluation",
+      "end_entity": "EvaluationResult",
+      "hops": [
+        {
+          "from": "ManualEvaluation",
+          "relation": "evaluates",
+          "to": "PreferenceDataPair",
+          "context": "D.3 DETAILS OF MANUAL EVALUATION For the evaluation of the difficulty of preference data pairs into four categories: very easy, easy, medium, and hard.",
+          "chunk": "20"
+        },
+        {
+          "from": "PreferenceDataPair",
+          "relation": "evaluatedAs",
+          "to": "Dissatisfied",
+          "context": "Otherwise, it is marked as 'Dissatisfied'.",
+          "chunk": "20"
+        },
+        {
+          "from": "Dissatisfied",
+          "relation": "type",
+          "to": "EvaluationResult",
+          "context": "Otherwise, it is marked as 'Dissatisfied'.",
+          "chunk": "20"
+        }
+      ]
+    },
+    "question": "In the context of manually evaluating preference data pairs, if a pair is judged not to fall into the categories of very easy, easy, medium, or hard, how is it categorized in the evaluation results?",
+    "options": {
+      "A": "It is noted as 'Unclassified' and typically requires re-evaluation by the team.",
+      "B": "It is recorded as 'Neutral' indicating ambiguous or unclear preferences.",
+      "C": "It is categorized as 'Dissatisfied' under the Evaluation Results section.",
+      "D": "It is marked as 'Satisfactory' and considered for further detailed analysis."
+    },
+    "correct_answer": "C",
+    "explanation": "The paper details that any preference data pair not fitting into the predefined difficulty categories of very easy, easy, medium, or hard is marked as 'Dissatisfied'. Thus, in the Evaluation Results, it is categorized as 'Dissatisfied'.",
+    "path_description": "Path: ManualEvaluation --[evaluates]--> PreferenceDataPair --[evaluatedAs]--> Dissatisfied --[type]--> EvaluationResult",
+    "context": "D.3 DETAILS OF MANUAL EVALUATION For the evaluation of the difficulty of preference data pairs into four categories: very easy, easy, medium, and hard. | Otherwise, it is marked as 'Dissatisfied'. | Otherwise, it is marked as 'Dissatisfied'.",
+    "paper_id": "20"
+  }
+]

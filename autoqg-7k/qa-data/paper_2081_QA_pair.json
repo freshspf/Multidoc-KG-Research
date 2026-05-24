@@ -1,0 +1,88 @@
+[
+  {
+    "section": "experimental1",
+    "path": {
+      "section": "experimental1",
+      "start_entity": "PurchaseResults",
+      "end_entity": "Action",
+      "hops": [
+        {
+          "from": "PurchaseResults",
+          "relation": "derivedFrom",
+          "to": "ValidSamples",
+          "context": "Of these, 86 resulted in a purchase and 18 in a non-purchase.",
+          "chunk": "5"
+        },
+        {
+          "from": "ValidSamples",
+          "relation": "derivedFrom",
+          "to": "Questionnaire",
+          "context": "As a result, 104 valid samples were obtained.",
+          "chunk": "5"
+        },
+        {
+          "from": "Questionnaire",
+          "relation": "contains",
+          "to": "Action",
+          "context": "The questionnaire consisted of 13 predefined combinations of touchpoints and actions.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the context of a study analyzing consumer behavior, if 104 valid samples were derived from responses to a questionnaire that included predefined combinations of touchpoints and actions, how many of these samples led to a purchase?",
+    "options": {
+      "A": "86 samples resulted in a purchase, following the analysis of the questionnaire's touchpoints and actions.",
+      "B": "13 samples resulted in a purchase, correlating with the number of predefined combinations in the questionnaire.",
+      "C": "18 samples resulted in a purchase, as indicated by the valid samples derived from the questionnaire.",
+      "D": "104 samples were obtained, but the exact number leading to a purchase is not specified."
+    },
+    "correct_answer": "A",
+    "explanation": "By following the knowledge path: The paper indicates that 104 valid samples were obtained from responses to the questionnaire, which contained 13 predefined combinations of touchpoints and actions. It then specifies that of these, 86 resulted in a purchase, which is the correct answer. The other options are misleading by presenting incorrect interpretations of the number of purchases or the relationship between questionnaire details and outcomes.",
+    "path_description": "Path: PurchaseResults --[derivedFrom]--> ValidSamples --[derivedFrom]--> Questionnaire --[contains]--> Action",
+    "context": "Of these, 86 resulted in a purchase and 18 in a non-purchase. | As a result, 104 valid samples were obtained. | The questionnaire consisted of 13 predefined combinations of touchpoints and actions.",
+    "paper_id": "518"
+  },
+  {
+    "section": "experimental2",
+    "path": {
+      "section": "experimental2",
+      "start_entity": "ItemStatisticsStage2",
+      "end_entity": "PurchaseConfirmationSocialMedia",
+      "hops": [
+        {
+          "from": "ItemStatisticsStage2",
+          "relation": "partOf",
+          "to": "PurchaseConfirmationStores",
+          "context": "istics of items in Stage 2 item count statistics",
+          "chunk": "6"
+        },
+        {
+          "from": "PurchaseConfirmationStores",
+          "relation": "relatedTo",
+          "to": "PurchaseConfirmationWebsites",
+          "context": "n and confirmation through stores",
+          "chunk": "6"
+        },
+        {
+          "from": "PurchaseConfirmationWebsites",
+          "relation": "relatedTo",
+          "to": "PurchaseConfirmationSocialMedia",
+          "context": "n and confirmation through various websites",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the process of confirming item purchases as described in the paper's experimental section, which of the following represents the correct sequence of entities involved in item purchase confirmation, starting from the initial stage?",
+    "options": {
+      "A": "Stage 2 item count statistics, confirmation through stores, confirmation through various websites, and then confirmation through social media",
+      "B": "Stage 2 item count statistics, confirmation through various websites, confirmation through stores, and then confirmation through social media",
+      "C": "Confirmation through various websites, Stage 2 item count statistics, confirmation through social media, and then confirmation through stores",
+      "D": "Confirmation through stores, Stage 2 item count statistics, confirmation through social media, and then confirmation through various websites"
+    },
+    "correct_answer": "A",
+    "explanation": "The correct sequence starts from Stage 2 item count statistics, which is part of the Purchase Confirmation Stores. This then relates to Purchase Confirmation Websites and finally extends to Purchase Confirmation Social Media, as illustrated in the knowledge graph path.",
+    "path_description": "Path: ItemStatisticsStage2 --[partOf]--> PurchaseConfirmationStores --[relatedTo]--> PurchaseConfirmationWebsites --[relatedTo]--> PurchaseConfirmationSocialMedia",
+    "context": "istics of items in Stage 2 item count statistics | n and confirmation through stores | n and confirmation through various websites",
+    "paper_id": "518"
+  }
+]

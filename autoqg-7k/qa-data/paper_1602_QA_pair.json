@@ -1,0 +1,88 @@
+[
+  {
+    "section": "thestartingphase1",
+    "path": {
+      "section": "thestartingphase1",
+      "start_entity": "AI_Agent",
+      "end_entity": "KnowledgeType",
+      "hops": [
+        {
+          "from": "AI_Agent",
+          "relation": "leverages",
+          "to": "LLM",
+          "context": "Rather, we desire to directly build an AI agent that can leverage the LLM’s capabilities...",
+          "chunk": "3"
+        },
+        {
+          "from": "LLM",
+          "relation": "hasKnowledgeType",
+          "to": "DomainKnowledge",
+          "context": "drawing a boundary between the domain knowledge possessed by an LLM...",
+          "chunk": "3"
+        },
+        {
+          "from": "DomainKnowledge",
+          "relation": "type",
+          "to": "KnowledgeType",
+          "context": "drawing a boundary between the domain knowledge possessed by an LLM...",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "What type of knowledge does an AI agent directly leverage from a language model to enhance its functionality?",
+    "options": {
+      "A": "Operational knowledge that primarily deals with the management and operation of systems",
+      "B": "General knowledge about common facts and trivia unrelated to specific domains",
+      "C": "Programming knowledge that includes coding languages and software development practices",
+      "D": "Domain-specific knowledge that is critical for performing tasks within a particular area"
+    },
+    "correct_answer": "D",
+    "explanation": "The AI agent leverages domain-specific knowledge from the LLM. This type of knowledge is crucial for performing specialized tasks within specific fields, aligning with the knowledge graph path from AI_Agent to LLM to DomainKnowledge, categorized under KnowledgeType.",
+    "path_description": "Path: AI_Agent --[leverages]--> LLM --[hasKnowledgeType]--> DomainKnowledge --[type]--> KnowledgeType",
+    "context": "Rather, we desire to directly build an AI agent that can leverage the LLM’s capabilities... | drawing a boundary between the domain knowledge possessed by an LLM... | drawing a boundary between the domain knowledge possessed by an LLM...",
+    "paper_id": "646"
+  },
+  {
+    "section": "generationofapispecification1",
+    "path": {
+      "section": "generationofapispecification1",
+      "start_entity": "APIspecificationGenerationProcess",
+      "end_entity": "DataFormat",
+      "hops": [
+        {
+          "from": "APIspecificationGenerationProcess",
+          "relation": "uses",
+          "to": "GPT-4o",
+          "context": "Using this database, we initiated an automated process to distill an API specification (Spec) using GPT-4o",
+          "chunk": "8"
+        },
+        {
+          "from": "GPT-4o",
+          "relation": "extracts",
+          "to": "JSONFormattedList",
+          "context": "For each step, we devised a prompt instructing GPT-4o to extract representative terms for every workflow step",
+          "chunk": "8"
+        },
+        {
+          "from": "JSONFormattedList",
+          "relation": "type",
+          "to": "DataFormat",
+          "context": "These terms are structured as a JSON-formatted list",
+          "chunk": "8"
+        }
+      ]
+    },
+    "question": "In the generation of an API specification as described in the paper, what is the role of the JSON-formatted list in relation to GPT-4o?",
+    "options": {
+      "A": "It represents a programming method that GPT-4o uses to interpret API specification requests.",
+      "B": "It is a secondary storage format that GPT-4o uses before generating the final API specification document.",
+      "C": "It is used as an input to prompt GPT-4o to start the API specification generation process.",
+      "D": "It serves as the output format for the data extracted by GPT-4o during the API specification process."
+    },
+    "correct_answer": "D",
+    "explanation": "The JSON-formatted list serves as the output format for the data that GPT-4o extracts during the API specification generation process. This is a direct result of the instruction given to GPT-4o to structure the extracted terms in this format, as outlined in the paper's description of the process.",
+    "path_description": "Path: APIspecificationGenerationProcess --[uses]--> GPT-4o --[extracts]--> JSONFormattedList --[type]--> DataFormat",
+    "context": "Using this database, we initiated an automated process to distill an API specification (Spec) using GPT-4o | For each step, we devised a prompt instructing GPT-4o to extract representative terms for every workflow step | These terms are structured as a JSON-formatted list",
+    "paper_id": "646"
+  }
+]

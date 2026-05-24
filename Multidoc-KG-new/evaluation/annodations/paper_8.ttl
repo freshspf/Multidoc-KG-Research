@@ -1,0 +1,305 @@
+# ===== EVALUATION RESULTS =====
+# Evaluation Passed: True
+# Can Proceed to QA Generation: True
+# Timestamp: 20250902_174147
+# ===== KNOWLEDGE GRAPH =====
+
+:ConflictBankPaper :proposes :CONFLICT_BANK ;
+    :contextText "we present CONFLICT BANK, the first comprehensive benchmark developed to systematically evaluate knowledge conflicts" .
+
+:ConflictBankPaper :addresses :KnowledgeConflictsInLLMs ;
+    :contextText "the critical issue of knowledge conflicts, a major source of hallucinations, has rarely been studied." .
+
+:CONFLICT_BANK :addresses :RetrievedKnowledgeConflicts ;
+    :contextText "evaluate knowledge conflicts from three aspects: (i)conflicts encountered in retrieved knowledge" .
+
+:CONFLICT_BANK :addresses :EmbeddedKnowledgeConflicts ;
+    :contextText "(ii) conflicts within the models’ encoded knowledge" .
+
+:CONFLICT_BANK :addresses :InterplayOfConflictForms ;
+    :contextText "(iii)the interplay between these conflict forms." .
+
+:CONFLICT_BANK :covers :MisinformationConflict ;
+    :contextText "including inaccurate information (misinformation conflict)" .
+
+:CONFLICT_BANK :covers :TemporalConflict ;
+    :contextText "knowledge changes over time (temporal conflict)" .
+
+:CONFLICT_BANK :covers :SemanticConflict ;
+    :contextText "the polysemic nature of language (semantic conflict)" .
+
+:CONFLICT_BANK :contains "7453853 claim-evidence pairs" ;
+    :contextText "we create a total of 7,453,853 claim-evidence pairs." .
+
+:CONFLICT_BANK :contains "553117 QA pairs" ;
+    :contextText "Additionally, we construct 553,117 QA pairs" .
+
+:CONFLICT_BANK :contains "2863205 claims" ;
+    :contextText "we collect 2,863,205 claims from Wikidata" .
+
+:CONFLICT_BANK :includesTextStyle :WikipediaStyle ;
+    :contextText "we produce three types of textual styles: Wikipedia, book, and news." .
+
+:CONFLICT_BANK :includesTextStyle :BookStyle ;
+    :contextText "we produce three types of textual styles: Wikipedia, book, and news." .
+
+:CONFLICT_BANK :includesTextStyle :NewsStyle ;
+    :contextText "we produce three types of textual styles: Wikipedia, book, and news." .
+
+:CONFLICT_BANK :basedOn :Wikidata_2024_04_02 ;
+    :contextText "We utilize the Wikidata [Vrande ˇci´c and Krötzsch, 2014] dump of April 02, 2024, as the knowledge source" .
+
+:CONFLICT_BANK :uses :QuintupletRepresentation ;
+    :contextText "transforming knowledge triples and qualifiers into a quintuplet format: (s, r, o, s d, od)" .
+
+:CONFLICT_BANK :uses "top 100 most frequent relations" ;
+    :contextText "we focus on the top 100 most frequent relations" .
+
+:CONFLICT_BANK :uses :Meta-Llama-3-70B-Instruct ;
+    :contextText "We use the LLAMA-3-70B-I NSTRUCT model for all evidence and description generation" .
+
+:CONFLICT_BANK :applies :FeatureFiltering ;
+    :contextText "feature filtering" .
+
+:CONFLICT_BANK :uses :DeBERTaV2_xxlarge_mnli ;
+    :contextText "we employ the state-of-the-art NLI model DeBERTa-V25to rigorously assess the relationship between the generated evidence and the claims." .
+
+:CONFLICT_BANK :uses :SBERT_all-mpnet-base-v2 ;
+    :contextText "we utilize the SBERT6to compute embeddings for all evidence" .
+
+:ConflictConfirmationClassifier :achievesScore "over 95% accuracy" ;
+    :contextText "we manually evaluate 200 random examples and observe over 95% accuracy of the model." .
+
+:CONFLICT_BANK :filtersOut :NonConflictingEvidencePairs ;
+    :contextText "We filter out all evidence pairs identified as non-conflicting by the classifier to ensure the quality of our dataset." .
+
+:CONFLICT_BANK :releasedAs :PythonPackage ;
+    :contextText "we release a Python package that automates data loading, baseline evaluation, and training3." .
+
+:CONFLICT_BANK :publishedIn :HFDataset_CB_claim_evidence ;
+    :contextText "the claim and evidence conflict pairs can be found at https://huggingface.co/datasets/Warrieryes/CB_claim_evidence" .
+
+:CONFLICT_BANK :publishedIn :HFDataset_CB_qa ;
+    :contextText "the QA pairs used for analysis are available at https://huggingface.co/datasets/ Warrieryes/CB_qa" .
+
+:CONFLICT_BANK :publishedIn :GitHub_conflictbank ;
+    :contextText "We have documented all code ... in an openly-available GitHub repository: https://github.com/zhaochen0110/conflictbank ." .
+
+:CONFLICT_BANK :developedBy :Soochow_University ;
+    :contextText "1Institute of Computer Science and Technology, Soochow University, China" .
+
+:CONFLICT_BANK :developedBy :Shanghai_AI_Laboratory ;
+    :contextText "2Shanghai AI Laboratory" .
+
+:CONFLICT_BANK :developedBy :The_Chinese_University_of_Hong_Kong ;
+    :contextText "3The Chinese University of Hong Kong" .
+
+:ConflictBankPaper :evaluates "12 LLMs (0.5B to 70B)" ;
+    :contextText "we perform a comprehensive evaluation on 12 LLMs ranging from 0.5B to 70B." .
+
+:ConflictBankPaper :evaluates :Gemma_Series ;
+    :contextText "This evaluation covers the following four model series: GEMMA (2B, 7B) [Team et al., 2024]" .
+
+:ConflictBankPaper :evaluates :LLaMA2_Series ;
+    :contextText "LLAMA2 (7B, 13B, 70B) [Touvron et al., 2023]" .
+
+:ConflictBankPaper :evaluates :LLaMA3_Series ;
+    :contextText "LLAMA3 (7B, 70B) ,QWEN 1.5 (0.5B, 4B, 7B, 14B, 72B) [Bai et al., 2023a]." .
+
+:ConflictBankPaper :evaluates :Qwen1.5_Series ;
+    :contextText "LLAMA3 (7B, 70B) ,QWEN 1.5 (0.5B, 4B, 7B, 14B, 72B) [Bai et al., 2023a]." .
+
+:Gemma-2B :evaluatedOn :CONFLICT_BANK ;
+    :contextText "GEMMA (2B, 7B)" .
+
+:Gemma-7B :evaluatedOn :CONFLICT_BANK ;
+    :contextText "GEMMA (2B, 7B)" .
+
+:LLaMA2-7B :evaluatedOn :CONFLICT_BANK ;
+    :contextText "LLAMA2 (7B, 13B, 70B)" .
+
+:LLaMA2-13B :evaluatedOn :CONFLICT_BANK ;
+    :contextText "LLAMA2 (7B, 13B, 70B)" .
+
+:LLaMA2-70B :evaluatedOn :CONFLICT_BANK ;
+    :contextText "LLAMA2 (7B, 13B, 70B)" .
+
+:LLaMA3-7B :evaluatedOn :CONFLICT_BANK ;
+    :contextText "LLAMA3 (7B, 70B)" .
+
+:LLaMA3-70B :evaluatedOn :CONFLICT_BANK ;
+    :contextText "LLAMA3 (7B, 70B)" .
+
+:Qwen1.5-0.5B :evaluatedOn :CONFLICT_BANK ;
+    :contextText "QWEN 1.5 (0.5B, 4B, 7B, 14B, 72B)" .
+
+:Qwen1.5-4B :evaluatedOn :CONFLICT_BANK ;
+    :contextText "QWEN 1.5 (0.5B, 4B, 7B, 14B, 72B)" .
+
+:Qwen1.5-7B :evaluatedOn :CONFLICT_BANK ;
+    :contextText "QWEN 1.5 (0.5B, 4B, 7B, 14B, 72B)" .
+
+:Qwen1.5-14B :evaluatedOn :CONFLICT_BANK ;
+    :contextText "QWEN 1.5 (0.5B, 4B, 7B, 14B, 72B)" .
+
+:Qwen1.5-72B :evaluatedOn :CONFLICT_BANK ;
+    :contextText "QWEN 1.5 (0.5B, 4B, 7B, 14B, 72B)" .
+
+:CONFLICT_BANK :measures :OriginalAnswerRatio ;
+    :contextText "We measure the Original Answer Ratio (OAR)" .
+
+:CONFLICT_BANK :measures :CounterAnswerRatio ;
+    :contextText "and the Counter Answer Ratio (CAR) to assess model performance" .
+
+:MemorizationRatio :relatedTo "MR=OAR/(OAR+CAR)" ;
+    :contextText "MR=OAR OAR +CAR(1)" .
+
+:MemorizationRatio :measures :RelianceOnParametricMemory ;
+    :contextText "where higher memorization ratios indicate greater reliance on parametric memory" .
+
+:MemorizationRatio :relatedTo :AdoptionOfConflictingKnowledge ;
+    :contextText "while lower ratios suggest more adoption of the constructed conflicting knowledge." .
+
+:EvaluationProtocol :uses :ChoiceProbabilities ;
+    :contextText "The model then generates probabilities for the tokens “(A)”, “(B)”, “(C)” and “(D)”. The option with the highest probability is selected as the predicted answer." .
+
+:Experiments :randomize :EvidenceOrder ;
+    :contextText "The order of evidence is randomized in all experiments to avoid any influence of sequence on the results." .
+
+:LLMs :achievesScore "MR below 50% when only conflicting external evidence" ;
+    :contextText "all models exhibit memorization ratios below 50%, indicating that models are highly receptive to external evidence when it is the only evidence available" .
+
+:LLMs :achievesScore "MR over 50% with both default and conflicting evidence" ;
+    :contextText "all LLMs demonstrate significantly higher memorization ratios (over 50%) when parametric memory is also provided as evidence." .
+
+:LLMs :shows :HigherSensitivityToTemporalAndSemanticConflicts ;
+    :contextText "all models exhibit a lower MRin temporal and semantic conflicts compared to misinformation conflicts" .
+
+:LLaMA2-70B :achievesScore "MR 7.77% (temporal) and 3.73% (semantic) vs 9.45% (misinformation)" ;
+    :contextText "in the LLAMA2-70B model, the MRfor temporal and semantic conflicts is lower than those for misinformation conflicts (i.e., 7.77% & 3.73% v.s. 9.45%)." .
+
+:LargerModels :relatedTo :IncreasedSusceptibilityToConflictingKnowledge ;
+    :contextText "These observations suggest that larger models exhibit increased susceptibility to conflicting knowledge" .
+
+:LLaMA2_Series :shows :MRDecreaseWithSize ;
+    :contextText "in the LLaMA2 series, the MRconsistently decreases as the parameters increase from 7B to 13B to 70B" .
+
+:LLaMA2_Series :achievesScore "MR reductions of 5.12% and 6.37%" ;
+    :contextText "with reductions of 5.12% and 6.37% in an average of three conflict causes, respectively." .
+
+:LLaMA2-7B :achievesScore "MR 56.44% when conflicting memory is placed later" ;
+    :contextText "in the LLaMA2 series, when conflicting memory is placed later in the sequence, the 7B model has a MRof 56.44%" .
+
+:LLaMA2-70B :achievesScore "MR 38.97% when conflicting memory is placed later" ;
+    :contextText "while the 70B model’s MRdrops to 38.97%." .
+
+:EvidenceOrder :resultIn :ImpactOnConflictingKnowledgeHandling ;
+    :contextText "This phenomenon highlights the importance of considering evidence order to mitigate the impact of conflicting knowledge in future retrieval-augmented models." .
+
+:LLAMA2-7B :achievesScore "OAR decrease 41.5% at 2:1 conflicts" ;
+    :contextText "Even with only one-third (2:1 ratio of default to conflicting data) of the data being conflicting, these models exhibit substantial declines in OAR, with decreases of 41.5% and 37.6%, respectively." .
+
+:Mistral-7B :achievesScore "OAR decrease 37.6% at 2:1 conflicts" ;
+    :contextText "with decreases of 41.5% and 37.6%, respectively." .
+
+:ExternalDefaultEvidence :improves :RobustnessAgainstInternalConflicts ;
+    :contextText "when we prepend the original default evidence to the question, we find that models maintain their original performance, choosing the default answer regardless of the amount of conflicting data introduced." .
+
+:RetrievedOrToolAssistedMethods :improves :MitigationOfInternalConflicts ;
+    :contextText "leveraging retrieved or tool-assisted methods to access correct and relevant knowledge can effectively mitigate the adverse effects of internal conflicts on model performance." .
+
+:InternalConflicts :resultIn :IncreasedRelianceOnExternalEvidence ;
+    :contextText "When conflicts are present in the embedded knowledge, the model increasingly relies on externally retrieved knowledge for answers." .
+
+:Qwen1.5-4B :achievesScore "OAR increases from 97.5% to 98.36% at 2:1" ;
+    :contextText "with the OAR increasing from 97.5% to 98.36% when the ratio of conflict data is 2:1." .
+
+:Qwen1.5-4B :achievesScore "preference for later conflict 77.52% vs 82.08% with internal conflicts" ;
+    :contextText "the model prefers the later-positioned conflict evidence more when internal conflicts are present (77.52% vs. 82.08%)" .
+
+:LLaMA3-70B :achievesScore "MR drops from 67.52% to 8.31% with descriptions" ;
+    :contextText "Take LLAMA3-70B as an example, the MRdrops from 67.52% to 8.31% when descriptions are included." .
+
+:Qwen1.5-4B :achievesScore "MR decreases from 55.37% to 41.80% at 2:1 with descriptions" ;
+    :contextText "when the internal conflict ratio is 2:1, the MRdecreases from 55.37% to 41.80% with the inclusion of descriptions." .
+
+:DetailedDescriptions :improves :FaithfulnessOfLLMs ;
+    :contextText "designing detailed instructions can effectively improve the faithfulness of LLMs." .
+
+:CONFLICT_BANK :contains "1,991,218 default claim-evidence pairs" ;
+    :contextText "Default Evidence   (total: 1,991,218 )" .
+
+:CONFLICT_BANK :contains "1,878,340 misinformation claim-evidence pairs" ;
+    :contextText "Misinformation Evidence   (total: 1,878,340 )" .
+
+:CONFLICT_BANK :contains "1,650,026 temporal claim-evidence pairs" ;
+    :contextText "Temporal Evidence   (total: 1,650,026 )" .
+
+:CONFLICT_BANK :contains "1,934,269 semantic claim-evidence pairs" ;
+    :contextText "Semantic Evidence   (total: 1,934,269 )" .
+
+:FeatureFiltering :filtersOut :RefusalResponses ;
+    :contextText "filter out all model-generated content containing the above features." .
+
+:HumanEvaluation :uses "200 randomly selected examples" ;
+    :contextText "Each volunteer assessed a sample of 200 randomly selected examples to ensure the quality and reliability of our dataset." .
+
+:HumanEvaluation :achievesScore "1 ambiguous out of 200" ;
+    :contextText "Out of the 200 examples assessed, only one example was found to be ambiguously conflicting." .
+
+:ConflictInjection :appliedTo :Qwen1.5-4B ;
+    :contextText "we continue pre-training three representative LLMs, including QWEN 1.5-4B ,MISTRAL -7B, and LLAMA3-8B ." .
+
+:ConflictInjection :appliedTo :Mistral-7B ;
+    :contextText "we continue pre-training three representative LLMs, including QWEN 1.5-4B ,MISTRAL -7B, and LLAMA3-8B ." .
+
+:ConflictInjection :appliedTo :LLaMA3-8B ;
+    :contextText "we continue pre-training three representative LLMs, including QWEN 1.5-4B ,MISTRAL -7B, and LLAMA3-8B ." .
+
+:ConflictInjection :trainedOn "1.06B tokens" ;
+    :contextText "maintaining consistency by training each experimental setup on 1.06B tokens." .
+
+:ConflictInjection :uses "1:0, 2:1, 1:1, 2:3 conflict ratios" ;
+    :contextText "we train four different conflict ratio models on each foundational model: 1:0, 2:1, 1:1, and 2:3." .
+
+:TrainingSetup :uses "4500 steps" ;
+    :contextText "we fix the training to 4500 steps for each category" .
+
+:TrainingSetup :uses "learning rate of 2e-5" ;
+    :contextText "Specifically, we use a learning rate of 2e-5" .
+
+:TrainingSetup :uses "batch size at 256" ;
+    :contextText "and set the batch size at 256." .
+
+:TrainingSetup :implementedIn :8xNVIDIA_Tesla_A100 ;
+    :contextText "We utilize eight NVIDIA Tesla A100 GPUs to train models" .
+
+:TrainingSetup :uses :LLaMA_Factory ;
+    :contextText "to train models with LLaMA Factory library9[Zheng et al., 2024]." .
+
+:TrainingSetup :uses :DeepSpeed_ZeRO_Stage3 ;
+    :contextText "we employ DeepSpeed Zero-Stage 3 [Ren et al., 2021]" .
+
+:TrainingSetup :uses :FlashAttention2 ;
+    :contextText "and FlashAttention2 [Dao, 2023]." .
+
+:RetrievedConflictScenario :partOf :Experiments ;
+    :contextText "models are presented solely with external evidence that contradicts their parametric memory" .
+
+:MixedEvidenceScenario :partOf :Experiments ;
+    :contextText "models are given two pieces of external evidence, one matching their parametric knowledge and one conflicting with it7." .
+
+:MisinformationConflict :relatedTo :IncorrectOrFalseInformation ;
+    :contextText "Misinformation Conflict arises from incorrect or false information within datasets" .
+
+:TemporalConflict :relatedTo :KnowledgeChangesOverTime ;
+    :contextText "Temporal Conflict occurs when knowledge changes or evolves over time" .
+
+:SemanticConflict :relatedTo :PolysemyAmbiguity ;
+    :contextText "Semantic Conflict arises when words with multiple meanings cause ambiguity in interpretation" .
+
+:LLMs :relatedTo :RecencyBiasInEvidence ;
+    :contextText "models are susceptible to the order of evidence, with larger models tending to favor later pieces." .
+
+:DescriptionsInQuestions :improves :ReductionInMR ;
+    :contextText "LLMs, whether with or without internal conflicts, exhibit a significant decrease in MRwhen provided with external knowledge containing descriptions compared to without them." .

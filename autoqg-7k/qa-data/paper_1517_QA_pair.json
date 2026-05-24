@@ -1,0 +1,45 @@
+[
+  {
+    "section": "practicalexamples4",
+    "path": {
+      "section": "practicalexamples4",
+      "start_entity": "Model1",
+      "end_entity": "dat_eval",
+      "hops": [
+        {
+          "from": "Model1",
+          "relation": "outperforms",
+          "to": "Model2",
+          "context": "The contingency table for Model 1 reports worse numbers, which is consistent with the corresponding ROC curve:",
+          "chunk": "8"
+        },
+        {
+          "from": "Model2",
+          "relation": "outperforms",
+          "to": "Model1",
+          "context": "Finally, the contingency table shows that Model 2 is capable of producing a 91,5% hit rate while keeping the false alarm rate at 22,7%.",
+          "chunk": "8"
+        },
+        {
+          "from": "Model1",
+          "relation": "evaluatedOn",
+          "to": "dat_eval",
+          "context": "events  <- event_detection_table(dat_eval ,",
+          "chunk": "8"
+        }
+      ]
+    },
+    "question": "Considering the comparative performance of Model 1 and Model 2 on the dataset 'dat_eval', what can be inferred about the evaluation metrics?",
+    "options": {
+      "A": "Model 1 has a higher hit rate and a lower false alarm rate compared to Model 2 on the same dataset.",
+      "B": "Model 2 has a higher hit rate and a lower false alarm rate compared to Model 1 on the same dataset.",
+      "C": "Model 1 and Model 2 have the same hit rate and false alarm rate on the dataset 'dat_eval'.",
+      "D": "Model 2 has a lower hit rate and a higher false alarm rate compared to Model 1 on the same dataset."
+    },
+    "correct_answer": "B",
+    "explanation": "From the provided knowledge graph path, it's clear that Model 1 is outperformed by Model 2, and then Model 2 again outperforms Model 1 in a cyclical evaluation on the dataset 'dat_eval'. The context states that Model 2 achieves a 91.5% hit rate and maintains a false alarm rate of 22.7%. This suggests that Model 2 has a superior performance to Model 1, which aligns with the choice that Model 2 has a higher hit rate and lower false alarm rate than Model 1.",
+    "path_description": "Path: Model1 --[outperforms]--> Model2 --[outperforms]--> Model1 --[evaluatedOn]--> dat_eval",
+    "context": "The contingency table for Model 1 reports worse numbers, which is consistent with the corresponding ROC curve: | Finally, the contingency table shows that Model 2 is capable of producing a 91,5% hit rate while keeping the false alarm rate at 22,7%. | events  <- event_detection_table(dat_eval ,",
+    "paper_id": "595"
+  }
+]

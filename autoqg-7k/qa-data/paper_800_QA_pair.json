@@ -1,0 +1,88 @@
+[
+  {
+    "section": "methods3",
+    "path": {
+      "section": "methods3",
+      "start_entity": "smax",
+      "end_entity": "Controller",
+      "hops": [
+        {
+          "from": "smax",
+          "relation": "usedIn",
+          "to": "Ain",
+          "context": "where smax(x) = √(x + 1 + x)/2",
+          "chunk": "3"
+        },
+        {
+          "from": "Ain",
+          "relation": "controlledBy",
+          "to": "ProportionalController",
+          "context": "We approximate the function that maps control input u to the effective orifice input/output area Ain/out...",
+          "chunk": "3"
+        },
+        {
+          "from": "ProportionalController",
+          "relation": "type",
+          "to": "Controller",
+          "context": "To demonstrate closed-loop pressure command tracking, we use a simple proportional controller of the form u = kp(pdes − p)",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In a control system described in the paper's section 'methods3', which type of controller is implemented to regulate the variable Ain based on the relationship with smax?",
+    "options": {
+      "A": "A Proportional Controller, which adjusts Ain by linearly scaling the deviation from a desired pressure.",
+      "B": "A Derivative Controller, which modifies Ain according to the rate of change of the pressure error.",
+      "C": "An Integral Controller, which changes Ain based on the accumulated error in pressure over time.",
+      "D": "A PID Controller, which combines proportional, integral, and derivative adjustments to manage Ain."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A. According to the knowledge path, the 'smax' function is used in determining 'Ain', which is then controlled by a 'ProportionalController'. The controller type specified is 'Controller', and the description mentions a simple proportional formula 'u = kp(pdes − p)', confirming that a Proportional Controller is used to adjust Ain by scaling the pressure deviation linearly.",
+    "path_description": "Path: smax --[usedIn]--> Ain --[controlledBy]--> ProportionalController --[type]--> Controller",
+    "context": "where smax(x) = √(x + 1 + x)/2 | We approximate the function that maps control input u to the effective orifice input/output area Ain/out... | To demonstrate closed-loop pressure command tracking, we use a simple proportional controller of the form u = kp(pdes − p)",
+    "paper_id": "2086"
+  },
+  {
+    "section": "conclusion",
+    "path": {
+      "section": "conclusion",
+      "start_entity": "Arm",
+      "end_entity": "Component",
+      "hops": [
+        {
+          "from": "Arm",
+          "relation": "consistsOf",
+          "to": "EmbeddedDevice",
+          "context": "The arm consists of three embedded devices, each controlling four pressure chambers.",
+          "chunk": "5"
+        },
+        {
+          "from": "EmbeddedDevice",
+          "relation": "controls",
+          "to": "PressureChamber",
+          "context": "The arm consists of three embedded devices, each controlling four pressure chambers.",
+          "chunk": "5"
+        },
+        {
+          "from": "PressureChamber",
+          "relation": "type",
+          "to": "Component",
+          "context": "The arm consists of three embedded devices, each controlling four pressure chambers.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In a robotic system where each arm consists of three embedded devices, how many pressure chambers would be controlled by all embedded devices in a single arm?",
+    "options": {
+      "A": "The arm controls a single pressure chamber through its embedded devices, totaling three chambers.",
+      "B": "Each embedded device controls four pressure chambers, totaling twelve chambers for the arm.",
+      "C": "There are three embedded devices each controlling one pressure chamber, making three chambers per arm.",
+      "D": "Each arm controls three pressure chambers, hence nine chambers are controlled by the embedded devices."
+    },
+    "correct_answer": "B",
+    "explanation": "The question requires understanding the number of embedded devices in an arm and the number of pressure chambers each device controls. With each of the three embedded devices controlling four pressure chambers, the total number of chambers controlled by the embedded devices in one arm would be 3 devices x 4 chambers = 12 chambers.",
+    "path_description": "Path: Arm --[consistsOf]--> EmbeddedDevice --[controls]--> PressureChamber --[type]--> Component",
+    "context": "The arm consists of three embedded devices, each controlling four pressure chambers. | The arm consists of three embedded devices, each controlling four pressure chambers. | The arm consists of three embedded devices, each controlling four pressure chambers.",
+    "paper_id": "2086"
+  }
+]

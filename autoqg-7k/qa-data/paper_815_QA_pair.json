@@ -1,0 +1,88 @@
+[
+  {
+    "section": "introduction",
+    "path": {
+      "section": "introduction",
+      "start_entity": "StarConvexShape",
+      "end_entity": "Method",
+      "hops": [
+        {
+          "from": "StarConvexShape",
+          "relation": "categoryOf",
+          "to": "ShapeModel",
+          "context": "new models have been introduced [8], [9], which fall into the star convex shape category",
+          "chunk": "0"
+        },
+        {
+          "from": "ShapeModel",
+          "relation": "usedIn",
+          "to": "ExtendedObjectTracking",
+          "context": "The shape models play a tremendous role in the tracker.",
+          "chunk": "0"
+        },
+        {
+          "from": "ExtendedObjectTracking",
+          "relation": "type",
+          "to": "Method",
+          "context": "for the development of Extended Object Tracking (EOT)",
+          "chunk": "0"
+        }
+      ]
+    },
+    "question": "Which method, primarily used in Extended Object Tracking, employs a specific category of shape model known for its star convex configuration?",
+    "options": {
+      "A": "A technique that relies solely on point-based models for simple object tracking",
+      "B": "A method incorporating polygonal shape models to improve object localization precision",
+      "C": "A technique that leverages circular shape models to enhance radar-based object detection",
+      "D": "A method that utilizes geometrically adaptable models for accurately predicting extended object dimensions"
+    },
+    "correct_answer": "D",
+    "explanation": "Extended Object Tracking often uses shape models to track the dimensions and orientation of objects. The star convex shape model is a category of shape model used in these tracking systems. The correct answer is a method that utilizes geometrically adaptable models (star convex shape models) for precisely predicting extended object dimensions.",
+    "path_description": "Path: StarConvexShape --[categoryOf]--> ShapeModel --[usedIn]--> ExtendedObjectTracking --[type]--> Method",
+    "context": "new models have been introduced [8], [9], which fall into the star convex shape category | The shape models play a tremendous role in the tracker. | for the development of Extended Object Tracking (EOT)",
+    "paper_id": "1452"
+  },
+  {
+    "section": "implementation1",
+    "path": {
+      "section": "implementation1",
+      "start_entity": "B-SplineCurve",
+      "end_entity": "Method",
+      "hops": [
+        {
+          "from": "B-SplineCurve",
+          "relation": "optimizedFor",
+          "to": "SensorData",
+          "context": "These points are further mapped to the estimated shape of the B-spline curve s by calculating their minimum distance to the curve.",
+          "chunk": "3"
+        },
+        {
+          "from": "SensorData",
+          "relation": "uses",
+          "to": "ConvexHull",
+          "context": "To check if a point belongs to the extrusion part, we compute a convex hull [25] of the measurements in the body reference frame.",
+          "chunk": "3"
+        },
+        {
+          "from": "ConvexHull",
+          "relation": "type",
+          "to": "Method",
+          "context": "To check if a point belongs to the extrusion part, we compute a convex hull [25] of the measurements in the body reference frame.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "Which method, when used in conjunction with a B-Spline curve optimization for sensor data, helps in determining if a point belongs to the extrusion part of a structure?",
+    "options": {
+      "A": "Implementing a least squares fitting to approximate the data distribution.",
+      "B": "Computing the minimum distance to the curve to map points based on estimated shape of the curve.",
+      "C": "Applying a radial basis function to interpolate the sensor data points.",
+      "D": "Utilizing a convex hull computed from measurements in the body reference frame."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is B. The paper mentions that to check if a point belongs to the extrusion part, a convex hull is computed from the measurements in the body reference frame. This method is part of the path where convex hull is used as a method for handling sensor data, which is optimized by the B-Spline curve.",
+    "path_description": "Path: B-SplineCurve --[optimizedFor]--> SensorData --[uses]--> ConvexHull --[type]--> Method",
+    "context": "These points are further mapped to the estimated shape of the B-spline curve s by calculating their minimum distance to the curve. | To check if a point belongs to the extrusion part, we compute a convex hull [25] of the measurements in the body reference frame. | To check if a point belongs to the extrusion part, we compute a convex hull [25] of the measurements in the body reference frame.",
+    "paper_id": "1452"
+  }
+]

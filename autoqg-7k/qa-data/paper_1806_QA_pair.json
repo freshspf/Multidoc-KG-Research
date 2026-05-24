@@ -1,0 +1,174 @@
+[
+  {
+    "section": "modelarchitecture",
+    "path": {
+      "section": "modelarchitecture",
+      "start_entity": "ProposedModel",
+      "end_entity": "Model",
+      "hops": [
+        {
+          "from": "ProposedModel",
+          "relation": "includesComponent",
+          "to": "FeatureExtraction",
+          "context": "2. Feature Extraction using CLI",
+          "chunk": "2"
+        },
+        {
+          "from": "FeatureExtraction",
+          "relation": "experimentedWith",
+          "to": "InceptionV3",
+          "context": "In addition to CLIP, we experimented with alternative feature extractors, including InceptionV3, Swin Transformer, and a ResNet-based encoder.",
+          "chunk": "2"
+        },
+        {
+          "from": "InceptionV3",
+          "relation": "type",
+          "to": "Model",
+          "context": "In addition to CLIP, we experimented with alternative feature extractors, including InceptionV3, Swin Transformer, and a ResNet-based encoder.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the context of the proposed model's architecture, which feature extractor was specifically classified as a type of model in the experimental setup?",
+    "options": {
+      "A": "Swin Transformer, noted for its distinct architecture but not classified explicitly as a model.",
+      "B": "ResNet-based encoder, despite its widespread use, was not classified directly as a model.",
+      "C": "InceptionV3, which was one among several feature extractors evaluated for performance.",
+      "D": "CLIP, primarily used as the main feature extractor before experimenting with others."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is InceptionV3. According to the provided knowledge graph path, InceptionV3 was part of the experiments under the Feature Extraction component of the Proposed Model and is specifically classified as a type of model. The other options, though mentioned as part of the experimental feature extractors, do not fit the classification as explicitly as InceptionV3.",
+    "path_description": "Path: ProposedModel --[includesComponent]--> FeatureExtraction --[experimentedWith]--> InceptionV3 --[type]--> Model",
+    "context": "2. Feature Extraction using CLI | In addition to CLIP, we experimented with alternative feature extractors, including InceptionV3, Swin Transformer, and a ResNet-based encoder. | In addition to CLIP, we experimented with alternative feature extractors, including InceptionV3, Swin Transformer, and a ResNet-based encoder.",
+    "paper_id": "280"
+  },
+  {
+    "section": "modelarchitecture",
+    "path": {
+      "section": "modelarchitecture",
+      "start_entity": "ProposedModel",
+      "end_entity": "Model",
+      "hops": [
+        {
+          "from": "ProposedModel",
+          "relation": "includesComponent",
+          "to": "FeatureExtraction",
+          "context": "2. Feature Extraction using CLI",
+          "chunk": "2"
+        },
+        {
+          "from": "FeatureExtraction",
+          "relation": "experimentedWith",
+          "to": "ResNetBasedEncoder",
+          "context": "In addition to CLIP, we experimented with alternative feature extractors, including InceptionV3, Swin Transformer, and a ResNet-based encoder.",
+          "chunk": "2"
+        },
+        {
+          "from": "ResNetBasedEncoder",
+          "relation": "type",
+          "to": "Model",
+          "context": "In addition to CLIP, we experimented with alternative feature extractors, including InceptionV3, Swin Transformer, and a ResNet-based encoder.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the context of the model architecture described, which feature extraction component experimented within the proposed model is specifically a type of model itself?",
+    "options": {
+      "A": "The InceptionV3, known for its deep convolutional architecture using asymmetric convolutions.",
+      "B": "The ResNet-based encoder, which is derived from a deep residual learning framework.",
+      "C": "The Swin Transformer, which primarily employs a hierarchical architecture for computer vision.",
+      "D": "The CLIP feature extractor, which is a vision-language model that uses contrastive learning."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is D, the ResNet-based encoder. ResNet, or Residual Network, is a type of model itself, designed with deep residual learning for image recognition tasks. The other options, while they are models or architectures, were not indicated as such in the specific context of this question.",
+    "path_description": "Path: ProposedModel --[includesComponent]--> FeatureExtraction --[experimentedWith]--> ResNetBasedEncoder --[type]--> Model",
+    "context": "2. Feature Extraction using CLI | In addition to CLIP, we experimented with alternative feature extractors, including InceptionV3, Swin Transformer, and a ResNet-based encoder. | In addition to CLIP, we experimented with alternative feature extractors, including InceptionV3, Swin Transformer, and a ResNet-based encoder.",
+    "paper_id": "280"
+  },
+  {
+    "section": "evaluationandresults1",
+    "path": {
+      "section": "evaluationandresults1",
+      "start_entity": "Frames",
+      "end_entity": "EquivalentLengthFilmSegment",
+      "hops": [
+        {
+          "from": "Frames",
+          "relation": "normalizedUsing",
+          "to": "ImageNet",
+          "context": "Each frame was resized to 224×224 with ImageNet mean/std normalization.",
+          "chunk": "3"
+        },
+        {
+          "from": "ImageNet",
+          "relation": "type",
+          "to": "Dataset",
+          "context": "Each frame was resized to 224×224 with ImageNet mean/std normalization.",
+          "chunk": "3"
+        },
+        {
+          "from": "Dataset",
+          "relation": "balancedBy",
+          "to": "EquivalentLengthFilmSegment",
+          "context": "To balance the dataset, each intro/credit segment was paired with an equivalent-length film segment from the same episode.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the process of normalizing frames for a dataset, how was the balance achieved with respect to the type of segments used from a film?",
+    "options": {
+      "A": "Frames were duplicated until they matched the length of the longest film segment in the dataset.",
+      "B": "By pairing each frame with a corresponding frame from a different film of similar genre.",
+      "C": "Every action sequence frame was balanced with a still or dialogue frame from the same episode.",
+      "D": "Each introductory or credit segment was matched with an equivalent-length film segment from the same episode."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is B, as the balance was achieved by pairing each intro or credit segment with an equivalent-length film segment from the same episode, as stated in the paper. This method ensures a balanced representation of different types of content within an episode. Options A, C, and D are incorrect as they describe different or unrelated methods of balancing a dataset.",
+    "path_description": "Path: Frames --[normalizedUsing]--> ImageNet --[type]--> Dataset --[balancedBy]--> EquivalentLengthFilmSegment",
+    "context": "Each frame was resized to 224×224 with ImageNet mean/std normalization. | Each frame was resized to 224×224 with ImageNet mean/std normalization. | To balance the dataset, each intro/credit segment was paired with an equivalent-length film segment from the same episode.",
+    "paper_id": "280"
+  },
+  {
+    "section": "evaluationandresults4",
+    "path": {
+      "section": "evaluationandresults4",
+      "start_entity": "Intel_i9-13900K",
+      "end_entity": "System",
+      "hops": [
+        {
+          "from": "Intel_i9-13900K",
+          "relation": "usedIn",
+          "to": "GamingGradeSystem",
+          "context": "Results are averaged over a broad range such as Intel i9-13900K, the system shows real-time performance.",
+          "chunk": "6"
+        },
+        {
+          "from": "GamingGradeSystem",
+          "relation": "outperforms",
+          "to": "ServerGradeSystem",
+          "context": "On gaming-grade systems, performance exceeds 600 FPS, while server-grade systems show performance of over 13,000 FPS.",
+          "chunk": "6"
+        },
+        {
+          "from": "ServerGradeSystem",
+          "relation": "type",
+          "to": "System",
+          "context": "While server-grade systems show performance of over 13,000 FPS.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "Considering the use of an Intel i9-13900K in a gaming-grade system, which of the following statements accurately contrasts its performance against a server-grade system?",
+    "options": {
+      "A": "Gaming-grade systems featuring the Intel i9-13900K outperform server-grade systems in terms of real-time performance, reaching higher FPS rates.",
+      "B": "The Intel i9-13900K enhances the FPS in gaming-grade systems to equal those of server-grade systems, demonstrating superior performance in both.",
+      "C": "In a gaming-grade system, the Intel i9-13900K shows real-time performance significantly lower than a server-grade system, with only 600 FPS compared to over 13,000 FPS.",
+      "D": "When integrated into a server-grade system, the Intel i9-13900K helps achieve approximately the same FPS as in gaming-grade systems, highlighting its versatility."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A, as it accurately describes the performance disparity between the gaming-grade and server-grade systems as noted in the paper. The Intel i9-13900K in a gaming-grade system achieves 600 FPS, significantly less than the 13,000 FPS performance of server-grade systems.",
+    "path_description": "Path: Intel_i9-13900K --[usedIn]--> GamingGradeSystem --[outperforms]--> ServerGradeSystem --[type]--> System",
+    "context": "Results are averaged over a broad range such as Intel i9-13900K, the system shows real-time performance. | On gaming-grade systems, performance exceeds 600 FPS, while server-grade systems show performance of over 13,000 FPS. | While server-grade systems show performance of over 13,000 FPS.",
+    "paper_id": "280"
+  }
+]

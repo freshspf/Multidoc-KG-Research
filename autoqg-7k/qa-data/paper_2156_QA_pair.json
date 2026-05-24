@@ -1,0 +1,88 @@
+[
+  {
+    "section": "evaluationmetrics",
+    "path": {
+      "section": "evaluationmetrics",
+      "start_entity": "EmptyClass",
+      "end_entity": "Paper",
+      "hops": [
+        {
+          "from": "EmptyClass",
+          "relation": "partOf",
+          "to": "Intersection-over-Union",
+          "context": "where TP, FP, FN, c0 and C represent the number of true positive, false positive, false negative predictions, the empty class and the set of non-empty classes respectively.",
+          "chunk": "11"
+        },
+        {
+          "from": "Intersection-over-Union",
+          "relation": "basedOn",
+          "to": "MonoScene",
+          "context": "For evaluation metrics, we utilize Intersection-over-Union (IoU) and mean Intersection-over-Union (mIoU) following MonoScene [5].",
+          "chunk": "11"
+        },
+        {
+          "from": "MonoScene",
+          "relation": "type",
+          "to": "Paper",
+          "context": "For evaluation metrics, we utilize Intersection-over-Union (IoU) and mean Intersection-over-Union (mIoU) following MonoScene [5].",
+          "chunk": "11"
+        }
+      ]
+    },
+    "question": "In the context of the MonoScene paper, how does the concept of the EmptyClass impact the calculation of Intersection-over-Union (IoU) for scene segmentation?",
+    "options": {
+      "A": "The EmptyClass increases the false positive rate, which in turn erroneously boosts the IoU value.",
+      "B": "The presence of the EmptyClass increases the true negative count, which significantly increases the IoU measurement.",
+      "C": "The EmptyClass does not directly impact IoU as it only affects the classification of non-empty classes.",
+      "D": "The EmptyClass, representing areas with no object presence, decreases the true positive count influencing IoU negatively."
+    },
+    "correct_answer": "D",
+    "explanation": "The EmptyClass is defined as areas where no objects are present, so including it in the evaluation would decrease the true positive (TP) count (since these areas are correctly predicted as empty), thus negatively impacting the IoU calculation. IoU evaluates the overlap between predicted and actual object areas, and the absence of objects (true predictions of emptiness) reduces the TP count.",
+    "path_description": "Path: EmptyClass --[partOf]--> Intersection-over-Union --[basedOn]--> MonoScene --[type]--> Paper",
+    "context": "where TP, FP, FN, c0 and C represent the number of true positive, false positive, false negative predictions, the empty class and the set of non-empty classes respectively. | For evaluation metrics, we utilize Intersection-over-Union (IoU) and mean Intersection-over-Union (mIoU) following MonoScene [5]. | For evaluation metrics, we utilize Intersection-over-Union (IoU) and mean Intersection-over-Union (mIoU) following MonoScene [5].",
+    "paper_id": "771"
+  },
+  {
+    "section": "implementationdetails",
+    "path": {
+      "section": "implementationdetails",
+      "start_entity": "DFA3D",
+      "end_entity": "InterpolationMethod",
+      "hops": [
+        {
+          "from": "DFA3D",
+          "relation": "proves",
+          "to": "TrilinearInterpolation",
+          "context": "For the 3D deformable attention, DFA3D [31] has proved that the trilinear interpolation in the 3D feature space can be transformed into a depth-weighted bilinear interpolation.",
+          "chunk": "12"
+        },
+        {
+          "from": "TrilinearInterpolation",
+          "relation": "transformedInto",
+          "to": "DepthWeightedBilinearInterpolation",
+          "context": "For the 3D deformable attention, DFA3D [31] has proved that the trilinear interpolation in the 3D feature space can be transformed into a depth-weighted bilinear interpolation.",
+          "chunk": "12"
+        },
+        {
+          "from": "DepthWeightedBilinearInterpolation",
+          "relation": "type",
+          "to": "InterpolationMethod",
+          "context": "For the 3D deformable attention, DFA3D [31] has proved that the trilinear interpolation in the 3D feature space can be transformed into a depth-weighted bilinear interpolation.",
+          "chunk": "12"
+        }
+      ]
+    },
+    "question": "In the context of DFA3D's implementation of 3D deformable attention, how is the transformation from trilinear interpolation to depth-weighted bilinear interpolation classified?",
+    "options": {
+      "A": "It is classified as a type of interpolation method that simplifies volumetric data manipulation.",
+      "B": "It is classified as a direct application of an interpolation method within the 3D feature space.",
+      "C": "It is classified as a complex transformation process that requires additional 3D spatial adjustments.",
+      "D": "It is classified as a method involving extensive computational adjustments to maintain data integrity."
+    },
+    "correct_answer": "A",
+    "explanation": "The transformation of trilinear interpolation into depth-weighted bilinear interpolation within the DFA3D model is classified as a type of interpolation method. This method simplifies the process of handling volumetric data in the 3D deformable attention mechanism.",
+    "path_description": "Path: DFA3D --[proves]--> TrilinearInterpolation --[transformedInto]--> DepthWeightedBilinearInterpolation --[type]--> InterpolationMethod",
+    "context": "For the 3D deformable attention, DFA3D [31] has proved that the trilinear interpolation in the 3D feature space can be transformed into a depth-weighted bilinear interpolation. | For the 3D deformable attention, DFA3D [31] has proved that the trilinear interpolation in the 3D feature space can be transformed into a depth-weighted bilinear interpolation. | For the 3D deformable attention, DFA3D [31] has proved that the trilinear interpolation in the 3D feature space can be transformed into a depth-weighted bilinear interpolation.",
+    "paper_id": "771"
+  }
+]

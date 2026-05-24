@@ -1,0 +1,88 @@
+[
+  {
+    "section": "hardwarearchitecture1",
+    "path": {
+      "section": "hardwarearchitecture1",
+      "start_entity": "IntelAgilex",
+      "end_entity": "Algorithm",
+      "hops": [
+        {
+          "from": "IntelAgilex",
+          "relation": "contains",
+          "to": "DDRMemory",
+          "context": "Our implementation target was an FPGA board based on Intel Agilex which has multiple DDR memory banks.",
+          "chunk": "4"
+        },
+        {
+          "from": "DDRMemory",
+          "relation": "usedIn",
+          "to": "MSM",
+          "context": "For our implementation, we always move elliptic curve points to the main FPGA DDR memory once and consume them whenever a call to MSM is made.",
+          "chunk": "4"
+        },
+        {
+          "from": "MSM",
+          "relation": "type",
+          "to": "Algorithm",
+          "context": "The fundamental mathematical computation that is carried out while performing MSM consists only of two core operations.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the implementation described in the 'hardwarearchitecture1' section, which algorithm is fundamentally associated with the use of DDR memory on the Intel Agilex FPGA board?",
+    "options": {
+      "A": "An algorithm that enhances data encryption through advanced hashing techniques.",
+      "B": "An algorithm that primarily involves elliptic curve point operations in multi-scalar multiplication.",
+      "C": "An algorithm that utilizes complex neural network computations for real-time data analysis.",
+      "D": "An algorithm designed for optimizing the retrieval and storage of video streaming data."
+    },
+    "correct_answer": "B",
+    "explanation": "The question tests understanding of the purpose and function of DDR memory in the Intel Agilex FPGA board as described in the hardwarearchitecture1 section of the paper. The paper specifies that DDR memory is used to store elliptic curve points for MSM (Multi Scalar Multiplication), indicating that the algorithm involved is primarily dealing with elliptic curve operations, which are fundamental to MSM.",
+    "path_description": "Path: IntelAgilex --[contains]--> DDRMemory --[usedIn]--> MSM --[type]--> Algorithm",
+    "context": "Our implementation target was an FPGA board based on Intel Agilex which has multiple DDR memory banks. | For our implementation, we always move elliptic curve points to the main FPGA DDR memory once and consume them whenever a call to MSM is made. | The fundamental mathematical computation that is carried out while performing MSM consists only of two core operations.",
+    "paper_id": "1268"
+  },
+  {
+    "section": "hardwarearchitecture1",
+    "path": {
+      "section": "hardwarearchitecture1",
+      "start_entity": "MSM",
+      "end_entity": "CoordinateSystem",
+      "hops": [
+        {
+          "from": "MSM",
+          "relation": "uses",
+          "to": "EllipticCurvePointDoubling",
+          "context": "The fundamental mathematical computation that is carried out while performing MSM consists only of two core operations.",
+          "chunk": "4"
+        },
+        {
+          "from": "EllipticCurvePointDoubling",
+          "relation": "requires",
+          "to": "JacobianCoordinates",
+          "context": "Our implementation uses Jacobian coordinates where the cost of calculating a single point addition in hardware is 16 modulo multiplications and point double requires 9.",
+          "chunk": "4"
+        },
+        {
+          "from": "JacobianCoordinates",
+          "relation": "type",
+          "to": "CoordinateSystem",
+          "context": "Our implementation uses Jacobian coordinates where the cost of calculating a single point addition in hardware is 16 modulo multiplications and point double requires 9.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the hardware implementation of MSM using Jacobian coordinates, what type of coordinate system is employed that influences the computational cost of elliptic curve point operations?",
+    "options": {
+      "A": "Projective coordinates, known for reducing the number of required inversions but increasing multiplications.",
+      "B": "Affine coordinates, which typically involve simpler computations but higher overall costs for point operations.",
+      "C": "Polar coordinates, generally not used in elliptic curve cryptography due to their complex conversions.",
+      "D": "Jacobian coordinates, which require 9 modulo multiplications for a point double operation in hardware."
+    },
+    "correct_answer": "D",
+    "explanation": "The question follows the knowledge path by connecting MSM to the use of EllipticCurvePointDoubling, which requires JacobianCoordinates, a type of CoordinateSystem. The correct answer, Jacobian coordinates, is specified in the context as being used in the hardware implementation for MSM, where it is noted to require 9 modulo multiplications for a point double operation. The other options provide plausible coordinate systems but are incorrect either in the specifics of their operations or their application in elliptic curve cryptography.",
+    "path_description": "Path: MSM --[uses]--> EllipticCurvePointDoubling --[requires]--> JacobianCoordinates --[type]--> CoordinateSystem",
+    "context": "The fundamental mathematical computation that is carried out while performing MSM consists only of two core operations. | Our implementation uses Jacobian coordinates where the cost of calculating a single point addition in hardware is 16 modulo multiplications and point double requires 9. | Our implementation uses Jacobian coordinates where the cost of calculating a single point addition in hardware is 16 modulo multiplications and point double requires 9.",
+    "paper_id": "1268"
+  }
+]

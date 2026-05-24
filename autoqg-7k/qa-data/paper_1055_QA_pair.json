@@ -1,0 +1,131 @@
+[
+  {
+    "section": "proposedmethodology",
+    "path": {
+      "section": "proposedmethodology",
+      "start_entity": "ArduinoUno",
+      "end_entity": "DigitalOutput",
+      "hops": [
+        {
+          "from": "ArduinoUno",
+          "relation": "partOf",
+          "to": "MonitoringSystem",
+          "context": "The system is a completely automatic irrigation system based on Arduino Uno microcontroller.",
+          "chunk": "2"
+        },
+        {
+          "from": "MonitoringSystem",
+          "relation": "uses",
+          "to": "SoilMoistureModule",
+          "context": "Monitoring System uses the soil moisture module.",
+          "chunk": "2"
+        },
+        {
+          "from": "SoilMoistureModule",
+          "relation": "hasOutput",
+          "to": "DigitalOutput",
+          "context": "There are two output pins on the soil moisture module employed corresponding to Digital and Analog output.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the proposed automatic irrigation system described, how does the soil moisture module communicate its readings to the Arduino Uno microcontroller within the monitoring system?",
+    "options": {
+      "A": "By relying on a separate integrated circuit to convert and transmit data.",
+      "B": "By sending analog signals through both output pins to the Arduino Uno.",
+      "C": "By transmitting data through its digital output pin directly to the Arduino Uno.",
+      "D": "By utilizing wireless communication protocols to connect with the Arduino Uno."
+    },
+    "correct_answer": "C",
+    "explanation": "The soil moisture module in the described irrigation system employs two types of outputs: digital and analog. However, the correct pathway specified that the monitoring system uses the digital output to communicate with the Arduino Uno microcontroller. Analog output, wireless protocols, or external circuits are not mentioned in this specific pathway.",
+    "path_description": "Path: ArduinoUno --[partOf]--> MonitoringSystem --[uses]--> SoilMoistureModule --[hasOutput]--> DigitalOutput",
+    "context": "The system is a completely automatic irrigation system based on Arduino Uno microcontroller. | Monitoring System uses the soil moisture module. | There are two output pins on the soil moisture module employed corresponding to Digital and Analog output.",
+    "paper_id": "483"
+  },
+  {
+    "section": "implementation",
+    "path": {
+      "section": "implementation",
+      "start_entity": "Transistor",
+      "end_entity": "Pin13",
+      "hops": [
+        {
+          "from": "Transistor",
+          "relation": "drives",
+          "to": "Relay",
+          "context": "A relay driven by a transistor connected to D11 digital pin or Arduino is used to activate a small motor.",
+          "chunk": "4"
+        },
+        {
+          "from": "Relay",
+          "relation": "activates",
+          "to": "DCMotor",
+          "context": "A relay driven by a transistor connected to D11 digital pin or Arduino is used to activate a small motor.",
+          "chunk": "4"
+        },
+        {
+          "from": "DCMotor",
+          "relation": "initializedTo",
+          "to": "Pin13",
+          "context": "Initialize DC motor to pin 13.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In an Arduino-based project, how does the connection configuration of a transistor influence the DC motor's operation?",
+    "options": {
+      "A": "A transistor connected to the D5 digital pin of Arduino drives a relay that activates the DC motor set to Pin11.",
+      "B": "A transistor connected to the D11 analog pin of Arduino drives a relay that activates the DC motor set to Pin13.",
+      "C": "A transistor connected to the D11 digital pin of Arduino drives a relay that activates the DC motor set to Pin13.",
+      "D": "A transistor connected to the D11 digital pin of Arduino drives a relay that deactivates the DC motor not set to any pin."
+    },
+    "correct_answer": "C",
+    "explanation": "According to the provided context, a transistor connected to the D11 digital pin of an Arduino drives a relay. This relay then activates a small motor, which is initialized to operate on Pin 13. This setup outlines how the transistor's connection to a specific digital pin (D11) directly influences the activation and operation of the DC motor.",
+    "path_description": "Path: Transistor --[drives]--> Relay --[activates]--> DCMotor --[initializedTo]--> Pin13",
+    "context": "A relay driven by a transistor connected to D11 digital pin or Arduino is used to activate a small motor. | A relay driven by a transistor connected to D11 digital pin or Arduino is used to activate a small motor. | Initialize DC motor to pin 13.",
+    "paper_id": "483"
+  },
+  {
+    "section": "systemdesign",
+    "path": {
+      "section": "systemdesign",
+      "start_entity": "ArduinoUno",
+      "end_entity": "SRAM",
+      "hops": [
+        {
+          "from": "ArduinoUno",
+          "relation": "contains",
+          "to": "DataMemory",
+          "context": "Hence, it consists of two memories: Data memory.",
+          "chunk": "3"
+        },
+        {
+          "from": "DataMemory",
+          "relation": "partOf",
+          "to": "FlashMemory",
+          "context": "The flash program memory is used to stored the program code while the data memory is used to store the data.",
+          "chunk": "3"
+        },
+        {
+          "from": "FlashMemory",
+          "relation": "contains",
+          "to": "SRAM",
+          "context": "SRAM and EEPROM use 2KB and 1 KB respectively.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the Arduino Uno architecture, which memory component directly contains the SRAM that is part of the Flash memory?",
+    "options": {
+      "A": "Data memory contains the SRAM that is part of the flash memory.",
+      "B": "The flash program memory contains the SRAM that is part of the flash memory.",
+      "C": "EEPROM contains the SRAM that is part of the flash memory.",
+      "D": "The microcontroller unit contains the SRAM that is part of the flash memory."
+    },
+    "correct_answer": "A",
+    "explanation": "According to the knowledge path, Data Memory contains SRAM which is a part of Flash Memory within the Arduino Uno system. EEPROM is also mentioned but it does not contain SRAM, and the microcontroller unit is not specified in the path as containing SRAM.",
+    "path_description": "Path: ArduinoUno --[contains]--> DataMemory --[partOf]--> FlashMemory --[contains]--> SRAM",
+    "context": "Hence, it consists of two memories: Data memory. | The flash program memory is used to stored the program code while the data memory is used to store the data. | SRAM and EEPROM use 2KB and 1 KB respectively.",
+    "paper_id": "483"
+  }
+]

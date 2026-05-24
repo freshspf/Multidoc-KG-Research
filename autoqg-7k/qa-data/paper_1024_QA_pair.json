@@ -1,0 +1,88 @@
+[
+  {
+    "section": "qualitycontrol1",
+    "path": {
+      "section": "qualitycontrol1",
+      "start_entity": "SC3DP",
+      "end_entity": "Process",
+      "hops": [
+        {
+          "from": "SC3DP",
+          "relation": "uses",
+          "to": "DepthCamera",
+          "context": "In SC3DP, depth cameras are mesh in order to finally facilitate path planning.",
+          "chunk": "9"
+        },
+        {
+          "from": "DepthCamera",
+          "relation": "updates",
+          "to": "PathPlanning",
+          "context": "A depth camera aligned on the of the existing substrate to update the path planning...",
+          "chunk": "9"
+        },
+        {
+          "from": "PathPlanning",
+          "relation": "type",
+          "to": "Process",
+          "context": "A depth camera aligned on the of the existing substrate to update the path planning...",
+          "chunk": "9"
+        }
+      ]
+    },
+    "question": "In the context of SC3DP, how does the use of a depth camera specifically contribute to the quality control of the printing process?",
+    "options": {
+      "A": "By emitting high-intensity light to cure the resin faster, which is essential for maintaining the shape integrity.",
+      "B": "By mapping the topology of the existing substrate, it updates the path planning, ensuring high process precision.",
+      "C": "By scanning the final product to detect any deviations from the expected dimensions post-printing.",
+      "D": "By providing real-time temperature data of the printing material to regulate the printing speed."
+    },
+    "correct_answer": "B",
+    "explanation": "The depth camera's primary role in SC3DP is to map the topology of the existing substrate, which is crucial for updating the path planning. This ensures that the print head moves accurately according to the surface variations, thereby maintaining high precision in the printing process. The other options, while plausible, do not directly relate to the use of the depth camera in updating the path planning as described in the context provided.",
+    "path_description": "Path: SC3DP --[uses]--> DepthCamera --[updates]--> PathPlanning --[type]--> Process",
+    "context": "In SC3DP, depth cameras are mesh in order to finally facilitate path planning. | A depth camera aligned on the of the existing substrate to update the path planning... | A depth camera aligned on the of the existing substrate to update the path planning...",
+    "paper_id": "1392"
+  },
+  {
+    "section": "qualitycontrol2",
+    "path": {
+      "section": "qualitycontrol2",
+      "start_entity": "LayerThickness",
+      "end_entity": "DataFormat",
+      "hops": [
+        {
+          "from": "LayerThickness",
+          "relation": "analyzedFor",
+          "to": "FilamentDeformation",
+          "context": "The integration of data from a camera and the layer thickness and analyze the deformation of the fi",
+          "chunk": "10"
+        },
+        {
+          "from": "FilamentDeformation",
+          "relation": "convertedTo",
+          "to": "2DImages",
+          "context": "is converted to 2D images to extract the filaments’ con",
+          "chunk": "10"
+        },
+        {
+          "from": "2DImages",
+          "relation": "type",
+          "to": "DataFormat",
+          "context": "is converted to 2D images to extract the filaments’ con",
+          "chunk": "10"
+        }
+      ]
+    },
+    "question": "In the process of quality control as described in the 'qualitycontrol2' section, what is the correct sequence of transformations applied to assess filament deformation?",
+    "options": {
+      "A": "Filament deformation is directly visualized, then layer thickness is measured and stored as 3D models",
+      "B": "Data from camera is first formatted into 2D images, then analyzed for layer thickness and filament deformation",
+      "C": "2D images are first converted into a data format, then analyzed for layer thickness and filament deformation",
+      "D": "Layer thickness is analyzed, deformation data is captured and then converted to 2D images in a specific data format"
+    },
+    "correct_answer": "D",
+    "explanation": "The correct sequence starts with analyzing the layer thickness, which is then used to analyze filament deformation. This deformation data is subsequently converted into 2D images for further examination, and these images must be in a specific data format to be useful for quality control purposes.",
+    "path_description": "Path: LayerThickness --[analyzedFor]--> FilamentDeformation --[convertedTo]--> 2DImages --[type]--> DataFormat",
+    "context": "The integration of data from a camera and the layer thickness and analyze the deformation of the fi | is converted to 2D images to extract the filaments’ con | is converted to 2D images to extract the filaments’ con",
+    "paper_id": "1392"
+  }
+]

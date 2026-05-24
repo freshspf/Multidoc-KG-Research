@@ -1,0 +1,217 @@
+[
+  {
+    "section": "systemmodel",
+    "path": {
+      "section": "systemmodel",
+      "start_entity": "BushfireManagementAuthority",
+      "end_entity": "Group",
+      "hops": [
+        {
+          "from": "BushfireManagementAuthority",
+          "relation": "formulates",
+          "to": "Queries",
+          "context": "The bushfire management authority formulates queries to gather specific data from drone operators.",
+          "chunk": "1"
+        },
+        {
+          "from": "Queries",
+          "relation": "gatherDataFrom",
+          "to": "DroneOperators",
+          "context": "The bushfire management authority formulates queries to gather specific data from drone operators.",
+          "chunk": "1"
+        },
+        {
+          "from": "DroneOperators",
+          "relation": "type",
+          "to": "Group",
+          "context": "These drone operators are local residents equipped with consumer-grade drones.",
+          "chunk": "1"
+        }
+      ]
+    },
+    "question": "In the context of the bushfire management authority's system model, what type of group primarily assists by providing specific data through the use of drones?",
+    "options": {
+      "A": "Professional survey teams using specialized aerial equipment",
+      "B": "Local residents equipped with consumer-grade drones",
+      "C": "Volunteer environmentalists with advanced drone technology",
+      "D": "Remote sensing experts operating from central facilities"
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A because the paper specifies that the drone operators, who gather specific data for the bushfire management authority, are local residents equipped with consumer-grade drones. The other options, while plausible, do not align with the description given in the paper.",
+    "path_description": "Path: BushfireManagementAuthority --[formulates]--> Queries --[gatherDataFrom]--> DroneOperators --[type]--> Group",
+    "context": "The bushfire management authority formulates queries to gather specific data from drone operators. | The bushfire management authority formulates queries to gather specific data from drone operators. | These drone operators are local residents equipped with consumer-grade drones.",
+    "paper_id": "756"
+  },
+  {
+    "section": "systemmodel",
+    "path": {
+      "section": "systemmodel",
+      "start_entity": "SystemOperator",
+      "end_entity": "Queries",
+      "hops": [
+        {
+          "from": "SystemOperator",
+          "relation": "ensures",
+          "to": "DroneOperatorsMeetCriteria",
+          "context": "The system operator is responsible for screening the responses, ensuring drone operators meet the criteria set by the bushfire management authority.",
+          "chunk": "1"
+        },
+        {
+          "from": "DroneOperatorsMeetCriteria",
+          "relation": "setBy",
+          "to": "BushfireManagementAuthority",
+          "context": "The system operator is responsible for screening the responses, ensuring drone operators meet the criteria set by the bushfire management authority.",
+          "chunk": "1"
+        },
+        {
+          "from": "BushfireManagementAuthority",
+          "relation": "formulates",
+          "to": "Queries",
+          "context": "The bushfire management authority formulates queries to gather specific data from drone operators.",
+          "chunk": "1"
+        }
+      ]
+    },
+    "question": "In the context of drone operations for bushfire management, what is the primary role of the system operator?",
+    "options": {
+      "A": "The system operator ensures that drone operators meet the specific criteria set by the bushfire management authority.",
+      "B": "The system operator is primarily responsible for controlling the drones during bushfire operations.",
+      "C": "The system operator generates the criteria that the bushfire management authority must follow.",
+      "D": "The system operator directly formulates queries that are sent to the bushfire management authority."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A because the system operator's role, as described in the provided context, is to ensure drone operators meet the criteria set by the bushfire management authority. Options B, C, and D are incorrect as they misrepresent the system operator's responsibilities by suggesting roles not supported by the context.",
+    "path_description": "Path: SystemOperator --[ensures]--> DroneOperatorsMeetCriteria --[setBy]--> BushfireManagementAuthority --[formulates]--> Queries",
+    "context": "The system operator is responsible for screening the responses, ensuring drone operators meet the criteria set by the bushfire management authority. | The system operator is responsible for screening the responses, ensuring drone operators meet the criteria set by the bushfire management authority. | The bushfire management authority formulates queries to gather specific data from drone operators.",
+    "paper_id": "756"
+  },
+  {
+    "section": "designandimplementation",
+    "path": {
+      "section": "designandimplementation",
+      "start_entity": "System",
+      "end_entity": "EncryptionMethod",
+      "hops": [
+        {
+          "from": "System",
+          "relation": "uses",
+          "to": "DroneOperator",
+          "context": "In our system, specifically designed for bushfire management using crowdsourced drone services...",
+          "chunk": "2"
+        },
+        {
+          "from": "DroneOperator",
+          "relation": "uses",
+          "to": "SymmetricEncryptionMethod",
+          "context": "Each drone operator and the system operator set a pre-shared secret key (psk), a hash function H(data), and a symmetric encryption method E(key, data).",
+          "chunk": "2"
+        },
+        {
+          "from": "SymmetricEncryptionMethod",
+          "relation": "type",
+          "to": "EncryptionMethod",
+          "context": "Each drone operator and the system operator set a pre-shared secret key (psk), a hash function H(data), and a symmetric encryption method E(key, data).",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the context of a bushfire management system using crowdsourced drone services, how does the system ensure secure communication between the system and drone operators?",
+    "options": {
+      "A": "By implementing a blockchain-based protocol that ensures transparency and security without the need for encryption.",
+      "B": "Through an asymmetric encryption method that uses public and private keys to secure data transfers between drones and the system.",
+      "C": "Using a proprietary encoding system that obfuscates data to prevent unauthorized access during transmission.",
+      "D": "By using a symmetric encryption method where both parties share a pre-set secret key to encrypt and decrypt transmitted data."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A because the system and drone operators use a symmetric encryption method, indicated by the use of a pre-shared secret key (psk) for encryption (E(key, data)), ensuring that both parties need the same key to encrypt and decrypt the transmitted data. The other options refer to different types of security measures not mentioned in the context.",
+    "path_description": "Path: System --[uses]--> DroneOperator --[uses]--> SymmetricEncryptionMethod --[type]--> EncryptionMethod",
+    "context": "In our system, specifically designed for bushfire management using crowdsourced drone services... | Each drone operator and the system operator set a pre-shared secret key (psk), a hash function H(data), and a symmetric encryption method E(key, data). | Each drone operator and the system operator set a pre-shared secret key (psk), a hash function H(data), and a symmetric encryption method E(key, data).",
+    "paper_id": "756"
+  },
+  {
+    "section": "systemmodel",
+    "path": {
+      "section": "systemmodel",
+      "start_entity": "SystemOperator",
+      "end_entity": "StatisticsAboutFireProneAreas",
+      "hops": [
+        {
+          "from": "SystemOperator",
+          "relation": "ensures",
+          "to": "DroneOperatorsMeetCriteria",
+          "context": "The system operator is responsible for screening the responses, ensuring drone operators meet the criteria set by the bushfire management authority.",
+          "chunk": "1"
+        },
+        {
+          "from": "DroneOperatorsMeetCriteria",
+          "relation": "setBy",
+          "to": "BushfireManagementAuthority",
+          "context": "The system operator is responsible for screening the responses, ensuring drone operators meet the criteria set by the bushfire management authority.",
+          "chunk": "1"
+        },
+        {
+          "from": "BushfireManagementAuthority",
+          "relation": "interestedIn",
+          "to": "StatisticsAboutFireProneAreas",
+          "context": "The bushfire management authority is interested in extracting relevant statistics about fire-prone areas.",
+          "chunk": "1"
+        }
+      ]
+    },
+    "question": "How does the system operator contribute to the bushfire management authority's interest in fire-prone area statistics?",
+    "options": {
+      "A": "By ensuring drone operators meet the criteria to collect and provide necessary data for statistics about fire-prone areas.",
+      "B": "By modifying the criteria set by the bushfire management authority for statistical data collection.",
+      "C": "By screening the responses from the public regarding their experiences in fire-prone areas.",
+      "D": "By directly collecting statistics on fire-prone areas and providing them to the bushfire management authority."
+    },
+    "correct_answer": "A",
+    "explanation": "The system operator ensures that drone operators meet specific criteria set by the bushfire management authority, which likely includes capabilities relevant to collecting data about fire-prone areas. This indirectly helps the authority in gathering the statistics they are interested in.",
+    "path_description": "Path: SystemOperator --[ensures]--> DroneOperatorsMeetCriteria --[setBy]--> BushfireManagementAuthority --[interestedIn]--> StatisticsAboutFireProneAreas",
+    "context": "The system operator is responsible for screening the responses, ensuring drone operators meet the criteria set by the bushfire management authority. | The system operator is responsible for screening the responses, ensuring drone operators meet the criteria set by the bushfire management authority. | The bushfire management authority is interested in extracting relevant statistics about fire-prone areas.",
+    "paper_id": "756"
+  },
+  {
+    "section": "designandimplementation",
+    "path": {
+      "section": "designandimplementation",
+      "start_entity": "System",
+      "end_entity": "PreSharedSecretKey",
+      "hops": [
+        {
+          "from": "System",
+          "relation": "type",
+          "to": "System",
+          "context": "In our system, specifically designed for bushfire management using crowdsourced drone services...",
+          "chunk": "2"
+        },
+        {
+          "from": "System",
+          "relation": "uses",
+          "to": "DroneOperator",
+          "context": "In our system, specifically designed for bushfire management using crowdsourced drone services...",
+          "chunk": "2"
+        },
+        {
+          "from": "DroneOperator",
+          "relation": "uses",
+          "to": "PreSharedSecretKey",
+          "context": "Each drone operator and the system operator set a pre-shared secret key (psk)...",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "How does the system designed for bushfire management using crowdsourced drone services ensure secure communication between the system operator and drone operators?",
+    "options": {
+      "A": "By each drone operator and the system operator setting a pre-shared secret key to encrypt communications.",
+      "B": "By employing an open network where all communications are unencrypted for ease of access and speed.",
+      "C": "By implementing a public key infrastructure where each drone operator has a unique public key and private key.",
+      "D": "By using a standard password authentication method that verifies identities via a shared password."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A because, as per the knowledge path, the system uses a pre-shared secret key (psk) for secure communication between each drone operator and the system operator. This ensures that communications are encrypted and protected from unauthorized access.",
+    "path_description": "Path: System --[type]--> System --[uses]--> DroneOperator --[uses]--> PreSharedSecretKey",
+    "context": "In our system, specifically designed for bushfire management using crowdsourced drone services... | In our system, specifically designed for bushfire management using crowdsourced drone services... | Each drone operator and the system operator set a pre-shared secret key (psk)...",
+    "paper_id": "756"
+  }
+]

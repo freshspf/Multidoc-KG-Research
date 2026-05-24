@@ -1,0 +1,131 @@
+[
+  {
+    "section": "relatedwork",
+    "path": {
+      "section": "relatedwork",
+      "start_entity": "SNOs",
+      "end_entity": "Currency",
+      "hops": [
+        {
+          "from": "SNOs",
+          "relation": "verifyTokenValidity",
+          "to": "SIMCards",
+          "context": "When satellite access is needed, the SNO will be able to verify the validity of the token as well as mark it as used before providing service.",
+          "chunk": "2"
+        },
+        {
+          "from": "SIMCards",
+          "relation": "contain",
+          "to": "Tokens",
+          "context": "SIM cards. Customers purchase tokens to use satellite services from their MNO, which will be written into trusted hardware on their SIM cards.",
+          "chunk": "2"
+        },
+        {
+          "from": "Tokens",
+          "relation": "type",
+          "to": "Currency",
+          "context": "SIM cards. Customers purchase tokens to use satellite services from their MNO, which will be written into trusted hardware on their SIM cards.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the context of satellite network operations (SNOs), how does the verification process of tokens on SIM cards impact the type of service provided?",
+    "options": {
+      "A": "The token type, once verified, primarily allows access to general internet services through the satellite.",
+      "B": "Verification allows users to access unlimited satellite services, including voice and data transmission.",
+      "C": "The validity of the token ensures that only data storage services are accessible via the SIM card.",
+      "D": "The validity of the token determines whether satellite services like currency exchange can be accessed."
+    },
+    "correct_answer": "D",
+    "explanation": "The token's validity is crucial for accessing certain types of services. Since the token type mentioned is 'Currency', it directly influences the type of satellite services accessible, such as currency exchange functionalities, following the knowledge graph path from SNOs through SIM cards and tokens.",
+    "path_description": "Path: SNOs --[verifyTokenValidity]--> SIMCards --[contain]--> Tokens --[type]--> Currency",
+    "context": "When satellite access is needed, the SNO will be able to verify the validity of the token as well as mark it as used before providing service. | SIM cards. Customers purchase tokens to use satellite services from their MNO, which will be written into trusted hardware on their SIM cards. | SIM cards. Customers purchase tokens to use satellite services from their MNO, which will be written into trusted hardware on their SIM cards.",
+    "paper_id": "1056"
+  },
+  {
+    "section": "protocol1",
+    "path": {
+      "section": "protocol1",
+      "start_entity": "2d-torus",
+      "end_entity": "Node",
+      "hops": [
+        {
+          "from": "2d-torus",
+          "relation": "partOf",
+          "to": "BlockchainServiceArea",
+          "context": "All our protocols rely on the 2d-torus architecture",
+          "chunk": "5"
+        },
+        {
+          "from": "BlockchainServiceArea",
+          "relation": "uses",
+          "to": "SatelliteNode",
+          "context": "blockchain Service Area (SA) as a block of contiguous nodes",
+          "chunk": "5"
+        },
+        {
+          "from": "SatelliteNode",
+          "relation": "type",
+          "to": "Node",
+          "context": "each satellite node can determine independently when it will move out of the service area and which node will enter to take its place",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the context of a blockchain service area using a 2d-torus architecture, what role does a satellite node play?",
+    "options": {
+      "A": "A satellite node primarily functions to increase the computational power of the blockchain network.",
+      "B": "A satellite node operates to secure the network by verifying blockchain transactions.",
+      "C": "A satellite node serves as a static relay for transactions across the blockchain network.",
+      "D": "A satellite node independently decides when to exit and be replaced within the service area."
+    },
+    "correct_answer": "D",
+    "explanation": "According to the provided context, in a blockchain service area structured with a 2d-torus architecture, each satellite node can independently decide when it will move out of the service area and which node will replace it. This indicates that the primary role of satellite nodes in this setup is to manage their presence within the service area autonomously.",
+    "path_description": "Path: 2d-torus --[partOf]--> BlockchainServiceArea --[uses]--> SatelliteNode --[type]--> Node",
+    "context": "All our protocols rely on the 2d-torus architecture | blockchain Service Area (SA) as a block of contiguous nodes | each satellite node can determine independently when it will move out of the service area and which node will enter to take its place",
+    "paper_id": "1056"
+  },
+  {
+    "section": "simulationandvisualization",
+    "path": {
+      "section": "simulationandvisualization",
+      "start_entity": "BankAccountContract",
+      "end_entity": "CommunicationProtocol",
+      "hops": [
+        {
+          "from": "BankAccountContract",
+          "relation": "partOf",
+          "to": "Simulation",
+          "context": "running a bank account contract with the ability to",
+          "chunk": "8"
+        },
+        {
+          "from": "Simulation",
+          "relation": "implements",
+          "to": "ISLCommunication",
+          "context": "In the simulator we define ISL communication",
+          "chunk": "8"
+        },
+        {
+          "from": "ISLCommunication",
+          "relation": "type",
+          "to": "CommunicationProtocol",
+          "context": "In the simulator we define ISL communication",
+          "chunk": "8"
+        }
+      ]
+    },
+    "question": "In a simulated environment described in the paper, how does the BankAccountContract utilize the ISLCommunication within the context of communication protocols?",
+    "options": {
+      "A": "The BankAccountContract directly interacts with CommunicationProtocol which manages ISLCommunication within the Simulation.",
+      "B": "ISLCommunication within the Simulation interfaces directly with BankAccountContract bypassing the need for CommunicationProtocol.",
+      "C": "The BankAccountContract is part of the Simulation that implements ISLCommunication, categorized under CommunicationProtocol.",
+      "D": "CommunicationProtocol is a part of BankAccountContract which is used to implement ISLCommunication within the Simulation."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A because it follows the path provided. BankAccountContract is part of the Simulation, which then implements ISLCommunication, and ISLCommunication is a type of CommunicationProtocol. The other options incorrectly describe the relationships or the hierarchy among the entities.",
+    "path_description": "Path: BankAccountContract --[partOf]--> Simulation --[implements]--> ISLCommunication --[type]--> CommunicationProtocol",
+    "context": "running a bank account contract with the ability to | In the simulator we define ISL communication | In the simulator we define ISL communication",
+    "paper_id": "1056"
+  }
+]

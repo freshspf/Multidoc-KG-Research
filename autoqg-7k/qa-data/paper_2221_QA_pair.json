@@ -1,0 +1,88 @@
+[
+  {
+    "section": "backgroundmotivation2",
+    "path": {
+      "section": "backgroundmotivation2",
+      "start_entity": "Alpha",
+      "end_entity": "QUBO",
+      "hops": [
+        {
+          "from": "Alpha",
+          "relation": "multiplies",
+          "to": "ZQ",
+          "context": "≥ αZQ",
+          "chunk": "2"
+        },
+        {
+          "from": "ZQ",
+          "relation": "greaterThanOrEqualTo",
+          "to": "ZP",
+          "context": "≥ αZQ ≥ αZP",
+          "chunk": "2"
+        },
+        {
+          "from": "ZP",
+          "relation": "isOptimalValueOf",
+          "to": "QUBO",
+          "context": ", and ZP is the optimal value of (QUBO)",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the context of quadratic unconstrained binary optimization (QUBO), if the value of ZP represents the optimal solution, how does the parameter Alpha relate to the optimal value and the parameters ZQ and ZP?",
+    "options": {
+      "A": "Alpha acts independently of ZQ and ZP, having no effect on their relationship or on QUBO's optimal value.",
+      "B": "Alpha serves as a division factor, making ZQ significantly less than ZP, which is a suboptimal value in the context of QUBO.",
+      "C": "Alpha is a reducing factor that guarantees ZQ is less than or equal to ZP, the non-optimal value of QUBO.",
+      "D": "Alpha is a multiplier that ensures ZQ is greater than or equal to ZP, which is the optimal value of QUBO."
+    },
+    "correct_answer": "D",
+    "explanation": "Alpha multiplies ZQ and ensures that it is greater than or equal to ZP. Since ZP is designated as the optimal value of QUBO, Alpha's role is critical in maintaining or exceeding this optimal value through its relationship with ZQ.",
+    "path_description": "Path: Alpha --[multiplies]--> ZQ --[greaterThanOrEqualTo]--> ZP --[isOptimalValueOf]--> QUBO",
+    "context": "≥ αZQ | ≥ αZQ ≥ αZP | , and ZP is the optimal value of (QUBO)",
+    "paper_id": "816"
+  },
+  {
+    "section": "proposedmethod1",
+    "path": {
+      "section": "proposedmethod1",
+      "start_entity": "GraphStructure",
+      "end_entity": "Method",
+      "hops": [
+        {
+          "from": "GraphStructure",
+          "relation": "appliedTo",
+          "to": "NeuralNetworkBasedRLAgent",
+          "context": "Importantly, we do not incorporate the graph structure into the neural network",
+          "chunk": "3"
+        },
+        {
+          "from": "NeuralNetworkBasedRLAgent",
+          "relation": "uses",
+          "to": "ParameterizedGaussianDistribution",
+          "context": "and the parameterized Gaussian distribution",
+          "chunk": "3"
+        },
+        {
+          "from": "ParameterizedGaussianDistribution",
+          "relation": "type",
+          "to": "Method",
+          "context": "and the parameterized Gaussian distribution",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the context of the proposed method described in 'proposedmethod1', how is the graph structure utilized concerning the neural network-based RL agent?",
+    "options": {
+      "A": "The graph structure is not directly incorporated into the neural network-based RL agent nor influences the parameterized Gaussian distribution.",
+      "B": "The graph structure is applied to the neural network-based RL agent, which uses a parameterized Gaussian distribution as a method.",
+      "C": "The graph structure acts independently and does not interact with the neural network-based RL agent or the parameterized Gaussian distribution.",
+      "D": "The graph structure is directly integrated into the RL agent's learning algorithm to modify the parameterized Gaussian distribution."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is C because the context explicitly states that the graph structure is not incorporated into the neural network or the parameterized Gaussian distribution used by the RL agent. This implies that the graph structure and the neural network-based RL agent with its Gaussian distribution operate independently in the proposed method.",
+    "path_description": "Path: GraphStructure --[appliedTo]--> NeuralNetworkBasedRLAgent --[uses]--> ParameterizedGaussianDistribution --[type]--> Method",
+    "context": "Importantly, we do not incorporate the graph structure into the neural network | and the parameterized Gaussian distribution | and the parameterized Gaussian distribution",
+    "paper_id": "816"
+  }
+]

@@ -1,0 +1,260 @@
+[
+  {
+    "section": "methodology4",
+    "path": {
+      "section": "methodology4",
+      "start_entity": "MaxTimeDatabase",
+      "end_entity": "TrafficControl",
+      "hops": [
+        {
+          "from": "MaxTimeDatabase",
+          "relation": "usedIn",
+          "to": "MaxTime",
+          "context": "GDOT provided the field MaxTime database files for all the controllers.",
+          "chunk": "5"
+        },
+        {
+          "from": "MaxTime",
+          "relation": "usedIn",
+          "to": "Vissim",
+          "context": "Qfree’s MaxTime emulator is used for traffic control in the base model forming Vissim-MaxTime SILs.",
+          "chunk": "5"
+        },
+        {
+          "from": "Vissim",
+          "relation": "usedFor",
+          "to": "TrafficControl",
+          "context": "PTV’s Vissim is selected as the simulation environment.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "How does the MaxTime database contribute to the traffic control process within the Vissim simulation environment?",
+    "options": {
+      "A": "The MaxTime database directly manipulates traffic light timings within the Vissim environment to test different traffic theories.",
+      "B": "The MaxTime database is used to store results from traffic simulations for later analysis by traffic engineers and planners.",
+      "C": "The MaxTime database serves as a repository for collecting data from Vissim simulations to improve traffic flow algorithms.",
+      "D": "The MaxTime database provides field configuration files used in Vissim to emulate real-time traffic control scenarios."
+    },
+    "correct_answer": "D",
+    "explanation": "The MaxTime database provides configuration files necessary for the MaxTime emulator, which is used in conjunction with Vissim to create a simulation environment that emulates real-time traffic control scenarios. This contributes to the understanding and development of traffic control strategies within the Vissim environment.",
+    "path_description": "Path: MaxTimeDatabase --[usedIn]--> MaxTime --[usedIn]--> Vissim --[usedFor]--> TrafficControl",
+    "context": "GDOT provided the field MaxTime database files for all the controllers. | Qfree’s MaxTime emulator is used for traffic control in the base model forming Vissim-MaxTime SILs. | PTV’s Vissim is selected as the simulation environment.",
+    "paper_id": "1285"
+  },
+  {
+    "section": "methodology3",
+    "path": {
+      "section": "methodology3",
+      "start_entity": "Algorithm",
+      "end_entity": "Entity",
+      "hops": [
+        {
+          "from": "Algorithm",
+          "relation": "doesNotNeed",
+          "to": "IntersectionSignal",
+          "context": "the trained algorithm shall not need access to the lexibility on the information that can be included",
+          "chunk": "4"
+        },
+        {
+          "from": "IntersectionSignal",
+          "relation": "displays",
+          "to": "GreenTime",
+          "context": "information to display for each of the intersection signal",
+          "chunk": "4"
+        },
+        {
+          "from": "GreenTime",
+          "relation": "type",
+          "to": "Entity",
+          "context": "to assign green time and to yellow and red clearance displays",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the context of traffic management algorithms, why is it significant that the algorithm does not require intersection signal information to function?",
+    "options": {
+      "A": "It ensures that the algorithm can be applied universally in all intersections, even those without advanced signal technology.",
+      "B": "It enables the algorithm to operate independently of real-time traffic signal display adjustments, enhancing overall system robustness.",
+      "C": "It makes the algorithm less costly to implement since it does not require additional hardware for signal information processing.",
+      "D": "It allows the algorithm to directly control the traffic lights, thus reducing the complexity of traffic management systems."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A because the algorithm's independence from intersection signal information allows it to manage traffic without being affected by changes in the signals' displays, thus increasing the robustness of the traffic management system. Options B, C, and D, although plausible, do not specifically address the enhancement of system robustness related to independence from real-time changes.",
+    "path_description": "Path: Algorithm --[doesNotNeed]--> IntersectionSignal --[displays]--> GreenTime --[type]--> Entity",
+    "context": "the trained algorithm shall not need access to the lexibility on the information that can be included | information to display for each of the intersection signal | to assign green time and to yellow and red clearance displays",
+    "paper_id": "1285"
+  },
+  {
+    "section": "results1",
+    "path": {
+      "section": "results1",
+      "start_entity": "SimulationRuns",
+      "end_entity": "Software",
+      "hops": [
+        {
+          "from": "SimulationRuns",
+          "relation": "partOf",
+          "to": "ModelTraining",
+          "context": "For each of the tests described in this results section, 10 replicate simulation runs are performed each with a unique random seed.",
+          "chunk": "7"
+        },
+        {
+          "from": "ModelTraining",
+          "relation": "uses",
+          "to": "Vissim",
+          "context": "Model training are performed on an x64-based PC equipped with 12th Gen Intel(R) Core i9-12900, 2400 MHZ, 16 Core(s), 24 Logical Processor(s), 128 GB of RAM, Intel (R) UHD Graphics 770 GPU and Windows 11 operating system. It took approximately 60 hours to reach a fully trained model with the main limiting factor being Vissim’s runtime efficiency as fully discussed in a recent study by Kwesiga et al. (2024a).",
+          "chunk": "7"
+        },
+        {
+          "from": "Vissim",
+          "relation": "type",
+          "to": "Software",
+          "context": "The main limiting factor being Vissim’s runtime efficiency as fully discussed in a recent study by Kwesiga et al. (2024a).",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "Which factor primarily influenced the duration required to achieve a fully trained model in the described simulation experiments?",
+    "options": {
+      "A": "The logical processors available, totaling 24 in the system used for model training.",
+      "B": "The runtime efficiency of Vissim software, which is a critical computational tool in the simulation runs.",
+      "C": "The processing power of the 12th Gen Intel(R) Core i9-12900 CPU used during the model training.",
+      "D": "The amount of RAM available, specifically the 128 GB installed on the x64-based training PC."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A, as the paper specifically mentions that the main limiting factor for the time required to train the model was the runtime efficiency of Vissim, which is a software used in the simulation runs as part of the model training process.",
+    "path_description": "Path: SimulationRuns --[partOf]--> ModelTraining --[uses]--> Vissim --[type]--> Software",
+    "context": "For each of the tests described in this results section, 10 replicate simulation runs are performed each with a unique random seed. | Model training are performed on an x64-based PC equipped with 12th Gen Intel(R) Core i9-12900, 2400 MHZ, 16 Core(s), 24 Logical Processor(s), 128 GB of RAM, Intel (R) UHD Graphics 770 GPU and Windows 11 operating system. It took approximately 60 hours to reach a fully trained model with the main limiting factor being Vissim’s runtime efficiency as fully discussed in a recent study by Kwesiga et al. (2024a). | The main limiting factor being Vissim’s runtime efficiency as fully discussed in a recent study by Kwesiga et al. (2024a).",
+    "paper_id": "1285"
+  },
+  {
+    "section": "results1",
+    "path": {
+      "section": "results1",
+      "start_entity": "DataCollection",
+      "end_entity": "Vissim",
+      "hops": [
+        {
+          "from": "DataCollection",
+          "relation": "partOf",
+          "to": "SimulationRuns",
+          "context": "Each simulation run lasts for one hour with data collected only in the last 45 minutes with the first 15 minutes of the hour taken as warm up period.",
+          "chunk": "7"
+        },
+        {
+          "from": "SimulationRuns",
+          "relation": "partOf",
+          "to": "ModelTraining",
+          "context": "For each of the tests described in this results section, 10 replicate simulation runs are performed each with a unique random seed.",
+          "chunk": "7"
+        },
+        {
+          "from": "ModelTraining",
+          "relation": "uses",
+          "to": "Vissim",
+          "context": "Model training are performed on an x64-based PC equipped with 12th Gen Intel(R) Core i9-12900, 2400 MHZ, 16 Core(s), 24 Logical Processor(s), 128 GB of RAM, Intel (R) UHD Graphics 770 GPU and Windows 11 operating system. It took approximately 60 hours to reach a fully trained model with the main limiting factor being Vissim’s runtime efficiency as fully discussed in a recent study by Kwesiga et al. (2024a).",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "Considering the described experimental setup in the paper's 'results1' section, what is the primary reason for the extended duration required to achieve a fully trained model?",
+    "options": {
+      "A": "The primary reason is the initial 15 minutes warm-up period during each simulation run, which significantly reduced the effective data collection time.",
+      "B": "The primary reason is the inherent runtime efficiency of Vissim, which was a limiting factor as detailed in a study by Kwesiga et al. (2024a).",
+      "C": "The primary reason is the configuration of the simulation runs, particularly the unique random seeds used in each of the 10 replicates.",
+      "D": "The primary reason is the use of a high-performance x64-based PC which unexpectedly lengthened the model training time."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is C. The extended duration required to achieve a fully trained model is primarily due to the runtime efficiency of Vissim, as mentioned in the paper. While the high-performance specifications of the PC, the unique random seeds, and the warm-up period of the simulation runs are relevant details, they do not directly relate to the primary limiting factor for the training time.",
+    "path_description": "Path: DataCollection --[partOf]--> SimulationRuns --[partOf]--> ModelTraining --[uses]--> Vissim",
+    "context": "Each simulation run lasts for one hour with data collected only in the last 45 minutes with the first 15 minutes of the hour taken as warm up period. | For each of the tests described in this results section, 10 replicate simulation runs are performed each with a unique random seed. | Model training are performed on an x64-based PC equipped with 12th Gen Intel(R) Core i9-12900, 2400 MHZ, 16 Core(s), 24 Logical Processor(s), 128 GB of RAM, Intel (R) UHD Graphics 770 GPU and Windows 11 operating system. It took approximately 60 hours to reach a fully trained model with the main limiting factor being Vissim’s runtime efficiency as fully discussed in a recent study by Kwesiga et al. (2024a).",
+    "paper_id": "1285"
+  },
+  {
+    "section": "results1",
+    "path": {
+      "section": "results1",
+      "start_entity": "DataCollection",
+      "end_entity": "Activity",
+      "hops": [
+        {
+          "from": "DataCollection",
+          "relation": "partOf",
+          "to": "SimulationRuns",
+          "context": "Each simulation run lasts for one hour with data collected only in the last 45 minutes with the first 15 minutes of the hour taken as warm up period.",
+          "chunk": "7"
+        },
+        {
+          "from": "SimulationRuns",
+          "relation": "partOf",
+          "to": "ModelTraining",
+          "context": "For each of the tests described in this results section, 10 replicate simulation runs are performed each with a unique random seed.",
+          "chunk": "7"
+        },
+        {
+          "from": "ModelTraining",
+          "relation": "type",
+          "to": "Activity",
+          "context": "Model training are performed on an x64-based PC equipped with 12th Gen Intel(R) Core i9-12900, 2400 MHZ, 16 Core(s), 24 Logical Processor(s), 128 GB of RAM, Intel (R) UHD Graphics 770 GPU and Windows 11 operating system.",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "Considering the process described in the paper's results section, which activity is most directly associated with the utilization of an x64-based PC with specific technical specifications?",
+    "options": {
+      "A": "Developing software to manage the graphical output from Intel UHD Graphics 770 GPU during data collection.",
+      "B": "Training a model based on data collected from simulation runs performed with different random seeds.",
+      "C": "Testing the stability of operating systems under the stress of multiple simulation runs.",
+      "D": "Analyzing the hardware efficiency of different processors during simulation runs."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A because the context specifies that model training is performed on a high-specification x64-based PC, and the data used for this training comes from simulation runs, each with unique random seeds. The other options, while related to computer hardware or software, do not directly relate to the activity of model training as described in the provided context.",
+    "path_description": "Path: DataCollection --[partOf]--> SimulationRuns --[partOf]--> ModelTraining --[type]--> Activity",
+    "context": "Each simulation run lasts for one hour with data collected only in the last 45 minutes with the first 15 minutes of the hour taken as warm up period. | For each of the tests described in this results section, 10 replicate simulation runs are performed each with a unique random seed. | Model training are performed on an x64-based PC equipped with 12th Gen Intel(R) Core i9-12900, 2400 MHZ, 16 Core(s), 24 Logical Processor(s), 128 GB of RAM, Intel (R) UHD Graphics 770 GPU and Windows 11 operating system.",
+    "paper_id": "1285"
+  },
+  {
+    "section": "results2",
+    "path": {
+      "section": "results2",
+      "start_entity": "MA-PPO",
+      "end_entity": "ASC",
+      "hops": [
+        {
+          "from": "MA-PPO",
+          "relation": "evaluatedOn",
+          "to": "VolumeAdjustmentDownwards",
+          "context": "model entry volumes are adjusted downwards by 10% from the field measured volumes of Figure 6.",
+          "chunk": "8"
+        },
+        {
+          "from": "VolumeAdjustmentDownwards",
+          "relation": "relatedTo",
+          "to": "VolumeSensitivity",
+          "context": "model entry volumes are adjusted downwards by 10% from the field measured volumes of Figure 6.",
+          "chunk": "8"
+        },
+        {
+          "from": "VolumeSensitivity",
+          "relation": "evaluatedOn",
+          "to": "ASC",
+          "context": "To capture the impact of variability of the trained MA-PPO, sensitivity experiments are performed.",
+          "chunk": "8"
+        }
+      ]
+    },
+    "question": "In the context of evaluating the MA-PPO model's sensitivity to volume adjustments, how is the model's adaptation to volume sensitivity assessed?",
+    "options": {
+      "A": "By maintaining consistent model entry volumes and observing changes in volume sensitivity",
+      "B": "By increasing the model entry volumes by 10% while monitoring changes in ASC",
+      "C": "By reducing the variability in the trained MA-PPO model to assess its performance stability",
+      "D": "By adjusting the model entry volumes downwards by 10% and analyzing the impact on ASC"
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A because the knowledge path indicates that the MA-PPO model's sensitivity to volume adjustments is evaluated by first adjusting the model entry volumes downwards by 10%, which is related to volume sensitivity, and then this adjustment's impact on ASC is assessed.",
+    "path_description": "Path: MA-PPO --[evaluatedOn]--> VolumeAdjustmentDownwards --[relatedTo]--> VolumeSensitivity --[evaluatedOn]--> ASC",
+    "context": "model entry volumes are adjusted downwards by 10% from the field measured volumes of Figure 6. | model entry volumes are adjusted downwards by 10% from the field measured volumes of Figure 6. | To capture the impact of variability of the trained MA-PPO, sensitivity experiments are performed.",
+    "paper_id": "1285"
+  }
+]

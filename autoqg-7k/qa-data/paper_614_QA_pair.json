@@ -1,0 +1,174 @@
+[
+  {
+    "section": "preliminaries",
+    "path": {
+      "section": "preliminaries",
+      "start_entity": "CountFunction",
+      "end_entity": "Length",
+      "hops": [
+        {
+          "from": "CountFunction",
+          "relation": "appliedTo",
+          "to": "StringS",
+          "context": "define countS(c) = |{0 ≤ i < |S| : S[i] < c}|",
+          "chunk": "2"
+        },
+        {
+          "from": "StringS",
+          "relation": "hasLength",
+          "to": "LengthOfStringS",
+          "context": "We define a string S of length |S| = n over Σ",
+          "chunk": "2"
+        },
+        {
+          "from": "LengthOfStringS",
+          "relation": "type",
+          "to": "Length",
+          "context": "We define a string S of length |S| = n over Σ",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "If the function countS(c) is defined as the number of positions i (0 ≤ i < |S|) where S[i] < c, and is applied to a string S, what must be true about the length of S?",
+    "options": {
+      "A": "The length of S, denoted |S|, must necessarily be greater than or equal to the maximum value of i for which S[i] < c.",
+      "B": "The length of S, denoted |S|, is unrelated to the countS(c) function and depends solely on S itself.",
+      "C": "The length of S, denoted |S|, is defined independently of the countS(c) function and is a fixed integer n.",
+      "D": "The length of S, denoted |S|, must be equal to the number of distinct characters in S that are less than c."
+    },
+    "correct_answer": "C",
+    "explanation": "The length of string S, |S| = n, is defined independently of the values or positions within S. The function countS(c) depends on the content of S, but it does not influence or determine the length of S, which is predefined as n.",
+    "path_description": "Path: CountFunction --[appliedTo]--> StringS --[hasLength]--> LengthOfStringS --[type]--> Length",
+    "context": "define countS(c) = |{0 ≤ i < |S| : S[i] < c}| | We define a string S of length |S| = n over Σ | We define a string S of length |S| = n over Σ",
+    "paper_id": "1417"
+  },
+  {
+    "section": "introduction",
+    "path": {
+      "section": "introduction",
+      "start_entity": "SOAP2",
+      "end_entity": "ApplicationDomain",
+      "hops": [
+        {
+          "from": "SOAP2",
+          "relation": "uses",
+          "to": "BurrowsWheelerTransform",
+          "context": "The tools BWA, Bowtie2, MICA, and SOAP2 showcase the importance of the BWT",
+          "chunk": "0"
+        },
+        {
+          "from": "BurrowsWheelerTransform",
+          "relation": "appliedTo",
+          "to": "TextCompression",
+          "context": "The Burrows-Wheeler transform (BWT) is a widely used reversible string transformation with applications in text compression",
+          "chunk": "0"
+        },
+        {
+          "from": "TextCompression",
+          "relation": "type",
+          "to": "ApplicationDomain",
+          "context": "applications in text compression",
+          "chunk": "0"
+        }
+      ]
+    },
+    "question": "Which of the following best describes the role of the Burrows-Wheeler Transform in the context of SOAP2's utility?",
+    "options": {
+      "A": "SOAP2 utilizes the Burrows-Wheeler Transform primarily for accelerating the search processes in genomic data.",
+      "B": "SOAP2 applies the Burrows-Wheeler Transform to improve graphical user interface responsiveness in data analysis tools.",
+      "C": "SOAP2 uses the Burrows-Wheeler Transform to enhance text compression within its domain-specific applications.",
+      "D": "SOAP2 leverages the Burrows-Wheeler Transform for better network optimization in distributed computing environments."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A because the question specifically asks about the role of the Burrows-Wheeler Transform (BWT) in the context of SOAP2. According to the knowledge graph path, SOAP2 uses BWT, which is applied to text compression within specific application domains. Options B, C, and D, while plausible, do not correctly connect the use of BWT with its application in text compression as indicated in the knowledge path.",
+    "path_description": "Path: SOAP2 --[uses]--> BurrowsWheelerTransform --[appliedTo]--> TextCompression --[type]--> ApplicationDomain",
+    "context": "The tools BWA, Bowtie2, MICA, and SOAP2 showcase the importance of the BWT | The Burrows-Wheeler transform (BWT) is a widely used reversible string transformation with applications in text compression | applications in text compression",
+    "paper_id": "1417"
+  },
+  {
+    "section": "ibb3",
+    "path": {
+      "section": "ibb3",
+      "start_entity": "BGA",
+      "end_entity": "DataStructure",
+      "hops": [
+        {
+          "from": "BGA",
+          "relation": "partOf",
+          "to": "G-tree",
+          "context": "BGA BGC BGG BGT BTA BTC BTG BTT",
+          "chunk": "5"
+        },
+        {
+          "from": "G-tree",
+          "relation": "relatedTo",
+          "to": "T-tree",
+          "context": "G-tree T-tree",
+          "chunk": "5"
+        },
+        {
+          "from": "T-tree",
+          "relation": "type",
+          "to": "DataStructure",
+          "context": "G-tree T-tree",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the context of the provided knowledge graph, how does the BGA relate to the concept of a DataStructure through intermediate steps?",
+    "options": {
+      "A": "BGA directly connects to the T-tree, which functions independently as a type of DataStructure.",
+      "B": "BGA is a type of DataStructure which includes elements of both G-tree and T-tree in its structure.",
+      "C": "BGA is a standalone DataStructure that integrates functions of the G-tree and T-tree without hierarchical connections.",
+      "D": "BGA forms a component of the G-tree, which is linked to the T-tree, classified ultimately as a type of DataStructure."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct path from the BGA to DataStructure follows these steps: BGA is part of the G-tree, which is related to the T-tree, and the T-tree is a type of DataStructure. The other options incorrectly suggest direct connections or misinterpret the hierarchical and classification relationships.",
+    "path_description": "Path: BGA --[partOf]--> G-tree --[relatedTo]--> T-tree --[type]--> DataStructure",
+    "context": "BGA BGC BGG BGT BTA BTC BTG BTT | G-tree T-tree | G-tree T-tree",
+    "paper_id": "1417"
+  },
+  {
+    "section": "alistofsymbols",
+    "path": {
+      "section": "alistofsymbols",
+      "start_entity": "SB",
+      "end_entity": "Collection",
+      "hops": [
+        {
+          "from": "SB",
+          "relation": "indicatesActivity",
+          "to": "Wi",
+          "context": "SB(t) Bitvector at iteration t. SB(t)[i] = 1 if and only if word Wi is active.",
+          "chunk": "11"
+        },
+        {
+          "from": "Wi",
+          "relation": "derivedFrom",
+          "to": "Si",
+          "context": "(Wi)0≤i<m Collection of words obtained from (Si)0≤i<m by reversing and right aligning.",
+          "chunk": "11"
+        },
+        {
+          "from": "Si",
+          "relation": "type",
+          "to": "Collection",
+          "context": "(Si)0≤i<m Collection of m words.",
+          "chunk": "11"
+        }
+      ]
+    },
+    "question": "In the context of the bitvector SB(t) at iteration t, when SB(t)[i] equals 1, what does this indicate about the relationship between word Wi and the collection Si?",
+    "options": {
+      "A": "Word Wi is active but does not influence the arrangement or content of collection Si.",
+      "B": "Word Wi is inactive and directly correlates with the word count in collection Si.",
+      "C": "Word Wi is active and has no transformation or derivation from any word in collection Si.",
+      "D": "Word Wi is active and is derived from a word in collection Si by reversing and right aligning."
+    },
+    "correct_answer": "D",
+    "explanation": "According to the knowledge graph, SB(t)[i] being 1 signifies that word Wi is active. Following the knowledge path, active word Wi is derived from the collection Si by a specific process of reversing and right aligning. The other options either incorrectly describe Wi's activity status or misinterpret the relationship and transformations between Wi and Si.",
+    "path_description": "Path: SB --[indicatesActivity]--> Wi --[derivedFrom]--> Si --[type]--> Collection",
+    "context": "SB(t) Bitvector at iteration t. SB(t)[i] = 1 if and only if word Wi is active. | (Wi)0≤i<m Collection of words obtained from (Si)0≤i<m by reversing and right aligning. | (Si)0≤i<m Collection of m words.",
+    "paper_id": "1417"
+  }
+]

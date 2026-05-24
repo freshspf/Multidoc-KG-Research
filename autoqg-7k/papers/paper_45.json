@@ -1,0 +1,72 @@
+[
+  {
+    "id": "introduction",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Introduction",
+      "page_start": 1,
+      "page_end": 1
+    },
+    "text": "v\nTrust  is crucial  in hiring processes, where the authentic-\n5\nity of resumé credentials drives decision making. Verifying\n3\n5 applicants quickly and accurately is a challenge. Traditional\n1 verification methods, such as paper-based work certificates, are\n1 vulnerable to fraud, making it difficult for companies to ensure\n.\n6 the authenticity of resumé credentials. As the \"Great Resigna-\n0 tion\" continues in Europe, the demand for fast and trustworthy\n4\nhiring processes has become increasingly severe [1].\n2\n:  This study presents a decentralized resumé credential man-\nv agement system that allows applicants to manage their creden-\ni\ntials digitally and securely. The proposed solution facilitates\nX\nr the issuance and verification of resumé credentials. By de-\na centralizing the credential management process, our approach\nstreamlines hiring procedures and enhances trust, providing\napplicants with control over  their data while ensuring that\nemployers can depend on the integrity of the credentials they\nverify.\nContribution This paper  introduces a Decentralized Ap-\nplication (DApp) designed to manage and verify resumè cre-\ndentials, using the European Blockchain Service Infrastructure\n(EBSI) [2]. The EBSI was selected for its cross-border trust\nframework, which ensures secure and efficient verification of\ncredentials throughout Europe.\nResumé credentials are academic achievements,  such as\nlanguage certificates and job references from employers. Our\nsystem integrates Decentralized Identifiers (DID) and Verifi-\n\nnt of Resumés with\nnd Verifiable Credentials\napkota  Sid Lamichhane\nNetworking  Service-centric Networking\nversität Berlin  Technische Universität Berlin\nermany  Berlin, Germany\nmpus.tu-berlin.de  lamichhane@tu-berlin.de\nable Credentials (VC)  to enable the seamless management,\nissuance, and verification of  resumé credentials [3]. Appli-\ncants, as holders, can generate resumès and request VCs from\nissuers, such as previous employers or educational institutions.\nResumé credentials are stored in digital wallets and can be\npresented to verifiers,  such as hiring managers and human\nresources professionals. Our DApp enables interactions be-\ntween issuers, holders, and verifiers of resumé credentials. As\na result, this paper offers three distinct contributions:\n• We present a novel resumé credential management frame-\nwork for creating, issuing, and storing verifiable creden-\ntials within a DApp. Our system operates without inter-\nmediaries, enabling applicants to manage and employers\nto verify resumé credentials autonomously.\n• We implement a real-time communication architecture\nthat  facilitates  interactions between credential  issuers,\nholders, and verifiers. Our architecture uses a message\nqueuing system to ensure seamless data exchange, en-\nhancing the responsiveness of the credential presentation\nand verification process.\n• We leverage the EBSI as a trust anchor for credential\nverification. The EBSI validates signatures via stored\npublic keys related to DIDs and enhances issuer credi-\nbility through its Trusted Issuer Registry (TIR)."
+  },
+  {
+    "id": "background",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Background",
+      "page_start": 1,
+      "page_end": 1
+    },
+    "text": "Traditional  resumé systems  rely on intermediaries,  such\nas universities and employers [4]. Application processes are\nplagued by verification delays, fraudulent information, security\nrisks, and transparency issues. Such issues slow the hiring\nprocess and compromise the trustworthiness of resumé cre-\ndentials, making verification difficult for employers [5].\nDIDs enable individuals to create and control their digital\nidentities without  relying on centralized authorities. DIDs\nare globally unique and cryptographically secure [6]. In the\ncontext of  resumé credential management, DIDs  link VCs\nto an applicant’s identity, ensuring that  the identity is both\nauthentic and privately controlled by the individual.\nVCs build on the foundation of DIDs by offering a tamper-\nproof method to issue and verify claims about an individual.\nVCs are cryptographically signed and allow applicants  to"
+  },
+  {
+    "id": "relatedwork",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Related Work",
+      "page_start": 2,
+      "page_end": 2
+    },
+    "text": "Digital  identity management has advanced with the intro-\nduction of DIDs and VCs. These technologies enable self-\nsovereign identity control, removing the need for centralized\nauthorities and addressing privacy and security concerns in tra-\nditional systems. DIDs ensure identity ownership, while VCs\nfacilitate cryptographically secure issuance and verification of\nclaims [8].\nBlockchain-based resumé credential systems have overcome\nthe inefficiencies of traditional credential management. Kumar\net al.  [9] developed a system that uses blockchain to store\nand verify educational credentials, with the aim of  reduc-\ning the  time required for employers  to authenticate  these\ncredentials. Similarly, Truver  [10] uses Ethereum to create\nan immutable record of academic achievements. Despite en-\nhanced transparency and security, blockchain-based systems\nface challenges,  such as standardization,  limited scalability,\nprivacy concerns,  and performance bottlenecks  [11],  [12].\nBCERT [13] is a decentralized academic certificate system that\nuses blockchain to improve credential security and verification\nefficiency. BCERT employs Ethereum smart  contracts and\nIPFS for secure storage, using cryptographic hashes and AES\nencryption  to ensure data  integrity. The BCERT platform\naddresses certificate falsification and administrative inefficien-\ncies, offering online and third-party verification in real time.\nOur  research extends  existing blockchain-based  resumé\ncredential systems by integrating the EBSI with DIDs and\nVCs. Our solution addresses  the limitations of blockchain-\nbased systems  in scalability and privacy,  essential  features\nfor the verification of cross-border resumé credentials. Unlike\nprevious  approaches,  our  system demonstrates  a practical\nand scalable application of VC-based credential management,\nproviding an alternative to existing methodologies."
+  },
+  {
+    "id": "concept",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Concept",
+      "page_start": 2,
+      "page_end": 2
+    },
+    "text": "1\nThe proposed DApp  uses decentralized technologies to\nmanage digital resumé credentials. By integrating DIDs, VCs\nand the EBSI, our proposed DApp ensures the authenticity and\nprivacy of the resumé credentials. As illustrated in Figure 1,\nthe architecture contains three primary stakeholders:  issuers,\n1\nResumé  DApp:  https://github.com/pherbke/seneca/tree/main/usecases/\nresume, Accessed 1.9.2024\n\nholders,  and verifiers,  each contributing to the credentials’\nlifecycle.\nhas\nregistered\nTrusted Issuer   Issuer's DID \nRegistry  Documents\nIssued  Issuer\n1  EBSI ( Distributed Ledger)\nFrontend\nVeriﬁer  3\nHolder  2\nVeriﬁable   verify \nPresentation  signature\nIssuer's\nVCs  DID Document\nOID4VP  VP presentation deﬁnition  push veriﬁable presentation\nBackend\nveriﬁable presentation  Message\npull message\nQueue\nVeriﬁer Service  Websocket \nServer\nFig. 1.  The architecture of the resumé verification dApp integrates issuers,\nholders, and verifiers, using the EBSI for credential  integrity, WebSockets\nfor real-time communication, and a message queue for system resilience and\nreliability.\nThe flow of  resumé credentials,  illustrated in Figure 1,\nbegins with the issuer ⃝1 , such as a university or employer,\nwhich generates VCs for the holder. The issuer signs the VCs\nwith their DID-related private keys, and the corresponding\npublic keys are stored within the EBSI. This setup enables the\nverification of VCs by checking their cryptographic signatures\nagainst the public keys anchored in the EBSI. Additionally, the\nTIR within the EBSI acts as a trust layer by listing the DIDs\nof trusted issuers.\nThe holder ⃝2  typically an applicant, can manually create\na resumé within the DApp front end, adding positions such\nas educational achievements or work experience. For each\nposition,  the holder  can request VCs  from the  respective\nissuers. These VCs are stored in the holder’s digital wallet.\nWhen applying, applicants can initially submit  their resumé\nas a PDF to open vacancies.  If  interested,  the verifier can\nrequest  a Verifiable Presentation (VP) of  specific  resumé\ndetails. The current  implementation allows the presentation\nof the entire resumé as a single VC. Future work will expand\nthis functionality to enable the presentation of individual VCs\nwith selective disclosure capabilities.\nThe verifier ⃝3 receives the VP and verifies their authenticity\nby comparing the signature with the public key of the issuer\nstored on the EBSI.  If  the VP is verified successfully and\nthe  issuer DID is  registered in the TIR,  the holder’s VC\nis accepted, streamlining the application process. Future en-\nhancements could incorporate immutable registries for trusted\nschemas and DApps, strengthening the trust framework of the\nsystem."
+  },
+  {
+    "id": "implementation",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Implementation",
+      "page_start": 3,
+      "page_end": 3
+    },
+    "text": "Our proposed DApp integrates components for digital cre-\ndential management. The Next.js frontend allows holders to\ncreate resumés, request VCs, apply for jobs, and submit, as for\nnow a single VP for verification. The frontend interacts with\nbackend services for issuing, storing, and verifying credentials.\nThe backend uses Prisma ORM and PostgreSQL for data\nmanagement.\nThe DApp ensures security using the Elliptic Curve Digital\nSignature Algorithm to sign JSON Web Tokens. For secure\ncommunication,  the Diffie-Hellman ephemeral static elliptic\ncurve is used to encrypt the credential presentation response.\nFurthermore, nonces are created using randomly generated\nnumbers to guarantee the uniqueness of cryptographic opera-\ntions.\nThe DApp ensures standardized interactions among issuers,\n2\nholders,  and verifiers using  the OID4VC  protocols. A\nWebSocket server facilitates real-time communication between\nholders and verifiers, allowing immediate transmission of cre-\ndential presentations. Redis manages the queueing of messages\nfor  interservice communication, maintaining reliability even\nwith sporadic connectivity. The EBSI acts as the trust anchor,\nstoring issuer public keys related to DIDs and DID documents\nto enable the verification of VCs.\nIssuers are legal entities with a did:ebsi, with the corre-\nsponding public key stored on the EBSI blockchain within\na DID document. Natural persons,  such as applicants,  are\nassociated with did:key, where the public key is the third\nattribute of did:key:<public_key>. Our approach aligns\n3\nwith the requirements of the GDPR  , ensuring the privacy of\ncitizen data. Furthermore, our DApp integrates the iGrant.io\n4\ndata wallet  , which stores VCs and supports cryptographic\noperations to sign and present VCs."
+  },
+  {
+    "id": "limitationsandrisks",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Limitations and Risks",
+      "page_start": 3,
+      "page_end": 3
+    },
+    "text": "The proposed DApp presents limitations while providing an\ninnovative approach to resumé management. The dependence\nof the system on the EBSI introduces a degree of centraliza-\ntion. Issuers must comply with the EBSI requirements to be\nlisted in the TIR, potentially creating a bottleneck and reducing\nsystem flexibility. Moreover, reliance on the EBSI constrains\nthe interoperability of the system with other identity ledger\n5\ntechnologies, such as cheqd  , necessitating refactoring efforts\nto achieve integration. Another limitation is the potential for\nmalicious exploitation of  the issuer’s DID. For example,  if\nan issuing institution (e.g.,  a school) ends operations,  the\ncredentials previously issued remain valid. However,  if  the\nissuer’s DID is not promptly revoked, malicious actors may\nexploit it. Mitigating these risks requires the timely removal\nof the issuer from the TIR.\n2\nOpenID for Verifiable Credentials: https://openid.net/sg/openid4vc/, Ac-\ncessed 19.9.2024\n3\nGDPR https://gdpr.eu/, Accessed 19.9.2024\n4\nGrant.io Data Wallet: https://igrant.io/datawallet.html, Accessed 19.9.2024\n5\ncheqd Website: https://cheqd.io/, Accessed 19.9.2024\n"
+  },
+  {
+    "id": "conclusion",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Conclusion",
+      "page_start": 3,
+      "page_end": 3
+    },
+    "text": "This  research demonstrates  the efficacy of decentralized\ntechnologies, specifically VCs, DIDs, and the EBSI,  in cre-\nating a solution to manage digital  resumé credentials. By\nstreamlining the hiring process for applicants and employers,\nour  system addresses  challenges  in credential  verification\nand paves  the way for  the adoption of decentralized iden-\ntity management frameworks. Enhancing decentralization with\nthreshold signatures can distribute trust and prevent  single\npoints of failure. Future research should ensure interoperability\nfor broader adoption.\nACKNOWLEDGMENT\nThis work was supported by the European Union’s Digital\nEurope Program (DIGITAL) research and innovation program\nunder  grant  agreement  number  101102743  (TRACE4EU).\nThe authors thank the TRACE4EU project partners for their\nsupport."
+  }
+]

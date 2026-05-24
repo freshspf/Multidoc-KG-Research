@@ -1,0 +1,131 @@
+[
+  {
+    "section": "hardwaresystemorganizationandsoftwarecodesign",
+    "path": {
+      "section": "hardwaresystemorganizationandsoftwarecodesign",
+      "start_entity": "HiAER-Spike",
+      "end_entity": "XilinxXCVU37P",
+      "hops": [
+        {
+          "from": "HiAER-Spike",
+          "relation": "utilizes",
+          "to": "Server",
+          "context": "The architecture of HiAER-Spike utilizes a rack of 6 servers.",
+          "chunk": "2"
+        },
+        {
+          "from": "Server",
+          "relation": "equippedWith",
+          "to": "FPGABoard",
+          "context": "Five of these servers are equipped with 8 high-end FPGA boards.",
+          "chunk": "2"
+        },
+        {
+          "from": "FPGABoard",
+          "relation": "features",
+          "to": "XilinxXCVU37P",
+          "context": "FPGA boards each featuring a Xilinx XCVU37P FPGA.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the HiAER-Spike hardware system architecture, how many FPGAs of the model Xilinx XCVU37P are implemented across the five servers equipped with FPGA boards?",
+    "options": {
+      "A": "Each server is equipped with a single FPGA board featuring a Xilinx XCVU37P, totaling 5 FPGAs.",
+      "B": "Only one of the servers is equipped with FPGA boards featuring the Xilinx XCVU37P, totaling 8 FPGAs.",
+      "C": "All six servers are equipped with FPGA boards, each server having one Xilinx XCVU37P, totaling 6 FPGAs.",
+      "D": "Each of the five servers has 8 FPGA boards, each equipped with one Xilinx XCVU37P, totaling 40 FPGAs."
+    },
+    "correct_answer": "D",
+    "explanation": "The context states that five of the servers are equipped with 8 high-end FPGA boards each, and every one of these boards features a Xilinx XCVU37P FPGA. Thus, each server would have 8 such FPGAs, and with 5 servers equipped in this manner, the total number of Xilinx XCVU37P FPGAs is 40.",
+    "path_description": "Path: HiAER-Spike --[utilizes]--> Server --[equippedWith]--> FPGABoard --[features]--> XilinxXCVU37P",
+    "context": "The architecture of HiAER-Spike utilizes a rack of 6 servers. | Five of these servers are equipped with 8 high-end FPGA boards. | FPGA boards each featuring a Xilinx XCVU37P FPGA.",
+    "paper_id": "599"
+  },
+  {
+    "section": "softwaredescription2",
+    "path": {
+      "section": "softwaredescription2",
+      "start_entity": "neuron_a",
+      "end_entity": "axon_alpha",
+      "hops": [
+        {
+          "from": "neuron_a",
+          "relation": "connectedTo",
+          "to": "neuron_b",
+          "context": "increment the weight of the synapse from neuron 'a' to 'b' by one.",
+          "chunk": "5"
+        },
+        {
+          "from": "neuron_b",
+          "relation": "partOf",
+          "to": "CRI_network",
+          "context": "neurons 'a' and 'b' as output neurons.",
+          "chunk": "5"
+        },
+        {
+          "from": "CRI_network",
+          "relation": "uses",
+          "to": "axon_alpha",
+          "context": "both axons 'alpha' and 'beta' are activated.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the scenario where the weight of the synapse from neuron 'a' to neuron 'b' is increased, which component would subsequently utilize the increased synaptic activity to function within the CRI network?",
+    "options": {
+      "A": "Neuron 'b', as it directly receives the increased weight from neuron 'a' affecting only its function.",
+      "B": "Axon alpha, as it uses signals transmitted through neuron 'b' which is part of the CRI network.",
+      "C": "Axon beta, as it directly receives enhanced signals due to the proximity to neuron 'a'.",
+      "D": "The entire CRI network, as it generally processes all increased activities from any neurons."
+    },
+    "correct_answer": "B",
+    "explanation": "Based on the knowledge graph, neuron 'a' connects to neuron 'b' which is part of the CRI network. When the synaptic weight from neuron 'a' to neuron 'b' is increased, neuron 'b' transmits this enhanced signal within the CRI network. Axon alpha, which uses the outputs from neuron 'b' as part of its functionality in the CRI network, would then utilize this increased activity, distinguishing it from axon beta which is not specified to be part of this immediate process.",
+    "path_description": "Path: neuron_a --[connectedTo]--> neuron_b --[partOf]--> CRI_network --[uses]--> axon_alpha",
+    "context": "increment the weight of the synapse from neuron 'a' to 'b' by one. | neurons 'a' and 'b' as output neurons. | both axons 'alpha' and 'beta' are activated.",
+    "paper_id": "599"
+  },
+  {
+    "section": "hardwaresystemorganizationandsoftwarecodesign",
+    "path": {
+      "section": "hardwaresystemorganizationandsoftwarecodesign",
+      "start_entity": "HiAER-Spike",
+      "end_entity": "HardwareComponent",
+      "hops": [
+        {
+          "from": "HiAER-Spike",
+          "relation": "utilizes",
+          "to": "Server",
+          "context": "The architecture of HiAER-Spike utilizes a rack of 6 servers.",
+          "chunk": "2"
+        },
+        {
+          "from": "Server",
+          "relation": "equippedWith",
+          "to": "FPGABoard",
+          "context": "Five of these servers are equipped with 8 high-end FPGA boards.",
+          "chunk": "2"
+        },
+        {
+          "from": "FPGABoard",
+          "relation": "type",
+          "to": "HardwareComponent",
+          "context": "Five of these servers are equipped with 8 high-end FPGA boards each featuring a Xilinx XCVU37P FPGA.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the HiAER-Spike architecture described in the section on hardware system organization and software co-design, which component type is primarily used within the FPGA boards equipped in the servers?",
+    "options": {
+      "A": "Each FPGA board primarily uses a Xilinx Virtex-7 FPGA as its core hardware component.",
+      "B": "Each FPGA board primarily uses an Intel Stratix 10 FPGA as its core hardware component.",
+      "C": "Each FPGA board primarily uses a NVIDIA GPU as its core hardware component.",
+      "D": "Each FPGA board primarily uses a Xilinx XCVU37P FPGA as its core hardware component."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A because the paper specifies that the FPGA boards equipped in the servers feature the Xilinx XCVU37P FPGA, identifying it as the primary hardware component used.",
+    "path_description": "Path: HiAER-Spike --[utilizes]--> Server --[equippedWith]--> FPGABoard --[type]--> HardwareComponent",
+    "context": "The architecture of HiAER-Spike utilizes a rack of 6 servers. | Five of these servers are equipped with 8 high-end FPGA boards. | Five of these servers are equipped with 8 high-end FPGA boards each featuring a Xilinx XCVU37P FPGA.",
+    "paper_id": "599"
+  }
+]

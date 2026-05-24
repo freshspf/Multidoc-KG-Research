@@ -1,0 +1,88 @@
+[
+  {
+    "section": "introduction2",
+    "path": {
+      "section": "introduction2",
+      "start_entity": "TraditionalActiveLearningAlgorithms",
+      "end_entity": "ClinicalTrialType",
+      "hops": [
+        {
+          "from": "TraditionalActiveLearningAlgorithms",
+          "relation": "deploy",
+          "to": "SamplingStrategies",
+          "context": "the sampling strategies deployed during traditional active learning algorithms are often unrealistic.",
+          "chunk": "2"
+        },
+        {
+          "from": "SamplingStrategies",
+          "relation": "consideredUnrealisticFor",
+          "to": "ClinicalTrials",
+          "context": "the sampling strategies deployed during traditional active learning algorithms are often unrealistic, as they sample images or data that the model would not necessarily be able to access at that.",
+          "chunk": "2"
+        },
+        {
+          "from": "ClinicalTrials",
+          "relation": "type",
+          "to": "ClinicalTrialType",
+          "context": "The second challenge for using active learning in clinical trials is that the data collection process in clinical trials is itself non-i.i.d.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "Which type of clinical trial is least likely to benefit from traditional active learning algorithms due to the unrealistic nature of their sampling strategies?",
+    "options": {
+      "A": "Clinical trials that focus on retrospective data analysis from existing databases",
+      "B": "Clinical trials that utilize a randomized control group for comparative analysis",
+      "C": "Clinical trials that heavily rely on sequentially collected data, following a strict timeline",
+      "D": "Clinical trials that involve minimal intervention and observational studies only"
+    },
+    "correct_answer": "C",
+    "explanation": "Option A is correct because traditional active learning algorithms require access to data that can be sampled in a non-sequential manner, which is unrealistic for clinical trials that rely on sequentially collected data. In these trials, the data collection follows a strict timeline that cannot accommodate the flexible sampling required by these algorithms.",
+    "path_description": "Path: TraditionalActiveLearningAlgorithms --[deploy]--> SamplingStrategies --[consideredUnrealisticFor]--> ClinicalTrials --[type]--> ClinicalTrialType",
+    "context": "the sampling strategies deployed during traditional active learning algorithms are often unrealistic. | the sampling strategies deployed during traditional active learning algorithms are often unrealistic, as they sample images or data that the model would not necessarily be able to access at that. | The second challenge for using active learning in clinical trials is that the data collection process in clinical trials is itself non-i.i.d.",
+    "paper_id": "382"
+  },
+  {
+    "section": "proposedmethod2",
+    "path": {
+      "section": "proposedmethod2",
+      "start_entity": "TrainingSet",
+      "end_entity": "Task",
+      "hops": [
+        {
+          "from": "TrainingSet",
+          "relation": "usedForTraining",
+          "to": "RetrospectiveActiveLearning",
+          "context": "Once this new data has been queried, we add this data to the training set 𝑋 in part II of Figure 5.",
+          "chunk": "7"
+        },
+        {
+          "from": "RetrospectiveActiveLearning",
+          "relation": "evaluates",
+          "to": "DMEClassification",
+          "context": "Afterwards, part III of Figure 5 shows the trained model being evaluated on the test set for DR and DME classification.",
+          "chunk": "7"
+        },
+        {
+          "from": "DMEClassification",
+          "relation": "type",
+          "to": "Task",
+          "context": "Afterwards, part III of Figure 5 shows the trained model being evaluated on the test set for DR and DME classification.",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "In the context of Retrospective Active Learning, which task does the training set specifically prepare the model to evaluate?",
+    "options": {
+      "A": "The training set prepares the model to evaluate the task of intraocular pressure measurement.",
+      "B": "The training set prepares the model to evaluate the task of general ocular disease detection.",
+      "C": "The training set prepares the model to evaluate the task of visual acuity prediction.",
+      "D": "The training set prepares the model to evaluate the task of Diabetic Macular Edema classification."
+    },
+    "correct_answer": "D",
+    "explanation": "The knowledge path indicates that the training set is used for training a model in Retrospective Active Learning, which evaluates the DME Classification, classified as a type of Task. Therefore, the training set prepares the model specifically for Diabetic Macular Edema classification.",
+    "path_description": "Path: TrainingSet --[usedForTraining]--> RetrospectiveActiveLearning --[evaluates]--> DMEClassification --[type]--> Task",
+    "context": "Once this new data has been queried, we add this data to the training set 𝑋 in part II of Figure 5. | Afterwards, part III of Figure 5 shows the trained model being evaluated on the test set for DR and DME classification. | Afterwards, part III of Figure 5 shows the trained model being evaluated on the test set for DR and DME classification.",
+    "paper_id": "382"
+  }
+]

@@ -1,0 +1,260 @@
+[
+  {
+    "section": "introduction2",
+    "path": {
+      "section": "introduction2",
+      "start_entity": "LittleCores",
+      "end_entity": "CheckerThreads",
+      "hops": [
+        {
+          "from": "LittleCores",
+          "relation": "preventBackpressure",
+          "to": "BigCore",
+          "context": "This also means that the collected data must be prioritized and routed to the corresponding little cores at high bandwidth, to prevent backpressure from stalling the big core.",
+          "chunk": "1"
+        },
+        {
+          "from": "BigCore",
+          "relation": "uses",
+          "to": "RCPs",
+          "context": "to be segmented using RCPs.",
+          "chunk": "1"
+        },
+        {
+          "from": "RCPs",
+          "relation": "verifiedBy",
+          "to": "CheckerThreads",
+          "context": "replayed, and verified using any number of checker threads deployed on any little cores.",
+          "chunk": "1"
+        }
+      ]
+    },
+    "question": "In the context of optimizing data processing in a multicore system, how does preventing backpressure on a big core indirectly enhance the verification process?",
+    "options": {
+      "A": "By reducing the number of RCPs needed, thereby decreasing the complexity of data verification tasks assigned to checker threads.",
+      "B": "By increasing the computational power of big cores directly, which speeds up the data verification process handled by the checker threads on little cores.",
+      "C": "By allowing data to be prioritized and routed efficiently to little cores, thus ensuring that RCPs can segment the data more effectively before verification by checker threads.",
+      "D": "By directly facilitating the deployment of additional checker threads on big cores, improving the overall system verification capacity."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A. Preventing backpressure on the big core by efficiently routing data to little cores allows the system to handle data segmentation through RCPs more effectively. This organized segmentation is crucial before the data can be verified by checker threads, enhancing the verification process's efficiency and accuracy.",
+    "path_description": "Path: LittleCores --[preventBackpressure]--> BigCore --[uses]--> RCPs --[verifiedBy]--> CheckerThreads",
+    "context": "This also means that the collected data must be prioritized and routed to the corresponding little cores at high bandwidth, to prevent backpressure from stalling the big core. | to be segmented using RCPs. | replayed, and verified using any number of checker threads deployed on any little cores.",
+    "paper_id": "517"
+  },
+  {
+    "section": "theisaoperatingsystemandprogrammingmodel",
+    "path": {
+      "section": "theisaoperatingsystemandprogrammingmodel",
+      "start_entity": "Kernel",
+      "end_entity": "b_check",
+      "hops": [
+        {
+          "from": "Kernel",
+          "relation": "schedules",
+          "to": "CheckerThread",
+          "context": "With just a few lines-of-code changes to the kernel, it can schedule and reserve resources for checker threads while allowing standard scheduling and context switching of other threads.",
+          "chunk": "5"
+        },
+        {
+          "from": "CheckerThread",
+          "relation": "basedOn",
+          "to": "ISA",
+          "context": "We develop the checker thread based on the new ISA, ensuring minimal coding efforts.",
+          "chunk": "5"
+        },
+        {
+          "from": "ISA",
+          "relation": "hasPrivilegedInstructions",
+          "to": "b_check",
+          "context": "As b.hook() and b.check() can lead to contention in use of the little cores, and the l.mode() can cause erroneous execution from unintended memory accesses, they are privileged instructions, executed via OS syscall.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the described system, how does the kernel interact with checker threads to manage privileged instructions based on the ISA?",
+    "options": {
+      "A": "The kernel schedules checker threads that use privileged instructions like b.check() to avoid contention and erroneous executions.",
+      "B": "The kernel delegates the management of all thread types, including checker threads, to an external system for better efficiency.",
+      "C": "The kernel prevents checker threads from executing any privileged instructions to maintain system stability and performance.",
+      "D": "The kernel allows checker threads unrestricted access to all core functions, including standard and privileged instructions."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A. The kernel schedules and reserves resources specifically for checker threads, allowing them to execute privileged instructions like b.check(). This management is crucial for avoiding contention on little cores and preventing erroneous executions due to unintended memory accesses.",
+    "path_description": "Path: Kernel --[schedules]--> CheckerThread --[basedOn]--> ISA --[hasPrivilegedInstructions]--> b_check",
+    "context": "With just a few lines-of-code changes to the kernel, it can schedule and reserve resources for checker threads while allowing standard scheduling and context switching of other threads. | We develop the checker thread based on the new ISA, ensuring minimal coding efforts. | As b.hook() and b.check() can lead to contention in use of the little cores, and the l.mode() can cause erroneous execution from unintended memory accesses, they are privileged instructions, executed via OS syscall.",
+    "paper_id": "517"
+  },
+  {
+    "section": "evaluation1",
+    "path": {
+      "section": "evaluation1",
+      "start_entity": "BigCore",
+      "end_entity": "EA-LockStep",
+      "hops": [
+        {
+          "from": "BigCore",
+          "relation": "holdsLock",
+          "to": "LittleCore",
+          "context": "If there are scenarios where the opposite occurs (the big core holds locks, e.g., software mutexes, required by the little core), then deadlock results.",
+          "chunk": "6"
+        },
+        {
+          "from": "LittleCore",
+          "relation": "holdsLock",
+          "to": "BigCore",
+          "context": "This behavior acts as a lock that the little core holds and the big core needs.",
+          "chunk": "6"
+        },
+        {
+          "from": "BigCore",
+          "relation": "comparedWith",
+          "to": "EA-LockStep",
+          "context": "Fig. 6 shows the slowdown experienced by the big core when running SPECint and Parsec in MEEK, compared to the software-based counterparts implemented in LLVM (Nzdc [44]) and LockStep with Equivalent Area (EA-LockStep).",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In a heterogeneous computing environment described in the paper, when the BigCore and LittleCore hold locks reciprocally leading to a deadlock, how does the performance of BigCore compare when using EA-LockStep over traditional lock mechanisms?",
+    "options": {
+      "A": "BigCore's performance remains unchanged because EA-LockStep effectively prevents all forms of deadlock.",
+      "B": "The performance of BigCore shows significant slowdown when compared to traditional software-based lock mechanisms.",
+      "C": "BigCore demonstrates enhanced computational speed and efficiency using EA-LockStep compared to traditional mechanisms.",
+      "D": "The deadlock situation does not affect the performance of BigCore in any significant way when using EA-LockStep."
+    },
+    "correct_answer": "B",
+    "explanation": "The context indicates that the BigCore experiences a slowdown when SPECint and Parsec are run in the MEEK configuration, compared to traditional software-based lock mechanisms like those implemented in LLVM. The question directs to compare this effect specifically when using EA-LockStep, a software-based counterpart. Given the described slowdown in performance due to the deadlock scenario, option A is correct as it aligns with the negative impact on performance observed.",
+    "path_description": "Path: BigCore --[holdsLock]--> LittleCore --[holdsLock]--> BigCore --[comparedWith]--> EA-LockStep",
+    "context": "If there are scenarios where the opposite occurs (the big core holds locks, e.g., software mutexes, required by the little core), then deadlock results. | This behavior acts as a lock that the little core holds and the big core needs. | Fig. 6 shows the slowdown experienced by the big core when running SPECint and Parsec in MEEK, compared to the software-based counterparts implemented in LLVM (Nzdc [44]) and LockStep with Equivalent Area (EA-LockStep).",
+    "paper_id": "517"
+  },
+  {
+    "section": "evaluation3",
+    "path": {
+      "section": "evaluation3",
+      "start_entity": "MEEK",
+      "end_entity": "Dataset",
+      "hops": [
+        {
+          "from": "MEEK",
+          "relation": "outperforms",
+          "to": "EA-LockStep",
+          "context": "than MEEK, evidencing the performance-area benefits of MEEK",
+          "chunk": "8"
+        },
+        {
+          "from": "EA-LockStep",
+          "relation": "incursOverhead",
+          "to": "SPEC",
+          "context": "counterpart, EA-LockStep, incurred geomean overheads of 48.7% for SPEC",
+          "chunk": "8"
+        },
+        {
+          "from": "SPEC",
+          "relation": "type",
+          "to": "Dataset",
+          "context": "counterpart, EA-LockStep, incurred geomean overheads of 48.7% for SPEC",
+          "chunk": "8"
+        }
+      ]
+    },
+    "question": "Considering the performance evaluations from the paper, what type of dataset experienced a significant overhead when using EA-LockStep compared to MEEK?",
+    "options": {
+      "A": "GENCODE, typically utilized for evaluating gene encoding and expression.",
+      "B": "TPC-H, used for benchmarking data warehousing and business intelligence systems.",
+      "C": "SPEC, a standardized dataset used for benchmarking performance in specific scenarios.",
+      "D": "ImageNet, commonly used for large-scale visual object recognition systems."
+    },
+    "correct_answer": "C",
+    "explanation": "The paper section 'evaluation3' explicitly states that EA-LockStep, compared to MEEK, incurred significant geomean overheads of 48.7% for the SPEC dataset. Hence, SPEC is the correct dataset type experiencing overheads, as opposed to ImageNet, GENCODE, or TPC-H, which were not mentioned in the context.",
+    "path_description": "Path: MEEK --[outperforms]--> EA-LockStep --[incursOverhead]--> SPEC --[type]--> Dataset",
+    "context": "than MEEK, evidencing the performance-area benefits of MEEK | counterpart, EA-LockStep, incurred geomean overheads of 48.7% for SPEC | counterpart, EA-LockStep, incurred geomean overheads of 48.7% for SPEC",
+    "paper_id": "517"
+  },
+  {
+    "section": "evaluation4",
+    "path": {
+      "section": "evaluation4",
+      "start_entity": "Nzdc",
+      "end_entity": "SoftwareExecution",
+      "hops": [
+        {
+          "from": "Nzdc",
+          "relation": "outperformedBy",
+          "to": "LittleCores",
+          "context": "than that of Nzdc. With four little cores, the geomean overhead is...",
+          "chunk": "9"
+        },
+        {
+          "from": "LittleCores",
+          "relation": "usedFor",
+          "to": "ParsecExecution",
+          "context": "Using two little cores to verify the Parsec execution results in a 54.9% slowdown (geomean)...",
+          "chunk": "9"
+        },
+        {
+          "from": "ParsecExecution",
+          "relation": "type",
+          "to": "SoftwareExecution",
+          "context": "Using two little cores to verify the Parsec execution results...",
+          "chunk": "9"
+        }
+      ]
+    },
+    "question": "In the context of Parsec execution, if Nzdc is outperformed by LittleCores, what is the most likely purpose of using LittleCores based on their impact on software execution?",
+    "options": {
+      "A": "LittleCores are deployed to increase the graphical processing capabilities during Parsec execution.",
+      "B": "LittleCores are primarily utilized to verify the results of Parsec execution, albeit causing a slowdown.",
+      "C": "LittleCores are used to enhance the speed and efficiency of Parsec execution, reducing overall runtime.",
+      "D": "LittleCores are used to minimize the energy consumption during the execution of Parsec, enhancing environmental sustainability."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is B because the context indicates that LittleCores, despite outperforming Nzdc, are used to verify the results of Parsec execution, leading to a 54.9% slowdown. This indicates that their primary purpose in this scenario is verification, not enhancing speed or efficiency.",
+    "path_description": "Path: Nzdc --[outperformedBy]--> LittleCores --[usedFor]--> ParsecExecution --[type]--> SoftwareExecution",
+    "context": "than that of Nzdc. With four little cores, the geomean overhead is... | Using two little cores to verify the Parsec execution results in a 54.9% slowdown (geomean)... | Using two little cores to verify the Parsec execution results...",
+    "paper_id": "517"
+  },
+  {
+    "section": "evaluation7",
+    "path": {
+      "section": "evaluation7",
+      "start_entity": "LittleCores",
+      "end_entity": "MultiplePacketTransmissions",
+      "hops": [
+        {
+          "from": "LittleCores",
+          "relation": "optimizedToMatch",
+          "to": "BigCores",
+          "context": "The evaluation shows that four optimized little cores can match the performance of six default little cores for the verification job",
+          "chunk": "12"
+        },
+        {
+          "from": "BigCores",
+          "relation": "increasedSizeDueTo",
+          "to": "256-bitFabric",
+          "context": "big cores and increased the size of bottlenecked components in the system",
+          "chunk": "12"
+        },
+        {
+          "from": "256-bitFabric",
+          "relation": "supports",
+          "to": "MultiplePacketTransmissions",
+          "context": "a 256-bit fabric that supports multiple-packet transmissions per cycle",
+          "chunk": "12"
+        }
+      ]
+    },
+    "question": "In the context of optimizing system performance for verification jobs, how does enhancing small processor cores relate to the capability of the system to handle multiple-packet transmissions per cycle?",
+    "options": {
+      "A": "Optimized small cores reduce the overall power consumption, which indirectly increases the bandwidth for packet transmissions.",
+      "B": "Optimized small cores are matched to big cores which necessitates a larger 256-bit fabric supporting multiple-packet transmissions.",
+      "C": "Small cores, when optimized, bypass the need for big cores and negate the need for a 256-bit fabric in supporting multiple-packet transmissions.",
+      "D": "Enhancing small cores increases their individual processing speed, directly allowing faster single-packet transmissions."
+    },
+    "correct_answer": "B",
+    "explanation": "The question requires understanding that optimizing little cores to match the performance of big cores leads to adjustments in other system components, specifically the fabric, to handle increased demands. In this case, the big cores' increased size leads to adopting a 256-bit fabric, which is capable of supporting multiple-packet transmissions per cycle. This shows the interconnected performance enhancements within the system.",
+    "path_description": "Path: LittleCores --[optimizedToMatch]--> BigCores --[increasedSizeDueTo]--> 256-bitFabric --[supports]--> MultiplePacketTransmissions",
+    "context": "The evaluation shows that four optimized little cores can match the performance of six default little cores for the verification job | big cores and increased the size of bottlenecked components in the system | a 256-bit fabric that supports multiple-packet transmissions per cycle",
+    "paper_id": "517"
+  }
+]

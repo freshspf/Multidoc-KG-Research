@@ -1,0 +1,217 @@
+[
+  {
+    "section": "automaticgroupingofredundantsensorsandactuatorsusingfunctionalandspatialconnections1",
+    "path": {
+      "section": "automaticgroupingofredundantsensorsandactuatorsusingfunctionalandspatialconnections1",
+      "start_entity": "x",
+      "end_entity": "Dimension",
+      "hops": [
+        {
+          "from": "x",
+          "relation": "connectedTo",
+          "to": "z",
+          "context": "The connection between x and a latent variable z, which will be explained below, is given as weighted undirected edges.",
+          "chunk": "1"
+        },
+        {
+          "from": "z",
+          "relation": "hasDimension",
+          "to": "Nz",
+          "context": "is Nz (Nz < Nx) and the relation among x is represented by z.",
+          "chunk": "1"
+        },
+        {
+          "from": "Nz",
+          "relation": "type",
+          "to": "Dimension",
+          "context": "is Nz (Nz < Nx) and the relation among x is represented by z.",
+          "chunk": "1"
+        }
+      ]
+    },
+    "question": "In the context of automatic grouping of redundant sensors and actuators, what is the implication of the type of dimension Nz, which has a relationship with the latent variable z connected to x?",
+    "options": {
+      "A": "Nz being a specific type of dimension indicates that it can determine the unique characteristics of the sensor or actuator network.",
+      "B": "Nz, as a spatial dimension, facilitates the understanding of physical layouts and spatial positioning in sensor networks.",
+      "C": "Nz, as a functional dimension, implies a direct control over the operational capabilities of connected devices.",
+      "D": "Nz being a dimension type suggests it simplifies the topology of the network by reducing the number of necessary connections."
+    },
+    "correct_answer": "B",
+    "explanation": "Given that z represents a relationship among x through dimensional analysis (Nz being a type of dimension), and considering the context of spatial and functional connections in sensor and actuator networks, the type 'Dimension' in this context most likely refers to spatial dimensions. This facilitates understanding and organizing the physical layout and spatial positions in sensor networks, aligning with the internal logic of such systems.",
+    "path_description": "Path: x --[connectedTo]--> z --[hasDimension]--> Nz --[type]--> Dimension",
+    "context": "The connection between x and a latent variable z, which will be explained below, is given as weighted undirected edges. | is Nz (Nz < Nx) and the relation among x is represented by z. | is Nz (Nz < Nx) and the relation among x is represented by z.",
+    "paper_id": "477"
+  },
+  {
+    "section": "experiments1",
+    "path": {
+      "section": "experiments1",
+      "start_entity": "MuscleGroupingMethod",
+      "end_entity": "MonoarticularMuscles",
+      "hops": [
+        {
+          "from": "MuscleGroupingMethod",
+          "relation": "appliedTo",
+          "to": "Musashi",
+          "context": "This grouping can be created by selecting a joint and then selecting all the muscles that contribute to the joint, which is the ground truth of this experiment.",
+          "chunk": "4"
+        },
+        {
+          "from": "Musashi",
+          "relation": "type",
+          "to": "MusculoskeletalHumanoid",
+          "context": "The musculoskeletal humanoids used in this experiment are Musashi [5] and Kengoro [4].",
+          "chunk": "4"
+        },
+        {
+          "from": "MusculoskeletalHumanoid",
+          "relation": "hasMuscleType",
+          "to": "MonoarticularMuscles",
+          "context": "There are not only monoarticular muscles acting on a single joint.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the experiments described, which statement best explains the selection of muscles in the Musashi humanoid based on the Muscle Grouping Method?",
+    "options": {
+      "A": "Muscles irrelevant to joint movement were grouped randomly without specific selection criteria.",
+      "B": "Only the largest muscles were selected, ignoring smaller muscles that contribute to joint movement.",
+      "C": "Multiarticular muscles crossing several joints were exclusively selected for complex movements.",
+      "D": "Monoarticular muscles acting on a single joint were selected for each joint they contribute to."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is 'A' because the Muscle Grouping Method involves selecting a joint and then choosing all muscles that contribute to that joint. In the context of the Musashi humanoid, which is a musculoskeletal humanoid, the grouping included monoarticular muscles, which act on a single joint, as described in the provided knowledge path.",
+    "path_description": "Path: MuscleGroupingMethod --[appliedTo]--> Musashi --[type]--> MusculoskeletalHumanoid --[hasMuscleType]--> MonoarticularMuscles",
+    "context": "This grouping can be created by selecting a joint and then selecting all the muscles that contribute to the joint, which is the ground truth of this experiment. | The musculoskeletal humanoids used in this experiment are Musashi [5] and Kengoro [4]. | There are not only monoarticular muscles acting on a single joint.",
+    "paper_id": "477"
+  },
+  {
+    "section": "experiments1",
+    "path": {
+      "section": "experiments1",
+      "start_entity": "Musashi",
+      "end_entity": "MuscleType",
+      "hops": [
+        {
+          "from": "Musashi",
+          "relation": "type",
+          "to": "MusculoskeletalHumanoid",
+          "context": "The musculoskeletal humanoids used in this experiment are Musashi [5] and Kengoro [4].",
+          "chunk": "4"
+        },
+        {
+          "from": "MusculoskeletalHumanoid",
+          "relation": "hasMuscleType",
+          "to": "MonoarticularMuscles",
+          "context": "There are not only monoarticular muscles acting on a single joint.",
+          "chunk": "4"
+        },
+        {
+          "from": "MonoarticularMuscles",
+          "relation": "type",
+          "to": "MuscleType",
+          "context": "There are not only monoarticular muscles acting on a single joint.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the context of the musculoskeletal humanoids discussed in the experiments, which type of muscle primarily distinguishes Musashi from other humanoid models?",
+    "options": {
+      "A": "Triarticular muscles, which influence three joints simultaneously for advanced maneuverability.",
+      "B": "Biarticular muscles, which connect two joints and help in coordinated motion.",
+      "C": "Monoarticular muscles, which are designed to act on a single joint, providing more precise control.",
+      "D": "Polyarticular muscles, which span multiple joints and contribute to complex limb movements."
+    },
+    "correct_answer": "C",
+    "explanation": "The question hinges on understanding that the Musashi humanoid uses monoarticular muscles, as indicated by the knowledge graph path. Monoarticular muscles act on a single joint, which is key to distinguishing Musashi from other models that may use muscles spanning multiple joints for different functionality.",
+    "path_description": "Path: Musashi --[type]--> MusculoskeletalHumanoid --[hasMuscleType]--> MonoarticularMuscles --[type]--> MuscleType",
+    "context": "The musculoskeletal humanoids used in this experiment are Musashi [5] and Kengoro [4]. | There are not only monoarticular muscles acting on a single joint. | There are not only monoarticular muscles acting on a single joint.",
+    "paper_id": "477"
+  },
+  {
+    "section": "experiments2",
+    "path": {
+      "section": "experiments2",
+      "start_entity": "Both",
+      "end_entity": "SimulationModel",
+      "hops": [
+        {
+          "from": "Both",
+          "relation": "outperforms",
+          "to": "Func",
+          "context": "From the results, Both is most consistent with Geometric for all of A0, A1, and A2.",
+          "chunk": "5"
+        },
+        {
+          "from": "Func",
+          "relation": "evaluatedOn",
+          "to": "Musashi",
+          "context": "Examples of muscle grouping when conducting the proposed grouping method of Func for Musashi.",
+          "chunk": "5"
+        },
+        {
+          "from": "Musashi",
+          "relation": "type",
+          "to": "SimulationModel",
+          "context": "Examples of muscle grouping when conducting the proposed grouping method for Musashi.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the evaluation of the proposed muscle grouping method Func conducted on Musashi, what type of model outperforms others in terms of consistency?",
+    "options": {
+      "A": "Geometric models consistently outperform others across all parameters A0, A1, and A2.",
+      "B": "Data-driven models are less consistent compared to geometric and physiological models.",
+      "C": "Physiological models show superior performance in consistency compared to other models.",
+      "D": "Analytical models demonstrate the highest variability in performance across different parameters."
+    },
+    "correct_answer": "A",
+    "explanation": "The question requires understanding of the three-hop path from the knowledge graph: Both outperforms Func, Func evaluated on Musashi, and Musashi as a type of SimulationModel. From the context, 'Both is most consistent with Geometric for all of A0, A1, and A2,' it is clear that geometric models (part of 'Both') consistently outperform others in the evaluation of Func on Musashi.",
+    "path_description": "Path: Both --[outperforms]--> Func --[evaluatedOn]--> Musashi --[type]--> SimulationModel",
+    "context": "From the results, Both is most consistent with Geometric for all of A0, A1, and A2. | Examples of muscle grouping when conducting the proposed grouping method of Func for Musashi. | Examples of muscle grouping when conducting the proposed grouping method for Musashi.",
+    "paper_id": "477"
+  },
+  {
+    "section": "experiments3",
+    "path": {
+      "section": "experiments3",
+      "start_entity": "AutoEncoder",
+      "end_entity": "Spac",
+      "hops": [
+        {
+          "from": "AutoEncoder",
+          "relation": "trainedOn",
+          "to": "Musashi",
+          "context": "Transition of train/test loss when training AutoEncoder before and after muscle grouping for Musashi",
+          "chunk": "6"
+        },
+        {
+          "from": "Musashi",
+          "relation": "uses",
+          "to": "Func",
+          "context": "The same method as with Section IV-B is used for spatial connection",
+          "chunk": "6"
+        },
+        {
+          "from": "Func",
+          "relation": "comparedWith",
+          "to": "Spac",
+          "context": "two distant unrelated groups often merge in Func, while in Spac, two functionally unrelated groups that are close to each other often merge",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "When training an AutoEncoder on Musashi, which methodological difference in group merging is observed between Func and Spac?",
+    "options": {
+      "A": "In Func, closely related groups often merge quickly, whereas in Spac, functionally similar but distant groups merge.",
+      "B": "In Func, two distant unrelated groups often merge, whereas in Spac, close but functionally unrelated groups merge.",
+      "C": "In Func, merging is primarily based on functional similarities, whereas in Spac, it is based on spatial proximity.",
+      "D": "In Func, no groups merge based on their functional attributes, while in Spac, merges are random and unrelated."
+    },
+    "correct_answer": "B",
+    "explanation": "The question is based on the specific behaviors of group merging in Func and Spac when training an AutoEncoder on Musashi. According to the paper, in Func, distant unrelated groups often merge, while in Spac, the merging occurs between close, functionally unrelated groups. This difference highlights a methodological contrast between Func and Spac, making option A correct. The other options misrepresent the nature of group merging described in the paper.",
+    "path_description": "Path: AutoEncoder --[trainedOn]--> Musashi --[uses]--> Func --[comparedWith]--> Spac",
+    "context": "Transition of train/test loss when training AutoEncoder before and after muscle grouping for Musashi | The same method as with Section IV-B is used for spatial connection | two distant unrelated groups often merge in Func, while in Spac, two functionally unrelated groups that are close to each other often merge",
+    "paper_id": "477"
+  }
+]

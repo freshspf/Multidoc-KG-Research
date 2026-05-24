@@ -1,0 +1,32 @@
+[
+  {
+    "id": "introduction",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Introduction",
+      "page_start": 1,
+      "page_end": 1
+    },
+    "text": "0\nIn  this  research,  we  implement  evolving creatures on\n2\n  blockchain.  Blockchain is the underlying technology for\ny\ncryptocurrencies such as Bitcoin (Nakamoto (2008)), and\na\nhas received much attention in recent years. Blockchain is\nM a robust distributed ledger that uses consensus algorithms\n \n7 such as Proof-of-Work (Nakamoto (2008)) and Proof-of-\n \n  Stake (Sunny King (2012)) to approve transactions in a de-\n]\ncentralized manner, making malicious tampering extremely\nE\ndifficult.  The local approvers are incentivized in order to\nN\n.  receive rewards, and as long as this incentive persists, the\ns  robust blockchain will never stop.\nc\n[  Ethereum, one of the blockchains, can be seen as an un-\n \n  stoppable computer which shared by users around the world\n1\nthat can run Turing-complete programs. In order to run any\nv\nprogram on Ethereum, Ether (currency on Ethereum) is re-\n8\n3 quired. In other words, Ether can be seen as a kind of energy\n0  in the Ethereum world. Ethereum has already transitioned\n4  from PoW to PoS, and it is expected that power consumption\n0\n. will decrease by 99.95 percent, making progress towards re-\n5 solving environmental issues caused by blockchain.\n0\nWe developed self-replicating agents who earn the en-\n4\nergy by themselves  to replicate them,  on the Ethereum\n2\n: blockchain. This self-replicating agent lives for the purpose\nv\ni of preserving its own offspring. The agent needs Ether in or-\nder to perform some action, and when ether is gone, there is\nX\nr nothing left to do. The agents can create non-fungible tokens\na\n(NFTs: ERC-721) which is a decentralized proof of digi-\ntal token. The created NFTs are associated with the agents\n(e.g., image of their phenotype), and gain Ether each time\nthese NFTs are sold. When a certain amount of Ether is ac-\ncumulated, the agent replicates itself and leaves offspring.\nEach self-replication results in a genetic mutation that\ncauses the offspring to differ in appearance and behavior\nfrom its parents. The agents that become popular and sell\nNFTs at a high price can acquire more Ether and leave\nmore offspring.  Selection pressure is exerted such that an\nagent who becomes popular and sells NFTs at a high price\ncan acquire more Ether and produce more offspring. Thus\nour system is a kind of interactive evolutionary computa-\n\nart Contract on Ethereum Blockchain\n1  1\nruyama , and Takashi Ikegami\nachine Inc.\n2022 for submission to ALIFE 2022.)\nFigure 1: Variations of phenotype of agents.\ntion (Secretan et al. (2011); Clune and Lipson (2011)) on\nthe blockchain."
+  },
+  {
+    "id": "implementation",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Implementation",
+      "page_start": 1,
+      "page_end": 1
+    },
+    "text": "Individuals\nIn Ethereum, there are two types of accounts : Externally\nOwned Account (EOA) and contract account.  EOA is an\naccount used by human, while a contract account is an ac-\ncount for a contract which is a unit of program on Ethereum.\nLike EOA, contract account has an Ethereum address and\ncan trade Ether associated with this address, so contract it-\nself can hold Ether. This contract corresponds to the agent\nin our model.\nSelf-Replication\nThere are  two main ways  to duplicate a contract  on\nEthereum: factory pattern and minimal proxy pattern (EIP-\n1167).  In factory pattern, it consists of two contracts, fac-\ntory contract and product contract. In this case, the product\ncontract itself does not create a contract, but the factory con-\ntract generates a new contract and copies the variables of the\nproduct contract.\nEIP-1167 is a standard for inexpensive and easy contract\ncopying with a minimum of code.  In a case of minimal"
+  },
+  {
+    "id": "discussion",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Discussion",
+      "page_start": 2,
+      "page_end": 3
+    },
+    "text": "We deployed this evolving system on Ethereum Rinkeby\ntest network in 2022 for evaluating the system, and we con-\nfirmed this system works well (Fig. 3). We will deploy the\nfinalized version of the system on Ethereum main network\nuntil the conference.\nThe goal of this project is to implement artificial agents\nthat lives for itself, not as a tool for humans, in the open cy-\nber space connected to the real world. This implementation\nis the first step, and it is also an experiment for open-ended\nevolution, which is an important theme in artificial life.  In\nthe future, we plan to develop a protocol for artificial agents\nin the blockchain, or original blockchain for them, and also\nprovide various services for the artificial agents so that an\necosystem or economy can be created among the agents.\n\n"
+  }
+]

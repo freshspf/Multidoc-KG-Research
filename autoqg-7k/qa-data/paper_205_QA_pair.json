@@ -1,0 +1,88 @@
+[
+  {
+    "section": "relatedwork",
+    "path": {
+      "section": "relatedwork",
+      "start_entity": "ProteinProteinInteraction",
+      "end_entity": "BiologicalNetwork",
+      "hops": [
+        {
+          "from": "ProteinProteinInteraction",
+          "relation": "usedFor",
+          "to": "CentralityMeasures",
+          "context": "by the author using protein-protein interaction",
+          "chunk": "1"
+        },
+        {
+          "from": "CentralityMeasures",
+          "relation": "usedToAnalyse",
+          "to": "PPI_Network",
+          "context": "Three straightforward centrality measures were used to analyse",
+          "chunk": "1"
+        },
+        {
+          "from": "PPI_Network",
+          "relation": "type",
+          "to": "BiologicalNetwork",
+          "context": "The PPI network features",
+          "chunk": "1"
+        }
+      ]
+    },
+    "question": "Which centrality measure is most likely used in the analysis of PPI networks to determine the importance of proteins within a biological network?",
+    "options": {
+      "A": "Betweenness centrality, which quantifies the number of times a protein appears on the shortest path between other proteins",
+      "B": "Eigenvector centrality, which considers the mass of proteins to define their influence",
+      "C": "Closeness centrality, which emphasizes proteins' proximity in terms of spatial distribution within the cell",
+      "D": "Harmonic centrality, primarily focusing on the vibrational modes of protein structures"
+    },
+    "correct_answer": "A",
+    "explanation": "Betweenness centrality is a typical measure used in PPI networks as it helps identify proteins that serve as critical connectors or hubs within the network by appearing on the shortest paths between other proteins. This metric is relevant to understanding biological networks where pathway signaling or interactions are crucial.",
+    "path_description": "Path: ProteinProteinInteraction --[usedFor]--> CentralityMeasures --[usedToAnalyse]--> PPI_Network --[type]--> BiologicalNetwork",
+    "context": "by the author using protein-protein interaction | Three straightforward centrality measures were used to analyse | The PPI network features",
+    "paper_id": "400"
+  },
+  {
+    "section": "methods1",
+    "path": {
+      "section": "methods1",
+      "start_entity": "LocalClusteringCoefficient",
+      "end_entity": "NetworkAnalysisMethod",
+      "hops": [
+        {
+          "from": "LocalClusteringCoefficient",
+          "relation": "usedIn",
+          "to": "PPIN",
+          "context": "Local Clustering Co-efficient(CCo)...",
+          "chunk": "2"
+        },
+        {
+          "from": "PPIN",
+          "relation": "createdUsing",
+          "to": "CentralityMeasure",
+          "context": "creation of PPIN data, centrality measure...",
+          "chunk": "2"
+        },
+        {
+          "from": "CentralityMeasure",
+          "relation": "type",
+          "to": "NetworkAnalysisMethod",
+          "context": "using Centrality Measure...",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the context of protein-protein interaction networks (PPIN), which network analysis method is directly associated with the use of centrality measures derived from local clustering coefficients?",
+    "options": {
+      "A": "Betweenness centrality, which considers the number of times a node acts as a bridge along the shortest path between two other nodes",
+      "B": "Degree centrality, which assesses the immediate connections a node has within the network",
+      "C": "Eigenvector centrality, which considers the importance of a node's neighbors within the network",
+      "D": "Closeness centrality, calculated based on the shortest paths from a node to all other nodes in the network"
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is Eigenvector centrality, as it relies on the significance of a node's connections within the network, which can be derived by considering local clustering coefficients that measure how close a node's neighbors are to being a complete clique.",
+    "path_description": "Path: LocalClusteringCoefficient --[usedIn]--> PPIN --[createdUsing]--> CentralityMeasure --[type]--> NetworkAnalysisMethod",
+    "context": "Local Clustering Co-efficient(CCo)... | creation of PPIN data, centrality measure... | using Centrality Measure...",
+    "paper_id": "400"
+  }
+]

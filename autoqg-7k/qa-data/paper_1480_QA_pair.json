@@ -1,0 +1,303 @@
+[
+  {
+    "section": "casestudy",
+    "path": {
+      "section": "casestudy",
+      "start_entity": "VisionModel",
+      "end_entity": "Dataset",
+      "hops": [
+        {
+          "from": "VisionModel",
+          "relation": "trainedOn",
+          "to": "RIVAL10",
+          "context": "We demonstrate the proposed debugging and runtime detection on a case study analyzing a vision model trained on the RIVAL10 dataset [17].",
+          "chunk": "2"
+        },
+        {
+          "from": "RIVAL10",
+          "relation": "correspondsToClassesOf",
+          "to": "CIFAR10",
+          "context": "RIVAL10 is a subset of ImageNet [18], categorized into 10 classes corresponding to those of CIFAR10, including truck, car, etc.",
+          "chunk": "2"
+        },
+        {
+          "from": "CIFAR10",
+          "relation": "type",
+          "to": "Dataset",
+          "context": "RIVAL10 is a subset of ImageNet [18], categorized into 10 classes corresponding to those of CIFAR10, including truck, car, etc.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "Which of the following statements accurately describes the relationship between the RIVAL10 and CIFAR10 datasets as used in the vision model case study?",
+    "options": {
+      "A": "RIVAL10 is a dataset that includes a variety of animal classes not found in CIFAR10.",
+      "B": "RIVAL10 and CIFAR10 share no common classes; their categorization is completely distinct.",
+      "C": "RIVAL10 is a subset of ImageNet specifically categorized into classes that correspond to those in CIFAR10.",
+      "D": "RIVAL10 directly includes all the classes from CIFAR10 but has additional classes expanding its scope."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is C because RIVAL10 is explicitly stated to be a subset of ImageNet, categorized into 10 classes corresponding to those of CIFAR10. This implies that RIVAL10's classes are intended to mirror those found in CIFAR10, making it directly comparable for the purposes of studying the vision model.",
+    "path_description": "Path: VisionModel --[trainedOn]--> RIVAL10 --[correspondsToClassesOf]--> CIFAR10 --[type]--> Dataset",
+    "context": "We demonstrate the proposed debugging and runtime detection on a case study analyzing a vision model trained on the RIVAL10 dataset [17]. | RIVAL10 is a subset of ImageNet [18], categorized into 10 classes corresponding to those of CIFAR10, including truck, car, etc. | RIVAL10 is a subset of ImageNet [18], categorized into 10 classes corresponding to those of CIFAR10, including truck, car, etc.",
+    "paper_id": "233"
+  },
+  {
+    "section": "experiments2",
+    "path": {
+      "section": "experiments2",
+      "start_entity": "ResidualBlock",
+      "end_entity": "Dataset",
+      "hops": [
+        {
+          "from": "ResidualBlock",
+          "relation": "partOf",
+          "to": "ResNet18",
+          "context": "The bottom row of Tbl. I presents the number of encoder and head errors with the original and alternate decomposition",
+          "chunk": "6"
+        },
+        {
+          "from": "ResNet18",
+          "relation": "evaluatedOn",
+          "to": "RIVAL10",
+          "context": "The RIVAL10 test dataset has 502 images with ground-truth truck",
+          "chunk": "6"
+        },
+        {
+          "from": "RIVAL10",
+          "relation": "type",
+          "to": "Dataset",
+          "context": "The RIVAL10 test dataset has 502 images with ground-truth truck",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In a study evaluating the ResNet18 architecture, which includes ResidualBlocks, on the RIVAL10 dataset, what is the specific type of data included in the RIVAL10?",
+    "options": {
+      "A": "The RIVAL10 dataset comprises over 1000 images, mainly focused on pedestrian identification.",
+      "B": "The RIVAL10 dataset includes 502 images with ground-truth labels specifically for trucks.",
+      "C": "The RIVAL10 dataset mainly consists of aerial photographs of urban areas without specific annotations.",
+      "D": "The RIVAL10 dataset contains diverse vehicle types but does not specify the number of images for each."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A because the context from the paper explicitly states that the RIVAL10 test dataset includes 502 images with ground-truth labels for trucks. Options B, C, and D are incorrect as they suggest different contents or focus of the RIVAL10 dataset which contradicts the specific information provided in the paper.",
+    "path_description": "Path: ResidualBlock --[partOf]--> ResNet18 --[evaluatedOn]--> RIVAL10 --[type]--> Dataset",
+    "context": "The bottom row of Tbl. I presents the number of encoder and head errors with the original and alternate decomposition | The RIVAL10 test dataset has 502 images with ground-truth truck | The RIVAL10 test dataset has 502 images with ground-truth truck",
+    "paper_id": "233"
+  },
+  {
+    "section": "experiments3",
+    "path": {
+      "section": "experiments3",
+      "start_entity": "Model",
+      "end_entity": "Entity",
+      "hops": [
+        {
+          "from": "Model",
+          "relation": "hasFault",
+          "to": "Text",
+          "context": "The results seem to indicate that the model is specifically faulty when processing images containing wheels or text.",
+          "chunk": "7"
+        },
+        {
+          "from": "Text",
+          "relation": "appearIn",
+          "to": "Predicates",
+          "context": "These concepts frequently appear in the above predicates.",
+          "chunk": "7"
+        },
+        {
+          "from": "Predicates",
+          "relation": "type",
+          "to": "Entity",
+          "context": "These concepts frequently appear in the above predicates.",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "In the context of the model faults discussed in 'experiments3', which entity type is most likely to be problematic due to frequent appearances in predicates linked with the model's text processing errors?",
+    "options": {
+      "A": "Entities pertaining to weather phenomena, which are unlikely to be represented in the textual data processed by the model.",
+      "B": "Entities related to vehicular components such as wheels, which are often found in images processed by the model.",
+      "C": "Entities involving human facial features, which are not commonly associated with text in the model's processing scope.",
+      "D": "Entities related to natural landscapes, which are rarely connected with the textual contents found in the predicates."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A because the model specifically shows faults when processing images containing wheels, as mentioned in the paper. Since wheels are a type of vehicular component and these concepts frequently appear in the predicates linked to the model's faults, entities related to vehicular components like wheels are most likely to be problematic.",
+    "path_description": "Path: Model --[hasFault]--> Text --[appearIn]--> Predicates --[type]--> Entity",
+    "context": "The results seem to indicate that the model is specifically faulty when processing images containing wheels or text. | These concepts frequently appear in the above predicates. | These concepts frequently appear in the above predicates.",
+    "paper_id": "233"
+  },
+  {
+    "section": "experiments4",
+    "path": {
+      "section": "experiments4",
+      "start_entity": "ResNet18",
+      "end_entity": "Dataset",
+      "hops": [
+        {
+          "from": "ResNet18",
+          "relation": "comparedWith",
+          "to": "FGSM",
+          "context": "common adversarial attacks such as PGD (both l∞ and l2) [26], FGSM (l∞) [27]",
+          "chunk": "8"
+        },
+        {
+          "from": "FGSM",
+          "relation": "appliedTo",
+          "to": "RIVAL10",
+          "context": "common adversarial attacks such as PGD (both l∞ and l2) [26], FGSM (l∞) [27]",
+          "chunk": "8"
+        },
+        {
+          "from": "RIVAL10",
+          "relation": "type",
+          "to": "Dataset",
+          "context": "One perturbed image was created for every input in the RIVAL10 test set.",
+          "chunk": "8"
+        }
+      ]
+    },
+    "question": "In the study's experiments, how was the ResNet18 model evaluated in terms of robustness against adversarial attacks?",
+    "options": {
+      "A": "ResNet18 was directly tested using PGD attacks, with no mention of the RIVAL10 dataset in this context.",
+      "B": "ResNet18 was compared with the FGSM attack, which was specifically applied to images in the RIVAL10 dataset.",
+      "C": "ResNet18 was applied to a different dataset, not mentioned as RIVAL10, to assess its performance against FGSM attacks.",
+      "D": "ResNet18 was used to generate adversarial examples itself, which were then tested on the RIVAL10 dataset."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A, as it accurately follows the knowledge path where ResNet18 is evaluated against the FGSM adversarial attack, which in turn, is applied to the RIVAL10 dataset. Options B, C, and D are incorrect as they either misrepresent the type of attack used, the role of ResNet18, or incorrectly state the dataset involved in the evaluation.",
+    "path_description": "Path: ResNet18 --[comparedWith]--> FGSM --[appliedTo]--> RIVAL10 --[type]--> Dataset",
+    "context": "common adversarial attacks such as PGD (both l∞ and l2) [26], FGSM (l∞) [27] | common adversarial attacks such as PGD (both l∞ and l2) [26], FGSM (l∞) [27] | One perturbed image was created for every input in the RIVAL10 test set.",
+    "paper_id": "233"
+  },
+  {
+    "section": "threatstovalidity",
+    "path": {
+      "section": "threatstovalidity",
+      "start_entity": "OurApproach",
+      "end_entity": "Concept",
+      "hops": [
+        {
+          "from": "OurApproach",
+          "relation": "plansToExplore",
+          "to": "VLMs",
+          "context": "In the future, we plan to explore VLMs to elicit such concepts",
+          "chunk": "9"
+        },
+        {
+          "from": "VLMs",
+          "relation": "appliedTo",
+          "to": "HumanDefinedConcepts",
+          "context": "In the future, we plan to explore VLMs to elicit such concepts",
+          "chunk": "9"
+        },
+        {
+          "from": "HumanDefinedConcepts",
+          "relation": "type",
+          "to": "Concept",
+          "context": "Our approach relies on the set of human-defined concepts which may be incorrect.",
+          "chunk": "9"
+        }
+      ]
+    },
+    "question": "Considering the planned exploration of VLMs in eliciting human-defined concepts, what potential threat to validity might arise from this approach?",
+    "options": {
+      "A": "VLMs could be too complex to apply effectively to simpler human-defined concepts.",
+      "B": "VLMs may not be comprehensive enough to cover all relevant scientific principles in the field.",
+      "C": "The exploration might fail to address the evolving nature of human-defined concepts over time.",
+      "D": "Human-defined concepts might be inherently biased or incorrect, thus affecting the validity of findings."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is C because the context specifically mentions that the approach relies on human-defined concepts which may be incorrect. This suggests that a potential threat to validity is the inherent bias or inaccuracies in the human-defined concepts used in the exploration with VLMs.",
+    "path_description": "Path: OurApproach --[plansToExplore]--> VLMs --[appliedTo]--> HumanDefinedConcepts --[type]--> Concept",
+    "context": "In the future, we plan to explore VLMs to elicit such concepts | In the future, we plan to explore VLMs to elicit such concepts | Our approach relies on the set of human-defined concepts which may be incorrect.",
+    "paper_id": "233"
+  },
+  {
+    "section": "conclusionandfuturework",
+    "path": {
+      "section": "conclusionandfuturework",
+      "start_entity": "ErrorLocalization",
+      "end_entity": "ModelType",
+      "hops": [
+        {
+          "from": "ErrorLocalization",
+          "relation": "appliedTo",
+          "to": "VisionModels",
+          "context": "develop methods that enable more precise and accurate error localization to specific layers",
+          "chunk": "11"
+        },
+        {
+          "from": "VisionModels",
+          "relation": "uses",
+          "to": "VLM",
+          "context": "The techniques leverage a separate VLM",
+          "chunk": "11"
+        },
+        {
+          "from": "VLM",
+          "relation": "type",
+          "to": "ModelType",
+          "context": "leverage a separate VLM",
+          "chunk": "11"
+        }
+      ]
+    },
+    "question": "In the context of applying error localization techniques to vision models, what type of model is primarily leveraged to enhance accuracy and precision?",
+    "options": {
+      "A": "An independent Recurrent Neural Network (RNN) used mainly for sequential data analysis.",
+      "B": "A separate Vision Language Model (VLM) that is classified under a specific model type.",
+      "C": "A dedicated Generative Adversarial Network (GAN) specialized in generating new data instances.",
+      "D": "A distinct Convolutional Neural Network (CNN) designed specifically for image processing tasks."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A because the knowledge graph path from the paper indicates that error localization applied to vision models uses a separate Vision Language Model (VLM), which falls under a specific model type. The other options, while plausible, do not align with the specific use of a VLM as indicated in the provided path and context.",
+    "path_description": "Path: ErrorLocalization --[appliedTo]--> VisionModels --[uses]--> VLM --[type]--> ModelType",
+    "context": "develop methods that enable more precise and accurate error localization to specific layers | The techniques leverage a separate VLM | leverage a separate VLM",
+    "paper_id": "233"
+  },
+  {
+    "section": "conclusionandfuturework",
+    "path": {
+      "section": "conclusionandfuturework",
+      "start_entity": "VisionModels",
+      "end_entity": "ModelType",
+      "hops": [
+        {
+          "from": "VisionModels",
+          "relation": "uses",
+          "to": "SemanticHeatmaps",
+          "context": "The techniques leverage semantic heatmaps",
+          "chunk": "11"
+        },
+        {
+          "from": "SemanticHeatmaps",
+          "relation": "summarizes",
+          "to": "DNNs",
+          "context": "semantic heatmaps that summarize statistical properties of DNNs",
+          "chunk": "11"
+        },
+        {
+          "from": "DNNs",
+          "relation": "type",
+          "to": "ModelType",
+          "context": "semantic heatmaps that summarize statistical properties of DNNs",
+          "chunk": "11"
+        }
+      ]
+    },
+    "question": "In the context of vision models, how do semantic heatmaps functionally contribute to the understanding of deep neural networks (DNNs)?",
+    "options": {
+      "A": "Semantic heatmaps provide a direct visualization of the vision models' algorithmic complexity and computational needs.",
+      "B": "Semantic heatmaps serve as a debugging tool to check the accuracy of the vision models' predictions against real-world data.",
+      "C": "Semantic heatmaps analyze the computational efficiency of different model types by directly interacting with the vision models' output.",
+      "D": "Semantic heatmaps use visual data from vision models to summarize the statistical properties of DNNs, enabling analysis of model types."
+    },
+    "correct_answer": "D",
+    "explanation": "Semantic heatmaps are used by vision models to summarize the statistical properties of DNNs, which is crucial for analyzing and understanding the types of models in use. This is the only option that correctly follows the knowledge path from vision models through semantic heatmaps to DNNs and their types.",
+    "path_description": "Path: VisionModels --[uses]--> SemanticHeatmaps --[summarizes]--> DNNs --[type]--> ModelType",
+    "context": "The techniques leverage semantic heatmaps | semantic heatmaps that summarize statistical properties of DNNs | semantic heatmaps that summarize statistical properties of DNNs",
+    "paper_id": "233"
+  }
+]

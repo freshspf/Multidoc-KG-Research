@@ -1,0 +1,174 @@
+[
+  {
+    "section": "datacollection",
+    "path": {
+      "section": "datacollection",
+      "start_entity": "BlockchainData",
+      "end_entity": "TransactionType",
+      "hops": [
+        {
+          "from": "BlockchainData",
+          "relation": "contains",
+          "to": "Inscriptions",
+          "context": "This includes data about blocks, transactions, and events specifically related to inscriptions.",
+          "chunk": "6"
+        },
+        {
+          "from": "Inscriptions",
+          "relation": "relatedTo",
+          "to": "SelfTransferTransactions",
+          "context": "a significant portion of inscriptions involves the issuance of self-transfer transactions",
+          "chunk": "6"
+        },
+        {
+          "from": "SelfTransferTransactions",
+          "relation": "type",
+          "to": "TransactionType",
+          "context": "a significant portion of inscriptions involves the issuance of self-transfer transactions",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In a blockchain data context, how are inscriptions typically related to the categorization of transaction types?",
+    "options": {
+      "A": "Inscriptions primarily track external transfer transactions between multiple parties, marking a common transaction type.",
+      "B": "Inscriptions are largely associated with mining reward transactions, which are categorized separately in transaction types.",
+      "C": "Inscriptions mainly involve the recording of smart contract creations, which are classified under different transaction types.",
+      "D": "Inscriptions predominantly document the issuance of self-transfer transactions, which are a distinct type of transaction."
+    },
+    "correct_answer": "D",
+    "explanation": "According to the knowledge path, inscriptions contain data related to self-transfer transactions, which are specifically indicated as a type of transaction. The correct answer must reflect this direct relationship where inscriptions facilitate the documentation of self-transfer transactions, classifying them as a particular transaction type.",
+    "path_description": "Path: BlockchainData --[contains]--> Inscriptions --[relatedTo]--> SelfTransferTransactions --[type]--> TransactionType",
+    "context": "This includes data about blocks, transactions, and events specifically related to inscriptions. | a significant portion of inscriptions involves the issuance of self-transfer transactions | a significant portion of inscriptions involves the issuance of self-transfer transactions",
+    "paper_id": "536"
+  },
+  {
+    "section": "discussion",
+    "path": {
+      "section": "discussion",
+      "start_entity": "Ethereum",
+      "end_entity": "BlobScriptions",
+      "hops": [
+        {
+          "from": "Ethereum",
+          "relation": "underwent",
+          "to": "DencunUpgrade",
+          "context": "Ethereum underwent the Dencun upgrade",
+          "chunk": "8"
+        },
+        {
+          "from": "DencunUpgrade",
+          "relation": "introduced",
+          "to": "Blobs",
+          "context": "which introduced temporary data storage - blobs",
+          "chunk": "8"
+        },
+        {
+          "from": "Blobs",
+          "relation": "usedToIssue",
+          "to": "BlobScriptions",
+          "context": "were used to issue new inscription directly in Ethereum blockchains, called BlobScriptions",
+          "chunk": "8"
+        }
+      ]
+    },
+    "question": "What was the primary purpose of introducing blobs in the Ethereum blockchain following the Dencun upgrade?",
+    "options": {
+      "A": "Blobs were used to facilitate the issuance of new inscriptions direct on Ethereum blockchains, known as BlobScriptions.",
+      "B": "Blobs were designed to reduce the gas fees associated with transactions by optimizing data storage.",
+      "C": "Blobs were implemented to enhance the overall security of the Ethereum network by decentralizing data storage.",
+      "D": "Blobs were aimed at increasing the processing speed of transactions on the Ethereum blockchain."
+    },
+    "correct_answer": "A",
+    "explanation": "The Dencun upgrade introduced blobs, which are temporary data storage mechanisms on the Ethereum blockchain, specifically designed to issue new types of inscriptions called BlobScriptions. This aligns with option A, which states that blobs were used to facilitate the issuance of new inscriptions directly on the Ethereum blockchains.",
+    "path_description": "Path: Ethereum --[underwent]--> DencunUpgrade --[introduced]--> Blobs --[usedToIssue]--> BlobScriptions",
+    "context": "Ethereum underwent the Dencun upgrade | which introduced temporary data storage - blobs | were used to issue new inscription directly in Ethereum blockchains, called BlobScriptions",
+    "paper_id": "536"
+  },
+  {
+    "section": "conclusion",
+    "path": {
+      "section": "conclusion",
+      "start_entity": "InscriptionsBoom",
+      "end_entity": "Ethereum",
+      "hops": [
+        {
+          "from": "InscriptionsBoom",
+          "relation": "isFirstStressTestFor",
+          "to": "RollUps",
+          "context": "Inscriptions boomwas the first stress test for roll-ups, a novel approach for blockchain scalability.",
+          "chunk": "9"
+        },
+        {
+          "from": "RollUps",
+          "relation": "dependentOn",
+          "to": "Blobs",
+          "context": "Nevertheless, the introduction of temporary data storage on Ethereum— blobs — and rollups’ dependence on them — puts the security and longevity of blob- and rollup-based inscription into question.",
+          "chunk": "9"
+        },
+        {
+          "from": "Blobs",
+          "relation": "introducedOn",
+          "to": "Ethereum",
+          "context": "Nevertheless, the introduction of temporary data storage on Ethereum— blobs — and rollups’ dependence on them — puts the security and longevity of blob- and rollup-based inscription into question.",
+          "chunk": "9"
+        }
+      ]
+    },
+    "question": "Why did the introduction of blobs on Ethereum present a significant challenge for the sustainability of roll-ups used in blockchain scalability?",
+    "options": {
+      "A": "The permanent nature of blobs on Ethereum significantly increased the complexity and cost of maintaining roll-ups.",
+      "B": "Blobs reduced the transaction speed on Ethereum, which contradicted the purpose of using roll-ups for enhancing scalability.",
+      "C": "Blobs introduced a novel data storage method, but their temporary nature raised concerns about the security and longevity of roll-ups.",
+      "D": "The integration of blobs led to an increased rate of data loss in roll-ups, compromising the integrity of transactions."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A because the passage indicates that the introduction of temporary data storage—blobs—on Ethereum influenced roll-ups' security and longevity. The other options introduce incorrect implications about the nature of blobs and their effects on roll-ups.",
+    "path_description": "Path: InscriptionsBoom --[isFirstStressTestFor]--> RollUps --[dependentOn]--> Blobs --[introducedOn]--> Ethereum",
+    "context": "Inscriptions boomwas the first stress test for roll-ups, a novel approach for blockchain scalability. | Nevertheless, the introduction of temporary data storage on Ethereum— blobs — and rollups’ dependence on them — puts the security and longevity of blob- and rollup-based inscription into question. | Nevertheless, the introduction of temporary data storage on Ethereum— blobs — and rollups’ dependence on them — puts the security and longevity of blob- and rollup-based inscription into question.",
+    "paper_id": "536"
+  },
+  {
+    "section": "conclusion",
+    "path": {
+      "section": "conclusion",
+      "start_entity": "RollUps",
+      "end_entity": "BlockchainNetwork",
+      "hops": [
+        {
+          "from": "RollUps",
+          "relation": "dependentOn",
+          "to": "Blobs",
+          "context": "Nevertheless, the introduction of temporary data storage on Ethereum— blobs — and rollups’ dependence on them — puts the security and longevity of blob- and rollup-based inscription into question.",
+          "chunk": "9"
+        },
+        {
+          "from": "Blobs",
+          "relation": "introducedOn",
+          "to": "Ethereum",
+          "context": "Nevertheless, the introduction of temporary data storage on Ethereum— blobs — and rollups’ dependence on them — puts the security and longevity of blob- and rollup-based inscription into question.",
+          "chunk": "9"
+        },
+        {
+          "from": "Ethereum",
+          "relation": "type",
+          "to": "BlockchainNetwork",
+          "context": "Compared to the Bitcoin and Ethereum blockchains, zkSync Era network allowed for inscription trading at factional prices.",
+          "chunk": "9"
+        }
+      ]
+    },
+    "question": "Given the reliance of RollUps on temporary data storage (Blobs) on Ethereum, what aspect of Ethereum's functionality directly influences the security of transactions within RollUp-based systems?",
+    "options": {
+      "A": "Ethereum's ability to integrate advanced encryption techniques within its blockchain network",
+      "B": "Ethereum's capacity to handle a large number of transactions simultaneously",
+      "C": "The temporary nature of Blobs as a data storage solution on the Ethereum blockchain",
+      "D": "The permanent storage mechanisms employed by Ethereum, contrasting temporary solutions"
+    },
+    "correct_answer": "C",
+    "explanation": "The question focuses on the influence of Ethereum's temporary data storage, known as Blobs, on the security of RollUps. Since RollUps are dependent on Blobs, and these storage units are temporary in nature, the security and longevity of RollUp-based systems are directly affected by this temporary aspect. Other options, although related to Ethereum’s functionalities, do not directly address the temporary nature of Blobs and their impact on RollUps.",
+    "path_description": "Path: RollUps --[dependentOn]--> Blobs --[introducedOn]--> Ethereum --[type]--> BlockchainNetwork",
+    "context": "Nevertheless, the introduction of temporary data storage on Ethereum— blobs — and rollups’ dependence on them — puts the security and longevity of blob- and rollup-based inscription into question. | Nevertheless, the introduction of temporary data storage on Ethereum— blobs — and rollups’ dependence on them — puts the security and longevity of blob- and rollup-based inscription into question. | Compared to the Bitcoin and Ethereum blockchains, zkSync Era network allowed for inscription trading at factional prices.",
+    "paper_id": "536"
+  }
+]

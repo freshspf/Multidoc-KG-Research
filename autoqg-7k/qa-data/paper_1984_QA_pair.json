@@ -1,0 +1,174 @@
+[
+  {
+    "section": "iiicasestudies1",
+    "path": {
+      "section": "iiicasestudies1",
+      "start_entity": "SelfHostedAgent",
+      "end_entity": "Phase",
+      "hops": [
+        {
+          "from": "SelfHostedAgent",
+          "relation": "differsFrom",
+          "to": "PublicAgent",
+          "context": "For self-hosted agent usually the environment configuration part is not written in a file but determined by the host OS of the attached agent.",
+          "chunk": "5"
+        },
+        {
+          "from": "PublicAgent",
+          "relation": "usedFor",
+          "to": "AlgorithmLibraryBuildPhase",
+          "context": "Generally, if researchers develop a new algorithm for a specific domain, the workflow shown in Fig. 2 can be further decomposed into two phases: algorithm library build phase and experiment running phase using public agent.",
+          "chunk": "5"
+        },
+        {
+          "from": "AlgorithmLibraryBuildPhase",
+          "relation": "type",
+          "to": "Phase",
+          "context": "Generally, if researchers develop a new algorithm for a specific domain, the workflow shown in Fig. 2 can be further decomposed into two phases: algorithm library build phase and experiment running phase.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "How does the use of a SelfHostedAgent differ from a PublicAgent in the context of developing a new algorithm for a specific domain?",
+    "options": {
+      "A": "A SelfHostedAgent is commonly used in both the algorithm library build phase and experiment running phase, unlike a PublicAgent.",
+      "B": "A SelfHostedAgent typically does not require an environment configuration file, relying on the host OS, unlike a PublicAgent.",
+      "C": "A SelfHostedAgent allows for more customizable environment settings compared to a PublicAgent, which is often more rigid.",
+      "D": "A SelfHostedAgent supports only the experiment running phase, while a PublicAgent is used in the algorithm library build phase."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A because the context indicates that the environment configuration for a SelfHostedAgent is typically determined by the host OS and does not require a separate configuration file, which is a significant operational difference from a PublicAgent. This distinction is important in the process of building an algorithm library, where PublicAgents are explicitly mentioned in the context.",
+    "path_description": "Path: SelfHostedAgent --[differsFrom]--> PublicAgent --[usedFor]--> AlgorithmLibraryBuildPhase --[type]--> Phase",
+    "context": "For self-hosted agent usually the environment configuration part is not written in a file but determined by the host OS of the attached agent. | Generally, if researchers develop a new algorithm for a specific domain, the workflow shown in Fig. 2 can be further decomposed into two phases: algorithm library build phase and experiment running phase using public agent. | Generally, if researchers develop a new algorithm for a specific domain, the workflow shown in Fig. 2 can be further decomposed into two phases: algorithm library build phase and experiment running phase.",
+    "paper_id": "47"
+  },
+  {
+    "section": "iiicasestudies2",
+    "path": {
+      "section": "iiicasestudies2",
+      "start_entity": "SelfHostedAgent",
+      "end_entity": "HardwareComponent",
+      "hops": [
+        {
+          "from": "SelfHostedAgent",
+          "relation": "submitsJobTo",
+          "to": "ComputingNode",
+          "context": "Our self-hosted agent is a head node in an HPC cluster, and we use it to submit the job to computing nodes.",
+          "chunk": "6"
+        },
+        {
+          "from": "ComputingNode",
+          "relation": "hasComponent",
+          "to": "Memory",
+          "context": "Each computing node of ours has 256 GB memory.",
+          "chunk": "6"
+        },
+        {
+          "from": "Memory",
+          "relation": "type",
+          "to": "HardwareComponent",
+          "context": "Each computing node of ours has 256 GB memory.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In an HPC cluster, what type of hardware component is directly associated with the computing nodes when a self-hosted agent submits a job?",
+    "options": {
+      "A": "Memory that is integral to computing nodes and has a capacity of 256 GB.",
+      "B": "Storage drives that are used for data retention and backup in case of system failure.",
+      "C": "A central processing unit that primarily handles computations for various tasks.",
+      "D": "A graphics processing unit used primarily for rendering images and video processing."
+    },
+    "correct_answer": "A",
+    "explanation": "The knowledge graph path leads from a SelfHostedAgent to a ComputingNode, which contains Memory as a component. This Memory is specified as a type of HardwareComponent, in this case with a capacity of 256 GB as mentioned in the provided paper context.",
+    "path_description": "Path: SelfHostedAgent --[submitsJobTo]--> ComputingNode --[hasComponent]--> Memory --[type]--> HardwareComponent",
+    "context": "Our self-hosted agent is a head node in an HPC cluster, and we use it to submit the job to computing nodes. | Each computing node of ours has 256 GB memory. | Each computing node of ours has 256 GB memory.",
+    "paper_id": "47"
+  },
+  {
+    "section": "vacknowledgment",
+    "path": {
+      "section": "vacknowledgment",
+      "start_entity": "Slurm",
+      "end_entity": "DevOpsTool",
+      "hops": [
+        {
+          "from": "Slurm",
+          "relation": "compiledOn",
+          "to": "RaspberryPi3BModel",
+          "context": "The task is to compile a newer version of slurm, which is a cluster management toolkit.",
+          "chunk": "8"
+        },
+        {
+          "from": "RaspberryPi3BModel",
+          "relation": "connectedWith",
+          "to": "GitHubActions",
+          "context": "We have used a Raspberry Pi 3B Model with Raspbian OS connected with GitHub Actions.",
+          "chunk": "8"
+        },
+        {
+          "from": "GitHubActions",
+          "relation": "type",
+          "to": "DevOpsTool",
+          "context": "We have used a Raspberry Pi 3B Model with Raspbian OS connected with GitHub Actions.",
+          "chunk": "8"
+        }
+      ]
+    },
+    "question": "In the process of compiling a newer version of the slurm cluster management toolkit, which DevOps tool is used in conjunction with the Raspberry Pi 3B Model?",
+    "options": {
+      "A": "GitHub Actions, which enhances automation by connecting with the Raspberry Pi 3B Model used in the compilation process.",
+      "B": "Jenkins, which automates various stages of development by interfacing with Raspberry Pi 3B Model.",
+      "C": "CircleCI, primarily utilized for software teams to rapidly release code with confidence.",
+      "D": "Travis CI, which supports continuous integration but does not specifically connect with Raspberry Pi 3B Model."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is GitHub Actions. According to the knowledge path, the Raspberry Pi 3B Model, used to compile Slurm, is connected with GitHub Actions. GitHub Actions is identified as a type of DevOps tool, which aligns with the path from Raspberry Pi 3B Model to a DevOps tool used in the development process. Other options mention different DevOps tools that are not connected in the described scenario.",
+    "path_description": "Path: Slurm --[compiledOn]--> RaspberryPi3BModel --[connectedWith]--> GitHubActions --[type]--> DevOpsTool",
+    "context": "The task is to compile a newer version of slurm, which is a cluster management toolkit. | We have used a Raspberry Pi 3B Model with Raspbian OS connected with GitHub Actions. | We have used a Raspberry Pi 3B Model with Raspbian OS connected with GitHub Actions.",
+    "paper_id": "47"
+  },
+  {
+    "section": "vacknowledgment",
+    "path": {
+      "section": "vacknowledgment",
+      "start_entity": "Slurm",
+      "end_entity": "OperatingSystem",
+      "hops": [
+        {
+          "from": "Slurm",
+          "relation": "compiledOn",
+          "to": "RaspberryPi3BModel",
+          "context": "The task is to compile a newer version of slurm, which is a cluster management toolkit.",
+          "chunk": "8"
+        },
+        {
+          "from": "RaspberryPi3BModel",
+          "relation": "runs",
+          "to": "RaspbianOS",
+          "context": "We have used a Raspberry Pi 3B Model with Raspbian OS connected with GitHub Actions.",
+          "chunk": "8"
+        },
+        {
+          "from": "RaspbianOS",
+          "relation": "type",
+          "to": "OperatingSystem",
+          "context": "We have used a Raspberry Pi 3B Model with Raspbian OS connected with GitHub Actions.",
+          "chunk": "8"
+        }
+      ]
+    },
+    "question": "Which of the following correctly describes the sequence in compiling slurm for a cluster management system?",
+    "options": {
+      "A": "GitHub Actions compiles Slurm directly, bypassing the need for Raspberry Pi hardware or Raspbian OS.",
+      "B": "Slurm is compiled on a Raspberry Pi 3B Model, which utilizes Raspbian OS as its operating system.",
+      "C": "Raspbian OS is installed on a Slurm cluster, which is then managed through a Raspberry Pi 3B Model.",
+      "D": "Slurm is compiled directly on Raspbian OS without the need for any specific hardware like Raspberry Pi."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct sequence based on the context and knowledge path is that Slurm is compiled on a Raspberry Pi 3B Model, and this model runs Raspbian OS, which is a type of operating system. Options B, C, and D incorrectly describe the relationships and entities involved.",
+    "path_description": "Path: Slurm --[compiledOn]--> RaspberryPi3BModel --[runs]--> RaspbianOS --[type]--> OperatingSystem",
+    "context": "The task is to compile a newer version of slurm, which is a cluster management toolkit. | We have used a Raspberry Pi 3B Model with Raspbian OS connected with GitHub Actions. | We have used a Raspberry Pi 3B Model with Raspbian OS connected with GitHub Actions.",
+    "paper_id": "47"
+  }
+]

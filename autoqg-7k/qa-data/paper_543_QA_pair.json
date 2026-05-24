@@ -1,0 +1,131 @@
+[
+  {
+    "section": "methodology",
+    "path": {
+      "section": "methodology",
+      "start_entity": "InitialSetup",
+      "end_entity": "CommonReferenceString",
+      "hops": [
+        {
+          "from": "InitialSetup",
+          "relation": "includes",
+          "to": "CryptographicKeys",
+          "context": "includes generating the cryptographic keys through a trusted setup ceremony.",
+          "chunk": "3"
+        },
+        {
+          "from": "CryptographicKeys",
+          "relation": "generatedDuring",
+          "to": "InitialSetup",
+          "context": "includes generating the cryptographic keys through a trusted setup ceremony.",
+          "chunk": "3"
+        },
+        {
+          "from": "InitialSetup",
+          "relation": "includes",
+          "to": "CommonReferenceString",
+          "context": "and the common reference string (CRS).",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the context of a trusted setup ceremony as described in the methodology section, which of the following sequences correctly describes the process of setting up cryptographic protocols?",
+    "options": {
+      "A": "The common reference string is generated first, which then guides the creation of cryptographic keys during the initial setup.",
+      "B": "Cryptographic keys are generated first, followed by their integration into the existing common reference string during the initial setup.",
+      "C": "The initial setup includes generating cryptographic keys, which are then used to generate a common reference string.",
+      "D": "Cryptographic keys and a common reference string are generated simultaneously and independently during the initial setup."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct sequence, as described in the methodology section, involves generating cryptographic keys during the initial setup, which are then utilized in the generation of the common reference string. This follows from the 3-hop path: InitialSetup includes CryptographicKeys, which are generated during InitialSetup, and includes CommonReferenceString.",
+    "path_description": "Path: InitialSetup --[includes]--> CryptographicKeys --[generatedDuring]--> InitialSetup --[includes]--> CommonReferenceString",
+    "context": "includes generating the cryptographic keys through a trusted setup ceremony. | includes generating the cryptographic keys through a trusted setup ceremony. | and the common reference string (CRS).",
+    "paper_id": "1580"
+  },
+  {
+    "section": "findingsandfuturedirections",
+    "path": {
+      "section": "findingsandfuturedirections",
+      "start_entity": "ProofGeneration",
+      "end_entity": "Process",
+      "hops": [
+        {
+          "from": "ProofGeneration",
+          "relation": "uses",
+          "to": "BatchSize",
+          "context": "ch, we must generate the proof for the batch,",
+          "chunk": "5"
+        },
+        {
+          "from": "BatchSize",
+          "relation": "affects",
+          "to": "ProofGeneration",
+          "context": "quently, larger batch sizes require longer key",
+          "chunk": "5"
+        },
+        {
+          "from": "ProofGeneration",
+          "relation": "type",
+          "to": "Process",
+          "context": "ch, we must generate the proof for the batch,",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the context of proof generation in cryptographic systems, how does the configuration of batch sizes influence the process?",
+    "options": {
+      "A": "Smaller batch sizes require more computational power, thus slowing down the proof generation.",
+      "B": "Larger batch sizes enhance the security of the system by diversifying the generation process.",
+      "C": "Reducing the batch size directly increases the speed of the proof generation process.",
+      "D": "Larger batch sizes usually require longer keys, complicating the proof generation process."
+    },
+    "correct_answer": "D",
+    "explanation": "Larger batch sizes necessitate longer keys which adds complexity to the proof generation process. This is because handling larger batches typically requires more data to be processed simultaneously, making the generation of proofs more intricate.",
+    "path_description": "Path: ProofGeneration --[uses]--> BatchSize --[affects]--> ProofGeneration --[type]--> Process",
+    "context": "ch, we must generate the proof for the batch, | quently, larger batch sizes require longer key | ch, we must generate the proof for the batch,",
+    "paper_id": "1580"
+  },
+  {
+    "section": "findingsandfuturedirections",
+    "path": {
+      "section": "findingsandfuturedirections",
+      "start_entity": "PowerOfTau",
+      "end_entity": "Process",
+      "hops": [
+        {
+          "from": "PowerOfTau",
+          "relation": "increasesCostWith",
+          "to": "BatchSize",
+          "context": "costs, such as Power of Tau, Circom circuit",
+          "chunk": "5"
+        },
+        {
+          "from": "BatchSize",
+          "relation": "affects",
+          "to": "ProofGeneration",
+          "context": "quently, larger batch sizes require longer key",
+          "chunk": "5"
+        },
+        {
+          "from": "ProofGeneration",
+          "relation": "type",
+          "to": "Process",
+          "context": "ch, we must generate the proof for the batch,",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the context of cryptographic proof generation, how does the Power of Tau protocol influence the proof generation process?",
+    "options": {
+      "A": "The Power of Tau decreases the cost with larger batch sizes, allowing for quicker and less resource-intensive proof generation.",
+      "B": "The Power of Tau increases the cost with larger batch sizes, which in turn requires more time and computational resources for proof generation.",
+      "C": "The Power of Tau directly modifies the proof generation algorithms, making them inherently faster regardless of batch size.",
+      "D": "The Power of Tau simplifies the batch size requirements, which has a negligible effect on the overall time and resources needed for proof generation."
+    },
+    "correct_answer": "B",
+    "explanation": "The Power of Tau protocol affects the proof generation process by increasing the costs associated with larger batch sizes. This results in a greater demand for time and computational resources during the proof generation phase, as indicated by the path from PowerOfTau to ProofGeneration through BatchSize.",
+    "path_description": "Path: PowerOfTau --[increasesCostWith]--> BatchSize --[affects]--> ProofGeneration --[type]--> Process",
+    "context": "costs, such as Power of Tau, Circom circuit | quently, larger batch sizes require longer key | ch, we must generate the proof for the batch,",
+    "paper_id": "1580"
+  }
+]

@@ -1,0 +1,389 @@
+[
+  {
+    "section": "parsyvddfromnumericaltoreallifeapplications1",
+    "path": {
+      "section": "parsyvddfromnumericaltoreallifeapplications1",
+      "start_entity": "SysId-Models",
+      "end_entity": "Dataset",
+      "hops": [
+        {
+          "from": "SysId-Models",
+          "relation": "improves",
+          "to": "QR-Methods",
+          "context": "We extensively compare the two SysId models in terms of spectral fitting and damage detection capabilities.",
+          "chunk": "4"
+        },
+        {
+          "from": "QR-Methods",
+          "relation": "evaluatedOn",
+          "to": "SHM-Benchmark",
+          "context": "We evaluate the accuracy of the three parallel QR methods.",
+          "chunk": "4"
+        },
+        {
+          "from": "SHM-Benchmark",
+          "relation": "type",
+          "to": "Dataset",
+          "context": "The employed SHM benchmark and the results obtained are presented below.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the context of structural health monitoring (SHM), which dataset type would best evaluate the QR methods used for improving SysId models?",
+    "options": {
+      "A": "A dataset specifically designed to test spectral fitting and damage detection capabilities",
+      "B": "A general-purpose dataset used commonly in machine learning for image recognition",
+      "C": "A dataset primarily focused on high-frequency response data from controlled lab tests",
+      "D": "A dataset that includes extensive meteorological data for climate modeling"
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A because the question is based on the evaluation of QR methods that improve SysId models, specifically in the context of SHM. The dataset must therefore be suited to test the aspects of spectral fitting and damage detection, which are the key capabilities of the SysId models discussed in the paper.",
+    "path_description": "Path: SysId-Models --[improves]--> QR-Methods --[evaluatedOn]--> SHM-Benchmark --[type]--> Dataset",
+    "context": "We extensively compare the two SysId models in terms of spectral fitting and damage detection capabilities. | We evaluate the accuracy of the three parallel QR methods. | The employed SHM benchmark and the results obtained are presented below.",
+    "paper_id": "766"
+  },
+  {
+    "section": "parsyvddfromnumericaltoreallifeapplications2",
+    "path": {
+      "section": "parsyvddfromnumericaltoreallifeapplications2",
+      "start_entity": "GSMethod",
+      "end_entity": "GRMethod",
+      "hops": [
+        {
+          "from": "GSMethod",
+          "relation": "hasHigherISDValuesThan",
+          "to": "HHMethod",
+          "context": "although the ISD values for GS are higher than those for GR and HH",
+          "chunk": "5"
+        },
+        {
+          "from": "HHMethod",
+          "relation": "hasHigherEnergyConsumptionThan",
+          "to": "GSMethod",
+          "context": "Despite HH’s effective parallelization, its high computational complexity leads to greater energy consumption",
+          "chunk": "5"
+        },
+        {
+          "from": "GSMethod",
+          "relation": "outperforms",
+          "to": "GRMethod",
+          "context": "GS benefits from an even workload distribution across each core in every iteration",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the comparison of methods based on ISD values and energy consumption, which method demonstrates a balance of higher ISD values and controlled energy usage due to even workload distribution across cores?",
+    "options": {
+      "A": "HH Method, because of its high ISD values and the advantage of effective parallelization reducing energy usage.",
+      "B": "GR Method, owing to its lower ISD values but superior energy efficiency due to simpler computational demands.",
+      "C": "GS Method, primarily because its lower ISD values ensure minimal energy consumption despite its workload distribution.",
+      "D": "GS Method, due to its higher ISD values compared to HH and GR and its effective workload distribution minimizing energy consumption."
+    },
+    "correct_answer": "D",
+    "explanation": "The GS Method has higher ISD values than both HH and GR Methods and manages to keep the energy consumption lower than HH due to its evenly distributed workload across each core in every iteration, making it the method that balances both considerations effectively.",
+    "path_description": "Path: GSMethod --[hasHigherISDValuesThan]--> HHMethod --[hasHigherEnergyConsumptionThan]--> GSMethod --[outperforms]--> GRMethod",
+    "context": "although the ISD values for GS are higher than those for GR and HH | Despite HH’s effective parallelization, its high computational complexity leads to greater energy consumption | GS benefits from an even workload distribution across each core in every iteration",
+    "paper_id": "766"
+  },
+  {
+    "section": "parsyvddfromnumericaltoreallifeapplications3",
+    "path": {
+      "section": "parsyvddfromnumericaltoreallifeapplications3",
+      "start_entity": "AR",
+      "end_entity": "Model",
+      "hops": [
+        {
+          "from": "AR",
+          "relation": "outperforms",
+          "to": "ARMA",
+          "context": "the performances for ARMA are two to three degrees of magnitude worse than AR’s, in compliance with the QR outcome in Sec. III-B.",
+          "chunk": "6"
+        },
+        {
+          "from": "ARMA",
+          "relation": "improves",
+          "to": "AR",
+          "context": "a relevant improvement is observed for ARMA.",
+          "chunk": "6"
+        },
+        {
+          "from": "AR",
+          "relation": "type",
+          "to": "Model",
+          "context": "AR: [200 × 8]  1.33E-06  2.25  4.10  13.888",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the context of time series forecasting, why would one prefer the AR model over the ARMA model, despite observed improvements in ARMA?",
+    "options": {
+      "A": "Because the ARMA model shows simpler computational requirements, which is preferable for larger datasets.",
+      "B": "Because the AR model consistently shows performances several degrees of magnitude better than ARMA, as indicated by QR outcomes.",
+      "C": "Because the AR model is newer and incorporates more advanced algorithms than the ARMA model.",
+      "D": "Because the ARMA model uses more parameters, which inherently makes it less accurate than simpler models."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A because the paper explicitly states that the AR model outperforms the ARMA model by several degrees of magnitude in terms of performance, as correlated with the QR outcome. The other options are misleading: B and C present plausible reasons why one might generally prefer simpler or less computationally intensive models, but they do not align with the stated superiority of AR's performance in the paper. D is incorrect and misleading as it falsely claims the AR model is newer.",
+    "path_description": "Path: AR --[outperforms]--> ARMA --[improves]--> AR --[type]--> Model",
+    "context": "the performances for ARMA are two to three degrees of magnitude worse than AR’s, in compliance with the QR outcome in Sec. III-B. | a relevant improvement is observed for ARMA. | AR: [200 × 8]  1.33E-06  2.25  4.10  13.888",
+    "paper_id": "766"
+  },
+  {
+    "section": "parsyvddfromnumericaltoreallifeapplications3",
+    "path": {
+      "section": "parsyvddfromnumericaltoreallifeapplications3",
+      "start_entity": "ARMA",
+      "end_entity": "FalsePositives",
+      "hops": [
+        {
+          "from": "ARMA",
+          "relation": "improves",
+          "to": "AR",
+          "context": "a relevant improvement is observed for ARMA.",
+          "chunk": "6"
+        },
+        {
+          "from": "AR",
+          "relation": "outperforms",
+          "to": "ARMA",
+          "context": "the performances for ARMA are two to three degrees of magnitude worse than AR’s, in compliance with the QR outcome in Sec. III-B.",
+          "chunk": "6"
+        },
+        {
+          "from": "ARMA",
+          "relation": "filtersOut",
+          "to": "FalsePositives",
+          "context": "Eventually, ARMA-based approaches allow the filtering out of the presence of false positives, and this is one of the main reasons motivating their adoption of AR in view of damage detection.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "Why is the adoption of AR favored over ARMA in the context of damage detection, despite ARMA's ability to filter out false positives?",
+    "options": {
+      "A": "Because ARMA, despite filtering out false positives, exhibits performance that is two to three degrees of magnitude worse than AR.",
+      "B": "Because AR has a more robust mechanism for integrating real-time data which is crucial for the effective detection of false positives.",
+      "C": "Because AR allows for a more straightforward implementation in real-life applications compared to the complex mechanisms of ARMA.",
+      "D": "Because the performance of ARMA in filtering out false positives is significantly worse than AR's performance, as evidenced by quantitative results in the paper."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is B because the paper explicitly states that AR's performance is significantly better than ARMA's, by two to three degrees of magnitude, even though ARMA can filter out false positives. This quantitative comparison directly influences the preference for AR in damage detection applications.",
+    "path_description": "Path: ARMA --[improves]--> AR --[outperforms]--> ARMA --[filtersOut]--> FalsePositives",
+    "context": "a relevant improvement is observed for ARMA. | the performances for ARMA are two to three degrees of magnitude worse than AR’s, in compliance with the QR outcome in Sec. III-B. | Eventually, ARMA-based approaches allow the filtering out of the presence of false positives, and this is one of the main reasons motivating their adoption of AR in view of damage detection.",
+    "paper_id": "766"
+  },
+  {
+    "section": "parsyvddfromnumericaltoreallifeapplications3",
+    "path": {
+      "section": "parsyvddfromnumericaltoreallifeapplications3",
+      "start_entity": "ARMA",
+      "end_entity": "Model",
+      "hops": [
+        {
+          "from": "ARMA",
+          "relation": "improves",
+          "to": "AR",
+          "context": "a relevant improvement is observed for ARMA.",
+          "chunk": "6"
+        },
+        {
+          "from": "AR",
+          "relation": "outperforms",
+          "to": "ARMA",
+          "context": "the performances for ARMA are two to three degrees of magnitude worse than AR’s, in compliance with the QR outcome in Sec. III-B.",
+          "chunk": "6"
+        },
+        {
+          "from": "ARMA",
+          "relation": "type",
+          "to": "Model",
+          "context": "ARMA: [200 × 8]  1.91E-04  2.02  34.05  13.888",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "Given the knowledge graph path from ARMA to AR and then back to ARMA ending in the context of 'Model', what does this sequence imply about ARMA's performance compared to AR in real-life applications?",
+    "options": {
+      "A": "ARMA's performance is significantly worse compared to AR, indicating AR's superiority in model accuracy in real-life applications.",
+      "B": "ARMA improves upon AR by providing more accurate models, despite the data suggesting AR outperforms ARMA.",
+      "C": "ARMA and AR perform similarly, as the ARMA model is just a type of AR, implying no significant difference in their applications.",
+      "D": "ARMA outperforms AR by a significant margin as indicated by their type designation in the model, making ARMA more suitable for real-life applications."
+    },
+    "correct_answer": "A",
+    "explanation": "The path indicates that while ARMA is said to improve and is a type of model like AR, AR actually outperforms ARMA. This implies ARMA's performance is worse compared to AR, despite the cyclical reference in the knowledge graph.",
+    "path_description": "Path: ARMA --[improves]--> AR --[outperforms]--> ARMA --[type]--> Model",
+    "context": "a relevant improvement is observed for ARMA. | the performances for ARMA are two to three degrees of magnitude worse than AR’s, in compliance with the QR outcome in Sec. III-B. | ARMA: [200 × 8]  1.91E-04  2.02  34.05  13.888",
+    "paper_id": "766"
+  },
+  {
+    "section": "parsyvddfromnumericaltoreallifeapplications2",
+    "path": {
+      "section": "parsyvddfromnumericaltoreallifeapplications2",
+      "start_entity": "GSMethod",
+      "end_entity": "GRMethod",
+      "hops": [
+        {
+          "from": "GSMethod",
+          "relation": "usesLessEnergyThan",
+          "to": "HHMethod",
+          "context": "However, GS is expected to use less energy due to its fewer instructions and excellent capability for parallel execution",
+          "chunk": "5"
+        },
+        {
+          "from": "HHMethod",
+          "relation": "hasHigherEnergyConsumptionThan",
+          "to": "GSMethod",
+          "context": "Despite HH’s effective parallelization, its high computational complexity leads to greater energy consumption",
+          "chunk": "5"
+        },
+        {
+          "from": "GSMethod",
+          "relation": "hasHigherISDValuesThan",
+          "to": "GRMethod",
+          "context": "although the ISD values for GS are higher than those for GR and HH",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "Considering the efficiency and complexity of computational methods, which statement accurately reflects the comparative attributes of GS, HH, and GR methods?",
+    "options": {
+      "A": "GS uses less energy than HH due to its simpler operations and better parallel execution, despite having higher ISD values than GR.",
+      "B": "HH has lower energy consumption than GS because it employs more complex computations that enable better performance.",
+      "C": "GS and HH have similar energy consumptions but GS has lower ISD values, making it less efficient than GR.",
+      "D": "GR consumes less energy than GS and HH due to its lower ISD values and minimal computational requirements."
+    },
+    "correct_answer": "A",
+    "explanation": "Option A is correct as it correctly links the lower energy consumption of GS compared to HH due to simpler operations and better parallel execution capacity, and acknowledges the higher ISD values of GS compared to GR. Options B, C, and D present incorrect relationships or attributes based on the provided knowledge path and context from the paper.",
+    "path_description": "Path: GSMethod --[usesLessEnergyThan]--> HHMethod --[hasHigherEnergyConsumptionThan]--> GSMethod --[hasHigherISDValuesThan]--> GRMethod",
+    "context": "However, GS is expected to use less energy due to its fewer instructions and excellent capability for parallel execution | Despite HH’s effective parallelization, its high computational complexity leads to greater energy consumption | although the ISD values for GS are higher than those for GR and HH",
+    "paper_id": "766"
+  },
+  {
+    "section": "performanceprofilingandcomparison1",
+    "path": {
+      "section": "performanceprofilingandcomparison1",
+      "start_entity": "SysId",
+      "end_entity": "Configuration",
+      "hops": [
+        {
+          "from": "SysId",
+          "relation": "usedIn",
+          "to": "GAP9",
+          "context": "Table IV reports a performance analysis of the implemented parallel SysId.",
+          "chunk": "10"
+        },
+        {
+          "from": "GAP9",
+          "relation": "hasConfiguration",
+          "to": "LP_Setup",
+          "context": "a low-power (LP) setup running at 240MHz with a core voltage of 0.65V.",
+          "chunk": "10"
+        },
+        {
+          "from": "LP_Setup",
+          "relation": "type",
+          "to": "Configuration",
+          "context": "a low-power (LP) setup running at 240MHz with a core voltage of 0.65V.",
+          "chunk": "10"
+        }
+      ]
+    },
+    "question": "In the context of the GAP9 processor's use in system identification (SysId), which configuration best describes its operational parameters?",
+    "options": {
+      "A": "A medium-power setup running at 500MHz with a core voltage of 0.8V",
+      "B": "A low-power setup running at 180MHz with a core voltage of 0.5V",
+      "C": "A high-power setup running at 1GHz with a core voltage of 1.2V",
+      "D": "A low-power (LP) setup running at 240MHz with a core voltage of 0.65V"
+    },
+    "correct_answer": "D",
+    "explanation": "According to the paper, the GAP9 processor, when used for system identification (SysId), operates under a low-power configuration running at 240MHz with a core voltage of 0.65V.",
+    "path_description": "Path: SysId --[usedIn]--> GAP9 --[hasConfiguration]--> LP_Setup --[type]--> Configuration",
+    "context": "Table IV reports a performance analysis of the implemented parallel SysId. | a low-power (LP) setup running at 240MHz with a core voltage of 0.65V. | a low-power (LP) setup running at 240MHz with a core voltage of 0.65V.",
+    "paper_id": "766"
+  },
+  {
+    "section": "performanceprofilingandcomparison1",
+    "path": {
+      "section": "performanceprofilingandcomparison1",
+      "start_entity": "SysId",
+      "end_entity": "Configuration",
+      "hops": [
+        {
+          "from": "SysId",
+          "relation": "usedIn",
+          "to": "GAP9",
+          "context": "Table IV reports a performance analysis of the implemented parallel SysId.",
+          "chunk": "10"
+        },
+        {
+          "from": "GAP9",
+          "relation": "hasConfiguration",
+          "to": "HP_Setup",
+          "context": "We conducted experiments on a GAP9 development board, which operates at a board voltage of 1.8V, using two configurations: (i) a high-performance (HP) setup running at 370MHz with a core voltage of 0.8V.",
+          "chunk": "10"
+        },
+        {
+          "from": "HP_Setup",
+          "relation": "type",
+          "to": "Configuration",
+          "context": "a high-performance (HP) setup running at 370MHz with a core voltage of 0.8V.",
+          "chunk": "10"
+        }
+      ]
+    },
+    "question": "In the performance profiling of the SysId on the GAP9 development board, what type of configuration is characterized by a core voltage of 0.8V and a frequency of 370MHz?",
+    "options": {
+      "A": "An energy-efficient setup intended for prolonged operational periods",
+      "B": "A standard performance configuration typically used for general purposes",
+      "C": "A high-performance setup specifically designed for optimum speed and efficiency",
+      "D": "A low-power configuration aimed at minimizing energy consumption"
+    },
+    "correct_answer": "C",
+    "explanation": "The context from the paper specifies that the GAP9 development board used a high-performance (HP) setup running at 370MHz with a core voltage of 0.8V, indicating that this configuration is designed for high performance rather than energy efficiency or prolonged operational periods.",
+    "path_description": "Path: SysId --[usedIn]--> GAP9 --[hasConfiguration]--> HP_Setup --[type]--> Configuration",
+    "context": "Table IV reports a performance analysis of the implemented parallel SysId. | We conducted experiments on a GAP9 development board, which operates at a board voltage of 1.8V, using two configurations: (i) a high-performance (HP) setup running at 370MHz with a core voltage of 0.8V. | a high-performance (HP) setup running at 370MHz with a core voltage of 0.8V.",
+    "paper_id": "766"
+  },
+  {
+    "section": "conclusion",
+    "path": {
+      "section": "conclusion",
+      "start_entity": "SysIdAlgorithms",
+      "end_entity": "Device",
+      "hops": [
+        {
+          "from": "SysIdAlgorithms",
+          "relation": "usedIn",
+          "to": "PARSY-VDD",
+          "context": "This paper introduces PARSY-VDD, a parallelized end-to-end framework designed for near-sensor vibration diagnosis using SysId algorithms.",
+          "chunk": "13"
+        },
+        {
+          "from": "PARSY-VDD",
+          "relation": "outperforms",
+          "to": "STM32H7",
+          "context": "running PARSY-VDD on GAP9 reached a speed-up of 76× in execution time and energy efficiency of 360× compared to commercial single-core devices, i.e., STM32H7 and STM32F4 MCUs, respectively.",
+          "chunk": "13"
+        },
+        {
+          "from": "STM32H7",
+          "relation": "type",
+          "to": "Device",
+          "context": "running PARSY-VDD on GAP9 reached a speed-up of 76× in execution time and energy efficiency of 360× compared to commercial single-core devices, i.e., STM32H7 and STM32F4 MCUs, respectively.",
+          "chunk": "13"
+        }
+      ]
+    },
+    "question": "Which statement accurately describes the relationship between SysId algorithms and the STM32H7 device within the context of the PARSY-VDD framework?",
+    "options": {
+      "A": "SysId algorithms reduce the functionality of PARSY-VDD when compared to the STM32H7's performance.",
+      "B": "SysId algorithms make the STM32H7 more efficient than the PARSY-VDD in vibration diagnosis applications.",
+      "C": "The STM32H7 utilizes SysId algorithms to outperform the PARSY-VDD in terms of energy efficiency and speed.",
+      "D": "SysId algorithms, utilized within the PARSY-VDD framework, significantly enhance execution speed and energy efficiency compared to the STM32H7."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A because as per the provided context, SysId algorithms are used in the PARSY-VDD framework which significantly advances its performance in terms of execution speed and energy efficiency when compared to traditional devices like STM32H7.",
+    "path_description": "Path: SysIdAlgorithms --[usedIn]--> PARSY-VDD --[outperforms]--> STM32H7 --[type]--> Device",
+    "context": "This paper introduces PARSY-VDD, a parallelized end-to-end framework designed for near-sensor vibration diagnosis using SysId algorithms. | running PARSY-VDD on GAP9 reached a speed-up of 76× in execution time and energy efficiency of 360× compared to commercial single-core devices, i.e., STM32H7 and STM32F4 MCUs, respectively. | running PARSY-VDD on GAP9 reached a speed-up of 76× in execution time and energy efficiency of 360× compared to commercial single-core devices, i.e., STM32H7 and STM32F4 MCUs, respectively.",
+    "paper_id": "766"
+  }
+]

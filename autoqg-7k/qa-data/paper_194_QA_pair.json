@@ -1,0 +1,88 @@
+[
+  {
+    "section": "detaildesign2",
+    "path": {
+      "section": "detaildesign2",
+      "start_entity": "R",
+      "end_entity": "NodeType",
+      "hops": [
+        {
+          "from": "R",
+          "relation": "correspondsTo",
+          "to": "U",
+          "context": "The reward R corresponds to the utility function U",
+          "chunk": "4"
+        },
+        {
+          "from": "U",
+          "relation": "representsUtilityOf",
+          "to": "θi",
+          "context": "Utility function U represents the benefit or utility of each node given a particular type and strategy selection",
+          "chunk": "4"
+        },
+        {
+          "from": "θi",
+          "relation": "type",
+          "to": "NodeType",
+          "context": "where each type θi ∈ Θ indicates a specific advantage a node may have when accessing data source Dj",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the context of a network where nodes select strategies to access data sources, what does the reward R directly correspond to?",
+    "options": {
+      "A": "The total number of nodes within the network and their individual strategies",
+      "B": "The utility function U, which represents the benefit of each node based on type and strategy",
+      "C": "The specific advantage a node has when accessing a particular data source Dj",
+      "D": "The overall efficiency of the network's data distribution system"
+    },
+    "correct_answer": "B",
+    "explanation": "The reward R directly corresponds to the utility function U. The utility function U represents the benefit or utility of each node given their type and strategy selection. The specific advantage a node may have, indicated by type θi, is a related but separate aspect represented by the utility function, not the reward itself.",
+    "path_description": "Path: R --[correspondsTo]--> U --[representsUtilityOf]--> θi --[type]--> NodeType",
+    "context": "The reward R corresponds to the utility function U | Utility function U represents the benefit or utility of each node given a particular type and strategy selection | where each type θi ∈ Θ indicates a specific advantage a node may have when accessing data source Dj",
+    "paper_id": "1079"
+  },
+  {
+    "section": "detaildesign2",
+    "path": {
+      "section": "detaildesign2",
+      "start_entity": "TypeSet",
+      "end_entity": "AlternativeDataSource",
+      "hops": [
+        {
+          "from": "TypeSet",
+          "relation": "hasSize",
+          "to": "M",
+          "context": "Type set Θ represents the possible types of each node, with the size of the set corresponding to the total number of data sources, M",
+          "chunk": "4"
+        },
+        {
+          "from": "M",
+          "relation": "hasAlternativeDataSource",
+          "to": "aj",
+          "context": "Where M is the total number of data sources, and aj represents an alternative data source Dj",
+          "chunk": "4"
+        },
+        {
+          "from": "aj",
+          "relation": "type",
+          "to": "AlternativeDataSource",
+          "context": "aj represents an alternative data source Dj",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the context of the type set Θ and its relationship to data sources, how does the size of Θ directly relate to the configuration of alternative data sources?",
+    "options": {
+      "A": "The size of Θ is unrelated to the availability of alternative data sources, focusing only on primary data sources.",
+      "B": "The size of Θ corresponds to the number of primary data sources, disregarding any alternative data sources like aj.",
+      "C": "The size of Θ, denoted as M, signifies the total number of alternative data sources available for configuration.",
+      "D": "The size of Θ is equivalent to the sum of primary and alternative data sources, expanding the potential data handling capacity."
+    },
+    "correct_answer": "C",
+    "explanation": "The size of the type set Θ, marked as M, directly indicates the total number of data sources, which includes alternative sources such as aj. Therefore, M is not just a count of primary sources but encompasses all available alternative data sources, making option A correct.",
+    "path_description": "Path: TypeSet --[hasSize]--> M --[hasAlternativeDataSource]--> aj --[type]--> AlternativeDataSource",
+    "context": "Type set Θ represents the possible types of each node, with the size of the set corresponding to the total number of data sources, M | Where M is the total number of data sources, and aj represents an alternative data source Dj | aj represents an alternative data source Dj",
+    "paper_id": "1079"
+  }
+]

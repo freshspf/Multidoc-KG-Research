@@ -1,0 +1,131 @@
+[
+  {
+    "section": "mainresults1",
+    "path": {
+      "section": "mainresults1",
+      "start_entity": "CodedEventTriggeredScheme",
+      "end_entity": "ActualControl",
+      "hops": [
+        {
+          "from": "CodedEventTriggeredScheme",
+          "relation": "uses",
+          "to": "u_t",
+          "context": "With respect to the second objective of CEC, we introduce a Coded Event-triggered Scheme (CES) as follows: u(t) = v(tk), ∀t ∈ [tk, tk+1), k = 0, 1, . . .",
+          "chunk": "2"
+        },
+        {
+          "from": "u_t",
+          "relation": "basedOn",
+          "to": "v_t",
+          "context": "u(t) = v(tk), ∀t ∈ [tk, tk+1), k = 0, 1, . . .",
+          "chunk": "2"
+        },
+        {
+          "from": "v_t",
+          "relation": "type",
+          "to": "ActualControl",
+          "context": "where v(t) is the actual control to be developed.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the context of the Coded Event-triggered Scheme (CES) discussed in the paper, how does the function u(t) relate to the actual control v(t)?",
+    "options": {
+      "A": "u(t) approximates the integral of v(t) over the time interval [tk, tk+1), providing a smoothed control output.",
+      "B": "u(t) directly replicates v(t) at specific time intervals, marking it as the actual control being used.",
+      "C": "u(t) calculates a derivative of v(t), implying a more complex relationship between the two functions.",
+      "D": "u(t) acts independently of v(t) and is part of a separate control mechanism not detailed in the scheme."
+    },
+    "correct_answer": "B",
+    "explanation": "The Coded Event-triggered Scheme (CES) specifies that u(t) equals v(tk) for every t in the interval [tk, tk+1), essentially making u(t) a direct replication of v(t) at those specific sampling points. This indicates that u(t) uses the actual control value v(t) without modification or further processing, aligning directly with the actual control at sampled times.",
+    "path_description": "Path: CodedEventTriggeredScheme --[uses]--> u_t --[basedOn]--> v_t --[type]--> ActualControl",
+    "context": "With respect to the second objective of CEC, we introduce a Coded Event-triggered Scheme (CES) as follows: u(t) = v(tk), ∀t ∈ [tk, tk+1), k = 0, 1, . . . | u(t) = v(tk), ∀t ∈ [tk, tk+1), k = 0, 1, . . . | where v(t) is the actual control to be developed.",
+    "paper_id": "279"
+  },
+  {
+    "section": "mainresults3",
+    "path": {
+      "section": "mainresults3",
+      "start_entity": "e1",
+      "end_entity": "PerformanceBoundary",
+      "hops": [
+        {
+          "from": "e1",
+          "relation": "withinBoundaries",
+          "to": "Eu",
+          "context": "−El(0) < e1(0) < Eu(0) as shown in the right plot of Fig. 2 in green color.",
+          "chunk": "4"
+        },
+        {
+          "from": "Eu",
+          "relation": "equivalentTo",
+          "to": "eu",
+          "context": "When t ≥ T, SPP is equivalent to the original performance boundaries, that is, Eu(t) = eu(t).",
+          "chunk": "4"
+        },
+        {
+          "from": "eu",
+          "relation": "type",
+          "to": "PerformanceBoundary",
+          "context": "original allowable set established by eu(t) and −el(t).",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the context of the paper's section 'mainresults3', when time t is greater than or equal to T, how does the entity eu(t) relate to the system's performance boundaries?",
+    "options": {
+      "A": "eu(t) defines the original performance boundaries, aligning directly with Eu(t).",
+      "B": "eu(t) exceeds the original performance boundaries, thereby extending beyond Eu(t).",
+      "C": "eu(t) has no direct relation to the performance boundaries and functions independently of Eu(t).",
+      "D": "eu(t) is less restrictive than the original performance boundaries, falling inside Eu(t)."
+    },
+    "correct_answer": "A",
+    "explanation": "According to the paper's context, it is stated that when t is greater than or equal to T, Eu(t) is equivalent to eu(t), meaning eu(t) defines the original performance boundaries at this point in time. The other options incorrectly describe the relationship between eu(t) and the performance boundaries.",
+    "path_description": "Path: e1 --[withinBoundaries]--> Eu --[equivalentTo]--> eu --[type]--> PerformanceBoundary",
+    "context": "−El(0) < e1(0) < Eu(0) as shown in the right plot of Fig. 2 in green color. | When t ≥ T, SPP is equivalent to the original performance boundaries, that is, Eu(t) = eu(t). | original allowable set established by eu(t) and −el(t).",
+    "paper_id": "279"
+  },
+  {
+    "section": "codedeventtriggeredcontrolforsecondordersystem2",
+    "path": {
+      "section": "codedeventtriggeredcontrolforsecondordersystem2",
+      "start_entity": "VirtualControlAlpha1",
+      "end_entity": "Assumption",
+      "hops": [
+        {
+          "from": "VirtualControlAlpha1",
+          "relation": "partOf",
+          "to": "SecondOrderNonlinearSystem",
+          "context": "The virtual control α1 and the actual control input v(t) are developed in (28) and (40).",
+          "chunk": "6"
+        },
+        {
+          "from": "SecondOrderNonlinearSystem",
+          "relation": "developedUnder",
+          "to": "Assumption2",
+          "context": "Consider the second-order nonlinear system under Assumptions 1-3.",
+          "chunk": "6"
+        },
+        {
+          "from": "Assumption2",
+          "relation": "type",
+          "to": "Assumption",
+          "context": "Consider the second-order nonlinear system under Assumptions 1-3.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the context of coded event-triggered control for second-order systems, which type of assumption would be directly relevant to the development of the virtual control α1 in a second-order nonlinear system?",
+    "options": {
+      "A": "Assumption related to the linear approximation of nonlinear dynamics",
+      "B": "Assumption regarding the communication bandwidth available for system operations",
+      "C": "Assumption concerning the stability and convergence of the control system",
+      "D": "Assumption about the minimal computational overhead for real-time systems"
+    },
+    "correct_answer": "C",
+    "explanation": "The virtual control α1, as part of a second-order nonlinear system, is likely developed under assumptions concerning the system's performance such as stability and convergence, as indicated by the path from virtual control α1 to Assumption 2. Assumptions about linear dynamics, computational overhead, or communication bandwidth, while relevant in broader contexts, are less directly connected to the development of a specific control component like α1.",
+    "path_description": "Path: VirtualControlAlpha1 --[partOf]--> SecondOrderNonlinearSystem --[developedUnder]--> Assumption2 --[type]--> Assumption",
+    "context": "The virtual control α1 and the actual control input v(t) are developed in (28) and (40). | Consider the second-order nonlinear system under Assumptions 1-3. | Consider the second-order nonlinear system under Assumptions 1-3.",
+    "paper_id": "279"
+  }
+]

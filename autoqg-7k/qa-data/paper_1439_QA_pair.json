@@ -1,0 +1,88 @@
+[
+  {
+    "section": "problemdefinition",
+    "path": {
+      "section": "problemdefinition",
+      "start_entity": "ModelInput",
+      "end_entity": "User",
+      "hops": [
+        {
+          "from": "ModelInput",
+          "relation": "consistsOf",
+          "to": "Park",
+          "context": "We denote the input of our model as a tuple (S, P, O).",
+          "chunk": "6"
+        },
+        {
+          "from": "Park",
+          "relation": "contains",
+          "to": "Sensor",
+          "context": "The park can be a graph, where with each node there will be a sensor.",
+          "chunk": "6"
+        },
+        {
+          "from": "Sensor",
+          "relation": "detects",
+          "to": "User",
+          "context": "Sensors will detect users when they are in cameras’ range.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the described model, what is the primary purpose of the sensor located within the nodes of a park graph?",
+    "options": {
+      "A": "To detect users when they enter the effective range of the sensors' cameras.",
+      "B": "To control the lighting and water systems within the park for efficient resource use.",
+      "C": "To provide real-time feedback on park maintenance issues to the city management.",
+      "D": "To manage the environmental conditions within the park, such as temperature and humidity."
+    },
+    "correct_answer": "A",
+    "explanation": "According to the context provided, sensors in the park's graph structure are primarily used to detect users within the range of cameras. This setup is part of the model's input definition, connecting the detection function of sensors to the users' presence.",
+    "path_description": "Path: ModelInput --[consistsOf]--> Park --[contains]--> Sensor --[detects]--> User",
+    "context": "We denote the input of our model as a tuple (S, P, O). | The park can be a graph, where with each node there will be a sensor. | Sensors will detect users when they are in cameras’ range.",
+    "paper_id": "1399"
+  },
+  {
+    "section": "problemdefinition",
+    "path": {
+      "section": "problemdefinition",
+      "start_entity": "Park",
+      "end_entity": "Speed",
+      "hops": [
+        {
+          "from": "Park",
+          "relation": "contains",
+          "to": "Sensor",
+          "context": "The park can be a graph, where with each node there will be a sensor.",
+          "chunk": "6"
+        },
+        {
+          "from": "Sensor",
+          "relation": "detects",
+          "to": "User",
+          "context": "Sensors will detect users when they are in cameras’ range.",
+          "chunk": "6"
+        },
+        {
+          "from": "User",
+          "relation": "hasAttribute",
+          "to": "Speed",
+          "context": "users’ attributes, one of them is speed.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the context of a smart park management system, what attribute of a user does the sensor detect when a user is within the range of its camera?",
+    "options": {
+      "A": "The sensor detects the level of noise produced by the user in the park.",
+      "B": "The sensor detects the speed at which the user is moving within the park.",
+      "C": "The sensor detects the specific types of activities the user is engaged in within the park.",
+      "D": "The sensor detects the emotional state of the user based on facial expressions."
+    },
+    "correct_answer": "B",
+    "explanation": "In the described system from the paper, each sensor in the park is capable of detecting users within its range and one of the attributes it can detect is the speed of the user. This is directly linked through the path: Park --[contains]--> Sensor --[detects]--> User --[hasAttribute]--> Speed. Options A, C, and D are plausible but incorrect, as they mention other types of detections not specified in the given context.",
+    "path_description": "Path: Park --[contains]--> Sensor --[detects]--> User --[hasAttribute]--> Speed",
+    "context": "The park can be a graph, where with each node there will be a sensor. | Sensors will detect users when they are in cameras’ range. | users’ attributes, one of them is speed.",
+    "paper_id": "1399"
+  }
+]

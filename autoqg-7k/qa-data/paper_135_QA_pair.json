@@ -1,0 +1,260 @@
+[
+  {
+    "section": "preliminaries2",
+    "path": {
+      "section": "preliminaries2",
+      "start_entity": "TableIllustration",
+      "end_entity": "Function",
+      "hops": [
+        {
+          "from": "TableIllustration",
+          "relation": "illustrates",
+          "to": "SA",
+          "context": "Figure 1 Table illustrating the BWT (L), SA, LF function, F, and the sorted circular strings of T",
+          "chunk": "3"
+        },
+        {
+          "from": "SA",
+          "relation": "returnsPosition",
+          "to": "LF",
+          "context": "i.e., SA[LF(i)] = [i] ̸= 1; otherwise, it returns the position with",
+          "chunk": "3"
+        },
+        {
+          "from": "LF",
+          "relation": "type",
+          "to": "Function",
+          "context": "i.e., SA[LF(i)] = [i] ̸= 1; otherwise, it returns the position with",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the context of the Burrows-Wheeler Transform, how does the LF function relate to the suffix array (SA) and its resultant output?",
+    "options": {
+      "A": "The LF function maps a position in the sorted suffixes to its position in the original string, reflecting a functional transformation.",
+      "B": "The LF function inversely correlates with the indices in SA, providing a reverse lookup from the transformed sequence.",
+      "C": "The LF function calculates a position in the SA that directly corresponds to the original position before transformation.",
+      "D": "The LF function rearranges the indices of the SA to align with sorted circular strings of T, facilitating efficient searching."
+    },
+    "correct_answer": "C",
+    "explanation": "The LF function, as illustrated in the table, calculates a position in SA such that SA[LF(i)] = [i], demonstrating that it directly corresponds to the original position before the transformation, which is essential in reconstructing the original data from its transformed state.",
+    "path_description": "Path: TableIllustration --[illustrates]--> SA --[returnsPosition]--> LF --[type]--> Function",
+    "context": "Figure 1 Table illustrating the BWT (L), SA, LF function, F, and the sorted circular strings of T | i.e., SA[LF(i)] = [i] ̸= 1; otherwise, it returns the position with | i.e., SA[LF(i)] = [i] ̸= 1; otherwise, it returns the position with",
+    "paper_id": "100"
+  },
+  {
+    "section": "noveldatastructuresforcomputinglfandinversephifunctions2",
+    "path": {
+      "section": "noveldatastructuresforcomputinglfandinversephifunctions2",
+      "start_entity": "Lemma5",
+      "end_entity": "DataStructure",
+      "hops": [
+        {
+          "from": "Lemma5",
+          "relation": "provesPropertyOf",
+          "to": "SplitIntervalSequence",
+          "context": "Lemma 5 states that |It| ≥ 2t holds for any t ∈ [0, τ].",
+          "chunk": "5"
+        },
+        {
+          "from": "SplitIntervalSequence",
+          "relation": "basedOn",
+          "to": "DisjointIntervalSequence",
+          "context": "A split interval sequence It is a modification of a disjoint interval sequence I.",
+          "chunk": "5"
+        },
+        {
+          "from": "DisjointIntervalSequence",
+          "relation": "type",
+          "to": "DataStructure",
+          "context": "Disjoint interval sequence is used to define the function fI and other operations.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the context of data structures for computing functions, what property does Lemma 5 prove about a split interval sequence derived from a disjoint interval sequence?",
+    "options": {
+      "A": "Lemma 5 establishes that every disjoint interval sequence can be split into exactly two parts.",
+      "B": "Lemma 5 asserts that a split interval sequence has overlapping intervals derived from a disjoint interval sequence.",
+      "C": "Lemma 5 delineates that the number of intervals in a split sequence is less than in the original disjoint sequence.",
+      "D": "Lemma 5 proves that the length of any interval in a split interval sequence is at least twice the index t."
+    },
+    "correct_answer": "D",
+    "explanation": "Lemma 5 states that |It| ≥ 2t for any index t in the split interval sequence, indicating that the length of any interval in the sequence is at least twice the index t. The other options either incorrectly describe the properties of split or disjoint sequences or misinterpret the lemma's assertion.",
+    "path_description": "Path: Lemma5 --[provesPropertyOf]--> SplitIntervalSequence --[basedOn]--> DisjointIntervalSequence --[type]--> DataStructure",
+    "context": "Lemma 5 states that |It| ≥ 2t holds for any t ∈ [0, τ]. | A split interval sequence It is a modification of a disjoint interval sequence I. | Disjoint interval sequence is used to define the function fI and other operations.",
+    "paper_id": "100"
+  },
+  {
+    "section": "noveldatastructuresforcomputinglfandinversephifunctions2",
+    "path": {
+      "section": "noveldatastructuresforcomputinglfandinversephifunctions2",
+      "start_entity": "Lemma6",
+      "end_entity": "DisjointIntervalSequence",
+      "hops": [
+        {
+          "from": "Lemma6",
+          "relation": "discusses",
+          "to": "BalancedIntervalSequence",
+          "context": "Lemma 6 discusses properties of B(I) in relation to a disjoint interval sequence I.",
+          "chunk": "5"
+        },
+        {
+          "from": "BalancedIntervalSequence",
+          "relation": "definedBasedOn",
+          "to": "SplitIntervalSequence",
+          "context": "A balanced interval sequence B(I) is defined based on properties of Iτ.",
+          "chunk": "5"
+        },
+        {
+          "from": "SplitIntervalSequence",
+          "relation": "basedOn",
+          "to": "DisjointIntervalSequence",
+          "context": "A split interval sequence It is a modification of a disjoint interval sequence I.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "Which statement best describes the relationship and transformation between a disjoint interval sequence and a balanced interval sequence?",
+    "options": {
+      "A": "A balanced interval sequence is derived from a disjoint interval sequence through direct replication without any modifications.",
+      "B": "A balanced interval sequence is an unrelated sequence that does not depend on the properties of a disjoint interval sequence.",
+      "C": "A split interval sequence is used as an intermediary transformation where disjoint interval sequences are first split before creating a balanced interval sequence.",
+      "D": "A balanced interval sequence is directly derived from a disjoint interval sequence through modifications that balance the intervals' properties."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct reasoning path starts from a disjoint interval sequence, which is modified into a split interval sequence (as described in the paper). This split interval sequence then forms the basis of the balanced interval sequence. Thus, the balanced interval sequence indirectly derives its properties from the disjoint sequence through the intermediary split sequence, making option C correct.",
+    "path_description": "Path: Lemma6 --[discusses]--> BalancedIntervalSequence --[definedBasedOn]--> SplitIntervalSequence --[basedOn]--> DisjointIntervalSequence",
+    "context": "Lemma 6 discusses properties of B(I) in relation to a disjoint interval sequence I. | A balanced interval sequence B(I) is defined based on properties of Iτ. | A split interval sequence It is a modification of a disjoint interval sequence I.",
+    "paper_id": "100"
+  },
+  {
+    "section": "noveldatastructuresforcomputinglfandinversephifunctions3",
+    "path": {
+      "section": "noveldatastructuresforcomputinglfandinversephifunctions3",
+      "start_entity": "MoveDataStructure",
+      "end_entity": "OutputInterval",
+      "hops": [
+        {
+          "from": "MoveDataStructure",
+          "relation": "solvesQuery",
+          "to": "MoveQuery",
+          "context": "Hence, we have proven the following theorem.",
+          "chunk": "6"
+        },
+        {
+          "from": "MoveQuery",
+          "relation": "relatedTo",
+          "to": "InputInterval",
+          "context": "The running time of the algorithm returns the pair (i, x). The running time of the algorithm is O(x − b + 1) in total.",
+          "chunk": "6"
+        },
+        {
+          "from": "InputInterval",
+          "relation": "overlapsWith",
+          "to": "OutputInterval",
+          "context": "b is the index of an input interval that overl",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the context of the data structure that resolves Move Queries, how does the algorithm's running time relate to the input and output intervals?",
+    "options": {
+      "A": "The running time is inversely proportional to the length of the input interval.",
+      "B": "The running time is proportional to the sum of the lengths of the input and output intervals.",
+      "C": "The running time decreases as the distance between the input and output intervals increases.",
+      "D": "The running time is proportional to the difference between the start of the input interval and the end of the output interval."
+    },
+    "correct_answer": "D",
+    "explanation": "The running time of the algorithm is noted as O(x - b + 1), where 'x' is the endpoint of the output interval and 'b' is the starting index of the input interval, indicating that the running time is proportional to the difference between these two points.",
+    "path_description": "Path: MoveDataStructure --[solvesQuery]--> MoveQuery --[relatedTo]--> InputInterval --[overlapsWith]--> OutputInterval",
+    "context": "Hence, we have proven the following theorem. | The running time of the algorithm returns the pair (i, x). The running time of the algorithm is O(x − b + 1) in total. | b is the index of an input interval that overl",
+    "paper_id": "100"
+  },
+  {
+    "section": "applications",
+    "path": {
+      "section": "applications",
+      "start_entity": "OptBWTR",
+      "end_entity": "Problem",
+      "hops": [
+        {
+          "from": "OptBWTR",
+          "relation": "evaluatedOn",
+          "to": "ExtractQuery",
+          "context": "In this section, we show that OptBWTR can search queries in optimal time.",
+          "chunk": "9"
+        },
+        {
+          "from": "ExtractQuery",
+          "relation": "relatedTo",
+          "to": "BookmarkingProblem",
+          "context": "Extract query. Let a string T of length n have extract query (also called the bookmarking problem) for a given integer j ∈ [1, b] and d ∈ [1, n − ij + 1].",
+          "chunk": "9"
+        },
+        {
+          "from": "BookmarkingProblem",
+          "relation": "type",
+          "to": "Problem",
+          "context": "Extract query. Let a string T of length n have extract query (also called the bookmarking problem) for a given integer j ∈ [1, b] and d ∈ [1, n − ij + 1].",
+          "chunk": "9"
+        }
+      ]
+    },
+    "question": "Considering the OptBWTR's ability to search queries optimally, how does it specifically address the 'bookmarking problem' as described in the paper?",
+    "options": {
+      "A": "It calculates the optimal time for string concatenation within a database of substrings.",
+      "B": "It evaluates the extraction of a substring from a string T based on given integer constraints j and d.",
+      "C": "It focuses on optimizing the retrieval time for specific bookmarks indexed by user preferences.",
+      "D": "It optimizes the storage of bookmarks by minimizing the space required in a database."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A because the paper describes the 'bookmarking problem' in relation to OptBWTR as the task of extracting a substring from the string T, where the extraction is dependent on specific integer constraints j and d. Options B, C, and D do not accurately reflect the specific problem of substring extraction described.",
+    "path_description": "Path: OptBWTR --[evaluatedOn]--> ExtractQuery --[relatedTo]--> BookmarkingProblem --[type]--> Problem",
+    "context": "In this section, we show that OptBWTR can search queries in optimal time. | Extract query. Let a string T of length n have extract query (also called the bookmarking problem) for a given integer j ∈ [1, b] and d ∈ [1, n − ij + 1]. | Extract query. Let a string T of length n have extract query (also called the bookmarking problem) for a given integer j ∈ [1, b] and d ∈ [1, n − ij + 1].",
+    "paper_id": "100"
+  },
+  {
+    "section": "conclusion2",
+    "path": {
+      "section": "conclusion2",
+      "start_entity": "Rmap",
+      "end_entity": "DataStructure",
+      "hops": [
+        {
+          "from": "Rmap",
+          "relation": "isPartOf",
+          "to": "Rselect",
+          "context": "Rmap is a deterministic dictionary storing the mapping function γ for S.",
+          "chunk": "11"
+        },
+        {
+          "from": "Rselect",
+          "relation": "uses",
+          "to": "Rmap",
+          "context": "Rselect consists of σ arrays H1, H2, . . . ,Hσ. The size of Hj is |Occ(S, cj)| for each j ∈ {1, 2, . . . , σ }",
+          "chunk": "11"
+        },
+        {
+          "from": "Rmap",
+          "relation": "type",
+          "to": "DataStructure",
+          "context": "Rmap is a deterministic dictionary storing the mapping function γ for S",
+          "chunk": "11"
+        }
+      ]
+    },
+    "question": "In the context of data structures used for storing mapping functions for a set S, how does the Rselect component utilize the Rmap?",
+    "options": {
+      "A": "Rselect applies a stochastic model to predict the occurrences of each symbol in S, utilizing the mapping function γ from Rmap.",
+      "B": "Rselect independently functions without any interaction with Rmap, solely relying on its internal hash functions.",
+      "C": "Rselect converts the deterministic dictionary outputs from Rmap into a series of linear equations for computational efficiency.",
+      "D": "Rselect uses multiple arrays to store occurrences of elements in S, which are then mapped by the deterministic dictionary function γ in Rmap."
+    },
+    "correct_answer": "D",
+    "explanation": "Rselect is described as consisting of multiple arrays, each array size corresponding to the occurrences of specific symbols in S. These symbols are mapped using the deterministic dictionary function γ stored in Rmap, making option A correct. Options B, C, and D are incorrect as they either describe incorrect relationships between Rselect and Rmap or misinterpret the function of Rmap.",
+    "path_description": "Path: Rmap --[isPartOf]--> Rselect --[uses]--> Rmap --[type]--> DataStructure",
+    "context": "Rmap is a deterministic dictionary storing the mapping function γ for S. | Rselect consists of σ arrays H1, H2, . . . ,Hσ. The size of Hj is |Occ(S, cj)| for each j ∈ {1, 2, . . . , σ } | Rmap is a deterministic dictionary storing the mapping function γ for S",
+    "paper_id": "100"
+  }
+]

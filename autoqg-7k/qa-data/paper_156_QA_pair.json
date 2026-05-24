@@ -1,0 +1,131 @@
+[
+  {
+    "section": "performanceanalysis3",
+    "path": {
+      "section": "performanceanalysis3",
+      "start_entity": "SmartContract",
+      "end_entity": "Database",
+      "hops": [
+        {
+          "from": "SmartContract",
+          "relation": "runsOn",
+          "to": "PeerNode",
+          "context": "business logic running on the peer node.",
+          "chunk": "14"
+        },
+        {
+          "from": "PeerNode",
+          "relation": "accesses",
+          "to": "StateDatabase",
+          "context": "related transactions can read or change the state database (SDB).",
+          "chunk": "14"
+        },
+        {
+          "from": "StateDatabase",
+          "relation": "type",
+          "to": "Database",
+          "context": "related transactions can read or change the state database (SDB).",
+          "chunk": "14"
+        }
+      ]
+    },
+    "question": "In a blockchain system, if a smart contract executes business logic on a peer node, how does it typically access and modify data?",
+    "options": {
+      "A": "The smart contract directly interacts with a state database, bypassing the peer node and altering data without an intermediary.",
+      "B": "The smart contract runs on a peer node, which accesses a state database that is typically a traditional relational database.",
+      "C": "The smart contract sends requests to an external server, which in turn, handles data modification in the state database.",
+      "D": "Smart contracts modify data through direct, unmediated access to the blockchain's ledger bypassing standard database protocols."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A because the smart contract runs on a peer node according to the knowledge path. The peer node accesses the state database where transaction-related data are read or changed, and the state database is typically a type of database, in this case, a traditional relational database.",
+    "path_description": "Path: SmartContract --[runsOn]--> PeerNode --[accesses]--> StateDatabase --[type]--> Database",
+    "context": "business logic running on the peer node. | related transactions can read or change the state database (SDB). | related transactions can read or change the state database (SDB).",
+    "paper_id": "1561"
+  },
+  {
+    "section": "discussionandlimitations1",
+    "path": {
+      "section": "discussionandlimitations1",
+      "start_entity": "HyperledgerCaliper",
+      "end_entity": "BlockchainModel",
+      "hops": [
+        {
+          "from": "HyperledgerCaliper",
+          "relation": "usedToTest",
+          "to": "DBC-ABACModel",
+          "context": "Caliper tool is used to test the performance of chaincode functions",
+          "chunk": "16"
+        },
+        {
+          "from": "DBC-ABACModel",
+          "relation": "outperforms",
+          "to": "ABAC-HLFBC",
+          "context": "The comparison shows that the average latency of the fabric-iot and ABAC-HLFBC smart contract functions. Whereas the proposed model minimizes the average latency to less than one second for all functions",
+          "chunk": "16"
+        },
+        {
+          "from": "ABAC-HLFBC",
+          "relation": "type",
+          "to": "BlockchainModel",
+          "context": "Fabric-iot [18] and ABAC-HLFBC [25] are compared with DBC-ABAC model",
+          "chunk": "16"
+        }
+      ]
+    },
+    "question": "In evaluating blockchain models using Hyperledger Caliper, how does the DBC-ABAC model's performance compare to the ABAC-HLFBC model in terms of latency?",
+    "options": {
+      "A": "The DBC-ABAC model increases average latency to more than two seconds for all functions compared to ABAC-HLFBC.",
+      "B": "The DBC-ABAC model and the ABAC-HLFBC model have the same average latency for all functions.",
+      "C": "The DBC-ABAC model significantly reduces average latency to less than one second for all functions compared to ABAC-HLFBC.",
+      "D": "The ABAC-HLFBC model reduces average latency more effectively than the DBC-ABAC model."
+    },
+    "correct_answer": "C",
+    "explanation": "According to the information provided, the DBC-ABAC model outperforms the ABAC-HLFBC model by minimizing the average latency to less than one second for all functions. This is a significant improvement compared to the ABAC-HLFBC, which is implied to have higher latency.",
+    "path_description": "Path: HyperledgerCaliper --[usedToTest]--> DBC-ABACModel --[outperforms]--> ABAC-HLFBC --[type]--> BlockchainModel",
+    "context": "Caliper tool is used to test the performance of chaincode functions | The comparison shows that the average latency of the fabric-iot and ABAC-HLFBC smart contract functions. Whereas the proposed model minimizes the average latency to less than one second for all functions | Fabric-iot [18] and ABAC-HLFBC [25] are compared with DBC-ABAC model",
+    "paper_id": "1561"
+  },
+  {
+    "section": "conclusion",
+    "path": {
+      "section": "conclusion",
+      "start_entity": "SmartContract",
+      "end_entity": "AccessControl",
+      "hops": [
+        {
+          "from": "SmartContract",
+          "relation": "enabledBy",
+          "to": "BlockchainTechnology",
+          "context": "specially in the smart contract, to provide distributed IoT environments",
+          "chunk": "18"
+        },
+        {
+          "from": "BlockchainTechnology",
+          "relation": "appliedTo",
+          "to": "InternetOfThings",
+          "context": "interest in the use of blockchain technology to manage access control in the IoT",
+          "chunk": "18"
+        },
+        {
+          "from": "InternetOfThings",
+          "relation": "usedFor",
+          "to": "AccessControl",
+          "context": "The use of Internet of Things (IoT) aspects of human life",
+          "chunk": "18"
+        }
+      ]
+    },
+    "question": "How does blockchain technology facilitate enhanced security measures in distributed IoT environments according to the conclusion section of the paper?",
+    "options": {
+      "A": "By directly interfacing with IoT devices to improve user interface designs and usability features.",
+      "B": "By increasing the computational power of IoT devices through distributed ledger technology.",
+      "C": "By providing a decentralized database system to store IoT device data more securely and efficiently.",
+      "D": "By enabling smart contracts that apply blockchain technology to manage access control in IoT devices."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A, as the knowledge graph path shows that smart contracts enabled by blockchain technology are applied to the Internet of Things and used for access control, directly linking the use of blockchain to managing access in distributed IoT environments.",
+    "path_description": "Path: SmartContract --[enabledBy]--> BlockchainTechnology --[appliedTo]--> InternetOfThings --[usedFor]--> AccessControl",
+    "context": "specially in the smart contract, to provide distributed IoT environments | interest in the use of blockchain technology to manage access control in the IoT | The use of Internet of Things (IoT) aspects of human life",
+    "paper_id": "1561"
+  }
+]

@@ -1,0 +1,475 @@
+[
+  {
+    "section": "theory1",
+    "path": {
+      "section": "theory1",
+      "start_entity": "PredictionModels",
+      "end_entity": "ModelComponent",
+      "hops": [
+        {
+          "from": "PredictionModels",
+          "relation": "lack",
+          "to": "SimultaneousConfidenceIntervals",
+          "context": "not all prediction models have",
+          "chunk": "3"
+        },
+        {
+          "from": "SimultaneousConfidenceIntervals",
+          "relation": "usedFor",
+          "to": "ModelParameters",
+          "context": "simultaneous confidence intervals (SCIs)",
+          "chunk": "3"
+        },
+        {
+          "from": "ModelParameters",
+          "relation": "type",
+          "to": "ModelComponent",
+          "context": "for model parameters rather than prediction",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "Why might a prediction model lack simultaneous confidence intervals (SCIs) for its components?",
+    "options": {
+      "A": "Because SCIs are solely used for enhancing the graphical representation of model predictions.",
+      "B": "Because simultaneous confidence intervals are optional and many models use alternative statistical validation methods.",
+      "C": "Because simultaneous confidence intervals are mostly used for final output visualization, not for internal model parts.",
+      "D": "Because SCIs are primarily designed for model parameters, not for individual model components."
+    },
+    "correct_answer": "D",
+    "explanation": "Simultaneous confidence intervals (SCIs) are typically used for model parameters to provide statistical confidence across multiple comparisons or estimates simultaneously. The confusion often arises because model components can be mistaken as parameters, but they serve different roles in the model's structure. SCIs are not designed for individual model components, which explains why some prediction models might lack SCIs for these components.",
+    "path_description": "Path: PredictionModels --[lack]--> SimultaneousConfidenceIntervals --[usedFor]--> ModelParameters --[type]--> ModelComponent",
+    "context": "not all prediction models have | simultaneous confidence intervals (SCIs) | for model parameters rather than prediction",
+    "paper_id": "40"
+  },
+  {
+    "section": "experimentation2",
+    "path": {
+      "section": "experimentation2",
+      "start_entity": "XGBoost",
+      "end_entity": "TrainingSampleSize",
+      "hops": [
+        {
+          "from": "XGBoost",
+          "relation": "outperforms",
+          "to": "NaiveAlgorithm",
+          "context": "across the different XGBoost.",
+          "chunk": "8"
+        },
+        {
+          "from": "NaiveAlgorithm",
+          "relation": "comparedWith",
+          "to": "ConfidenceSetAlgorithm",
+          "context": "Comparing to the naive algorithms, the confidence set algorithm achieves nominal",
+          "chunk": "8"
+        },
+        {
+          "from": "ConfidenceSetAlgorithm",
+          "relation": "optimizes",
+          "to": "TrainingSampleSize",
+          "context": "the algorithm shrinks the size of the inflated boundary",
+          "chunk": "8"
+        }
+      ]
+    },
+    "question": "In the context of comparing different algorithms, how does the XGBoost's performance improvement over naive algorithms indirectly affect the optimization of the training sample size?",
+    "options": {
+      "A": "XGBoost outperforms naive algorithms, which are inferior to confidence set algorithms that optimize training sample size by shrinking the inflated boundary.",
+      "B": "XGBoost's improvement over naive algorithms has no significant influence on the optimization of training sample size, as it only affects algorithm performance.",
+      "C": "XGBoost, by outperforming naive algorithms, increases the complexity of the model, which in turn requires a larger training sample size.",
+      "D": "XGBoost directly optimizes the training sample size by outperforming naive algorithms, thereby enhancing the overall efficiency of model training."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A because the XGBoost outperforms naive algorithms, which are then compared with confidence set algorithms. Confidence set algorithms optimize training sample size by reducing the size of the inflated boundary, a strategy not directly linked to XGBoost's function but influenced by its comparative performance improvement.",
+    "path_description": "Path: XGBoost --[outperforms]--> NaiveAlgorithm --[comparedWith]--> ConfidenceSetAlgorithm --[optimizes]--> TrainingSampleSize",
+    "context": "across the different XGBoost. | Comparing to the naive algorithms, the confidence set algorithm achieves nominal | the algorithm shrinks the size of the inflated boundary",
+    "paper_id": "40"
+  },
+  {
+    "section": "experimentation1",
+    "path": {
+      "section": "experimentation1",
+      "start_entity": "ConstructionAlgorithm",
+      "end_entity": "Dataset",
+      "hops": [
+        {
+          "from": "ConstructionAlgorithm",
+          "relation": "uses",
+          "to": "LogisticRegressionModel",
+          "context": "To validate the algorithm when the assumptions are met, we generate linear and logistic regression data",
+          "chunk": "7"
+        },
+        {
+          "from": "LogisticRegressionModel",
+          "relation": "generates",
+          "to": "TestSample",
+          "context": "We generate the test sample from the same underlying model",
+          "chunk": "7"
+        },
+        {
+          "from": "TestSample",
+          "relation": "type",
+          "to": "Dataset",
+          "context": "We generate the test sample from the same underlying model and fix the size of the test sample to be m = 500",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "In the process of validating the ConstructionAlgorithm as described in the 'experimentation1' section, which statement correctly describes the nature of the TestSample used?",
+    "options": {
+      "A": "The TestSample generated using the LogisticRegressionModel adheres to the same underlying model with a fixed size of m = 500.",
+      "B": "The TestSample is generated independently of the LogisticRegressionModel to test the robustness of the ConstructionAlgorithm.",
+      "C": "The TestSample, while based on a LogisticRegressionModel, is adjusted dynamically in size based on the complexity of the dataset.",
+      "D": "The TestSample was generated randomly without any predefined model, ensuring variability in the dataset's structure."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A because, according to the context, the TestSample is generated from the same underlying LogisticRegressionModel and has a fixed size of m = 500. Options B, C, and D are incorrect as they do not align with the details provided in the paper, which specifically mention the use of the LogisticRegressionModel and a fixed sample size.",
+    "path_description": "Path: ConstructionAlgorithm --[uses]--> LogisticRegressionModel --[generates]--> TestSample --[type]--> Dataset",
+    "context": "To validate the algorithm when the assumptions are met, we generate linear and logistic regression data | We generate the test sample from the same underlying model | We generate the test sample from the same underlying model and fix the size of the test sample to be m = 500",
+    "paper_id": "40"
+  },
+  {
+    "section": "dataapplications1",
+    "path": {
+      "section": "dataapplications1",
+      "start_entity": "RandomForestRegression",
+      "end_entity": "Algorithm",
+      "hops": [
+        {
+          "from": "RandomForestRegression",
+          "relation": "usedFor",
+          "to": "HousePrices-AdvancedRegr",
+          "context": "We used random forest regression as our prediction model.",
+          "chunk": "9"
+        },
+        {
+          "from": "HousePrices-AdvancedRegr",
+          "relation": "usedFor",
+          "to": "ConfidenceSetAlgorithm",
+          "context": "We used the data set 'House Prices - Advanced Regr' to demonstrate our algorithm for constructing confidence sets.",
+          "chunk": "9"
+        },
+        {
+          "from": "ConfidenceSetAlgorithm",
+          "relation": "type",
+          "to": "Algorithm",
+          "context": "Validation of Construction Algorithm confidence set (CS, blue), two naive algorithms by inverting point-wise confidence interval (CI, red) and inverting simultaneous confidence interval (SCI, green).",
+          "chunk": "9"
+        }
+      ]
+    },
+    "question": "In the study described in the 'dataapplications1' section, which algorithm was primarily demonstrated using the 'House Prices - Advanced Regr' dataset and random forest regression?",
+    "options": {
+      "A": "A confidence set construction algorithm, depicted in blue, was demonstrated using this setup.",
+      "B": "An algorithm for predictive modeling based solely on regression analysis was the central aspect of the study.",
+      "C": "The main focus was on an algorithm for inverting simultaneous confidence intervals, shown in green.",
+      "D": "An algorithm for inverting point-wise confidence intervals, depicted in red, was the focus of this setup."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A. The knowledge path shows that random forest regression was used for the 'House Prices - Advanced Regr' dataset, which in turn was used to demonstrate a confidence set algorithm (CS). The confidence set algorithm is highlighted in blue in the validations, distinguishing it from the other algorithms mentioned which focus on inverting confidence intervals.",
+    "path_description": "Path: RandomForestRegression --[usedFor]--> HousePrices-AdvancedRegr --[usedFor]--> ConfidenceSetAlgorithm --[type]--> Algorithm",
+    "context": "We used random forest regression as our prediction model. | We used the data set 'House Prices - Advanced Regr' to demonstrate our algorithm for constructing confidence sets. | Validation of Construction Algorithm confidence set (CS, blue), two naive algorithms by inverting point-wise confidence interval (CI, red) and inverting simultaneous confidence interval (SCI, green).",
+    "paper_id": "40"
+  },
+  {
+    "section": "dataapplications1",
+    "path": {
+      "section": "dataapplications1",
+      "start_entity": "LuEtAl2017",
+      "end_entity": "Model",
+      "hops": [
+        {
+          "from": "LuEtAl2017",
+          "relation": "proposes",
+          "to": "ConfidenceSetAlgorithm",
+          "context": "Regression Techniques' Lu et al. [2017] to demonstrate our algorithm for a regression prediction model.",
+          "chunk": "9"
+        },
+        {
+          "from": "ConfidenceSetAlgorithm",
+          "relation": "implementedIn",
+          "to": "NeuralNetworkModel",
+          "context": "The result of neural network model and XGBoost model are shown across the columns.",
+          "chunk": "9"
+        },
+        {
+          "from": "NeuralNetworkModel",
+          "relation": "type",
+          "to": "Model",
+          "context": "The result of neural network model and XGBoost model are shown across the columns.",
+          "chunk": "9"
+        }
+      ]
+    },
+    "question": "Lu et al. [2017] proposed the Confidence Set Algorithm. For which type of model was this algorithm primarily implemented, as discussed in the 'dataapplications1' section?",
+    "options": {
+      "A": "The algorithm was primarily implemented in an SVM model to optimize boundary decision processes.",
+      "B": "The algorithm was primarily implemented in a decision tree model to enhance classification accuracy.",
+      "C": "The algorithm was primarily implemented in a neural network model for regression prediction purposes.",
+      "D": "The algorithm was primarily implemented in a logistic regression model to improve outcome predictions."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A because the Knowledge Path indicates that the Confidence Set Algorithm proposed by Lu et al. [2017] was implemented in a Neural Network Model. Additionally, the context specifies that this implementation was demonstrated for a regression prediction model, aligning with the attributes of a neural network model discussed.",
+    "path_description": "Path: LuEtAl2017 --[proposes]--> ConfidenceSetAlgorithm --[implementedIn]--> NeuralNetworkModel --[type]--> Model",
+    "context": "Regression Techniques' Lu et al. [2017] to demonstrate our algorithm for a regression prediction model. | The result of neural network model and XGBoost model are shown across the columns. | The result of neural network model and XGBoost model are shown across the columns.",
+    "paper_id": "40"
+  },
+  {
+    "section": "dataapplications1",
+    "path": {
+      "section": "dataapplications1",
+      "start_entity": "RandomForestRegression",
+      "end_entity": "NeuralNetworkModel",
+      "hops": [
+        {
+          "from": "RandomForestRegression",
+          "relation": "usedFor",
+          "to": "HousePrices-AdvancedRegr",
+          "context": "We used random forest regression as our prediction model.",
+          "chunk": "9"
+        },
+        {
+          "from": "HousePrices-AdvancedRegr",
+          "relation": "usedFor",
+          "to": "ConfidenceSetAlgorithm",
+          "context": "We used the data set 'House Prices - Advanced Regr' to demonstrate our algorithm for constructing confidence sets.",
+          "chunk": "9"
+        },
+        {
+          "from": "ConfidenceSetAlgorithm",
+          "relation": "implementedIn",
+          "to": "NeuralNetworkModel",
+          "context": "The result of neural network model and XGBoost model are shown across the columns.",
+          "chunk": "9"
+        }
+      ]
+    },
+    "question": "In the context of the paper section 'dataapplications1', which model was used to demonstrate the algorithm for constructing confidence sets using the 'House Prices - Advanced Regr' dataset?",
+    "options": {
+      "A": "XGBoost model was used to demonstrate the algorithm for constructing confidence sets.",
+      "B": "Linear regression was used to demonstrate the algorithm for constructing confidence sets.",
+      "C": "A neural network model was used to demonstrate the algorithm for constructing confidence sets.",
+      "D": "Random forest regression was used to demonstrate the algorithm for constructing confidence sets."
+    },
+    "correct_answer": "D",
+    "explanation": "The paper specifies that random forest regression was used as the prediction model and particularly for demonstrating the algorithm with the 'House Prices - Advanced Regr' dataset. While neural network and XGBoost models are mentioned, they are presented as comparisons rather than the primary tools for constructing confidence sets in this context.",
+    "path_description": "Path: RandomForestRegression --[usedFor]--> HousePrices-AdvancedRegr --[usedFor]--> ConfidenceSetAlgorithm --[implementedIn]--> NeuralNetworkModel",
+    "context": "We used random forest regression as our prediction model. | We used the data set 'House Prices - Advanced Regr' to demonstrate our algorithm for constructing confidence sets. | The result of neural network model and XGBoost model are shown across the columns.",
+    "paper_id": "40"
+  },
+  {
+    "section": "appendix1",
+    "path": {
+      "section": "appendix1",
+      "start_entity": "BS",
+      "end_entity": "NumberOfBootstraps",
+      "hops": [
+        {
+          "from": "BS",
+          "relation": "requires",
+          "to": "TrainingDataOutcome",
+          "context": "Require: Training data outcome y˜ and design matrix X˜.",
+          "chunk": "13"
+        },
+        {
+          "from": "TrainingDataOutcome",
+          "relation": "partOf",
+          "to": "BS",
+          "context": "Require: Training data outcome y˜ and design matrix X˜.",
+          "chunk": "13"
+        },
+        {
+          "from": "BS",
+          "relation": "requires",
+          "to": "NumberOfBootstraps",
+          "context": "Require: Number of Bootstraps B and a fixed model function f(β, X) with parameters β, and a loss function L(f(β, X), y).",
+          "chunk": "13"
+        }
+      ]
+    },
+    "question": "In the context of Bootstrap Sampling (BS) methodology as described in the paper, how is the requirement of the number of bootstraps connected to the training data outcomes?",
+    "options": {
+      "A": "Training data outcomes are utilized to configure the bootstrap samples, which are then used to determine an adequate number of B.",
+      "B": "The number of bootstraps, B, is predetermined independently of training data outcomes and only affects the computational load.",
+      "C": "The number of bootstraps, B, directly influences the training data outcomes by altering the design matrix X˜.",
+      "D": "The number of bootstraps, B, is determined after analyzing the training data outcomes to ensure model stability and precision."
+    },
+    "correct_answer": "D",
+    "explanation": "The number of bootstraps, B, is often determined by analyzing the variability and stability in the training data outcomes, which helps in achieving a model that generalizes well without overfitting. This is implied by the connection in the knowledge graph where the number of bootstraps requires understanding the outcome of the training data.",
+    "path_description": "Path: BS --[requires]--> TrainingDataOutcome --[partOf]--> BS --[requires]--> NumberOfBootstraps",
+    "context": "Require: Training data outcome y˜ and design matrix X˜. | Require: Training data outcome y˜ and design matrix X˜. | Require: Number of Bootstraps B and a fixed model function f(β, X) with parameters β, and a loss function L(f(β, X), y).",
+    "paper_id": "40"
+  },
+  {
+    "section": "appendix1",
+    "path": {
+      "section": "appendix1",
+      "start_entity": "Corollary1BasedAlgorithm",
+      "end_entity": "Algorithm",
+      "hops": [
+        {
+          "from": "Corollary1BasedAlgorithm",
+          "relation": "uses",
+          "to": "BootstrapSamples",
+          "context": "Based on Corollary 1, using the position information and fixing a = 1.",
+          "chunk": "13"
+        },
+        {
+          "from": "BootstrapSamples",
+          "relation": "usedIn",
+          "to": "Theorem1BasedAlgorithm",
+          "context": "To construct confidence sets based on Theorem 1 of bootstrapped Gn(xi).",
+          "chunk": "13"
+        },
+        {
+          "from": "Theorem1BasedAlgorithm",
+          "relation": "type",
+          "to": "Algorithm",
+          "context": "Theorem 1 Based Algorithm, designed for large s point positions and existence.",
+          "chunk": "13"
+        }
+      ]
+    },
+    "question": "In the construction of confidence sets, how does the Theorem 1 Based Algorithm utilize Bootstrap Samples in relation to the Corollary 1 Based Algorithm?",
+    "options": {
+      "A": "Bootstrap Samples are used to estimate the variability of the Corollary 1 Based Algorithm, which is crucial for Theorem 1 Based Algorithm's confidence sets.",
+      "B": "Bootstrap Samples are primarily used to enhance computational speed in the Corollary 1 Based Algorithm, indirectly affecting Theorem 1 Based Algorithm.",
+      "C": "The Theorem 1 Based Algorithm uses Bootstrap Samples to replace the need for any fixed parameters as prescribed by Corollary 1.",
+      "D": "Bootstrap Samples are used to directly calculate the confidence intervals without employing any algorithms based on corollaries or theorems."
+    },
+    "correct_answer": "A",
+    "explanation": "Bootstrap Samples are used to estimate the variability of outcomes from the Corollary 1 Based Algorithm, which is essential in constructing confidence sets in the Theorem 1 Based Algorithm. The use of Bootstrap Samples in this context is specifically to support the accuracy of confidence set estimations by providing empirical data on variability.",
+    "path_description": "Path: Corollary1BasedAlgorithm --[uses]--> BootstrapSamples --[usedIn]--> Theorem1BasedAlgorithm --[type]--> Algorithm",
+    "context": "Based on Corollary 1, using the position information and fixing a = 1. | To construct confidence sets based on Theorem 1 of bootstrapped Gn(xi). | Theorem 1 Based Algorithm, designed for large s point positions and existence.",
+    "paper_id": "40"
+  },
+  {
+    "section": "appendix2",
+    "path": {
+      "section": "appendix2",
+      "start_entity": "E1",
+      "end_entity": "Event",
+      "hops": [
+        {
+          "from": "E1",
+          "relation": "implies",
+          "to": "E2",
+          "context": "Second, let’s show E1 implies E2: If ∃xi ∈ {f(xi) < c}, τnσ(xi) ≥ a then E1.",
+          "chunk": "14"
+        },
+        {
+          "from": "E2",
+          "relation": "implies",
+          "to": "E1",
+          "context": "First, we show that the event E2 implies E1, ∀xi ∈ E2 we have...",
+          "chunk": "14"
+        },
+        {
+          "from": "E1",
+          "relation": "type",
+          "to": "Event",
+          "context": "First, we show that the event E2 implies E1, ∀xi ∈ E2 we have...",
+          "chunk": "14"
+        }
+      ]
+    },
+    "question": "Considering the implications between events E1 and E2 as discussed in the paper's appendix2, which statement best describes the logical relationship between E1 and E2?",
+    "options": {
+      "A": "If for any xi, f(xi) is less than c and τnσ(xi) is greater than or equal to a, then event E1 occurs.",
+      "B": "Event E2 occurs if and only if f(xi) is greater than c for all xi in the set.",
+      "C": "Event E2 is a direct consequence of τnσ(xi) being less than a for all xi where f(xi) is greater than c.",
+      "D": "Event E1 only occurs if τnσ(xi) is less than a for all xi where f(xi) is greater than c."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A, as it correctly paraphrases the statement from the paper that defines the condition under which E1 occurs: if there exists any xi such that f(xi) < c and τnσ(xi) ≥ a, then event E1 takes place. The other options misrepresent the conditions or relationships described between E1 and E2.",
+    "path_description": "Path: E1 --[implies]--> E2 --[implies]--> E1 --[type]--> Event",
+    "context": "Second, let’s show E1 implies E2: If ∃xi ∈ {f(xi) < c}, τnσ(xi) ≥ a then E1. | First, we show that the event E2 implies E1, ∀xi ∈ E2 we have... | First, we show that the event E2 implies E1, ∀xi ∈ E2 we have...",
+    "paper_id": "40"
+  },
+  {
+    "section": "appendix1",
+    "path": {
+      "section": "appendix1",
+      "start_entity": "BS",
+      "end_entity": "Algorithm",
+      "hops": [
+        {
+          "from": "BS",
+          "relation": "requires",
+          "to": "TrainingDataOutcome",
+          "context": "Require: Training data outcome y˜ and design matrix X˜.",
+          "chunk": "13"
+        },
+        {
+          "from": "TrainingDataOutcome",
+          "relation": "partOf",
+          "to": "BS",
+          "context": "Require: Training data outcome y˜ and design matrix X˜.",
+          "chunk": "13"
+        },
+        {
+          "from": "BS",
+          "relation": "type",
+          "to": "Algorithm",
+          "context": "BS(y˜,X˜,X)BootstrapAlgorithm",
+          "chunk": "13"
+        }
+      ]
+    },
+    "question": "In the context of the Bootstrap Algorithm as described, how does the Training Data Outcome relate to the overall functionality of the algorithm?",
+    "options": {
+      "A": "The Training Data Outcome is used to validate the results of the Bootstrap Algorithm post-execution.",
+      "B": "The Training Data Outcome is merely a by-product of the Bootstrap Algorithm and does not influence its process.",
+      "C": "The Training Data Outcome is an optional enhancement that improves the efficiency of the Bootstrap Algorithm.",
+      "D": "The Training Data Outcome is a critical component that dictates the initialization parameters of the Bootstrap Algorithm."
+    },
+    "correct_answer": "D",
+    "explanation": "The Training Data Outcome (y˜) is essential for initializing the Bootstrap Algorithm (BS), as it is required alongside the design matrix (X˜). This outcome directly influences how the algorithm processes data and generates results, making it a critical component rather than a by-product, a validation tool, or an optional enhancement.",
+    "path_description": "Path: BS --[requires]--> TrainingDataOutcome --[partOf]--> BS --[type]--> Algorithm",
+    "context": "Require: Training data outcome y˜ and design matrix X˜. | Require: Training data outcome y˜ and design matrix X˜. | BS(y˜,X˜,X)BootstrapAlgorithm",
+    "paper_id": "40"
+  },
+  {
+    "section": "appendix3",
+    "path": {
+      "section": "appendix3",
+      "start_entity": "Theorem2",
+      "end_entity": "Theorem",
+      "hops": [
+        {
+          "from": "Theorem2",
+          "relation": "uses",
+          "to": "Lemma2",
+          "context": "Theorem 2 uses Lemma 2",
+          "chunk": "15"
+        },
+        {
+          "from": "Lemma2",
+          "relation": "usedInProofOf",
+          "to": "Theorem1",
+          "context": "Using Lemma 2 in the proof of Theorem 1",
+          "chunk": "15"
+        },
+        {
+          "from": "Theorem1",
+          "relation": "type",
+          "to": "Theorem",
+          "context": "Proof of Theorem 1",
+          "chunk": "15"
+        }
+      ]
+    },
+    "question": "In the context of the relationships established in appendix3, what is the correct characterization of Theorem 1 based on its derivation and dependencies?",
+    "options": {
+      "A": "Theorem 1 serves as a foundational principle that subsequently leads to the formulation of Lemma 2.",
+      "B": "Theorem 1 independently establishes its proofs without reliance on Lemma 2 or Theorem 2.",
+      "C": "Theorem 1 is a corollary that directly results from the application of Theorem 2 without any intermediate lemmas.",
+      "D": "Theorem 1 is primarily derived using Lemma 2, which is also utilized in the proof of Theorem 2."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is option A. According to the knowledge graph, Theorem 2 uses Lemma 2 and Lemma 2 is used in the proof of Theorem 1. This establishes a direct dependency of Theorem 1 on Lemma 2, which is also used in Theorem 2, making option A the correct characterization.",
+    "path_description": "Path: Theorem2 --[uses]--> Lemma2 --[usedInProofOf]--> Theorem1 --[type]--> Theorem",
+    "context": "Theorem 2 uses Lemma 2 | Using Lemma 2 in the proof of Theorem 1 | Proof of Theorem 1",
+    "paper_id": "40"
+  }
+]

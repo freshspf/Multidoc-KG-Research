@@ -1,0 +1,45 @@
+[
+  {
+    "section": "grasplearningwithunderactuatedgripper2",
+    "path": {
+      "section": "grasplearningwithunderactuatedgripper2",
+      "start_entity": "hc",
+      "end_entity": "PenetrationDepth",
+      "hops": [
+        {
+          "from": "hc",
+          "relation": "optimisedBy",
+          "to": "W",
+          "context": "Each grasp is then optimised by maximising the product of the likelihood of the query densities and the hand configuration density",
+          "chunk": "4"
+        },
+        {
+          "from": "W",
+          "relation": "uses",
+          "to": "Wi",
+          "context": "W(hw, hc) = exp(−γWi(hw, hc))",
+          "chunk": "4"
+        },
+        {
+          "from": "Wi",
+          "relation": "calculates",
+          "to": "PenetrationDepth",
+          "context": "Wi(hw, hc) = exp(βdWi (pj, hw, hc) ) − 1",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the context of optimizing gripper performance as described in the 'grasplearningwithunderactuatedgripper2' section, how does increasing the parameter gamma (γ) influence the calculated PenetrationDepth?",
+    "options": {
+      "A": "Increasing gamma directly decreases the PenetrationDepth by increasing the likelihood of the query densities.",
+      "B": "Increasing gamma has no significant impact on the PenetrationDepth as it only affects the likelihood of query densities.",
+      "C": "Increasing gamma directly increases the PenetrationDepth by elevating the exponential factor in the hand configuration probability.",
+      "D": "Increasing gamma indirectly decreases the PenetrationDepth by reducing the hand configuration's influence on the overall optimization."
+    },
+    "correct_answer": "D",
+    "explanation": "The parameter gamma (γ) in the function W(hw, hc) = exp(−γWi(hw, hc)) acts as a scaling factor for the function Wi, which is itself an exponential factor influenced by the depth (d). Increasing gamma (γ) would hence increase the negative exponent, leading to a smaller value of W and consequently a decrease in the influence of the hand configuration on the optimization. Thus, it indirectly reduces the PenetrationDepth by reducing the hand configuration's influence.",
+    "path_description": "Path: hc --[optimisedBy]--> W --[uses]--> Wi --[calculates]--> PenetrationDepth",
+    "context": "Each grasp is then optimised by maximising the product of the likelihood of the query densities and the hand configuration density | W(hw, hc) = exp(−γWi(hw, hc)) | Wi(hw, hc) = exp(βdWi (pj, hw, hc) ) − 1",
+    "paper_id": "1102"
+  }
+]

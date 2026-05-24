@@ -1,0 +1,45 @@
+[
+  {
+    "section": "experiments2",
+    "path": {
+      "section": "experiments2",
+      "start_entity": "TopKStrategy",
+      "end_entity": "DatasetSetting",
+      "hops": [
+        {
+          "from": "TopKStrategy",
+          "relation": "reduces",
+          "to": "ObjectQueryTransmission",
+          "context": "Our model employs a class score-based Top-k strategy during inference to reduce the number of transmitted object query.",
+          "chunk": "6"
+        },
+        {
+          "from": "ObjectQueryTransmission",
+          "relation": "evaluatedOn",
+          "to": "V2V-H",
+          "context": "Only when the transmission is reduced to 20, a slight performance drop is observed in the V2V-H and V2V-L settings.",
+          "chunk": "6"
+        },
+        {
+          "from": "V2V-H",
+          "relation": "type",
+          "to": "DatasetSetting",
+          "context": "Only when the transmission is reduced to 20, a slight performance drop is observed in the V2V-H and V2V-L settings.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the context of the 'TopKStrategy' being used to reduce object query transmission, how does the evaluation on the V2V-H dataset setting mostly affect the system's performance?",
+    "options": {
+      "A": "The system's performance improves significantly as the number of object queries transmitted is reduced.",
+      "B": "The performance remains completely stable regardless of the number of object queries transmitted.",
+      "C": "The system's performance experiences a minor decline only when the reduction in transmission reaches a specific threshold.",
+      "D": "The system's performance drastically declines as soon as any reduction in object query transmission is implemented."
+    },
+    "correct_answer": "C",
+    "explanation": "According to the context provided from the 'experiments2' section, the TopKStrategy reduces the number of object queries transmitted, which is evaluated on the V2V-H dataset setting. The performance of the system only shows a slight drop when the reduction reaches 20 transmissions, indicating a specific threshold where performance impact becomes noticeable.",
+    "path_description": "Path: TopKStrategy --[reduces]--> ObjectQueryTransmission --[evaluatedOn]--> V2V-H --[type]--> DatasetSetting",
+    "context": "Our model employs a class score-based Top-k strategy during inference to reduce the number of transmitted object query. | Only when the transmission is reduced to 20, a slight performance drop is observed in the V2V-H and V2V-L settings. | Only when the transmission is reduced to 20, a slight performance drop is observed in the V2V-H and V2V-L settings.",
+    "paper_id": "1537"
+  }
+]

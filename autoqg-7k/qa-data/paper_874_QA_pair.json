@@ -1,0 +1,174 @@
+[
+  {
+    "section": "thefbtreedatastructure2",
+    "path": {
+      "section": "thefbtreedatastructure2",
+      "start_entity": "FBPlusTree",
+      "end_entity": "Method",
+      "hops": [
+        {
+          "from": "FBPlusTree",
+          "relation": "comparedWith",
+          "to": "Trie",
+          "context": "FB+-tree thus almost becomes a trie in terms of computational complexity.",
+          "chunk": "5"
+        },
+        {
+          "from": "Trie",
+          "relation": "uses",
+          "to": "ByteWisePrefixMatching",
+          "context": "Tries accomplish key space partitioning with byte-wise prefix matching.",
+          "chunk": "5"
+        },
+        {
+          "from": "ByteWisePrefixMatching",
+          "relation": "type",
+          "to": "Method",
+          "context": "Tries accomplish key space partitioning with byte-wise prefix matching.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the context of data structures, how does the FB+ tree's computational complexity compare to that of tries when considering their method of key space partitioning?",
+    "options": {
+      "A": "The FB+ tree has a greater computational complexity because it uses byte-wise prefix matching, unlike tries.",
+      "B": "The FB+ tree mirrors the computational complexity of tries due to the shared method of byte-wise prefix matching.",
+      "C": "The FB+ tree has a lower computational complexity as it does not employ byte-wise prefix matching, which is used by tries.",
+      "D": "The FB+ tree and tries have incomparable computational complexities as they use fundamentally different methods."
+    },
+    "correct_answer": "B",
+    "explanation": "The FB+ tree effectively becomes similar to a trie in terms of computational complexity because both utilize the method of byte-wise prefix matching for key space partitioning. This is a direct application of the knowledge graph path from FBPlusTree to Trie using ByteWisePrefixMatching.",
+    "path_description": "Path: FBPlusTree --[comparedWith]--> Trie --[uses]--> ByteWisePrefixMatching --[type]--> Method",
+    "context": "FB+-tree thus almost becomes a trie in terms of computational complexity. | Tries accomplish key space partitioning with byte-wise prefix matching. | Tries accomplish key space partitioning with byte-wise prefix matching.",
+    "paper_id": "1985"
+  },
+  {
+    "section": "abstract1",
+    "path": {
+      "section": "abstract1",
+      "start_entity": "FBPlusTree",
+      "end_entity": "DataStructure",
+      "hops": [
+        {
+          "from": "FBPlusTree",
+          "relation": "outperforms",
+          "to": "BPlusTree",
+          "context": "Intensive experiments on multiple workload-dataset combinations demonstrate that FB+-tree shows comparable lookup performance to state-of-the-art trie-based indexes and outperforms popular B+-trees by 2.3x 3.7x under 96 threads.",
+          "chunk": "0"
+        },
+        {
+          "from": "BPlusTree",
+          "relation": "outperforms",
+          "to": "TrieBasedIndex",
+          "context": "B+-trees are prevalent in traditional database systems due to their versatility and balanced structure.",
+          "chunk": "0"
+        },
+        {
+          "from": "TrieBasedIndex",
+          "relation": "type",
+          "to": "DataStructure",
+          "context": "In contrast, trie-based index structures drive branch operations through prefix matching.",
+          "chunk": "0"
+        }
+      ]
+    },
+    "question": "Considering the performance evaluations described, which statement accurately captures the efficiency hierarchy of the discussed data structures under multithreaded conditions?",
+    "options": {
+      "A": "TrieBasedIndex outperforms FBPlusTree, which in turn outperforms BPlusTree in scenarios involving multiple workload-dataset combinations.",
+      "B": "Both FBPlusTree and BPlusTree outperform TrieBasedIndex in lookup performance when tested under identical conditions.",
+      "C": "BPlusTree demonstrates superior performance compared to both FBPlusTree and TrieBasedIndex when operating under 96 threads.",
+      "D": "FBPlusTree shows comparable performance to TrieBasedIndex and significantly outperforms BPlusTree in multithreaded environments."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A, as it accurately reflects the performance hierarchy stated in the context. FBPlusTree is comparable to TrieBasedIndex and outperforms BPlusTree by a significant margin in multithreaded environments. Options B, C, and D are incorrect as they misrepresent the performance relations among the data structures.",
+    "path_description": "Path: FBPlusTree --[outperforms]--> BPlusTree --[outperforms]--> TrieBasedIndex --[type]--> DataStructure",
+    "context": "Intensive experiments on multiple workload-dataset combinations demonstrate that FB+-tree shows comparable lookup performance to state-of-the-art trie-based indexes and outperforms popular B+-trees by 2.3x 3.7x under 96 threads. | B+-trees are prevalent in traditional database systems due to their versatility and balanced structure. | In contrast, trie-based index structures drive branch operations through prefix matching.",
+    "paper_id": "1985"
+  },
+  {
+    "section": "thefbtreedatastructure9",
+    "path": {
+      "section": "thefbtreedatastructure9",
+      "start_entity": "YCSB",
+      "end_entity": "Model",
+      "hops": [
+        {
+          "from": "YCSB",
+          "relation": "evaluates",
+          "to": "FBPlusTree",
+          "context": "Workloads. Our experiments are based on the standard workloads from the Yahoo! Cloud Serving Benchmark (YCSB) [20].",
+          "chunk": "12"
+        },
+        {
+          "from": "FBPlusTree",
+          "relation": "comparedWith",
+          "to": "FAST",
+          "context": "In this section, we experimentally evaluate FB+-tree and compare it with other state-of-the-art main-memory index structures.",
+          "chunk": "12"
+        },
+        {
+          "from": "FAST",
+          "relation": "type",
+          "to": "Model",
+          "context": "FAST: A read-only binary search tree that collapses multiple nodes into one large node to facilitate SIMD instructions [32].",
+          "chunk": "12"
+        }
+      ]
+    },
+    "question": "In the comparative analysis using the Yahoo! Cloud Serving Benchmark (YCSB), what distinguishes the FB+-tree from the FAST model in terms of structural adaptation?",
+    "options": {
+      "A": "FB+-tree incorporates multiple trees into one to improve search efficiency, similar to FAST's large node approach.",
+      "B": "FB+-tree is evaluated for its performance in main-memory index structures, unlike the read-only structure of FAST.",
+      "C": "FB+-tree is specifically designed to handle write-heavy workloads, which is not a focus of the FAST model.",
+      "D": "FB+-tree uses multi-node structures which do not facilitate SIMD instructions, unlike FAST."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A because the FB+-tree is evaluated for its performance specifically in main-memory index structures in the context of YCSB workloads, which is in contrast to FAST that is described as a read-only binary search tree optimized for SIMD instructions. Options B, C, and D are incorrect as they either misrepresent the structural details or functionalities of FB+-tree and FAST.",
+    "path_description": "Path: YCSB --[evaluates]--> FBPlusTree --[comparedWith]--> FAST --[type]--> Model",
+    "context": "Workloads. Our experiments are based on the standard workloads from the Yahoo! Cloud Serving Benchmark (YCSB) [20]. | In this section, we experimentally evaluate FB+-tree and compare it with other state-of-the-art main-memory index structures. | FAST: A read-only binary search tree that collapses multiple nodes into one large node to facilitate SIMD instructions [32].",
+    "paper_id": "1985"
+  },
+  {
+    "section": "thefbtreedatastructure12",
+    "path": {
+      "section": "thefbtreedatastructure12",
+      "start_entity": "ARTOptiQL",
+      "end_entity": "Workload",
+      "hops": [
+        {
+          "from": "ARTOptiQL",
+          "relation": "exhibitsComparablePerformanceWith",
+          "to": "HOT",
+          "context": "ARTOptiQL and HOT exhibit comparable scalability and performance on ycsb, twitter, and url datasets.",
+          "chunk": "15"
+        },
+        {
+          "from": "HOT",
+          "relation": "givesBestPerformanceOn",
+          "to": "YCSBC",
+          "context": "On the read-only workload YCSB-C, HOT gives the best performance and scalability on all datasets except rand-int.",
+          "chunk": "15"
+        },
+        {
+          "from": "YCSBC",
+          "relation": "type",
+          "to": "Workload",
+          "context": "On the read-only workload YCSB-C, HOT gives the best performance and scalability on all datasets except rand-int.",
+          "chunk": "15"
+        }
+      ]
+    },
+    "question": "Considering the performance characteristics of ARTOptiQL and HOT on different datasets, which statement accurately describes their comparative performance?",
+    "options": {
+      "A": "ARTOptiQL and HOT both show the best performance on read-only workloads across all datasets, including rand-int.",
+      "B": "ARTOptiQL outperforms HOT in scalability on the YCSB-C workload on all datasets, including rand-int.",
+      "C": "While HOT shows the best performance on the YCSB-C workload, ARTOptiQL outperforms HOT on the rand-int dataset.",
+      "D": "ARTOptiQL and HOT both exhibit comparable performance on YCSB, twitter, and url datasets, but not on rand-int."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is B, as the provided context explicitly states that ARTOptiQL and HOT exhibit comparable scalability and performance on YCSB, twitter, and url datasets. The differentiation in performance specifically on the rand-int dataset under YCSB-C workload, where HOT does not perform as well, is not applicable to ARTOptiQL's comparative performance in this context.",
+    "path_description": "Path: ARTOptiQL --[exhibitsComparablePerformanceWith]--> HOT --[givesBestPerformanceOn]--> YCSBC --[type]--> Workload",
+    "context": "ARTOptiQL and HOT exhibit comparable scalability and performance on ycsb, twitter, and url datasets. | On the read-only workload YCSB-C, HOT gives the best performance and scalability on all datasets except rand-int. | On the read-only workload YCSB-C, HOT gives the best performance and scalability on all datasets except rand-int.",
+    "paper_id": "1985"
+  }
+]

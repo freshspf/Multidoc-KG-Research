@@ -1,0 +1,88 @@
+[
+  {
+    "section": "experiments3",
+    "path": {
+      "section": "experiments3",
+      "start_entity": "Basketball",
+      "end_entity": "ScoreImpact",
+      "hops": [
+        {
+          "from": "Basketball",
+          "relation": "differsFrom",
+          "to": "Football",
+          "context": "In basketball, each possession is typically connected to only one event, and events are more independent, and most events impact the score of the game directly. In football, each possession involves many events.",
+          "chunk": "5"
+        },
+        {
+          "from": "Football",
+          "relation": "involvesMultiple",
+          "to": "Event",
+          "context": "In football, each possession involves many events.",
+          "chunk": "5"
+        },
+        {
+          "from": "Event",
+          "relation": "impactsDirectly",
+          "to": "ScoreImpact",
+          "context": "most events impact the score of the game directly.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "How does the nature of event involvement in possessions differ between basketball and football, and how does this impact scoring?",
+    "options": {
+      "A": "In football, each possession is linked to several events that rarely impact the score, whereas in basketball, multiple events per possession always impact the score.",
+      "B": "Both basketball and football have possessions that involve multiple events, but only events in football directly impact the score.",
+      "C": "In both sports, each possession typically involves only one event, and these events seldom impact the score directly.",
+      "D": "In basketball, each possession typically involves a singular event that directly impacts the score, unlike in football where multiple events per possession may or may not impact the score."
+    },
+    "correct_answer": "D",
+    "explanation": "Option A correctly reflects the information from the paper. In basketball, possessions are usually connected to one event that directly impacts the score. In contrast, football involves many events during a possession, and not all these events necessarily impact the score directly.",
+    "path_description": "Path: Basketball --[differsFrom]--> Football --[involvesMultiple]--> Event --[impactsDirectly]--> ScoreImpact",
+    "context": "In basketball, each possession is typically connected to only one event, and events are more independent, and most events impact the score of the game directly. In football, each possession involves many events. | In football, each possession involves many events. | most events impact the score of the game directly.",
+    "paper_id": "1548"
+  },
+  {
+    "section": "appendix3",
+    "path": {
+      "section": "appendix3",
+      "start_entity": "GPT-4o",
+      "end_entity": "SportsOrganization",
+      "hops": [
+        {
+          "from": "GPT-4o",
+          "relation": "comparedWith",
+          "to": "DeepSeekR1_32B",
+          "context": "Other LLMs, such as GPT-4o, follow a similar reasoning pattern.",
+          "chunk": "12"
+        },
+        {
+          "from": "DeepSeekR1_32B",
+          "relation": "evaluatedOn",
+          "to": "NBA",
+          "context": "aligns with the reasoning of DeepSeek-R1 32B.",
+          "chunk": "12"
+        },
+        {
+          "from": "NBA",
+          "relation": "type",
+          "to": "SportsOrganization",
+          "context": "You are an assistant for NBA basketball.",
+          "chunk": "12"
+        }
+      ]
+    },
+    "question": "Considering the evaluation context of the language model DeepSeek-R1 32B, what type of organization categorizes its primary application scenario?",
+    "options": {
+      "A": "A sports organization focusing primarily on professional basketball leagues",
+      "B": "A healthcare provider focusing on athlete wellness and injury prevention",
+      "C": "A financial institution specializing in investments related to sports franchises",
+      "D": "A technology company developing advanced analytics for sports performance"
+    },
+    "correct_answer": "A",
+    "explanation": "The knowledge graph path shows that DeepSeek-R1 32B, compared with GPT-4o, is evaluated on NBA, which is categorized as a SportsOrganization. Therefore, the primary application scenario for DeepSeek-R1 32B involves a sports organization, specifically one that focuses on professional basketball, which aligns with the NBA's classification.",
+    "path_description": "Path: GPT-4o --[comparedWith]--> DeepSeekR1_32B --[evaluatedOn]--> NBA --[type]--> SportsOrganization",
+    "context": "Other LLMs, such as GPT-4o, follow a similar reasoning pattern. | aligns with the reasoning of DeepSeek-R1 32B. | You are an assistant for NBA basketball.",
+    "paper_id": "1548"
+  }
+]

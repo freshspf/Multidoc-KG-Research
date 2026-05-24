@@ -1,0 +1,131 @@
+[
+  {
+    "section": "introduction2",
+    "path": {
+      "section": "introduction2",
+      "start_entity": "OurTool",
+      "end_entity": "InstructionCoverage",
+      "hops": [
+        {
+          "from": "OurTool",
+          "relation": "uses",
+          "to": "HybridApproach",
+          "context": "API emulation, we employ a hybrid approach",
+          "chunk": "2"
+        },
+        {
+          "from": "HybridApproach",
+          "relation": "partOf",
+          "to": "SymbolicExecution",
+          "context": "Execute each function of contracts symbolically",
+          "chunk": "2"
+        },
+        {
+          "from": "SymbolicExecution",
+          "relation": "measures",
+          "to": "InstructionCoverage",
+          "context": "Compare instruction coverage of each resulting",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "How does OurTool utilize the HybridApproach to enhance its analysis of smart contracts according to the introduction2 section?",
+    "options": {
+      "A": "Through the HybridApproach, OurTool primarily focuses on real-time execution rather than symbolic analysis, avoiding detailed instruction coverage.",
+      "B": "OurTool applies the HybridApproach to assess the performance metrics of smart contracts without the need for symbolic execution or instruction coverage.",
+      "C": "OurTool deploys the HybridApproach to directly interact with APIs, thereby bypassing the need for instruction coverage analysis in smart contracts.",
+      "D": "OurTool uses the HybridApproach, which is part of SymbolicExecution, to measure the instruction coverage by executing each function of contracts symbolically."
+    },
+    "correct_answer": "D",
+    "explanation": "According to the provided path and context, OurTool uses the HybridApproach as a part of SymbolicExecution specifically to execute each function of contracts symbolically and measure instruction coverage, as detailed in the 'introduction2' section of the paper.",
+    "path_description": "Path: OurTool --[uses]--> HybridApproach --[partOf]--> SymbolicExecution --[measures]--> InstructionCoverage",
+    "context": "API emulation, we employ a hybrid approach | Execute each function of contracts symbolically | Compare instruction coverage of each resulting",
+    "paper_id": "1232"
+  },
+  {
+    "section": "experiment3",
+    "path": {
+      "section": "experiment3",
+      "start_entity": "WACANA",
+      "end_entity": "VulnerabilityType",
+      "hops": [
+        {
+          "from": "WACANA",
+          "relation": "evaluatedOn",
+          "to": "RealWorldDataset",
+          "context": "To answer RQ2, we test WACANA’s effectiveness on contracts contain vulnerabilities.",
+          "chunk": "12"
+        },
+        {
+          "from": "RealWorldDataset",
+          "relation": "contains",
+          "to": "IntegerOverflowVulnerability",
+          "context": "2,141 Integer Overflow vulnerabilities.",
+          "chunk": "12"
+        },
+        {
+          "from": "IntegerOverflowVulnerability",
+          "relation": "type",
+          "to": "VulnerabilityType",
+          "context": "2,141 Integer Overflow vulnerabilities.",
+          "chunk": "12"
+        }
+      ]
+    },
+    "question": "In the experiment conducted in 'experiment3', what type of vulnerability was primarily evaluated using the WACANA tool on a real-world dataset?",
+    "options": {
+      "A": "Integer Overflow vulnerabilities, noted as a specific type of security risk",
+      "B": "SQL Injection vulnerabilities, a prevalent issue in database management systems",
+      "C": "Cross-Site Scripting (XSS) vulnerabilities, frequently occurring in web applications",
+      "D": "Buffer Overflow vulnerabilities, commonly mistaken for Integer Overflow in discussions"
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A, as the path from the knowledge graph indicates that WACANA was evaluated on a Real World Dataset which contains Integer Overflow Vulnerabilities. The other options, while plausible types of vulnerabilities, are not supported by the specific path in the knowledge graph discussed in the section 'experiment3'.",
+    "path_description": "Path: WACANA --[evaluatedOn]--> RealWorldDataset --[contains]--> IntegerOverflowVulnerability --[type]--> VulnerabilityType",
+    "context": "To answer RQ2, we test WACANA’s effectiveness on contracts contain vulnerabilities. | 2,141 Integer Overflow vulnerabilities. | 2,141 Integer Overflow vulnerabilities.",
+    "paper_id": "1232"
+  },
+  {
+    "section": "threatstovalidity",
+    "path": {
+      "section": "threatstovalidity",
+      "start_entity": "OurTool",
+      "end_entity": "Tool",
+      "hops": [
+        {
+          "from": "OurTool",
+          "relation": "achievesHigherCoverageThan",
+          "to": "WACANA-rnd",
+          "context": "Our tool achieved higher coverage than WACANA-rnd...",
+          "chunk": "14"
+        },
+        {
+          "from": "WACANA-rnd",
+          "relation": "comparedWith",
+          "to": "WACANA-single",
+          "context": "WACANA-rnd, which guides multiple rounds of execution compared to WACANA-single...",
+          "chunk": "14"
+        },
+        {
+          "from": "WACANA-single",
+          "relation": "type",
+          "to": "Tool",
+          "context": "WACANA-single only executes one round...",
+          "chunk": "14"
+        }
+      ]
+    },
+    "question": "Why does OurTool achieve higher coverage than WACANA-single in multiple rounds of execution?",
+    "options": {
+      "A": "Because OurTool integrates with WACANA-rnd's multiple round protocols, differing from WACANA-single's diverse execution strategies.",
+      "B": "Since OurTool can execute more than one round, unlike WACANA-single which limits to a single round of execution.",
+      "C": "Because OurTool extends WACANA-rnd functionality which allows multiple execution rounds compared to WACANA-single's single round.",
+      "D": "Due to OurTool's updated algorithms, which are more efficient in single round executions compared to WACANA-single."
+    },
+    "correct_answer": "C",
+    "explanation": "OurTool achieves higher coverage because it extends the functionality of WACANA-rnd, which itself is designed for multiple rounds of execution, unlike WACANA-single which is restricted to a single round. This multiple-round capability allows for higher coverage.",
+    "path_description": "Path: OurTool --[achievesHigherCoverageThan]--> WACANA-rnd --[comparedWith]--> WACANA-single --[type]--> Tool",
+    "context": "Our tool achieved higher coverage than WACANA-rnd... | WACANA-rnd, which guides multiple rounds of execution compared to WACANA-single... | WACANA-single only executes one round...",
+    "paper_id": "1232"
+  }
+]

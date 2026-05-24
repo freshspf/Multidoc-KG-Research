@@ -1,0 +1,217 @@
+[
+  {
+    "section": "approach1",
+    "path": {
+      "section": "approach1",
+      "start_entity": "RISING",
+      "end_entity": "Method",
+      "hops": [
+        {
+          "from": "RISING",
+          "relation": "uses",
+          "to": "Localization",
+          "context": "RISING consists of two major parts, i.e., clustering and localization.",
+          "chunk": "2"
+        },
+        {
+          "from": "Localization",
+          "relation": "uses",
+          "to": "LocalizationRecommendations",
+          "context": "based on which the localization recommendations will be made.",
+          "chunk": "2"
+        },
+        {
+          "from": "LocalizationRecommendations",
+          "relation": "type",
+          "to": "Method",
+          "context": "based on which the localization recommendations will be made.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the RISING approach, how does the use of Localization influence the generation of LocalizationRecommendations?",
+    "options": {
+      "A": "Localization uses clustering data to enhance the precision of LocalizationRecommendations.",
+      "B": "Localization directly modifies the clustering mechanism to produce varied LocalizationRecommendations.",
+      "C": "Localization serves as a primary input for the clustering process, indirectly affecting the recommendations.",
+      "D": "Localization acts independently of clustering, providing unspecific general recommendations."
+    },
+    "correct_answer": "A",
+    "explanation": "In the RISING approach, Localization uses data from the clustering process to enhance the precision and relevance of LocalizationRecommendations, as inferred from the multi-hop path in the knowledge graph.",
+    "path_description": "Path: RISING --[uses]--> Localization --[uses]--> LocalizationRecommendations --[type]--> Method",
+    "context": "RISING consists of two major parts, i.e., clustering and localization. | based on which the localization recommendations will be made. | based on which the localization recommendations will be made.",
+    "paper_id": "27"
+  },
+  {
+    "section": "approach2",
+    "path": {
+      "section": "approach2",
+      "start_entity": "StanfordNLP",
+      "end_entity": "AtomicSentences",
+      "hops": [
+        {
+          "from": "StanfordNLP",
+          "relation": "usedFor",
+          "to": "PhraseStructureTrees",
+          "context": "we employ a statistical parser from the Stanford NLP toolkit to generate grammatical structures of sentences",
+          "chunk": "3"
+        },
+        {
+          "from": "PhraseStructureTrees",
+          "relation": "contains",
+          "to": "AdversativeConjunctions",
+          "context": "We then traverse the leaf nodes of the phrase structure tree to determine whether or not the sentence contains conjunctions",
+          "chunk": "3"
+        },
+        {
+          "from": "AdversativeConjunctions",
+          "relation": "usedToPreserve",
+          "to": "AtomicSentences",
+          "context": "For the second type, since we believe that the content after the adversative conjunctions convey the real information, we only preserve the leaf nodes after the conjunction nodes",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the process of analyzing sentence structures using the Stanford NLP toolkit, how are adversative conjunctions specifically utilized to preserve sentence integrity?",
+    "options": {
+      "A": "These conjunctions are disregarded entirely to simplify the analysis of phrase structure trees.",
+      "B": "Adversative conjunctions help in preserving both the preceding and succeeding grammatical structures equally.",
+      "C": "They are used to preserve only the grammatical elements that appear after the conjunction in the phrase structure trees.",
+      "D": "Adversative conjunctions are identified to preserve the grammatical structure before these conjunctions in sentence parsing."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is B because the context specifies that the real information is believed to be conveyed after the adversative conjunctions, leading to the preservation of only the leaf nodes that follow these conjunctions in the phrase structure trees.",
+    "path_description": "Path: StanfordNLP --[usedFor]--> PhraseStructureTrees --[contains]--> AdversativeConjunctions --[usedToPreserve]--> AtomicSentences",
+    "context": "we employ a statistical parser from the Stanford NLP toolkit to generate grammatical structures of sentences | We then traverse the leaf nodes of the phrase structure tree to determine whether or not the sentence contains conjunctions | For the second type, since we believe that the content after the adversative conjunctions convey the real information, we only preserve the leaf nodes after the conjunction nodes",
+    "paper_id": "27"
+  },
+  {
+    "section": "casestudy2",
+    "path": {
+      "section": "casestudy2",
+      "start_entity": "ChangeAdvisor",
+      "end_entity": "ClusteringAlgorithm",
+      "hops": [
+        {
+          "from": "ChangeAdvisor",
+          "relation": "comparedWith",
+          "to": "RISING",
+          "context": "Table 3 presents the comparison of clustering between our approach and ChangeAdvisor.",
+          "chunk": "8"
+        },
+        {
+          "from": "RISING",
+          "relation": "outperforms",
+          "to": "ChangeAdvisor",
+          "context": "From the table, we can observe that our approach yields a considerably better DBI result compared with ChangeAdvisor.",
+          "chunk": "8"
+        },
+        {
+          "from": "ChangeAdvisor",
+          "relation": "type",
+          "to": "ClusteringAlgorithm",
+          "context": "From the table, we can observe that, the number of clusters yielded by ChangeAdvisor and our approach varies a lot.",
+          "chunk": "8"
+        }
+      ]
+    },
+    "question": "Considering the performance comparison in casestudy2, which statement best explains the relationship between RISING, ChangeAdvisor, and their respective clustering algorithm types?",
+    "options": {
+      "A": "Both RISING and ChangeAdvisor utilize the same type of clustering algorithm, leading to similar DBI results.",
+      "B": "The number of clusters does not affect the DBI results according to the study, making both algorithms equally effective.",
+      "C": "ChangeAdvisor outperforms RISING by having a smaller number of clusters, which denotes better clustering efficiency.",
+      "D": "RISING outperforms ChangeAdvisor by producing a better DBI result, indicating a superior clustering algorithm."
+    },
+    "correct_answer": "D",
+    "explanation": "The path indicates that RISING outperforms ChangeAdvisor, and from the context, it's noted that RISING yields a better DBI result, which is a measure of clustering quality. Therefore, RISING's clustering algorithm is likely superior to that of ChangeAdvisor.",
+    "path_description": "Path: ChangeAdvisor --[comparedWith]--> RISING --[outperforms]--> ChangeAdvisor --[type]--> ClusteringAlgorithm",
+    "context": "Table 3 presents the comparison of clustering between our approach and ChangeAdvisor. | From the table, we can observe that our approach yields a considerably better DBI result compared with ChangeAdvisor. | From the table, we can observe that, the number of clusters yielded by ChangeAdvisor and our approach varies a lot.",
+    "paper_id": "27"
+  },
+  {
+    "section": "discussion2",
+    "path": {
+      "section": "discussion2",
+      "start_entity": "RISING",
+      "end_entity": "RelationshipType",
+      "hops": [
+        {
+          "from": "RISING",
+          "relation": "outperforms",
+          "to": "ChangeAdvisor",
+          "context": "Our approach is thus advantageous over other similar approaches to be able to locate multiple files which are necessary for problem fix or feature request.",
+          "chunk": "11"
+        },
+        {
+          "from": "ChangeAdvisor",
+          "relation": "doesNotConsider",
+          "to": "AssociationBetweenFiles",
+          "context": "In contrast, ChangeAdvisor does not take into account the association between files, which would miss, for instance, configuration files.",
+          "chunk": "11"
+        },
+        {
+          "from": "AssociationBetweenFiles",
+          "relation": "type",
+          "to": "RelationshipType",
+          "context": "In contrast, ChangeAdvisor does not take into account the association between files, which would miss, for instance, configuration files.",
+          "chunk": "11"
+        }
+      ]
+    },
+    "question": "Which type of relationship is often overlooked by ChangeAdvisor according to the discussion on its limitations in handling file associations?",
+    "options": {
+      "A": "Stylistic files that mainly deal with the visuals and layout of the project.",
+      "B": "Source code files that directly contain executable code for programs.",
+      "C": "Documentation files that provide user guidelines and operational details.",
+      "D": "Configuration files that are crucial for the implementation of software features."
+    },
+    "correct_answer": "D",
+    "explanation": "ChangeAdvisor fails to consider the association between files, specifically missing out on configuration files which are essential for certain fixes or feature implementations, as stated in the discussion. These are a type of relationship that involves necessary files for problem resolution or feature addition.",
+    "path_description": "Path: RISING --[outperforms]--> ChangeAdvisor --[doesNotConsider]--> AssociationBetweenFiles --[type]--> RelationshipType",
+    "context": "Our approach is thus advantageous over other similar approaches to be able to locate multiple files which are necessary for problem fix or feature request. | In contrast, ChangeAdvisor does not take into account the association between files, which would miss, for instance, configuration files. | In contrast, ChangeAdvisor does not take into account the association between files, which would miss, for instance, configuration files.",
+    "paper_id": "27"
+  },
+  {
+    "section": "casestudy3",
+    "path": {
+      "section": "casestudy3",
+      "start_entity": "ReviewSegmentation",
+      "end_entity": "Category",
+      "hops": [
+        {
+          "from": "ReviewSegmentation",
+          "relation": "improves",
+          "to": "DBI",
+          "context": "The results are shown in Table 5 which suggest that the review segmentation operation has indeed improved the clustering effect by reducing the average DBI values.",
+          "chunk": "9"
+        },
+        {
+          "from": "DBI",
+          "relation": "measures",
+          "to": "FeatureRequest",
+          "context": "The results are shown in Table 5 which suggest that the review segmentation operation has indeed improved the clustering effect by reducing the average DBI values of feature request.",
+          "chunk": "9"
+        },
+        {
+          "from": "FeatureRequest",
+          "relation": "type",
+          "to": "Category",
+          "context": "The results are shown in Table 5 which suggest that the review segmentation operation has indeed improved the clustering effect by reducing the average DBI values of feature request.",
+          "chunk": "9"
+        }
+      ]
+    },
+    "question": "In the context of 'casestudy3', how does the review segmentation operation primarily enhance the clustering effect for feature requests?",
+    "options": {
+      "A": "By expanding the variation within each cluster, thereby increasing the overall cluster validity index.",
+      "B": "By decreasing the number of clusters required to accurately categorize feature requests, simplifying the overall structure.",
+      "C": "By increasing the homogeneity within each cluster, leading to a higher silhouette score for each category.",
+      "D": "By effectively reducing the average Davies-Bouldin Index values, which measures the separation and compactness of clusters."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A as the question path and context indicate that review segmentation improves DBI (Davies-Bouldin Index), which measures the compactness and separation of clusters, thereby enhancing the clustering effect.",
+    "path_description": "Path: ReviewSegmentation --[improves]--> DBI --[measures]--> FeatureRequest --[type]--> Category",
+    "context": "The results are shown in Table 5 which suggest that the review segmentation operation has indeed improved the clustering effect by reducing the average DBI values. | The results are shown in Table 5 which suggest that the review segmentation operation has indeed improved the clustering effect by reducing the average DBI values of feature request. | The results are shown in Table 5 which suggest that the review segmentation operation has indeed improved the clustering effect by reducing the average DBI values of feature request.",
+    "paper_id": "27"
+  }
+]

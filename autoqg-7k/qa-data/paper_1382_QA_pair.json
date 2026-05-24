@@ -1,0 +1,131 @@
+[
+  {
+    "section": "method2",
+    "path": {
+      "section": "method2",
+      "start_entity": "Implicit-conv",
+      "end_entity": "ConvolutionOperation",
+      "hops": [
+        {
+          "from": "Implicit-conv",
+          "relation": "appliedTo",
+          "to": "FS",
+          "context": "Following this, TDTracker applies another 3D convolution operation on the intermediate feature map FS.",
+          "chunk": "3"
+        },
+        {
+          "from": "FS",
+          "relation": "transformedBy",
+          "to": "Implicit-conv",
+          "context": "Following this, TDTracker applies another 3D convolution operation on the intermediate feature map FS.",
+          "chunk": "3"
+        },
+        {
+          "from": "Implicit-conv",
+          "relation": "type",
+          "to": "ConvolutionOperation",
+          "context": "We call this convolution named Implicit-conv.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the TDTracker's method2, what is the role of the Implicit-conv in relation to the intermediate feature map FS?",
+    "options": {
+      "A": "Implicit-conv acts on FS to reduce the dimensionality of the data before a different convolution operation.",
+      "B": "Implicit-conv is applied to FS to undergo a transformation process into a different type of convolution operation.",
+      "C": "Implicit-conv is a type of convolution operation applied to FS to enhance feature extraction capabilities.",
+      "D": "Implicit-conv is used to merge FS with another feature map before applying a convolution operation."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is B because the knowledge graph indicates that Implicit-conv is a type of ConvolutionOperation applied to the feature map FS, specifically, it transforms FS. This implies that it is used to enhance the extraction capabilities rather than reducing dimensionality or merging it with another map.",
+    "path_description": "Path: Implicit-conv --[appliedTo]--> FS --[transformedBy]--> Implicit-conv --[type]--> ConvolutionOperation",
+    "context": "Following this, TDTracker applies another 3D convolution operation on the intermediate feature map FS. | Following this, TDTracker applies another 3D convolution operation on the intermediate feature map FS. | We call this convolution named Implicit-conv.",
+    "paper_id": "2014"
+  },
+  {
+    "section": "method2",
+    "path": {
+      "section": "method2",
+      "start_entity": "TDTracker",
+      "end_entity": "TemporalKernelSize",
+      "hops": [
+        {
+          "from": "TDTracker",
+          "relation": "uses",
+          "to": "Implicit-conv",
+          "context": "Following this, TDTracker applies another 3D convolution operation on the intermediate feature map FS.",
+          "chunk": "3"
+        },
+        {
+          "from": "Implicit-conv",
+          "relation": "usesKernelSize",
+          "to": "Kt",
+          "context": "Following this, TDTracker applies another 3D convolution operation on the intermediate feature map FS to extract temporal features using a kernel of size (Kt,Kt,Kt).",
+          "chunk": "3"
+        },
+        {
+          "from": "Kt",
+          "relation": "type",
+          "to": "TemporalKernelSize",
+          "context": "Following this, TDTracker applies another 3D convolution operation on the intermediate feature map FS to extract temporal features using a kernel of size (Kt,Kt,Kt).",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the TDTracker's process of extracting temporal features from the feature map FS, what does the term 'Kt' specifically refer to?",
+    "options": {
+      "A": "Kt refers to the kernel size in all three dimensions used during the 3D convolution operation.",
+      "B": "Kt denotes the number of feature maps generated after the convolution operation on FS.",
+      "C": "Kt stands for the type of convolution method used, specifically indicating a Temporal Kernel.",
+      "D": "Kt is a placeholder for the number of iterations the convolution operation is applied."
+    },
+    "correct_answer": "A",
+    "explanation": "Kt refers to the kernel size used in the 3D convolution process, as indicated in the knowledge path from 'usesKernelSize' to 'TemporalKernelSize', confirming that it's used in all three dimensions of the kernel.",
+    "path_description": "Path: TDTracker --[uses]--> Implicit-conv --[usesKernelSize]--> Kt --[type]--> TemporalKernelSize",
+    "context": "Following this, TDTracker applies another 3D convolution operation on the intermediate feature map FS. | Following this, TDTracker applies another 3D convolution operation on the intermediate feature map FS to extract temporal features using a kernel of size (Kt,Kt,Kt). | Following this, TDTracker applies another 3D convolution operation on the intermediate feature map FS to extract temporal features using a kernel of size (Kt,Kt,Kt).",
+    "paper_id": "2014"
+  },
+  {
+    "section": "method3",
+    "path": {
+      "section": "method3",
+      "start_entity": "CNNModel",
+      "end_entity": "DataFormat",
+      "hops": [
+        {
+          "from": "CNNModel",
+          "relation": "transforms",
+          "to": "2DLabels",
+          "context": "We transform the 2D labels (x, y) into two 1D heat vectors (X, Y)",
+          "chunk": "4"
+        },
+        {
+          "from": "2DLabels",
+          "relation": "transformedInto",
+          "to": "1DHeatVectors",
+          "context": "We transform the 2D labels (x, y) into two 1D heat vectors (X, Y)",
+          "chunk": "4"
+        },
+        {
+          "from": "1DHeatVectors",
+          "relation": "type",
+          "to": "DataFormat",
+          "context": "We transform the 2D labels (x, y) into two 1D heat vectors (X, Y)",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the process of converting 2D labels to a suitable data format for a CNN model, what is the correct sequence of transformations and final data type described?",
+    "options": {
+      "A": "2D labels are transformed into 3D tensor structures, which are then simplified into a DataFormat for CNN usage.",
+      "B": "2D labels are transformed into 1D heat vectors, which are then represented as a DataFormat suitable for CNNs.",
+      "C": "2D labels are directly converted into a DataFormat without any intermediate transformation steps.",
+      "D": "2D labels undergo normalization before being converted into 1D heat vectors and formatted for CNN analysis."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct sequence starts with transforming 2D labels into 1D heat vectors (X, Y). Following this transformation, these vectors are then formatted into a data type (DataFormat) that is suitable for CNN models. Options B, C, and D introduce incorrect transformations or additional steps not mentioned in the provided context.",
+    "path_description": "Path: CNNModel --[transforms]--> 2DLabels --[transformedInto]--> 1DHeatVectors --[type]--> DataFormat",
+    "context": "We transform the 2D labels (x, y) into two 1D heat vectors (X, Y) | We transform the 2D labels (x, y) into two 1D heat vectors (X, Y) | We transform the 2D labels (x, y) into two 1D heat vectors (X, Y)",
+    "paper_id": "2014"
+  }
+]

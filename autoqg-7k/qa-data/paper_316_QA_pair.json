@@ -1,0 +1,131 @@
+[
+  {
+    "section": "iintroduction2",
+    "path": {
+      "section": "iintroduction2",
+      "start_entity": "OPTION",
+      "end_entity": "OptimizationType",
+      "hops": [
+        {
+          "from": "OPTION",
+          "relation": "developedToStore",
+          "to": "ExperimentalData",
+          "context": "OPTION [10] is an ontology developed to store and make experimental data from single-objective optimization interoperable",
+          "chunk": "1"
+        },
+        {
+          "from": "ExperimentalData",
+          "relation": "appliedTo",
+          "to": "SingleObjectiveOptimization",
+          "context": "experimental data from single-objective optimization interoperable",
+          "chunk": "1"
+        },
+        {
+          "from": "SingleObjectiveOptimization",
+          "relation": "type",
+          "to": "OptimizationType",
+          "context": "experimental data from single-objective optimization interoperable",
+          "chunk": "1"
+        }
+      ]
+    },
+    "question": "What is the primary role of the ontology 'OPTION' in relation to experimental data within the field of optimization?",
+    "options": {
+      "A": "It acts primarily as a database for theoretical frameworks in optimization without specific application to experimental data.",
+      "B": "Its main function is to analyze and provide solutions for experimental data in non-optimization specific scenarios.",
+      "C": "It serves as a structured framework to store and share experimental data for multi-objective optimization problems.",
+      "D": "OPTION is specifically developed to facilitate the interoperability of experimental data related to single-objective optimization."
+    },
+    "correct_answer": "D",
+    "explanation": "The ontology 'OPTION' was specifically developed to store and make experimental data interoperable particularly within the context of single-objective optimization, as indicated by its connection to 'SingleObjectiveOptimization' and 'OptimizationType' in the knowledge graph. The other options either introduce different types of optimization or mischaracterize the ontology's purpose.",
+    "path_description": "Path: OPTION --[developedToStore]--> ExperimentalData --[appliedTo]--> SingleObjectiveOptimization --[type]--> OptimizationType",
+    "context": "OPTION [10] is an ontology developed to store and make experimental data from single-objective optimization interoperable | experimental data from single-objective optimization interoperable | experimental data from single-objective optimization interoperable",
+    "paper_id": "273"
+  },
+  {
+    "section": "iiiexperimentalsetup2",
+    "path": {
+      "section": "iiiexperimentalsetup2",
+      "start_entity": "RandomForest",
+      "end_entity": "Method",
+      "hops": [
+        {
+          "from": "RandomForest",
+          "relation": "optimizedFor",
+          "to": "RegressionModels",
+          "context": "The regression models are built with the Random Forest (RF) algorithm as implemented in the Python package scikit-learn",
+          "chunk": "5"
+        },
+        {
+          "from": "RegressionModels",
+          "relation": "uses",
+          "to": "MultiTargetRegression",
+          "context": "Multi-target regression (MTR) – we train one regression model per MLC method where we simultaneously try to predict the performance of the method according to the six evaluation metrics",
+          "chunk": "5"
+        },
+        {
+          "from": "MultiTargetRegression",
+          "relation": "type",
+          "to": "Method",
+          "context": "Multi-target regression (MTR) – we train one regression model per MLC method where we simultaneously try to predict the performance of the method according to the six evaluation metrics",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the context of using RandomForest for regression models in multi-target regression, what is the primary purpose of employing this method?",
+    "options": {
+      "A": "To increase the accuracy of RandomForest by training separate models for each evaluation metric.",
+      "B": "To enhance the feature selection process in RandomForest, optimizing it specifically for single-target regression.",
+      "C": "To train one regression model per machine learning classification method, predicting performance across multiple metrics.",
+      "D": "To reduce the computational complexity inherent in training multiple regression models for each target."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A because the context specifies that in the experimental setup, RandomForest is used within a multi-target regression framework where one model is trained per machine learning classification (MLC) method, aiming to predict the performance across various evaluation metrics simultaneously. This indicates that the primary use of this setup is to handle multiple targets (performance metrics) at once, rather than focusing on single metrics or reducing complexity. Options B, C, and D, while somewhat plausible, do not align with the multi-target aspect described in the experiment.",
+    "path_description": "Path: RandomForest --[optimizedFor]--> RegressionModels --[uses]--> MultiTargetRegression --[type]--> Method",
+    "context": "The regression models are built with the Random Forest (RF) algorithm as implemented in the Python package scikit-learn | Multi-target regression (MTR) – we train one regression model per MLC method where we simultaneously try to predict the performance of the method according to the six evaluation metrics | Multi-target regression (MTR) – we train one regression model per MLC method where we simultaneously try to predict the performance of the method according to the six evaluation metrics",
+    "paper_id": "273"
+  },
+  {
+    "section": "iiiexperimentalsetup1",
+    "path": {
+      "section": "iiiexperimentalsetup1",
+      "start_entity": "MoyanoEtAl",
+      "end_entity": "MetaFeatureGroup",
+      "hops": [
+        {
+          "from": "MoyanoEtAl",
+          "relation": "proposes",
+          "to": "MultiLabelClassificationMetaFeatures",
+          "context": "Moyano et al. [26] defined a list of meta-features specific for multi-label classification datasets.",
+          "chunk": "4"
+        },
+        {
+          "from": "MultiLabelClassificationMetaFeatures",
+          "relation": "includes",
+          "to": "LabelDistribution",
+          "context": "Label distribution, e.g., frequency, cardinality and density of labels.",
+          "chunk": "4"
+        },
+        {
+          "from": "LabelDistribution",
+          "relation": "type",
+          "to": "MetaFeatureGroup",
+          "context": "Label distribution, e.g., frequency, cardinality and density of labels.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the context of multi-label classification datasets, as proposed by Moyano et al., which group of meta-features does label distribution belong to?",
+    "options": {
+      "A": "Label distribution is part of the MetaFeatureGroup that deals with external dataset qualities, unrelated to labels.",
+      "B": "Label distribution is classified under the MetaFeatureGroup that focuses primarily on individual instance attributes.",
+      "C": "Label distribution falls under the MetaFeatureGroup that measures relationships between features and labels.",
+      "D": "Label distribution belongs to the MetaFeatureGroup that examines label-specific characteristics in datasets."
+    },
+    "correct_answer": "D",
+    "explanation": "According to the knowledge path, Moyano et al. propose a set of meta-features for multi-label classification, which includes label distribution as a type of MetaFeatureGroup. This indicates that label distribution, involving aspects like frequency, cardinality, and density, pertains to the meta-feature group concerned with label-specific characteristics in datasets.",
+    "path_description": "Path: MoyanoEtAl --[proposes]--> MultiLabelClassificationMetaFeatures --[includes]--> LabelDistribution --[type]--> MetaFeatureGroup",
+    "context": "Moyano et al. [26] defined a list of meta-features specific for multi-label classification datasets. | Label distribution, e.g., frequency, cardinality and density of labels. | Label distribution, e.g., frequency, cardinality and density of labels.",
+    "paper_id": "273"
+  }
+]

@@ -1,0 +1,131 @@
+[
+  {
+    "section": "defectsintonsmartcontracts2",
+    "path": {
+      "section": "defectsintonsmartcontracts2",
+      "start_entity": "Miners",
+      "end_entity": "Parameter",
+      "hops": [
+        {
+          "from": "Miners",
+          "relation": "canInfluence",
+          "to": "RandomNumberGeneration",
+          "context": "However, similar to Ethereum, miners can influence random number generation...",
+          "chunk": "3"
+        },
+        {
+          "from": "RandomNumberGeneration",
+          "relation": "uses",
+          "to": "LogicalTime",
+          "context": "they determine the current block’s information, including the logical time [12].",
+          "chunk": "3"
+        },
+        {
+          "from": "LogicalTime",
+          "relation": "type",
+          "to": "Parameter",
+          "context": "they determine the current block’s information, including the logical time [12].",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the context of blockchain technology, how can miners potentially impact the outcome of smart contracts that use random number generation?",
+    "options": {
+      "A": "Miners prevent certain transactions from being confirmed, selectively influencing the generation of random numbers.",
+      "B": "Miners can influence the random number generation by determining the logical time, which is a type of parameter used in the process.",
+      "C": "Miners increase the processing power on the network to generate favorable random numbers more quickly.",
+      "D": "Miners directly modify the code of smart contracts to alter the outcomes of transactions involving random numbers."
+    },
+    "correct_answer": "B",
+    "explanation": "Miners can influence random number generation as they determine the logical time, which is critical in the generation process and acts as a parameter. Logical time affects how and when random numbers are generated, impacting the outcomes of smart contracts that rely on these numbers.",
+    "path_description": "Path: Miners --[canInfluence]--> RandomNumberGeneration --[uses]--> LogicalTime --[type]--> Parameter",
+    "context": "However, similar to Ethereum, miners can influence random number generation... | they determine the current block’s information, including the logical time [12]. | they determine the current block’s information, including the logical time [12].",
+    "paper_id": "1350"
+  },
+  {
+    "section": "methodology1",
+    "path": {
+      "section": "methodology1",
+      "start_entity": "TONScanner",
+      "end_entity": "SSAFormIR",
+      "hops": [
+        {
+          "from": "TONScanner",
+          "relation": "generates",
+          "to": "FunCIR",
+          "context": "To facilitate further detection, TONScanner generates IR in the first stage.",
+          "chunk": "5"
+        },
+        {
+          "from": "FunCIR",
+          "relation": "convertedTo",
+          "to": "CFG",
+          "context": "Next, the DAG-form FunC IR is converted into a CFG.",
+          "chunk": "5"
+        },
+        {
+          "from": "CFG",
+          "relation": "transformedTo",
+          "to": "SSAFormIR",
+          "context": "Finally, the FunC IR is transformed into SSA-form IR based on the CFG.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the methodology described for TONScanner, what is the correct sequence of transformations applied to the intermediate representation (IR) to facilitate detection?",
+    "options": {
+      "A": "TONScanner initially produces SSA-form IR, which is then converted into a DAG-form FunC IR, and finally transformed into a CFG.",
+      "B": "TONScanner creates a CFG, which is directly transformed into SSA-form IR without intermediate stages.",
+      "C": "TONScanner generates a DAG-form FunC IR, which is then converted into CFG, and finally transformed into SSA-form IR.",
+      "D": "TONScanner starts with FunC IR, transforms it into SSA-form IR, and finally converts it into a CFG."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct sequence starts with TONScanner generating a DAG-form FunC IR. This IR is then converted into a Control Flow Graph (CFG). Finally, based on the CFG, it is transformed into a Static Single Assignment (SSA)-form IR. This sequence is explicitly outlined in the provided path and context from the paper.",
+    "path_description": "Path: TONScanner --[generates]--> FunCIR --[convertedTo]--> CFG --[transformedTo]--> SSAFormIR",
+    "context": "To facilitate further detection, TONScanner generates IR in the first stage. | Next, the DAG-form FunC IR is converted into a CFG. | Finally, the FunC IR is transformed into SSA-form IR based on the CFG.",
+    "paper_id": "1350"
+  },
+  {
+    "section": "experiment1",
+    "path": {
+      "section": "experiment1",
+      "start_entity": "TON_Contract_Dataset",
+      "end_entity": "FunC_Contracts",
+      "hops": [
+        {
+          "from": "TON_Contract_Dataset",
+          "relation": "contains",
+          "to": "Tact_Contracts",
+          "context": "This process results in 258 contracts onchain and 460 contracts from GitHub, totaling 718 unique Tact contracts",
+          "chunk": "9"
+        },
+        {
+          "from": "Tact_Contracts",
+          "relation": "partOf",
+          "to": "TON_Contract_Dataset",
+          "context": "This process results in 258 contracts onchain and 460 contracts from GitHub, totaling 718 unique Tact contracts",
+          "chunk": "9"
+        },
+        {
+          "from": "TON_Contract_Dataset",
+          "relation": "contains",
+          "to": "FunC_Contracts",
+          "context": "We finally obtained 294 contracts from onchain and 628 contracts from GitHub, resulting in a total of 922 unique FunC contracts",
+          "chunk": "9"
+        }
+      ]
+    },
+    "question": "Which statement correctly illustrates the relationship between Tact contracts and FunC contracts within the TON Contract Dataset, based on their origins and total counts?",
+    "options": {
+      "A": "Tact contracts, totaling 718, are exclusively from onchain sources, while FunC contracts, totaling 922, are derived from GitHub within the TON Contract Dataset.",
+      "B": "Both Tact and FunC contracts are part of the TON Contract Dataset, with 718 Tact contracts sourced from onchain and GitHub, and 922 FunC contracts sourced only from GitHub.",
+      "C": "Within the TON Contract Dataset, the 718 Tact contracts are sourced from both onchain and GitHub, while the 922 FunC contracts are also sourced from both onchain and GitHub.",
+      "D": "The TON Contract Dataset contains Tact contracts exclusively gathered from GitHub, totaling 718 contracts, and FunC contracts, totaling 922 contracts from onchain and GitHub combined."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is D because it accurately reflects the sourcing and totals of both Tact and FunC contracts within the TON Contract Dataset as stated in the context. Both types of contracts are sourced from onchain and GitHub, with Tact contracts totaling 718 and FunC contracts totaling 922.",
+    "path_description": "Path: TON_Contract_Dataset --[contains]--> Tact_Contracts --[partOf]--> TON_Contract_Dataset --[contains]--> FunC_Contracts",
+    "context": "This process results in 258 contracts onchain and 460 contracts from GitHub, totaling 718 unique Tact contracts | This process results in 258 contracts onchain and 460 contracts from GitHub, totaling 718 unique Tact contracts | We finally obtained 294 contracts from onchain and 628 contracts from GitHub, resulting in a total of 922 unique FunC contracts",
+    "paper_id": "1350"
+  }
+]

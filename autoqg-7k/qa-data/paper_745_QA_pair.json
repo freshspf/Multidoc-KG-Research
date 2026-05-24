@@ -1,0 +1,88 @@
+[
+  {
+    "section": "modellingofthewecs",
+    "path": {
+      "section": "modellingofthewecs",
+      "start_entity": "TipSpeedRatio",
+      "end_entity": "PhysicalQuantity",
+      "hops": [
+        {
+          "from": "TipSpeedRatio",
+          "relation": "variesWith",
+          "to": "PowerCoefficient",
+          "context": "Cp varies in function of the Tip Speed Ratio (TSR) λ",
+          "chunk": "1"
+        },
+        {
+          "from": "PowerCoefficient",
+          "relation": "enables",
+          "to": "AerodynamicPower",
+          "context": "The aerodynamic efficiency of the wind turbine rotor is commonly modelled with the power coefficient Cp which enables to write an expression of the aerodynamic power extracted from the wind by the blades",
+          "chunk": "1"
+        },
+        {
+          "from": "AerodynamicPower",
+          "relation": "type",
+          "to": "PhysicalQuantity",
+          "context": "enables to write an expression of the aerodynamic power extracted from the wind by the blades",
+          "chunk": "1"
+        }
+      ]
+    },
+    "question": "How does the variation in the Tip Speed Ratio (TSR) influence the physical quantity of aerodynamic power in a wind turbine?",
+    "options": {
+      "A": "Decreasing the Tip Speed Ratio directly increases the aerodynamic power by reducing the physical resistance of the blades.",
+      "B": "Increasing the Tip Speed Ratio decreases the aerodynamic resistance, thereby indirectly increasing the electrical output.",
+      "C": "Decreasing the Tip Speed Ratio reduces the Power Coefficient, which diminishes the mechanical power available from the rotor.",
+      "D": "Increasing the Tip Speed Ratio enhances the Power Coefficient, which raises the aerodynamic power extracted from the wind."
+    },
+    "correct_answer": "D",
+    "explanation": "The Tip Speed Ratio (TSR) influences the Power Coefficient (Cp), and as the TSR increases, Cp generally increases up to an optimal point, which in turn increases the aerodynamic power extracted from the wind, as per the relationship outlined in the knowledge graph path.",
+    "path_description": "Path: TipSpeedRatio --[variesWith]--> PowerCoefficient --[enables]--> AerodynamicPower --[type]--> PhysicalQuantity",
+    "context": "Cp varies in function of the Tip Speed Ratio (TSR) λ | The aerodynamic efficiency of the wind turbine rotor is commonly modelled with the power coefficient Cp which enables to write an expression of the aerodynamic power extracted from the wind by the blades | enables to write an expression of the aerodynamic power extracted from the wind by the blades",
+    "paper_id": "1686"
+  },
+  {
+    "section": "conclusion2",
+    "path": {
+      "section": "conclusion2",
+      "start_entity": "Lo",
+      "end_entity": "Variable",
+      "hops": [
+        {
+          "from": "Lo",
+          "relation": "greaterThan",
+          "to": "Πmax",
+          "context": "Lo l1 > Emax +Πmax.",
+          "chunk": "8"
+        },
+        {
+          "from": "Πmax",
+          "relation": "greaterThanOrEqualTo",
+          "to": "πβ",
+          "context": "Πmax ≥ max(| πα |, | πβ |).",
+          "chunk": "8"
+        },
+        {
+          "from": "πβ",
+          "relation": "type",
+          "to": "Variable",
+          "context": "Lo l1 > L · max(| eα |, | eβ |) +max(| πα |, | πβ |).",
+          "chunk": "8"
+        }
+      ]
+    },
+    "question": "Based on the defined relationships in the section 'conclusion2', which statement correctly describes the type of the variable πβ when considering its comparative magnitude?",
+    "options": {
+      "A": "πβ is a variable that is less than Πmax but greater than Lo, and does not qualify as a Variable.",
+      "B": "πβ is a variable that is at least as great as the greatest of |πα| or |πβ|, and is categorized as a Variable.",
+      "C": "πβ is equal to Lo and greater than Πmax, qualifying it distinctly from a Variable.",
+      "D": "πβ is a constant that equals Πmax and therefore cannot be categorized as a Variable."
+    },
+    "correct_answer": "B",
+    "explanation": "From the path Lo --[greaterThan]--> Πmax --[greaterThanOrEqualTo]--> πβ --[type]--> Variable, it is clear that πβ must be at least as great as the greatest magnitude between |πα| and |πβ|, and is explicitly defined as a type of Variable. Options B, C, and D are incorrect as they misinterpret these relationships and the categorical definition of πβ.",
+    "path_description": "Path: Lo --[greaterThan]--> Πmax --[greaterThanOrEqualTo]--> πβ --[type]--> Variable",
+    "context": "Lo l1 > Emax +Πmax. | Πmax ≥ max(| πα |, | πβ |). | Lo l1 > L · max(| eα |, | eβ |) +max(| πα |, | πβ |).",
+    "paper_id": "1686"
+  }
+]

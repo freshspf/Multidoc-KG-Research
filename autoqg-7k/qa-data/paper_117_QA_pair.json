@@ -1,0 +1,88 @@
+[
+  {
+    "section": "iibackground1",
+    "path": {
+      "section": "iibackground1",
+      "start_entity": "CNN",
+      "end_entity": "ImagingModality",
+      "hops": [
+        {
+          "from": "CNN",
+          "relation": "proposes",
+          "to": "BreastCancerClassification",
+          "context": "Inspired by clinical practice, we propose an innovative convolutional neural network (CNN) architecture for breast cancer classification.",
+          "chunk": "2"
+        },
+        {
+          "from": "BreastCancerClassification",
+          "relation": "uses",
+          "to": "DigitalBreastTomosynthesis",
+          "context": "The proposed CNN architecture uses both 2D and 3D mammograms, simultaneously.",
+          "chunk": "2"
+        },
+        {
+          "from": "DigitalBreastTomosynthesis",
+          "relation": "type",
+          "to": "ImagingModality",
+          "context": "Digital breast tomosynthesis (DBT) is mentioned as a type of mammogram used in clinical practice.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "Which imaging modality, as classified in the research paper, is utilized by the newly proposed CNN architecture for breast cancer classification?",
+    "options": {
+      "A": "Standard 2D mammography, commonly used for initial breast cancer screening",
+      "B": "Digital breast tomosynthesis, a type of 3D mammogram used in clinical practice",
+      "C": "Magnetic resonance imaging (MRI), known for its high-resolution soft tissue contrast",
+      "D": "Ultrasound imaging, widely used for real-time imaging of breast tissues"
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A, as the provided knowledge path identifies that the CNN architecture proposed for breast cancer classification uses digital breast tomosynthesis (DBT), which is a type of 3D mammogram. This is mentioned as a type of imaging modality used in the clinical practice settings discussed in the paper.",
+    "path_description": "Path: CNN --[proposes]--> BreastCancerClassification --[uses]--> DigitalBreastTomosynthesis --[type]--> ImagingModality",
+    "context": "Inspired by clinical practice, we propose an innovative convolutional neural network (CNN) architecture for breast cancer classification. | The proposed CNN architecture uses both 2D and 3D mammograms, simultaneously. | Digital breast tomosynthesis (DBT) is mentioned as a type of mammogram used in clinical practice.",
+    "paper_id": "50"
+  },
+  {
+    "section": "iiiarchitectureoverview",
+    "path": {
+      "section": "iiiarchitectureoverview",
+      "start_entity": "RankSVM",
+      "end_entity": "Bias",
+      "hops": [
+        {
+          "from": "RankSVM",
+          "relation": "appliedTo",
+          "to": "DBT",
+          "context": "Inspired by Bilen et al., we applied RankSVM directly on DBT data to extract a fixed, one-slice representation of each DBT.",
+          "chunk": "4"
+        },
+        {
+          "from": "DBT",
+          "relation": "requires",
+          "to": "TrainedRadiologist",
+          "context": "a keyframe of each DBT needs to be selected by a trained radiologist during the data pre-processing step.",
+          "chunk": "4"
+        },
+        {
+          "from": "TrainedRadiologist",
+          "relation": "introduces",
+          "to": "Bias",
+          "context": "This human involvement does not only increase the cost of using the method but also introduces bias into the proposed model.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the context of using RankSVM on DBT data, how does the involvement of a trained radiologist during the data pre-processing step impact the model?",
+    "options": {
+      "A": "It introduces bias into the model due to subjective selections of keyframes by the radiologist.",
+      "B": "It decreases the computational efficiency of the model by requiring additional processing steps.",
+      "C": "It increases the accuracy of the model by providing expert-selected keyframes for analysis.",
+      "D": "It reduces the overall cost of implementing the model by minimizing the need for automated systems."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is C. According to the provided context, a trained radiologist is required to select a keyframe during the pre-processing of DBT data when using RankSVM, which introduces bias into the model. This is because the selection process is subjective and dependent on the radiologist's personal judgment, potentially leading to inconsistent representations across different DBT data sets.",
+    "path_description": "Path: RankSVM --[appliedTo]--> DBT --[requires]--> TrainedRadiologist --[introduces]--> Bias",
+    "context": "Inspired by Bilen et al., we applied RankSVM directly on DBT data to extract a fixed, one-slice representation of each DBT. | a keyframe of each DBT needs to be selected by a trained radiologist during the data pre-processing step. | This human involvement does not only increase the cost of using the method but also introduces bias into the proposed model.",
+    "paper_id": "50"
+  }
+]

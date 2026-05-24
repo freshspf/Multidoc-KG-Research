@@ -1,0 +1,131 @@
+[
+  {
+    "section": "designphase1",
+    "path": {
+      "section": "designphase1",
+      "start_entity": "AcubeSAT",
+      "end_entity": "Subsystem",
+      "hops": [
+        {
+          "from": "AcubeSAT",
+          "relation": "replacedMCUWith",
+          "to": "SAMV71Q21RT",
+          "context": "Microchip’s (Atmel) SAMV71Q21RT was the new chip replacing the old STM32-based design.",
+          "chunk": "1"
+        },
+        {
+          "from": "SAMV71Q21RT",
+          "relation": "usedIn",
+          "to": "ADCS",
+          "context": "This processor is also employed across some other in-house built subsystems, including the Payload PCB and the Attitude, Determination and Control Subsystem (ADCS).",
+          "chunk": "1"
+        },
+        {
+          "from": "ADCS",
+          "relation": "type",
+          "to": "Subsystem",
+          "context": "This processor is also employed across some other in-house built subsystems, including the Payload PCB and the Attitude, Determination and Control Subsystem (ADCS).",
+          "chunk": "1"
+        }
+      ]
+    },
+    "question": "In the AcubeSAT project, which subsystem utilizes the SAMV71Q21RT microcontroller, previously replacing the STM32-based design?",
+    "options": {
+      "A": "The Electrical Power System (EPS) incorporates the SAMV71Q21RT as a replacement for the STM32-based design.",
+      "B": "The Attitude, Determination, and Control Subsystem (ADCS) employs the SAMV71Q21RT microcontroller.",
+      "C": "The Communication Subsystem uses the SAMV71Q21RT after replacing the STM32-based design.",
+      "D": "The Payload PCB employs the SAMV71Q21RT, but not as a replacement in subsystem context."
+    },
+    "correct_answer": "B",
+    "explanation": "Following the knowledge path, the SAMV71Q21RT replaces the MCU in AcubeSAT, is used in the ADCS, and as mentioned in the context, the ADCS is a subsystem that employs this processor. The other options incorrectly identify subsystems not mentioned with the SAMV71Q21RT replacement.",
+    "path_description": "Path: AcubeSAT --[replacedMCUWith]--> SAMV71Q21RT --[usedIn]--> ADCS --[type]--> Subsystem",
+    "context": "Microchip’s (Atmel) SAMV71Q21RT was the new chip replacing the old STM32-based design. | This processor is also employed across some other in-house built subsystems, including the Payload PCB and the Attitude, Determination and Control Subsystem (ADCS). | This processor is also employed across some other in-house built subsystems, including the Payload PCB and the Attitude, Determination and Control Subsystem (ADCS).",
+    "paper_id": "269"
+  },
+  {
+    "section": "environmentaltestingcampaigns2",
+    "path": {
+      "section": "environmentaltestingcampaigns2",
+      "start_entity": "TCXO",
+      "end_entity": "Frequency",
+      "hops": [
+        {
+          "from": "TCXO",
+          "relation": "outputFrequency",
+          "to": "CPU_Clock304MHz",
+          "context": "After software debugging at the CSF [48] during a high-temperature stimulation with a heat lamp, the cause of the crash was determined to be the communication between the MCU and the MRAM along with the overclocking of the MCU due to the external 16 MHz Temperature - Compensated Crystal Oscillator (TCXO) that was outputting a frequency of 304 MHz for the CPU clock instead of the nominal 300 MHz.",
+          "chunk": "5"
+        },
+        {
+          "from": "CPU_Clock304MHz",
+          "relation": "deviatedFrom",
+          "to": "CPU_Clock300MHz",
+          "context": "After software debugging at the CSF [48] during a high-temperature stimulation with a heat lamp, the cause of the crash was determined to be the communication between the MCU and the MRAM along with the overclocking of the MCU due to the external 16 MHz Temperature - Compensated Crystal Oscillator (TCXO) that was outputting a frequency of 304 MHz for the CPU clock instead of the nominal 300 MHz.",
+          "chunk": "5"
+        },
+        {
+          "from": "CPU_Clock300MHz",
+          "relation": "type",
+          "to": "Frequency",
+          "context": "After software debugging at the CSF [48] during a high-temperature stimulation with a heat lamp, the cause of the crash was determined to be the communication between the MCU and the MRAM along with the overclocking of the MCU due to the external 16 MHz Temperature - Compensated Crystal Oscillator (TCXO) that was outputting a frequency of 304 MHz for the CPU clock instead of the nominal 300 MHz.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In a high-temperature testing scenario, how did the external TCXO impact the functionality of the MCU?",
+    "options": {
+      "A": "The TCXO deviated from its nominal frequency by increasing the CPU clock to 304 MHz, leading to MCU overclocking.",
+      "B": "The TCXO reduced its output frequency, causing the CPU clock to drop below the required 300 MHz.",
+      "C": "The TCXO caused an underclocking effect by significantly dropping the CPU clock frequency.",
+      "D": "The TCXO maintained a steady 300 MHz, ensuring stable communication between the MCU and MRAM."
+    },
+    "correct_answer": "A",
+    "explanation": "The TCXO was supposed to output a frequency suited for a 300 MHz CPU clock but instead output 304 MHz. This deviation led to the overclocking of the MCU, which was one of the causes for the system crash during high-temperature testing.",
+    "path_description": "Path: TCXO --[outputFrequency]--> CPU_Clock304MHz --[deviatedFrom]--> CPU_Clock300MHz --[type]--> Frequency",
+    "context": "After software debugging at the CSF [48] during a high-temperature stimulation with a heat lamp, the cause of the crash was determined to be the communication between the MCU and the MRAM along with the overclocking of the MCU due to the external 16 MHz Temperature - Compensated Crystal Oscillator (TCXO) that was outputting a frequency of 304 MHz for the CPU clock instead of the nominal 300 MHz. | After software debugging at the CSF [48] during a high-temperature stimulation with a heat lamp, the cause of the crash was determined to be the communication between the MCU and the MRAM along with the overclocking of the MCU due to the external 16 MHz Temperature - Compensated Crystal Oscillator (TCXO) that was outputting a frequency of 304 MHz for the CPU clock instead of the nominal 300 MHz. | After software debugging at the CSF [48] during a high-temperature stimulation with a heat lamp, the cause of the crash was determined to be the communication between the MCU and the MRAM along with the overclocking of the MCU due to the external 16 MHz Temperature - Compensated Crystal Oscillator (TCXO) that was outputting a frequency of 304 MHz for the CPU clock instead of the nominal 300 MHz.",
+    "paper_id": "269"
+  },
+  {
+    "section": "environmentaltestingcampaigns2",
+    "path": {
+      "section": "environmentaltestingcampaigns2",
+      "start_entity": "MCU",
+      "end_entity": "CPU_Clock300MHz",
+      "hops": [
+        {
+          "from": "MCU",
+          "relation": "overclockedBy",
+          "to": "TCXO",
+          "context": "After software debugging at the CSF [48] during a high-temperature stimulation with a heat lamp, the cause of the crash was determined to be the communication between the MCU and the MRAM along with the overclocking of the MCU due to the external 16 MHz Temperature - Compensated Crystal Oscillator (TCXO) that was outputting a frequency of 304 MHz for the CPU clock instead of the nominal 300 MHz.",
+          "chunk": "5"
+        },
+        {
+          "from": "TCXO",
+          "relation": "outputFrequency",
+          "to": "CPU_Clock304MHz",
+          "context": "After software debugging at the CSF [48] during a high-temperature stimulation with a heat lamp, the cause of the crash was determined to be the communication between the MCU and the MRAM along with the overclocking of the MCU due to the external 16 MHz Temperature - Compensated Crystal Oscillator (TCXO) that was outputting a frequency of 304 MHz for the CPU clock instead of the nominal 300 MHz.",
+          "chunk": "5"
+        },
+        {
+          "from": "CPU_Clock304MHz",
+          "relation": "deviatedFrom",
+          "to": "CPU_Clock300MHz",
+          "context": "After software debugging at the CSF [48] during a high-temperature stimulation with a heat lamp, the cause of the crash was determined to be the communication between the MCU and the MRAM along with the overclocking of the MCU due to the external 16 MHz Temperature - Compensated Crystal Oscillator (TCXO) that was outputting a frequency of 304 MHz for the CPU clock instead of the nominal 300 MHz.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the context of an environmental testing campaign, what was the primary reason for the MCU crash during high-temperature stimulation?",
+    "options": {
+      "A": "The crash of the MCU was primarily due to insufficient cooling, causing an internal temperature rise and system failure.",
+      "B": "The MRAM malfunctioned due to high environmental temperatures, leading to the crash of the MCU.",
+      "C": "An error in the software code was the main reason for the MCU crash during the high-temperature stimulation.",
+      "D": "The MCU crashed due to overclocking caused by the TCXO outputting a CPU clock frequency of 304 MHz instead of the standard 300 MHz."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A. The paper states that the MCU crash was due to overclocking, which was a result of the TCXO outputting a CPU clock frequency of 304 MHz instead of the nominal 300 MHz. Options B, C, and D are misleading; B suggests a cooling issue, C implies a software error, and D blames the MRAM directly, none of which are supported by the given context about the root cause being the overclocked CPU clock frequency.",
+    "path_description": "Path: MCU --[overclockedBy]--> TCXO --[outputFrequency]--> CPU_Clock304MHz --[deviatedFrom]--> CPU_Clock300MHz",
+    "context": "After software debugging at the CSF [48] during a high-temperature stimulation with a heat lamp, the cause of the crash was determined to be the communication between the MCU and the MRAM along with the overclocking of the MCU due to the external 16 MHz Temperature - Compensated Crystal Oscillator (TCXO) that was outputting a frequency of 304 MHz for the CPU clock instead of the nominal 300 MHz. | After software debugging at the CSF [48] during a high-temperature stimulation with a heat lamp, the cause of the crash was determined to be the communication between the MCU and the MRAM along with the overclocking of the MCU due to the external 16 MHz Temperature - Compensated Crystal Oscillator (TCXO) that was outputting a frequency of 304 MHz for the CPU clock instead of the nominal 300 MHz. | After software debugging at the CSF [48] during a high-temperature stimulation with a heat lamp, the cause of the crash was determined to be the communication between the MCU and the MRAM along with the overclocking of the MCU due to the external 16 MHz Temperature - Compensated Crystal Oscillator (TCXO) that was outputting a frequency of 304 MHz for the CPU clock instead of the nominal 300 MHz.",
+    "paper_id": "269"
+  }
+]

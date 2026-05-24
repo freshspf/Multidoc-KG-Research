@@ -1,0 +1,45 @@
+[
+  {
+    "section": "control",
+    "path": {
+      "section": "control",
+      "start_entity": "KinematicControlLaw",
+      "end_entity": "OperationalMode",
+      "hops": [
+        {
+          "from": "KinematicControlLaw",
+          "relation": "appliedTo",
+          "to": "HighForceMode",
+          "context": "The kinematic control law can be written as w1 = u1 + u2, leading to wo = u2 with w1 = u1.",
+          "chunk": "4"
+        },
+        {
+          "from": "HighForceMode",
+          "relation": "transitionsTo",
+          "to": "HighSpeedMode",
+          "context": "From high-force mode to high-speed mode: This transition control is simple.",
+          "chunk": "4"
+        },
+        {
+          "from": "HighSpeedMode",
+          "relation": "type",
+          "to": "OperationalMode",
+          "context": "With a small reduction ratio R1 the DSDM actuator can be controlled like a direct drive motor.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the context of the control section discussing kinematic control laws and DSDM actuators, what is the primary operational characteristic that enables the transition from High Force Mode to High Speed Mode?",
+    "options": {
+      "A": "The implementation of a simple control transition that utilizes a small reduction ratio R1.",
+      "B": "The alteration of the kinematic equations to prioritize speed over force in system outputs.",
+      "C": "The application of a high reduction ratio R2, increasing the torque output of the actuator.",
+      "D": "The use of a complex feedback system that dynamically adjusts to environmental changes."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A because the transition from High Force Mode to High Speed Mode is facilitated by a simple control transition using a small reduction ratio R1, as mentioned in the paper. This small reduction ratio allows the DSDM actuator to be controlled like a direct drive motor, enabling efficient mode transitions. Options B, C, and D introduce elements like complex feedback systems, high reduction ratios, and altered equations which are not supported by the paper's discussion on this transition.",
+    "path_description": "Path: KinematicControlLaw --[appliedTo]--> HighForceMode --[transitionsTo]--> HighSpeedMode --[type]--> OperationalMode",
+    "context": "The kinematic control law can be written as w1 = u1 + u2, leading to wo = u2 with w1 = u1. | From high-force mode to high-speed mode: This transition control is simple. | With a small reduction ratio R1 the DSDM actuator can be controlled like a direct drive motor.",
+    "paper_id": "307"
+  }
+]

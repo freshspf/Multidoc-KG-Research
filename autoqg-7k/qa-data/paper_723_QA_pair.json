@@ -1,0 +1,45 @@
+[
+  {
+    "section": "topdownmatrixmultiplication2",
+    "path": {
+      "section": "topdownmatrixmultiplication2",
+      "start_entity": "ExternalGPU",
+      "end_entity": "Hardware",
+      "hops": [
+        {
+          "from": "ExternalGPU",
+          "relation": "partOf",
+          "to": "Platform",
+          "context": "an external GPU device",
+          "chunk": "4"
+        },
+        {
+          "from": "Platform",
+          "relation": "uses",
+          "to": "InternalGPU",
+          "context": "an internal GPU device",
+          "chunk": "4"
+        },
+        {
+          "from": "InternalGPU",
+          "relation": "type",
+          "to": "Hardware",
+          "context": "an internal GPU device",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the context of the topdownmatrixmultiplication2, how does the utilization of an external GPU device influence the performance of matrix multiplication?",
+    "options": {
+      "A": "The external GPU directly interacts with the CPU, bypassing the platform's internal GPU for matrix operations.",
+      "B": "The external GPU replaces the internal GPU entirely, thus becoming the sole processing unit for matrix multiplication.",
+      "C": "The external GPU, being part of the platform, uses an internal GPU that accelerates matrix computations.",
+      "D": "The external GPU reduces the overall system performance by conflicting with the internal GPU settings."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A because the question follows the knowledge path in the graph. The external GPU is part of the platform, which utilizes the internal GPU for processing. This internal GPU, being a type of hardware, specifically aids in accelerating matrix computations, which is critical for the performance enhancement in matrix multiplication scenarios described in the topdownmatrixmultiplication2 section of the paper.",
+    "path_description": "Path: ExternalGPU --[partOf]--> Platform --[uses]--> InternalGPU --[type]--> Hardware",
+    "context": "an external GPU device | an internal GPU device | an internal GPU device",
+    "paper_id": "35"
+  }
+]

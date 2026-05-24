@@ -1,0 +1,174 @@
+[
+  {
+    "section": "abstract",
+    "path": {
+      "section": "abstract",
+      "start_entity": "HeteroPod",
+      "end_entity": "Software",
+      "hops": [
+        {
+          "from": "HeteroPod",
+          "relation": "offloads",
+          "to": "InfrastructureServices",
+          "context": "HeteroPod offloads these services to Data Processing Units (DPUs).",
+          "chunk": "0"
+        },
+        {
+          "from": "InfrastructureServices",
+          "relation": "competeForResourceWith",
+          "to": "UserApplications",
+          "context": "Services compete for resources with user applications.",
+          "chunk": "0"
+        },
+        {
+          "from": "UserApplications",
+          "relation": "type",
+          "to": "Software",
+          "context": "Services compete for resources with user applications.",
+          "chunk": "0"
+        }
+      ]
+    },
+    "question": "In the context where HeteroPod offloads tasks to Infrastructure Services on Data Processing Units (DPUs), how does this configuration impact user applications?",
+    "options": {
+      "A": "User applications will experience increased performance due to enhanced infrastructure services provided by HeteroPod.",
+      "B": "User applications may experience decreased resource availability as they compete with the offloaded infrastructure services.",
+      "C": "User applications can offload their processing needs to HeteroPod, resulting in a more efficient use of resources.",
+      "D": "User applications will be unaffected as HeteroPod offloads tasks directly to the cloud, bypassing local resources."
+    },
+    "correct_answer": "B",
+    "explanation": "Option A is correct as it reflects the competition for resources described in the knowledge path; when HeteroPod offloads infrastructure services to DPUs, those services compete for resources with user applications, potentially reducing the resources available to the applications. Options B and D incorrectly suggest a positive impact or direct interaction, and C incorrectly states that offloading bypasses local resources.",
+    "path_description": "Path: HeteroPod --[offloads]--> InfrastructureServices --[competeForResourceWith]--> UserApplications --[type]--> Software",
+    "context": "HeteroPod offloads these services to Data Processing Units (DPUs). | Services compete for resources with user applications. | Services compete for resources with user applications.",
+    "paper_id": "2032"
+  },
+  {
+    "section": "designandimplementationofheteronet1",
+    "path": {
+      "section": "designandimplementationofheteronet1",
+      "start_entity": "DirectCall",
+      "end_entity": "Technology",
+      "hops": [
+        {
+          "from": "DirectCall",
+          "relation": "partOf",
+          "to": "SplitNetworkNamespace",
+          "context": "Direct call indicates two processes within the network namespace can communicate by using localhost and port number",
+          "chunk": "5"
+        },
+        {
+          "from": "SplitNetworkNamespace",
+          "relation": "basedOn",
+          "to": "NetworkNamespace",
+          "context": "We extend the concept to split network namespace",
+          "chunk": "5"
+        },
+        {
+          "from": "NetworkNamespace",
+          "relation": "type",
+          "to": "Technology",
+          "context": "Network namespaces in Linux provide isolation of network-related system resources",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the context of network namespace isolation mentioned in the 'designandimplementationofheteronet1' section, what technology allows two processes within a split network namespace to communicate using localhost and port number?",
+    "options": {
+      "A": "Stateful firewall configuration enables processes within a split network namespace to communicate using localhost and port number.",
+      "B": "The subnet masking in Linux allows processes within a split network namespace to communicate using localhost and port number.",
+      "C": "Virtual routing and forwarding technology enables processes within a split network namespace to communicate using localhost and port number.",
+      "D": "Direct call technology enables processes within a split network namespace to communicate using localhost and port number."
+    },
+    "correct_answer": "D",
+    "explanation": "Based on the knowledge graph, Direct call is part of Split Network Namespace which is based on Network Namespace, classified as a technology. Direct call allows communication between processes inside a network namespace using localhost and port number, which extends to split network namespaces.",
+    "path_description": "Path: DirectCall --[partOf]--> SplitNetworkNamespace --[basedOn]--> NetworkNamespace --[type]--> Technology",
+    "context": "Direct call indicates two processes within the network namespace can communicate by using localhost and port number | We extend the concept to split network namespace | Network namespaces in Linux provide isolation of network-related system resources",
+    "paper_id": "2032"
+  },
+  {
+    "section": "designandimplementationofheteronet2",
+    "path": {
+      "section": "designandimplementationofheteronet2",
+      "start_entity": "Hetero-netns",
+      "end_entity": "HardwareComponent",
+      "hops": [
+        {
+          "from": "Hetero-netns",
+          "relation": "detects",
+          "to": "PacketRules",
+          "context": "As indirect call is achieved through network rules, hetero-netns can detect and replace them with the new rules for interception about incoming and outgoing traffic.",
+          "chunk": "6"
+        },
+        {
+          "from": "PacketRules",
+          "relation": "appliedTo",
+          "to": "DestinationPU",
+          "context": "These rules may have redundant operations to a packet, but not introduce new side effects...",
+          "chunk": "6"
+        },
+        {
+          "from": "DestinationPU",
+          "relation": "type",
+          "to": "HardwareComponent",
+          "context": "These rules may have redundant operations to a packet, but not introduce new side effects...",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the context of the Hetero-netns system, how does the application of packet rules to a DestinationPU influence its role within the network?",
+    "options": {
+      "A": "After packet rules application, the DestinationPU primarily functions as a software debugger for network security.",
+      "B": "The DestinationPU becomes a storage repository for data packets once packet rules are applied.",
+      "C": "Applying packet rules transforms the DestinationPU into a passive network observer without interaction.",
+      "D": "Packet rules applied to a DestinationPU classify it as a HardwareComponent handling specific network traffic."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A because the path indicates that the DestinationPU, after packet rules are applied, is categorized as a HardwareComponent. This implies that the DestinationPU handles specific types of network traffic as part of its functional role within the network infrastructure, aligning with typical behaviors of hardware components in network systems.",
+    "path_description": "Path: Hetero-netns --[detects]--> PacketRules --[appliedTo]--> DestinationPU --[type]--> HardwareComponent",
+    "context": "As indirect call is achieved through network rules, hetero-netns can detect and replace them with the new rules for interception about incoming and outgoing traffic. | These rules may have redundant operations to a packet, but not introduce new side effects... | These rules may have redundant operations to a packet, but not introduce new side effects...",
+    "paper_id": "2032"
+  },
+  {
+    "section": "designandimplementationofheteronet3",
+    "path": {
+      "section": "designandimplementationofheteronet3",
+      "start_entity": "Kernel",
+      "end_entity": "TailRecord",
+      "hops": [
+        {
+          "from": "Kernel",
+          "relation": "ratifies",
+          "to": "MemoryMapping",
+          "context": "The kernel later commits these allocations during context switches or exceptions.",
+          "chunk": "7"
+        },
+        {
+          "from": "MemoryMapping",
+          "relation": "appliedTo",
+          "to": "SharedArena",
+          "context": "hetero-socket enforces this via memory mapping – during scheduling, the OS maps (2) occupied shared records for active connections.",
+          "chunk": "7"
+        },
+        {
+          "from": "SharedArena",
+          "relation": "contains",
+          "to": "TailRecord",
+          "context": "Shared arenas... managed as a list with headRecord and tailRecord.",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "In the context of HeteroNet's memory management, how does the kernel enforce the allocation of shared arenas during exceptions?",
+    "options": {
+      "A": "By dynamically creating a new shared arena to accommodate additional memory needs during exceptions.",
+      "B": "By deallocating the headRecord in the shared arena to free up space for emergency memory requirements.",
+      "C": "By reallocating memory from the tailRecord to the headRecord in the shared arena during context switches.",
+      "D": "By mapping occupied shared records for active connections into the shared arena containing a tailRecord."
+    },
+    "correct_answer": "D",
+    "explanation": "According to the paper, during exceptions or context switches, the kernel commits allocations enforced through memory mapping. This process involves mapping occupied shared records specifically for active connections into the shared arena, where these records are managed within structures that include a tailRecord. Options B, C, and D do not accurately describe the process or misuse the terms headRecord and tailRecord in a way that's inconsistent with their use in memory management within the shared arena.",
+    "path_description": "Path: Kernel --[ratifies]--> MemoryMapping --[appliedTo]--> SharedArena --[contains]--> TailRecord",
+    "context": "The kernel later commits these allocations during context switches or exceptions. | hetero-socket enforces this via memory mapping – during scheduling, the OS maps (2) occupied shared records for active connections. | Shared arenas... managed as a list with headRecord and tailRecord.",
+    "paper_id": "2032"
+  }
+]

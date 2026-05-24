@@ -1,0 +1,131 @@
+[
+  {
+    "section": "proposedmethod2",
+    "path": {
+      "section": "proposedmethod2",
+      "start_entity": "DiabeticRetinopathyDataset",
+      "end_entity": "DataCategory",
+      "hops": [
+        {
+          "from": "DiabeticRetinopathyDataset",
+          "relation": "hasVariation",
+          "to": "Clinic1",
+          "context": "the number of training samples varies from one clinic to another",
+          "chunk": "3"
+        },
+        {
+          "from": "Clinic1",
+          "relation": "hasMajorityCategory",
+          "to": "ModerateCategory2",
+          "context": "in Clinic 1 (C1), the “Moderate (2)” category comprises the majority of samples",
+          "chunk": "3"
+        },
+        {
+          "from": "ModerateCategory2",
+          "relation": "type",
+          "to": "DataCategory",
+          "context": "in Clinic 1 (C1), the “Moderate (2)” category comprises the majority of samples",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the context of the Diabetic Retinopathy Dataset, how does the classification of data categories correlate with the sample variation across clinics?",
+    "options": {
+      "A": "The 'Moderate (2)' category is rarely seen in Clinic 1, leading to fewer samples in this category compared to others.",
+      "B": "Clinic 1 features a majority of samples classified under the 'Moderate (2)' data category, indicating a higher sample count in this category.",
+      "C": "Most samples in Clinic 1 are unclassified, which results in a significant variation in the number of samples across categories.",
+      "D": "Clinic 1 predominantly features samples from the 'Severe' category, suggesting uniformity in sample distribution across categories."
+    },
+    "correct_answer": "B",
+    "explanation": "The question requires understanding that the 'Moderate (2)' category, being the majority category in Clinic 1, contributes to a variation in the number of training samples across different clinics. Option A correctly states that Clinic 1 has a higher sample count in the 'Moderate (2)' category, which aligns with the information given in the paper that the sample count varies and that 'Moderate (2)' is the majority category in Clinic 1.",
+    "path_description": "Path: DiabeticRetinopathyDataset --[hasVariation]--> Clinic1 --[hasMajorityCategory]--> ModerateCategory2 --[type]--> DataCategory",
+    "context": "the number of training samples varies from one clinic to another | in Clinic 1 (C1), the “Moderate (2)” category comprises the majority of samples | in Clinic 1 (C1), the “Moderate (2)” category comprises the majority of samples",
+    "paper_id": "555"
+  },
+  {
+    "section": "experiment",
+    "path": {
+      "section": "experiment",
+      "start_entity": "K-Means",
+      "end_entity": "Method",
+      "hops": [
+        {
+          "from": "K-Means",
+          "relation": "usedIn",
+          "to": "Local_Training_Method",
+          "context": "the k-means algorithm is selected as the clustering method",
+          "chunk": "4"
+        },
+        {
+          "from": "Local_Training_Method",
+          "relation": "comparedWith",
+          "to": "Federated_Learning_Method",
+          "context": "In our experimental setup, we compare our method against three baseline approaches",
+          "chunk": "4"
+        },
+        {
+          "from": "Federated_Learning_Method",
+          "relation": "type",
+          "to": "Method",
+          "context": "Federated Learning Method: This method implements the widely-used FedAvg algorithm",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the context of comparing different training methods, how is the K-Means algorithm specifically utilized?",
+    "options": {
+      "A": "K-Means is used as a local training method to prepare data for comparison against federated learning approaches.",
+      "B": "K-Means serves as a clustering technique independent of the training methods being compared.",
+      "C": "K-Means is directly implemented as a federated learning method using the FedAvg algorithm.",
+      "D": "K-Means is utilized as an external validation technique for the results obtained from federated learning."
+    },
+    "correct_answer": "A",
+    "explanation": "The question requires understanding that K-Means, as a clustering method used in local training, is part of an experimental setup where it is compared with federated learning methods, specifically the FedAvg algorithm. Options B, C, and D are incorrect as they do not correctly represent the role of K-Means in this specific experimental context.",
+    "path_description": "Path: K-Means --[usedIn]--> Local_Training_Method --[comparedWith]--> Federated_Learning_Method --[type]--> Method",
+    "context": "the k-means algorithm is selected as the clustering method | In our experimental setup, we compare our method against three baseline approaches | Federated Learning Method: This method implements the widely-used FedAvg algorithm",
+    "paper_id": "555"
+  },
+  {
+    "section": "acknowledgment",
+    "path": {
+      "section": "acknowledgment",
+      "start_entity": "ThisWork",
+      "end_entity": "Grant",
+      "hops": [
+        {
+          "from": "ThisWork",
+          "relation": "supportedBy",
+          "to": "NationalScienceFoundationOfChina",
+          "context": "This work is partially supported by National Science Foundation of China.",
+          "chunk": "6"
+        },
+        {
+          "from": "NationalScienceFoundationOfChina",
+          "relation": "providesGrant",
+          "to": "Grant61761136008",
+          "context": "National Science Foundation of China under Grant No. 61761136008.",
+          "chunk": "6"
+        },
+        {
+          "from": "Grant61761136008",
+          "relation": "type",
+          "to": "Grant",
+          "context": "This work is partially supported by National Science Foundation of China under Grant No. 61761136008.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "Which of the following statements accurately describes the support mechanism for the research presented in this work?",
+    "options": {
+      "A": "This work received extensive support from the European Research Council under the grant scheme coded 61761136008.",
+      "B": "This work is primarily supported by the National Institutes of Health through multiple grants, one of which is 61761136008.",
+      "C": "This work is partially funded by the National Science Foundation of China through a specific grant numbered 61761136008.",
+      "D": "This work is independently funded, with no specific grant support mentioned from any national or international funding agency."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A, as the research is indeed supported by the National Science Foundation of China through a specific grant, number 61761136008. Option B is incorrect because it mentions the National Institutes of Health, which is not involved in this case. Option C is incorrect as it denies any specific grant support which contradicts the provided information. Option D is misleading by falsely attributing the grant to the European Research Council and incorrectly suggesting extensive support.",
+    "path_description": "Path: ThisWork --[supportedBy]--> NationalScienceFoundationOfChina --[providesGrant]--> Grant61761136008 --[type]--> Grant",
+    "context": "This work is partially supported by National Science Foundation of China. | National Science Foundation of China under Grant No. 61761136008. | This work is partially supported by National Science Foundation of China under Grant No. 61761136008.",
+    "paper_id": "555"
+  }
+]

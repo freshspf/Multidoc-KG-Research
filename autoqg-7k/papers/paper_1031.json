@@ -1,0 +1,42 @@
+[
+  {
+    "id": "introduction",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Introduction",
+      "page_start": 1,
+      "page_end": 1
+    },
+    "text": "]\nTABLE voltage and frequency are basic requirements for\nY\nS  power system operation. In conventional power systems,\n. S\nsynchronous generators (SGs)  inherently behave as voltage\ns\ns sources and provide essential voltage and frequency support.\ne\nUnlike SGs, renewable energy sources are typically integrated\ne\n[ into the grid via phase-locked-loop (PLL)-based converters\n \n  with constant power control, which merely track grid vari-\n2\nations and are therefore known as grid-following (GFL) [1].\nv\nAs PLL-based converters progressively replace SGs, weak grid\n2\n5 characteristics are becoming more pronounced, posing new\n1 challenges to power system security [2].\n4  Grid-forming (GFM) control  is regarded as a promising\n2\n. solution to address these challenges. The GFM concept was\n3 originally inspired by synchronizing control structures, such\n0\nas virtual synchronous generator (VSG) or droop control [3],\n5\nwhose core idea is to replicate the synchronizing dynamics\n2\n: of SGs and actively establish stable voltage and frequency.\nv\ni Furthermore, a plethora of other GFM architectures have been\nproposed that do not mimic SGs, such as virtual oscillator\nX\nr control (VOC) [3] or PLL-based GFM control [4]. In addition,\na\nmany self-declared reports have been proposed for GFM\nfunctionality in recent years, such as exhibiting voltage source\nbehavior over (sub)transient time scales, damping oscillations,\nand so on [5]. In summary,  there is no universally accepted\ndefinition and also no quantitation of GFM, and relying solely\non the control structure to define GFM is insufficient.\nIn order to quantify GFM capabilities, references [6] and [7]\nproposed the concept of frequency smoothing capability as a\nnecessary condition of GFM, which represents the sensitivity\nof a converter’s frequency to grid frequency variations. To ac-\ncount for both voltage and frequency characteristics, reference\n[8] introduced the maximum singular values of the converter\nimpedance and demonstrated that GFM converter and PLL-\nbased converter with AC voltage control are two- and one-\ndimensional voltage sources, respectively. The voltage source\ncharacteristics can also be evaluated based on the matching\n\n1\ning Behavior: Bridging\nd System-Level Stability\niuqiang He, Linbin Huang, and Florian Do¨rfler\ndegree between the converter  impedance and an ideal RL\nimpedance [9]. All of  the above quantify GFM capabilities\nby assessing how closely a converter approximates an ideal\nvoltage source, yet a clear boundary between GFM and GFL\nremains undefined.\nMoreover,  another often ducked question is why power\nsystems  require GFM converters. The common perception\nis that power systems need inertia and synchronization, but\nboth GFM and GFL can provide that [1]. Therefore, from the\nperspective of ensuring the stable operation of power systems,\nthe fundamental difference between GFM and GFL remains\ninsufficiently explored.\nIn order to fill the above research gap, this letter quantita-\ntively answers two key questions: what is GFM, and why is\nit needed? The main three contributions are as follows:\n1) At the device-level, we extend the frequency smoothing\nto the so-called Forming Index (FI), which is the maximum\nsingular value of the sensitivity function from the grid voltage\nvector to the converter voltage vector. This index quantifies the\nextent to which the converter follows or rejects grid variations,\nproviding a clear distinction between GFM and GFL.\n2) At the system-level, we introduce the concept of system\nstrength as a quantitative criterion for power systems formation\n(PS-FM) requirements, which is defined as the sensitivity of\nthe multi-bus voltage vector to multi-bus current disturbances.\n3)  In a small-signal  setting, we  formally prove  that  a\nconverter exhibiting GFM or GFL behavior at the device-level\nenhances or potentially weakens system strength, respectively."
+  },
+  {
+    "id": "devicelevelgfmandgflbehavior",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Device Level: GFM and GFL Behavior",
+      "page_start": 1,
+      "page_end": 1
+    },
+    "text": "Consider a single converter connected to a power system\nmodeled as a stiff voltage source. The converter’s output\nvoltage,  the grid voltage,  and the output current vector  in\nglobal dq frame are denoted as Udq, Ugdq and Idq, respectively.\nThe interconnecting line inductance and resistance are Lg and\nRg, respectively.\nA. Linearized Model of a Single Converter Connected to Grid\nAfter  linearizing,  the  converter  dynamics ∆Udq  =\n(cid:2)  (cid:3)⊤  (cid:2)  (cid:3)⊤\n∆Ud  ∆Uq  and ∆Idq  =  ∆Id  ∆Iq  are  related\nthrough the converter admittance as\n(cid:20)  (cid:21)\nY1(s)  Y2(s)\n∆Idq =  ∆Udq =: Y (s)∆Udq .  (1)\nY3(s)  Y4(s)\nFor  the  line  dynamics, ∆Udq, ∆Idq,  and ∆Ugdq  =\n(cid:2)  (cid:3)⊤\n∆Ugd  Ugq  are given by\ns  −1\n(cid:20)  (cid:21)\n1  ω + τ  −1\n0\n∆Idq =  s  (∆Udq −∆Ugdq) ,  (2)\nLg  1  ω + τ\n0\n(cid:124)  (cid:123)−(cid:122)1  (cid:125)\n=:Z  (s)"
+  },
+  {
+    "id": "systemlevelsystemstrength",
+    "metadata": {
+      "lang": "en",
+      "section_title": "System-Level: System Strength",
+      "page_start": 2,
+      "page_end": 2
+    },
+    "text": "A. The Linear Model of Power Systems\nWe consider a power system with devices (SG, converter,\nload, etc.) connected at buses {1, . . . , n} and an additional\nconverter connected at bus {n + 1}. Each device can be mod-\nC2×2\neled as admittance transfer function matrix Yde(s) ∈  ,\nwhich is similar to (1). For these n + 1 devices, we obtain\n(cid:20)  (cid:21)  (cid:20)  (cid:21) (cid:20)  (cid:21)\n∆I  Y(cid:101)de(s)  0  ∆U\n⊤  =  ⊤  ,  (5)\n∆Idq,n+1  0  Yde,n+1(s)  ∆Udq,n+1\n(cid:124)  (cid:123)(cid:122)  (cid:125)\n=:Yde(s)\nwhere  Y(cid:101)de(s)  :=  diag {Yde,1(s), · · · , Yde,n(s)},\n(cid:2)  ⊤  ⊤  (cid:3)⊤\n∆U  =  ∆Udq,1  . . .  ∆Udq,n  and  ∆I  =\n(cid:2)  ⊤  ⊤  (cid:3)⊤\n∆Idq,1  . . .  ∆Idq,n  are  the  voltage  and  current\nvectors at buses {1, . . . , n}, respectively.\nIf we assume that lines have a uniform τ = R/L ratio, then\nthe interconnecting transmission network can be modeled as:\n(cid:20)  (cid:21)  (cid:20)  (cid:21)\n∆I  (cid:2)  −1  (cid:3)  ∆U\n⊤  = B ⊗ Z  (s)  ⊤  ,  (6)\n∆Idq,n+1  ∆Udq,n+1\n(cid:124)  (cid:123)(cid:122)  (cid:125)\n=:Ynet(s)\n(cid:104)  Rn×n  Rn×1 (cid:105)\nB1∈  B2∈\nwhere B =  R1×n  R1×1  is  the reduced network\nB3∈  B4∈\nsusceptance matrix, and ⊗ is the Kronecker product.\n(cid:2)  (cid:3)⊤\nWe consider ∆IL =  ∆ILdq,1  · · ·  ∆ILdq,n  as  a\ndisturbance current vector. The resulting voltage responses at\nbuses {1, . . . , n + 1} are given by\n(cid:20)  (cid:21)  (cid:20)  (cid:21)\n∆U  −1 ∆IL\n⊤  = [Yde(s) + Ynet(s)]  .  (7)\n∆Udq,n+1  0\nAccording  to analysis  requirements, we can divide  the\nsystem into a device subsystem and a grid subsystem, as shown\nin Fig.2, which corresponds to (8).\nWe can eliminate the n+1-th node via Kron reduction and\nits admittance gets thus absorbed into the network admittance,\n(cid:104)  (cid:105)−1\n−1\n∆U = Y(cid:101)net(s) + Y(cid:101)de(s)  ∆IL =: Y(cid:101)Cl  (s)∆IL ,  (8)\nwith\nFig. 2.  Subsystem partitioning methods."
+  },
+  {
+    "id": "conclusions",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Conclusions",
+      "page_start": 3,
+      "page_end": 4
+    },
+    "text": "At  the device-level,  the proposed FI effectively distin-\nguishes GFM and GFL by characterizing voltage source char-\nacteristics and following behavior across different frequency,\ndemonstrating that GFM can also be achieved with PLL. At the\nsystem-level, system strength, defined as the gain from multi-\nbus current disturbance to multi-bus voltage output,  serves\nas a fundamental requirement for PS-FM. Our study reveals\nthat a converter exhibiting GFM behavior at the device-level\nenhances system strength, while GFL behavior may lead to\nits weakening. Since the primary goal of GFM is to support\nstable power systems, it is essential to reevaluate GFM from\nthe perspective of PS-FM requirements in the future.\n\n4"
+  }
+]

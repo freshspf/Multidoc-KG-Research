@@ -1,0 +1,260 @@
+[
+  {
+    "section": "abstract",
+    "path": {
+      "section": "abstract",
+      "start_entity": "GoogleCloudRun",
+      "end_entity": "Platform",
+      "hops": [
+        {
+          "from": "GoogleCloudRun",
+          "relation": "evaluatedOn",
+          "to": "IoTPlatform",
+          "context": "We comprehensively evaluate the performance of the different deployment strategies, i.e., Google Kubernetes Engine (GKE)-Standard, OW, and GCR for the IoT platform.",
+          "chunk": "0"
+        },
+        {
+          "from": "IoTPlatform",
+          "relation": "migratedTo",
+          "to": "GoogleCloudRun",
+          "context": "Towards this, we migrate a complex IoT platform application onto OpenWhisk (OW) and Google Cloud Run (GCR).",
+          "chunk": "0"
+        },
+        {
+          "from": "GoogleCloudRun",
+          "relation": "type",
+          "to": "Platform",
+          "context": "Towards this, we migrate a complex IoT platform application onto OpenWhisk (OW) and Google Cloud Run (GCR).",
+          "chunk": "0"
+        }
+      ]
+    },
+    "question": "Which of the following best describes the sequence of actions and the final type classification regarding the migration and evaluation of an IoT platform in the study?",
+    "options": {
+      "A": "The IoT platform was initially deployed on OW, evaluated on Google Cloud Run, and classified as a Service.",
+      "B": "The IoT platform was initially deployed on Google Kubernetes Engine, migrated to OpenWhisk, and classified as a Platform.",
+      "C": "The IoT platform was evaluated on Google Cloud Run, migrated to Google Cloud Run, and classified as a Platform.",
+      "D": "The IoT platform was initially evaluated on OpenWhisk, migrated to Google Kubernetes Engine, and classified as a Solution."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct sequence, based on the knowledge path, starts with the IoT platform being evaluated on Google Cloud Run, followed by its migration to Google Cloud Run, and it is finally classified as a Platform. The other options incorrectly mix the deployment, migration, and classification stages or use incorrect terms not supported by the given context.",
+    "path_description": "Path: GoogleCloudRun --[evaluatedOn]--> IoTPlatform --[migratedTo]--> GoogleCloudRun --[type]--> Platform",
+    "context": "We comprehensively evaluate the performance of the different deployment strategies, i.e., Google Kubernetes Engine (GKE)-Standard, OW, and GCR for the IoT platform. | Towards this, we migrate a complex IoT platform application onto OpenWhisk (OW) and Google Cloud Run (GCR). | Towards this, we migrate a complex IoT platform application onto OpenWhisk (OW) and Google Cloud Run (GCR).",
+    "paper_id": "137"
+  },
+  {
+    "section": "relatedwork2",
+    "path": {
+      "section": "relatedwork2",
+      "start_entity": "JinEtAl",
+      "end_entity": "Platform",
+      "hops": [
+        {
+          "from": "JinEtAl",
+          "relation": "migrated",
+          "to": "MicroservicesApplications",
+          "context": "Jin et al. [14] migrate four stateful microservices applications onto OW.",
+          "chunk": "10"
+        },
+        {
+          "from": "MicroservicesApplications",
+          "relation": "deployedOn",
+          "to": "OW",
+          "context": "Jin et al. [14] migrate four stateful microservices applications onto OW.",
+          "chunk": "10"
+        },
+        {
+          "from": "OW",
+          "relation": "type",
+          "to": "Platform",
+          "context": "Jin et al. [14] migrate four stateful microservices applications onto OW.",
+          "chunk": "10"
+        }
+      ]
+    },
+    "question": "What best describes the nature of OW as used in the context provided by Jin et al. in their study on microservices applications?",
+    "options": {
+      "A": "OW is a programming language tailored to enhance the migration processes of microservices applications.",
+      "B": "OW is a platform specifically designed for the deployment of stateful microservices applications.",
+      "C": "OW is an analytical tool used for performance evaluation of migrated microservices applications.",
+      "D": "OW is a database system optimized for handling large volumes of data from microservices applications."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A because the knowledge graph path indicates that the microservices applications were deployed on OW, and it is identified as a platform. This suggests that OW serves as a platform for such deployments, rather than being a programming language, database system, or an analytical tool.",
+    "path_description": "Path: JinEtAl --[migrated]--> MicroservicesApplications --[deployedOn]--> OW --[type]--> Platform",
+    "context": "Jin et al. [14] migrate four stateful microservices applications onto OW. | Jin et al. [14] migrate four stateful microservices applications onto OW. | Jin et al. [14] migrate four stateful microservices applications onto OW.",
+    "paper_id": "137"
+  },
+  {
+    "section": "iotplatform2",
+    "path": {
+      "section": "iotplatform2",
+      "start_entity": "Users",
+      "end_entity": "Identifier",
+      "hops": [
+        {
+          "from": "Users",
+          "relation": "sendRequestTo",
+          "to": "Sensors-AddEndpoint",
+          "context": "users can create sensors for their devices by sending a post request to the Sensors-Add endpoint...",
+          "chunk": "3"
+        },
+        {
+          "from": "Sensors-AddEndpoint",
+          "relation": "receives",
+          "to": "DeviceID",
+          "context": "users can create sensors for their devices by sending a post request to the Sensors-Add endpoint along with its attributes...",
+          "chunk": "3"
+        },
+        {
+          "from": "DeviceID",
+          "relation": "type",
+          "to": "Identifier",
+          "context": "On successful addition to the database the added device id is returned as a response to the user.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the process of adding a sensor to a device on an IoT platform, what is the immediate response to the user after a successful post request to the Sensors-Add endpoint?",
+    "options": {
+      "A": "The user receives a list of all sensors currently connected to their device.",
+      "B": "The user receives an error message if the sensor cannot be added.",
+      "C": "The user receives a confirmation message that the request is being processed.",
+      "D": "The user receives the device ID of the newly added sensor as a response."
+    },
+    "correct_answer": "D",
+    "explanation": "Following the path from the knowledge graph, users send a post request to the Sensors-Add endpoint, which upon successful addition of the sensor, returns the device ID of the newly added sensor as a response to the user. This is indicated by the path 'Users --[sendRequestTo]--> Sensors-AddEndpoint --[receives]--> DeviceID --[type]--> Identifier', showing that DeviceID, which is an Identifier, is the response received after a successful request.",
+    "path_description": "Path: Users --[sendRequestTo]--> Sensors-AddEndpoint --[receives]--> DeviceID --[type]--> Identifier",
+    "context": "users can create sensors for their devices by sending a post request to the Sensors-Add endpoint... | users can create sensors for their devices by sending a post request to the Sensors-Add endpoint along with its attributes... | On successful addition to the database the added device id is returned as a response to the user.",
+    "paper_id": "137"
+  },
+  {
+    "section": "relatedwork2",
+    "path": {
+      "section": "relatedwork2",
+      "start_entity": "IoTPlatformApplication",
+      "end_entity": "Platform",
+      "hops": [
+        {
+          "from": "IoTPlatformApplication",
+          "relation": "evaluatedOn",
+          "to": "GCR",
+          "context": "We comprehensively evaluated the performance of the application using different deployment strategies, i.e., GKE, OW, and GCR across different load testing workloads.",
+          "chunk": "10"
+        },
+        {
+          "from": "GCR",
+          "relation": "outperforms",
+          "to": "OW",
+          "context": "From our experiments, we observed that GKE performed best for most scenarios followed by GCR and OW.",
+          "chunk": "10"
+        },
+        {
+          "from": "OW",
+          "relation": "type",
+          "to": "Platform",
+          "context": "Jin et al. [14] migrate four stateful microservices applications onto OW.",
+          "chunk": "10"
+        }
+      ]
+    },
+    "question": "In the context of deploying IoT platform applications, which system demonstrated superior performance compared to OW according to the evaluations discussed?",
+    "options": {
+      "A": "OW outperformed GCR by efficiently migrating four stateful microservices applications.",
+      "B": "OW outperformed GKE by adapting more effectively to various deployment strategies.",
+      "C": "GKE outperformed OW due to its optimal performance in most deployment scenarios.",
+      "D": "GCR outperformed OW by providing better handling of different load testing workloads."
+    },
+    "correct_answer": "D",
+    "explanation": "From the context provided, GCR was evaluated and observed to perform better than OW in handling different load testing workloads for IoT Platform Applications. This is directly stated in the context where GCR outperforms OW, making option A the correct answer. The other options are incorrect as they either incorrectly state the performance relationship or refer to unrelated aspects.",
+    "path_description": "Path: IoTPlatformApplication --[evaluatedOn]--> GCR --[outperforms]--> OW --[type]--> Platform",
+    "context": "We comprehensively evaluated the performance of the application using different deployment strategies, i.e., GKE, OW, and GCR across different load testing workloads. | From our experiments, we observed that GKE performed best for most scenarios followed by GCR and OW. | Jin et al. [14] migrate four stateful microservices applications onto OW.",
+    "paper_id": "137"
+  },
+  {
+    "section": "relatedwork2",
+    "path": {
+      "section": "relatedwork2",
+      "start_entity": "IoTPlatformApplication",
+      "end_entity": "AllScenarios",
+      "hops": [
+        {
+          "from": "IoTPlatformApplication",
+          "relation": "evaluatedOn",
+          "to": "GKE",
+          "context": "We comprehensively evaluated the performance of the application using different deployment strategies, i.e., GKE, OW, and GCR across different load testing workloads.",
+          "chunk": "10"
+        },
+        {
+          "from": "GKE",
+          "relation": "outperforms",
+          "to": "GCR",
+          "context": "From our experiments, we observed that GKE performed best for most scenarios followed by GCR and OW.",
+          "chunk": "10"
+        },
+        {
+          "from": "GCR",
+          "relation": "hasLeastCosts",
+          "to": "AllScenarios",
+          "context": "However, using GCR led to least costs across all scenarios.",
+          "chunk": "10"
+        }
+      ]
+    },
+    "question": "In the context of evaluating IoT Platform Applications across various deployment strategies, which platform showed the best balance between performance and cost?",
+    "options": {
+      "A": "GKE, as it performed best in most scenarios and led to moderate costs compared to others.",
+      "B": "GCR, as it did not perform as well as GKE but resulted in the lowest costs across all scenarios.",
+      "C": "OW, as it managed to outperform other platforms in terms of cost despite lower performance.",
+      "D": "All platforms performed equally well in balancing the costs and performance effectively."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is C. As per the knowledge graph and the context provided, GKE outperformed other platforms in terms of performance, especially GCR. However, GCR led to the least costs in all scenarios, making it the platform that shows the best balance between performance (though slightly lower than GKE) and cost efficiency.",
+    "path_description": "Path: IoTPlatformApplication --[evaluatedOn]--> GKE --[outperforms]--> GCR --[hasLeastCosts]--> AllScenarios",
+    "context": "We comprehensively evaluated the performance of the application using different deployment strategies, i.e., GKE, OW, and GCR across different load testing workloads. | From our experiments, we observed that GKE performed best for most scenarios followed by GCR and OW. | However, using GCR led to least costs across all scenarios.",
+    "paper_id": "137"
+  },
+  {
+    "section": "conclusionfuturework2",
+    "path": {
+      "section": "conclusionfuturework2",
+      "start_entity": "GCR",
+      "end_entity": "OW",
+      "hops": [
+        {
+          "from": "GCR",
+          "relation": "hasLeastCost",
+          "to": "IoTPlatformApplication",
+          "context": "However, using GCR led to least costs across all scenarios.",
+          "chunk": "12"
+        },
+        {
+          "from": "IoTPlatformApplication",
+          "relation": "evaluatedOn",
+          "to": "GKE",
+          "context": "We comprehensively evaluated the performance of the application using different deployment strategies, i.e., GKE, OW, and GCR across different load testing workloads.",
+          "chunk": "12"
+        },
+        {
+          "from": "GKE",
+          "relation": "outperforms",
+          "to": "OW",
+          "context": "From our experiments, we observed that GKE performed best for most scenarios followed by GCR and OW.",
+          "chunk": "12"
+        }
+      ]
+    },
+    "question": "Based on the observed deployment strategies and performance outcomes, which platform demonstrated the lowest costs while still outperforming OW in terms of application deployment?",
+    "options": {
+      "A": "GCR was the top performer in most scenarios and also presented the lowest cost, outperforming OW.",
+      "B": "OW demonstrated lower costs than GKE and GCR but did not perform as well in deployment scenarios.",
+      "C": "GKE demonstrated the lowest costs and outperformed OW in terms of application deployment efficiency.",
+      "D": "GCR, while not the absolute best performer, offered the least costs and still outperformed OW."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is B. From the context provided, GCR led to the least costs across all scenarios and outperformed OW, whereas GKE, despite performing best in most scenarios, did not have the least costs. Option A incorrectly claims GKE had the lowest costs; C misrepresents the performance and cost effectiveness; and D incorrectly states GCR was the top performer.",
+    "path_description": "Path: GCR --[hasLeastCost]--> IoTPlatformApplication --[evaluatedOn]--> GKE --[outperforms]--> OW",
+    "context": "However, using GCR led to least costs across all scenarios. | We comprehensively evaluated the performance of the application using different deployment strategies, i.e., GKE, OW, and GCR across different load testing workloads. | From our experiments, we observed that GKE performed best for most scenarios followed by GCR and OW.",
+    "paper_id": "137"
+  }
+]

@@ -1,0 +1,174 @@
+[
+  {
+    "section": "iiapproachestosymbolrecognition1",
+    "path": {
+      "section": "iiapproachestosymbolrecognition1",
+      "start_entity": "HeartRate",
+      "end_entity": "Metric",
+      "hops": [
+        {
+          "from": "HeartRate",
+          "relation": "measuredBy",
+          "to": "U-Net",
+          "context": "The symbols for heart rate and blood pressure with over 99 percent accuracy.",
+          "chunk": "2"
+        },
+        {
+          "from": "U-Net",
+          "relation": "measures",
+          "to": "AbsoluteError",
+          "context": "Over 95 percent of the predictions fall within an absolute error of five.",
+          "chunk": "2"
+        },
+        {
+          "from": "AbsoluteError",
+          "relation": "type",
+          "to": "Metric",
+          "context": "Over 95 percent of the predictions fall within an absolute error of five.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the context of symbol recognition accuracy for heart rate, which metric is primarily used to measure the performance of the U-Net model?",
+    "options": {
+      "A": "F1 Score, which balances the precision and recall of a model in a single metric",
+      "B": "Precision Score, showing the ratio of correct positive predictions to total positive predictions",
+      "C": "Recall Rate, reflecting the percentage of actual positive cases that were correctly identified",
+      "D": "Absolute Error, indicating the average deviation of predictions from actual values"
+    },
+    "correct_answer": "D",
+    "explanation": "According to the knowledge graph, the U-Net model's performance in measuring heart rate is evaluated using the Absolute Error, which quantifies the average difference between the predicted values and the actual observed values. This metric directly aligns with the context where it mentions the predictions' proximity to the actual values within an absolute error of five.",
+    "path_description": "Path: HeartRate --[measuredBy]--> U-Net --[measures]--> AbsoluteError --[type]--> Metric",
+    "context": "The symbols for heart rate and blood pressure with over 99 percent accuracy. | Over 95 percent of the predictions fall within an absolute error of five. | Over 95 percent of the predictions fall within an absolute error of five.",
+    "paper_id": "108"
+  },
+  {
+    "section": "iiimethodology2",
+    "path": {
+      "section": "iiimethodology2",
+      "start_entity": "ResidualBlock",
+      "end_entity": "TestSet",
+      "hops": [
+        {
+          "from": "ResidualBlock",
+          "relation": "partOf",
+          "to": "ResidualUNet",
+          "context": "This architecture contains four residual blocks.",
+          "chunk": "5"
+        },
+        {
+          "from": "ResidualUNet",
+          "relation": "basedOn",
+          "to": "UNetModel",
+          "context": "A Residual U-Net model similar to the approach implemented by [24] is trained for each of the three symbol types.",
+          "chunk": "5"
+        },
+        {
+          "from": "UNetModel",
+          "relation": "evaluatedOn",
+          "to": "TestSet",
+          "context": "The two test set images are processed through the three models to evaluate performance.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the context of evaluating a Residual U-Net model, which sequence correctly describes the hierarchical and functional relationships used?",
+    "options": {
+      "A": "Three models of Residual U-Net, each containing a residual block, are tested using a method similar to the U-Net model on test sets.",
+      "B": "Residual blocks form a part of Residual U-Net, which is based on the U-Net model, evaluated using two test set images.",
+      "C": "Test set images are processed through residual blocks, which are part of a U-Net model, forming the basis for the Residual U-Net.",
+      "D": "U-Net model incorporates residual blocks, forming a base for Residual U-Net, which is evaluated using three test set images."
+    },
+    "correct_answer": "B",
+    "explanation": "Option A correctly follows the described knowledge graph path. Residual blocks are components of the Residual U-Net, which adapts the architecture of the U-Net model, and its evaluation is performed on two test set images. The other options incorrectly describe the relationships or the number of items involved.",
+    "path_description": "Path: ResidualBlock --[partOf]--> ResidualUNet --[basedOn]--> UNetModel --[evaluatedOn]--> TestSet",
+    "context": "This architecture contains four residual blocks. | A Residual U-Net model similar to the approach implemented by [24] is trained for each of the three symbol types. | The two test set images are processed through the three models to evaluate performance.",
+    "paper_id": "108"
+  },
+  {
+    "section": "iiimethodology3",
+    "path": {
+      "section": "iiimethodology3",
+      "start_entity": "SegmentationMasks",
+      "end_entity": "Metric",
+      "hops": [
+        {
+          "from": "SegmentationMasks",
+          "relation": "producedBy",
+          "to": "U-NetModel",
+          "context": "The output of the U-Net models are three segmentation masks that describe the location of all detected heart rate and BP symbols",
+          "chunk": "6"
+        },
+        {
+          "from": "U-NetModel",
+          "relation": "evaluatedOn",
+          "to": "SystolicBP",
+          "context": "10-FOLD CROSS VALIDATION RESULTS ON U-NET MODEL",
+          "chunk": "6"
+        },
+        {
+          "from": "SystolicBP",
+          "relation": "type",
+          "to": "Metric",
+          "context": "values of 0.724, 0.811, and 0.801 for heart rate, diastolic BP, and systolic BP, respectively",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the context of evaluating U-Net models, which metric type is directly associated with the assessment of systolic blood pressure?",
+    "options": {
+      "A": "The metric type involved is related to the accuracy of segmentation masks.",
+      "B": "The metric type is connected to the precision of heart rate detection.",
+      "C": "The metric type includes the specificity in the identification of BP symbols.",
+      "D": "The metric type is related to the evaluation of blood pressure symbols."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A because the knowledge path indicates that the U-Net model, which produces segmentation masks, is evaluated on the metric associated with systolic blood pressure (systolic BP). This implies that the metric type, in this case, evaluates the accuracy of those masks in representing the location of BP symbols.",
+    "path_description": "Path: SegmentationMasks --[producedBy]--> U-NetModel --[evaluatedOn]--> SystolicBP --[type]--> Metric",
+    "context": "The output of the U-Net models are three segmentation masks that describe the location of all detected heart rate and BP symbols | 10-FOLD CROSS VALIDATION RESULTS ON U-NET MODEL | values of 0.724, 0.811, and 0.801 for heart rate, diastolic BP, and systolic BP, respectively",
+    "paper_id": "108"
+  },
+  {
+    "section": "vconclusionsandfuturework1",
+    "path": {
+      "section": "vconclusionsandfuturework1",
+      "start_entity": "TM",
+      "end_entity": "Model",
+      "hops": [
+        {
+          "from": "TM",
+          "relation": "outperforms",
+          "to": "U-Net",
+          "context": "U-Net outperforms TM for each metric on all three symbols.",
+          "chunk": "11"
+        },
+        {
+          "from": "U-Net",
+          "relation": "outperforms",
+          "to": "TM",
+          "context": "U-Net outperforms TM for each metric on all three symbols.",
+          "chunk": "11"
+        },
+        {
+          "from": "TM",
+          "relation": "type",
+          "to": "Model",
+          "context": "TM variance is significantly higher than the U-Net variance.",
+          "chunk": "11"
+        }
+      ]
+    },
+    "question": "Based on the hierarchical performance relationships in the paper, which statement correctly describes the type and comparative performance of TM?",
+    "options": {
+      "A": "TM, a type of computational tool, outperforms U-Net in variance metrics and overall performance.",
+      "B": "TM, classified as a model, shows significantly higher variance and is outperformed by U-Net in each metric.",
+      "C": "TM, being a superior model, outperforms U-Net in variance metrics but not in overall performance.",
+      "D": "TM, a type of model, demonstrates higher performance metrics than U-Net across all three symbols."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is B because the paper states that U-Net outperforms TM for each metric on all three symbols and that TM has significantly higher variance than U-Net. This establishes that TM is a type of model which, despite higher variance, is outperformed by U-Net in terms of metrics.",
+    "path_description": "Path: TM --[outperforms]--> U-Net --[outperforms]--> TM --[type]--> Model",
+    "context": "U-Net outperforms TM for each metric on all three symbols. | U-Net outperforms TM for each metric on all three symbols. | TM variance is significantly higher than the U-Net variance.",
+    "paper_id": "108"
+  }
+]

@@ -1,0 +1,62 @@
+[
+  {
+    "id": "introduction",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Introduction",
+      "page_start": 1,
+      "page_end": 1
+    },
+    "text": "0\n1  The widespread adoption of medical informatization has led\n4\nto the creation of numerous Personal Health Records (PHR),\n2\n: these records contain sensitive physiological data parameters\nv and patient medical histories, emphasizing high privacy con-\ni\ncerns [1]. However, due to insecure current sharing mecha-\nX\nr nisms and unclear data rights and responsibilities, medical\na institutions that collect PHRs often operate as isolated data\nsilos,  limiting the full potential utilization of PHRs’ value"
+  },
+  {
+    "id": "preliminaries",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Preliminaries",
+      "page_start": 2,
+      "page_end": 2
+    },
+    "text": "This section introduces the concepts of bilinear pairings,\nwhich are essential for constructing the scheme described in\nSection III-B.\nA. Bilinear Pairing\nLet G1 and G2 be two multiplication groups of order prime\nq, with g as the generator of G1. A bilinear pairing e : G1 ×\nG1 → G2 satisfies the following properties:\n∗\n1) Bilinearity: For ∀ (g1, g2) ∈ G1, ∀ (a, b) ∈ Zq , it must hold\n(cid:0) a  b(cid:1)  ab\nthat e g1 , g2 = e (g1, g2)  .\n2) Non-degeneracy: For ∃ (g1, g2) ∈ G1 and 1G2  be  the\nidentity element of G2, there have e (g1, g2) ̸= 1G2 .\n3) Computability: For ∀ (g1, g2) ∈ G1, there exists an effec-\ntive algorithm to compute e (g1, g2)."
+  },
+  {
+    "id": "construction",
+    "metadata": {
+      "lang": "en",
+      "section_title": "CONSTRUCTION",
+      "page_start": 2,
+      "page_end": 2
+    },
+    "text": "This section provides a detailed explanation of the system\nmodel and the scheme’s implementation.\nFig. 1: The Scheme Model\nA. System Model\nIn the scheme, we assume that there is a node, HospitalA,\nin consortium chain A, which uses IBE as its cryptographic\nsystem. Similarly,  there is a node, HospitalB,  in consortium\nchain B, which uses CLC as its cryptographic system. This\n\nscheme assumes that a data user in HospitalB needs to access\nsome PHRs from a data owner  in HospitalA. The scheme\nmodel  is  shown  in Fig.  1,  and  the scheme  includes  the\nfollowing entities:\nHospital (Hospitali): A node in the blockchain that gener-\nates keys for users within the chain.\nData Owner (DO): A user in HospitalA who owns the PHR.\nData User (DU): A user in HospitalB who can be a patient,\ndoctor, researcher, or any other person needing to use PHR.\nRelay Chain: It provides computing power and is respon-\nsible for the calculation of re-encrypted ciphertext.\nInterplanetary File System (IPFSi): A semi-trusted dis-\ntributed database responsible for storing PHRs to reduce the\nstorage burden on IoT terminal devices.\nB. Scheme Construction\nThis section introduces the details of the scheme’s imple-\nmentation.\n1) System Setup: At this stage, consortium chains A and B\nregister their systems to generate system parameters.\n(1.1) Given a security parameter k, the HospitalA in consortium\n∗\nchain A selects s ∈ Zq  as the master private key and\ns\ncalculates the system public key h1 = g , where g is\nthe generator of G1. HospitalA public parameters par1 =\n{G1, G2, e, g, h1, H1, H2}.\n(1.2) Similarly, HospitalB  in consortium chain B randomly\n∗\nselects y ∈ Zq as the master private key and calculates\ny\nthe system public key h2 = g , public the parameters to\npar2 = {G1, G2, e, g, h2, H1, H2}.\n2) Key Generation: At this stage, consortium chains A and\nB generate keys for users in their respective chains.\n(2.1) HospitalA generates  the user’s public key pkDO =\ns\nH1 (IDDO) and private key skDO = pkDO, and sends\nskDO to the DO.\n(2.2) HospitalB generates the user’s partial private key DDU =\ny\nH1 (IDDU)  . HospitalB sends DDU to the DU. The DU\n∗\nrandomly selects r ∈ Zp ,  calculates  the private key\nr  yr\nskDU = (DDU) = H1 (IDDU)  , and the public key\nr\npkDU = (pkDU1, pkDU2) = (H1 (IDDU) ,  (h2) ).\n3) Data Encryption: At this stage, the DO encrypts PHR\nand uploads it to IPFSA for storage.\n(3.1) The DO selects the message M (containing PHR) to be\n∗\nshared, given par1 and pkDO, randomly selects α ∈ Zq ,\nand generates  the ciphertext CDO = (c1, c2),  c1 =\nα  α\ng  , c2 = M · e(h1, pkDO)  . Then,  the DO sends CDO\nand its identifier Data1 to IPFSA for storage.\n(3.2) Simultaneously, HospitalA saves the ciphertext identifier\nData1 and its address Add1 in the access list List1.\n4) Data Sharing: At  this stage,  the DU initiates a cross-\nchain access request to the DO. After successfully verifying\nthe request message, the DO shares the data with the DU.\n(4.1) To access the message M from the DO,  the DU must\nfirst send a cross-chain access request message M1 =\n{request1, pkDO, pkDU , T1, N1}pkDO . Here, request1 is\nthe cross-chain access  identifier, T1  is  the timestamp,"
+  },
+  {
+    "id": "safetyanalysis",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Safety Analysis",
+      "page_start": 3,
+      "page_end": 3
+    },
+    "text": "In  this  section, we prove  that  the scheme meets CPA\nsecurity. We references  the security model played by the\n\nchallenger C and the adversary A in [9], which is detailed\nas follows:\nTheorem 1. The KGC of the data owner in this scheme\npreserve weak security and resist weak exfiltration. Here,\npreserving weak security means that Ateniese’s [12] IBPRE\nscheme is CPA secure. Resisting weak exfiltration means that\nwhen faced with an adversary launching an ASA that does not\naffect normal functionality, this scheme can resist information\nleakage.\nProof. Similar to the proof method in [9], our constructed\nscheme also achieves CPA security."
+  },
+  {
+    "id": "performanceanalysis",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Performance Analysis",
+      "page_start": 3,
+      "page_end": 3
+    },
+    "text": "In this section, we evaluate the computational and commu-\nnication overhead. Experiments were conducted on a Lenovo\nlaptop with an AMD Ryzen 7 5800H processor with Radeon\nGraphics running at 3.20 GHz and 16GB of RAM. The host\nmachine runs Ubuntu 22.04.2 operating system, with Java\n1.8.0 102, and employs FISCO-BCOS blockchain v3.6.0.\nA. Computational Overhead\nWe calculate the computational overhead of core operations\nin the schemes, focusing on computationally expensive oper-\nations such as bilinear pairing, exponentiations in the group\nG1 and G2, and hash function computations. We chose to\ncompare our scheme with [10] [11] and [13] because they,\nlike ours, achieve encryption system transformation through\nproxy re-encryption. Notably, [10] first introduced the concept\nof encryption system transformation.\nAs shown in Fig. 2(a), as the number of users increases,\nour scheme exhibits a greater advantage in the time required\nto complete all users’ Enc operations. As depicted in Fig.\n2(b), we combine the ReKeyGen and ReEnc operations into\na single query operation, the advantage in the time required\nto complete all query operations becomes more significant\nas the number of users increases. Thus, compared with [10]\n[11] [13], our scheme demonstrates more efficient performance\nunder higher user loads.\nB. Communicational Overhead\nRegarding communication overhead, during system opera-\ntion, it is necessary to transmit and receive key pairs (Key),\nciphertexts (CT),  re-encryption keys (RK),  re-encrypted ci-\nphertexts (CT’), and other primary data. The lengths of these\ndata are directly related to the size of communication overhead\nduring system operation. Therefore, We calculate the number\nof elements contained in the G1, G2 and Zq group, which\nare part of  the core data of  the scheme,  to evaluate their\ncommunication overhead. It is important to note that the CP-\nHAPRE and ABE-IBE schemes involve ABE. For fairness in\nexperiments, we use the simplest access policy in ABE, setting\nthe total number of attributes (N) in the access policy to 5 and\nthe number of attributes required for access (n) to 3.\nAs shown in Table I, our scheme enhances system security\nwhile maintaining an advantage in communication overhead.\nRegarding the key Key, on average,  each key pair  in our"
+  },
+  {
+    "id": "conclusion",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Conclusion",
+      "page_start": 4,
+      "page_end": 4
+    },
+    "text": "This paper proposes a cross-heterogeneous chain data shar-\ning scheme tailored for the medical context. It addresses the\nlimitations of storage and computing resources in medical IoT\ndevices and facilitates PHRs sharing through IBE and CLC.\nThe proposed scheme enhances security measures effectively.\nIn the future, we plan to undertake more in-depth research on\ninternal attacks within cross-chain environments to enhance\nthe security of cross-chain protocols. Additionally, we aim to\noptimize the performance of cross-chain schemes to ensure\ncompatibility with resource-constrained devices, such as those\nin the internet of medical things.\nACKNOWLEDGMENT\nThis work was supported by the National Key Research and\nDevelopment Program of China (2021YFF1201102)."
+  }
+]

@@ -1,0 +1,45 @@
+[
+  {
+    "section": "systemmodel",
+    "path": {
+      "section": "systemmodel",
+      "start_entity": "BaseStation",
+      "end_entity": "StatisticalMethod",
+      "hops": [
+        {
+          "from": "BaseStation",
+          "relation": "covers",
+          "to": "RandomMobilityModel",
+          "context": "To capture user mobility in a time-varying wireless environment under the coverage of the Base Station (BS).",
+          "chunk": "4"
+        },
+        {
+          "from": "RandomMobilityModel",
+          "relation": "uses",
+          "to": "GaussianPerturbation",
+          "context": "updated at every time step via Gaussian perturbation.",
+          "chunk": "4"
+        },
+        {
+          "from": "GaussianPerturbation",
+          "relation": "type",
+          "to": "StatisticalMethod",
+          "context": "updated at every time step via Gaussian perturbation.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In a time-varying wireless environment, how does the Base Station update its Random Mobility Model to reflect user movements?",
+    "options": {
+      "A": "Using a constant velocity model that simplifies computation and data usage.",
+      "B": "Through continuous linear adjustments based on real-time user location tracking.",
+      "C": "By employing a deterministic algorithm that predicts user paths without statistical modifications.",
+      "D": "By applying Gaussian perturbation as a statistical method at each time step."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A because the knowledge path indicates that the Base Station covers a Random Mobility Model which uses Gaussian Perturbation, categorized as a type of Statistical Method, to update at every time step. This reflects the process of adjusting to user mobility through statistical perturbations, rather than deterministic or simple linear adjustments.",
+    "path_description": "Path: BaseStation --[covers]--> RandomMobilityModel --[uses]--> GaussianPerturbation --[type]--> StatisticalMethod",
+    "context": "To capture user mobility in a time-varying wireless environment under the coverage of the Base Station (BS). | updated at every time step via Gaussian perturbation. | updated at every time step via Gaussian perturbation.",
+    "paper_id": "845"
+  }
+]

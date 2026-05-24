@@ -1,0 +1,260 @@
+[
+  {
+    "section": "background1",
+    "path": {
+      "section": "background1",
+      "start_entity": "DeepGini",
+      "end_entity": "DistanceBasedSA",
+      "hops": [
+        {
+          "from": "DeepGini",
+          "relation": "outperforms",
+          "to": "PRIMA",
+          "context": "DeepGini consistently outperform PRIMA.",
+          "chunk": "3"
+        },
+        {
+          "from": "PRIMA",
+          "relation": "comparedWith",
+          "to": "ATS",
+          "context": "DeepGini consistently outperform PRIMA and ATS.",
+          "chunk": "3"
+        },
+        {
+          "from": "ATS",
+          "relation": "comparedWith",
+          "to": "DistanceBasedSA",
+          "context": "Deploying ATS for test selection on Cifar-100 requires execution times 80 times longer than Distance-based SA.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "Given the performance comparisons among test prioritization techniques, which technique would be least efficient in terms of execution time for test selection on Cifar-100?",
+    "options": {
+      "A": "DeepGini, as it outperforms both PRIMA and ATS in terms of efficiency and effectiveness.",
+      "B": "PRIMA, because it is outperformed by both DeepGini and ATS, indicating lower efficiency.",
+      "C": "ATS, as it requires execution times 80 times longer than DistanceBasedSA.",
+      "D": "DistanceBasedSA, since it requires significantly less execution time compared to ATS."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is ATS because the context explicitly states that deploying ATS for test selection on Cifar-100 requires execution times 80 times longer than DistanceBasedSA, making it the least efficient among the compared techniques.",
+    "path_description": "Path: DeepGini --[outperforms]--> PRIMA --[comparedWith]--> ATS --[comparedWith]--> DistanceBasedSA",
+    "context": "DeepGini consistently outperform PRIMA. | DeepGini consistently outperform PRIMA and ATS. | Deploying ATS for test selection on Cifar-100 requires execution times 80 times longer than Distance-based SA.",
+    "paper_id": "333"
+  },
+  {
+    "section": "background2",
+    "path": {
+      "section": "background2",
+      "start_entity": "DeepGini",
+      "end_entity": "Metric",
+      "hops": [
+        {
+          "from": "DeepGini",
+          "relation": "outperforms",
+          "to": "MarginScore",
+          "context": "While DeepGini has been shown to outperform other metrics in most scenarios, studies have reported cases where the Margin score yields better results on certain subjects.",
+          "chunk": "4"
+        },
+        {
+          "from": "MarginScore",
+          "relation": "outperforms",
+          "to": "DeepGini",
+          "context": "While DeepGini has been shown to outperform other metrics in most scenarios, studies have reported cases where the Margin score yields better results on certain subjects.",
+          "chunk": "4"
+        },
+        {
+          "from": "DeepGini",
+          "relation": "type",
+          "to": "Metric",
+          "context": "DeepGini prioritizes inputs with a greater spread of softmax values across classes since they have a higher level of classification uncertainty.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "Considering the context of performance comparisons between DeepGini and Margin Score, which metric is designed to prioritize inputs based on a greater spread of softmax values across classes, indicating higher classification uncertainty?",
+    "options": {
+      "A": "Margin Score, which sometimes outperforms DeepGini but does not prioritize classification uncertainty based on softmax spreads.",
+      "B": "Margin Score, although occasionally outperformed by DeepGini, it focuses on softmax value distributions.",
+      "C": "DeepGini, which is a metric that outperforms Margin Score by focusing on classification uncertainty.",
+      "D": "DeepGini, although it outperforms Margin Score, it does not prioritize softmax value spreads."
+    },
+    "correct_answer": "C",
+    "explanation": "DeepGini is explicitly mentioned as prioritizing inputs with a greater spread of softmax values across classes, indicating higher levels of classification uncertainty. This identifies it as the metric that focuses on classification uncertainty through softmax value distribution, unlike Margin Score.",
+    "path_description": "Path: DeepGini --[outperforms]--> MarginScore --[outperforms]--> DeepGini --[type]--> Metric",
+    "context": "While DeepGini has been shown to outperform other metrics in most scenarios, studies have reported cases where the Margin score yields better results on certain subjects. | While DeepGini has been shown to outperform other metrics in most scenarios, studies have reported cases where the Margin score yields better results on certain subjects. | DeepGini prioritizes inputs with a greater spread of softmax values across classes since they have a higher level of classification uncertainty.",
+    "paper_id": "333"
+  },
+  {
+    "section": "problemdefinition",
+    "path": {
+      "section": "problemdefinition",
+      "start_entity": "TestT",
+      "end_entity": "Dataset",
+      "hops": [
+        {
+          "from": "TestT",
+          "relation": "evaluatedOn",
+          "to": "MT",
+          "context": "Therefore, it is essential to prioritize a small-enough subset of unlabeled inputs in TestT to assess the performance of the fine-tuned model while keeping the testing effort within acceptable bounds.",
+          "chunk": "6"
+        },
+        {
+          "from": "MT",
+          "relation": "finetunedOn",
+          "to": "XT",
+          "context": "This fine-tuning process aims to address the distributional shift between XS and XT and results in a new model MT denoted as fT : x → y with x ∈ XT and y ∈ Y.",
+          "chunk": "6"
+        },
+        {
+          "from": "XT",
+          "relation": "type",
+          "to": "Dataset",
+          "context": "Let us assume a source input set XS and a related yet distinct target set XT.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "Given a fine-tuned model MT, which is evaluated on a test set TestT and has been fine-tuned using a target set XT, what is the primary purpose of the evaluation on TestT?",
+    "options": {
+      "A": "To measure the model's performance in handling inputs similar to those it was fine-tuned on, thus assessing its adaptability to similar datasets.",
+      "B": "To enhance the computational efficiency of the model by reducing the complexity of the inputs it processes.",
+      "C": "To expand the model's training set by incorporating elements from the test set into the training process.",
+      "D": "To verify the model's ability to generalize to entirely different types of datasets not seen during training or fine-tuning."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A, as the model MT has been fine-tuned on a distinct target set XT and is evaluated on TestT to measure how well it performs on inputs that are similar to those it was trained on, thereby assessing its ability to handle a distributional shift and adapt to similar datasets. Options B, C, and D are misleading as they suggest incorrect purposes of the evaluation process.",
+    "path_description": "Path: TestT --[evaluatedOn]--> MT --[finetunedOn]--> XT --[type]--> Dataset",
+    "context": "Therefore, it is essential to prioritize a small-enough subset of unlabeled inputs in TestT to assess the performance of the fine-tuned model while keeping the testing effort within acceptable bounds. | This fine-tuning process aims to address the distributional shift between XS and XT and results in a new model MT denoted as fT : x → y with x ∈ XT and y ∈ Y. | Let us assume a source input set XS and a related yet distinct target set XT.",
+    "paper_id": "333"
+  },
+  {
+    "section": "problemdefinition",
+    "path": {
+      "section": "problemdefinition",
+      "start_entity": "TestInputSelection",
+      "end_entity": "Model",
+      "hops": [
+        {
+          "from": "TestInputSelection",
+          "relation": "appliedTo",
+          "to": "MT",
+          "context": "an effective test input selection approach is essential.",
+          "chunk": "6"
+        },
+        {
+          "from": "MT",
+          "relation": "outperforms",
+          "to": "MS",
+          "context": "We refer to this as the fine-tuned model and assume it has higher accuracy overall on the target input set than the pre-trained model.",
+          "chunk": "6"
+        },
+        {
+          "from": "MS",
+          "relation": "type",
+          "to": "Model",
+          "context": "Let fS : x → y refer to a pre-trained DNN model MS performing a classification task over input set XS and labels Y, trained on the source training set TrainS ⊂ XS with x ∈ XS and y ∈ Y.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the context of model testing, when applying a test input selection approach to a machine translation model (MT), which model does MT outperform in terms of accuracy on a predefined target input set?",
+    "options": {
+      "A": "A model that performs regression tasks rather than classification, trained on a similar dataset.",
+      "B": "A similarly fine-tuned deep neural network model that has been adapted for the same input set.",
+      "C": "A pre-trained deep neural network model that performs classification tasks on a different training set.",
+      "D": "An untrained model that has not been exposed to any input set or training data."
+    },
+    "correct_answer": "C",
+    "explanation": "The knowledge path indicates that the MT (a machine translation model) outperforms MS (a pre-trained model) after being applied with a test input selection approach. The context confirms that MS refers to a pre-trained DNN model used for classification tasks, making option A the correct choice as it accurately describes MS and its relationship to MT.",
+    "path_description": "Path: TestInputSelection --[appliedTo]--> MT --[outperforms]--> MS --[type]--> Model",
+    "context": "an effective test input selection approach is essential. | We refer to this as the fine-tuned model and assume it has higher accuracy overall on the target input set than the pre-trained model. | Let fS : x → y refer to a pre-trained DNN model MS performing a classification task over input set XS and labels Y, trained on the source training set TrainS ⊂ XS with x ∈ XS and y ∈ Y.",
+    "paper_id": "333"
+  },
+  {
+    "section": "results4",
+    "path": {
+      "section": "results4",
+      "start_entity": "MetaSel",
+      "end_entity": "Dataset",
+      "hops": [
+        {
+          "from": "MetaSel",
+          "relation": "comparedWith",
+          "to": "Meta-model",
+          "context": "compared to other learning-based approaches like Meta-model proposed by Demir et al.",
+          "chunk": "16"
+        },
+        {
+          "from": "Meta-model",
+          "relation": "demonstratesInconsistentPerformance",
+          "to": "Cifar-100",
+          "context": "Meta-model demonstrates inconsistent performance, delivering significantly poor results on certain subjects, such as Cifar-100 with Spatter corruption type",
+          "chunk": "16"
+        },
+        {
+          "from": "Cifar-100",
+          "relation": "type",
+          "to": "Dataset",
+          "context": "delivering significantly poor results on certain subjects, such as Cifar-100 with Spatter corruption type",
+          "chunk": "16"
+        }
+      ]
+    },
+    "question": "In the study discussed in the 'results4' section, how did the Meta-model's performance on the Cifar-100 dataset differ when compared to other learning-based approaches?",
+    "options": {
+      "A": "The Meta-model outperformed other approaches on noise-related corruptions but not on dataset-wide evaluations.",
+      "B": "Performance of the Meta-model was similar to other models but excelled with Fog corruption type on Cifar-100.",
+      "C": "The Meta-model demonstrated consistently superior performance across all subjects in the Cifar-100 dataset.",
+      "D": "The Meta-model showed inconsistent performance, particularly underperforming with Spatter corruption type on Cifar-100."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is B, as the Meta-model is noted to have demonstrated inconsistent performance, particularly delivering poor results on Cifar-100 when dealing with Spatter corruption type. This is contrasted with other learning-based approaches, which suggests a specific weakness of the Meta-model under those conditions.",
+    "path_description": "Path: MetaSel --[comparedWith]--> Meta-model --[demonstratesInconsistentPerformance]--> Cifar-100 --[type]--> Dataset",
+    "context": "compared to other learning-based approaches like Meta-model proposed by Demir et al. | Meta-model demonstrates inconsistent performance, delivering significantly poor results on certain subjects, such as Cifar-100 with Spatter corruption type | delivering significantly poor results on certain subjects, such as Cifar-100 with Spatter corruption type",
+    "paper_id": "333"
+  },
+  {
+    "section": "relatedwork2",
+    "path": {
+      "section": "relatedwork2",
+      "start_entity": "DeepGini",
+      "end_entity": "Algorithm",
+      "hops": [
+        {
+          "from": "DeepGini",
+          "relation": "outperforms",
+          "to": "PRIMA",
+          "context": "simpler and computationally more efficient approaches such as DeepGini have shown to consistently outperform PRIMA...",
+          "chunk": "20"
+        },
+        {
+          "from": "PRIMA",
+          "relation": "uses",
+          "to": "XGBoost",
+          "context": "Features are then extracted by comparing the outputs of the MUT with those of the mutated models...",
+          "chunk": "20"
+        },
+        {
+          "from": "XGBoost",
+          "relation": "type",
+          "to": "Algorithm",
+          "context": "Features are then extracted by comparing the outputs of the MUT with those of the mutated models...",
+          "chunk": "20"
+        }
+      ]
+    },
+    "question": "Which statement best describes the relationship and computational efficiency among DeepGini, PRIMA, and XGBoost in the context of algorithmic usage?",
+    "options": {
+      "A": "DeepGini, being computationally more efficient, outperforms PRIMA which utilizes the XGBoost algorithm for its operations.",
+      "B": "PRIMA uses the less efficient DeepGini which in turn employs XGBoost, a machine learning algorithm.",
+      "C": "XGBoost outperforms both DeepGini and PRIMA by being the most computationally efficient algorithm.",
+      "D": "DeepGini and PRIMA both use XGBoost, but PRIMA is more efficient and thus outperforms DeepGini."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A as it correctly encapsulates the relationships and computational efficiency described in the paper. DeepGini is noted for its computational efficiency and its ability to outperform PRIMA, which uses the XGBoost algorithm. Options B, C, and D are misleading and do not accurately represent the relationships detailed in the paper.",
+    "path_description": "Path: DeepGini --[outperforms]--> PRIMA --[uses]--> XGBoost --[type]--> Algorithm",
+    "context": "simpler and computationally more efficient approaches such as DeepGini have shown to consistently outperform PRIMA... | Features are then extracted by comparing the outputs of the MUT with those of the mutated models... | Features are then extracted by comparing the outputs of the MUT with those of the mutated models...",
+    "paper_id": "333"
+  }
+]

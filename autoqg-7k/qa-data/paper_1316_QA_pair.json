@@ -1,0 +1,303 @@
+[
+  {
+    "section": "iintroduction1",
+    "path": {
+      "section": "iintroduction1",
+      "start_entity": "AdaptiveGainIntegralControl",
+      "end_entity": "SystemType",
+      "hops": [
+        {
+          "from": "AdaptiveGainIntegralControl",
+          "relation": "uses",
+          "to": "IPA",
+          "context": "This estimation is carried out by Infinitesimal Perturbation Analysis (IPA).",
+          "chunk": "0"
+        },
+        {
+          "from": "IPA",
+          "relation": "appliedTo",
+          "to": "DEDS",
+          "context": "computing sample-performance derivatives (gradients) in DEDS.",
+          "chunk": "0"
+        },
+        {
+          "from": "DEDS",
+          "relation": "type",
+          "to": "SystemType",
+          "context": "regulation of event-driven systems, including Discrete Event Dynamic Systems (DEDS).",
+          "chunk": "0"
+        }
+      ]
+    },
+    "question": "Which type of control system uses Infinitesimal Perturbation Analysis (IPA) for regulating event-driven systems, specifically applied to Discrete Event Dynamic Systems (DEDS)?",
+    "options": {
+      "A": "Linear Quadratic Regulator systems, mainly used in continuous, deterministic control processes.",
+      "B": "Proportional Derivative Control systems, focusing primarily on continuous time dynamic responses.",
+      "C": "Adaptive Gain Integral Control systems, which are a type of systematic control strategy.",
+      "D": "Feedforward Control systems, which typically do not rely on feedback from system output."
+    },
+    "correct_answer": "C",
+    "explanation": "Through the knowledge path, Adaptive Gain Integral Control uses IPA specifically applied to DEDS, which are categorized as a type of system. The question requires understanding this specific application and the nature of the systems involved. Options B, C, and D mention other types of control systems that do not align with the use of IPA in DEDS as described in the knowledge graph path.",
+    "path_description": "Path: AdaptiveGainIntegralControl --[uses]--> IPA --[appliedTo]--> DEDS --[type]--> SystemType",
+    "context": "This estimation is carried out by Infinitesimal Perturbation Analysis (IPA). | computing sample-performance derivatives (gradients) in DEDS. | regulation of event-driven systems, including Discrete Event Dynamic Systems (DEDS).",
+    "paper_id": "82"
+  },
+  {
+    "section": "iintroduction2",
+    "path": {
+      "section": "iintroduction2",
+      "start_entity": "StateZt",
+      "end_entity": "EventDrivenDynamicalSystem",
+      "hops": [
+        {
+          "from": "StateZt",
+          "relation": "belongsTo",
+          "to": "ContinuousTimeSystem",
+          "context": "and its state is z(t) ∈ R for some q≥1",
+          "chunk": "1"
+        },
+        {
+          "from": "ContinuousTimeSystem",
+          "relation": "partOf",
+          "to": "Plant",
+          "context": "As for the plant, it can have the following form. Consider a continuous-time or discrete-time dynamical system",
+          "chunk": "1"
+        },
+        {
+          "from": "Plant",
+          "relation": "type",
+          "to": "EventDrivenDynamicalSystem",
+          "context": "The plant is an event-driven dynamical system",
+          "chunk": "1"
+        }
+      ]
+    },
+    "question": "Given that StateZt belongs to a ContinuousTimeSystem, which is part of a Plant, what type of dynamical system best describes the overall behavior of the plant?",
+    "options": {
+      "A": "The plant is characterized solely as a discrete-time dynamical system, dealing with specific intervals.",
+      "B": "The plant is a hybrid of a stochastic and deterministic system, not primarily driven by events.",
+      "C": "The plant functions as a purely continuous dynamical system, focusing only on uninterrupted time progression.",
+      "D": "The plant operates as an event-driven dynamical system, integrating both continuous and discrete elements."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A. The path starts with StateZt being part of a ContinuousTimeSystem, which is integrated into a Plant described as an event-driven dynamical system. This indicates that while the system includes continuous dynamics, the plant as a whole is driven by events, which can integrate both continuous and discrete elements in its function.",
+    "path_description": "Path: StateZt --[belongsTo]--> ContinuousTimeSystem --[partOf]--> Plant --[type]--> EventDrivenDynamicalSystem",
+    "context": "and its state is z(t) ∈ R for some q≥1 | As for the plant, it can have the following form. Consider a continuous-time or discrete-time dynamical system | The plant is an event-driven dynamical system",
+    "paper_id": "82"
+  },
+  {
+    "section": "iiimodelingsimulationandimplementation4",
+    "path": {
+      "section": "iiimodelingsimulationandimplementation4",
+      "start_entity": "AverageThroughput",
+      "end_entity": "TimeMeasurement",
+      "hops": [
+        {
+          "from": "AverageThroughput",
+          "relation": "measuredFrom",
+          "to": "Throughput-Target",
+          "context": "the average throughout from the time the target level is reached (1.8ms) to the end of the program-run (333ms) is 1,126.8 MIPS",
+          "chunk": "7"
+        },
+        {
+          "from": "Throughput-Target",
+          "relation": "measuredIn",
+          "to": "ControlCycle",
+          "context": "in about 1.8 ms, or 18 control cycles",
+          "chunk": "7"
+        },
+        {
+          "from": "ControlCycle",
+          "relation": "type",
+          "to": "TimeMeasurement",
+          "context": "in about 1.8 ms, or 18 control cycles",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "In the context of the control system described, if the throughput target is measured in terms of MIPS during control cycles, what is the most precise way to describe the type of measurement used for the throughput target from 1.8ms to 333ms?",
+    "options": {
+      "A": "The throughput target is measured using the number of program instructions per millisecond.",
+      "B": "The throughput target is measured by counting the number of errors per control cycle.",
+      "C": "The throughput target is measured using continuous time measurement across the control cycles.",
+      "D": "The throughput target is assessed based on the cumulative data throughput at the end of the program."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A. The question specifies that the throughput target is measured from 1.8 ms to 333 ms, which covers multiple control cycles. Each control cycle represents a time measurement, therefore, the throughput is measured in a continuous time-based manner across these cycles.",
+    "path_description": "Path: AverageThroughput --[measuredFrom]--> Throughput-Target --[measuredIn]--> ControlCycle --[type]--> TimeMeasurement",
+    "context": "the average throughout from the time the target level is reached (1.8ms) to the end of the program-run (333ms) is 1,126.8 MIPS | in about 1.8 ms, or 18 control cycles | in about 1.8 ms, or 18 control cycles",
+    "paper_id": "82"
+  },
+  {
+    "section": "iiimodelingsimulationandimplementation4",
+    "path": {
+      "section": "iiimodelingsimulationandimplementation4",
+      "start_entity": "Throughput-Initial",
+      "end_entity": "TimeMeasurement",
+      "hops": [
+        {
+          "from": "Throughput-Initial",
+          "relation": "risesTo",
+          "to": "Throughput-Target",
+          "context": "the throughput obtained from the simulation rises from its initial value of 429 to its target level of 1,200 MIPS",
+          "chunk": "7"
+        },
+        {
+          "from": "Throughput-Target",
+          "relation": "measuredIn",
+          "to": "ControlCycle",
+          "context": "in about 1.8 ms, or 18 control cycles",
+          "chunk": "7"
+        },
+        {
+          "from": "ControlCycle",
+          "relation": "type",
+          "to": "TimeMeasurement",
+          "context": "in about 1.8 ms, or 18 control cycles",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "In the context of the model's simulation described in the section 'iiimodelingsimulationandimplementation4', how is the target throughput of 1,200 MIPS quantitatively measured in terms of time?",
+    "options": {
+      "A": "The initial throughput measurement is sustained for approximately 2 seconds, totaling 20,000 control cycles.",
+      "B": "The measurement interval for the throughput spans 0.18 milliseconds, about 1.8 control cycles.",
+      "C": "The throughput increases steadily over a period of 10 milliseconds, or 100 control cycles.",
+      "D": "The target throughput is measured over a duration of 1.8 milliseconds, equivalent to 18 control cycles."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A, as the paper explicitly states that the throughput rises to its target level of 1,200 MIPS in about 1.8 ms, which is equivalent to 18 control cycles. The other options offer different time and cycle measurements, which do not align with the details provided in the paper.",
+    "path_description": "Path: Throughput-Initial --[risesTo]--> Throughput-Target --[measuredIn]--> ControlCycle --[type]--> TimeMeasurement",
+    "context": "the throughput obtained from the simulation rises from its initial value of 429 to its target level of 1,200 MIPS | in about 1.8 ms, or 18 control cycles | in about 1.8 ms, or 18 control cycles",
+    "paper_id": "82"
+  },
+  {
+    "section": "iiimodelingsimulationandimplementation5",
+    "path": {
+      "section": "iiimodelingsimulationandimplementation5",
+      "start_entity": "ControllerImplementation",
+      "end_entity": "ParameterSet",
+      "hops": [
+        {
+          "from": "ControllerImplementation",
+          "relation": "implementedIn",
+          "to": "HaswellProcessor",
+          "context": "We implemented the controller by loading a C++ program to the processor via the PAPI interface",
+          "chunk": "8"
+        },
+        {
+          "from": "HaswellProcessor",
+          "relation": "has",
+          "to": "FrequencySet",
+          "context": "However, the Haswell processor admits only a finite set of 16 frequencies",
+          "chunk": "8"
+        },
+        {
+          "from": "FrequencySet",
+          "relation": "type",
+          "to": "ParameterSet",
+          "context": "This set of frequencies, denoted by Ω, is (in GHz) Ω = {0.8,1.0,1.1,1.3,1.5,1.7,1.8,2.0,2.2,2.4,2.5,2.7,2.9,3.1, 3.2,3.4}",
+          "chunk": "8"
+        }
+      ]
+    },
+    "question": "In the context of implementing a controller on a Haswell processor, what role does the set Ω play in the system's configuration?",
+    "options": {
+      "A": "Ω represents the range of voltage thresholds that the Haswell processor can handle without overheating.",
+      "B": "Ω defines the permissible frequency parameters that can be set on the Haswell processor.",
+      "C": "Ω is a set of processor core counts that can be dynamically adjusted based on workload.",
+      "D": "Ω denotes the different sets of memory configurations available on the Haswell processor."
+    },
+    "correct_answer": "B",
+    "explanation": "Ω is explicitly mentioned as a set of frequencies (in GHz) that the Haswell processor can be set to. This makes it clear that Ω defines the permissible frequency parameters for the processor, aligning with option A. Options B, C, and D, while plausible in terms of technical terminology, do not correctly describe the role of Ω as it is specifically related to frequency settings.",
+    "path_description": "Path: ControllerImplementation --[implementedIn]--> HaswellProcessor --[has]--> FrequencySet --[type]--> ParameterSet",
+    "context": "We implemented the controller by loading a C++ program to the processor via the PAPI interface | However, the Haswell processor admits only a finite set of 16 frequencies | This set of frequencies, denoted by Ω, is (in GHz) Ω = {0.8,1.0,1.1,1.3,1.5,1.7,1.8,2.0,2.2,2.4,2.5,2.7,2.9,3.1, 3.2,3.4}",
+    "paper_id": "82"
+  },
+  {
+    "section": "ivconclusions",
+    "path": {
+      "section": "ivconclusions",
+      "start_entity": "CentralizedControl",
+      "end_entity": "SystemType",
+      "hops": [
+        {
+          "from": "CentralizedControl",
+          "relation": "willBeExtendedTo",
+          "to": "DistributedControl",
+          "context": "Future research will extend the regulation method from a centralized control of a single processor to a distributed control of networked systems.",
+          "chunk": "10"
+        },
+        {
+          "from": "DistributedControl",
+          "relation": "appliedTo",
+          "to": "NetworkedSystems",
+          "context": "Future research will extend the regulation method from a centralized control of a single processor to a distributed control of networked systems.",
+          "chunk": "10"
+        },
+        {
+          "from": "NetworkedSystems",
+          "relation": "type",
+          "to": "SystemType",
+          "context": "Future research will extend the regulation method from a centralized control of a single processor to a distributed control of networked systems.",
+          "chunk": "10"
+        }
+      ]
+    },
+    "question": "In the context of future research mentioned in the paper, how will the extension from centralized to distributed control particularly impact the regulation method?",
+    "options": {
+      "A": "It will enable the regulation method to manage multiple processors simultaneously, enhancing overall system efficiency.",
+      "B": "It will restrict the regulation method to single-processor systems, limiting its applicability in larger networked systems.",
+      "C": "It will reduce the computational load on the master processor by distributing tasks across a network.",
+      "D": "It will primarily improve the aesthetic design of the control interfaces, rather than their functional capabilities."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A. The extension from centralized to distributed control facilitates the management of multiple processors instead of just one, which improves the efficiency of the overall system. This aligns with the progression from centralized control of a single processor to distributed control mentioned in the paper, which is explicitly aimed at enhancing the capabilities of networked systems. Options B, C, and D do not correctly reflect the benefits of distributed control in the context of networked systems as described in the paper.",
+    "path_description": "Path: CentralizedControl --[willBeExtendedTo]--> DistributedControl --[appliedTo]--> NetworkedSystems --[type]--> SystemType",
+    "context": "Future research will extend the regulation method from a centralized control of a single processor to a distributed control of networked systems. | Future research will extend the regulation method from a centralized control of a single processor to a distributed control of networked systems. | Future research will extend the regulation method from a centralized control of a single processor to a distributed control of networked systems.",
+    "paper_id": "82"
+  },
+  {
+    "section": "vappendix",
+    "path": {
+      "section": "vappendix",
+      "start_entity": "OOO-CacheHighLevelModel",
+      "end_entity": "Model",
+      "hops": [
+        {
+          "from": "OOO-CacheHighLevelModel",
+          "relation": "partOf",
+          "to": "IPA-BasedThroughputRegulationTechnique",
+          "context": "This section provides a quantitative description of the instruction-flow in the OOO-cache high-level model described at the beginning of Section III.",
+          "chunk": "11"
+        },
+        {
+          "from": "IPA-BasedThroughputRegulationTechnique",
+          "relation": "outperforms",
+          "to": "SimulationEnvironment",
+          "context": "Despite crude approximations that have had to be made in the implementation setting, the proposed technique performed slightly better than in the simulation setting.",
+          "chunk": "11"
+        },
+        {
+          "from": "SimulationEnvironment",
+          "relation": "type",
+          "to": "Model",
+          "context": "The testing was performed on both a simulation environment and an implementation platform.",
+          "chunk": "11"
+        }
+      ]
+    },
+    "question": "Which statement best describes the relationship between the OOO-Cache High Level Model and its performance comparison in different settings?",
+    "options": {
+      "A": "The OOO-Cache High Level Model contributes to the throughput in simulation settings but has limited impact on real-world performance metrics.",
+      "B": "Although the OOO-Cache High Level Model is used in simulations, it has no direct connection to the IPA-Based Throughput Regulation Technique's success in implementation platforms.",
+      "C": "The OOO-Cache High Level Model, despite being a lower-level abstraction, directly enhances the performance of the IPA-Based Throughput Regulation Technique in real-world applications.",
+      "D": "The OOO-Cache High Level Model is part of an IPA-Based Throughput Regulation Technique that outperforms traditional models in a simulation environment."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A because the question path indicates that the OOO-Cache High Level Model is part of the IPA-Based Throughput Regulation Technique, which itself outperforms in a simulation environment, suggesting a connection of performance enhancement in that specific setting.",
+    "path_description": "Path: OOO-CacheHighLevelModel --[partOf]--> IPA-BasedThroughputRegulationTechnique --[outperforms]--> SimulationEnvironment --[type]--> Model",
+    "context": "This section provides a quantitative description of the instruction-flow in the OOO-cache high-level model described at the beginning of Section III. | Despite crude approximations that have had to be made in the implementation setting, the proposed technique performed slightly better than in the simulation setting. | The testing was performed on both a simulation environment and an implementation platform.",
+    "paper_id": "82"
+  }
+]

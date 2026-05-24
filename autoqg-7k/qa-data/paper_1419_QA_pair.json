@@ -1,0 +1,174 @@
+[
+  {
+    "section": "proposedframework",
+    "path": {
+      "section": "proposedframework",
+      "start_entity": "ArtificialIntelligencePlane",
+      "end_entity": "Task",
+      "hops": [
+        {
+          "from": "ArtificialIntelligencePlane",
+          "relation": "responsibleFor",
+          "to": "ModelTraining",
+          "context": "The AIP is responsible for ML/DL management-related operations",
+          "chunk": "2"
+        },
+        {
+          "from": "ModelTraining",
+          "relation": "followedBy",
+          "to": "ModelFineTuning",
+          "context": "After a good-quality set of data is obtained from the previous task, the next task is model-building",
+          "chunk": "2"
+        },
+        {
+          "from": "ModelFineTuning",
+          "relation": "type",
+          "to": "Task",
+          "context": "Model Fine-Tuning step is performed by extensively searching within the hyperparameters space",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the process described in the 'proposedframework' section, what is the primary purpose of the 'Model Fine-Tuning' step?",
+    "options": {
+      "A": "To extensively search within the hyperparameters space to optimize performance.",
+      "B": "To restructure the architecture of the model to better suit the data.",
+      "C": "To validate the model on unseen data sets to ensure its generalizability.",
+      "D": "To collect more data for the initial training phase of the model."
+    },
+    "correct_answer": "A",
+    "explanation": "The 'Model Fine-Tuning' step is specifically described as a process involving extensive searching within the hyperparameters space to optimize the model's performance. This indicates that the primary goal of this step is to refine and adjust the model's parameters for better efficiency and effectiveness, rather than data collection, validation, or architectural restructuring.",
+    "path_description": "Path: ArtificialIntelligencePlane --[responsibleFor]--> ModelTraining --[followedBy]--> ModelFineTuning --[type]--> Task",
+    "context": "The AIP is responsible for ML/DL management-related operations | After a good-quality set of data is obtained from the previous task, the next task is model-building | Model Fine-Tuning step is performed by extensively searching within the hyperparameters space",
+    "paper_id": "715"
+  },
+  {
+    "section": "performanceevaluation2",
+    "path": {
+      "section": "performanceevaluation2",
+      "start_entity": "SL-VNFs",
+      "end_entity": "CIC-DDoS2019",
+      "hops": [
+        {
+          "from": "SL-VNFs",
+          "relation": "outperforms",
+          "to": "WL-VNFs",
+          "context": "As expected, worse results are obtained with an SL-VNF deployment, in which throughput reductions of 25% about 38%, and 49% are observed under small, medium, and high traffic load conditions respectively.",
+          "chunk": "4"
+        },
+        {
+          "from": "WL-VNFs",
+          "relation": "outperforms",
+          "to": "SL-VNFs",
+          "context": "The benefits of WL-VNFs are not only thanks to the lower-complexity model installed in each device but also to the distributed computation of the features needed to feed the model and get the detection.",
+          "chunk": "4"
+        },
+        {
+          "from": "SL-VNFs",
+          "relation": "evaluatedOn",
+          "to": "CIC-DDoS2019",
+          "context": "From the analysis conducted on the CIC-DDoS2019 dataset, it results that packet sizes associated with malicious DoS/DDoS traffic are, on average, an order of magnitude larger than those observed in benign traffic.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "Which of the following statements best describes the performance evaluation of SL-VNFs and WL-VNFs on the CIC-DDoS2019 dataset under varying traffic load conditions?",
+    "options": {
+      "A": "WL-VNFs outperform SL-VNFs under all traffic load conditions due to their lower-complexity model and distributed feature computation.",
+      "B": "WL-VNFs perform worse than SL-VNFs as they struggle with the distributed computation of features under high traffic conditions.",
+      "C": "SL-VNFs show consistent throughput across all traffic load conditions, unaffected by the complexity of the installed models.",
+      "D": "SL-VNFs outperform WL-VNFs under high traffic load conditions by utilizing a more complex model that better handles larger packet sizes."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A, as the paper clearly states that WL-VNFs outperform SL-VNFs. This is primarily due to the lower-complexity model in each device and the distributed computation of features necessary for the model, which is especially beneficial under varying traffic loads. The paper also notes significant throughput reductions in SL-VNF deployments under all traffic conditions, further supporting the superior performance of WL-VNFs.",
+    "path_description": "Path: SL-VNFs --[outperforms]--> WL-VNFs --[outperforms]--> SL-VNFs --[evaluatedOn]--> CIC-DDoS2019",
+    "context": "As expected, worse results are obtained with an SL-VNF deployment, in which throughput reductions of 25% about 38%, and 49% are observed under small, medium, and high traffic load conditions respectively. | The benefits of WL-VNFs are not only thanks to the lower-complexity model installed in each device but also to the distributed computation of the features needed to feed the model and get the detection. | From the analysis conducted on the CIC-DDoS2019 dataset, it results that packet sizes associated with malicious DoS/DDoS traffic are, on average, an order of magnitude larger than those observed in benign traffic.",
+    "paper_id": "715"
+  },
+  {
+    "section": "proposedframework",
+    "path": {
+      "section": "proposedframework",
+      "start_entity": "ControlOrchestrationPlane",
+      "end_entity": "PDP",
+      "hops": [
+        {
+          "from": "ControlOrchestrationPlane",
+          "relation": "develops",
+          "to": "DeploymentStrategy",
+          "context": "The functions implemented in this Plane have the purpose of developing the Deployment Strategy of the WL-VNFs",
+          "chunk": "2"
+        },
+        {
+          "from": "DeploymentStrategy",
+          "relation": "targets",
+          "to": "WL-VNFs",
+          "context": "developing the Deployment Strategy of the WL-VNFs",
+          "chunk": "2"
+        },
+        {
+          "from": "WL-VNFs",
+          "relation": "deployedOn",
+          "to": "PDP",
+          "context": "determining their optimal displacement across the PDP devices",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the proposed framework, what is the primary objective of the Control Orchestration Plane in relation to the WL-VNFs and PDP devices?",
+    "options": {
+      "A": "To facilitate communication between WL-VNFs and PDP devices without altering their deployment.",
+      "B": "To design the physical architecture of PDP devices to support the deployment of WL-VNFs.",
+      "C": "To monitor and manage the performance of WL-VNFs once they are deployed on PDP devices.",
+      "D": "To develop a Deployment Strategy that optimally places WL-VNFs on PDP devices, enhancing network performance."
+    },
+    "correct_answer": "D",
+    "explanation": "According to the provided knowledge graph path and context, the Control Orchestration Plane develops the Deployment Strategy for WL-VNFs, targeting their optimal placement on PDP devices. This strategy is focused on enhancing the deployment and operational efficiency of the network functions on the physical devices, making option A the correct answer.",
+    "path_description": "Path: ControlOrchestrationPlane --[develops]--> DeploymentStrategy --[targets]--> WL-VNFs --[deployedOn]--> PDP",
+    "context": "The functions implemented in this Plane have the purpose of developing the Deployment Strategy of the WL-VNFs | developing the Deployment Strategy of the WL-VNFs | determining their optimal displacement across the PDP devices",
+    "paper_id": "715"
+  },
+  {
+    "section": "performanceevaluation2",
+    "path": {
+      "section": "performanceevaluation2",
+      "start_entity": "SL-VNFs",
+      "end_entity": "Dataset",
+      "hops": [
+        {
+          "from": "SL-VNFs",
+          "relation": "outperforms",
+          "to": "WL-VNFs",
+          "context": "As expected, worse results are obtained with an SL-VNF deployment, in which throughput reductions of 25% about 38%, and 49% are observed under small, medium, and high traffic load conditions respectively.",
+          "chunk": "4"
+        },
+        {
+          "from": "WL-VNFs",
+          "relation": "evaluatedOn",
+          "to": "CIC-DDoS2019",
+          "context": "From the analysis conducted on the CIC-DDoS2019 dataset, it results that packet sizes associated with malicious DoS/DDoS traffic are, on average, an order of magnitude larger than those observed in benign traffic.",
+          "chunk": "4"
+        },
+        {
+          "from": "CIC-DDoS2019",
+          "relation": "type",
+          "to": "Dataset",
+          "context": "From the analysis conducted on the CIC-DDoS2019 dataset, it results that packet sizes associated with malicious DoS/DDoS traffic are, on average, an order of magnitude larger than those observed in benign traffic.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "Considering the performance evaluation of SL-VNFs and WL-VNFs using the CIC-DDoS2019 dataset, which statement best describes the impact of traffic load conditions on throughput when using SL-VNFs?",
+    "options": {
+      "A": "Throughput increases by about 10%, 20%, and 30% under small, medium, and high traffic load conditions respectively.",
+      "B": "Throughput decreases by about 10%, 15%, and 20% under small, medium, and high traffic load conditions respectively.",
+      "C": "Throughput remains constant regardless of the traffic load conditions when using SL-VNFs.",
+      "D": "Throughput decreases by about 25%, 38%, and 49% under small, medium, and high traffic load conditions respectively."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is derived directly from the paper's performance evaluation section, where it is explicitly stated that SL-VNF deployments see throughput reductions of 25%, 38%, and 49% under small, medium, and high traffic load conditions respectively. The other options are incorrect as they either suggest an increase in throughput or understate the reductions observed.",
+    "path_description": "Path: SL-VNFs --[outperforms]--> WL-VNFs --[evaluatedOn]--> CIC-DDoS2019 --[type]--> Dataset",
+    "context": "As expected, worse results are obtained with an SL-VNF deployment, in which throughput reductions of 25% about 38%, and 49% are observed under small, medium, and high traffic load conditions respectively. | From the analysis conducted on the CIC-DDoS2019 dataset, it results that packet sizes associated with malicious DoS/DDoS traffic are, on average, an order of magnitude larger than those observed in benign traffic. | From the analysis conducted on the CIC-DDoS2019 dataset, it results that packet sizes associated with malicious DoS/DDoS traffic are, on average, an order of magnitude larger than those observed in benign traffic.",
+    "paper_id": "715"
+  }
+]

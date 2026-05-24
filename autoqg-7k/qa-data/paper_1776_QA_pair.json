@@ -1,0 +1,217 @@
+[
+  {
+    "section": "algorithm1",
+    "path": {
+      "section": "algorithm1",
+      "start_entity": "KIgσ_S",
+      "end_entity": "Function",
+      "hops": [
+        {
+          "from": "KIgσ_S",
+          "relation": "appliedTo",
+          "to": "PolynomialFactorization",
+          "context": "We apply KIg,S(w) on Pr(T, x, z) (instantiating hard polynomial g and a design S).",
+          "chunk": "12"
+        },
+        {
+          "from": "PolynomialFactorization",
+          "relation": "uses",
+          "to": "KIgσ_S",
+          "context": "We apply KIg,S(w) on Pr(T, x, z) (instantiating hard polynomial g and a design S).",
+          "chunk": "12"
+        },
+        {
+          "from": "KIgσ_S",
+          "relation": "type",
+          "to": "Function",
+          "context": "Let KIgσ,S : F → F using the design S and the polynomial gσ from the family of hard polynomials G.",
+          "chunk": "12"
+        }
+      ]
+    },
+    "question": "In the context of polynomial factorization as described in 'algorithm1', how does the application of KIgσ,S functionally contribute to the process?",
+    "options": {
+      "A": "KIgσ,S is used for graphical representation of polynomial equations before initiating the factorization sequence.",
+      "B": "KIgσ,S primarily serves to enhance computational speed by simplifying polynomial coefficients within the factorization algorithm.",
+      "C": "KIgσ,S helps in the numerical approximation of roots, which is essential for the initial estimates in polynomial factorization.",
+      "D": "KIgσ,S facilitates the instantiation of specific hard polynomials and their respective designs, crucial for the factorization process."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A as KIgσ,S is specifically applied to instantiate hard polynomials and a design S, which are crucial elements in the polynomial factorization process described in the paper's algorithm1 section. It directs the factorization approach by setting up the necessary polynomial structures.",
+    "path_description": "Path: KIgσ_S --[appliedTo]--> PolynomialFactorization --[uses]--> KIgσ_S --[type]--> Function",
+    "context": "We apply KIg,S(w) on Pr(T, x, z) (instantiating hard polynomial g and a design S). | We apply KIg,S(w) on Pr(T, x, z) (instantiating hard polynomial g and a design S). | Let KIgσ,S : F → F using the design S and the polynomial gσ from the family of hard polynomials G.",
+    "paper_id": "3"
+  },
+  {
+    "section": "algorithm1",
+    "path": {
+      "section": "algorithm1",
+      "start_entity": "PolynomialFactorization",
+      "end_entity": "DegreeD",
+      "hops": [
+        {
+          "from": "PolynomialFactorization",
+          "relation": "outputs",
+          "to": "IrreducibleFactors",
+          "context": "outputs small (but unbounded depth) circuits along with multiplicity information for each irreducible factor of P.",
+          "chunk": "12"
+        },
+        {
+          "from": "IrreducibleFactors",
+          "relation": "partOf",
+          "to": "Polynomial_P",
+          "context": "outputs small (but unbounded depth) circuits along with multiplicity information for each irreducible factor of P.",
+          "chunk": "12"
+        },
+        {
+          "from": "Polynomial_P",
+          "relation": "hasDegree",
+          "to": "DegreeD",
+          "context": "deg(P) = D ≤ poly(n).",
+          "chunk": "12"
+        }
+      ]
+    },
+    "question": "In the context of polynomial factorization, if an algorithm outputs small circuits with multiplicity information for each irreducible factor of polynomial P, and deg(P) = D ≤ poly(n), what can be concluded about the degree of the irreducible factors of P?",
+    "options": {
+      "A": "The degree of each irreducible factor must be greater than D due to their complexity and relationship to P.",
+      "B": "The degree of each irreducible factor could either be equal to or less than D, but not necessarily for all factors.",
+      "C": "The degree of each irreducible factor must also be less than or equal to D, since they are part of polynomial P.",
+      "D": "The degree of each irreducible factor is unrelated to D and varies independently of the polynomial's total degree."
+    },
+    "correct_answer": "B",
+    "explanation": "Each irreducible factor of a polynomial P must have a degree that is less than or equal to the degree of P (D), as they collectively constitute the polynomial. However, not all factors must have the maximum degree D; some could be of lower degree.",
+    "path_description": "Path: PolynomialFactorization --[outputs]--> IrreducibleFactors --[partOf]--> Polynomial_P --[hasDegree]--> DegreeD",
+    "context": "outputs small (but unbounded depth) circuits along with multiplicity information for each irreducible factor of P. | outputs small (but unbounded depth) circuits along with multiplicity information for each irreducible factor of P. | deg(P) = D ≤ poly(n).",
+    "paper_id": "3"
+  },
+  {
+    "section": "preservingirreducibilityundervariablereduction2",
+    "path": {
+      "section": "preservingirreducibilityundervariablereduction2",
+      "start_entity": "Lemma8_1",
+      "end_entity": "Polynomial",
+      "hops": [
+        {
+          "from": "Lemma8_1",
+          "relation": "usedInProof",
+          "to": "QS",
+          "context": "Moreover, from Lemma 8.1, we argue via contradiction.",
+          "chunk": "22"
+        },
+        {
+          "from": "QS",
+          "relation": "isFactorOf",
+          "to": "P",
+          "context": "For the forward direction of the proof, QS must divide P.",
+          "chunk": "22"
+        },
+        {
+          "from": "P",
+          "relation": "type",
+          "to": "Polynomial",
+          "context": "Suppose R1, approximate z-roots of P of order k that satisfy k Ri ≡ ϕi mod T.",
+          "chunk": "22"
+        }
+      ]
+    },
+    "question": "In the context of the paper section 'preservingirreducibilityundervariablereduction2', what does QS represent when proving Lemma 8.1?",
+    "options": {
+      "A": "QS stands for a quantitative structure equation used to link R1 and its z-roots directly to P.",
+      "B": "QS is a constant that determines the approximate z-roots of P in relation to its irreducibility.",
+      "C": "QS is a quotient set derived from Lemma 8.1, used to approximate z-roots without direct division.",
+      "D": "QS represents a polynomial that divides P, thereby ensuring the forward direction of the proof."
+    },
+    "correct_answer": "D",
+    "explanation": "According to the context from the paper, QS must divide P to support the forward direction of the proof stated in Lemma 8.1. This indicates that QS is a polynomial related to P, where the relationship used in the proof is the division of P by QS.",
+    "path_description": "Path: Lemma8_1 --[usedInProof]--> QS --[isFactorOf]--> P --[type]--> Polynomial",
+    "context": "Moreover, from Lemma 8.1, we argue via contradiction. | For the forward direction of the proof, QS must divide P. | Suppose R1, approximate z-roots of P of order k that satisfy k Ri ≡ ϕi mod T.",
+    "paper_id": "3"
+  },
+  {
+    "section": "preservingirreducibilityundervariablereduction3",
+    "path": {
+      "section": "preservingirreducibilityundervariablereduction3",
+      "start_entity": "DivTestdeg_P_ℓ",
+      "end_entity": "Lemma",
+      "hops": [
+        {
+          "from": "DivTestdeg_P_ℓ",
+          "relation": "proposedIn",
+          "to": "Lemma8_7",
+          "context": "Lemma 8.7. Let F be a field of characteristic zero. Then, there exists a circuit DivTestdeg (P),ℓ.",
+          "chunk": "23"
+        },
+        {
+          "from": "Lemma8_7",
+          "relation": "basedOn",
+          "to": "Lemma8_6",
+          "context": "Lemma 8.7 uses Lemma 8.6 to show whether a candidate factor is an actual factor.",
+          "chunk": "23"
+        },
+        {
+          "from": "Lemma8_6",
+          "relation": "type",
+          "to": "Lemma",
+          "context": "Lemma 8.6. Let D ≥ t ≥ 0 be integer parameters.",
+          "chunk": "23"
+        }
+      ]
+    },
+    "question": "In the context of the paper section 'preservingirreducibilityundervariablereduction3', what is the primary function of the circuit DivTestdeg (P),ℓ as proposed in Lemma 8.7?",
+    "options": {
+      "A": "To calculate the characteristic of the field for which the polynomial P is defined.",
+      "B": "To prove the irreducibility of a polynomial without reducing its variables.",
+      "C": "To determine if a candidate factor is an actual factor of a polynomial in a field of characteristic zero.",
+      "D": "To establish the integer parameters D and t where D is greater than or equal to t."
+    },
+    "correct_answer": "C",
+    "explanation": "Lemma 8.7 discusses the existence of a circuit DivTestdeg (P),ℓ in a field of characteristic zero, and it uses Lemma 8.6 to determine whether a candidate factor is genuinely a factor of a polynomial. The other options, while related to fields and polynomials, do not directly pertain to the function of the circuit as described in the lemma.",
+    "path_description": "Path: DivTestdeg_P_ℓ --[proposedIn]--> Lemma8_7 --[basedOn]--> Lemma8_6 --[type]--> Lemma",
+    "context": "Lemma 8.7. Let F be a field of characteristic zero. Then, there exists a circuit DivTestdeg (P),ℓ. | Lemma 8.7 uses Lemma 8.6 to show whether a candidate factor is an actual factor. | Lemma 8.6. Let D ≥ t ≥ 0 be integer parameters.",
+    "paper_id": "3"
+  },
+  {
+    "section": "proofofcorrectnessofthealgorithm2",
+    "path": {
+      "section": "proofofcorrectnessofthealgorithm2",
+      "start_entity": "phi",
+      "end_entity": "Function",
+      "hops": [
+        {
+          "from": "phi",
+          "relation": "expressedAs",
+          "to": "B",
+          "context": "The minimal polynomial satisfies B(T, ϕ(T, x)) = ∑∑ Bi,j(ϕ(T, x)) T ≡ 0",
+          "chunk": "28"
+        },
+        {
+          "from": "B",
+          "relation": "satisfies",
+          "to": "phi",
+          "context": "The minimal polynomial satisfies B(T, ϕ(T, x)) = ∑∑ Bi,j(ϕ(T, x)) T ≡ 0",
+          "chunk": "28"
+        },
+        {
+          "from": "phi",
+          "relation": "type",
+          "to": "Function",
+          "context": "The minimal polynomial satisfies B(T, ϕ(T, x)) = ∑∑ Bi,j(ϕ(T, x)) T ≡ 0",
+          "chunk": "28"
+        }
+      ]
+    },
+    "question": "In the context of algorithm correctness proof from section 'proofofcorrectnessofthealgorithm2', how is the expression B functionally related to phi?",
+    "options": {
+      "A": "B is a simple variable independent of the function phi and does not interact within the polynomial.",
+      "B": "B directly represents the summation indices i, j in the polynomial expression of phi.",
+      "C": "B is an initial condition set before phi is computed, influencing the outcome of the polynomial.",
+      "D": "B is expressed as a minimal polynomial that satisfies the equation involving phi as a function of T and x."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A. According to the paper's context, B is expressed as a minimal polynomial that satisfies the equation where phi (ϕ) is a function of T and x. This relationship shows that B and phi are interconnected through the functional expression involving polynomial and variables T, x.",
+    "path_description": "Path: phi --[expressedAs]--> B --[satisfies]--> phi --[type]--> Function",
+    "context": "The minimal polynomial satisfies B(T, ϕ(T, x)) = ∑∑ Bi,j(ϕ(T, x)) T ≡ 0 | The minimal polynomial satisfies B(T, ϕ(T, x)) = ∑∑ Bi,j(ϕ(T, x)) T ≡ 0 | The minimal polynomial satisfies B(T, ϕ(T, x)) = ∑∑ Bi,j(ϕ(T, x)) T ≡ 0",
+    "paper_id": "3"
+  }
+]

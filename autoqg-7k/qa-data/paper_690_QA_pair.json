@@ -1,0 +1,260 @@
+[
+  {
+    "section": "optimalportfolioallocation",
+    "path": {
+      "section": "optimalportfolioallocation",
+      "start_entity": "MonteCarloSimulation",
+      "end_entity": "Entity",
+      "hops": [
+        {
+          "from": "MonteCarloSimulation",
+          "relation": "usedForComputing",
+          "to": "ConditionalValueAtRisk",
+          "context": "CVaR is usually computed with the Monte Carlo (MC) simulation.",
+          "chunk": "2"
+        },
+        {
+          "from": "ConditionalValueAtRisk",
+          "relation": "measuresRisk",
+          "to": "PortfolioWeights",
+          "context": "Conditional Value-at-Risk (CVaR) at a specified risk level 𝛼 ∈ (0, 1) is the expected loss given that the losses exceed the VaR threshold.",
+          "chunk": "2"
+        },
+        {
+          "from": "PortfolioWeights",
+          "relation": "type",
+          "to": "Entity",
+          "context": "Let x = (𝑥1, ..., 𝑥𝑁 ) be an 𝑁-dimensional vector representing the capital allocation or portfolio weights.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the context of optimal portfolio allocation, how does the Monte Carlo simulation specifically contribute to determining the risk associated with portfolio weights?",
+    "options": {
+      "A": "It provides a method to directly compute the Value-at-Risk, thereby indirectly affecting portfolio weights by setting risk thresholds.",
+      "B": "It is used to compute the Conditional Value-At-Risk, which measures the expected loss exceeding the VaR threshold to influence portfolio weights.",
+      "C": "It simulates various market scenarios to directly establish the most profitable portfolio weights.",
+      "D": "It directly calculates the optimal portfolio weights by maximizing the expected return of the portfolio."
+    },
+    "correct_answer": "B",
+    "explanation": "The Monte Carlo simulation is used to compute the Conditional Value-At-Risk (CVaR), which is a measure of risk that determines the expected loss given that losses exceed a certain threshold (VaR). This risk measure is then used to guide the determination of portfolio weights, influencing how capital is allocated among different assets to optimize the portfolio in terms of risk.",
+    "path_description": "Path: MonteCarloSimulation --[usedForComputing]--> ConditionalValueAtRisk --[measuresRisk]--> PortfolioWeights --[type]--> Entity",
+    "context": "CVaR is usually computed with the Monte Carlo (MC) simulation. | Conditional Value-at-Risk (CVaR) at a specified risk level 𝛼 ∈ (0, 1) is the expected loss given that the losses exceed the VaR threshold. | Let x = (𝑥1, ..., 𝑥𝑁 ) be an 𝑁-dimensional vector representing the capital allocation or portfolio weights.",
+    "paper_id": "1694"
+  },
+  {
+    "section": "proposedmethodology1",
+    "path": {
+      "section": "proposedmethodology1",
+      "start_entity": "CW-EI_BO",
+      "end_entity": "Constraint",
+      "hops": [
+        {
+          "from": "CW-EI_BO",
+          "relation": "appliedTo",
+          "to": "PortfolioAllocationProblem",
+          "context": "When applied to the portfolio allocation problem, CW-EI BO models both the CVaR objective function and expected return constraint as separate GPs.",
+          "chunk": "4"
+        },
+        {
+          "from": "PortfolioAllocationProblem",
+          "relation": "uses",
+          "to": "ExpectedReturnConstraint",
+          "context": "CW-EI BO models both the CVaR objective function and expected return constraint as separate GPs.",
+          "chunk": "4"
+        },
+        {
+          "from": "ExpectedReturnConstraint",
+          "relation": "type",
+          "to": "Constraint",
+          "context": "CW-EI BO models both the CVaR objective function and expected return constraint as separate GPs.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the context of using CW-EI BO for portfolio allocation, how does the model specifically handle the expected return constraint?",
+    "options": {
+      "A": "It models the expected return constraint as a separate Gaussian Process within the overall Bayesian optimization framework.",
+      "B": "It uses a linear programming approach to solve the expected return constraint independently of the CVaR objective.",
+      "C": "It integrates the expected return constraint directly into the CVaR objective function, forming a composite function.",
+      "D": "It eliminates the need for an expected return constraint by focusing solely on minimizing risk."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A because, according to the paper, CW-EI BO treats both the CVaR objective function and expected return constraint as separate Gaussian Processes (GPs). This approach allows each constraint to be modeled independently within the Bayesian optimization framework.",
+    "path_description": "Path: CW-EI_BO --[appliedTo]--> PortfolioAllocationProblem --[uses]--> ExpectedReturnConstraint --[type]--> Constraint",
+    "context": "When applied to the portfolio allocation problem, CW-EI BO models both the CVaR objective function and expected return constraint as separate GPs. | CW-EI BO models both the CVaR objective function and expected return constraint as separate GPs. | CW-EI BO models both the CVaR objective function and expected return constraint as separate GPs.",
+    "paper_id": "1694"
+  },
+  {
+    "section": "proposedmethodology1",
+    "path": {
+      "section": "proposedmethodology1",
+      "start_entity": "CW-EI_BO",
+      "end_entity": "ObjectiveFunction",
+      "hops": [
+        {
+          "from": "CW-EI_BO",
+          "relation": "appliedTo",
+          "to": "PortfolioAllocationProblem",
+          "context": "When applied to the portfolio allocation problem, CW-EI BO models both the CVaR objective function and expected return constraint as separate GPs.",
+          "chunk": "4"
+        },
+        {
+          "from": "PortfolioAllocationProblem",
+          "relation": "uses",
+          "to": "CVaR_ObjectiveFunction",
+          "context": "CW-EI BO models both the CVaR objective function and expected return constraint as separate GPs.",
+          "chunk": "4"
+        },
+        {
+          "from": "CVaR_ObjectiveFunction",
+          "relation": "type",
+          "to": "ObjectiveFunction",
+          "context": "CW-EI BO models both the CVaR objective function and expected return constraint as separate GPs.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the context of portfolio allocation problem, how does the CW-EI BO technique specifically utilize the CVaR objective function?",
+    "options": {
+      "A": "CW-EI BO applies the CVaR objective function as a Gaussian Process to separately model risk under extreme conditions.",
+      "B": "CW-EI BO uses the CVaR objective function as a secondary, supportive function for enhancing graphical presentations.",
+      "C": "CW-EI BO merges the CVaR objective function with other financial indicators to predict overall portfolio performance.",
+      "D": "CW-EI BO incorporates the CVaR objective function by directly integrating it with expected return calculations in a single model."
+    },
+    "correct_answer": "A",
+    "explanation": "The CW-EI BO (Constrained Weighted Expected Improvement Bayesian Optimization) method applies the CVaR (Conditional Value at Risk) objective function by modeling it as a separate Gaussian Process (GP), which is used to assess risk under extreme conditions in the portfolio allocation context. This is distinct from incorporating it directly with return calculations or using it for graphical enhancements or as a merged indicator.",
+    "path_description": "Path: CW-EI_BO --[appliedTo]--> PortfolioAllocationProblem --[uses]--> CVaR_ObjectiveFunction --[type]--> ObjectiveFunction",
+    "context": "When applied to the portfolio allocation problem, CW-EI BO models both the CVaR objective function and expected return constraint as separate GPs. | CW-EI BO models both the CVaR objective function and expected return constraint as separate GPs. | CW-EI BO models both the CVaR objective function and expected return constraint as separate GPs.",
+    "paper_id": "1694"
+  },
+  {
+    "section": "conclusion1",
+    "path": {
+      "section": "conclusion1",
+      "start_entity": "BOAlgorithms",
+      "end_entity": "Metric",
+      "hops": [
+        {
+          "from": "BOAlgorithms",
+          "relation": "proposedFor",
+          "to": "OptimalPortfolioAllocationProblem",
+          "context": "We proposed four new BO algorithms specifically designed for such problems",
+          "chunk": "7"
+        },
+        {
+          "from": "OptimalPortfolioAllocationProblem",
+          "relation": "addresses",
+          "to": "ComputationallyIntensiveRiskMeasure",
+          "context": "which aims to minimize a computationally intensive risk measure",
+          "chunk": "7"
+        },
+        {
+          "from": "ComputationallyIntensiveRiskMeasure",
+          "relation": "type",
+          "to": "Metric",
+          "context": "which aims to minimize a computationally intensive risk measure",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "Which of the following best describes the type of problem that the newly proposed Bayesian Optimization (BO) algorithms in the paper aim to address?",
+    "options": {
+      "A": "These algorithms are intended to optimize portfolio allocation by addressing computationally intensive risk measures classified as metrics.",
+      "B": "The algorithms are designed to improve computational speed in general portfolio management without specific risk measures.",
+      "C": "The proposed algorithms are tailored for high-frequency trading strategies that do not involve complex risk measures.",
+      "D": "These algorithms focus on minimizing the computational load for standard risk measures not defined as metrics in financial portfolios."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A because the paper proposes new BO algorithms for the Optimal Portfolio Allocation Problem, which specifically addresses computationally intensive risk measures that are classified as 'metrics'. Options B, C, and D are misleading as they either generalize the application, misstate the nature of the risk measures, or incorrectly describe the trading strategy focus.",
+    "path_description": "Path: BOAlgorithms --[proposedFor]--> OptimalPortfolioAllocationProblem --[addresses]--> ComputationallyIntensiveRiskMeasure --[type]--> Metric",
+    "context": "We proposed four new BO algorithms specifically designed for such problems | which aims to minimize a computationally intensive risk measure | which aims to minimize a computationally intensive risk measure",
+    "paper_id": "1694"
+  },
+  {
+    "section": "conclusion1",
+    "path": {
+      "section": "conclusion1",
+      "start_entity": "TwoStageACWEI_BO",
+      "end_entity": "Method",
+      "hops": [
+        {
+          "from": "TwoStageACWEI_BO",
+          "relation": "partOf",
+          "to": "SequentialMethods",
+          "context": "2S-ACW-EI BO",
+          "chunk": "7"
+        },
+        {
+          "from": "SequentialMethods",
+          "relation": "comparedWith",
+          "to": "BatchMethods",
+          "context": "Problem 1a: Sequential Methods  Problem 2a: Batch Methods",
+          "chunk": "7"
+        },
+        {
+          "from": "BatchMethods",
+          "relation": "type",
+          "to": "Method",
+          "context": "Problem 1a: Batch Methods",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "In the context of optimization methods discussed, how does the TwoStageACWEI_BO specifically categorize under the broader classification of methods?",
+    "options": {
+      "A": "It is a part of Sequential Methods, which are compared with Batch Methods categorized as a type of Method.",
+      "B": "It is an independent method that neither aligns with Sequential nor Batch Methods in the classification.",
+      "C": "It operates as a hybrid, combining features of both Sequential and Batch Methods without clear categorization.",
+      "D": "It directly falls under Batch Methods, which are a subset of Sequential Methods in optimization techniques."
+    },
+    "correct_answer": "A",
+    "explanation": "The TwoStageACWEI_BO is part of Sequential Methods as indicated by the first hop in the path. Sequential Methods are then compared with Batch Methods, as per the second hop, and Batch Methods are classified under a generic type referred to as 'Method' in the third hop. This path clearly places TwoStageACWEI_BO within the Sequential Methods category, which are contrasted with Batch Methods, ultimately grouping them all as types of methods.",
+    "path_description": "Path: TwoStageACWEI_BO --[partOf]--> SequentialMethods --[comparedWith]--> BatchMethods --[type]--> Method",
+    "context": "2S-ACW-EI BO | Problem 1a: Sequential Methods  Problem 2a: Batch Methods | Problem 1a: Batch Methods",
+    "paper_id": "1694"
+  },
+  {
+    "section": "conclusion1",
+    "path": {
+      "section": "conclusion1",
+      "start_entity": "BOAlgorithms",
+      "end_entity": "Constraint",
+      "hops": [
+        {
+          "from": "BOAlgorithms",
+          "relation": "proposedFor",
+          "to": "OptimalPortfolioAllocationProblem",
+          "context": "We proposed four new BO algorithms specifically designed for such problems",
+          "chunk": "7"
+        },
+        {
+          "from": "OptimalPortfolioAllocationProblem",
+          "relation": "hasConstraint",
+          "to": "MinimumExpectedReturnConstraint",
+          "context": "under a minimum expected return constraint",
+          "chunk": "7"
+        },
+        {
+          "from": "MinimumExpectedReturnConstraint",
+          "relation": "type",
+          "to": "Constraint",
+          "context": "under a minimum expected return constraint",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "What type of constraint is commonly associated with BO algorithms designed for optimal portfolio allocation problems?",
+    "options": {
+      "A": "A constraint that mandates a minimum level of expected returns from the portfolio.",
+      "B": "A constraint that controls the geographical diversity of the investment portfolio.",
+      "C": "A constraint that ensures the portfolio does not exceed a certain risk level.",
+      "D": "A constraint that limits the total number of assets within the portfolio."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is B. The knowledge path indicates that the BO algorithms proposed for optimal portfolio allocation problems specifically operate under a 'MinimumExpectedReturnConstraint', which is a type of constraint ensuring that the portfolio achieves at least a minimum level of expected returns.",
+    "path_description": "Path: BOAlgorithms --[proposedFor]--> OptimalPortfolioAllocationProblem --[hasConstraint]--> MinimumExpectedReturnConstraint --[type]--> Constraint",
+    "context": "We proposed four new BO algorithms specifically designed for such problems | under a minimum expected return constraint | under a minimum expected return constraint",
+    "paper_id": "1694"
+  }
+]

@@ -1,0 +1,88 @@
+[
+  {
+    "section": "resultsanddiscussion",
+    "path": {
+      "section": "resultsanddiscussion",
+      "start_entity": "ElasticNet",
+      "end_entity": "Model",
+      "hops": [
+        {
+          "from": "ElasticNet",
+          "relation": "hasHigherWMAPEThan",
+          "to": "SVR",
+          "context": "Elastic Net shows a more significant difference, with its WMAPE approximately 5.3% higher than that of SVR.",
+          "chunk": "3"
+        },
+        {
+          "from": "SVR",
+          "relation": "achievesLowerWMAPEThan",
+          "to": "MLP",
+          "context": "SVR achieves a slightly lower WMAPE than MLP...",
+          "chunk": "3"
+        },
+        {
+          "from": "MLP",
+          "relation": "type",
+          "to": "Model",
+          "context": "The MLP model accepts 36 features, with hidden layers of 64, 32, and 16 neurons using ReLU...",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "Considering the performance comparisons and structural details given in the paper, which model is most likely to have the highest Weighted Mean Absolute Percentage Error (WMAPE)?",
+    "options": {
+      "A": "ElasticNet, since it has a WMAPE that is approximately 5.3% higher than SVR, which itself has a lower WMAPE than MLP.",
+      "B": "SVR, as it is explicitly mentioned to have a higher WMAPE than ElasticNet, and MLP performs better.",
+      "C": "MLP, because it has hidden layers of 64, 32, and 16 neurons, which indicates a more complex model structure.",
+      "D": "MLP, given that it has a slightly higher WMAPE when compared to SVR, which in turn has a lower WMAPE than ElasticNet."
+    },
+    "correct_answer": "A",
+    "explanation": "From the given information, ElasticNet has a higher WMAPE compared to SVR by about 5.3%, and SVR in turn has a lower WMAPE than MLP. Thus, ElasticNet, which ranks higher in WMAPE compared to both SVR and MLP, is most likely to have the highest WMAPE.",
+    "path_description": "Path: ElasticNet --[hasHigherWMAPEThan]--> SVR --[achievesLowerWMAPEThan]--> MLP --[type]--> Model",
+    "context": "Elastic Net shows a more significant difference, with its WMAPE approximately 5.3% higher than that of SVR. | SVR achieves a slightly lower WMAPE than MLP... | The MLP model accepts 36 features, with hidden layers of 64, 32, and 16 neurons using ReLU...",
+    "paper_id": "1396"
+  },
+  {
+    "section": "resultsanddiscussion",
+    "path": {
+      "section": "resultsanddiscussion",
+      "start_entity": "ElasticNet",
+      "end_entity": "BatchNormalization",
+      "hops": [
+        {
+          "from": "ElasticNet",
+          "relation": "hasHigherWMAPEThan",
+          "to": "SVR",
+          "context": "Elastic Net shows a more significant difference, with its WMAPE approximately 5.3% higher than that of SVR.",
+          "chunk": "3"
+        },
+        {
+          "from": "SVR",
+          "relation": "achievesLowerWMAPEThan",
+          "to": "MLP",
+          "context": "SVR achieves a slightly lower WMAPE than MLP...",
+          "chunk": "3"
+        },
+        {
+          "from": "MLP",
+          "relation": "uses",
+          "to": "BatchNormalization",
+          "context": "The MLP model...using ReLU, Batch Normalization after the first two layers, and Dropout (0.3).",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "Which statement best describes the relationship between Elastic Net, SVR, and MLP in terms of Weighted Mean Absolute Percentage Error (WMAPE) and model components?",
+    "options": {
+      "A": "Elastic Net has a lower WMAPE than SVR, which in turn has a higher WMAPE than MLP, which does not utilize Batch Normalization in its architecture.",
+      "B": "Elastic Net has a lower WMAPE than SVR, and SVR has a higher WMAPE than MLP, which utilizes Batch Normalization after every layer.",
+      "C": "Elastic Net, SVR, and MLP all have the same WMAPE, with only MLP using Batch Normalization in its architecture.",
+      "D": "Elastic Net has a higher WMAPE than SVR, which in turn has a lower WMAPE than MLP, which utilizes Batch Normalization in its architecture."
+    },
+    "correct_answer": "D",
+    "explanation": "According to the knowledge path, Elastic Net has a higher WMAPE compared to SVR, and SVR has a lower WMAPE compared to MLP. Additionally, MLP uses Batch Normalization, specified in the context as being part of its architecture after the first two layers. Option A correctly reflects these relationships and details, distinguishing it from other options which contain inaccuracies about WMAPE comparisons and MLP's usage of Batch Normalization.",
+    "path_description": "Path: ElasticNet --[hasHigherWMAPEThan]--> SVR --[achievesLowerWMAPEThan]--> MLP --[uses]--> BatchNormalization",
+    "context": "Elastic Net shows a more significant difference, with its WMAPE approximately 5.3% higher than that of SVR. | SVR achieves a slightly lower WMAPE than MLP... | The MLP model...using ReLU, Batch Normalization after the first two layers, and Dropout (0.3).",
+    "paper_id": "1396"
+  }
+]

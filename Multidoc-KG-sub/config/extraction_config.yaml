@@ -1,0 +1,199 @@
+# ============================================================================
+# 知识抽取代理配置
+# ============================================================================
+# 用途：指导 AI 如何从医学论文中抽取知识三元组（主语-关系-宾语）
+# 工作流程：
+#   1. 将论文分块（chunk_size）
+#   2. 每块并行抽取三元组（max_workers）
+#   3. 规范化关系词（relation_normalization）
+#   4. 识别实体类型（entity_types）
+# ============================================================================
+
+# 模型选择
+# 可选值: "deepseek-chat", "gpt-4o", "gpt-4o-mini" 等
+model: "deepseek-chat"
+
+# 文本分块大小（字符数）
+# 每次传给 AI 的文本长度，过大可能丢失细节，过小增加调用次数
+chunk_size: 5000
+
+# 并发处理数
+# 同时处理多少个文本块，提高速度但消耗更多 API 配额
+max_workers: 8
+
+# 示例库配置
+examples:
+  external_path: ""    # 外部示例文件路径（可选，用于 few-shot 学习）
+
+# ============================================================================
+# 抽取策略
+# ============================================================================
+strategy:
+  # 实体原子化：将复合实体拆分为独立单元
+  # 示例："HER2-positive breast cancer" → "HER2", "breast cancer"
+  atomic_entities: true
+
+  # 保留原始术语：不翻译或改写原文术语
+  # 示例：保留 "TNM staging" 而不是改成 "tumor node metastasis staging"
+  keep_original_terms: true
+
+  # 每个文本块最多抽取的三元组数量
+  # 防止一次抽太多导致质量下降
+  max_claims_per_chunk: 15
+
+  # 证据文本最小长度（字符数）
+  # 过短的文本可能不构成有效证据
+  min_evidence_length: 3
+
+# ============================================================================
+# 关系规范化配置
+# ============================================================================
+# 用途：将各种变体关系词统一为标准关系
+# 工作原理：
+#   - AI 抽取时可能输出"为"、"属于"、"是"等中文词
+#   - 或"is a", "type of"等英文词
+#   - 配置文件将它们统一映射到标准关系名
+# ============================================================================
+relation_normalization:
+  enabled: true    # 是否启用关系规范化
+  mapping:
+    # 本体关系（概念之间的关系）
+    "subclass_of": "subclass_of"           # 上下位关系（A 是 B 的子类）
+    "type": "type"                         # 类型关系（A 的类型是 B）
+
+    # 生物医学特有关系
+    "biomarker_for": "biomarker_for"       # A 是 B 的生物标志物
+    "risk_factor_for": "risk_factor_for"   # A 是 B 的风险因素
+    "associated_with": "associated_with"   # A 与 B 相关
+
+    # 测量关系
+    "measured_in": "measured_in"           # A 在 B 中被测量
+
+    # 治疗关系
+    "received_treatment": "received_treatment"  # A 接受了 B 治疗
+    "combined_with": "combined_with"            # A 与 B 联合使用
+
+    # 诊断关系
+    "has_diagnosis": "has_diagnosis"       # A 有 B 诊断
+
+    # 预测关系
+    "predicts": "predicts"                 # A 预测 B
+
+    # 分子机制关系
+    "inhibits": "inhibits"                 # A 抑制 B
+    "activates": "activates"               # A 激活 B
+    "causes": "causes"                     # A 导致 B
+
+# 允许的关系集合
+# 用途：限制模型只输出有限的生物医学关系，避免自由发挥导致 schema 发散
+allowed_relations:
+  ontology:
+    - subclass_of
+    - type
+    - biomarker_for
+    - risk_factor_for
+    - treats
+    - measured_in
+    - part_of
+    - associated_with
+    - inhibits
+    - activates
+    - causes
+    - predicts
+  instance:
+    - has_diagnosis
+    - received_treatment
+    - combined_with
+    - improves
+    - reduces
+    - increases
+    - associated_with
+    - predicts
+    - has_adverse_event
+    - measured_value
+    - measured_in
+
+# ============================================================================
+# 实体类型识别配置
+# ============================================================================
+# 用途：帮助 AI 识别实体的语义类型
+# 工作原理：
+#   - 根据实体名称中的关键词推断类型
+#   - 例如："aspirin" 包含 "drug" → Treatment
+#         "breast cancer" 包含 "cancer" → Disease
+# ============================================================================
+entity_types:
+  # 疾病类实体
+  Disease:
+    - cancer          # 癌症
+    - carcinoma       # 癌
+    - tumor           # 肿瘤
+    - infection       # 感染
+    - syndrome        # 综合征
+    - disease         # 疾病
+
+  # 治疗类实体
+  Treatment:
+    - therapy         # 疗法
+    - treatment       # 治疗
+    - drug            # 药物
+    - inhibitor       # 抑制剂
+    - antibody        # 抗体
+    - radiotherapy    # 放疗
+
+  # 生物标志物类实体
+  Biomarker:
+    - expression      # 表达（如基因表达）
+    - biomarker       # 生物标志物
+    - mutation        # 突变
+    - signature       # 特征/标签
+    - marker          # 标志物
+
+  # 样本或模型类实体
+  SampleOrModel:
+    - patient         # 患者
+    - cohort          # 队列
+    - cell            # 细胞
+    - cells           # 细胞（复数）
+    - mouse           # 小鼠
+    - mice            # 小鼠（复数）
+    - organoid        # 类器官
+
+# ============================================================================
+# 配置使用示例
+# ============================================================================
+#
+# 输入文本：
+#   "PD-1 inhibitors improve overall survival in melanoma patients."
+#
+# 处理流程：
+#   1. 识别实体：
+#      - "PD-1 inhibitors" → Treatment (包含 "inhibitor")
+#      - "melanoma" → Disease (包含 "cancer" 的隐含推断)
+#      - "patients" → SampleOrModel (包含 "patient")
+#
+#   2. 抽取三元组：
+#      - (PD-1 inhibitors, improves, overall survival)
+#      - (PD-1 inhibitors, received_treatment, melanoma patients)
+#
+#   3. 关系规范化：
+#      - "improves" 可能被映射到标准关系（如需要可添加到 mapping）
+#
+# ============================================================================
+#
+# 如何扩展这个配置？
+#
+# 1. 添加新的关系类型：
+#    relation_normalization.mapping:
+#      "新关系名": "新关系名"
+#
+# 2. 添加新的实体类型：
+#    entity_types:
+#      新类型名: ["关键词1", "关键词2"]
+#
+# 3. 调整抽取参数：
+#    - chunk_size: 根据论文平均长度调整
+#    - max_claims_per_chunk: 根据抽取密度调整
+#    - max_workers: 根据 API 限速调整
+#
+# ============================================================================

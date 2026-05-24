@@ -1,0 +1,217 @@
+[
+  {
+    "section": "motivatingexample",
+    "path": {
+      "section": "motivatingexample",
+      "start_entity": "JMOVE",
+      "end_entity": "Method",
+      "hops": [
+        {
+          "from": "JMOVE",
+          "relation": "failedToRecommend",
+          "to": "EsqlSession",
+          "context": "JMOVE did not produce any recommendations for the EsqlSession class",
+          "chunk": "2"
+        },
+        {
+          "from": "EsqlSession",
+          "relation": "hasMethod",
+          "to": "resolvePolicy",
+          "context": "resolvePolicy method, originally part of the EsqlSession class",
+          "chunk": "2"
+        },
+        {
+          "from": "resolvePolicy",
+          "relation": "type",
+          "to": "Method",
+          "context": "resolvePolicy method, originally part of the EsqlSession class",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "Why did JMOVE fail to produce any recommendations for the resolvePolicy method in the EsqlSession class?",
+    "options": {
+      "A": "JMOVE could not access the EsqlSession class due to a system error, thus failing in recommendation.",
+      "B": "The resolvePolicy method was not part of the EsqlSession class, leading to JMOVE's failure.",
+      "C": "There were no available data points for the resolvePolicy method in the EsqlSession class for JMOVE.",
+      "D": "The resolvePolicy method was incorrectly classified, preventing JMOVE from generating recommendations."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A because the question and context provided indicate that JMOVE failed to generate recommendations specifically for the EsqlSession's resolvePolicy method due to an internal classification issue; other options introduce elements that are not supported by the given information.",
+    "path_description": "Path: JMOVE --[failedToRecommend]--> EsqlSession --[hasMethod]--> resolvePolicy --[type]--> Method",
+    "context": "JMOVE did not produce any recommendations for the EsqlSession class | resolvePolicy method, originally part of the EsqlSession class | resolvePolicy method, originally part of the EsqlSession class",
+    "paper_id": "447"
+  },
+  {
+    "section": "motivatingexample",
+    "path": {
+      "section": "motivatingexample",
+      "start_entity": "JMOVE",
+      "end_entity": "PolicyResolver",
+      "hops": [
+        {
+          "from": "JMOVE",
+          "relation": "failedToRecommend",
+          "to": "EsqlSession",
+          "context": "JMOVE did not produce any recommendations for the EsqlSession class",
+          "chunk": "2"
+        },
+        {
+          "from": "EsqlSession",
+          "relation": "hasMethod",
+          "to": "resolvePolicy",
+          "context": "resolvePolicy method, originally part of the EsqlSession class",
+          "chunk": "2"
+        },
+        {
+          "from": "resolvePolicy",
+          "relation": "movedTo",
+          "to": "PolicyResolver",
+          "context": "moving resolvePolicy to the PolicyResolver class",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "Why did JMOVE fail to provide any recommendations for moving the resolvePolicy method from the EsqlSession class to the PolicyResolver class?",
+    "options": {
+      "A": "JMOVE was not designed to handle methods that are deeply integrated within their original class structures.",
+      "B": "JMOVE specifically excludes the EsqlSession class from its analysis due to its complex architecture.",
+      "C": "The PolicyResolver class did not exist at the time JMOVE performed its analysis.",
+      "D": "JMOVE lacks capability to analyze methods that involve policy resolution mechanisms."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A because JMOVE's failure to recommend moving the resolvePolicy method suggests a limitation in handling methods that are deeply integrated within their original class, which prevent clear-cut recommendations due to dependencies and structural complexities.",
+    "path_description": "Path: JMOVE --[failedToRecommend]--> EsqlSession --[hasMethod]--> resolvePolicy --[movedTo]--> PolicyResolver",
+    "context": "JMOVE did not produce any recommendations for the EsqlSession class | resolvePolicy method, originally part of the EsqlSession class | moving resolvePolicy to the PolicyResolver class",
+    "paper_id": "447"
+  },
+  {
+    "section": "empiricalevaluation1",
+    "path": {
+      "section": "empiricalevaluation1",
+      "start_entity": "MM-ASSIST",
+      "end_entity": "RuntimePerformance",
+      "hops": [
+        {
+          "from": "MM-ASSIST",
+          "relation": "uses",
+          "to": "GPT-4",
+          "context": "We took extra precautions to prevent LLM data contamination, ensuring that the LLMs used by MM-ASSIST had no prior exposure to the data we tested and could not rely on previously memorized results.",
+          "chunk": "6"
+        },
+        {
+          "from": "GPT-4",
+          "relation": "usedBy",
+          "to": "MM-ASSIST",
+          "context": "We took extra precautions to prevent LLM data contamination, ensuring that the LLMs used by MM-ASSIST had no prior exposure to the data we tested and could not rely on previously memorized results.",
+          "chunk": "6"
+        },
+        {
+          "from": "MM-ASSIST",
+          "relation": "evaluatedFor",
+          "to": "RuntimePerformance",
+          "context": "RQ3. What is MM-ASSIST’s runtime performance? This helps us understand MM-ASSIST’s scalability and suitability for integration into developers’ workflows.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "How does the use of GPT-4 by MM-ASSIST influence its evaluation for runtime performance in the context of preventing data contamination?",
+    "options": {
+      "A": "GPT-4 reduces the runtime performance of MM-ASSIST because it requires additional computational resources to check for data contamination.",
+      "B": "The integration of GPT-4 within MM-ASSIST doesn't significantly impact runtime performance since GPT-4 primarily enhances data security.",
+      "C": "Using GPT-4 allows MM-ASSIST to process data faster due to its inherent ability to memorize and retrieve large datasets quickly.",
+      "D": "GPT-4's ability to operate without prior exposure to specific data ensures more accurate assessments of MM-ASSIST's runtime performance."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A because the question and context emphasize the importance of GPT-4's function in MM-ASSIST, specifically how its operation without prior data exposure contributes to a more genuine evaluation of runtime performance. This ensures the results are not skewed by previously memorized data, thus providing a clear measure of MM-ASSIST's performance under genuine operational conditions.",
+    "path_description": "Path: MM-ASSIST --[uses]--> GPT-4 --[usedBy]--> MM-ASSIST --[evaluatedFor]--> RuntimePerformance",
+    "context": "We took extra precautions to prevent LLM data contamination, ensuring that the LLMs used by MM-ASSIST had no prior exposure to the data we tested and could not rely on previously memorized results. | We took extra precautions to prevent LLM data contamination, ensuring that the LLMs used by MM-ASSIST had no prior exposure to the data we tested and could not rely on previously memorized results. | RQ3. What is MM-ASSIST’s runtime performance? This helps us understand MM-ASSIST’s scalability and suitability for integration into developers’ workflows.",
+    "paper_id": "447"
+  },
+  {
+    "section": "empiralevaluation3",
+    "path": {
+      "section": "empiralevaluation3",
+      "start_entity": "MM-ASSIST",
+      "end_entity": "Tool",
+      "hops": [
+        {
+          "from": "MM-ASSIST",
+          "relation": "outperforms",
+          "to": "Vanilla-LLM",
+          "context": "MM-ASSIST demonstrates superior performance across many of the recall metrics compared to other tools, especially RecallMC@1 (1.7x to 30x improvement).",
+          "chunk": "8"
+        },
+        {
+          "from": "Vanilla-LLM",
+          "relation": "comparedWith",
+          "to": "MM-ASSIST",
+          "context": "Interestingly, the Vanilla-LLM shows comparable performance to MM-ASSIST in method identification (RecallM).",
+          "chunk": "8"
+        },
+        {
+          "from": "MM-ASSIST",
+          "relation": "type",
+          "to": "Tool",
+          "context": "TABLE II: Recall rates of MM-ASSIST on the synthetic corpus.",
+          "chunk": "8"
+        }
+      ]
+    },
+    "question": "In the comparison of MM-ASSIST and Vanilla-LLM, which aspect of performance does MM-ASSIST not significantly outperform Vanilla-LLM?",
+    "options": {
+      "A": "MM-ASSIST does not significantly outperform Vanilla-LLM in method identification metrics.",
+      "B": "MM-ASSIST does not significantly outperform Vanilla-LLM in overall recall metrics across multiple datasets.",
+      "C": "MM-ASSIST does not significantly outperform Vanilla-LLM in the variety of tasks it can handle.",
+      "D": "MM-ASSIST does not significantly outperform Vanilla-LLM in execution speed and resource usage."
+    },
+    "correct_answer": "A",
+    "explanation": "The paper notes that MM-ASSIST shows superior performance compared to Vanilla-LLM in recall metrics, particularly highlighted by the 1.7x to 30x improvement in RecallMC@1. However, it specifically states that Vanilla-LLM shows comparable performance to MM-ASSIST in method identification (RecallM), indicating that MM-ASSIST does not significantly outperform Vanilla-LLM in this metric.",
+    "path_description": "Path: MM-ASSIST --[outperforms]--> Vanilla-LLM --[comparedWith]--> MM-ASSIST --[type]--> Tool",
+    "context": "MM-ASSIST demonstrates superior performance across many of the recall metrics compared to other tools, especially RecallMC@1 (1.7x to 30x improvement). | Interestingly, the Vanilla-LLM shows comparable performance to MM-ASSIST in method identification (RecallM). | TABLE II: Recall rates of MM-ASSIST on the synthetic corpus.",
+    "paper_id": "447"
+  },
+  {
+    "section": "conclusion",
+    "path": {
+      "section": "conclusion",
+      "start_entity": "JetBrains_Research",
+      "end_entity": "AnalysisMethod",
+      "hops": [
+        {
+          "from": "JetBrains_Research",
+          "relation": "providesFeedbackTo",
+          "to": "MM-ASSIST",
+          "context": "We are grateful for the constructive feedback from the members of the AI Agents team at JetBrains Research",
+          "chunk": "13"
+        },
+        {
+          "from": "MM-ASSIST",
+          "relation": "uses",
+          "to": "SemanticAnalysis",
+          "context": "The key to unleashing these breakthroughs is combining static and semantic analysis",
+          "chunk": "13"
+        },
+        {
+          "from": "SemanticAnalysis",
+          "relation": "type",
+          "to": "AnalysisMethod",
+          "context": "combining static and semantic analysis",
+          "chunk": "13"
+        }
+      ]
+    },
+    "question": "In the context of the MM-ASSIST project, which type of analysis method is primarily utilized as per the feedback provided by JetBrains Research?",
+    "options": {
+      "A": "Lexical analysis, which deals primarily with the structure of the source code tokens.",
+      "B": "Semantic analysis, which involves examining the meaning of the programming constructs used.",
+      "C": "Static analysis, which focuses solely on the syntax of the code without executing it.",
+      "D": "Dynamic analysis, which requires running the software to understand its behavior."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is semantic analysis, which is identified in the knowledge path where MM-ASSIST uses SemanticAnalysis which is a type of AnalysisMethod. The paper mentions the combination of static and semantic analysis, but specifically, the feedback from JetBrains Research supports the use of semantic analysis.",
+    "path_description": "Path: JetBrains_Research --[providesFeedbackTo]--> MM-ASSIST --[uses]--> SemanticAnalysis --[type]--> AnalysisMethod",
+    "context": "We are grateful for the constructive feedback from the members of the AI Agents team at JetBrains Research | The key to unleashing these breakthroughs is combining static and semantic analysis | combining static and semantic analysis",
+    "paper_id": "447"
+  }
+]

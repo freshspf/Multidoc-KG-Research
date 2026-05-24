@@ -1,0 +1,88 @@
+[
+  {
+    "section": "whattobemeasuredwhattobeverified",
+    "path": {
+      "section": "whattobemeasuredwhattobeverified",
+      "start_entity": "ServicePerformanceMetrics",
+      "end_entity": "Metric",
+      "hops": [
+        {
+          "from": "ServicePerformanceMetrics",
+          "relation": "measures",
+          "to": "Availability",
+          "context": "Service performance metrics measure and assess periodically.",
+          "chunk": "1"
+        },
+        {
+          "from": "Availability",
+          "relation": "includes",
+          "to": "SuccessfulRequests",
+          "context": "The percentage of successful requests, namely the number of requests processed without an error over the total number of submitted requests.",
+          "chunk": "1"
+        },
+        {
+          "from": "SuccessfulRequests",
+          "relation": "type",
+          "to": "Metric",
+          "context": "The percentage of successful requests, namely the number of requests processed without an error over the total number of submitted requests.",
+          "chunk": "1"
+        }
+      ]
+    },
+    "question": "In the context of service performance metrics, which metric directly assesses the aspect of availability?",
+    "options": {
+      "A": "The ratio of the number of user connections successfully established versus attempted connections.",
+      "B": "The frequency of service interruptions measured by the duration and number of downtimes in a specified timeframe.",
+      "C": "The percentage of server uptime during a defined period relative to its total operational time.",
+      "D": "The percentage of successful requests, namely the number of requests processed without an error over the total number of submitted requests."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is 'C' because the knowledge path shows that 'Service Performance Metrics' measures 'Availability,' which includes 'Successful Requests.' The type of metric used to assess this is the percentage of successful requests, which is the number of requests processed without an error over the total number of submitted requests.",
+    "path_description": "Path: ServicePerformanceMetrics --[measures]--> Availability --[includes]--> SuccessfulRequests --[type]--> Metric",
+    "context": "Service performance metrics measure and assess periodically. | The percentage of successful requests, namely the number of requests processed without an error over the total number of submitted requests. | The percentage of successful requests, namely the number of requests processed without an error over the total number of submitted requests.",
+    "paper_id": "295"
+  },
+  {
+    "section": "casestudy3",
+    "path": {
+      "section": "casestudy3",
+      "start_entity": "ABSSmartDeployer",
+      "end_entity": "Service",
+      "hops": [
+        {
+          "from": "ABSSmartDeployer",
+          "relation": "partOf",
+          "to": "ABS",
+          "context": "the ABS Smart Deployer [14] for the automated deployment of new service instances",
+          "chunk": "6"
+        },
+        {
+          "from": "ABS",
+          "relation": "monitoredBy",
+          "to": "MonitoringPlatform",
+          "context": "we use a monitoring platform, external to the service, that continuously observes it",
+          "chunk": "6"
+        },
+        {
+          "from": "MonitoringPlatform",
+          "relation": "externalTo",
+          "to": "Service",
+          "context": "we use a monitoring platform, external to the service",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the context of the ABS Smart Deployer's role in deploying new service instances, how does the monitoring platform function?",
+    "options": {
+      "A": "The monitoring platform functionally observes and regulates the deployment of new service instances as part of the ABS Smart Deployer.",
+      "B": "The monitoring platform replaces the need for the ABS Smart Deployer by autonomously deploying and managing new service instances.",
+      "C": "The monitoring platform, being external to the service, continuously observes the operation of the service without direct intervention.",
+      "D": "The monitoring platform integrates directly with the ABS Smart Deployer to co-manage the deployment of new service instances."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is 'B' because, according to the context given in the paper, the monitoring platform is external to the service and its primary function is to continuously observe the service. This option correctly reflects the relationship and role of the monitoring platform without implying direct management or deployment duties, which are handled by the ABS Smart Deployer.",
+    "path_description": "Path: ABSSmartDeployer --[partOf]--> ABS --[monitoredBy]--> MonitoringPlatform --[externalTo]--> Service",
+    "context": "the ABS Smart Deployer [14] for the automated deployment of new service instances | we use a monitoring platform, external to the service, that continuously observes it | we use a monitoring platform, external to the service",
+    "paper_id": "295"
+  }
+]

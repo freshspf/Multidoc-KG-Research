@@ -1,0 +1,260 @@
+[
+  {
+    "section": "recommendationframework2",
+    "path": {
+      "section": "recommendationframework2",
+      "start_entity": "X-Cross",
+      "end_entity": "Matrix",
+      "hops": [
+        {
+          "from": "X-Cross",
+          "relation": "integratesModels",
+          "to": "LoRA",
+          "context": "X-Cross integrates multiple pre-trained language models, each previously adapted with LoRA.",
+          "chunk": "4"
+        },
+        {
+          "from": "LoRA",
+          "relation": "freezes",
+          "to": "W",
+          "context": "LoRA freezes the original model weights and introduces a learnable adjustment.",
+          "chunk": "4"
+        },
+        {
+          "from": "W",
+          "relation": "type",
+          "to": "Matrix",
+          "context": "W represents the frozen pre-trained weights.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the context of X-Cross's integration using LoRA, what role does the entity 'W' primarily play in the modified neural network?",
+    "options": {
+      "A": "W acts as the repository of learnable adjustments that are introduced by LoRA for model adaptation.",
+      "B": "W serves as the newly added layer that processes input data using the models integrated by X-Cross.",
+      "C": "W represents the frozen pre-trained weights which remain unchanged to preserve original model knowledge.",
+      "D": "W is the output matrix that combines results from multiple models for final decision-making."
+    },
+    "correct_answer": "C",
+    "explanation": "W, within the framework described, represents the frozen pre-trained weights. This is crucial as LoRA freezes these original model weights to ensure that the foundational knowledge of the model is preserved, while still allowing for adaptation through the introduction of learnable adjustments elsewhere in the network.",
+    "path_description": "Path: X-Cross --[integratesModels]--> LoRA --[freezes]--> W --[type]--> Matrix",
+    "context": "X-Cross integrates multiple pre-trained language models, each previously adapted with LoRA. | LoRA freezes the original model weights and introduces a learnable adjustment. | W represents the frozen pre-trained weights.",
+    "paper_id": "195"
+  },
+  {
+    "section": "evaluation1",
+    "path": {
+      "section": "evaluation1",
+      "start_entity": "DeBERTaV3Base",
+      "end_entity": "Toys",
+      "hops": [
+        {
+          "from": "DeBERTaV3Base",
+          "relation": "usedIn",
+          "to": "X-Cross",
+          "context": "As the backbone language model in our evaluation, we adopt the DeBERTa V3 base model.",
+          "chunk": "7"
+        },
+        {
+          "from": "X-Cross",
+          "relation": "evaluatedOn",
+          "to": "AmazonReviewsCorpus",
+          "context": "In this section we evaluate X-Cross.",
+          "chunk": "7"
+        },
+        {
+          "from": "AmazonReviewsCorpus",
+          "relation": "partOf",
+          "to": "Toys",
+          "context": "focusing on the domains of Electronics, Sports, Tools and Toys.",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "In the evaluation of X-Cross, which utilized the DeBERTa V3 base model, which domain of the Amazon Reviews Corpus was specifically included as part of the focus?",
+    "options": {
+      "A": "The Tools domain was part of the focus, targeting reviews about hardware and tools.",
+      "B": "The Sports domain was included, focusing on athletic and sports-related product reviews.",
+      "C": "The Electronics domain was included, emphasizing the technology-oriented products reviewed on Amazon.",
+      "D": "The Toys domain was specifically included, reflecting an intent to analyze reviews related to children's products."
+    },
+    "correct_answer": "D",
+    "explanation": "The question involves understanding that the DeBERTa V3 base model was used to evaluate X-Cross on various domains of the Amazon Reviews Corpus, including Toys, as explicitly mentioned in the context. The correct domain is Toys, as it is part of the evaluation focus and the only one that fits with the specified part of the reviews corpus in the provided knowledge path.",
+    "path_description": "Path: DeBERTaV3Base --[usedIn]--> X-Cross --[evaluatedOn]--> AmazonReviewsCorpus --[partOf]--> Toys",
+    "context": "As the backbone language model in our evaluation, we adopt the DeBERTa V3 base model. | In this section we evaluate X-Cross. | focusing on the domains of Electronics, Sports, Tools and Toys.",
+    "paper_id": "195"
+  },
+  {
+    "section": "evaluation1",
+    "path": {
+      "section": "evaluation1",
+      "start_entity": "DeBERTaV3Base",
+      "end_entity": "Sports",
+      "hops": [
+        {
+          "from": "DeBERTaV3Base",
+          "relation": "usedIn",
+          "to": "X-Cross",
+          "context": "As the backbone language model in our evaluation, we adopt the DeBERTa V3 base model.",
+          "chunk": "7"
+        },
+        {
+          "from": "X-Cross",
+          "relation": "evaluatedOn",
+          "to": "AmazonReviewsCorpus",
+          "context": "In this section we evaluate X-Cross.",
+          "chunk": "7"
+        },
+        {
+          "from": "AmazonReviewsCorpus",
+          "relation": "partOf",
+          "to": "Sports",
+          "context": "focusing on the domains of Electronics, Sports, Tools and Toys.",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "Which of the following statements accurately describes the evaluation scope for the DeBERTa V3 base model within the X-Cross system?",
+    "options": {
+      "A": "The DeBERTa V3 base model was used in the evaluation of X-Cross, exclusively focusing on product reviews in the Electronics domain.",
+      "B": "The DeBERTa V3 base model was used in the evaluation of X-Cross, focusing on product reviews in the Sports domain.",
+      "C": "The DeBERTa V3 base model was used in the evaluation of X-Cross, concentrating specifically on mechanical tools and equipment reviews.",
+      "D": "The DeBERTa V3 base model was used in the evaluation of X-Cross, primarily assessing reviews related to children's toys."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A because the question’s knowledge path indicates that the AmazonReviewsCorpus, which is part of the Sports domain, was evaluated using X-Cross which in turn utilized the DeBERTa V3 base model. Options B, C, and D are misleading as they suggest exclusive focus on other domains not supported by the knowledge path.",
+    "path_description": "Path: DeBERTaV3Base --[usedIn]--> X-Cross --[evaluatedOn]--> AmazonReviewsCorpus --[partOf]--> Sports",
+    "context": "As the backbone language model in our evaluation, we adopt the DeBERTa V3 base model. | In this section we evaluate X-Cross. | focusing on the domains of Electronics, Sports, Tools and Toys.",
+    "paper_id": "195"
+  },
+  {
+    "section": "evaluation2",
+    "path": {
+      "section": "evaluation2",
+      "start_entity": "BERT4Rec",
+      "end_entity": "WeightDecay",
+      "hops": [
+        {
+          "from": "BERT4Rec",
+          "relation": "type",
+          "to": "Model",
+          "context": "BERT4Rec – a bidirectional transformer-based model which uses a masked learning approach",
+          "chunk": "8"
+        },
+        {
+          "from": "Model",
+          "relation": "uses",
+          "to": "AdamW",
+          "context": "We fine-tune the model using AdamW optimizer",
+          "chunk": "8"
+        },
+        {
+          "from": "AdamW",
+          "relation": "configuredWith",
+          "to": "WeightDecay",
+          "context": "a weight decay of 0.01",
+          "chunk": "8"
+        }
+      ]
+    },
+    "question": "In the bidirectional transformer-based model BERT4Rec, which optimizer configuration setting is critical for fine-tuning its parameters effectively?",
+    "options": {
+      "A": "A momentum coefficient increase tailored for the AdamW optimizer",
+      "B": "An epoch number configuration that exceeds the typical range for other models",
+      "C": "A learning rate adjustment specific to the AdamW optimizer",
+      "D": "A weight decay setting of 0.01 specifically for the AdamW optimizer"
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is B because the context specifies that BERT4Rec is fine-tuned using the AdamW optimizer with a weight decay of 0.01. This specific configuration is crucial for adjusting the model parameters optimally during the fine-tuning process.",
+    "path_description": "Path: BERT4Rec --[type]--> Model --[uses]--> AdamW --[configuredWith]--> WeightDecay",
+    "context": "BERT4Rec – a bidirectional transformer-based model which uses a masked learning approach | We fine-tune the model using AdamW optimizer | a weight decay of 0.01",
+    "paper_id": "195"
+  },
+  {
+    "section": "evaluation4",
+    "path": {
+      "section": "evaluation4",
+      "start_entity": "X-Cross",
+      "end_entity": "Parameter",
+      "hops": [
+        {
+          "from": "X-Cross",
+          "relation": "outperforms",
+          "to": "LoRA",
+          "context": "Yet, as we shall shortly demonstrate, despite this modest decrease in parameter size, X-Cross achieves competitive results against LoRA in terms of performance, underscoring its effectiveness.",
+          "chunk": "10"
+        },
+        {
+          "from": "LoRA",
+          "relation": "uses",
+          "to": "WeightsMatrixB",
+          "context": "whereas LoRA learns two weight matrices A and B, together having 2*16*768 total parameters.",
+          "chunk": "10"
+        },
+        {
+          "from": "WeightsMatrixB",
+          "relation": "type",
+          "to": "Parameter",
+          "context": "whereas LoRA learns two weight matrices A and B, together having 2*16*768 total parameters.",
+          "chunk": "10"
+        }
+      ]
+    },
+    "question": "Which statement best explains the relationship between X-Cross and LoRA in terms of parameter type, given their performance comparison?",
+    "options": {
+      "A": "LoRA outperforms X-Cross by employing a unique Parameter type in its WeightMatrixB, enhancing overall efficiency.",
+      "B": "LoRA, by using two weight matrices A and B, allows for a larger total parameter count compared to X-Cross.",
+      "C": "X-Cross and LoRA use the same type of parameters in their models, leading to similar performance outcomes.",
+      "D": "X-Cross outperforms LoRA by utilizing a more efficient type of parameter that results in a smaller parameter size."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A because it directly correlates the performance of X-Cross against LoRA to the type of parameter used. As indicated, X-Cross, despite having a smaller parameter size, still competes effectively with LoRA. This implies an efficient use of parameter type by X-Cross. The other options either incorrectly attribute features (such as the same parameter type or unique Parameter type in WeightMatrixB enhancing efficiency in LoRA) or misstate relationships (larger parameter count in LoRA does not imply efficiency).",
+    "path_description": "Path: X-Cross --[outperforms]--> LoRA --[uses]--> WeightsMatrixB --[type]--> Parameter",
+    "context": "Yet, as we shall shortly demonstrate, despite this modest decrease in parameter size, X-Cross achieves competitive results against LoRA in terms of performance, underscoring its effectiveness. | whereas LoRA learns two weight matrices A and B, together having 2*16*768 total parameters. | whereas LoRA learns two weight matrices A and B, together having 2*16*768 total parameters.",
+    "paper_id": "195"
+  },
+  {
+    "section": "evaluation4",
+    "path": {
+      "section": "evaluation4",
+      "start_entity": "ReferenceModel",
+      "end_entity": "Parameter",
+      "hops": [
+        {
+          "from": "ReferenceModel",
+          "relation": "basedOn",
+          "to": "LoRA",
+          "context": "As a reference model for minimum performance requirement, for each target domain, we consider the source model with best zero-shot performance which is trained on one of the other (source) domains (e.g., for Tools, the reference model is LoRA-fine-tuned either on the Sports, Toys or Electronics domain).",
+          "chunk": "10"
+        },
+        {
+          "from": "LoRA",
+          "relation": "uses",
+          "to": "WeightsMatrixB",
+          "context": "whereas LoRA learns two weight matrices A and B, together having 2*16*768 total parameters.",
+          "chunk": "10"
+        },
+        {
+          "from": "WeightsMatrixB",
+          "relation": "type",
+          "to": "Parameter",
+          "context": "whereas LoRA learns two weight matrices A and B, together having 2*16*768 total parameters.",
+          "chunk": "10"
+        }
+      ]
+    },
+    "question": "In the context of domain adaptation using LoRA, what is the total number of parameters that the Weight Matrix B contributes to the model?",
+    "options": {
+      "A": "The Weight Matrix B contributes 16*768 parameters, as one of two matrices in LoRA.",
+      "B": "The Weight Matrix B contributes 2*16*768 parameters, as the only matrix in LoRA.",
+      "C": "The Weight Matrix B contributes 2*16*768 parameters, as it is used independently from Matrix A.",
+      "D": "The Weight Matrix B contributes half of the 2*16*768 parameters, being one of the two matrices."
+    },
+    "correct_answer": "D",
+    "explanation": "LoRA learns two weight matrices, A and B, each contributing half of the total parameters. Since the total parameters are 2*16*768, each matrix contributes 16*768 parameters, making option C the correct answer.",
+    "path_description": "Path: ReferenceModel --[basedOn]--> LoRA --[uses]--> WeightsMatrixB --[type]--> Parameter",
+    "context": "As a reference model for minimum performance requirement, for each target domain, we consider the source model with best zero-shot performance which is trained on one of the other (source) domains (e.g., for Tools, the reference model is LoRA-fine-tuned either on the Sports, Toys or Electronics domain). | whereas LoRA learns two weight matrices A and B, together having 2*16*768 total parameters. | whereas LoRA learns two weight matrices A and B, together having 2*16*768 total parameters.",
+    "paper_id": "195"
+  }
+]

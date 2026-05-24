@@ -1,0 +1,88 @@
+[
+  {
+    "section": "experimentalevaluation3",
+    "path": {
+      "section": "experimentalevaluation3",
+      "start_entity": "HEFTM-BLC",
+      "end_entity": "Cluster",
+      "hops": [
+        {
+          "from": "HEFTM-BLC",
+          "relation": "isWorseThan",
+          "to": "HEFT",
+          "context": "The makespans of HEFTM-BLC are very similar, being < 17% worse on smallest workflows.",
+          "chunk": "8"
+        },
+        {
+          "from": "HEFT",
+          "relation": "producesInvalidSchedules",
+          "to": "DefaultCluster",
+          "context": "achieved by HEFT, the latter often with an invalid over-optimistic schedule that exceeds the memory bound.",
+          "chunk": "8"
+        },
+        {
+          "from": "DefaultCluster",
+          "relation": "type",
+          "to": "Cluster",
+          "context": "Relative makespans of heuristics normalized by HEFT makespan, by workflow size, on default cluster.",
+          "chunk": "8"
+        }
+      ]
+    },
+    "question": "Why does the HEFTM-BLC heuristic produce less favorable outcomes compared to HEFT in the context of scheduling on a default cluster?",
+    "options": {
+      "A": "HEFT generally provides shorter makespans but HEFTM-BLC schedules are always valid because they adhere strictly to the cluster's memory capacity.",
+      "B": "HEFTM-BLC outperforms HEFT by creating more reliable schedules that conform to the memory bounds, making it preferable for larger workflows.",
+      "C": "HEFTM-BLC is less than 17% worse in terms of makespan for the smallest workflows compared to HEFT, which often produces an over-optimistic schedule that exceeds memory constraints.",
+      "D": "HEFTM-BLC tends to generate schedules with a higher makespan because it doesn't account for workflow size variations as effectively as HEFT."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A because it correctly reflects the information from the paper that HEFTM-BLC is slightly worse in performance compared to HEFT for smaller workflows. HEFT, although often achieving better makespan, tends to exceed memory constraints, making some of its schedules invalid. This detail is crucial in understanding the trade-off between the two heuristics.",
+    "path_description": "Path: HEFTM-BLC --[isWorseThan]--> HEFT --[producesInvalidSchedules]--> DefaultCluster --[type]--> Cluster",
+    "context": "The makespans of HEFTM-BLC are very similar, being < 17% worse on smallest workflows. | achieved by HEFT, the latter often with an invalid over-optimistic schedule that exceeds the memory bound. | Relative makespans of heuristics normalized by HEFT makespan, by workflow size, on default cluster.",
+    "paper_id": "1906"
+  },
+  {
+    "section": "experimentalevaluation3",
+    "path": {
+      "section": "experimentalevaluation3",
+      "start_entity": "HEFTM-BL",
+      "end_entity": "Cluster",
+      "hops": [
+        {
+          "from": "HEFTM-BL",
+          "relation": "isWorseThan",
+          "to": "HEFT",
+          "context": "The makespans found by HEFTM-BL are < 13% worse than those found by the baseline for workflows with less than 2000 tasks.",
+          "chunk": "8"
+        },
+        {
+          "from": "HEFT",
+          "relation": "hasSuccessRate",
+          "to": "MemoryConstrainedCluster",
+          "context": "On the memory-constrained cluster, HEFT produces valid assignments in only 14 out of 290 experiments (4.8% success rate).",
+          "chunk": "8"
+        },
+        {
+          "from": "MemoryConstrainedCluster",
+          "relation": "type",
+          "to": "Cluster",
+          "context": "Scheduling on the memory-constrained cluster: On the memory-constrained cluster, HEFT produces valid assignments in only 14 out of 290 experiments.",
+          "chunk": "8"
+        }
+      ]
+    },
+    "question": "Based on the experimentalevaluation3 section, how does the performance of HEFTM-BL compare to HEFT in terms of makespan on workflows with fewer than 2000 tasks, and what is the success rate of HEFT in producing valid assignments on a memory-constrained cluster?",
+    "options": {
+      "A": "HEFTM-BL outperforms HEFT by more than 13% on makespan, and HEFT has a success rate of approximately 10% on a memory-constrained cluster.",
+      "B": "HEFTM-BL's makespans are less than 13% worse than HEFT, and HEFT's success rate on a memory-constrained cluster is 4.8%.",
+      "C": "Both HEFTM-BL and HEFT have similar makespan performance on workflows with fewer than 2000 tasks, and HEFT has a 50% success rate on a memory-constrained cluster.",
+      "D": "HEFTM-BL's makespans are more than 15% better than HEFT, and HEFT has a success rate of 20% on a memory-constrained cluster."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is confirmed by the paper's data showing HEFTM-BL's makespans are less than 13% worse than HEFT for workflows with fewer than 2000 tasks, and HEFT's success rate of producing valid assignments on a memory-constrained cluster is only 4.8%.",
+    "path_description": "Path: HEFTM-BL --[isWorseThan]--> HEFT --[hasSuccessRate]--> MemoryConstrainedCluster --[type]--> Cluster",
+    "context": "The makespans found by HEFTM-BL are < 13% worse than those found by the baseline for workflows with less than 2000 tasks. | On the memory-constrained cluster, HEFT produces valid assignments in only 14 out of 290 experiments (4.8% success rate). | Scheduling on the memory-constrained cluster: On the memory-constrained cluster, HEFT produces valid assignments in only 14 out of 290 experiments.",
+    "paper_id": "1906"
+  }
+]

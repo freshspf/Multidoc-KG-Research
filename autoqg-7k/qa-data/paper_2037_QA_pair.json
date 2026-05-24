@@ -1,0 +1,45 @@
+[
+  {
+    "section": "studydesign",
+    "path": {
+      "section": "studydesign",
+      "start_entity": "LLM",
+      "end_entity": "SoftwareVulnerability",
+      "hops": [
+        {
+          "from": "LLM",
+          "relation": "evaluatedOn",
+          "to": "SEEDLabs",
+          "context": "To ensure an objective evaluation of LLMs, we further processed the source code.",
+          "chunk": "2"
+        },
+        {
+          "from": "SEEDLabs",
+          "relation": "includesVulnerability",
+          "to": "FormatStringVulnerability",
+          "context": "The chosen labs cover a range of common software vulnerabilities, including buffer overflow, return-to-libc attacks, format string vulnerabilities, race conditions, and dirty COW exploits.",
+          "chunk": "2"
+        },
+        {
+          "from": "FormatStringVulnerability",
+          "relation": "type",
+          "to": "SoftwareVulnerability",
+          "context": "The chosen labs cover a range of common software vulnerabilities, including buffer overflow, return-to-libc attacks, format string vulnerabilities, race conditions, and dirty COW exploits.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the evaluation of LLMs using SEEDLabs, which specific type of vulnerability included in the labs is classified as a software vulnerability?",
+    "options": {
+      "A": "Return-to-libc attacks, typically used to bypass stack protection mechanisms",
+      "B": "Buffer overflow vulnerabilities, primarily resulting in unauthorized data access",
+      "C": "Format string vulnerabilities, which can lead to arbitrary code execution or crashes",
+      "D": "Dirty COW exploits, exploiting race conditions to allow privilege escalation"
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A, as format string vulnerabilities are explicitly mentioned in the context to be included in SEEDLabs and are classified as software vulnerabilities, fitting the 3-hop reasoning path from LLM evaluated on SEEDLabs which includes format string vulnerabilities classified as software vulnerabilities.",
+    "path_description": "Path: LLM --[evaluatedOn]--> SEEDLabs --[includesVulnerability]--> FormatStringVulnerability --[type]--> SoftwareVulnerability",
+    "context": "To ensure an objective evaluation of LLMs, we further processed the source code. | The chosen labs cover a range of common software vulnerabilities, including buffer overflow, return-to-libc attacks, format string vulnerabilities, race conditions, and dirty COW exploits. | The chosen labs cover a range of common software vulnerabilities, including buffer overflow, return-to-libc attacks, format string vulnerabilities, race conditions, and dirty COW exploits.",
+    "paper_id": "248"
+  }
+]

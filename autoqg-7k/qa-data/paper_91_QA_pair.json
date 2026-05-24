@@ -1,0 +1,131 @@
+[
+  {
+    "section": "introduction2",
+    "path": {
+      "section": "introduction2",
+      "start_entity": "AuxiliaryDataset",
+      "end_entity": "Metric",
+      "hops": [
+        {
+          "from": "AuxiliaryDataset",
+          "relation": "relatedTo",
+          "to": "TargetDataset",
+          "context": "Such auxiliary dataset is obtained from a separate",
+          "chunk": "1"
+        },
+        {
+          "from": "TargetDataset",
+          "relation": "hasMetrics",
+          "to": "Backgrounds",
+          "context": "signal-to-noise ratio (SNR), resolution, backgrounds, etc.",
+          "chunk": "1"
+        },
+        {
+          "from": "Backgrounds",
+          "relation": "type",
+          "to": "Metric",
+          "context": "signal-to-noise ratio (SNR), resolution, backgrounds, etc.",
+          "chunk": "1"
+        }
+      ]
+    },
+    "question": "In the context of dataset analysis, how is the metric type influenced by the relationship between auxiliary and target datasets?",
+    "options": {
+      "A": "The metric type is determined by comparing the background conditions of both the auxiliary and target datasets.",
+      "B": "The metric type is unrelated to the auxiliary dataset and depends solely on the target dataset's internal characteristics.",
+      "C": "The metric type is directly derived from the signal-to-noise ratio differences between the auxiliary and target datasets.",
+      "D": "The metric type is influenced by the resolution quality improvement from the auxiliary dataset to the target dataset."
+    },
+    "correct_answer": "A",
+    "explanation": "Option A is correct because the metric type is influenced by the backgrounds, which are shared characteristics between the auxiliary and target datasets as indicated in the knowledge path. Options B and C incorrectly isolate SNR and resolution as direct influences on metric type, while D incorrectly states that the auxiliary dataset has no influence.",
+    "path_description": "Path: AuxiliaryDataset --[relatedTo]--> TargetDataset --[hasMetrics]--> Backgrounds --[type]--> Metric",
+    "context": "Such auxiliary dataset is obtained from a separate | signal-to-noise ratio (SNR), resolution, backgrounds, etc. | signal-to-noise ratio (SNR), resolution, backgrounds, etc.",
+    "paper_id": "125"
+  },
+  {
+    "section": "methods1",
+    "path": {
+      "section": "methods1",
+      "start_entity": "Stage1",
+      "end_entity": "EntityType",
+      "hops": [
+        {
+          "from": "Stage1",
+          "relation": "uses",
+          "to": "EncoderF",
+          "context": "Stage 1: an encoder fφ",
+          "chunk": "2"
+        },
+        {
+          "from": "EncoderF",
+          "relation": "trainedOn",
+          "to": "SourceDomain",
+          "context": "Feature vectors represent the output of encoder fφ",
+          "chunk": "2"
+        },
+        {
+          "from": "SourceDomain",
+          "relation": "type",
+          "to": "EntityType",
+          "context": "ally trained using data in source domain",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "What entity type is most likely represented by the data used to train the encoder fφ in Stage 1 of the process described in the 'methods1' section?",
+    "options": {
+      "A": "The source domain primarily includes textual data from scientific publications.",
+      "B": "The encoder fφ is generally trained on numerical data from financial transactions.",
+      "C": "The data mainly comprises of feature vectors derived from biological specimens.",
+      "D": "The training data consists of images sourced from various social media platforms."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A because the context specifies that the feature vectors are the output of the encoder, which is trained in a source domain categorized as a type of entity. Given the usual applications of encoders in biological and scientific contexts in feature extraction, it is plausible that the entity type involves biological specimens.",
+    "path_description": "Path: Stage1 --[uses]--> EncoderF --[trainedOn]--> SourceDomain --[type]--> EntityType",
+    "context": "Stage 1: an encoder fφ | Feature vectors represent the output of encoder fφ | ally trained using data in source domain",
+    "paper_id": "125"
+  },
+  {
+    "section": "methods1",
+    "path": {
+      "section": "methods1",
+      "start_entity": "Model",
+      "end_entity": "EntityType",
+      "hops": [
+        {
+          "from": "Model",
+          "relation": "uses",
+          "to": "EncoderF",
+          "context": "Feature vectors represent the output of encoder fφ",
+          "chunk": "2"
+        },
+        {
+          "from": "EncoderF",
+          "relation": "trainedOn",
+          "to": "SourceDomain",
+          "context": "Feature vectors represent the output of encoder fφ",
+          "chunk": "2"
+        },
+        {
+          "from": "SourceDomain",
+          "relation": "type",
+          "to": "EntityType",
+          "context": "ally trained using data in source domain",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the context of transferring a model trained using EncoderF, which type of entity predominantly characterizes the source domain that EncoderF was trained on?",
+    "options": {
+      "A": "The source domain comprises primarily of text-based data entities.",
+      "B": "The source domain is characterized mostly by audio signal entities.",
+      "C": "Entity types within the source domain are mainly numerical data structures.",
+      "D": "The source domain is primarily composed of image-based entities."
+    },
+    "correct_answer": "D",
+    "explanation": "Given the context from the paper and the knowledge path, EncoderF is utilized by the model and is trained on a source domain. The type of entity that characterizes this domain is likely image-based, aligning with common applications of encoders in models that deal with visual data processing and feature vector extraction from images.",
+    "path_description": "Path: Model --[uses]--> EncoderF --[trainedOn]--> SourceDomain --[type]--> EntityType",
+    "context": "Feature vectors represent the output of encoder fφ | Feature vectors represent the output of encoder fφ | ally trained using data in source domain",
+    "paper_id": "125"
+  }
+]

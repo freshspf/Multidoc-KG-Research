@@ -1,0 +1,88 @@
+[
+  {
+    "section": "methods",
+    "path": {
+      "section": "methods",
+      "start_entity": "Model",
+      "end_entity": "NeuralNetworks",
+      "hops": [
+        {
+          "from": "Model",
+          "relation": "type",
+          "to": "Model",
+          "context": "We outline the model, training procedure, and a post-processing step.",
+          "chunk": "2"
+        },
+        {
+          "from": "Model",
+          "relation": "includes",
+          "to": "StateConditionedLinearMappings",
+          "context": "We outline the model, training procedure, and a post-processing step.",
+          "chunk": "2"
+        },
+        {
+          "from": "StateConditionedLinearMappings",
+          "relation": "implementedIn",
+          "to": "NeuralNetworks",
+          "context": "These two observations lead us to build neural networks (h : Rm → Rm×d → Rd → Rm; or (cid:55)→H) that output a linear map (H : Rm×d → Rm).",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "Which of the following best describes the role of StateConditionedLinearMappings within the model implemented in Neural Networks as discussed in the paper?",
+    "options": {
+      "A": "StateConditionedLinearMappings serve as activation functions within the layers of the neural networks.",
+      "B": "StateConditionedLinearMappings outputs a linear map as part of the neural network architecture.",
+      "C": "StateConditionedLinearMappings are used to linearly scale the input data before entering the neural network.",
+      "D": "StateConditionedLinearMappings adjust the neural network's parameters based on the state of external conditions."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A because the paper specifies that the neural networks built output a linear map, which is a direct function of the implementation of StateConditionedLinearMappings within the neural networks. These mappings specifically provide a model output that is a linear map, indicating their integral role in the architecture and function of the model.",
+    "path_description": "Path: Model --[type]--> Model --[includes]--> StateConditionedLinearMappings --[implementedIn]--> NeuralNetworks",
+    "context": "We outline the model, training procedure, and a post-processing step. | We outline the model, training procedure, and a post-processing step. | These two observations lead us to build neural networks (h : Rm → Rm×d → Rd → Rm; or (cid:55)→H) that output a linear map (H : Rm×d → Rm).",
+    "paper_id": "703"
+  },
+  {
+    "section": "userstudy2",
+    "path": {
+      "section": "userstudy2",
+      "start_entity": "SCL",
+      "end_entity": "MappingType",
+      "hops": [
+        {
+          "from": "SCL",
+          "relation": "outperforms",
+          "to": "CAE",
+          "context": "We observed that the ability of SCL to use the current state to adapt the action maps for locally useful actions resulted in a statistically significant advantage in the pick and place task.",
+          "chunk": "5"
+        },
+        {
+          "from": "CAE",
+          "relation": "uses",
+          "to": "AffineMapping",
+          "context": "the CAE internally uses affine mappings as opposed to linear mappings.",
+          "chunk": "5"
+        },
+        {
+          "from": "AffineMapping",
+          "relation": "type",
+          "to": "MappingType",
+          "context": "the CAE internally uses affine mappings as opposed to linear mappings.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "Why does the SCL outperform the CAE in the pick and place task according to the knowledge graph path provided?",
+    "options": {
+      "A": "SCL directly incorporates external state feedback, which is not a characteristic of affine mappings.",
+      "B": "SCL adapts action maps using the current state, leveraging affine mappings which are a type of MappingType.",
+      "C": "CAE's inability to use current state information for mapping adaptation makes it less effective than SCL.",
+      "D": "SCL uses linear mappings to adapt action maps, which are less flexible than the affine mappings used by CAE."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A because the knowledge graph path shows that SCL outperforms CAE due to its ability to adapt action maps using the current state, and it leverages affine mappings, which are a type of MappingType. This adaptation is more suited for tasks like pick and place compared to CAE's static use of affine mappings.",
+    "path_description": "Path: SCL --[outperforms]--> CAE --[uses]--> AffineMapping --[type]--> MappingType",
+    "context": "We observed that the ability of SCL to use the current state to adapt the action maps for locally useful actions resulted in a statistically significant advantage in the pick and place task. | the CAE internally uses affine mappings as opposed to linear mappings. | the CAE internally uses affine mappings as opposed to linear mappings.",
+    "paper_id": "703"
+  }
+]

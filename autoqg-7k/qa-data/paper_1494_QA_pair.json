@@ -1,0 +1,389 @@
+[
+  {
+    "section": "discipl2",
+    "path": {
+      "section": "discipl2",
+      "start_entity": "PlannerMP",
+      "end_entity": "Model",
+      "hops": [
+        {
+          "from": "PlannerMP",
+          "relation": "rePrompted",
+          "to": "PlannerMP",
+          "context": "Otherwise, we re-prompt MP to raceback, up to a max number of retries R.",
+          "chunk": "3"
+        },
+        {
+          "from": "PlannerMP",
+          "relation": "rePrompted",
+          "to": "PlannerMP",
+          "context": "Otherwise, we re-prompt MP to raceback, up to a max number of retries R.",
+          "chunk": "3"
+        },
+        {
+          "from": "PlannerMP",
+          "relation": "type",
+          "to": "Model",
+          "context": "Given first prompt the Planner MP to generate a k.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the process described in the 'discipl2' section, what is the primary role of the PlannerMP in the model generation process?",
+    "options": {
+      "A": "PlannerMP is tasked with generating a specific model parameter 'k' upon initial prompting.",
+      "B": "PlannerMP analyzes the output of the model to ensure it meets predefined quality metrics.",
+      "C": "PlannerMP is responsible for adjusting the raceback parameters after each model generation cycle.",
+      "D": "PlannerMP functions primarily to track the number of retries, denoted as 'R', in the model generation."
+    },
+    "correct_answer": "A",
+    "explanation": "Based on the context, the PlannerMP is initially prompted to generate a parameter 'k', indicating its primary role in creating specific model parameters. Other options refer to tracking retries, analyzing output, or adjusting parameters, which are not directly mentioned in the context as roles of PlannerMP.",
+    "path_description": "Path: PlannerMP --[rePrompted]--> PlannerMP --[rePrompted]--> PlannerMP --[type]--> Model",
+    "context": "Otherwise, we re-prompt MP to raceback, up to a max number of retries R. | Otherwise, we re-prompt MP to raceback, up to a max number of retries R. | Given first prompt the Planner MP to generate a k.",
+    "paper_id": "775"
+  },
+  {
+    "section": "resultsandanalysis1",
+    "path": {
+      "section": "resultsandanalysis1",
+      "start_entity": "GPT-4o-mini",
+      "end_entity": "Dataset",
+      "hops": [
+        {
+          "from": "GPT-4o-mini",
+          "relation": "outperforms",
+          "to": "Llama-1B",
+          "context": "GPT-4o-mini are more responsive to the task than Follower-only baselines.",
+          "chunk": "6"
+        },
+        {
+          "from": "Llama-1B",
+          "relation": "evaluatedOn",
+          "to": "COLLIE",
+          "context": "given its size, Llama-1B is only weakly able to on COLLIE sentence tasks (Pass@1=0.04) and COLLIE paragraph (Pass@1=0.60) tasks.",
+          "chunk": "6"
+        },
+        {
+          "from": "COLLIE",
+          "relation": "type",
+          "to": "Dataset",
+          "context": "on COLLIE sentence tasks (Pass@1=0.04) and COLLIE paragraph (Pass@1=0.60) tasks.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "Given the performance comparisons in the resultsandanalysis1 section, which model would most likely exhibit superior performance on COLLIE paragraph tasks?",
+    "options": {
+      "A": "Llama-1B, since its specific evaluation on COLLIE shows higher Pass@1 scores compared to baseline models.",
+      "B": "Follower-only baselines, since they are specifically tailored to handle COLLIE type datasets efficiently.",
+      "C": "GPT-4o-mini, as it outperforms Llama-1B, which struggles with Pass@1 scores on COLLIE tasks.",
+      "D": "COLLIE, as it is a dataset and not a model, thus it cannot have a performance score like Pass@1."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A. GPT-4o-mini is noted to outperform Llama-1B, and Llama-1B's documented weak performance on COLLIE tasks, particularly the sentence tasks, implies GPT-4o-mini would perform better on related tasks like COLLIE paragraph tasks.",
+    "path_description": "Path: GPT-4o-mini --[outperforms]--> Llama-1B --[evaluatedOn]--> COLLIE --[type]--> Dataset",
+    "context": "GPT-4o-mini are more responsive to the task than Follower-only baselines. | given its size, Llama-1B is only weakly able to on COLLIE sentence tasks (Pass@1=0.04) and COLLIE paragraph (Pass@1=0.60) tasks. | on COLLIE sentence tasks (Pass@1=0.04) and COLLIE paragraph (Pass@1=0.60) tasks.",
+    "paper_id": "775"
+  },
+  {
+    "section": "resultsandanalysis1",
+    "path": {
+      "section": "resultsandanalysis1",
+      "start_entity": "DISCIPL",
+      "end_entity": "Dataset",
+      "hops": [
+        {
+          "from": "DISCIPL",
+          "relation": "improves",
+          "to": "Llama-1B",
+          "context": "DISCIPL significantly boosts performance and DISCIPL-IS far exceed the Follower-only baselines.",
+          "chunk": "6"
+        },
+        {
+          "from": "Llama-1B",
+          "relation": "evaluatedOn",
+          "to": "COLLIE",
+          "context": "given its size, Llama-1B is only weakly able to on COLLIE sentence tasks (Pass@1=0.04) and COLLIE paragraph (Pass@1=0.60) tasks.",
+          "chunk": "6"
+        },
+        {
+          "from": "COLLIE",
+          "relation": "type",
+          "to": "Dataset",
+          "context": "on COLLIE sentence tasks (Pass@1=0.04) and COLLIE paragraph (Pass@1=0.60) tasks.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "Considering the effectiveness of DISCIPL in improving Llama-1B's performance, how does it specifically affect Llama-1B's evaluation on the COLLIE dataset?",
+    "options": {
+      "A": "Despite DISCIPL's general improvement, Llama-1B performs moderately on COLLIE paragraph tasks but poorly on sentence tasks.",
+      "B": "It significantly boosts Llama-1B's performance on both sentence and paragraph tasks in the COLLIE dataset, leading to high Pass@1 scores.",
+      "C": "It only slightly improves Llama-1B's performance on COLLIE sentence tasks, resulting in a low Pass@1 score.",
+      "D": "DISCIPL leads to exceptional improvements in Llama-1B's performance across various datasets, not specific to COLLIE."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is C because, according to the context, although DISCIPL generally improves Llama-1B, the specific Pass@1 scores provided for COLLIE sentence and paragraph tasks indicate moderate success on paragraph tasks and poor performance on sentence tasks. This suggests that while there is some improvement, it's not uniformly high across different types of tasks within the COLLIE dataset.",
+    "path_description": "Path: DISCIPL --[improves]--> Llama-1B --[evaluatedOn]--> COLLIE --[type]--> Dataset",
+    "context": "DISCIPL significantly boosts performance and DISCIPL-IS far exceed the Follower-only baselines. | given its size, Llama-1B is only weakly able to on COLLIE sentence tasks (Pass@1=0.04) and COLLIE paragraph (Pass@1=0.60) tasks. | on COLLIE sentence tasks (Pass@1=0.04) and COLLIE paragraph (Pass@1=0.60) tasks.",
+    "paper_id": "775"
+  },
+  {
+    "section": "limitationsfutureworkandconclusions4",
+    "path": {
+      "section": "limitationsfutureworkandconclusions4",
+      "start_entity": "AnnaRumshisky",
+      "end_entity": "Author",
+      "hops": [
+        {
+          "from": "AnnaRumshisky",
+          "relation": "coAuthorWith",
+          "to": "LukeZettlemoyer",
+          "context": "Anna Rumshisky, Luke Zettlemoyer, Dilek.",
+          "chunk": "11"
+        },
+        {
+          "from": "LukeZettlemoyer",
+          "relation": "coAuthorWith",
+          "to": "Dilek",
+          "context": "Anna Rumshisky, Luke Zettlemoyer, Dilek.",
+          "chunk": "11"
+        },
+        {
+          "from": "Dilek",
+          "relation": "type",
+          "to": "Author",
+          "context": "Anna Rumshisky, Luke Zettlemoyer, Dilek.",
+          "chunk": "11"
+        }
+      ]
+    },
+    "question": "Given the collaborative research network, which author is most likely to bring an interdisciplinary perspective to a project involving Anna Rumshisky and Luke Zettlemoyer?",
+    "options": {
+      "A": "Dilek, due to having a type association as an Author with Luke Zettlemoyer in their co-author network.",
+      "B": "Luke Zettlemoyer, due to his central position in the co-author network between Anna Rumshisky and Dilek.",
+      "C": "Anna Rumshisky, due to her primary role in initiating collaborations with other researchers.",
+      "D": "All authors are equally likely to bring an interdisciplinary perspective to the collaboration."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is Dilek. The knowledge path suggests a direct collaborative link between Anna Rumshisky and Luke Zettlemoyer, and subsequently between Luke Zettlemoyer and Dilek, classifying her as an Author. This position in the network, connecting through a key intermediary (Luke), indicates that Dilek might bring unique interdisciplinary insights to the collaboration, different from the primary fields of the other two researchers.",
+    "path_description": "Path: AnnaRumshisky --[coAuthorWith]--> LukeZettlemoyer --[coAuthorWith]--> Dilek --[type]--> Author",
+    "context": "Anna Rumshisky, Luke Zettlemoyer, Dilek. | Anna Rumshisky, Luke Zettlemoyer, Dilek. | Anna Rumshisky, Luke Zettlemoyer, Dilek.",
+    "paper_id": "775"
+  },
+  {
+    "section": "limitationsfutureworkandconclusions5",
+    "path": {
+      "section": "limitationsfutureworkandconclusions5",
+      "start_entity": "MarcLanctot",
+      "end_entity": "KorayKavukcuoglu",
+      "hops": [
+        {
+          "from": "MarcLanctot",
+          "relation": "coAuthoredWith",
+          "to": "NalKalchbrenner",
+          "context": "Arthur Guez, Laurent Sifre, George van den Driessche, Veda Panneershelvam, Marc Lanctot, Nal Kalchbrenner, Ilya Sutskever, Koray Kavukcuoglu, Thore Graepel, and Demis Hassabis.",
+          "chunk": "12"
+        },
+        {
+          "from": "NalKalchbrenner",
+          "relation": "coAuthoredWith",
+          "to": "IlyaSutskever",
+          "context": "Arthur Guez, Laurent Sifre, George van den Driessche, Veda Panneershelvam, Marc Lanctot, Nal Kalchbrenner, Ilya Sutskever, Koray Kavukcuoglu, Thore Graepel, and Demis Hassabis.",
+          "chunk": "12"
+        },
+        {
+          "from": "IlyaSutskever",
+          "relation": "coAuthoredWith",
+          "to": "KorayKavukcuoglu",
+          "context": "Arthur Guez, Laurent Sifre, George van den Driessche, Veda Panneershelvam, Marc Lanctot, Nal Kalchbrenner, Ilya Sutskever, Koray Kavukcuoglu, Thore Graepel, and Demis Hassabis.",
+          "chunk": "12"
+        }
+      ]
+    },
+    "question": "Considering the co-authorship relationships in the research community, which of the following correctly represents a sequence of collaborations starting from Marc Lanctot?",
+    "options": {
+      "A": "Marc Lanctot co-authored with Thore Graepel, who then collaborated with Demis Hassabis, eventually leading to a partnership with Koray Kavukcuoglu.",
+      "B": "Marc Lanctot initiated a collaboration with Veda Panneershelvam, who worked with George van den Driessche, and subsequently with Koray Kavukcuoglu.",
+      "C": "Marc Lanctot co-authored with Nal Kalchbrenner, who then co-authored with Ilya Sutskever, leading to a collaboration with Koray Kavukcuoglu.",
+      "D": "Marc Lanctot collaborated directly with Koray Kavukcuoglu, bypassing any intermediary co-authors such as Ilya Sutskever or Nal Kalchbrenner."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct sequence, as per the provided knowledge path, starts with Marc Lanctot co-authoring with Nal Kalchbrenner, followed by Nal Kalchbrenner's co-authorship with Ilya Sutskever, and concludes with Ilya Sutskever co-authoring with Koray Kavukcuoglu. The other options provide either incorrect sequences or incorrect relational links.",
+    "path_description": "Path: MarcLanctot --[coAuthoredWith]--> NalKalchbrenner --[coAuthoredWith]--> IlyaSutskever --[coAuthoredWith]--> KorayKavukcuoglu",
+    "context": "Arthur Guez, Laurent Sifre, George van den Driessche, Veda Panneershelvam, Marc Lanctot, Nal Kalchbrenner, Ilya Sutskever, Koray Kavukcuoglu, Thore Graepel, and Demis Hassabis. | Arthur Guez, Laurent Sifre, George van den Driessche, Veda Panneershelvam, Marc Lanctot, Nal Kalchbrenner, Ilya Sutskever, Koray Kavukcuoglu, Thore Graepel, and Demis Hassabis. | Arthur Guez, Laurent Sifre, George van den Driessche, Veda Panneershelvam, Marc Lanctot, Nal Kalchbrenner, Ilya Sutskever, Koray Kavukcuoglu, Thore Graepel, and Demis Hassabis.",
+    "paper_id": "775"
+  },
+  {
+    "section": "limitationsfutureworkandconclusions5",
+    "path": {
+      "section": "limitationsfutureworkandconclusions5",
+      "start_entity": "ArthurGuez",
+      "end_entity": "VedaPanneershelvam",
+      "hops": [
+        {
+          "from": "ArthurGuez",
+          "relation": "coAuthoredWith",
+          "to": "LaurentSifre",
+          "context": "Arthur Guez, Laurent Sifre, George van den Driessche, Veda Panneershelvam, Marc Lanctot, Nal Kalchbrenner, Ilya Sutskever, Koray Kavukcuoglu, Thore Graepel, and Demis Hassabis.",
+          "chunk": "12"
+        },
+        {
+          "from": "LaurentSifre",
+          "relation": "coAuthoredWith",
+          "to": "GeorgeVanDenDriessche",
+          "context": "Arthur Guez, Laurent Sifre, George van den Driessche, Veda Panneershelvam, Marc Lanctot, Nal Kalchbrenner, Ilya Sutskever, Koray Kavukcuoglu, Thore Graepel, and Demis Hassabis.",
+          "chunk": "12"
+        },
+        {
+          "from": "GeorgeVanDenDriessche",
+          "relation": "coAuthoredWith",
+          "to": "VedaPanneershelvam",
+          "context": "Arthur Guez, Laurent Sifre, George van den Driessche, Veda Panneershelvam, Marc Lanctot, Nal Kalchbrenner, Ilya Sutskever, Koray Kavukcuoglu, Thore Graepel, and Demis Hassabis.",
+          "chunk": "12"
+        }
+      ]
+    },
+    "question": "In the context of collaborative research networks, which statement best describes the relationship between the authors listed in the paper section 'limitationsfutureworkandconclusions5'?",
+    "options": {
+      "A": "Arthur Guez directly collaborated with Veda Panneershelvam without any intermediaries between them in the research paper.",
+      "B": "George van den Driessche and Veda Panneershelvam initiated the research project and later included Arthur Guez and Laurent Sifre.",
+      "C": "Laurent Sifre and George van den Driessche have never co-authored with Veda Panneershelvam in any research paper.",
+      "D": "Veda Panneershelvam is the final connection in a collaborative chain starting from Arthur Guez through Laurent Sifre and George van den Driessche."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is derived from understanding the chain of co-authorship detailed in the knowledge graph path. Arthur Guez co-authored with Laurent Sifre, who then co-authored with George van den Driessche, and finally, George co-authored with Veda Panneershelvam, forming a linear collaboration chain. Options B, C, and D do not correctly reflect the relationships as represented in the knowledge graph.",
+    "path_description": "Path: ArthurGuez --[coAuthoredWith]--> LaurentSifre --[coAuthoredWith]--> GeorgeVanDenDriessche --[coAuthoredWith]--> VedaPanneershelvam",
+    "context": "Arthur Guez, Laurent Sifre, George van den Driessche, Veda Panneershelvam, Marc Lanctot, Nal Kalchbrenner, Ilya Sutskever, Koray Kavukcuoglu, Thore Graepel, and Demis Hassabis. | Arthur Guez, Laurent Sifre, George van den Driessche, Veda Panneershelvam, Marc Lanctot, Nal Kalchbrenner, Ilya Sutskever, Koray Kavukcuoglu, Thore Graepel, and Demis Hassabis. | Arthur Guez, Laurent Sifre, George van den Driessche, Veda Panneershelvam, Marc Lanctot, Nal Kalchbrenner, Ilya Sutskever, Koray Kavukcuoglu, Thore Graepel, and Demis Hassabis.",
+    "paper_id": "775"
+  },
+  {
+    "section": "limitationsfutureworkandconclusions4",
+    "path": {
+      "section": "limitationsfutureworkandconclusions4",
+      "start_entity": "RyanCotterell",
+      "end_entity": "Author",
+      "hops": [
+        {
+          "from": "RyanCotterell",
+          "relation": "coAuthorWith",
+          "to": "VikashMansinghka",
+          "context": "Ryan Cotterell, VikashMansinghka.",
+          "chunk": "11"
+        },
+        {
+          "from": "VikashMansinghka",
+          "relation": "coAuthorWith",
+          "to": "TimothyJODonnell",
+          "context": "Timothy J. O’Donnell.",
+          "chunk": "11"
+        },
+        {
+          "from": "TimothyJODonnell",
+          "relation": "type",
+          "to": "Author",
+          "context": "Timothy J. O’Donnell.",
+          "chunk": "11"
+        }
+      ]
+    },
+    "question": "Considering the co-authorship network presented, which of the following statements best reflects the relationship between Ryan Cotterell and Timothy J. O'Donnell?",
+    "options": {
+      "A": "Ryan Cotterell and Timothy J. O'Donnell have direct co-authorship evidenced through their joint publications.",
+      "B": "Ryan Cotterell is the primary author of works where Timothy J. O'Donnell contributed as a secondary author.",
+      "C": "Timothy J. O'Donnell has collaborated directly with Ryan Cotterell in editing a major scientific journal.",
+      "D": "Ryan Cotterell and Timothy J. O'Donnell are indirectly connected through their mutual co-author, Vikash Mansinghka."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is B because the knowledge graph path shows that Ryan Cotterell and Timothy J. O'Donnell are connected through a mutual co-author, Vikash Mansinghka, indicating an indirect relationship rather than a direct co-authorship or other direct collaborative efforts.",
+    "path_description": "Path: RyanCotterell --[coAuthorWith]--> VikashMansinghka --[coAuthorWith]--> TimothyJODonnell --[type]--> Author",
+    "context": "Ryan Cotterell, VikashMansinghka. | Timothy J. O’Donnell. | Timothy J. O’Donnell.",
+    "paper_id": "775"
+  },
+  {
+    "section": "appendix17",
+    "path": {
+      "section": "appendix17",
+      "start_entity": "max_words_per_phrase",
+      "end_entity": "Variable",
+      "hops": [
+        {
+          "from": "max_words_per_phrase",
+          "relation": "partOf",
+          "to": "CollieModelSent04",
+          "context": "self.max_words_per_phrase = 40",
+          "chunk": "30"
+        },
+        {
+          "from": "CollieModelSent04",
+          "relation": "uses",
+          "to": "target_words",
+          "context": "self.target_words = set(['have', 'rising', 'the'])",
+          "chunk": "30"
+        },
+        {
+          "from": "target_words",
+          "relation": "type",
+          "to": "Variable",
+          "context": "self.target_words = set(['have', 'rising', 'the'])",
+          "chunk": "30"
+        }
+      ]
+    },
+    "question": "In the context of the CollieModelSent04 as described in appendix17, which of the following best describes the role of 'target_words'?",
+    "options": {
+      "A": "A fixed set of words that governs the output constraints of the model.",
+      "B": "A set of variables that includes words like 'have', 'rising', 'the' to direct model focus.",
+      "C": "A collection of words to precisely control the linguistic structure of the generated phrases.",
+      "D": "A variable that determines the maximum words per phrase to be used in the model."
+    },
+    "correct_answer": "B",
+    "explanation": "The 'target_words' in the CollieModelSent04 as per the paper's context is a set whose members are explicitly listed as 'have', 'rising', 'the'. This makes it a variable used to focus the model's attention, rather than fixing output constraints or controlling linguistic structure.",
+    "path_description": "Path: max_words_per_phrase --[partOf]--> CollieModelSent04 --[uses]--> target_words --[type]--> Variable",
+    "context": "self.max_words_per_phrase = 40 | self.target_words = set(['have', 'rising', 'the']) | self.target_words = set(['have', 'rising', 'the'])",
+    "paper_id": "775"
+  },
+  {
+    "section": "appendix17",
+    "path": {
+      "section": "appendix17",
+      "start_entity": "min_words",
+      "end_entity": "Variable",
+      "hops": [
+        {
+          "from": "min_words",
+          "relation": "partOf",
+          "to": "CollieModelSent04",
+          "context": "self.min_words = 9",
+          "chunk": "30"
+        },
+        {
+          "from": "CollieModelSent04",
+          "relation": "uses",
+          "to": "target_words",
+          "context": "self.target_words = set(['have', 'rising', 'the'])",
+          "chunk": "30"
+        },
+        {
+          "from": "target_words",
+          "relation": "type",
+          "to": "Variable",
+          "context": "self.target_words = set(['have', 'rising', 'the'])",
+          "chunk": "30"
+        }
+      ]
+    },
+    "question": "In the context of the CollieModelSent04, which set of words demonstrates a proper configuration of the 'target_words' variable given its relationship as defined in appendix17?",
+    "options": {
+      "A": "Words such as 'maximum', 'minimum', and 'average' properly define the target_words variable.",
+      "B": "A collection containing 'quickly', 'increases', and 'values' would be the correct configuration.",
+      "C": "The set including 'data', 'analysis', and 'results' matches the definition from the model.",
+      "D": "The set containing words like 'have', 'rising', and 'the' aligns with the expected configuration."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A because 'have', 'rising', and 'the' are explicitly mentioned as part of the target_words set in the provided context from appendix17, demonstrating the correct instantiation of the variable as required by the CollieModelSent04 configuration.",
+    "path_description": "Path: min_words --[partOf]--> CollieModelSent04 --[uses]--> target_words --[type]--> Variable",
+    "context": "self.min_words = 9 | self.target_words = set(['have', 'rising', 'the']) | self.target_words = set(['have', 'rising', 'the'])",
+    "paper_id": "775"
+  }
+]

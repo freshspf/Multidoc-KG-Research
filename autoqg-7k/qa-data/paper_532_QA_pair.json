@@ -1,0 +1,346 @@
+[
+  {
+    "section": "preliminaries",
+    "path": {
+      "section": "preliminaries",
+      "start_entity": "KnowledgeConnectivityGraph",
+      "end_entity": "DigitalSignature",
+      "hops": [
+        {
+          "from": "KnowledgeConnectivityGraph",
+          "relation": "formedBy",
+          "to": "ParticipantDetector",
+          "context": "The information provided by the participant detectors of all processes collectively forms a directed graph known as knowledge connectivity graph.",
+          "chunk": "2"
+        },
+        {
+          "from": "ParticipantDetector",
+          "relation": "usedBy",
+          "to": "BFT_CUP_Model",
+          "context": "In this model, each process initially obtains partial knowledge about the others using a local oracle called participant detector (PD).",
+          "chunk": "2"
+        },
+        {
+          "from": "BFT_CUP_Model",
+          "relation": "doesNotUse",
+          "to": "DigitalSignature",
+          "context": "The BFT-CUP model operates under the same system model as this paper, except it does not rely on digital signatures.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "Why does the BFT_CUP_Model not utilize digital signatures despite being formed by a Knowledge Connectivity Graph through Participant Detectors?",
+    "options": {
+      "A": "It employs an alternative cryptographic technique that replaces digital signatures for securing communications.",
+      "B": "As it relies exclusively on a global synchronization mechanism provided by the Knowledge Connectivity Graph.",
+      "C": "The BFT_CUP_Model uses digital signatures but only in cases where Participant Detectors fail to provide sufficient information.",
+      "D": "Because the BFT_CUP_Model is designed to operate using only the knowledge obtained from the Participant Detectors, without additional cryptographic methods."
+    },
+    "correct_answer": "D",
+    "explanation": "The BFT_CUP_Model does not use digital signatures as it relies solely on the information provided by Participant Detectors, which collectively form the Knowledge Connectivity Graph. This model is designed to operate without additional cryptographic methods like digital signatures.",
+    "path_description": "Path: KnowledgeConnectivityGraph --[formedBy]--> ParticipantDetector --[usedBy]--> BFT_CUP_Model --[doesNotUse]--> DigitalSignature",
+    "context": "The information provided by the participant detectors of all processes collectively forms a directed graph known as knowledge connectivity graph. | In this model, each process initially obtains partial knowledge about the others using a local oracle called participant detector (PD). | The BFT-CUP model operates under the same system model as this paper, except it does not rely on digital signatures.",
+    "paper_id": "616"
+  },
+  {
+    "section": "introduction1",
+    "path": {
+      "section": "introduction1",
+      "start_entity": "CUPModel",
+      "end_entity": "Conference",
+      "hops": [
+        {
+          "from": "CUPModel",
+          "relation": "focusOf",
+          "to": "ThisPaper",
+          "context": "This paper focuses on the CUP model.",
+          "chunk": "0"
+        },
+        {
+          "from": "ThisPaper",
+          "relation": "toAppearAt",
+          "to": "ICDCS2024",
+          "context": "This is a preprint of a paper to appear at the 44th IEEE International Conference on Distributed Computing Systems (ICDCS 2024).",
+          "chunk": "0"
+        },
+        {
+          "from": "ICDCS2024",
+          "relation": "type",
+          "to": "Conference",
+          "context": "This is a preprint of a paper to appear at the 44th IEEE International Conference on Distributed Computing Systems (ICDCS 2024).",
+          "chunk": "0"
+        }
+      ]
+    },
+    "question": "Which of the following best describes the type of event where the paper focusing on the CUP model is scheduled to appear?",
+    "options": {
+      "A": "An online webinar series discussing recent trends in cybersecurity",
+      "B": "A local workshop on the fundamentals of computer programming",
+      "C": "A national symposium dedicated to advancements in artificial intelligence",
+      "D": "An international conference specializing in distributed computing systems"
+    },
+    "correct_answer": "D",
+    "explanation": "The paper focusing on the CUP model is to appear at the 44th IEEE International Conference on Distributed Computing Systems (ICDCS 2024), which is an international conference specializing in distributed computing systems. The other options, while plausible types of events, do not match the specific event described in the context.",
+    "path_description": "Path: CUPModel --[focusOf]--> ThisPaper --[toAppearAt]--> ICDCS2024 --[type]--> Conference",
+    "context": "This paper focuses on the CUP model. | This is a preprint of a paper to appear at the 44th IEEE International Conference on Distributed Computing Systems (ICDCS 2024). | This is a preprint of a paper to appear at the 44th IEEE International Conference on Distributed Computing Systems (ICDCS 2024).",
+    "paper_id": "616"
+  },
+  {
+    "section": "revisitingthebftcupmodel1",
+    "path": {
+      "section": "revisitingthebftcupmodel1",
+      "start_entity": "ConsensusProtocol",
+      "end_entity": "Technology",
+      "hops": [
+        {
+          "from": "ConsensusProtocol",
+          "relation": "partOf",
+          "to": "AuthenticatedBFT-CUPModel",
+          "context": "the consensus protocol in the authenticated BFT-CUP model has roughly 20 lines compared with 120 in [10].",
+          "chunk": "3"
+        },
+        {
+          "from": "AuthenticatedBFT-CUPModel",
+          "relation": "uses",
+          "to": "DigitalSignatures",
+          "context": "incorporating an additional assumption that allows each process to use digital signatures.",
+          "chunk": "3"
+        },
+        {
+          "from": "DigitalSignatures",
+          "relation": "type",
+          "to": "Technology",
+          "context": "incorporating an additional assumption that allows each process to use digital signatures.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "How does the use of digital signatures within the Authenticated BFT-CUP model impact its consensus protocol?",
+    "options": {
+      "A": "It primarily serves to synchronize all processes within the network to prevent data loss.",
+      "B": "It reduces the complexity of the consensus protocol by decreasing the number of lines of code needed.",
+      "C": "It primarily increases the security of transactions by ensuring each process cannot deny a transaction.",
+      "D": "It significantly increases the computational overhead due to encryption and decryption processes."
+    },
+    "correct_answer": "B",
+    "explanation": "The use of digital signatures in the Authenticated BFT-CUP model allows for a more streamlined consensus protocol, as evidenced by the reduction in the number of lines of code from 120 to 20 when compared to a reference model. This indicates a simplification in the protocol's implementation rather than the other options which do not directly relate to the structural complexity of the protocol.",
+    "path_description": "Path: ConsensusProtocol --[partOf]--> AuthenticatedBFT-CUPModel --[uses]--> DigitalSignatures --[type]--> Technology",
+    "context": "the consensus protocol in the authenticated BFT-CUP model has roughly 20 lines compared with 120 in [10]. | incorporating an additional assumption that allows each process to use digital signatures. | incorporating an additional assumption that allows each process to use digital signatures.",
+    "paper_id": "616"
+  },
+  {
+    "section": "revisitingthebftcupmodel2",
+    "path": {
+      "section": "revisitingthebftcupmodel2",
+      "start_entity": "S1",
+      "end_entity": "SinkAlgorithmExecution",
+      "hops": [
+        {
+          "from": "S1",
+          "relation": "cannotCalculateConnectivityOf",
+          "to": "S2",
+          "context": "while it cannot calculate the strong connectivity of S2 or any other set containing at least a Byzantine sink member.",
+          "chunk": "4"
+        },
+        {
+          "from": "S2",
+          "relation": "contains",
+          "to": "ByzantineSinkMembers",
+          "context": "At time t, S1 contains all correct sink members while S2 contains all Byzantine sink members.",
+          "chunk": "4"
+        },
+        {
+          "from": "ByzantineSinkMembers",
+          "relation": "remainSilentDuring",
+          "to": "SinkAlgorithmExecution",
+          "context": "Byzantine sink members remain silent during the execution.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "Why is it impossible for S1 to calculate the strong connectivity of S2 during the execution of the sink algorithm?",
+    "options": {
+      "A": "The algorithm used by S1 is not designed to handle the silence of Byzantine members during its execution.",
+      "B": "S2's Byzantine sink members actively disrupt the communication, making connectivity calculation impossible.",
+      "C": "S1 is composed solely of correct sink members, which are incompatible with the Byzantine members in S2.",
+      "D": "S2 contains all Byzantine sink members, who remain silent during the execution, preventing connectivity calculation."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A because, based on the knowledge path, S2 contains all the Byzantine sink members who remain silent during the sink algorithm execution. This silence prevents S1 from calculating the strong connectivity of S2, as there is no response or information flow from S2 to help in assessing the connectivity.",
+    "path_description": "Path: S1 --[cannotCalculateConnectivityOf]--> S2 --[contains]--> ByzantineSinkMembers --[remainSilentDuring]--> SinkAlgorithmExecution",
+    "context": "while it cannot calculate the strong connectivity of S2 or any other set containing at least a Byzantine sink member. | At time t, S1 contains all correct sink members while S2 contains all Byzantine sink members. | Byzantine sink members remain silent during the execution.",
+    "paper_id": "616"
+  },
+  {
+    "section": "animpossibilityresult",
+    "path": {
+      "section": "animpossibilityresult",
+      "start_entity": "ProtocolA",
+      "end_entity": "Protocol",
+      "hops": [
+        {
+          "from": "ProtocolA",
+          "relation": "usedIn",
+          "to": "SystemA",
+          "context": "For the sake of contradiction, assume that there is a protocol A by which processes can solve consensus when the knowledge connectivity graph of the system belongs to Gdi, but no process knows the value of the fault threshold.",
+          "chunk": "6"
+        },
+        {
+          "from": "SystemA",
+          "relation": "contains",
+          "to": "ProtocolA",
+          "context": "Consider a distributed system A composed of a set of processes ΠA = {1, 2, 3, 4} with the knowledge connectivity graph depicted in Fig. 2a.",
+          "chunk": "6"
+        },
+        {
+          "from": "ProtocolA",
+          "relation": "type",
+          "to": "Protocol",
+          "context": "For the sake of contradiction, assume that there is a protocol A by which processes can solve consensus when the knowledge connectivity graph of the system belongs to Gdi, but no process knows the value of the fault threshold.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "Considering the relationship and properties of Protocol A and System A in the context of distributed systems, why is Protocol A considered ineffective in System A for solving consensus?",
+    "options": {
+      "A": "Because the knowledge connectivity graph of System A does not meet the requirements specified by Protocol A.",
+      "B": "Because no process in System A knows the value of the fault threshold, which is critical for solving consensus.",
+      "C": "Because the processes in System A are unable to communicate with each other, making consensus impossible.",
+      "D": "Because System A contains more than three processes, which inherently makes consensus unsolvable according to Protocol A."
+    },
+    "correct_answer": "B",
+    "explanation": "Protocol A is rendered ineffective in System A specifically due to the lack of knowledge about the fault threshold among its processes. This threshold is essential for achieving consensus in the given context, where solving consensus depends on understanding system faults comprehensively.",
+    "path_description": "Path: ProtocolA --[usedIn]--> SystemA --[contains]--> ProtocolA --[type]--> Protocol",
+    "context": "For the sake of contradiction, assume that there is a protocol A by which processes can solve consensus when the knowledge connectivity graph of the system belongs to Gdi, but no process knows the value of the fault threshold. | Consider a distributed system A composed of a set of processes ΠA = {1, 2, 3, 4} with the knowledge connectivity graph depicted in Fig. 2a. | For the sake of contradiction, assume that there is a protocol A by which processes can solve consensus when the knowledge connectivity graph of the system belongs to Gdi, but no process knows the value of the fault threshold.",
+    "paper_id": "616"
+  },
+  {
+    "section": "animpossibilityresult",
+    "path": {
+      "section": "animpossibilityresult",
+      "start_entity": "SystemB",
+      "end_entity": "DistributedSystem",
+      "hops": [
+        {
+          "from": "SystemB",
+          "relation": "contains",
+          "to": "ProtocolA",
+          "context": "Similar to the previous case, consider a distributed system B composed of a set of processes ΠB = {5, 6, 7, 8} with the knowledge connectivity graph depicted in Fig. 2b.",
+          "chunk": "6"
+        },
+        {
+          "from": "ProtocolA",
+          "relation": "usedIn",
+          "to": "SystemA",
+          "context": "For the sake of contradiction, assume that there is a protocol A by which processes can solve consensus when the knowledge connectivity graph of the system belongs to Gdi, but no process knows the value of the fault threshold.",
+          "chunk": "6"
+        },
+        {
+          "from": "SystemA",
+          "relation": "type",
+          "to": "DistributedSystem",
+          "context": "Consider a distributed system A composed of a set of processes ΠA = {1, 2, 3, 4} with the knowledge connectivity graph depicted in Fig. 2a.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "Why is Protocol A considered ineffective for achieving consensus in System B, despite its usage in System A?",
+    "options": {
+      "A": "Because Protocol A was specifically designed for the fault threshold known to processes in System A, not applicable in System B.",
+      "B": "Because the knowledge connectivity graph of System B is simpler than that of System A, making Protocol A redundant.",
+      "C": "Because System B operates on a smaller number of processes, hence Protocol A is too complex and inefficient for such a setup.",
+      "D": "Because System B contains a different set of processes and likely a different fault threshold, which Protocol A does not account for."
+    },
+    "correct_answer": "D",
+    "explanation": "Protocol A is ineffective in System B because it was designed under the assumption of unknown fault thresholds, which might not align with the specific needs and configurations (such as a different set of processes and potentially different fault thresholds) of System B. The other options inaccurately describe the relations between the protocol's design and its application across different systems.",
+    "path_description": "Path: SystemB --[contains]--> ProtocolA --[usedIn]--> SystemA --[type]--> DistributedSystem",
+    "context": "Similar to the previous case, consider a distributed system B composed of a set of processes ΠB = {5, 6, 7, 8} with the knowledge connectivity graph depicted in Fig. 2b. | For the sake of contradiction, assume that there is a protocol A by which processes can solve consensus when the knowledge connectivity graph of the system belongs to Gdi, but no process knows the value of the fault threshold. | Consider a distributed system A composed of a set of processes ΠA = {1, 2, 3, 4} with the knowledge connectivity graph depicted in Fig. 2a.",
+    "paper_id": "616"
+  },
+  {
+    "section": "thebftcupftmodel",
+    "path": {
+      "section": "thebftcupftmodel",
+      "start_entity": "Gcore",
+      "end_entity": "GraphComponent",
+      "hops": [
+        {
+          "from": "Gcore",
+          "relation": "hasMaximumConnectivityAmong",
+          "to": "SinkComponent",
+          "context": "The core has the maximum connectivity among the sinks.",
+          "chunk": "7"
+        },
+        {
+          "from": "SinkComponent",
+          "relation": "differsFrom",
+          "to": "CoreComponent",
+          "context": "In this knowledge connectivity graph, the sink component differs from the core component.",
+          "chunk": "7"
+        },
+        {
+          "from": "CoreComponent",
+          "relation": "type",
+          "to": "GraphComponent",
+          "context": "In this knowledge connectivity graph, the sink component is the same as the core component.",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "In the context of the 'thebftcupftmodel' knowledge connectivity graph, why does the sink component differ from the core component?",
+    "options": {
+      "A": "Because the core component's function is to integrate external data, which is not a characteristic of the sink component.",
+      "B": "Because the sink component and the core component are identified as the same type within the graph, leading to no differences.",
+      "C": "Because the sink component contains fewer connectivity options, making it integral to the graph's overall connectivity.",
+      "D": "Because the core component, having maximum connectivity among sinks, represents a different graph component type than the sink component."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A because the knowledge path indicates that the core, which has the maximum connectivity, is distinct from the sink in terms of their graph component type. Options B and D introduce incorrect roles and characteristics of the components, and C contradicts the established difference as per the knowledge graph.",
+    "path_description": "Path: Gcore --[hasMaximumConnectivityAmong]--> SinkComponent --[differsFrom]--> CoreComponent --[type]--> GraphComponent",
+    "context": "The core has the maximum connectivity among the sinks. | In this knowledge connectivity graph, the sink component differs from the core component. | In this knowledge connectivity graph, the sink component is the same as the core component.",
+    "paper_id": "616"
+  },
+  {
+    "section": "relatedwork2",
+    "path": {
+      "section": "relatedwork2",
+      "start_entity": "FaultTolerance",
+      "end_entity": "Consensus",
+      "hops": [
+        {
+          "from": "FaultTolerance",
+          "relation": "partOf",
+          "to": "SleepyModel",
+          "context": "The system’s fault tolerance dynamically adjusts as participants transition between awake and asleep states",
+          "chunk": "10"
+        },
+        {
+          "from": "SleepyModel",
+          "relation": "comparedWith",
+          "to": "CUPModel",
+          "context": "In contrast, the sleepy model introduces a different perspective",
+          "chunk": "10"
+        },
+        {
+          "from": "CUPModel",
+          "relation": "addresses",
+          "to": "Consensus",
+          "context": "the CUP model addresses consensus in partially synchronous systems",
+          "chunk": "10"
+        }
+      ]
+    },
+    "question": "How does the Sleepy Model's approach to fault tolerance differ in relation to achieving consensus as compared to the CUP Model?",
+    "options": {
+      "A": "The Sleepy Model adjusts fault tolerance based on the participants' states and focuses on asynchronous systems.",
+      "B": "The CUP Model adjusts fault tolerance dynamically and is tailored for asynchronous system consensus.",
+      "C": "The CUP Model maintains a static fault tolerance approach and achieves consensus in partially synchronous systems.",
+      "D": "The Sleepy Model maintains constant fault tolerance and targets fully synchronous systems for consensus."
+    },
+    "correct_answer": "C",
+    "explanation": "The Sleepy Model's fault tolerance dynamically adjusts based on awake and asleep states, whereas the CUP Model addresses consensus specifically in partially synchronous systems, implying a different approach to handling fault tolerance. Option D correctly captures the essence of CUP Model's approach compared to the Sleepy Model.",
+    "path_description": "Path: FaultTolerance --[partOf]--> SleepyModel --[comparedWith]--> CUPModel --[addresses]--> Consensus",
+    "context": "The system’s fault tolerance dynamically adjusts as participants transition between awake and asleep states | In contrast, the sleepy model introduces a different perspective | the CUP model addresses consensus in partially synchronous systems",
+    "paper_id": "616"
+  }
+]

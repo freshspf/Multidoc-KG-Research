@@ -1,0 +1,88 @@
+[
+  {
+    "section": "datacollectionandmodeltraining",
+    "path": {
+      "section": "datacollectionandmodeltraining",
+      "start_entity": "Machine",
+      "end_entity": "BlockchainOperation",
+      "hops": [
+        {
+          "from": "Machine",
+          "relation": "usedFor",
+          "to": "HLF",
+          "context": "one is for running HLF that configures a blockchain network.",
+          "chunk": "2"
+        },
+        {
+          "from": "HLF",
+          "relation": "generates",
+          "to": "Transaction",
+          "context": "We generate 20000 transactions every time.",
+          "chunk": "2"
+        },
+        {
+          "from": "Transaction",
+          "relation": "type",
+          "to": "BlockchainOperation",
+          "context": "each transaction is endorsed by only one peer.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the context of a blockchain network configuration using HLF, what is the direct output of the machine used for running HLF?",
+    "options": {
+      "A": "The machine is used to endorse each transaction by a single peer within the network.",
+      "B": "The machine directly outputs a blockchain network configuration schema.",
+      "C": "The machine indirectly supports blockchain operations through the generation of transactions.",
+      "D": "The machine generates 20,000 transactions for each operation within the blockchain."
+    },
+    "correct_answer": "C",
+    "explanation": "The machine running HLF is primarily used for configuring a blockchain network. While transactions are generated as a result of this setup, the direct output of the machine is not the transactions themselves or the endorsement of these transactions, but rather supporting blockchain operations indirectly through the configuration process and transaction generation.",
+    "path_description": "Path: Machine --[usedFor]--> HLF --[generates]--> Transaction --[type]--> BlockchainOperation",
+    "context": "one is for running HLF that configures a blockchain network. | We generate 20000 transactions every time. | each transaction is endorsed by only one peer.",
+    "paper_id": "1552"
+  },
+  {
+    "section": "datacollectionandmodeltraining",
+    "path": {
+      "section": "datacollectionandmodeltraining",
+      "start_entity": "Machine",
+      "end_entity": "BubbleSort",
+      "hops": [
+        {
+          "from": "Machine",
+          "relation": "usedFor",
+          "to": "HLF",
+          "context": "one is for running HLF that configures a blockchain network.",
+          "chunk": "2"
+        },
+        {
+          "from": "HLF",
+          "relation": "generates",
+          "to": "Transaction",
+          "context": "We generate 20000 transactions every time.",
+          "chunk": "2"
+        },
+        {
+          "from": "Transaction",
+          "relation": "uses",
+          "to": "BubbleSort",
+          "context": "each performing bubble sort.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the context of a blockchain network configured for running HLF, what is the primary algorithm used by transactions to perform data sorting?",
+    "options": {
+      "A": "Transactions primarily use the BubbleSort algorithm to perform data sorting.",
+      "B": "The primary sorting method used by transactions is the MergeSort algorithm.",
+      "C": "Transactions mainly apply the InsertionSort algorithm for sorting purposes.",
+      "D": "Transactions predominantly utilize the QuickSort algorithm to organize data."
+    },
+    "correct_answer": "A",
+    "explanation": "According to the knowledge path, the machine is used for running HLF, which generates transactions, each of which uses the BubbleSort algorithm for sorting. Therefore, BubbleSort is the primary algorithm used by transactions for data sorting in this context.",
+    "path_description": "Path: Machine --[usedFor]--> HLF --[generates]--> Transaction --[uses]--> BubbleSort",
+    "context": "one is for running HLF that configures a blockchain network. | We generate 20000 transactions every time. | each performing bubble sort.",
+    "paper_id": "1552"
+  }
+]

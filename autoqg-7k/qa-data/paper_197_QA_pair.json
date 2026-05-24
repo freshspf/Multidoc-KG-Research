@@ -1,0 +1,45 @@
+[
+  {
+    "section": "background2",
+    "path": {
+      "section": "background2",
+      "start_entity": "Root-CA",
+      "end_entity": "Entity",
+      "hops": [
+        {
+          "from": "Root-CA",
+          "relation": "crossCertifies",
+          "to": "Root-CA",
+          "context": "Cross certification (roots certify each other)",
+          "chunk": "3"
+        },
+        {
+          "from": "Root-CA",
+          "relation": "actsAsTrustAnchor",
+          "to": "Trust-Model",
+          "context": "In a simple trust model the Root-CA acts as the trust anchor of the tree",
+          "chunk": "3"
+        },
+        {
+          "from": "Trust-Model",
+          "relation": "type",
+          "to": "Entity",
+          "context": "In a simple trust model the Root-CA acts as the trust anchor of the tree",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In a simple trust model, how does the relationship between Root Certificate Authorities (Root-CAs) and entity classification function?",
+    "options": {
+      "A": "Each Root-CA independently determines its entity classification without any cross-certifications affecting the outcome.",
+      "B": "Root-CAs cross-certify each other and one acts as a trust anchor, directly determining the entity's classification.",
+      "C": "Root-CAs are cross-certified by an external entity that sets the classification for all entities in the model.",
+      "D": "Root-CAs do not interact with each other, and each one classifies entities based on its internal policies."
+    },
+    "correct_answer": "B",
+    "explanation": "In a simple trust model, Root-CAs cross-certify each other to enhance mutual trust and one acts as a trust anchor, directly influencing or determining the classification of the entity in the model. This forms a trust tree where the anchor plays a central role in entity classification.",
+    "path_description": "Path: Root-CA --[crossCertifies]--> Root-CA --[actsAsTrustAnchor]--> Trust-Model --[type]--> Entity",
+    "context": "Cross certification (roots certify each other) | In a simple trust model the Root-CA acts as the trust anchor of the tree | In a simple trust model the Root-CA acts as the trust anchor of the tree",
+    "paper_id": "625"
+  }
+]

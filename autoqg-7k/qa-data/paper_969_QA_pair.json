@@ -1,0 +1,88 @@
+[
+  {
+    "section": "abstract",
+    "path": {
+      "section": "abstract",
+      "start_entity": "ModelCompilationFramework",
+      "end_entity": "MemoryOverhead",
+      "hops": [
+        {
+          "from": "ModelCompilationFramework",
+          "relation": "enables",
+          "to": "ConsistentBenchmarking",
+          "context": "We develop and open-source a model compilation framework to enable consistent benchmarking of quantized models",
+          "chunk": "0"
+        },
+        {
+          "from": "ConsistentBenchmarking",
+          "relation": "targets",
+          "to": "EndToEndPerformance",
+          "context": "Our benchmark targets end-to-end performance",
+          "chunk": "0"
+        },
+        {
+          "from": "EndToEndPerformance",
+          "relation": "includes",
+          "to": "MemoryOverhead",
+          "context": "and memory overhead",
+          "chunk": "0"
+        }
+      ]
+    },
+    "question": "In the context of the model compilation framework developed in the study, what aspect of end-to-end performance does consistent benchmarking specifically target?",
+    "options": {
+      "A": "It targets the compatibility of different hardware to ensure versatile deployment.",
+      "B": "It specifically targets the minimization of memory overhead to enhance efficiency.",
+      "C": "It targets the reduction of execution time by optimizing runtime performance.",
+      "D": "It aims to improve the accuracy of model predictions through extensive testing."
+    },
+    "correct_answer": "B",
+    "explanation": "The model compilation framework developed in the paper enables consistent benchmarking of quantized models, which directly targets end-to-end performance. Among the aspects of end-to-end performance, the paper specifically mentions targeting memory overhead, which implies an intention to minimize it for enhanced efficiency.",
+    "path_description": "Path: ModelCompilationFramework --[enables]--> ConsistentBenchmarking --[targets]--> EndToEndPerformance --[includes]--> MemoryOverhead",
+    "context": "We develop and open-source a model compilation framework to enable consistent benchmarking of quantized models | Our benchmark targets end-to-end performance | and memory overhead",
+    "paper_id": "1920"
+  },
+  {
+    "section": "resultsdiscussion3",
+    "path": {
+      "section": "resultsdiscussion3",
+      "start_entity": "VirtualizingWeightMemory",
+      "end_entity": "ChannelWiseParallelism",
+      "hops": [
+        {
+          "from": "VirtualizingWeightMemory",
+          "relation": "partOf",
+          "to": "WeightLoadingStrategies",
+          "context": "virtualizing weight memory within the accelerator to reduce fragmentation",
+          "chunk": "9"
+        },
+        {
+          "from": "WeightLoadingStrategies",
+          "relation": "appliedTo",
+          "to": "HierarchicalArchitecture",
+          "context": "Recent work [29] has explored optimizing weight loading strategies for such 2D memory layouts",
+          "chunk": "9"
+        },
+        {
+          "from": "HierarchicalArchitecture",
+          "relation": "hasParallelismType",
+          "to": "ChannelWiseParallelism",
+          "context": "This results in a hierarchical architecture with both channel-wise and weight-wise parallelism",
+          "chunk": "9"
+        }
+      ]
+    },
+    "question": "How does virtualizing weight memory influence the parallelism type in hierarchical architectures of accelerators?",
+    "options": {
+      "A": "It predominantly supports thread-wise parallelism by allowing multiple threads access to isolated memory segments.",
+      "B": "It leads directly to weight-wise parallelism by optimizing the efficiency of the processing lanes.",
+      "C": "Virtualizing weight memory primarily enhances data-wise parallelism by increasing memory access speeds.",
+      "D": "By reducing memory fragmentation, it facilitates channel-wise parallelism within hierarchical structures."
+    },
+    "correct_answer": "D",
+    "explanation": "Virtualizing weight memory is part of weight loading strategies which are applied to hierarchical architectures. This configuration supports channel-wise parallelism by reducing memory fragmentation, thereby optimizing the memory layout for such parallel processing.",
+    "path_description": "Path: VirtualizingWeightMemory --[partOf]--> WeightLoadingStrategies --[appliedTo]--> HierarchicalArchitecture --[hasParallelismType]--> ChannelWiseParallelism",
+    "context": "virtualizing weight memory within the accelerator to reduce fragmentation | Recent work [29] has explored optimizing weight loading strategies for such 2D memory layouts | This results in a hierarchical architecture with both channel-wise and weight-wise parallelism",
+    "paper_id": "1920"
+  }
+]

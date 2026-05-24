@@ -1,0 +1,45 @@
+[
+  {
+    "section": "ourproposedscheme2",
+    "path": {
+      "section": "ourproposedscheme2",
+      "start_entity": "SDi",
+      "end_entity": "StorageSystem",
+      "hops": [
+        {
+          "from": "SDi",
+          "relation": "sendsMessage",
+          "to": "ESi",
+          "context": "SDi sends the message {MType, PIDi, θi, Ci, RVi, Ti} to the ESi.",
+          "chunk": "5"
+        },
+        {
+          "from": "ESi",
+          "relation": "storesData",
+          "to": "CS",
+          "context": "If the signature is valid, it stores Ci in the CS.",
+          "chunk": "5"
+        },
+        {
+          "from": "CS",
+          "relation": "type",
+          "to": "StorageSystem",
+          "context": "the ES stores the data in both the CS and the BC.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the proposed scheme described, what type of data does ESi store in the CS after verifying the signature of the message received from SDi?",
+    "options": {
+      "A": "It stores both the encrypted content Ci and the metadata {MType, PIDi, θi, RVi, Ti} after signature verification.",
+      "B": "It stores the metadata {MType, PIDi, θi, RVi, Ti} but not the encrypted content Ci.",
+      "C": "It stores the entire message including {MType, PIDi, θi, Ci, RVi, Ti} irrespective of the signature.",
+      "D": "It stores the encrypted content Ci only after verifying the signature is valid."
+    },
+    "correct_answer": "D",
+    "explanation": "According to the context, after ESi validates the signature of the message sent from SDi, it specifically stores the encrypted content Ci in the CS. There is no mention of storing any other message components in the CS, indicating that only Ci (encrypted content) is stored.",
+    "path_description": "Path: SDi --[sendsMessage]--> ESi --[storesData]--> CS --[type]--> StorageSystem",
+    "context": "SDi sends the message {MType, PIDi, θi, Ci, RVi, Ti} to the ESi. | If the signature is valid, it stores Ci in the CS. | the ES stores the data in both the CS and the BC.",
+    "paper_id": "1173"
+  }
+]

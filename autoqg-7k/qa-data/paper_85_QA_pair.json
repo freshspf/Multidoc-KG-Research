@@ -1,0 +1,174 @@
+[
+  {
+    "section": "preliminaries",
+    "path": {
+      "section": "preliminaries",
+      "start_entity": "Miner",
+      "end_entity": "BlockchainComponent",
+      "hops": [
+        {
+          "from": "Miner",
+          "relation": "confirms",
+          "to": "Transaction",
+          "context": "Once a new block is added to the blockchain, these transactions are confirmed and will then be removed from the miner’s mempool.",
+          "chunk": "2"
+        },
+        {
+          "from": "Transaction",
+          "relation": "hasComponent",
+          "to": "TransactionFee",
+          "context": "Transaction fee is set with the difference between the total of input and output assets.",
+          "chunk": "2"
+        },
+        {
+          "from": "TransactionFee",
+          "relation": "type",
+          "to": "BlockchainComponent",
+          "context": "Transaction fee is set with the difference between the total of input and output assets.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the process of adding a new block to a blockchain, how does a miner confirm a transaction's inclusion based on the transaction fee?",
+    "options": {
+      "A": "The miner confirms the transaction by verifying the difference between the total input and output assets, which constitutes the transaction fee.",
+      "B": "The transaction fee is only a recommendation for the miner, who confirms transactions based on the block size limit.",
+      "C": "The transaction fee is confirmed by the miner performing cryptographic hashing on the entire block, ensuring ledger integrity.",
+      "D": "Miners use the transaction fee to prioritize transactions, but confirmation is solely based on timestamp order within the block."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A because the transaction fee, a crucial blockchain component, is calculated as the difference between total input and output assets. This fee is then checked by the miner during the confirmation process of the transaction in a new block.",
+    "path_description": "Path: Miner --[confirms]--> Transaction --[hasComponent]--> TransactionFee --[type]--> BlockchainComponent",
+    "context": "Once a new block is added to the blockchain, these transactions are confirmed and will then be removed from the miner’s mempool. | Transaction fee is set with the difference between the total of input and output assets. | Transaction fee is set with the difference between the total of input and output assets.",
+    "paper_id": "667"
+  },
+  {
+    "section": "btcflow3",
+    "path": {
+      "section": "btcflow3",
+      "start_entity": "BtcFlow",
+      "end_entity": "Model",
+      "hops": [
+        {
+          "from": "BtcFlow",
+          "relation": "models",
+          "to": "TransactionInflow",
+          "context": "Basically, the transaction inflow volume I can be calculated as",
+          "chunk": "6"
+        },
+        {
+          "from": "TransactionInflow",
+          "relation": "calculatedBy",
+          "to": "BtcFlow",
+          "context": "Basically, the transaction inflow volume I can be calculated as",
+          "chunk": "6"
+        },
+        {
+          "from": "BtcFlow",
+          "relation": "type",
+          "to": "Model",
+          "context": "BtcFlow assumes k follows the Poisson distribution",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the btcflow3 model, how is the transaction inflow volume I calculated, given the assumptions about its distribution?",
+    "options": {
+      "A": "The transaction inflow volume I is predetermined and does not involve any probabilistic modeling in the BtcFlow.",
+      "B": "The transaction inflow volume I is calculated using a Gaussian distribution as proposed by the BtcFlow model.",
+      "C": "The transaction inflow volume I is calculated by modeling it with a Poisson distribution according to the BtcFlow model.",
+      "D": "The transaction inflow volume I relies on a uniform distribution as per the specifications of the BtcFlow model."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A because the context specifies that BtcFlow assumes k, which is related to the transaction inflow volume I, follows the Poisson distribution. This is a direct application of the BtcFlow model's approach to calculating transaction inflow.",
+    "path_description": "Path: BtcFlow --[models]--> TransactionInflow --[calculatedBy]--> BtcFlow --[type]--> Model",
+    "context": "Basically, the transaction inflow volume I can be calculated as | Basically, the transaction inflow volume I can be calculated as | BtcFlow assumes k follows the Poisson distribution",
+    "paper_id": "667"
+  },
+  {
+    "section": "mempoolstateandlinearperceptronmachinelearningmslp2",
+    "path": {
+      "section": "mempoolstateandlinearperceptronmachinelearningmslp2",
+      "start_entity": "MSLP",
+      "end_entity": "Entity",
+      "hops": [
+        {
+          "from": "MSLP",
+          "relation": "employs",
+          "to": "TrainingModel",
+          "context": "To deal with varying expectation block intervals, MSLP employs four training models: ‘[1-4]’,‘[5-8]’,‘[9-12]’ and ‘[13+]’.",
+          "chunk": "11"
+        },
+        {
+          "from": "TrainingModel",
+          "relation": "sharesConfiguration",
+          "to": "NeuralNetworkLayer",
+          "context": "Each model shares the same network configurations by applying a neural network layer with a linear activation function to generate the classification result.",
+          "chunk": "11"
+        },
+        {
+          "from": "NeuralNetworkLayer",
+          "relation": "type",
+          "to": "Entity",
+          "context": "Each model shares the same network configurations by applying a neural network layer with a linear activation function to generate the classification result.",
+          "chunk": "11"
+        }
+      ]
+    },
+    "question": "In the context of the MSLP machine learning approach to predict block intervals, how does the entity type of the neural network layer influence the classification result?",
+    "options": {
+      "A": "The entity type, as a training model, varies the speed and efficiency of learning block intervals.",
+      "B": "The entity type, being a neural network, adjusts the complexity and depth of the classification model.",
+      "C": "The entity type, being a linear activation function, directly determines the linearity of the classification output.",
+      "D": "The entity type, as a linear activation function, indirectly affects the training time by modifying layer weights."
+    },
+    "correct_answer": "C",
+    "explanation": "The neural network layer uses a linear activation function, which implies that the output of the classification is linear in nature. This directly influences how the classification results are computed, maintaining a direct, proportional relationship between input and output. This is essential for understanding the straightforward, predictable behavior of the model when dealing with linear data or features.",
+    "path_description": "Path: MSLP --[employs]--> TrainingModel --[sharesConfiguration]--> NeuralNetworkLayer --[type]--> Entity",
+    "context": "To deal with varying expectation block intervals, MSLP employs four training models: ‘[1-4]’,‘[5-8]’,‘[9-12]’ and ‘[13+]’. | Each model shares the same network configurations by applying a neural network layer with a linear activation function to generate the classification result. | Each model shares the same network configurations by applying a neural network layer with a linear activation function to generate the classification result.",
+    "paper_id": "667"
+  },
+  {
+    "section": "mempoolstateandlinearperceptronmachinelearningmslp2",
+    "path": {
+      "section": "mempoolstateandlinearperceptronmachinelearningmslp2",
+      "start_entity": "MSLP",
+      "end_entity": "Entity",
+      "hops": [
+        {
+          "from": "MSLP",
+          "relation": "constructs",
+          "to": "TrainingInstance",
+          "context": "Constructing training instances. In MSLP, the inputs for instances are the feerate r and the expectation time information (locb and locs), and the output reflects whether this transaction can be confirmed within its expectation confirmation time.",
+          "chunk": "11"
+        },
+        {
+          "from": "TrainingInstance",
+          "relation": "hasOutput",
+          "to": "ModelOutput",
+          "context": "The model output will be hit = 1 if the expectation virtual block position locb is larger than the actual confirmation time (the interval between the research block height and final confirmation block height), indicating that it was confirmed earlier than expected. Otherwise, the model output would be hit = 0.",
+          "chunk": "11"
+        },
+        {
+          "from": "ModelOutput",
+          "relation": "type",
+          "to": "Entity",
+          "context": "The model output will be hit = 1 if the expectation virtual block position locb is larger than the actual confirmation time (the interval between the research block height and final confirmation block height), indicating that it was confirmed earlier than expected. Otherwise, the model output would be hit = 0.",
+          "chunk": "11"
+        }
+      ]
+    },
+    "question": "In the MSLP model, what determines whether the output of a training instance will be hit = 1?",
+    "options": {
+      "A": "The expectation virtual block position locb is larger than the actual confirmation time, indicating earlier confirmation than expected.",
+      "B": "The expectation time information (locs) aligns with the expectation virtual block position locb, ensuring accurate processing.",
+      "C": "The expectation virtual block position locb is higher than the feerate r, indicating quicker than anticipated processing.",
+      "D": "The feerate r is lower than the expectation virtual block position locb, suggesting delayed transaction processing."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is C because the model output being hit = 1 is determined by the condition where the expectation virtual block position (locb) is larger than the actual confirmation time, which is the interval between the research block height and the final confirmation block height. This condition specifically indicates that the transaction was confirmed earlier than what was expected.",
+    "path_description": "Path: MSLP --[constructs]--> TrainingInstance --[hasOutput]--> ModelOutput --[type]--> Entity",
+    "context": "Constructing training instances. In MSLP, the inputs for instances are the feerate r and the expectation time information (locb and locs), and the output reflects whether this transaction can be confirmed within its expectation confirmation time. | The model output will be hit = 1 if the expectation virtual block position locb is larger than the actual confirmation time (the interval between the research block height and final confirmation block height), indicating that it was confirmed earlier than expected. Otherwise, the model output would be hit = 0. | The model output will be hit = 1 if the expectation virtual block position locb is larger than the actual confirmation time (the interval between the research block height and final confirmation block height), indicating that it was confirmed earlier than expected. Otherwise, the model output would be hit = 0.",
+    "paper_id": "667"
+  }
+]

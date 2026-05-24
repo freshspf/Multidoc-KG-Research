@@ -1,0 +1,335 @@
+# ===== EVALUATION RESULTS =====
+# Evaluation Passed: True
+# Can Proceed to QA Generation: True
+# Timestamp: 20250902_165845
+# ===== KNOWLEDGE GRAPH =====
+
+:ThisPaper :proposes :GroundingDINO ;
+    :contextText "we develop an open-set object detector, called Grounding DINO" .
+
+:ThisPaper :addresses :OpenSetObjectDetection ;
+    :contextText "detect arbitrary objects specified by human language inputs, a task commonly referred to as open-set object detection" .
+
+:GroundingDINO :basedOn :DINO ;
+    :contextText "marrying Transformer-based detector DINO with grounded pre-training" .
+
+:GroundingDINO :uses :TightModalityFusion ;
+    :contextText "we design the strong open-set object detector Grounding DINO by following the two principles: tight modality fusion based on DINO" .
+
+:GroundingDINO :partOf :FeatureEnhancer ;
+    :contextText "which includes a feature enhancer, a language-guided query selection, and a cross-modality decoder" .
+
+:GroundingDINO :partOf :LanguageGuidedQuerySelection ;
+    :contextText "which includes a feature enhancer, a language-guided query selection, and a cross-modality decoder" .
+
+:GroundingDINO :partOf :CrossModalityDecoder ;
+    :contextText "which includes a feature enhancer, a language-guided query selection, and a cross-modality decoder" .
+
+:GroundingDINO :uses :SubSentenceTextRepresentation ;
+    :contextText "we introduce attention masks to block attentions among unrelated category names, named “sub-sentence” level representation" .
+
+:GroundingDINO :uses :SwinT ;
+    :contextText "Grounding DINO T with Swin-T ... as an image backbone" .
+
+:GroundingDINO :uses :SwinL ;
+    :contextText "Grounding DINO L with Swin-L ... as an image backbone" .
+
+:GroundingDINO :uses :BERTBase ;
+    :contextText "We leveraged BERT-base ... as text backbones." .
+
+:FeatureEnhancer :uses :TextToImageCrossAttention ;
+    :contextText "we add an image-to-text and a text-to-image cross-attention modules for feature fusion" .
+
+:FeatureEnhancer :uses :ImageToTextCrossAttention ;
+    :contextText "we add an image-to-text and a text-to-image cross-attention modules for feature fusion" .
+
+:CrossModalityDecoder :uses :DeformableAttention ;
+    :contextText "We leverage deformable attention [ 62] in image cross-attention layers." .
+
+:GroundingDINO :uses "900 queries" ;
+    :contextText "In alignment with the DINO method, we set Nq to be 900." .
+
+:GroundingDINO :uses "max 256 text tokens" ;
+    :contextText "We set the maximum text token number as 256." .
+
+:GroundingDINO :uses "feature dimension d=256" ;
+    :contextText "we speciﬁcally utilize a feature dimension of d= 256." .
+
+:GroundingDINO :uses "6 feature enhancer layers" ;
+    :contextText "We use six feature enhancer layers in the feature enhancer module." .
+
+:GroundingDINO :uses "6 decoder layers" ;
+    :contextText "The cross-modality decoder is composed of six decoder layers as well." .
+
+:GroundingDINO :uses :L1Loss ;
+    :contextText "we use the L1 loss ... for bounding box regressions." .
+
+:GroundingDINO :uses :GIoULoss ;
+    :contextText "we use the L1 loss and the GIOU [ 39] loss for bounding box regressions." .
+
+:GroundingDINO :uses :FocalLoss ;
+    :contextText "then compute focal loss [ 27] for each logit." .
+
+:GroundingDINO :uses :ContrastiveLoss ;
+    :contextText "we follow GLIP [ 24] and use contrastive loss between predicted objects and language tokens for classiﬁcation." .
+
+:GroundingDINO :uses :HungarianMatching ;
+    :contextText "Following DINO, we set the weight of classiﬁcation costs, box L1 costs, and GIOU costs as 2.0, 5.0, and 2.0, respectively, during Hungarian matching." .
+
+:HungarianMatching :relatedTo "classification cost weight 2.0" ;
+    :contextText "we set the weight of classiﬁcation costs, box L1 costs, and GIOU costs as 2.0, 5.0, and 2.0, respectively, during Hungarian matching." .
+
+:HungarianMatching :relatedTo "box L1 cost weight 5.0" ;
+    :contextText "we set the weight of classiﬁcation costs, box L1 costs, and GIOU costs as 2.0, 5.0, and 2.0, respectively, during Hungarian matching." .
+
+:HungarianMatching :relatedTo "GIoU cost weight 2.0" ;
+    :contextText "we set the weight of classiﬁcation costs, box L1 costs, and GIOU costs as 2.0, 5.0, and 2.0, respectively, during Hungarian matching." .
+
+:GroundingDINO :uses "classification loss weight 1.0" ;
+    :contextText "The corresponding loss weights are 1.0, 5.0, and 2.0 in the ﬁnal loss calculation." .
+
+:GroundingDINO :uses "box L1 loss weight 5.0" ;
+    :contextText "The corresponding loss weights are 1.0, 5.0, and 2.0 in the ﬁnal loss calculation." .
+
+:GroundingDINO :uses "GIoU loss weight 2.0" ;
+    :contextText "The corresponding loss weights are 1.0, 5.0, and 2.0 in the ﬁnal loss calculation." .
+
+:GroundingDINO :trainedOn :Objects365 ;
+    :contextText "Grounding DINO T (Ours) Swin-T O365" .
+
+:GroundingDINO :trainedOn :GoldG ;
+    :contextText "Grounding DINO T (Ours) Swin-T O365,GoldG" .
+
+:GroundingDINO :trainedOn :Cap4M ;
+    :contextText "Grounding DINO T (Ours) Swin-T O365,GoldG,Cap4M" .
+
+:GroundingDINO :trainedOn :OpenImages ;
+    :contextText "Grounding DINO L (Ours) Swin-L O365,OI[ 18],GoldG" .
+
+:GroundingDINO :trainedOn :COCO ;
+    :contextText "Grounding DINO L (Ours) Swin-L O365,OI,GoldG,Cap4M,COCO,RefC" .
+
+:GroundingDINO :trainedOn :RefCOCO ;
+    :contextText "Grounding DINO L (Ours) Swin-L O365,OI,GoldG,Cap4M,COCO,RefC" .
+
+:COCO :measures :AP ;
+    :contextText "Grounding DINO achieves a 52 .5 AP on the COCO zero-shot" .
+
+:LVIS :measures :AP ;
+    :contextText "We use LVIS as a downstream task to test the zero-shot abilities of our model... Model results on LVIS." .
+
+:LVIS :measures :APr ;
+    :contextText "MiniVal [ 17] AP APr/APc/APf" .
+
+:LVIS :measures :APc ;
+    :contextText "MiniVal [ 17] AP APr/APc/APf" .
+
+:LVIS :measures :APf ;
+    :contextText "MiniVal [ 17] AP APr/APc/APf" .
+
+:ODinW :measures :AP_average ;
+    :contextText "Test AP average AP median" .
+
+:ODinW :measures :AP_median ;
+    :contextText "Test AP average AP median" .
+
+:RefCOCO :measures :Top1Accuracy ;
+    :contextText "Top-1 accuracy comparison on the referring expression comprehension task." .
+
+:RefCOCOPlus :measures :Top1Accuracy ;
+    :contextText "Top-1 accuracy comparison on the referring expression comprehension task." .
+
+:RefCOCOg :measures :Top1Accuracy ;
+    :contextText "Top-1 accuracy comparison on the referring expression comprehension task." .
+
+:GroundingDINO :evaluatedOn :COCO ;
+    :contextText "evaluate the model on both open-set object detection... including benchmarks on COCO" .
+
+:GroundingDINO :achievesScore "52.5"^^xsd:float ;
+    :contextText "Grounding DINO achieves a 52 .5 AP on the COCO zero-shot" .
+
+:GroundingDINO :achievesScore "62.6"^^xsd:float ;
+    :contextText "Grounding DINO obtains a 62.6 AP on COCO minival, outperforming DINO’s 62 .5 AP." .
+
+:GroundingDINO :achievesScore "63.0"^^xsd:float ;
+    :contextText "Grounding DINO gets an impressive 63 .0 AP on COCO test-dev with ﬁne-tuning on the COCO dataset" .
+
+:DINO :evaluatedOn :COCO ;
+    :contextText "DINO(Swin-T) †[56]S w i n - T O365 46.2 56.9 / -" .
+
+:DINO :achievesScore "46.2"^^xsd:float ;
+    :contextText "DINO(Swin-T) †[56]S w i n - T O365 46.2 56.9 / -" .
+
+:GLIP :evaluatedOn :COCO ;
+    :contextText "GLIP-T (B) [ 24]S w i n - T O365 44.9 53.8 / -" .
+
+:GLIP :achievesScore "44.9"^^xsd:float ;
+    :contextText "GLIP-T (B) [ 24]S w i n - T O365 44.9 53.8 / -" .
+
+:GLIP :achievesScore "46.7"^^xsd:float ;
+    :contextText "GLIP-T (C) [ 24]S w i n - T O365,GoldG 46.7 55.1 / -" .
+
+:GroundingDINO_T :evaluatedOn :COCO ;
+    :contextText "Grounding DINO T (Ours) Swin-T O365 46.7 56.9 / -" .
+
+:GroundingDINO_T :achievesScore "46.7"^^xsd:float ;
+    :contextText "Grounding DINO T (Ours) Swin-T O365 46.7 56.9 / -" .
+
+:GroundingDINO_T :achievesScore "48.1"^^xsd:float ;
+    :contextText "Grounding DINO T (Ours) Swin-T O365,GoldG 48.1 57.1 / -" .
+
+:GroundingDINO_T :achievesScore "48.4"^^xsd:float ;
+    :contextText "Grounding DINO T (Ours) Swin-T O365,GoldG,Cap4M 48.4 57.2 / -" .
+
+:GroundingDINO_T :achievesScore "57.1"^^xsd:float ;
+    :contextText "Grounding DINO T (Ours) Swin-T O365,GoldG 46.7 56.9 / - ... 57.1" .
+
+:GroundingDINO :outperforms :DINO ;
+    :contextText "Grounding DINO outperforms all previous models on the zero-shot transfer setting, with +0 .5AP ... compared with DINO" .
+
+:GroundingDINO :outperforms :GLIP ;
+    :contextText "Grounding DINO outperforms all previous models on the zero-shot transfer setting, with ... +1 .8AP compared with ... GLIP" .
+
+:GroundingDINO :evaluatedOn :LVIS ;
+    :contextText "We use LVIS as a downstream task to test the zero-shot abilities of our model." .
+
+:GroundingDINO_T :achievesScore "25.6"^^xsd:float ;
+    :contextText "Grounding DINO T Swin-T O365,GoldG 25.6 14.4/19.6/32.2" .
+
+:GroundingDINO_T :achievesScore "27.4"^^xsd:float ;
+    :contextText "Grounding DINO T Swin-T O365,GoldG,Cap4M 27.4 18.1/23.3/32.7" .
+
+:GroundingDINO_L :achievesScore "33.9"^^xsd:float ;
+    :contextText "Grounding DINO L Swin-LO365,OI,GoldG,Cap4M, COCO,RefC33.9 22.2/30.7/38.8" .
+
+:GroundingDINO_L :achievesScore "22.2"^^xsd:float ;
+    :contextText "Grounding DINO L ... 33.9 22.2/30.7/38.8" .
+
+:GroundingDINO_L :achievesScore "30.7"^^xsd:float ;
+    :contextText "Grounding DINO L ... 33.9 22.2/30.7/38.8" .
+
+:GroundingDINO_L :achievesScore "38.8"^^xsd:float ;
+    :contextText "Grounding DINO L ... 33.9 22.2/30.7/38.8" .
+
+:GroundingDINO_T :achievesScore "52.1"^^xsd:float ;
+    :contextText "Grounding DINO T Swin-T O365,GoldG 52.1 35.4/51.3/55.7" .
+
+:GroundingDINO :evaluatedOn :ODinW ;
+    :contextText "ODinW (Object Detection in the Wild) ... We report three settings, zero-shot, few-shot, and full-shot results in Table 4." .
+
+:GroundingDINO_T :achievesScore "20.0"^^xsd:float ;
+    :contextText "Grounding DINO T(Ours) ✓ Swin-T 172M O365,GoldG 20.0 9.5" .
+
+:GroundingDINO_T :achievesScore "22.3"^^xsd:float ;
+    :contextText "Grounding DINO T(Ours) ✓ Swin-T 172M O365,GoldG,Cap4M 22.3 11.9" .
+
+:GroundingDINO_T :achievesScore "9.5"^^xsd:float ;
+    :contextText "Grounding DINO T(Ours) ✓ Swin-T 172M O365,GoldG 20.0 9.5" .
+
+:GroundingDINO_T :achievesScore "11.9"^^xsd:float ;
+    :contextText "Grounding DINO T(Ours) ✓ Swin-T 172M O365,GoldG,Cap4M 22.3 11.9" .
+
+:GroundingDINO_L :achievesScore "26.1"^^xsd:float ;
+    :contextText "Grounding DINO L(Ours) ✓ Swin-L 341M O365,OI,GoldG,Cap4M,COCO,RefC 26.1 18.4" .
+
+:GroundingDINO_L :achievesScore "18.4"^^xsd:float ;
+    :contextText "Grounding DINO L(Ours) ✓ Swin-L 341M ... 26.1 18.4" .
+
+:GroundingDINO_L :outperforms :Florence ;
+    :contextText "Grounding DINO L set a new record on ODinW zero-shot with a 26 .1A P , even outperforming the giant Florence models [ 53]." .
+
+:GroundingDINO_T :outperforms :GLIPv2 ;
+    :contextText "Grounding DINO ... significantly outperforms GLIPv2-T (11.9 vs 8.9)." .
+
+:GroundingDINO :evaluatedOn :RefCOCO ;
+    :contextText "We evaluate the model performance on Ref- COCO/+/g directly." .
+
+:GroundingDINO_L :achievesScore "90.56"^^xsd:float ;
+    :contextText "Grounding DINO L (Ours)* ... 90.56 93.19 88.24 ... RefCOCO" .
+
+:GroundingDINO_L :achievesScore "93.19"^^xsd:float ;
+    :contextText "Grounding DINO L (Ours)* ... 90.56 93.19 88.24 ... RefCOCO" .
+
+:GroundingDINO_L :achievesScore "88.24"^^xsd:float ;
+    :contextText "Grounding DINO L (Ours)* ... 90.56 93.19 88.24 ... RefCOCO" .
+
+:GroundingDINO :evaluatedOn :RefCOCOPlus ;
+    :contextText "We evaluate the model performance on Ref- COCO/+/g directly." .
+
+:GroundingDINO_L :achievesScore "82.75"^^xsd:float ;
+    :contextText "Grounding DINO L (Ours)* ... 82.75 88.95 75.92 ... RefCOCO+" .
+
+:GroundingDINO_L :achievesScore "88.95"^^xsd:float ;
+    :contextText "Grounding DINO L (Ours)* ... 82.75 88.95 75.92 ... RefCOCO+" .
+
+:GroundingDINO_L :achievesScore "75.92"^^xsd:float ;
+    :contextText "Grounding DINO L (Ours)* ... 82.75 88.95 75.92 ... RefCOCO+" .
+
+:GroundingDINO :evaluatedOn :RefCOCOg ;
+    :contextText "We evaluate the model performance on Ref- COCO/+/g directly." .
+
+:GroundingDINO_L :achievesScore "86.13"^^xsd:float ;
+    :contextText "Grounding DINO L (Ours)* ... 86.13 87.02 ... RefCOCOg" .
+
+:GroundingDINO_L :achievesScore "87.02"^^xsd:float ;
+    :contextText "Grounding DINO L (Ours)* ... 86.13 87.02 ... RefCOCOg" .
+
+:EncoderFusion :improves :ModelPerformance ;
+    :contextText "The results show that encoder fusion significantly improves model performance on both COCO and LVIS datasets." .
+
+:LanguageGuidedQuerySelection :improves :LVIS_AP ;
+    :contextText "language-guided query selection ... yield[s] significant gains of +3.0 AP" .
+
+:TextCrossAttention :improves :LVIS_AP ;
+    :contextText "text cross-attention ... yielding significant gains of +1.8 AP" .
+
+:SubSentenceTextRepresentation :improves :LVIS_AP ;
+    :contextText "sub-sentence text prompt ... yielding significant gains of ... +0.5 AP" .
+
+:ThisPaper :publishedIn :ECCV2024_LNCS15105 ;
+    :contextText "A. Leonardis et al. (Eds.): ECCV 2024, LNCS 15105, pp. 38–55, 2025." .
+
+:GroundingDINO :developedBy :ShilongLiu ;
+    :contextText "Shilong Liu1,2, ... Jun Zhu1(B), and Lei Zhang2(B)" .
+
+:GroundingDINO :developedBy :JunZhu ;
+    :contextText "Jun Zhu1(B)" .
+
+:GroundingDINO :developedBy :LeiZhang ;
+    :contextText "Lei Zhang2(B)" .
+
+:GroundingDINO :developedBy :TsinghuaUniversity ;
+    :contextText "Department of Computer Science and Technology ... Tsinghua University, Beijing, China" .
+
+:GroundingDINO :developedBy :IDEA ;
+    :contextText "International Digital Economy Academy (IDEA), Shenzhen, China" .
+
+:GroundingDINO :developedBy :MicrosoftResearch ;
+    :contextText "Microsoft Research, Redmond, USA" .
+
+:GroundingDINO :appliedTo :ReferringObjectDetection ;
+    :contextText "we extend the model to another important scenario Referring Expression Comprehension (REC)" .
+
+:GroundingDINO :outperforms :GLIP ;
+    :contextText "Grounding DINO outperforms GLIP under the same setting." .
+
+:GLIP :uses :FusionPhaseA ;
+    :contextText "GLIP [ 24] performs early fusion in the neck module (phase A)" .
+
+:OVDETR :uses :FusionPhaseB ;
+    :contextText "OV-DETR [ 54] uses language-aware queries as head inputs (phase B)" .
+
+:GroundingDINO_T :achievesScore "46.4"^^xsd:float ;
+    :contextText "Grounding DINO T(Ours) ✓ Swin-T ... Few-Shot Setting ... 46.4 51.1" .
+
+:GroundingDINO_T :achievesScore "70.7"^^xsd:float ;
+    :contextText "Grounding DINO T(Ours) ✓ Swin-T ... Full-Shot Setting ... 70.7 76.2" .
+
+:DINO_SwinL :achievesScore "68.8"^^xsd:float ;
+    :contextText "DINO-Swin-L [ 56] ✗ Swin-L 218M O365 68.8 70.7" .
+
+:GroundingDINO_T :outperforms :DINO_SwinL ;
+    :contextText "Grounding DINO with a Swin-T backbone outperforms DINO with Swin-L on the full-shot setting." .
+
+:GroundingDINO :outperforms :GLIP ;
+    :contextText "Grounding DINO outperforms GLIP under the same backbone for the zero-shot setting." .

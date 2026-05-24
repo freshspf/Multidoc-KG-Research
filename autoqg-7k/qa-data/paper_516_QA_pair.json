@@ -1,0 +1,88 @@
+[
+  {
+    "section": "iipandaplatform2",
+    "path": {
+      "section": "iipandaplatform2",
+      "start_entity": "MemoryChip",
+      "end_entity": "MemoryComponent",
+      "hops": [
+        {
+          "from": "MemoryChip",
+          "relation": "contains",
+          "to": "MemoryBank",
+          "context": "Each memory chip consists of multiple memory banks.",
+          "chunk": "2"
+        },
+        {
+          "from": "MemoryBank",
+          "relation": "dividedInto",
+          "to": "SubArray",
+          "context": "Each memory chip consists of multiple memory banks divided into 2D sub-arrays of SOT-MRAM cells.",
+          "chunk": "2"
+        },
+        {
+          "from": "SubArray",
+          "relation": "type",
+          "to": "MemoryComponent",
+          "context": "Each memory chip consists of multiple memory banks divided into 2D sub-arrays of SOT-MRAM cells.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the architecture of a memory chip using SOT-MRAM technology, which component is directly categorized as a type of memory component within a memory bank?",
+    "options": {
+      "A": "The individual SOT-MRAM cells that form the basic building blocks of the sub-array",
+      "B": "The entire memory bank containing arrays of different memory technologies",
+      "C": "The sub-array that is divided into 2D configurations within the memory bank",
+      "D": "The memory chip itself, which houses multiple memory banks"
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is C. The question follows the path from the MemoryChip, which contains MemoryBanks. These MemoryBanks are divided into SubArrays, and the SubArrays are then specified as a type of MemoryComponent. Therefore, the sub-array that is specifically divided into a 2D configuration of SOT-MRAM cells within the memory bank is the direct type of MemoryComponent.",
+    "path_description": "Path: MemoryChip --[contains]--> MemoryBank --[dividedInto]--> SubArray --[type]--> MemoryComponent",
+    "context": "Each memory chip consists of multiple memory banks. | Each memory chip consists of multiple memory banks divided into 2D sub-arrays of SOT-MRAM cells. | Each memory chip consists of multiple memory banks divided into 2D sub-arrays of SOT-MRAM cells.",
+    "paper_id": "131"
+  },
+  {
+    "section": "iipandaplatform3",
+    "path": {
+      "section": "iipandaplatform3",
+      "start_entity": "PANDA",
+      "end_entity": "RP",
+      "hops": [
+        {
+          "from": "PANDA",
+          "relation": "leverages",
+          "to": "SA",
+          "context": "Reference Selection and Bit-line Computing: PANDA leverages the reference selection and bit-line computing",
+          "chunk": "3"
+        },
+        {
+          "from": "SA",
+          "relation": "includes",
+          "to": "SA-III",
+          "context": "Reference Selection and Bit-line Computing: PANDA leverages the reference selection and bit-line computing",
+          "chunk": "3"
+        },
+        {
+          "from": "SA-III",
+          "relation": "producesVoltageBasedOn",
+          "to": "RP",
+          "context": "produces high (/low) voltage if the path resistance is higher (/lower) than RM (memory reference resistance), i.e. RAP (/RP)",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the PANDA framework, how does the SA-III module determine the voltage output when leveraging the reference selection and bit-line computing?",
+    "options": {
+      "A": "It produces a high voltage if the path resistance RP is higher than the memory reference resistance RM.",
+      "B": "It adjusts the voltage based on the average resistance of all paths, not specifically RP.",
+      "C": "It outputs a constant voltage regardless of the comparison between RP and RM.",
+      "D": "It generates a high voltage if the path resistance RP is lower than the memory reference resistance RM."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A because, according to the paper, the SA-III module within the PANDA framework produces a high voltage if the path resistance (RP) is higher than the memory reference resistance (RM). This indicates that the voltage output is directly dependent on the comparison between RP and RM, with a higher RP leading to a high voltage output.",
+    "path_description": "Path: PANDA --[leverages]--> SA --[includes]--> SA-III --[producesVoltageBasedOn]--> RP",
+    "context": "Reference Selection and Bit-line Computing: PANDA leverages the reference selection and bit-line computing | Reference Selection and Bit-line Computing: PANDA leverages the reference selection and bit-line computing | produces high (/low) voltage if the path resistance is higher (/lower) than RM (memory reference resistance), i.e. RAP (/RP)",
+    "paper_id": "131"
+  }
+]

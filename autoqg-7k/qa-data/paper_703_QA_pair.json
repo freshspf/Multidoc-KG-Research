@@ -1,0 +1,217 @@
+[
+  {
+    "section": "concept1",
+    "path": {
+      "section": "concept1",
+      "start_entity": "DeepNeuralNetworks",
+      "end_entity": "ModelType",
+      "hops": [
+        {
+          "from": "DeepNeuralNetworks",
+          "relation": "requires",
+          "to": "BatchProcessing",
+          "context": "A straightforward section by section processing for deep neural networks, avoiding the costly transferred weights for every new",
+          "chunk": "4"
+        },
+        {
+          "from": "BatchProcessing",
+          "relation": "appliedTo",
+          "to": "DeepNeuralNetworks",
+          "context": "4.2 Batch Processing",
+          "chunk": "4"
+        },
+        {
+          "from": "DeepNeuralNetworks",
+          "relation": "type",
+          "to": "ModelType",
+          "context": "and layer size of deep neural networks, these r",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the context of deep neural networks, how does the requirement of batch processing influence the selection of model types?",
+    "options": {
+      "A": "Batch processing necessitates the use of model types that can handle asynchronous updates to minimize processing delays.",
+      "B": "Batch processing prefers model types that support real-time data streaming to optimize performance and accuracy.",
+      "C": "Batch processing demands model types that facilitate large batch sizes and extensive computational resources.",
+      "D": "Batch processing allows for the use of simpler models that do not require complex weight adjustments and layer configurations."
+    },
+    "correct_answer": "A",
+    "explanation": "Batch processing in deep neural networks requires a model type that can efficiently manage the load without frequent synchronization. This is crucial to minimize delays in processing large datasets, and models that handle asynchronous updates satisfy this requirement. Options B, C, and D, although plausible, do not directly address the critical need for handling asynchronous updates to minimize delays, a key factor in the effective implementation of batch processing in neural networks.",
+    "path_description": "Path: DeepNeuralNetworks --[requires]--> BatchProcessing --[appliedTo]--> DeepNeuralNetworks --[type]--> ModelType",
+    "context": "A straightforward section by section processing for deep neural networks, avoiding the costly transferred weights for every new | 4.2 Batch Processing | and layer size of deep neural networks, these r",
+    "paper_id": "115"
+  },
+  {
+    "section": "concept1",
+    "path": {
+      "section": "concept1",
+      "start_entity": "ReLU",
+      "end_entity": "MemoryTransfer",
+      "hops": [
+        {
+          "from": "ReLU",
+          "relation": "usedIn",
+          "to": "DeepNeuralNetworks",
+          "context": "y deploy Rectified Linear Units (ReLU) [27] or",
+          "chunk": "4"
+        },
+        {
+          "from": "DeepNeuralNetworks",
+          "relation": "requires",
+          "to": "WeightEncoding",
+          "context": "An enormous impact on the throughput, complexity, and power consumption of deep neural networks has the encoding of the weight matrices",
+          "chunk": "4"
+        },
+        {
+          "from": "WeightEncoding",
+          "relation": "reduces",
+          "to": "MemoryTransfer",
+          "context": "Three concepts for reducing the memory transfer are the following: Weight encoding in order to reduce",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "How does the use of ReLU in Deep Neural Networks primarily contribute to optimizing system performance?",
+    "options": {
+      "A": "By facilitating weight encoding, which directly reduces memory transfer required during operations.",
+      "B": "By reducing the throughput of the network, thereby decreasing the computational load.",
+      "C": "By increasing the complexity of the neural network, which indirectly enhances the training speed.",
+      "D": "By simplifying the activation functions, which increases the power consumption efficiency."
+    },
+    "correct_answer": "A",
+    "explanation": "The use of ReLU in Deep Neural Networks allows for a more efficient encoding of weights. This efficient encoding directly contributes to a reduction in memory transfer, which is crucial for enhancing the overall system performance by decreasing the time and resources needed for data movement within the network.",
+    "path_description": "Path: ReLU --[usedIn]--> DeepNeuralNetworks --[requires]--> WeightEncoding --[reduces]--> MemoryTransfer",
+    "context": "y deploy Rectified Linear Units (ReLU) [27] or | An enormous impact on the throughput, complexity, and power consumption of deep neural networks has the encoding of the weight matrices | Three concepts for reducing the memory transfer are the following: Weight encoding in order to reduce",
+    "paper_id": "115"
+  },
+  {
+    "section": "experimentalresults1",
+    "path": {
+      "section": "experimentalresults1",
+      "start_entity": "MNISTDatabase",
+      "end_entity": "HardwarePlatform",
+      "hops": [
+        {
+          "from": "MNISTDatabase",
+          "relation": "evaluatedOn",
+          "to": "ZedBoard",
+          "context": "As many before us, we use the famous MNIST database of handwritten digits as the first benchmark.",
+          "chunk": "11"
+        },
+        {
+          "from": "ZedBoard",
+          "relation": "comparedWith",
+          "to": "DesktopMachine",
+          "context": "In our evaluation, all hardware candidates compete against a software implementation that we have tested on an embedded (i.e., the ZedBoard without FPGA use), and a desktop machine.",
+          "chunk": "11"
+        },
+        {
+          "from": "DesktopMachine",
+          "relation": "type",
+          "to": "HardwarePlatform",
+          "context": "In our evaluation, all hardware candidates compete against a software implementation that we have tested on a desktop machine.",
+          "chunk": "11"
+        }
+      ]
+    },
+    "question": "In the study described in 'experimentalresults1', which hardware platform was not directly evaluated on the MNIST database but is related through type categorization?",
+    "options": {
+      "A": "A ZedBoard using FPGA technology specifically designed for embedded applications",
+      "B": "A desktop machine representing a generic category of computing hardware",
+      "C": "A software implementation tested on a desktop machine not using FPGA technology",
+      "D": "A mobile computing device optimized for low-power applications"
+    },
+    "correct_answer": "B",
+    "explanation": "The MNIST database was evaluated on the ZedBoard, and the ZedBoard was compared with a desktop machine. The desktop machine, as indicated in the path, falls under the type 'HardwarePlatform', which includes various hardware but the specific mention of 'desktop machine' categorizes it generically as a hardware platform not specifically evaluated on MNIST in the study but related by type.",
+    "path_description": "Path: MNISTDatabase --[evaluatedOn]--> ZedBoard --[comparedWith]--> DesktopMachine --[type]--> HardwarePlatform",
+    "context": "As many before us, we use the famous MNIST database of handwritten digits as the first benchmark. | In our evaluation, all hardware candidates compete against a software implementation that we have tested on an embedded (i.e., the ZedBoard without FPGA use), and a desktop machine. | In our evaluation, all hardware candidates compete against a software implementation that we have tested on a desktop machine.",
+    "paper_id": "115"
+  },
+  {
+    "section": "experimentalresults1",
+    "path": {
+      "section": "experimentalresults1",
+      "start_entity": "MNISTDatabase",
+      "end_entity": "DesktopMachine",
+      "hops": [
+        {
+          "from": "MNISTDatabase",
+          "relation": "evaluatedOn",
+          "to": "ZedBoard",
+          "context": "As many before us, we use the famous MNIST database of handwritten digits as the first benchmark.",
+          "chunk": "11"
+        },
+        {
+          "from": "ZedBoard",
+          "relation": "comparedWith",
+          "to": "DELLLatitudeE7250Ultrabook",
+          "context": "In our evaluation, all hardware candidates compete against a software implementation that we have tested on an embedded (i.e., the ZedBoard without FPGA use), a notebook (DELL Latitude E7250 Ultrabook).",
+          "chunk": "11"
+        },
+        {
+          "from": "DELLLatitudeE7250Ultrabook",
+          "relation": "comparedWith",
+          "to": "DesktopMachine",
+          "context": "In our evaluation, all hardware candidates compete against a software implementation that we have tested on a notebook (DELL Latitude E7250 Ultrabook) and a desktop machine.",
+          "chunk": "11"
+        }
+      ]
+    },
+    "question": "In the evaluation of the MNIST database of handwritten digits, which of the following hardware was NOT compared directly against the ZedBoard?",
+    "options": {
+      "A": "The DELL Latitude E7250 Ultrabook, which was directly evaluated against the ZedBoard.",
+      "B": "A software implementation running on the ZedBoard with FPGA use.",
+      "C": "The MNIST database itself, as it is a dataset and not hardware.",
+      "D": "A desktop machine, which was instead compared directly with the DELL Latitude E7250 Ultrabook."
+    },
+    "correct_answer": "D",
+    "explanation": "The desktop machine was compared with the DELL Latitude E7250 Ultrabook according to the knowledge graph path, not directly with the ZedBoard. The ZedBoard was evaluated against the DELL Latitude E7250 Ultrabook and both were compared to a desktop machine, indicating a different comparative link.",
+    "path_description": "Path: MNISTDatabase --[evaluatedOn]--> ZedBoard --[comparedWith]--> DELLLatitudeE7250Ultrabook --[comparedWith]--> DesktopMachine",
+    "context": "As many before us, we use the famous MNIST database of handwritten digits as the first benchmark. | In our evaluation, all hardware candidates compete against a software implementation that we have tested on an embedded (i.e., the ZedBoard without FPGA use), a notebook (DELL Latitude E7250 Ultrabook). | In our evaluation, all hardware candidates compete against a software implementation that we have tested on a notebook (DELL Latitude E7250 Ultrabook) and a desktop machine.",
+    "paper_id": "115"
+  },
+  {
+    "section": "experimentalresults4",
+    "path": {
+      "section": "experimentalresults4",
+      "start_entity": "PruningPercentage",
+      "end_entity": "ModelVariant",
+      "hops": [
+        {
+          "from": "PruningPercentage",
+          "relation": "partOf",
+          "to": "ThroughputEvaluation",
+          "context": "most of accuracy and pruning percentage is shown in 20",
+          "chunk": "14"
+        },
+        {
+          "from": "ThroughputEvaluation",
+          "relation": "comparedWith",
+          "to": "NonPrunedCounterparts",
+          "context": "similar to their non-pruned counterparts.",
+          "chunk": "14"
+        },
+        {
+          "from": "NonPrunedCounterparts",
+          "relation": "type",
+          "to": "ModelVariant",
+          "context": "similar to their non-pruned counterparts.",
+          "chunk": "14"
+        }
+      ]
+    },
+    "question": "In the context of throughput evaluation, how does the pruning percentage of a model variant compare to its non-pruned counterparts?",
+    "options": {
+      "A": "The pruning percentage significantly increases the throughput compared to non-pruned counterparts.",
+      "B": "The pruning percentage shows no significant change in throughput compared to non-pruned counterparts.",
+      "C": "The pruning percentage results in variable throughput changes depending on the specific model variant.",
+      "D": "The pruning percentage markedly decreases the throughput compared to non-pruned counterparts."
+    },
+    "correct_answer": "B",
+    "explanation": "The question requires understanding that the pruning percentage is part of the throughput evaluation and that it is compared with non-pruned counterparts, which are similarly effective according to the context provided. The correct answer is B, as the context mentions that the pruned models are 'similar to their non-pruned counterparts,' implying no significant change in throughput.",
+    "path_description": "Path: PruningPercentage --[partOf]--> ThroughputEvaluation --[comparedWith]--> NonPrunedCounterparts --[type]--> ModelVariant",
+    "context": "most of accuracy and pruning percentage is shown in 20 | similar to their non-pruned counterparts. | similar to their non-pruned counterparts.",
+    "paper_id": "115"
+  }
+]

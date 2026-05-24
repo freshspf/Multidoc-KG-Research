@@ -1,0 +1,45 @@
+[
+  {
+    "section": "modeldevelopment",
+    "path": {
+      "section": "modeldevelopment",
+      "start_entity": "DataSplit",
+      "end_entity": "Output",
+      "hops": [
+        {
+          "from": "DataSplit",
+          "relation": "appliedTo",
+          "to": "LogisticRegressionModel",
+          "context": "For this purpose, we split the data into training and test sets following a 80%–20% split.",
+          "chunk": "2"
+        },
+        {
+          "from": "LogisticRegressionModel",
+          "relation": "produces",
+          "to": "PatientOutcomeProbability",
+          "context": "The output of each model was instead represented by the estimate of the probability that a patient had of developing the specific kidney disease outcome at the considered prediction horizon.",
+          "chunk": "2"
+        },
+        {
+          "from": "PatientOutcomeProbability",
+          "relation": "type",
+          "to": "Output",
+          "context": "The output of each model was instead represented by the estimate of the probability that a patient had of developing the specific kidney disease outcome at the considered prediction horizon.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the study described in the 'modeldevelopment' section, after applying a data split to the Logistic Regression Model, what type of output is produced?",
+    "options": {
+      "A": "A numeric value representing the likelihood of a patient developing a specific kidney disease",
+      "B": "A list of symptoms associated with the kidney disease outcome",
+      "C": "A detailed patient profile including demographic and medical history",
+      "D": "A categorical label indicating whether a patient has the kidney disease or not"
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A because the paper specifies that the output of the Logistic Regression Model, post data split, is an estimate of the probability that a patient might develop a specific kidney disease outcome. This output is essentially a numeric value representing likelihood, which matches the description in Option A. The other options suggest different types of outputs that are not aligned with the description given in the paper.",
+    "path_description": "Path: DataSplit --[appliedTo]--> LogisticRegressionModel --[produces]--> PatientOutcomeProbability --[type]--> Output",
+    "context": "For this purpose, we split the data into training and test sets following a 80%–20% split. | The output of each model was instead represented by the estimate of the probability that a patient had of developing the specific kidney disease outcome at the considered prediction horizon. | The output of each model was instead represented by the estimate of the probability that a patient had of developing the specific kidney disease outcome at the considered prediction horizon.",
+    "paper_id": "996"
+  }
+]

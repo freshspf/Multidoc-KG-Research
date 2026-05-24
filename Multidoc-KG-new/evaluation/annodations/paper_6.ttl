@@ -1,0 +1,304 @@
+# ===== EVALUATION RESULTS =====
+# Evaluation Passed: True
+# Can Proceed to QA Generation: True
+# Timestamp: 20250902_165040
+# ===== KNOWLEDGE GRAPH =====
+
+```turtle
+:ThisPaper :publishedIn :TACL-2024 ;
+    :contextText "Transactions of the Association for Computational Linguistics, vol. 12, pp. 157–173, 2024." .
+
+:ThisPaper :addresses :LongContextUsage ;
+    :contextText "how language models use long contexts" .
+
+:ThisPaper :proposes :NewEvaluationProtocols ;
+    :contextText "provides new evaluation protocols for future long-context language models." .
+
+:ThisPaper :relatedTo :CodeAndEvaluationDataRelease ;
+    :contextText "we release our code and evaluation data." .
+
+:MPT-30B-Instruct :uses :ALiBi ;
+    :contextText "MPT-30B-Instruct uses ALiBi (Press et al., 2022) to represent positional information." .
+
+:MPT-30B-Instruct :relatedTo :ContextWindow-8192Tokens ;
+    :contextText "MPT-30B-Instruct, which has a maximum context length of 8192 tokens." .
+
+:MPT-30B-Instruct :trainedOn :OneTrillionTokens-2048Sequences ;
+    :contextText "The model was initially pre-trained on 1 trillion tokens using 2048-token sequences" .
+
+:MPT-30B-Instruct :finetunedOn :50BTokens-8192Sequences ;
+    :contextText "followed by an additional sequence length adaptation pre-training phase on 50 billion tokens using 8192-token sequences." .
+
+:LongChat-13B-16K :basedOn :LLaMA-13B ;
+    :contextText "LongChat-13B (16K) (Li et al., 2023), which extends the LLaMA-13B (Touvron et al., 2023a)" .
+
+:LongChat-13B-16K :relatedTo :ContextWindow-16384Tokens ;
+    :contextText "context window from 2048 to 16384 tokens" .
+
+:LongChat-13B-16K :uses :CondensedRotaryPositionalEmbeddings ;
+    :contextText "by using condensed rotary positional embeddings" .
+
+:GPT-3.5-Turbo :relatedTo :ContextWindow-4KTokens ;
+    :contextText "GPT-3.5-Turbo has a maximum context length of 4K tokens" .
+
+:GPT-3.5-Turbo-16K :relatedTo :ContextWindow-16KTokens ;
+    :contextText "GPT-3.5-Turbo (16K) is a version with an extended maximum context length of 16K tokens." .
+
+:Claude-1.3 :relatedTo :ContextWindow-8KTokens ;
+    :contextText "Claude-1.3 has a maximum context length of 8K tokens" .
+
+:Claude-1.3-100K :relatedTo :ContextWindow-100KTokens ;
+    :contextText "Claude-1.3 (100K) has an extended context length of 100K tokens." .
+
+:Flan-T5-XXL :relatedTo :EncoderDecoderArchitecture ;
+    :contextText "we compare decoder-only and encoder-decoder language models. We experiment with Flan-T5-XXL" .
+
+:Flan-T5-XXL :trainedOn :512TokenSequences ;
+    :contextText "Flan-T5-XXL is trained with a sequences of 512 tokens (encoder and decoder)." .
+
+:Flan-UL2 :trainedOn :512TokenSequences ;
+    :contextText "Flan-UL2 is initially trained with sequences of 512 tokens (encoder and decoder)" .
+
+:Flan-UL2 :pretrainedAdditional :100KSteps-1024Tokens ;
+    :contextText "but is then pre-trained for an extra 100K steps with 1024 tokens (encoder and decoder)" .
+
+:Flan-UL2 :finetunedOn :2048Encoder-512DecoderSequences ;
+    :contextText "before instruction fine-tuning on sequences with 2048 tokens in the encoder and 512 tokens in the decoder." .
+
+:NaturalQuestions-Open :relatedTo :GoogleSearchQueries ;
+    :contextText "contains historical queries issued to the Google search engine" .
+
+:NaturalQuestions-Open :partOf :WikipediaParagraphAnswers ;
+    :contextText "coupled with human-annotated answers extracted from Wikipedia." .
+
+:Contriever :finetunedOn :MS-MARCO ;
+    :contextText "Contriever, fine-tuned on MS-MARCO; Izacard et al., 2021" .
+
+:Contriever :appliedTo :WikipediaRetrieval ;
+    :contextText "to retrieve the k−1 Wikipedia chunks that are most relevant to the query" .
+
+:MultiDocumentQA :appliedTo :NaturalQuestions-Open ;
+    :contextText "We instantiate this task with data from NaturalQuestions-Open" .
+
+:MultiDocumentQA :uses :WikipediaPassages ;
+    :contextText "We use passages (chunks of at most 100 tokens) from Wikipedia as documents" .
+
+:MultiDocumentQA :measures :Accuracy ;
+    :contextText "we use accuracy as our primary evaluation metric" .
+
+:KeyValueRetrieval :uses :JSONKeyValuePairs ;
+    :contextText "models are given a collection of JSON-formatted key-value pairs" .
+
+:KeyValueRetrieval :measures :Accuracy ;
+    :contextText "We again measure accuracy by evaluating whether the correct value appears in the predicted output." .
+
+:OpenDomainQA :appliedTo :NaturalQuestions-Open ;
+    :contextText "open-domain question answering on NaturalQuestions-Open" .
+
+:ChangingPositionOfRelevantInformation :resultIn :UShapedPerformanceCurve ;
+    :contextText "Changing the location of relevant information ... results in a U-shaped performance curve" .
+
+:UShapedPerformanceCurve :relatedTo :PrimacyBias ;
+    :contextText "models are better at using relevant information that occurs at the very beginning (primacy bias)" .
+
+:UShapedPerformanceCurve :relatedTo :RecencyBias ;
+    :contextText "or end of its input context (recency bias)" .
+
+:LanguageModels :resultIn :PerformanceDegradesInMiddle ;
+    :contextText "performance degrades significantly when models must access and use information located in the middle of its input context." .
+
+:ExtendedContextModels :comparedWith :NonExtendedModels ;
+    :contextText "extended-context models are not necessarily better than their non-extended counterparts at using their input context" .
+
+:ExtendedContextModels :relatedTo :SimilarPerformanceWhenContextFits ;
+    :contextText "performance between them is nearly identical" .
+
+:GPT-3.5-Turbo :achievesScore "56.1% closed-book accuracy" ;
+    :contextText "closed-book setting; ... 56.1%" .
+
+:GPT-3.5-Turbo :achievesScore "88.3% oracle accuracy" ;
+    :contextText "GPT-3.5-Turbo 56.1% 88.3%" .
+
+:GPT-3.5-Turbo-16K :achievesScore "56.0% closed-book accuracy" ;
+    :contextText "GPT-3.5-Turbo (16K) 56.0% 88.6%" .
+
+:GPT-3.5-Turbo-16K :achievesScore "88.6% oracle accuracy" ;
+    :contextText "GPT-3.5-Turbo (16K) 56.0% 88.6%" .
+
+:Claude-1.3 :achievesScore "48.3% closed-book accuracy" ;
+    :contextText "Claude-1.3 48.3% 76.1%" .
+
+:Claude-1.3 :achievesScore "76.1% oracle accuracy" ;
+    :contextText "Claude-1.3 48.3% 76.1%" .
+
+:Claude-1.3-100K :achievesScore "48.2% closed-book accuracy" ;
+    :contextText "Claude-1.3 (100K) 48.2% 76.4%" .
+
+:Claude-1.3-100K :achievesScore "76.4% oracle accuracy" ;
+    :contextText "Claude-1.3 (100K) 48.2% 76.4%" .
+
+:LongChat-13B-16K :achievesScore "35.0% closed-book accuracy" ;
+    :contextText "LongChat-13B (16K) 35.0% 83.4%" .
+
+:LongChat-13B-16K :achievesScore "83.4% oracle accuracy" ;
+    :contextText "LongChat-13B (16K) 35.0% 83.4%" .
+
+:MPT-30B-Instruct :achievesScore "31.5% closed-book accuracy" ;
+    :contextText "MPT-30B-Instruct 31.5% 81.9%" .
+
+:MPT-30B-Instruct :achievesScore "81.9% oracle accuracy" ;
+    :contextText "MPT-30B-Instruct 31.5% 81.9%" .
+
+:MultiDocumentQA :hasSetting :TenTwentyThirtyDocuments ;
+    :contextText "We experiment with input contexts containing 10, 20, and 30 total documents." .
+
+:GPT-3.5-Turbo :comparedWith :ClosedBookSetting ;
+    :contextText "closed-book setting; 56.1%" .
+
+:ChangingPositionToMiddle :resultIn :GPT35PerformanceBelowClosedBook ;
+    :contextText "in the worst case, performance in 20- and 30-document settings is lower than performance without any input documents (i.e., closed-book performance; 56.1%)." .
+
+:GPT-3.5-Turbo :comparedWith :GPT-3.5-Turbo-16K ;
+    :contextText "we observe that their performance as a function of position of relative information is nearly superimposed" .
+
+:KeyValueRetrieval :hasSetting :75-140-300Pairs ;
+    :contextText "We experiment with input contexts containing 75, 140, and 300 key-value pairs" .
+
+:Claude-1.3 :achievesScore "nearly perfectly on all lengths" ;
+    :contextText "Claude-1.3 and Claude-1.3 (100K) do nearly perfectly on all evaluated input context lengths" .
+
+:Claude-1.3-100K :achievesScore "nearly perfectly on all lengths" ;
+    :contextText "Claude-1.3 and Claude-1.3 (100K) do nearly perfectly on all evaluated input context lengths" .
+
+:GPT-3.5-Turbo :relatedTo :LowestPerformanceInMiddleOnKV ;
+    :contextText "have the lowest performance when they must access key-value pairs in the middle of their input context." .
+
+:GPT-3.5-Turbo-16K :relatedTo :LowestPerformanceInMiddleOnKV ;
+    :contextText "GPT-3.5-Turbo, GPT-3.5-Turbo (16K), and MPT-30B-Instruct have the lowest performance when they must access key-value pairs in the middle" .
+
+:MPT-30B-Instruct :relatedTo :LowestPerformanceInMiddleOnKV ;
+    :contextText "GPT-3.5-Turbo, GPT-3.5-Turbo (16K), and MPT-30B-Instruct have the lowest performance when they must access key-value pairs in the middle" .
+
+:QueryAwareContextualization :appliedTo :KeyValueRetrieval ;
+    :contextText "Query-aware contextualization ... enables near-perfect performance on the synthetic key-value task" .
+
+:QueryAwareContextualization :improves :KeyValueRetrievalPerformance ;
+    :contextText "enables near-perfect performance on the synthetic key-value task" .
+
+:QueryAwareContextualization :appliedTo :MultiDocumentQA ;
+    :contextText "minimally changes trends in multi-document QA" .
+
+:QueryAwareContextualization :resultIn :SlightIncreaseAtBeginning ;
+    :contextText "it slightly improves performance when the relevant information is located at the very beginning of the input context" .
+
+:QueryAwareContextualization :resultIn :SlightDecreaseElsewhere ;
+    :contextText "but slightly decreases performance in other settings." .
+
+:Flan-UL2 :evaluatedOn :Within2048Tokens ;
+    :contextText "When Flan-UL2 is evaluated on sequences within its 2048-token training-time context window" .
+
+:Flan-UL2 :achievesScore "1.9% best-worst difference" ;
+    :contextText "(1.9% absolute difference between best- and worst-case performance)." .
+
+:Flan-UL2 :evaluatedOn :Beyond2048Tokens ;
+    :contextText "When evaluated on settings with sequences longer than 2048 tokens" .
+
+:Beyond2048Tokens :resultIn :UShapedPerformanceCurve ;
+    :contextText "we observe a U-shaped performance curve" .
+
+:Flan-T5-XXL :relatedTo :SimilarTrend ;
+    :contextText "Flan-T5-XXL shows a similar trend" .
+
+:MPT-30B :comparedWith :MPT-30B-Instruct ;
+    :contextText "compare the multi-document question answering performance of MPT-30B-Instruct against its base model (i.e., before instruction fine-tuning) MPT-30B." .
+
+:MPT-30B :exhibits :UShapedPerformanceCurve ;
+    :contextText "both MPT-30B and MPT-30B-Instruct exhibit a U-shaped performance curve" .
+
+:MPT-30B-Instruct :exhibits :UShapedPerformanceCurve ;
+    :contextText "both MPT-30B and MPT-30B-Instruct exhibit a U-shaped performance curve" .
+
+:InstructionFineTuning :reduces :WorstCaseDisparity ;
+    :contextText "instruction fine-tuning slightly reduces the worst-case performance disparity from nearly 10% ... to around 4%." .
+
+:Llama-2-7B :exhibits :RecencyBiasOnly ;
+    :contextText "the 7B Llama-2 models are solely recency-biased" .
+
+:Llama-2-13B :exhibits :UShapedPerformanceCurve ;
+    :contextText "the 13B and 70B models exhibit a U-shaped performance curve." .
+
+:Llama-2-70B :exhibits :UShapedPerformanceCurve ;
+    :contextText "the 13B and 70B models exhibit a U-shaped performance curve." .
+
+:Llama-2-RLHF-SFT :mitigates :PositionalBiasSlightly ;
+    :contextText "the Llama-2 supervised fine-tuning and reinforcement learning from human feedback procedure slightly mitigates the positional bias in smaller models (13B) ... but minimally affects trends on larger models (70B)." .
+
+:RetrieverReaderSetup :uses :Contriever ;
+    :contextText "A retrieval system (Contriever, fine-tuned on MS-MARCO) takes an input query" .
+
+:RetrieverReaderSetup :evaluatedOn :NaturalQuestions-Open ;
+    :contextText "open-domain question answering on NaturalQuestions-Open" .
+
+:RetrieverReaderSetup :measures :RetrieverRecall ;
+    :contextText "We evaluate retriever recall and reader accuracy" .
+
+:RetrieverReaderSetup :measures :ReaderAccuracy ;
+    :contextText "We evaluate retriever recall and reader accuracy" .
+
+:Using50DocsInsteadOf20 :resultIn :Improvement1.5GPT35 ;
+    :contextText "Using 50 documents instead of 20 retrieved documents only marginally improves performance ( ∼1.5% for GPT-3.5-Turbo" .
+
+:Using50DocsInsteadOf20 :resultIn :Improvement1Claude13 ;
+    :contextText "and ∼1% for claude-1.3)." .
+
+:ReaderPerformance :saturatesBefore :RetrieverRecall ;
+    :contextText "Model performance saturates long before retriever recall saturates" .
+
+:RerankingRetrievedDocuments :proposes :PushRelevantToStart ;
+    :contextText "pushing relevant information closer to the start of the input context ... may be promising directions" .
+
+:RankedListTruncation :proposes :RetrieveFewerDocuments ;
+    :contextText "ranked list truncation (retrieving fewer documents when appropriate; Arampatzis et al., 2009) may be promising directions" .
+
+:DistractorDocuments :orderedBy :DecreasingRelevance ;
+    :contextText "the distractor documents are presented in order of decreasing relevance." .
+
+:RandomizingDistractorOrder :resultIn :UShapedCurvePersists ;
+    :contextText "We continue to see a U-shaped performance curve" .
+
+:RandomDistractors :increase :AbsoluteAccuracyButNotRobustness ;
+    :contextText "all models have higher absolute accuracy in this setting, they surprisingly still struggle to reason over their entire input context" .
+
+:KeyValueRetrieval :relatedTo :500ExamplesPerLength ;
+    :contextText "We experiment with input contexts containing 75, 140, and 300 key-value pairs (500 examples each)." .
+
+:ThisPaper :evaluates :GPT-3.5-Turbo ;
+    :contextText "We empirically investigate this question via controlled experiments with ... GPT-3.5-Turbo" .
+
+:ThisPaper :evaluates :GPT-3.5-Turbo-16K ;
+    :contextText "controlled experiments with ... GPT-3.5-Turbo (16K)" .
+
+:ThisPaper :evaluates :Claude-1.3 ;
+    :contextText "controlled experiments with ... Anthropic’s Claude-1.3" .
+
+:ThisPaper :evaluates :Claude-1.3-100K ;
+    :contextText "Claude-1.3 (100K)" .
+
+:ThisPaper :evaluates :MPT-30B-Instruct ;
+    :contextText "We experiment with MPT-30B-Instruct" .
+
+:ThisPaper :evaluates :LongChat-13B-16K ;
+    :contextText "We also evaluate LongChat-13B (16K)" .
+
+:ThisPaper :evaluates :Flan-T5-XXL ;
+    :contextText "We experiment with Flan-T5-XXL" .
+
+:ThisPaper :evaluates :Flan-UL2 ;
+    :contextText "and Flan-UL2" .
+
+:GPT-4-8K :exhibits :UShapedPerformanceCurve ;
+    :contextText "GPT-4 achieves higher absolute performance than any other language model, but still shows a U-shaped performance curve" .
+
+:GPT-4-8K :relatedTo :HigherAbsolutePerformance ;
+    :contextText "GPT-4 achieves higher absolute performance than any other language model" .
+```

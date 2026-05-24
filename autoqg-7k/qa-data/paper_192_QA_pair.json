@@ -1,0 +1,131 @@
+[
+  {
+    "section": "casestudy",
+    "path": {
+      "section": "casestudy",
+      "start_entity": "totalPooledEther",
+      "end_entity": "ProjectType",
+      "hops": [
+        {
+          "from": "totalPooledEther",
+          "relation": "usedInCalculation",
+          "to": "RiskyFirstDeposit",
+          "context": "values of eETH.totalShares() and totalPooledEther",
+          "chunk": "13"
+        },
+        {
+          "from": "RiskyFirstDeposit",
+          "relation": "partOf",
+          "to": "DeFiProjects",
+          "context": "two such bugs identified by PromFuzz in DeFi projects",
+          "chunk": "13"
+        },
+        {
+          "from": "DeFiProjects",
+          "relation": "type",
+          "to": "ProjectType",
+          "context": "two such bugs identified by PromFuzz in DeFi projects",
+          "chunk": "13"
+        }
+      ]
+    },
+    "question": "In the context of decentralized finance projects, how does the total pooled ether primarily influence the classification of a project's type?",
+    "options": {
+      "A": "The total pooled ether determines the liquidity available in a project, categorizing it based on liquidity rather than risk assessment.",
+      "B": "The total pooled ether is used to calculate financial risks associated with first deposits, defining the project as either high-risk or low-risk.",
+      "C": "The total pooled ether is a measure of overall market capitalization, which assigns the project to a category based on financial volume alone.",
+      "D": "The total pooled ether is indicative of user participation levels, classifying projects by active user base size rather than their inherent risk."
+    },
+    "correct_answer": "B",
+    "explanation": "The total pooled ether is used in calculations that determine the financial risks associated with first deposits in decentralized finance (DeFi) projects. This initial risk assessment contributes to classifying a project's type as either high-risk or low-risk, which is crucial for understanding and managing the potential risks in DeFi investments.",
+    "path_description": "Path: totalPooledEther --[usedInCalculation]--> RiskyFirstDeposit --[partOf]--> DeFiProjects --[type]--> ProjectType",
+    "context": "values of eETH.totalShares() and totalPooledEther | two such bugs identified by PromFuzz in DeFi projects | two such bugs identified by PromFuzz in DeFi projects",
+    "paper_id": "1585"
+  },
+  {
+    "section": "relatedwork",
+    "path": {
+      "section": "relatedwork",
+      "start_entity": "Verisol",
+      "end_entity": "Concept",
+      "hops": [
+        {
+          "from": "Verisol",
+          "relation": "implements",
+          "to": "StaticAnalysis",
+          "context": "Tools like Slither [16], Zeus [21], Securify [38], Madmax [17], Invcon [24], Verismart [34], and Verisol [41] analyze smart contract code statically.",
+          "chunk": "15"
+        },
+        {
+          "from": "StaticAnalysis",
+          "relation": "partOf",
+          "to": "Methodologies",
+          "context": "These approaches are broadly classified into three categories: static analysis, dynamic analysis, and AI-based analysis.",
+          "chunk": "15"
+        },
+        {
+          "from": "Methodologies",
+          "relation": "type",
+          "to": "Concept",
+          "context": "Recent efforts to evaluate the security of smart contracts have produced numerous methodologies.",
+          "chunk": "15"
+        }
+      ]
+    },
+    "question": "In the context of smart contract security evaluations, how does Verisol contribute to the overarching concept of methodologies?",
+    "options": {
+      "A": "Verisol employs an AI-based approach to improve methodologies, thus advancing the concept of autonomous security.",
+      "B": "Verisol uses AI-based analysis to create dynamic methodologies, improving the concept of iterative development.",
+      "C": "Verisol functions as a tool for dynamic analysis under methodologies, enhancing the concept of real-time testing.",
+      "D": "Verisol implements static analysis, which is part of the methodologies category, contributing to the concept of systematic reviews."
+    },
+    "correct_answer": "D",
+    "explanation": "Verisol implements a static analysis technique, which is a part of the broader methodologies used for evaluating smart contract security. This places Verisol within the larger concept of systematic methodologies designed to assess and enhance smart contract safety, thus contributing specifically to the concept of systematic reviews within static analysis.",
+    "path_description": "Path: Verisol --[implements]--> StaticAnalysis --[partOf]--> Methodologies --[type]--> Concept",
+    "context": "Tools like Slither [16], Zeus [21], Securify [38], Madmax [17], Invcon [24], Verismart [34], and Verisol [41] analyze smart contract code statically. | These approaches are broadly classified into three categories: static analysis, dynamic analysis, and AI-based analysis. | Recent efforts to evaluate the security of smart contracts have produced numerous methodologies.",
+    "paper_id": "1585"
+  },
+  {
+    "section": "conclusion",
+    "path": {
+      "section": "conclusion",
+      "start_entity": "PromFuzz",
+      "end_entity": "BugType",
+      "hops": [
+        {
+          "from": "PromFuzz",
+          "relation": "analyzed",
+          "to": "RealWorldDeFiProjects",
+          "context": "our in-depth analysis of 6 real-world DeFi projects.",
+          "chunk": "16"
+        },
+        {
+          "from": "RealWorldDeFiProjects",
+          "relation": "identified",
+          "to": "ZeroDayBugs",
+          "context": "has identified 30 zero-day bugs.",
+          "chunk": "16"
+        },
+        {
+          "from": "ZeroDayBugs",
+          "relation": "type",
+          "to": "BugType",
+          "context": "has identified 30 zero-day bugs.",
+          "chunk": "16"
+        }
+      ]
+    },
+    "question": "In the paper's conclusion regarding the use of PromFuzz in analyzing DeFi projects, what type of vulnerabilities were primarily identified?",
+    "options": {
+      "A": "Security flaws related to hardware components used in blockchain networks",
+      "B": "Zero-day bugs that were previously undetected and unaddressed",
+      "C": "Minor bugs affecting user interface elements but not the core financial transactions",
+      "D": "Common vulnerabilities that had already been widely reported and patched"
+    },
+    "correct_answer": "B",
+    "explanation": "The paper's conclusion discusses the application of PromFuzz to analyze real-world DeFi projects, where it identified 30 zero-day bugs. Zero-day bugs are vulnerabilities that are previously undetected and unaddressed, making option A the correct answer. The other options refer to types of vulnerabilities or flaws not specified in the analysis results.",
+    "path_description": "Path: PromFuzz --[analyzed]--> RealWorldDeFiProjects --[identified]--> ZeroDayBugs --[type]--> BugType",
+    "context": "our in-depth analysis of 6 real-world DeFi projects. | has identified 30 zero-day bugs. | has identified 30 zero-day bugs.",
+    "paper_id": "1585"
+  }
+]

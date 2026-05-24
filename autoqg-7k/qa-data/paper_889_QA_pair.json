@@ -1,0 +1,45 @@
+[
+  {
+    "section": "stereoeventvisualintertialodometryexperiment",
+    "path": {
+      "section": "stereoeventvisualintertialodometryexperiment",
+      "start_entity": "SuperEvent",
+      "end_entity": "DatasetComponent",
+      "hops": [
+        {
+          "from": "SuperEvent",
+          "relation": "integratedInto",
+          "to": "OKVIS2",
+          "context": "Lastly, we visualize 2D projections of the trajectories estimated by SuperEvent integrated into OKVIS2 [39] yielding the reported results.",
+          "chunk": "12"
+        },
+        {
+          "from": "OKVIS2",
+          "relation": "processes",
+          "to": "mocap-sequences",
+          "context": "Since OKVIS2 is non-deterministic, we process every sequence 5 times and select the trajectory with median error.",
+          "chunk": "12"
+        },
+        {
+          "from": "mocap-sequences",
+          "relation": "type",
+          "to": "DatasetComponent",
+          "context": "Figure 8 shows the trajectories from SuperEvent + OKVIS2 on the TUM-VIE [34] mocap-sequences.",
+          "chunk": "12"
+        }
+      ]
+    },
+    "question": "In the context of the stereo event visual inertial odometry experiment, how does OKVIS2 process the TUM-VIE mocap-sequences for trajectory estimation?",
+    "options": {
+      "A": "OKVIS2 processes each sequence 10 times in a deterministic manner, selecting the trajectory with maximum accuracy.",
+      "B": "Each sequence is processed only once by OKVIS2 and the first computed trajectory is always selected.",
+      "C": "OKVIS2 is non-deterministic, thus each sequence is processed 5 times and the trajectory with the median error is chosen.",
+      "D": "OKVIS2 deterministically processes each mocap-sequence once and selects the trajectory with the smallest error."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A, as the paper specifically states that OKVIS2 is non-deterministic and processes each sequence 5 times, choosing the trajectory with the median error to account for variability in the results.",
+    "path_description": "Path: SuperEvent --[integratedInto]--> OKVIS2 --[processes]--> mocap-sequences --[type]--> DatasetComponent",
+    "context": "Lastly, we visualize 2D projections of the trajectories estimated by SuperEvent integrated into OKVIS2 [39] yielding the reported results. | Since OKVIS2 is non-deterministic, we process every sequence 5 times and select the trajectory with median error. | Figure 8 shows the trajectories from SuperEvent + OKVIS2 on the TUM-VIE [34] mocap-sequences.",
+    "paper_id": "2075"
+  }
+]

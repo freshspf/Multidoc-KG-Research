@@ -1,0 +1,131 @@
+[
+  {
+    "section": "methods2",
+    "path": {
+      "section": "methods2",
+      "start_entity": "DeepFeatureGuidedImageEnhancement",
+      "end_entity": "FinalGeneration",
+      "hops": [
+        {
+          "from": "DeepFeatureGuidedImageEnhancement",
+          "relation": "employs",
+          "to": "NSGA-II",
+          "context": "Deep Feature-Guided Image Enhancement employs the NSGA-II algorithm",
+          "chunk": "3"
+        },
+        {
+          "from": "NSGA-II",
+          "relation": "evolves",
+          "to": "ParetoFront",
+          "context": "Although NSGA-II evolves a Pareto front of non-dominated solutions",
+          "chunk": "3"
+        },
+        {
+          "from": "ParetoFront",
+          "relation": "selectedFrom",
+          "to": "FinalGeneration",
+          "context": "after the final generation, we extract the rank-0 front and select the individual with the highest entropy",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the context of Deep Feature-Guided Image Enhancement, how is the final solution selected using the NSGA-II algorithm?",
+    "options": {
+      "A": "A random solution from the Pareto front after the final generation is selected based on its computational cost.",
+      "B": "The solution with the highest computational efficiency from the first generation is selected.",
+      "C": "The solution with the lowest entropy from the final generation of solutions is automatically selected.",
+      "D": "The solution with the highest entropy from the rank-0 front of the Pareto front is selected after the final generation."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A, which accurately reflects the process described in the paper. After evolving a Pareto front using the NSGA-II algorithm, the rank-0 front (which contains non-dominated solutions) is selected, and from this, the solution with the highest entropy is chosen. This indicates that the selection criteria prioritize entropy, which is not commonly emphasized in other selection processes.",
+    "path_description": "Path: DeepFeatureGuidedImageEnhancement --[employs]--> NSGA-II --[evolves]--> ParetoFront --[selectedFrom]--> FinalGeneration",
+    "context": "Deep Feature-Guided Image Enhancement employs the NSGA-II algorithm | Although NSGA-II evolves a Pareto front of non-dominated solutions | after the final generation, we extract the rank-0 front and select the individual with the highest entropy",
+    "paper_id": "916"
+  },
+  {
+    "section": "results2",
+    "path": {
+      "section": "results2",
+      "start_entity": "OurModel",
+      "end_entity": "HigherEntropy",
+      "hops": [
+        {
+          "from": "OurModel",
+          "relation": "outperforms",
+          "to": "CIDNet",
+          "context": "Figure 3: Visual comparison of all the approaches (c)-CIDNet generalization weight, (d)-ours, (e)- ac indicating that for this simple dataset NSGA-II act still is beaten by CIDNet in terms of both BRISQUE",
+          "chunk": "5"
+        },
+        {
+          "from": "CIDNet",
+          "relation": "comparedWith",
+          "to": "OurModel",
+          "context": "a visual comparison between ch dataset) by our model and that by CIDNet [31].",
+          "chunk": "5"
+        },
+        {
+          "from": "OurModel",
+          "relation": "demonstrates",
+          "to": "HigherEntropy",
+          "context": "Our method demonstrates higher entropy values",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "What conclusion can be drawn from the comparison between OurModel and CIDNet regarding their performance on a dataset?",
+    "options": {
+      "A": "OurModel and CIDNet had similar entropy values, indicating equivalent performance on the dataset.",
+      "B": "OurModel demonstrates higher entropy values, suggesting it manages complexity better than CIDNet.",
+      "C": "CIDNet outperformed OurModel by showing lower entropy values, indicating better generalization capabilities.",
+      "D": "CIDNet's lower entropy values suggest that it is less efficient at handling complex data compared to OurModel."
+    },
+    "correct_answer": "B",
+    "explanation": "The question requires understanding the relationships in the knowledge graph path. OurModel outperforms CIDNet, as indicated by demonstrating higher entropy values, which suggests better management of complexity in the data compared to CIDNet. Options B, C, and D are incorrect as they misrepresent the relationship and the implications of higher entropy.",
+    "path_description": "Path: OurModel --[outperforms]--> CIDNet --[comparedWith]--> OurModel --[demonstrates]--> HigherEntropy",
+    "context": "Figure 3: Visual comparison of all the approaches (c)-CIDNet generalization weight, (d)-ours, (e)- ac indicating that for this simple dataset NSGA-II act still is beaten by CIDNet in terms of both BRISQUE | a visual comparison between ch dataset) by our model and that by CIDNet [31]. | Our method demonstrates higher entropy values",
+    "paper_id": "916"
+  },
+  {
+    "section": "nsgaiibasedmultiobjectiveoptimization",
+    "path": {
+      "section": "nsgaiibasedmultiobjectiveoptimization",
+      "start_entity": "DEAP",
+      "end_entity": "EntityGroup",
+      "hops": [
+        {
+          "from": "DEAP",
+          "relation": "implements",
+          "to": "NSGA-II",
+          "context": "In our DEAP implementation, we apply an 8-step hill-climbing local search.",
+          "chunk": "8"
+        },
+        {
+          "from": "NSGA-II",
+          "relation": "partitions",
+          "to": "ParentPopulations",
+          "context": "NSGA-II partitions the combined parent populations by non-dominated sorting.",
+          "chunk": "8"
+        },
+        {
+          "from": "ParentPopulations",
+          "relation": "type",
+          "to": "EntityGroup",
+          "context": "NSGA-II partitions the combined parent populations by non-dominated sorting.",
+          "chunk": "8"
+        }
+      ]
+    },
+    "question": "In the context of NSGA-II based multi-objective optimization using DEAP, how does NSGA-II specifically handle the combined parent populations?",
+    "options": {
+      "A": "NSGA-II applies elitist selection to enhance the combined parent populations without specific partitioning.",
+      "B": "NSGA-II employs genetic algorithms to merge the combined parent populations into a single entity group.",
+      "C": "NSGA-II uses a hill-climbing local search to optimize the combined parent populations in a single group.",
+      "D": "NSGA-II partitions the combined parent populations by non-dominated sorting into distinct entity groups known as ParentPopulations."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A because NSGA-II specifically uses non-dominated sorting to partition the combined parent populations. This process categorizes them into different entity groups, referred to as ParentPopulations, which is part of the three-hop path in the knowledge graph from DEAP to NSGA-II to ParentPopulations and finally to EntityGroup.",
+    "path_description": "Path: DEAP --[implements]--> NSGA-II --[partitions]--> ParentPopulations --[type]--> EntityGroup",
+    "context": "In our DEAP implementation, we apply an 8-step hill-climbing local search. | NSGA-II partitions the combined parent populations by non-dominated sorting. | NSGA-II partitions the combined parent populations by non-dominated sorting.",
+    "paper_id": "916"
+  }
+]

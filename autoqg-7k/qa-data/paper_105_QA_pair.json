@@ -1,0 +1,131 @@
+[
+  {
+    "section": "problemstatementandsystemmodel1",
+    "path": {
+      "section": "problemstatementandsystemmodel1",
+      "start_entity": "Sequencers",
+      "end_entity": "EntityGroup",
+      "hops": [
+        {
+          "from": "Sequencers",
+          "relation": "uses",
+          "to": "TEEPlatform",
+          "context": "where each sequencer pi is equipped with one type of TEE platform (e.g., Intel SGX, Intel TDX, etc.), denoted by ηi.",
+          "chunk": "2"
+        },
+        {
+          "from": "TEEPlatform",
+          "relation": "partOf",
+          "to": "Sequencers",
+          "context": "where each sequencer pi is equipped with one type of TEE platform (e.g., Intel SGX, Intel TDX, etc.), denoted by ηi.",
+          "chunk": "2"
+        },
+        {
+          "from": "Sequencers",
+          "relation": "type",
+          "to": "EntityGroup",
+          "context": "We consider a system of n sequencers, denoted by the set G = {p1, p2, ..., pn}.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In a system equipped with sequencers each utilizing a specific TEE platform, what structural relationship best describes the role of the Entity Group in relation to individual sequencers?",
+    "options": {
+      "A": "Each Entity Group refers to a single sequencer and its corresponding TEE Platform, without additional structure.",
+      "B": "Entity Groups are subsystems within the TEE Platform that control the operation of sequencers.",
+      "C": "Entity Groups operate independently of sequencers and have no direct relation to the TEE Platform.",
+      "D": "Each Entity Group is composed of multiple sequencers, each with a distinct type of TEE Platform."
+    },
+    "correct_answer": "D",
+    "explanation": "The question requires understanding the hierarchical relationship between sequencers, TEE platforms, and Entity Groups, as described in the knowledge path. Sequencers use a specific TEE platform and collectively form an Entity Group, indicating that each Entity Group is a composite of multiple sequencers, each equipped with a unique type of TEE platform. Options B and C are incorrect as they misrepresent the structural relationship. Option D incorrectly suggests that each Entity Group is limited to a single sequencer.",
+    "path_description": "Path: Sequencers --[uses]--> TEEPlatform --[partOf]--> Sequencers --[type]--> EntityGroup",
+    "context": "where each sequencer pi is equipped with one type of TEE platform (e.g., Intel SGX, Intel TDX, etc.), denoted by ηi. | where each sequencer pi is equipped with one type of TEE platform (e.g., Intel SGX, Intel TDX, etc.), denoted by ηi. | We consider a system of n sequencers, denoted by the set G = {p1, p2, ..., pn}.",
+    "paper_id": "1003"
+  },
+  {
+    "section": "teerollupdesign1",
+    "path": {
+      "section": "teerollupdesign1",
+      "start_entity": "TEEROLLUP",
+      "end_entity": "Ethereum",
+      "hops": [
+        {
+          "from": "TEEROLLUP",
+          "relation": "hasComponent",
+          "to": "TEEROLLUP_Smart_Contract",
+          "context": "TEEROLLUP considers four roles: the TEEROLLUP Smart Contract (TSC) responsible for record-keeping on the main chain.",
+          "chunk": "5"
+        },
+        {
+          "from": "TEEROLLUP_Smart_Contract",
+          "relation": "recordsStateProof",
+          "to": "TEEROLLUP",
+          "context": "TSC records the TEEROLLUP state proof in the form of a state.",
+          "chunk": "5"
+        },
+        {
+          "from": "TEEROLLUP",
+          "relation": "adoptsChainStructureFrom",
+          "to": "Ethereum",
+          "context": "In TEEROLLUP, the states follow a chain structure, which has been adopted by Ethereum [49].",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the TEEROLLUP design, how does the TEEROLLUP Smart Contract utilize Ethereum's technology to ensure the integrity of state records?",
+    "options": {
+      "A": "By storing all TEEROLLUP state proofs directly on the Ethereum blockchain for transparency.",
+      "B": "By using Ethereum's smart contract coding language to write the TEEROLLUP Smart Contract.",
+      "C": "By adopting Ethereum's chain structure to maintain a sequenced record of state proofs.",
+      "D": "By implementing Ethereum's consensus algorithms to validate the transactions within TEEROLLUP."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A because the TEEROLLUP Smart Contract records the state proof in TEEROLLUP and adopts Ethereum's chain structure to maintain these records in a sequenced manner, ensuring their integrity.",
+    "path_description": "Path: TEEROLLUP --[hasComponent]--> TEEROLLUP_Smart_Contract --[recordsStateProof]--> TEEROLLUP --[adoptsChainStructureFrom]--> Ethereum",
+    "context": "TEEROLLUP considers four roles: the TEEROLLUP Smart Contract (TSC) responsible for record-keeping on the main chain. | TSC records the TEEROLLUP state proof in the form of a state. | In TEEROLLUP, the states follow a chain structure, which has been adopted by Ethereum [49].",
+    "paper_id": "1003"
+  },
+  {
+    "section": "performanceevaluation2",
+    "path": {
+      "section": "performanceevaluation2",
+      "start_entity": "WAN",
+      "end_entity": "Transactions",
+      "hops": [
+        {
+          "from": "WAN",
+          "relation": "exhibits",
+          "to": "Latency",
+          "context": "In the WAN environment, throughput and latency exhibit similar trends to those in the LAN environment.",
+          "chunk": "11"
+        },
+        {
+          "from": "Latency",
+          "relation": "increasedBy",
+          "to": "Sequencers",
+          "context": "This increase in latency occurs because sequencers need more time to process the larger volume of transactions, leading to longer delays.",
+          "chunk": "11"
+        },
+        {
+          "from": "Sequencers",
+          "relation": "process",
+          "to": "Transactions",
+          "context": "This increase in latency occurs because sequencers need more time to process the larger volume of transactions, leading to longer delays.",
+          "chunk": "11"
+        }
+      ]
+    },
+    "question": "In a Wide Area Network (WAN) environment, what primarily contributes to the increase in latency during high transaction volumes?",
+    "options": {
+      "A": "High transaction volumes overload the network bandwidth, directly causing an increase in latency.",
+      "B": "Improvements in WAN throughput technologies reduce latency, even with high transaction volumes.",
+      "C": "The physical distance between servers in a WAN setting naturally increases latency irrespective of transaction volume.",
+      "D": "Sequencers require additional time to process a larger volume of transactions, resulting in increased latency."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A as the passage specifies that the increase in latency in a WAN environment when handling high transaction volumes is due to sequencers requiring more time to process these transactions. Options B, C, and D are misleading: B incorrectly attributes latency to physical distance rather than processing delays, C inaccurately suggests that bandwidth is the primary issue, and D falsely implies that throughput improvements negate latency increases.",
+    "path_description": "Path: WAN --[exhibits]--> Latency --[increasedBy]--> Sequencers --[process]--> Transactions",
+    "context": "In the WAN environment, throughput and latency exhibit similar trends to those in the LAN environment. | This increase in latency occurs because sequencers need more time to process the larger volume of transactions, leading to longer delays. | This increase in latency occurs because sequencers need more time to process the larger volume of transactions, leading to longer delays.",
+    "paper_id": "1003"
+  }
+]

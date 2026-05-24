@@ -1,0 +1,45 @@
+[
+  {
+    "section": "designofasparsegnnaccelerationschemebasedontensorcore2",
+    "path": {
+      "section": "designofasparsegnnaccelerationschemebasedontensorcore2",
+      "start_entity": "GPUKernel",
+      "end_entity": "MemoryType",
+      "hops": [
+        {
+          "from": "GPUKernel",
+          "relation": "combines",
+          "to": "TCUs",
+          "context": "This study proposes a mixed GPU kernel that combines CUDA Cores and TCUs as a single kernel.",
+          "chunk": "6"
+        },
+        {
+          "from": "TCUs",
+          "relation": "storesResultsIn",
+          "to": "GlobalMemory",
+          "context": "Specifically, TCU warp threads load data from shared memory into local registers, apply GEMM calculations to the data in registers, accumulate the results in registers, and finally store the results back to global memory.",
+          "chunk": "6"
+        },
+        {
+          "from": "GlobalMemory",
+          "relation": "type",
+          "to": "MemoryType",
+          "context": "Specifically, TCU warp threads load data from shared memory into local registers, apply GEMM calculations to the data in registers, accumulate the results in registers, and finally store the results back to global memory.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the design of a sparse GNN acceleration scheme based on tensor cores, what type of memory is primarily used by TCU warp threads to store the results after performing GEMM calculations?",
+    "options": {
+      "A": "Local memory, typically used for temporary data storage during kernel execution.",
+      "B": "Global memory, which is used for storing results accumulated in registers by TCU warp threads.",
+      "C": "Cache memory, utilized for high-speed data access and temporary storage.",
+      "D": "Shared memory, which is directly accessed by TCU warp threads for initial data loading."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A. According to the paper section 'designofasparsegnnaccelerationschemebasedontensorcore2', TCU warp threads load data from shared memory into local registers, perform GEMM calculations, accumulate the results in registers, and finally store these results back to global memory. This indicates that global memory is the primary type used for storing the results of computations performed by TCU warp threads.",
+    "path_description": "Path: GPUKernel --[combines]--> TCUs --[storesResultsIn]--> GlobalMemory --[type]--> MemoryType",
+    "context": "This study proposes a mixed GPU kernel that combines CUDA Cores and TCUs as a single kernel. | Specifically, TCU warp threads load data from shared memory into local registers, apply GEMM calculations to the data in registers, accumulate the results in registers, and finally store the results back to global memory. | Specifically, TCU warp threads load data from shared memory into local registers, apply GEMM calculations to the data in registers, accumulate the results in registers, and finally store the results back to global memory.",
+    "paper_id": "1266"
+  }
+]

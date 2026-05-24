@@ -1,0 +1,174 @@
+[
+  {
+    "section": "informationextractionandrecentmodelarchitectures2",
+    "path": {
+      "section": "informationextractionandrecentmodelarchitectures2",
+      "start_entity": "ModelVersion1",
+      "end_entity": "TransformerModel",
+      "hops": [
+        {
+          "from": "ModelVersion1",
+          "relation": "comparedWith",
+          "to": "Donut",
+          "context": "Furthermore, it needs fewer data to train than Donut because it does not need to train a OCR-model but rather uses an external one to gather position information.",
+          "chunk": "2"
+        },
+        {
+          "from": "Donut",
+          "relation": "uses",
+          "to": "SwinTransformer",
+          "context": "The encoder, a swin transformer in the paper, receives the image, converts it into multiple patches.",
+          "chunk": "2"
+        },
+        {
+          "from": "SwinTransformer",
+          "relation": "type",
+          "to": "TransformerModel",
+          "context": "The encoder, a swin transformer in the paper, receives the image, converts it into multiple patches.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "Which of the following best describes how ModelVersion1 differs from Donut in its approach to handling position information in image processing?",
+    "options": {
+      "A": "ModelVersion1 and Donut both train their own OCR-models to gather position information for better accuracy.",
+      "B": "ModelVersion1 utilizes an external OCR-model to gather position information, unlike Donut which trains its own OCR-model.",
+      "C": "ModelVersion1 processes position information directly from the Swin Transformer without the need for an OCR-model.",
+      "D": "ModelVersion1 does not use any form of Transformer models, thus differing fundamentally from Donut in processing techniques."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is 'A' because the context indicates that ModelVersion1 uses an external OCR-model to gather position information, which requires fewer data to train compared to Donut that trains its own OCR-model. This distinction highlights ModelVersion1's reliance on external resources for specific tasks within image processing.",
+    "path_description": "Path: ModelVersion1 --[comparedWith]--> Donut --[uses]--> SwinTransformer --[type]--> TransformerModel",
+    "context": "Furthermore, it needs fewer data to train than Donut because it does not need to train a OCR-model but rather uses an external one to gather position information. | The encoder, a swin transformer in the paper, receives the image, converts it into multiple patches. | The encoder, a swin transformer in the paper, receives the image, converts it into multiple patches.",
+    "paper_id": "605"
+  },
+  {
+    "section": "informationextractionandrecentmodelarchitectures2",
+    "path": {
+      "section": "informationextractionandrecentmodelarchitectures2",
+      "start_entity": "ModelVersion1",
+      "end_entity": "NeuralNetworkComponent",
+      "hops": [
+        {
+          "from": "ModelVersion1",
+          "relation": "comparedWith",
+          "to": "Donut",
+          "context": "Furthermore, it needs fewer data to train than Donut because it does not need to train a OCR-model but rather uses an external one to gather position information.",
+          "chunk": "2"
+        },
+        {
+          "from": "Donut",
+          "relation": "uses",
+          "to": "MultiLayeredPerceptrons",
+          "context": "Afterwards, the embeddings of each patch run through 2 multi-layered perceptrons and then merged into one output z.",
+          "chunk": "2"
+        },
+        {
+          "from": "MultiLayeredPerceptrons",
+          "relation": "type",
+          "to": "NeuralNetworkComponent",
+          "context": "Afterwards, the embeddings of each patch run through 2 multi-layered perceptrons and then merged into one output z.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "What differentiates the architecture of ModelVersion1 compared to Donut in terms of neural network components used for processing?",
+    "options": {
+      "A": "ModelVersion1, unlike Donut, completely avoids using neural network components, focusing solely on external data sources.",
+      "B": "ModelVersion1 directly integrates multi-layered perceptrons for patch processing, unlike Donut which relies on a hybrid model.",
+      "C": "ModelVersion1 uses an external OCR-model for position information, bypassing the need for embedded neural networks.",
+      "D": "Both ModelVersion1 and Donut utilize multi-layered perceptrons, but ModelVersion1 merges outputs into a single vector z."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is C because the context mentions that in ModelVersion1, the embeddings of each patch run through 2 multi-layered perceptrons and are merged into one output z, which suggests both models use multi-layered perceptrons but ModelVersion1 specifically mentions the merging into one output, indicating how the neural network components are utilized differently compared to Donut.",
+    "path_description": "Path: ModelVersion1 --[comparedWith]--> Donut --[uses]--> MultiLayeredPerceptrons --[type]--> NeuralNetworkComponent",
+    "context": "Furthermore, it needs fewer data to train than Donut because it does not need to train a OCR-model but rather uses an external one to gather position information. | Afterwards, the embeddings of each patch run through 2 multi-layered perceptrons and then merged into one output z. | Afterwards, the embeddings of each patch run through 2 multi-layered perceptrons and then merged into one output z.",
+    "paper_id": "605"
+  },
+  {
+    "section": "dataset",
+    "path": {
+      "section": "dataset",
+      "start_entity": "ScenarioS2_100",
+      "end_entity": "UnknownEntities",
+      "hops": [
+        {
+          "from": "ScenarioS2_100",
+          "relation": "uses",
+          "to": "PrivateDataset",
+          "context": "For scenario S2 100, introduced in Section V, to train the token classification model.",
+          "chunk": "5"
+        },
+        {
+          "from": "PrivateDataset",
+          "relation": "excludes",
+          "to": "TestDataset",
+          "context": "receipts of a creditor in the train-dataset will not be included in the test-dataset and vice versa.",
+          "chunk": "5"
+        },
+        {
+          "from": "TestDataset",
+          "relation": "evaluates",
+          "to": "UnknownEntities",
+          "context": "to mimic the effect of a deployed model in production needs to evaluate invoices of an unknown entity, f.e. new vendors.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In Scenario S2 100, why is the TestDataset purposefully excluded from containing any receipts of a creditor found in the PrivateDataset?",
+    "options": {
+      "A": "To ensure that the model can effectively evaluate invoices from entities not previously encountered in the training phase.",
+      "B": "To increase the accuracy of the model by keeping the training and test data exactly the same.",
+      "C": "To simplify the model's algorithm by reducing the diversity of data it needs to process.",
+      "D": "To comply with data privacy laws that require separation of financial records of creditors."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A because the exclusion of the training dataset creditors from the test dataset is intended to simulate a real-world scenario where the model must evaluate invoices from entities it has not seen before (unknown entities), thus testing its ability to generalize to new data.",
+    "path_description": "Path: ScenarioS2_100 --[uses]--> PrivateDataset --[excludes]--> TestDataset --[evaluates]--> UnknownEntities",
+    "context": "For scenario S2 100, introduced in Section V, to train the token classification model. | receipts of a creditor in the train-dataset will not be included in the test-dataset and vice versa. | to mimic the effect of a deployed model in production needs to evaluate invoices of an unknown entity, f.e. new vendors.",
+    "paper_id": "605"
+  },
+  {
+    "section": "discussion",
+    "path": {
+      "section": "discussion",
+      "start_entity": "TCT",
+      "end_entity": "Metric",
+      "hops": [
+        {
+          "from": "TCT",
+          "relation": "usedIn",
+          "to": "Scenario2",
+          "context": "trained with the TCT task",
+          "chunk": "8"
+        },
+        {
+          "from": "Scenario2",
+          "relation": "evaluatedWith",
+          "to": "F1Score",
+          "context": "We’ve calculated the F1-Score for each token class of interest",
+          "chunk": "8"
+        },
+        {
+          "from": "F1Score",
+          "relation": "type",
+          "to": "Metric",
+          "context": "We’ve calculated the F1-Score for each token class of interest",
+          "chunk": "8"
+        }
+      ]
+    },
+    "question": "In the context of the discussion about TCT (Token Class Task), how is the performance of Scenario2 primarily evaluated?",
+    "options": {
+      "A": "By calculating the mean squared error between predicted and actual token classifications.",
+      "B": "Utilizing a confusion matrix to visually inspect the performance across different token classes.",
+      "C": "Through the application of accuracy rate, which measures the percentage of correctly identified tokens.",
+      "D": "By using F1-Score, a metric that assesses precision and recall for each token class."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A because the knowledge graph path shows that F1Score, which evaluates both precision and recall, is used within Scenario2 to evaluate the TCT task. Options B, C, and D suggest other types of evaluation metrics which are not aligned with the F1Score metric discussed in the paper.",
+    "path_description": "Path: TCT --[usedIn]--> Scenario2 --[evaluatedWith]--> F1Score --[type]--> Metric",
+    "context": "trained with the TCT task | We’ve calculated the F1-Score for each token class of interest | We’ve calculated the F1-Score for each token class of interest",
+    "paper_id": "605"
+  }
+]

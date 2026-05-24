@@ -1,0 +1,131 @@
+[
+  {
+    "section": "introduction",
+    "path": {
+      "section": "introduction",
+      "start_entity": "Blockchain",
+      "end_entity": "SecurityThreat",
+      "hops": [
+        {
+          "from": "Blockchain",
+          "relation": "enables",
+          "to": "DecentralizedFederatedLearning",
+          "context": "Decentralized FL through blockchains removes the need for a central aggregator",
+          "chunk": "0"
+        },
+        {
+          "from": "DecentralizedFederatedLearning",
+          "relation": "protectsAgainst",
+          "to": "SybilAttacks",
+          "context": "thereby protecting against Sybil attacks",
+          "chunk": "0"
+        },
+        {
+          "from": "SybilAttacks",
+          "relation": "type",
+          "to": "SecurityThreat",
+          "context": "thereby protecting against Sybil attacks",
+          "chunk": "0"
+        }
+      ]
+    },
+    "question": "How does the implementation of blockchain technology in decentralized federated learning primarily enhance security?",
+    "options": {
+      "A": "By anonymizing participant identities, it safeguards against personal data exploitation and privacy breaches.",
+      "B": "By removing the requirement for a central aggregator, it mitigates vulnerabilities to Sybil attacks, a type of security threat.",
+      "C": "By distributing data storage, it reduces the risk of data loss or corruption from centralized server failures.",
+      "D": "By encrypting data transactions, it prevents unauthorized access to confidential information and data breaches."
+    },
+    "correct_answer": "B",
+    "explanation": "The implementation of blockchain in decentralized federated learning enhances security by removing the need for a central aggregator. This setup inherently protects against Sybil attacks, which are a type of security threat where an attacker subverts the network by creating a large number of pseudonymous entities. The decentralization aspect of blockchain helps in mitigating this specific threat.",
+    "path_description": "Path: Blockchain --[enables]--> DecentralizedFederatedLearning --[protectsAgainst]--> SybilAttacks --[type]--> SecurityThreat",
+    "context": "Decentralized FL through blockchains removes the need for a central aggregator | thereby protecting against Sybil attacks | thereby protecting against Sybil attacks",
+    "paper_id": "541"
+  },
+  {
+    "section": "systemdesign2",
+    "path": {
+      "section": "systemdesign2",
+      "start_entity": "Worker",
+      "end_entity": "Commitment",
+      "hops": [
+        {
+          "from": "Worker",
+          "relation": "receives",
+          "to": "Signature",
+          "context": "The learning data LD and the signature µ are then provided to the worker’s learning module.",
+          "chunk": "5"
+        },
+        {
+          "from": "Signature",
+          "relation": "type",
+          "to": "Signature",
+          "context": "and attests to it by signing the batch using the device secret key: Sign(DKsec, LD) → µ",
+          "chunk": "5"
+        },
+        {
+          "from": "Signature",
+          "relation": "contains",
+          "to": "Commitment",
+          "context": "signature is created on a commitment to the learning data comm(LD) for efficiency reasons and, as such, µ additionally contains comm(LD).",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the context of a worker's learning module described in the 'systemdesign2' section, why does the signature µ specifically contain a commitment to the learning data?",
+    "options": {
+      "A": "The learning data is too sensitive to be directly signed, requiring a commitment to obscure actual data values.",
+      "B": "The commitment to the learning data enhances signature efficiency by reducing the data size needed for processing.",
+      "C": "Committal of the learning data is a regulatory requirement for learning modules operating in secure environments.",
+      "D": "The commitment acts merely as a checksum to verify the integrity of the learning data, not affecting the signing process."
+    },
+    "correct_answer": "B",
+    "explanation": "The commitment, comm(LD), included in the signature µ serves to enhance efficiency. By committing to the learning data before signing, the process is made more efficient as the size of the data involved in the cryptographic operations is reduced.",
+    "path_description": "Path: Worker --[receives]--> Signature --[type]--> Signature --[contains]--> Commitment",
+    "context": "The learning data LD and the signature µ are then provided to the worker’s learning module. | and attests to it by signing the batch using the device secret key: Sign(DKsec, LD) → µ | signature is created on a commitment to the learning data comm(LD) for efficiency reasons and, as such, µ additionally contains comm(LD).",
+    "paper_id": "541"
+  },
+  {
+    "section": "systemdesign2",
+    "path": {
+      "section": "systemdesign2",
+      "start_entity": "Worker",
+      "end_entity": "Key",
+      "hops": [
+        {
+          "from": "Worker",
+          "relation": "receives",
+          "to": "Signature",
+          "context": "The learning data LD and the signature µ are then provided to the worker’s learning module.",
+          "chunk": "5"
+        },
+        {
+          "from": "Signature",
+          "relation": "verifiedBy",
+          "to": "DevicePublicKey",
+          "context": "First, the signature µ over the learning data is verified using the device public key: VerifySign(DKpub, µ, LD).",
+          "chunk": "5"
+        },
+        {
+          "from": "DevicePublicKey",
+          "relation": "type",
+          "to": "Key",
+          "context": "First, the signature µ over the learning data is verified using the device public key: VerifySign(DKpub, µ, LD).",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the system described in 'systemdesign2', what is the primary purpose of the device public key (DKpub) in the interaction with the worker?",
+    "options": {
+      "A": "It functions as a mechanism to distribute learning tasks among multiple workers.",
+      "B": "It is used to encrypt the learning data before it is sent to the worker for processing.",
+      "C": "It allows the worker to decrypt messages sent by other entities within the system.",
+      "D": "It serves to verify the authenticity and integrity of the learning data received by the worker."
+    },
+    "correct_answer": "D",
+    "explanation": "The device public key (DKpub) is used specifically to verify the signature (µ) over the learning data (LD), ensuring the data's authenticity and integrity has been maintained before processing by the worker. The other options describe roles not attributed to the public key in the system design.",
+    "path_description": "Path: Worker --[receives]--> Signature --[verifiedBy]--> DevicePublicKey --[type]--> Key",
+    "context": "The learning data LD and the signature µ are then provided to the worker’s learning module. | First, the signature µ over the learning data is verified using the device public key: VerifySign(DKpub, µ, LD). | First, the signature µ over the learning data is verified using the device public key: VerifySign(DKpub, µ, LD).",
+    "paper_id": "541"
+  }
+]

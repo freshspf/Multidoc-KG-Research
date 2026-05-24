@@ -1,0 +1,131 @@
+[
+  {
+    "section": "sensordatafuzzing",
+    "path": {
+      "section": "sensordatafuzzing",
+      "start_entity": "FuzzSense",
+      "end_entity": "DataStructure",
+      "hops": [
+        {
+          "from": "FuzzSense",
+          "relation": "uses",
+          "to": "FuzzingMask",
+          "context": "FuzzSense is designed to apply manipulations to the sensor data stream before it reaches the downstream AD software.",
+          "chunk": "3"
+        },
+        {
+          "from": "FuzzingMask",
+          "relation": "appliedTo",
+          "to": "PointCloud",
+          "context": "For LiDAR, the same concept is used to add points to the point cloud, and only the distance is added.",
+          "chunk": "3"
+        },
+        {
+          "from": "PointCloud",
+          "relation": "type",
+          "to": "DataStructure",
+          "context": "For LiDAR, the same concept is used to add points to the point cloud, and only the distance is added.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "What is the purpose of using FuzzingMask in the context of FuzzSense when applied to LiDAR sensor data?",
+    "options": {
+      "A": "To categorize different types of objects within the point cloud, improving object detection.",
+      "B": "To enhance the clarity and resolution of the point cloud by removing noise and redundant data.",
+      "C": "To convert the raw LiDAR data into a more compact form by compressing the data points.",
+      "D": "To manipulate the sensor data by adding points to the point cloud, affecting only the distance measurements."
+    },
+    "correct_answer": "D",
+    "explanation": "FuzzingMask, when used with FuzzSense for LiDAR data, is specifically designed to manipulate the sensor data stream by adding points to the point cloud where only the distance measurements are added. This is aimed at testing the robustness of downstream AD software to altered sensor inputs.",
+    "path_description": "Path: FuzzSense --[uses]--> FuzzingMask --[appliedTo]--> PointCloud --[type]--> DataStructure",
+    "context": "FuzzSense is designed to apply manipulations to the sensor data stream before it reaches the downstream AD software. | For LiDAR, the same concept is used to add points to the point cloud, and only the distance is added. | For LiDAR, the same concept is used to add points to the point cloud, and only the distance is added.",
+    "paper_id": "412"
+  },
+  {
+    "section": "conclusionfuturework",
+    "path": {
+      "section": "conclusionfuturework",
+      "start_entity": "EnFuzz",
+      "end_entity": "Fig4",
+      "hops": [
+        {
+          "from": "EnFuzz",
+          "relation": "inspired",
+          "to": "FuzzSense",
+          "context": "The EnFuzz design further inspired our adoption within FuzzSense",
+          "chunk": "6"
+        },
+        {
+          "from": "FuzzSense",
+          "relation": "focusesOn",
+          "to": "ADSoftware",
+          "context": "Our contribution is unique from EnFuzz as our focus is specific to AD software",
+          "chunk": "6"
+        },
+        {
+          "from": "ADSoftware",
+          "relation": "evaluatedOn",
+          "to": "Fig4",
+          "context": "parameters for amount and dispersion are the same as Fig. 4 is a useful exercise to find vulnerabilities of the AD software",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "Which of the following best describes the evolution and focus of FuzzSense, as influenced by EnFuzz and evaluated in Fig. 4 of the paper?",
+    "options": {
+      "A": "FuzzSense, inspired by EnFuzz, specifically targets vulnerability detection in AD software, using parameters identical to those in Fig. 4.",
+      "B": "FuzzSense, while similar to EnFuzz, generalizes its approach across various software types, as demonstrated in Fig. 4.",
+      "C": "EnFuzz, which led to the development of FuzzSense, focuses primarily on improving graphical representations in software algorithms as shown in Fig. 4.",
+      "D": "FuzzSense extends the capabilities of EnFuzz by focusing on network security enhancements, with methods showcased in Fig. 4."
+    },
+    "correct_answer": "A",
+    "explanation": "Option A is correct because it accurately reflects the specific focus of FuzzSense on AD software, inspired by EnFuzz, and mentions the use of identical parameters as evaluated in Fig. 4. The other options either misrepresent the focus of FuzzSense, the influence of EnFuzz, or the contents of Fig. 4.",
+    "path_description": "Path: EnFuzz --[inspired]--> FuzzSense --[focusesOn]--> ADSoftware --[evaluatedOn]--> Fig4",
+    "context": "The EnFuzz design further inspired our adoption within FuzzSense | Our contribution is unique from EnFuzz as our focus is specific to AD software | parameters for amount and dispersion are the same as Fig. 4 is a useful exercise to find vulnerabilities of the AD software",
+    "paper_id": "412"
+  },
+  {
+    "section": "conclusionfuturework",
+    "path": {
+      "section": "conclusionfuturework",
+      "start_entity": "Vehicle",
+      "end_entity": "FuzzingMask",
+      "hops": [
+        {
+          "from": "Vehicle",
+          "relation": "type",
+          "to": "Vehicle",
+          "context": "when the fuzzing mask was located on or near the planned trajectory of the vehicle",
+          "chunk": "6"
+        },
+        {
+          "from": "Vehicle",
+          "relation": "type",
+          "to": "Vehicle",
+          "context": "when the fuzzing mask was located on or near the planned trajectory of the vehicle",
+          "chunk": "6"
+        },
+        {
+          "from": "Vehicle",
+          "relation": "stopsDueTo",
+          "to": "FuzzingMask",
+          "context": "it resulted in a complete stop of the vehicle",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "What consequence does a fuzzing mask located on or near a vehicle's planned trajectory typically have according to the study?",
+    "options": {
+      "A": "It significantly increases the speed of the vehicle to avoid collision.",
+      "B": "It results in a complete stop of the vehicle to ensure safety.",
+      "C": "It does not affect the vehicle's trajectory or operational function.",
+      "D": "It causes the vehicle to reroute to an alternate trajectory."
+    },
+    "correct_answer": "B",
+    "explanation": "According to the study, when a fuzzing mask is placed on or near the planned trajectory of a vehicle, it results in a complete stop of the vehicle. This is a security measure to prevent potential accidents or malfunctions caused by the fuzzing interference.",
+    "path_description": "Path: Vehicle --[type]--> Vehicle --[type]--> Vehicle --[stopsDueTo]--> FuzzingMask",
+    "context": "when the fuzzing mask was located on or near the planned trajectory of the vehicle | when the fuzzing mask was located on or near the planned trajectory of the vehicle | it resulted in a complete stop of the vehicle",
+    "paper_id": "412"
+  }
+]

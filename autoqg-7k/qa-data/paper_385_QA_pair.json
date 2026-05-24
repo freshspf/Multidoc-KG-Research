@@ -1,0 +1,174 @@
+[
+  {
+    "section": "backgroundandnotations",
+    "path": {
+      "section": "backgroundandnotations",
+      "start_entity": "Transaction",
+      "end_entity": "BlockchainConcept",
+      "hops": [
+        {
+          "from": "Transaction",
+          "relation": "hasAncestor",
+          "to": "Transaction",
+          "context": "A transaction tx1 is tx2’s ancestor or parent if tx1.sender = tx2.sender ∧ tx1.nonce < tx2.nonce.",
+          "chunk": "1"
+        },
+        {
+          "from": "Transaction",
+          "relation": "relatedTo",
+          "to": "SmartContract",
+          "context": "In Ethereum, a transaction tx is characterized by a sender, a nonce, a price, an amount of computation it consumes, GasUsed, and the data field relevant to smart-contract invocation.",
+          "chunk": "1"
+        },
+        {
+          "from": "SmartContract",
+          "relation": "type",
+          "to": "BlockchainConcept",
+          "context": "In Ethereum, a transaction tx is characterized by a sender, a nonce, a price, an amount of computation it consumes, GasUsed, and the data field relevant to smart-contract invocation.",
+          "chunk": "1"
+        }
+      ]
+    },
+    "question": "In the context of Ethereum transactions, how does the relationship between ancestor transactions influence the execution of a smart contract within a blockchain?",
+    "options": {
+      "A": "If a transaction has an ancestor with the same sender and a lower nonce, it might trigger a smart contract that operates on blockchain technologies.",
+      "B": "Transactions with the same sender but nonsequential nonces do not affect smart contracts but may impact other blockchain operations.",
+      "C": "Ancestor transactions with higher gas prices directly decrease the computational efficiency of smart contracts in Ethereum.",
+      "D": "Transactions with higher nonces and different senders are likely to invoke unrelated smart contracts in a separate blockchain system."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A because it correctly relates the concept of ancestor transactions (transactions with the same sender and a lower nonce) to their potential to influence subsequent transactions that may involve smart contract invocations, which are integral to blockchain operations as per the Ethereum protocol.",
+    "path_description": "Path: Transaction --[hasAncestor]--> Transaction --[relatedTo]--> SmartContract --[type]--> BlockchainConcept",
+    "context": "A transaction tx1 is tx2’s ancestor or parent if tx1.sender = tx2.sender ∧ tx1.nonce < tx2.nonce. | In Ethereum, a transaction tx is characterized by a sender, a nonce, a price, an amount of computation it consumes, GasUsed, and the data field relevant to smart-contract invocation. | In Ethereum, a transaction tx is characterized by a sender, a nonce, a price, an amount of computation it consumes, GasUsed, and the data field relevant to smart-contract invocation.",
+    "paper_id": "767"
+  },
+  {
+    "section": "threatmodel",
+    "path": {
+      "section": "threatmodel",
+      "start_entity": "orderedList",
+      "end_entity": "Entity",
+      "hops": [
+        {
+          "from": "orderedList",
+          "relation": "convertedTo",
+          "to": "unorderedSet",
+          "context": "A list is converted to a set ops by the function unorder(o~ps).",
+          "chunk": "2"
+        },
+        {
+          "from": "unorderedSet",
+          "relation": "convertedTo",
+          "to": "orderedList",
+          "context": "a set is converted to a list o~ps by the function toOrder(ops).",
+          "chunk": "2"
+        },
+        {
+          "from": "orderedList",
+          "relation": "type",
+          "to": "Entity",
+          "context": "we differentiate the unordered set and ordered list: Given an unordered transaction set, say ops.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the context of converting data structures from a list to a set and back to a list in a threat model scenario, what is the primary characteristic maintained by the final data structure?",
+    "options": {
+      "A": "The final data structure maintains the original order of elements as in the initial list.",
+      "B": "The final data structure maintains the unordered nature of the elements from the set.",
+      "C": "The final data structure introduces a new ordering not present in either the set or the initial list.",
+      "D": "The final data structure eliminates all duplicate elements as in the typical behavior of a set."
+    },
+    "correct_answer": "A",
+    "explanation": "The knowledge path indicates that a list is first converted into a set and then back into a list. While the conversion to a set would normally eliminate any specific ordering and duplicates, the re-conversion to a list by the function toOrder suggests that the original order of the list elements is re-established, thereby maintaining the original order in the final data structure.",
+    "path_description": "Path: orderedList --[convertedTo]--> unorderedSet --[convertedTo]--> orderedList --[type]--> Entity",
+    "context": "A list is converted to a set ops by the function unorder(o~ps). | a set is converted to a list o~ps by the function toOrder(ops). | we differentiate the unordered set and ordered list: Given an unordered transaction set, say ops.",
+    "paper_id": "767"
+  },
+  {
+    "section": "securitydefinition2",
+    "path": {
+      "section": "securitydefinition2",
+      "start_entity": "ta",
+      "end_entity": "DataStructure",
+      "hops": [
+        {
+          "from": "ta",
+          "relation": "declinedBy",
+          "to": "Algorithm1",
+          "context": "If the mempool is full and ta.price ≤ te.price (Line 7), the algorithm declines the arriving transaction ta, that is, te = ta (Line 8).",
+          "chunk": "4"
+        },
+        {
+          "from": "Algorithm1",
+          "relation": "sortsTransactions",
+          "to": "mempool",
+          "context": "It then sorts all childless transactions in mempool (st.findChildless()) in descendant order based on tx’s price.",
+          "chunk": "4"
+        },
+        {
+          "from": "mempool",
+          "relation": "type",
+          "to": "DataStructure",
+          "context": "As described next, function t~es = TORDER(st) produces a order of transactions in the mempool, denoted by t~es.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "What is the consequence in the scenario where a new transaction ta is declined by Algorithm1 due to a price comparison with a transaction te in a full mempool?",
+    "options": {
+      "A": "Algorithm1 increases the capacity of the mempool to accommodate more transactions.",
+      "B": "Algorithm1 sorts all childless transactions in the mempool in descendant order based on transaction price.",
+      "C": "Algorithm1 reroutes the declined transaction ta to a secondary storage structure.",
+      "D": "Algorithm1 immediately processes ta with a higher priority over other transactions."
+    },
+    "correct_answer": "B",
+    "explanation": "When the mempool is full and the price of the arriving transaction ta is less than or equal to the price of transaction te, the algorithm declines ta. Subsequently, it sorts all childless transactions in the mempool in descendant order based on their prices, as stated in the context.",
+    "path_description": "Path: ta --[declinedBy]--> Algorithm1 --[sortsTransactions]--> mempool --[type]--> DataStructure",
+    "context": "If the mempool is full and ta.price ≤ te.price (Line 7), the algorithm declines the arriving transaction ta, that is, te = ta (Line 8). | It then sorts all childless transactions in mempool (st.findChildless()) in descendant order based on tx’s price. | As described next, function t~es = TORDER(st) produces a order of transactions in the mempool, denoted by t~es.",
+    "paper_id": "767"
+  },
+  {
+    "section": "performanceevaluation",
+    "path": {
+      "section": "performanceevaluation",
+      "start_entity": "SAFERAD-CP",
+      "end_entity": "Threat",
+      "hops": [
+        {
+          "from": "SAFERAD-CP",
+          "relation": "hardens",
+          "to": "GethClient",
+          "context": "Fig. 6: Running time of SAFERAD-CP on Geth v1.11.4",
+          "chunk": "9"
+        },
+        {
+          "from": "GethClient",
+          "relation": "mitigates",
+          "to": "DETER",
+          "context": "Note that Geth v1.11.4 that mitigates DETER causes 1.083× running time compared to vanilla Geth v1.11.3, which is vulnerable to DETER.",
+          "chunk": "9"
+        },
+        {
+          "from": "DETER",
+          "relation": "type",
+          "to": "Threat",
+          "context": "Note that Geth v1.11.4 that mitigates DETER causes 1.083× running time compared to vanilla Geth v1.11.3, which is vulnerable to DETER.",
+          "chunk": "9"
+        }
+      ]
+    },
+    "question": "How does the implementation of SAFERAD-CP in Geth v1.11.4 influence its performance compared to vanilla Geth v1.11.3, particularly in the context of mitigating the DETER threat?",
+    "options": {
+      "A": "SAFERAD-CP in Geth v1.11.4 increases the running time by 1.083 times due to enhanced security mechanisms against DETER.",
+      "B": "SAFERAD-CP in Geth v1.11.4 doubles the running time because its security protocols are less efficient than in vanilla Geth v1.11.3.",
+      "C": "SAFERAD-CP in Geth v1.11.4 decreases the running time by 1.083 times, reflecting an optimization despite its mitigation of DETER.",
+      "D": "SAFERAD-CP in Geth v1.11.4 does not affect the running time, maintaining performance equivalent to vanilla Geth v1.11.3."
+    },
+    "correct_answer": "A",
+    "explanation": "SAFERAD-CP hardens Geth v1.11.4 against the DETER threat, which is indicated to increase the running time to 1.083 times that of the previous version, Geth v1.11.3, which does not include these security enhancements. This indicates a trade-off between improved security and performance.",
+    "path_description": "Path: SAFERAD-CP --[hardens]--> GethClient --[mitigates]--> DETER --[type]--> Threat",
+    "context": "Fig. 6: Running time of SAFERAD-CP on Geth v1.11.4 | Note that Geth v1.11.4 that mitigates DETER causes 1.083× running time compared to vanilla Geth v1.11.3, which is vulnerable to DETER. | Note that Geth v1.11.4 that mitigates DETER causes 1.083× running time compared to vanilla Geth v1.11.3, which is vulnerable to DETER.",
+    "paper_id": "767"
+  }
+]

@@ -1,0 +1,217 @@
+[
+  {
+    "section": "introduction",
+    "path": {
+      "section": "introduction",
+      "start_entity": "SHA384",
+      "end_entity": "KeyGenerator",
+      "hops": [
+        {
+          "from": "SHA384",
+          "relation": "usedIn",
+          "to": "EncryptFunction",
+          "context": "unsigned char hash[SHA384_DIGEST_LENGTH]; SHA384_Init(&sha384_ctx);",
+          "chunk": "0"
+        },
+        {
+          "from": "EncryptFunction",
+          "relation": "uses",
+          "to": "SecretKey",
+          "context": "String encryptedText = encrypt(plainText, key);",
+          "chunk": "0"
+        },
+        {
+          "from": "SecretKey",
+          "relation": "generatedBy",
+          "to": "KeyGenerator",
+          "context": "SecretKey key = kg.generateKey().",
+          "chunk": "0"
+        }
+      ]
+    },
+    "question": "Which of the following best describes the role of the KeyGenerator in the process of securing data using SHA384?",
+    "options": {
+      "A": "The KeyGenerator generates a secret key used to initialize the SHA384 encryption context.",
+      "B": "The KeyGenerator is responsible for creating the hash value directly applied in the SHA384 algorithm.",
+      "C": "The KeyGenerator verifies the integrity of the data encrypted by the SHA384 function.",
+      "D": "The KeyGenerator produces a secret key that is essential for the EncryptFunction using SHA384."
+    },
+    "correct_answer": "D",
+    "explanation": "In the given knowledge graph path, the KeyGenerator generates a SecretKey, which is then used in the EncryptFunction. The EncryptFunction uses SHA384, linking the generated SecretKey as a crucial component for the encryption process, rather than for initializing SHA384 or verifying data integrity.",
+    "path_description": "Path: SHA384 --[usedIn]--> EncryptFunction --[uses]--> SecretKey --[generatedBy]--> KeyGenerator",
+    "context": "unsigned char hash[SHA384_DIGEST_LENGTH]; SHA384_Init(&sha384_ctx); | String encryptedText = encrypt(plainText, key); | SecretKey key = kg.generateKey().",
+    "paper_id": "399"
+  },
+  {
+    "section": "implementation1",
+    "path": {
+      "section": "implementation1",
+      "start_entity": "Slicer",
+      "end_entity": "Concept",
+      "hops": [
+        {
+          "from": "Slicer",
+          "relation": "analyzes",
+          "to": "CryptoAsset",
+          "context": "The last stage constructs crypto assets. Here, each slice is analyzed separately.",
+          "chunk": "3"
+        },
+        {
+          "from": "CryptoAsset",
+          "relation": "differentiatedFrom",
+          "to": "CryptographicAlgorithm",
+          "context": "we differentiate between 'Usage of a cryptographic algorithm' and 'Usage of cryptographic library API calls'.",
+          "chunk": "3"
+        },
+        {
+          "from": "CryptographicAlgorithm",
+          "relation": "type",
+          "to": "Concept",
+          "context": "we differentiate between 'Usage of a cryptographic algorithm' and 'Usage of cryptographic library API calls'.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the context of crypto asset analysis, what key differentiation does the 'Slicer' make when examining the properties of a cryptographic algorithm?",
+    "options": {
+      "A": "Differentiating types of cryptographic algorithms based on their complexity and computational overhead.",
+      "B": "Differentiating the effectiveness of cryptographic algorithms in terms of their security vulnerabilities.",
+      "C": "Differentiating between the cryptographic algorithm used in digital signatures versus encryption methods.",
+      "D": "Differentiating between the usage of a cryptographic algorithm and the usage of cryptographic library API calls."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A because, according to the context provided, the 'Slicer' specifically differentiates between the usage of a cryptographic algorithm and the usage of cryptographic library API calls. This distinction is crucial for analyzing the properties and behaviors of crypto assets accurately.",
+    "path_description": "Path: Slicer --[analyzes]--> CryptoAsset --[differentiatedFrom]--> CryptographicAlgorithm --[type]--> Concept",
+    "context": "The last stage constructs crypto assets. Here, each slice is analyzed separately. | we differentiate between 'Usage of a cryptographic algorithm' and 'Usage of cryptographic library API calls'. | we differentiate between 'Usage of a cryptographic algorithm' and 'Usage of cryptographic library API calls'.",
+    "paper_id": "399"
+  },
+  {
+    "section": "implementation1",
+    "path": {
+      "section": "implementation1",
+      "start_entity": "Cryptoscope",
+      "end_entity": "CryptographicLibraryAPICalls",
+      "hops": [
+        {
+          "from": "Cryptoscope",
+          "relation": "includes",
+          "to": "Slicer",
+          "context": "A high level overview of Cryptoscope is shown in figure 3 and is composed out of 4 stages.",
+          "chunk": "3"
+        },
+        {
+          "from": "Slicer",
+          "relation": "analyzes",
+          "to": "CryptoAsset",
+          "context": "The last stage constructs crypto assets. Here, each slice is analyzed separately.",
+          "chunk": "3"
+        },
+        {
+          "from": "CryptoAsset",
+          "relation": "differentiatedFrom",
+          "to": "CryptographicLibraryAPICalls",
+          "context": "we differentiate between 'Usage of a cryptographic algorithm' and 'Usage of cryptographic library API calls'.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the Cryptoscope tool, what is the primary purpose of the 'Slicer' component when constructing crypto assets?",
+    "options": {
+      "A": "The Slicer component analyzes each crypto asset to differentiate between cryptographic algorithms and library API calls.",
+      "B": "The Slicer component filters out irrelevant data from cryptocurrencies to focus on the key attributes only.",
+      "C": "The Slicer component aggregates data from various crypto assets to enhance the processing speed of Cryptoscope.",
+      "D": "The Slicer component is responsible for the graphical representation of crypto assets within the Cryptoscope tool."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is 'A' because, according to the knowledge path, the Slicer component within Cryptoscope analyzes each crypto asset. The context specifies that each slice is analyzed to differentiate between the usage of cryptographic algorithms and cryptographic library API calls, directly aligning with the analysis function of the Slicer.",
+    "path_description": "Path: Cryptoscope --[includes]--> Slicer --[analyzes]--> CryptoAsset --[differentiatedFrom]--> CryptographicLibraryAPICalls",
+    "context": "A high level overview of Cryptoscope is shown in figure 3 and is composed out of 4 stages. | The last stage constructs crypto assets. Here, each slice is analyzed separately. | we differentiate between 'Usage of a cryptographic algorithm' and 'Usage of cryptographic library API calls'.",
+    "paper_id": "399"
+  },
+  {
+    "section": "evaluation2",
+    "path": {
+      "section": "evaluation2",
+      "start_entity": "Cryptoscope",
+      "end_entity": "Metric",
+      "hops": [
+        {
+          "from": "Cryptoscope",
+          "relation": "evaluatedOn",
+          "to": "DiscoveryTask",
+          "context": "Cryptoscope is evaluated on the discovery task viewed as a classification task.",
+          "chunk": "6"
+        },
+        {
+          "from": "DiscoveryTask",
+          "relation": "measures",
+          "to": "FalseNegativeRate",
+          "context": "The discovery task measures the false negative rate.",
+          "chunk": "6"
+        },
+        {
+          "from": "FalseNegativeRate",
+          "relation": "type",
+          "to": "Metric",
+          "context": "False negative rate is measured for evaluating Cryptoscope.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the evaluation of Cryptoscope for the discovery task, which metric is primarily used to assess its performance?",
+    "options": {
+      "A": "False negative rate, which is crucial for understanding missed detections in classification tasks.",
+      "B": "Precision, which assesses the proportion of true positives among all positives identified.",
+      "C": "Recall rate, focusing on the proportion of actual positives that were correctly identified.",
+      "D": "True positive rate, important for identifying correctly detected events in the task."
+    },
+    "correct_answer": "A",
+    "explanation": "The false negative rate is explicitly mentioned as the metric used to measure the performance of Cryptoscope in the discovery task, which is viewed as a classification task. This rate is important for evaluating how many relevant results are missed, a critical aspect in such tasks.",
+    "path_description": "Path: Cryptoscope --[evaluatedOn]--> DiscoveryTask --[measures]--> FalseNegativeRate --[type]--> Metric",
+    "context": "Cryptoscope is evaluated on the discovery task viewed as a classification task. | The discovery task measures the false negative rate. | False negative rate is measured for evaluating Cryptoscope.",
+    "paper_id": "399"
+  },
+  {
+    "section": "evaluation2",
+    "path": {
+      "section": "evaluation2",
+      "start_entity": "Cryptoscope",
+      "end_entity": "Metric",
+      "hops": [
+        {
+          "from": "Cryptoscope",
+          "relation": "evaluatedOn",
+          "to": "DiscoveryTask",
+          "context": "Cryptoscope is evaluated on the discovery task viewed as a classification task.",
+          "chunk": "6"
+        },
+        {
+          "from": "DiscoveryTask",
+          "relation": "measures",
+          "to": "FalsePositiveRate",
+          "context": "The discovery task measures the false positive rate.",
+          "chunk": "6"
+        },
+        {
+          "from": "FalsePositiveRate",
+          "relation": "type",
+          "to": "Metric",
+          "context": "False positive rate is measured for evaluating Cryptoscope.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the evaluation of Cryptoscope, which metric is primarily utilized to assess its performance on the discovery task?",
+    "options": {
+      "A": "Recall Rate, measuring the ability to identify all relevant instances in the discovery task.",
+      "B": "Accuracy Rate, which measures the overall correctness of classifications in the discovery task.",
+      "C": "Precision Score, which determines the proportion of positive identifications that were actually correct.",
+      "D": "False Positive Rate, a crucial metric for assessing classification error in the discovery task."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is False Positive Rate. According to the knowledge graph path, Cryptoscope is evaluated on the discovery task, which specifically measures the false positive rate, defined as a type of metric used for evaluating the tool's performance.",
+    "path_description": "Path: Cryptoscope --[evaluatedOn]--> DiscoveryTask --[measures]--> FalsePositiveRate --[type]--> Metric",
+    "context": "Cryptoscope is evaluated on the discovery task viewed as a classification task. | The discovery task measures the false positive rate. | False positive rate is measured for evaluating Cryptoscope.",
+    "paper_id": "399"
+  }
+]

@@ -1,0 +1,260 @@
+[
+  {
+    "section": "abstract",
+    "path": {
+      "section": "abstract",
+      "start_entity": "SmartAxe",
+      "end_entity": "FinancialAmount",
+      "hops": [
+        {
+          "from": "SmartAxe",
+          "relation": "identifies",
+          "to": "CrossChainVulnerabilities",
+          "context": "SmartAxe successfully identifies 232 new/unknown CCVs from 129 real-world cross-chain bridge applications.",
+          "chunk": "0"
+        },
+        {
+          "from": "CrossChainVulnerabilities",
+          "relation": "affects",
+          "to": "DigitalAssetsWorth1885250USD",
+          "context": "These identified CCVs affect a total amount of digital assets worth 1,885,250 USD.",
+          "chunk": "0"
+        },
+        {
+          "from": "DigitalAssetsWorth1885250USD",
+          "relation": "type",
+          "to": "FinancialAmount",
+          "context": "These identified CCVs affect a total amount of digital assets worth 1,885,250 USD.",
+          "chunk": "0"
+        }
+      ]
+    },
+    "question": "What is the primary type of loss identified by SmartAxe in cross-chain bridge applications due to CrossChainVulnerabilities?",
+    "options": {
+      "A": "A data breach impacting personal information of blockchain users.",
+      "B": "A system downtime affecting transaction processing on blockchain networks.",
+      "C": "A loss of blockchain integrity and security, compromising transaction data.",
+      "D": "A financial amount totaling approximately 1,885,250 USD in digital assets."
+    },
+    "correct_answer": "D",
+    "explanation": "The knowledge graph and the context provided in the abstract indicate that SmartAxe identifies CrossChainVulnerabilities (CCVs) in cross-chain bridge applications, which specifically affect digital assets worth a financial amount of 1,885,250 USD. The correct answer is the financial impact on digital assets, as opposed to data breaches, system down times, or losses of integrity, which are not mentioned in the provided context.",
+    "path_description": "Path: SmartAxe --[identifies]--> CrossChainVulnerabilities --[affects]--> DigitalAssetsWorth1885250USD --[type]--> FinancialAmount",
+    "context": "SmartAxe successfully identifies 232 new/unknown CCVs from 129 real-world cross-chain bridge applications. | These identified CCVs affect a total amount of digital assets worth 1,885,250 USD. | These identified CCVs affect a total amount of digital assets worth 1,885,250 USD.",
+    "paper_id": "730"
+  },
+  {
+    "section": "backgroundandmotivation1",
+    "path": {
+      "section": "backgroundandmotivation1",
+      "start_entity": "RouterContract_Rs",
+      "end_entity": "CrossChainRelayer",
+      "hops": [
+        {
+          "from": "RouterContract_Rs",
+          "relation": "type",
+          "to": "SmartContract",
+          "context": "Router contract 𝑅𝑠 of the source chain invokes the Token contract 𝑇𝑠 to lock Token A.",
+          "chunk": "3"
+        },
+        {
+          "from": "SmartContract",
+          "relation": "partOf",
+          "to": "CrossChainBridge",
+          "context": "Smart contract is a specific type of program running on the blockchain, used in cross-chain bridges.",
+          "chunk": "3"
+        },
+        {
+          "from": "CrossChainBridge",
+          "relation": "includes",
+          "to": "CrossChainRelayer",
+          "context": "A typical cross-chain bridge can be divided into three parts: source chain, cross-chain relayer, and destination chain.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the context of blockchain technology, what role does the RouterContract_Rs primarily fulfill within a cross-chain bridge architecture?",
+    "options": {
+      "A": "It invokes the Token contract to initiate the locking of tokens on the source chain.",
+      "B": "It directly handles the overall security and integrity of the cross-chain bridge system.",
+      "C": "It functions as the cross-chain relayer responsible for transferring data across blockchain networks.",
+      "D": "It serves as the destination chain in receiving and unlocking tokens from other blockchains."
+    },
+    "correct_answer": "A",
+    "explanation": "The RouterContract_Rs, as part of the source chain, primarily invokes the Token contract to lock Token A, indicating its role in initiating token transfer processes within the cross-chain bridge, rather than handling data transfer, receiving tokens, or managing security.",
+    "path_description": "Path: RouterContract_Rs --[type]--> SmartContract --[partOf]--> CrossChainBridge --[includes]--> CrossChainRelayer",
+    "context": "Router contract 𝑅𝑠 of the source chain invokes the Token contract 𝑇𝑠 to lock Token A. | Smart contract is a specific type of program running on the blockchain, used in cross-chain bridges. | A typical cross-chain bridge can be divided into three parts: source chain, cross-chain relayer, and destination chain.",
+    "paper_id": "730"
+  },
+  {
+    "section": "backgroundandmotivation2",
+    "path": {
+      "section": "backgroundandmotivation2",
+      "start_entity": "GetTokenMeta",
+      "end_entity": "Cryptocurrency",
+      "hops": [
+        {
+          "from": "GetTokenMeta",
+          "relation": "updates",
+          "to": "TokenAddress",
+          "context": "type can be updated by getTokenMeta(token)",
+          "chunk": "4"
+        },
+        {
+          "from": "TokenAddress",
+          "relation": "defaultsTo",
+          "to": "ETH",
+          "context": "pass a wrong token address (i.e., 0x0000x) here, the default value (“ETH”) regardless of the actual",
+          "chunk": "4"
+        },
+        {
+          "from": "ETH",
+          "relation": "type",
+          "to": "Cryptocurrency",
+          "context": "the default value (“ETH”) regardless of the actual",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the context of blockchain technology, what occurs when a getTokenMeta function call receives an incorrect token address?",
+    "options": {
+      "A": "The function call defaults to returning a random cryptocurrency type based on the recent market trends.",
+      "B": "The function call results in an error, preventing any cryptocurrency information from being retrieved.",
+      "C": "The function will return the default cryptocurrency type 'ETH', regardless of the actual token type intended.",
+      "D": "The function updates the token address to a new value, reflecting the most current cryptocurrency standard."
+    },
+    "correct_answer": "C",
+    "explanation": "According to the knowledge path, the getTokenMeta function, when passed an incorrect token address, defaults to 'ETH' as specified in the TokenAddress entity. This default behavior occurs regardless of the intended or actual cryptocurrency associated with the correct token address.",
+    "path_description": "Path: GetTokenMeta --[updates]--> TokenAddress --[defaultsTo]--> ETH --[type]--> Cryptocurrency",
+    "context": "type can be updated by getTokenMeta(token) | pass a wrong token address (i.e., 0x0000x) here, the default value (“ETH”) regardless of the actual | the default value (“ETH”) regardless of the actual",
+    "paper_id": "730"
+  },
+  {
+    "section": "backgroundandmotivation1",
+    "path": {
+      "section": "backgroundandmotivation1",
+      "start_entity": "RouterContract_Rs",
+      "end_entity": "AssetExchange",
+      "hops": [
+        {
+          "from": "RouterContract_Rs",
+          "relation": "type",
+          "to": "SmartContract",
+          "context": "Router contract 𝑅𝑠 of the source chain invokes the Token contract 𝑇𝑠 to lock Token A.",
+          "chunk": "3"
+        },
+        {
+          "from": "SmartContract",
+          "relation": "partOf",
+          "to": "CrossChainBridge",
+          "context": "Smart contract is a specific type of program running on the blockchain, used in cross-chain bridges.",
+          "chunk": "3"
+        },
+        {
+          "from": "CrossChainBridge",
+          "relation": "enables",
+          "to": "AssetExchange",
+          "context": "Cross-chain bridge works as an intermediary for asset exchange on different blockchain platforms.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "How does the RouterContract_Rs function within the context of a cross-chain bridge in enabling asset exchanges?",
+    "options": {
+      "A": "The RouterContract_Rs monitors and validates cross-chain transactions to ensure they comply with both source and destination blockchain protocols.",
+      "B": "The RouterContract_Rs directly exchanges assets without needing to lock tokens, thereby simplifying the asset exchange process.",
+      "C": "The RouterContract_Rs invokes the Token contract to lock Token A, which is a prerequisite for asset exchange in the cross-chain bridge.",
+      "D": "The RouterContract_Rs serves as an intermediary to directly convert Token A into Token B on a different blockchain."
+    },
+    "correct_answer": "C",
+    "explanation": "The RouterContract_Rs, as part of the cross-chain bridge's functionality, specifically invokes the Token contract to lock Token A. This action is integral to the process of asset exchange across different blockchain platforms, making option A correct. Options B, C, and D are incorrect as they misrepresent the role of the RouterContract_Rs within the cross-chain bridge context.",
+    "path_description": "Path: RouterContract_Rs --[type]--> SmartContract --[partOf]--> CrossChainBridge --[enables]--> AssetExchange",
+    "context": "Router contract 𝑅𝑠 of the source chain invokes the Token contract 𝑇𝑠 to lock Token A. | Smart contract is a specific type of program running on the blockchain, used in cross-chain bridges. | Cross-chain bridge works as an intermediary for asset exchange on different blockchain platforms.",
+    "paper_id": "730"
+  },
+  {
+    "section": "approachdetails2",
+    "path": {
+      "section": "approachdetails2",
+      "start_entity": "SecurityCheckModel",
+      "end_entity": "CategorySpecificToAssetDeposit",
+      "hops": [
+        {
+          "from": "SecurityCheckModel",
+          "relation": "partOf",
+          "to": "SmartAxe",
+          "context": "Table 1. Security check model of access",
+          "chunk": "8"
+        },
+        {
+          "from": "SmartAxe",
+          "relation": "dividesInto",
+          "to": "SecurityCategories",
+          "context": "SmartAxe divides the categories: (1) category that is specific to asset deposit in router, and (3) category that is specific to asset authorization and withdrawal.",
+          "chunk": "8"
+        },
+        {
+          "from": "SecurityCategories",
+          "relation": "includes",
+          "to": "CategorySpecificToAssetDeposit",
+          "context": "category that is specific to asset deposit in router",
+          "chunk": "8"
+        }
+      ]
+    },
+    "question": "In the SmartAxe security model, how is the security check for asset deposits specifically categorized?",
+    "options": {
+      "A": "It is categorized under a category specific to asset deposit in routers within the broader SecurityCheckModel.",
+      "B": "The category is a universal one, encompassing all security checks regardless of the specific asset or action.",
+      "C": "It falls under a general category that handles all types of asset transactions including deposits, withdrawals, and authorizations.",
+      "D": "It is part of a specialized category that solely deals with asset withdrawal and has no connection to deposits."
+    },
+    "correct_answer": "A",
+    "explanation": "According to the knowledge graph path, the SecurityCheckModel is part of SmartAxe, which divides security concerns into categories including one that is specifically for asset deposits in routers. This indicates that the security check model for asset deposits is specifically categorized under its own distinct category in routers, rather than a general or unrelated category.",
+    "path_description": "Path: SecurityCheckModel --[partOf]--> SmartAxe --[dividesInto]--> SecurityCategories --[includes]--> CategorySpecificToAssetDeposit",
+    "context": "Table 1. Security check model of access | SmartAxe divides the categories: (1) category that is specific to asset deposit in router, and (3) category that is specific to asset authorization and withdrawal. | category that is specific to asset deposit in router",
+    "paper_id": "730"
+  },
+  {
+    "section": "evaluation2",
+    "path": {
+      "section": "evaluation2",
+      "start_entity": "SmartAxe",
+      "end_entity": "Model",
+      "hops": [
+        {
+          "from": "SmartAxe",
+          "relation": "outperforms",
+          "to": "Ethainter",
+          "context": "SmartAxe performs better than Ethainter in precision and recall.",
+          "chunk": "13"
+        },
+        {
+          "from": "Ethainter",
+          "relation": "comparedWith",
+          "to": "AChecker",
+          "context": "We ran SmartAxe, Ethainter, and AChecker over the manually-labeled dataset to compare their recall rate.",
+          "chunk": "13"
+        },
+        {
+          "from": "AChecker",
+          "relation": "type",
+          "to": "Model",
+          "context": "We ran SmartAxe, Ethainter, and AChecker over the manually-labeled dataset to compare their recall rate.",
+          "chunk": "13"
+        }
+      ]
+    },
+    "question": "Given that SmartAxe outperforms Ethainter in terms of precision and recall, and when compared with AChecker is categorized as a Model, what could best describe the primary function of SmartAxe in this context?",
+    "options": {
+      "A": "SmartAxe is primarily used as a tool for improving accuracy in manually-labeled datasets.",
+      "B": "SmartAxe is mainly a software development framework that indirectly supports Ethainter.",
+      "C": "SmartAxe serves mainly as a benchmark model against which other tools are compared.",
+      "D": "SmartAxe is primarily used as a dataset for training Ethainter and AChecker."
+    },
+    "correct_answer": "A",
+    "explanation": "SmartAxe is described as outperforming Ethainter in precision and recall, and is used in comparison with AChecker, classified under the category of a Model. This suggests that its primary function is to enhance the accuracy of evaluations, specifically in manually-labeled datasets, rather than serving as a dataset, a benchmark model, or a development framework.",
+    "path_description": "Path: SmartAxe --[outperforms]--> Ethainter --[comparedWith]--> AChecker --[type]--> Model",
+    "context": "SmartAxe performs better than Ethainter in precision and recall. | We ran SmartAxe, Ethainter, and AChecker over the manually-labeled dataset to compare their recall rate. | We ran SmartAxe, Ethainter, and AChecker over the manually-labeled dataset to compare their recall rate.",
+    "paper_id": "730"
+  }
+]

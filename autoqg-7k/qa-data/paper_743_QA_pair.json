@@ -1,0 +1,88 @@
+[
+  {
+    "section": "backgroundandrelatedwork2",
+    "path": {
+      "section": "backgroundandrelatedwork2",
+      "start_entity": "AriaEverydayActivitiesDataset",
+      "end_entity": "Metric",
+      "hops": [
+        {
+          "from": "AriaEverydayActivitiesDataset",
+          "relation": "usedIn",
+          "to": "GazeBehavior",
+          "context": "real-world data from the Aria Everyday Activities Dataset",
+          "chunk": "2"
+        },
+        {
+          "from": "GazeBehavior",
+          "relation": "measures",
+          "to": "PixelDifference",
+          "context": "The left part of Figure 4 (c) represents the pixel difference over a sample time interval",
+          "chunk": "2"
+        },
+        {
+          "from": "PixelDifference",
+          "relation": "type",
+          "to": "Metric",
+          "context": "The left part of Figure 4 (c) represents the pixel difference over a sample time interval",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the study of gaze behavior using the Aria Everyday Activities Dataset, which metric is primarily utilized to measure the changes in gaze patterns over time?",
+    "options": {
+      "A": "Angular velocity, which describes the rate of change of angle with respect to time in eye movements",
+      "B": "Pupil dilation, which assesses the expansion or contraction of the pupil as a response to stimuli",
+      "C": "Fixation duration, which measures the length of time the gaze remains stationary on a single point",
+      "D": "Pixel difference, which quantifies the variation in gaze focus by comparing consecutive frames"
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A, as the knowledge path indicates that the Aria Everyday Activities Dataset is used in gaze behavior studies where pixel difference is employed as a metric. This metric measures changes by comparing pixel values between consecutive frames, thus indicating variations in gaze. Options B, C, and D, although related to eye-tracking metrics, do not specifically utilize pixel differences for measurement.",
+    "path_description": "Path: AriaEverydayActivitiesDataset --[usedIn]--> GazeBehavior --[measures]--> PixelDifference --[type]--> Metric",
+    "context": "real-world data from the Aria Everyday Activities Dataset | The left part of Figure 4 (c) represents the pixel difference over a sample time interval | The left part of Figure 4 (c) represents the pixel difference over a sample time interval",
+    "paper_id": "1876"
+  },
+  {
+    "section": "methodology2",
+    "path": {
+      "section": "methodology2",
+      "start_entity": "FSNet",
+      "end_entity": "DeepLab",
+      "hops": [
+        {
+          "from": "FSNet",
+          "relation": "uses",
+          "to": "SegmentationNetwork",
+          "context": "the segmentation network S(.), which produce segmentation mask Y.",
+          "chunk": "4"
+        },
+        {
+          "from": "SegmentationNetwork",
+          "relation": "hasComponent",
+          "to": "Sseg",
+          "context": "The first branch, Sseg(.), produces a binary map.",
+          "chunk": "4"
+        },
+        {
+          "from": "Sseg",
+          "relation": "canBe",
+          "to": "DeepLab",
+          "context": "In practice, Sseg can be any pretrained neural network designed for segmentation tasks, such as DeepLab.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the FSNet architecture described in 'methodology2', which pretrained neural network is specifically mentioned as a potential component for Sseg to produce binary maps?",
+    "options": {
+      "A": "ResNet, known for its deep residual learning framework applicable in many visual recognition tasks.",
+      "B": "U-Net, primarily used for medical image segmentation with its unique contracting and expansive paths.",
+      "C": "DeepLab, which is designed for advanced segmentation tasks using deep learning techniques.",
+      "D": "VGGNet, which is fundamentally known for its simplicity and depth in image recognition challenges."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is 'A' because the paper specifically mentions DeepLab as an example of a pretrained neural network that can be used in the Sseg component of the SegmentationNetwork in FSNet to produce binary maps.",
+    "path_description": "Path: FSNet --[uses]--> SegmentationNetwork --[hasComponent]--> Sseg --[canBe]--> DeepLab",
+    "context": "the segmentation network S(.), which produce segmentation mask Y. | The first branch, Sseg(.), produces a binary map. | In practice, Sseg can be any pretrained neural network designed for segmentation tasks, such as DeepLab.",
+    "paper_id": "1876"
+  }
+]

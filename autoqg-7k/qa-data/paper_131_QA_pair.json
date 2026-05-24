@@ -1,0 +1,131 @@
+[
+  {
+    "section": "method1",
+    "path": {
+      "section": "method1",
+      "start_entity": "SmartBugBERT",
+      "end_entity": "Algorithm",
+      "hops": [
+        {
+          "from": "SmartBugBERT",
+          "relation": "proposes",
+          "to": "SemanticExtractionModule",
+          "context": "In this section, SmartBugBERT smart contract vulnerability detection method is proposed.",
+          "chunk": "3"
+        },
+        {
+          "from": "SemanticExtractionModule",
+          "relation": "uses",
+          "to": "TF-IDF",
+          "context": "Second, the optimized opcodes are statistically measured using TF-IDF",
+          "chunk": "3"
+        },
+        {
+          "from": "TF-IDF",
+          "relation": "type",
+          "to": "Algorithm",
+          "context": "Second, the optimized opcodes are statistically measured using TF-IDF",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the SmartBugBERT method for detecting smart contract vulnerabilities, what role does the TF-IDF algorithm play within the SemanticExtractionModule?",
+    "options": {
+      "A": "TF-IDF algorithm assists in the encryption of opcode data to enhance security measures.",
+      "B": "TF-IDF algorithm is used to statistically measure the optimized opcodes for detecting vulnerabilities.",
+      "C": "TF-IDF algorithm is utilized for generating semantic tags from the contract's opcode sequences.",
+      "D": "TF-IDF algorithm is used to optimize the performance of the smart contracts before deployment."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A, as the context mentions that SmartBugBERT uses the SemanticExtractionModule, which employs the TF-IDF algorithm to statistically measure optimized opcodes. This measurement is integral to the process of detecting vulnerabilities in smart contracts.",
+    "path_description": "Path: SmartBugBERT --[proposes]--> SemanticExtractionModule --[uses]--> TF-IDF --[type]--> Algorithm",
+    "context": "In this section, SmartBugBERT smart contract vulnerability detection method is proposed. | Second, the optimized opcodes are statistically measured using TF-IDF | Second, the optimized opcodes are statistically measured using TF-IDF",
+    "paper_id": "1611"
+  },
+  {
+    "section": "method2",
+    "path": {
+      "section": "method2",
+      "start_entity": "BasicBlock",
+      "end_entity": "Concept",
+      "hops": [
+        {
+          "from": "BasicBlock",
+          "relation": "followedBy",
+          "to": "BasicBlock",
+          "context": "The next instruction becomes the start of the new basic block",
+          "chunk": "4"
+        },
+        {
+          "from": "BasicBlock",
+          "relation": "followedBy",
+          "to": "BasicBlock",
+          "context": "The next instruction becomes the start of the new basic block",
+          "chunk": "4"
+        },
+        {
+          "from": "BasicBlock",
+          "relation": "type",
+          "to": "Concept",
+          "context": "Here, 𝑁 denotes the set of nodes, where each node called a Basic Block (BB).",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the context of control flow graphs, if a Basic Block (BB) is followed by another BB, which itself is followed by another BB, what does this final BB typically represent?",
+    "options": {
+      "A": "A terminal node that marks the end of program execution",
+      "B": "An error or exception handling block that manages disruptions in flow",
+      "C": "A unique concept within the graph that may signify a different function or method",
+      "D": "A repetitive or loop structure that executes the same instructions multiple times"
+    },
+    "correct_answer": "C",
+    "explanation": "Following the provided knowledge graph path, the sequence of Basic Blocks (BBs) leads to a final BB classified as a 'Concept'. This indicates that the final BB represents a distinct concept in the graph, which could signify a different function or method, not merely a repetitive structure, error handler, or terminal node.",
+    "path_description": "Path: BasicBlock --[followedBy]--> BasicBlock --[followedBy]--> BasicBlock --[type]--> Concept",
+    "context": "The next instruction becomes the start of the new basic block | The next instruction becomes the start of the new basic block | Here, 𝑁 denotes the set of nodes, where each node called a Basic Block (BB).",
+    "paper_id": "1611"
+  },
+  {
+    "section": "method2",
+    "path": {
+      "section": "method2",
+      "start_entity": "BasicBlock",
+      "end_entity": "Opcode",
+      "hops": [
+        {
+          "from": "BasicBlock",
+          "relation": "linkedTo",
+          "to": "BasicBlock",
+          "context": "𝐸(𝐵𝑖 , 𝐵𝑗 ) represents the set of blocks, where the control flow jumps from block 𝐵𝑖 to block 𝐵𝑗.",
+          "chunk": "4"
+        },
+        {
+          "from": "BasicBlock",
+          "relation": "linkedTo",
+          "to": "BasicBlock",
+          "context": "𝐸(𝐵𝑖 , 𝐵𝑗 ) represents the set of blocks, where the control flow jumps from block 𝐵𝑖 to block 𝐵𝑗.",
+          "chunk": "4"
+        },
+        {
+          "from": "BasicBlock",
+          "relation": "startsAt",
+          "to": "Opcode",
+          "context": "Set start instruction of bb to op",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In a program's control flow graph, if a BasicBlock B1 is linked sequentially to BasicBlock B2, and BasicBlock B2 is linked to BasicBlock B3 which starts at an Opcode 'MOV', what could be the implication of this sequence in program execution?",
+    "options": {
+      "A": "The control flow indicates a conditional branch, possibly checking a variable before modifying it.",
+      "B": "Indicates a loop where B3 manipulates a variable, and B1 checks the condition for loop continuation.",
+      "C": "This sequence implies a straightforward linear execution without any conditional or looping constructs.",
+      "D": "Suggests a function prologue where B1 and B2 set up parameters before B3 executes a move operation."
+    },
+    "correct_answer": "D",
+    "explanation": "The sequence from B1 to B3, ending in an Opcode 'MOV', typically aligns with setting up or manipulating function parameters or states before a specific operation (like 'MOV') is executed, common in function prologues or initializations.",
+    "path_description": "Path: BasicBlock --[linkedTo]--> BasicBlock --[linkedTo]--> BasicBlock --[startsAt]--> Opcode",
+    "context": "𝐸(𝐵𝑖 , 𝐵𝑗 ) represents the set of blocks, where the control flow jumps from block 𝐵𝑖 to block 𝐵𝑗. | 𝐸(𝐵𝑖 , 𝐵𝑗 ) represents the set of blocks, where the control flow jumps from block 𝐵𝑖 to block 𝐵𝑗. | Set start instruction of bb to op",
+    "paper_id": "1611"
+  }
+]

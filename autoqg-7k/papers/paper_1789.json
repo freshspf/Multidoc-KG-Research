@@ -1,0 +1,32 @@
+[
+  {
+    "id": "summary",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Summary",
+      "page_start": 1,
+      "page_end": 1
+    },
+    "text": "r\n• Repository\np\n• Archive  JAX-bandﬂux is a JAX [Bradb\nA\n   elling functionality for cosmolo\n0Submitted:\nof the established library SNC\n1Published:\n   oﬀering eﬃcient parallelisation\n \n]License  acceleration. The package faci\nAuthors  of  papers  retain copy-  measurements, supporting the\nM\nIright and release the work under  2022] parameters necessary for\n.\na Creative Commons Attribution\nh\np4.0 International License (CC BY"
+  },
+  {
+    "id": "statementofneed",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Statement of need",
+      "page_start": 1,
+      "page_end": 1
+    },
+    "text": "o\nr\nt  Accurate estimation of superno\ns\na  ments are fundamental to the\n[  determinations, which are used\n \n \nof expansion of the universe.\n1\nare widely used for analysing\nv\n1  not designed to run on GPUs\n8  enables eﬃcient gradient prop\n0  scale parallel computations on\n8\naddresses these requirements b\n0\n.  parameter extraction.\n4\n0\n5"
+  },
+  {
+    "id": "implementation",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Implementation",
+      "page_start": 1,
+      "page_end": 2
+    },
+    "text": "2\n:\nv  The package is structured int\ni\nvarious aspects of the supern\nX\nr  fmin_bfgs.py and ns.py, illu\na  spectively. These scripts utilise\nsimilar to SNCosmo while ena\ncomputation is contained in th\nThe SALT model is of the form\nF(p, λ) = x0 [M\nwhere free parameters are: x0,\nM1(p, λ) are functions that de\nredshift and t − 2.\nThe computation of the band\n, (). JAX-bandﬂux: diﬀerentiable supernovae SALT modelling for cosmol\n\nrentiable supernovae SALT modelling\nlysis on GPUs\n1, 2\neney\naboratory, J. J. Thomson Avenue, Cambridge CB3 0HE, UK 2\ningley Road, Cambridge CB3 0HA, UK\nury et al., 2018] implementation of critical supernova mod-\ngical analysis. The codebase implements key components\nosmo [Barbary et al., 2016] in a diﬀerentiable framework,\nand gradient-based optimisation capabilities through GPU\nlitates diﬀerentiable computation of supernova light curve\ninference of SALT [Kenworthy et al., 2021, Pierel et al.,\ncosmological analysis.\nva ﬂux is essential in cosmological studies. These measure-\ncalibration of standard candles and subsequent distance\nto answer cosmological questions. For example, the rate\nCurrent packages such as SNCosmo [Barbary et al., 2016]\nsupernova data. However, traditional implementations are\nand they lack diﬀerentiability. A diﬀerentiable approach\nagation during parameter optimisation and supports large-\nmodern hardware such as GPUs. This JAX implementation\ny providing diﬀerentiable, parallelisable routines for SALT\no several modules and example scripts that demonstrate\nova modelling workﬂow.  Two primary example scripts,\nstrate optimisation via L-BFGS-B and nested sampling re-\ncore routines from the JAX modules, following a structure\nbling diﬀerentiability and GPU acceleration. The central\ne ﬁle salt3.py, which implements the SALT3 model.\n:\n0(p, λ) + x1M1(p, λ) + . . .] × exp [c ×CL(λ)]\nx1, t0, and c. Model surface parameters are: M0(p, λ) and\nscribe the underlying ﬂux surfaces, and p is a function of\nﬂux is achieved by integrating the model ﬂux across the\nogical analysis on GPUs.  , (), . https://doi.org/  1\n\napplied bandpass ﬁlters. Comb\nband\nHere, T (λ) is the transmission\nthe Planck constant and the sp\nWithin salt3.py, the impleme\nthe base spectral surface M0(\nscaled by their respective SAL\narray manipulations, which ar\nThe resulting ﬂux is compute\nthen multiplied by the instrum\nfactor λ/(hc), followed by trap\nJAX’s numerical integration ca\nbe parallelised across multiple\nThe package includes comprehe\nmodule, which provides a Band\nof commonly used astronomica\ncustom bandpasses can be regis\nass and load_bandpass_from\nobjects from the Spanish Virtu\ndata.py module oﬀers utilitie\nvarious formats,  including fun\nﬁtting. The package currently\ndedicated interpolation routin\nThis architecture allows gra\nenabling techniques that bene\nparadigm. The implementation\ning an enhanced computationa\nanalyses."
+  }
+]

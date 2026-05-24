@@ -1,0 +1,217 @@
+[
+  {
+    "section": "pimarchitectures2",
+    "path": {
+      "section": "pimarchitectures2",
+      "start_entity": "ABMode",
+      "end_entity": "ComputationType",
+      "hops": [
+        {
+          "from": "ABMode",
+          "relation": "uses",
+          "to": "DRAMReadCommand",
+          "context": "In AB Mode, a DRAM READ command to a specific address reads data at the address into the local BFU and performs a PIM computation.",
+          "chunk": "4"
+        },
+        {
+          "from": "DRAMReadCommand",
+          "relation": "performs",
+          "to": "PIMComputation",
+          "context": "In AB Mode, a DRAM READ command to a specific address reads data at the address into the local BFU and performs a PIM computation.",
+          "chunk": "4"
+        },
+        {
+          "from": "PIMComputation",
+          "relation": "type",
+          "to": "ComputationType",
+          "context": "In AB Mode, a DRAM READ command to a specific address reads data at the address into the local BFU and performs a PIM computation.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In AB Mode, what type of computation is typically performed when a DRAM READ command is used to execute a PIM operation?",
+    "options": {
+      "A": "The computation primarily focuses on data storage and retrieval without processing.",
+      "B": "The computation enables advanced data encryption and security measures in real-time.",
+      "C": "The computation consists mainly of simple arithmetic operations such as addition or subtraction.",
+      "D": "The computation involves complex vector operations leveraging the local BFU's capabilities."
+    },
+    "correct_answer": "D",
+    "explanation": "In AB Mode, the DRAM READ command reads data into the local BFU and then performs PIM computation. This type of computation typically involves performing complex vector operations, making use of the local BFU's capabilities to handle such tasks efficiently.",
+    "path_description": "Path: ABMode --[uses]--> DRAMReadCommand --[performs]--> PIMComputation --[type]--> ComputationType",
+    "context": "In AB Mode, a DRAM READ command to a specific address reads data at the address into the local BFU and performs a PIM computation. | In AB Mode, a DRAM READ command to a specific address reads data at the address into the local BFU and performs a PIM computation. | In AB Mode, a DRAM READ command to a specific address reads data at the address into the local BFU and performs a PIM computation.",
+    "paper_id": "743"
+  },
+  {
+    "section": "introduction",
+    "path": {
+      "section": "introduction",
+      "start_entity": "InMemoryDatabaseOrganizations",
+      "end_entity": "EnterpriseDatabases",
+      "hops": [
+        {
+          "from": "InMemoryDatabaseOrganizations",
+          "relation": "support",
+          "to": "OLAP",
+          "context": "Furthermore, the importance of in-memory database organizations is growing rapidly for OLAP systems.",
+          "chunk": "0"
+        },
+        {
+          "from": "OLAP",
+          "relation": "uses",
+          "to": "SQLQueries",
+          "context": "These systems employ analytic SQL queries to transform database contents into graphs on live dashboards.",
+          "chunk": "0"
+        },
+        {
+          "from": "SQLQueries",
+          "relation": "prepare",
+          "to": "EnterpriseDatabases",
+          "context": "modern enterprise settings, such analytic SQL queries are also used to prepare enterprise databases for downstream machine learning (ML) pipelines.",
+          "chunk": "0"
+        }
+      ]
+    },
+    "question": "What is the primary role of in-memory database organizations in the context of enterprise OLAP systems, according to the knowledge path?",
+    "options": {
+      "A": "They directly interact with machine learning algorithms to enhance the computational speed of SQL queries.",
+      "B": "They manage user interfaces to visualize the transformation of database contents on live dashboards.",
+      "C": "They support OLAP systems that use analytic SQL queries to prepare enterprise databases for ML pipelines.",
+      "D": "They replace traditional databases by storing all data in memory for faster access and data retrieval."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A. The question follows the knowledge path where in-memory database organizations support OLAP, which uses SQL queries that prepare enterprise databases for machine learning pipelines. This can be traced from their role in supporting OLAP systems to the use of SQL queries and their ultimate purpose in the preparation of data for ML pipelines.",
+    "path_description": "Path: InMemoryDatabaseOrganizations --[support]--> OLAP --[uses]--> SQLQueries --[prepare]--> EnterpriseDatabases",
+    "context": "Furthermore, the importance of in-memory database organizations is growing rapidly for OLAP systems. | These systems employ analytic SQL queries to transform database contents into graphs on live dashboards. | modern enterprise settings, such analytic SQL queries are also used to prepare enterprise databases for downstream machine learning (ML) pipelines.",
+    "paper_id": "743"
+  },
+  {
+    "section": "introduction",
+    "path": {
+      "section": "introduction",
+      "start_entity": "SQLQueries",
+      "end_entity": "Technology",
+      "hops": [
+        {
+          "from": "SQLQueries",
+          "relation": "prepare",
+          "to": "EnterpriseDatabases",
+          "context": "modern enterprise settings, such analytic SQL queries are also used to prepare enterprise databases for downstream machine learning (ML) pipelines.",
+          "chunk": "0"
+        },
+        {
+          "from": "EnterpriseDatabases",
+          "relation": "support",
+          "to": "MLPipelines",
+          "context": "modern enterprise settings, such analytic SQL queries are also used to prepare enterprise databases for downstream machine learning (ML) pipelines.",
+          "chunk": "0"
+        },
+        {
+          "from": "MLPipelines",
+          "relation": "type",
+          "to": "Technology",
+          "context": "modern enterprise settings, such analytic SQL queries are also used to prepare enterprise databases for downstream machine learning (ML) pipelines.",
+          "chunk": "0"
+        }
+      ]
+    },
+    "question": "In modern enterprise settings, which type of technology is typically supported by enterprise databases that have been prepared with analytic SQL queries for use in machine learning pipelines?",
+    "options": {
+      "A": "Customer relationship management systems that track interactions with customers",
+      "B": "Blockchain technology for enhanced security and decentralized data storage",
+      "C": "Data warehousing solutions that allow for complex query execution and data analysis",
+      "D": "Machine Learning technology to enhance predictive analytics and automation processes"
+    },
+    "correct_answer": "D",
+    "explanation": "The knowledge graph outlines a path where SQL queries prepare enterprise databases, which in turn support ML pipelines, classified under technology. The correct answer is Machine Learning technology, as it is directly supported by enterprise databases prepared via SQL queries for ML pipelines, enhancing predictive analytics and automation.",
+    "path_description": "Path: SQLQueries --[prepare]--> EnterpriseDatabases --[support]--> MLPipelines --[type]--> Technology",
+    "context": "modern enterprise settings, such analytic SQL queries are also used to prepare enterprise databases for downstream machine learning (ML) pipelines. | modern enterprise settings, such analytic SQL queries are also used to prepare enterprise databases for downstream machine learning (ML) pipelines. | modern enterprise settings, such analytic SQL queries are also used to prepare enterprise databases for downstream machine learning (ML) pipelines.",
+    "paper_id": "743"
+  },
+  {
+    "section": "results2",
+    "path": {
+      "section": "results2",
+      "start_entity": "Membrane",
+      "end_entity": "DenormalizationLevel",
+      "hops": [
+        {
+          "from": "Membrane",
+          "relation": "evaluatedOn",
+          "to": "TPC-H",
+          "context": "Varying the scale factor from 10 to 100, we evaluate Membrane’s performance for denormalization levels D1-3.",
+          "chunk": "10"
+        },
+        {
+          "from": "TPC-H",
+          "relation": "usesDenormalizationLevel",
+          "to": "D2",
+          "context": "(b) TPC-H",
+          "chunk": "10"
+        },
+        {
+          "from": "D2",
+          "relation": "type",
+          "to": "DenormalizationLevel",
+          "context": "For SSB, D2 and D3 happen to be equivalent.",
+          "chunk": "10"
+        }
+      ]
+    },
+    "question": "In the context of evaluating Membrane's performance on the TPC-H benchmark, what distinguishes denormalization level D2?",
+    "options": {
+      "A": "Denormalization level D2 is evaluated on the Membrane and is specific to the TPC-H benchmark.",
+      "B": "Denormalization level D2 is the highest level of denormalization evaluated in this study.",
+      "C": "Denormalization level D2 does not influence the performance of Membrane on TPC-H.",
+      "D": "Denormalization level D2 is equivalent to D3 in the SSB benchmark, but not in TPC-H."
+    },
+    "correct_answer": "D",
+    "explanation": "According to the context, denormalization level D2 and D3 are equivalent in the SSB benchmark but the question specifies the TPC-H benchmark. This implies differences in denormalization levels' impact on the benchmarks, making option B the correct answer.",
+    "path_description": "Path: Membrane --[evaluatedOn]--> TPC-H --[usesDenormalizationLevel]--> D2 --[type]--> DenormalizationLevel",
+    "context": "Varying the scale factor from 10 to 100, we evaluate Membrane’s performance for denormalization levels D1-3. | (b) TPC-H | For SSB, D2 and D3 happen to be equivalent.",
+    "paper_id": "743"
+  },
+  {
+    "section": "results2",
+    "path": {
+      "section": "results2",
+      "start_entity": "Membrane",
+      "end_entity": "DenormalizationLevel",
+      "hops": [
+        {
+          "from": "Membrane",
+          "relation": "evaluatedOn",
+          "to": "SSB",
+          "context": "Varying the scale factor from 10 to 100, we evaluate Membrane’s performance for denormalization levels D1-3.",
+          "chunk": "10"
+        },
+        {
+          "from": "SSB",
+          "relation": "usesDenormalizationLevel",
+          "to": "D3",
+          "context": "For SSB, D2 and D3 happen to be equivalent.",
+          "chunk": "10"
+        },
+        {
+          "from": "D3",
+          "relation": "type",
+          "to": "DenormalizationLevel",
+          "context": "For SSB, D2 and D3 happen to be equivalent.",
+          "chunk": "10"
+        }
+      ]
+    },
+    "question": "In the context of evaluating the performance of Membrane for SSB, how does the denormalization level D3 affect the evaluation?",
+    "options": {
+      "A": "D3 introduces a significantly higher complexity compared to D1, requiring advanced computational resources.",
+      "B": "For SSB, D3 is considered equivalent to D2, thus not introducing any new variation in the evaluation.",
+      "C": "D3 is assessed as a separate denormalization level distinct from others in the scale factor evaluation.",
+      "D": "D3 refers to the highest denormalization level, which generally decreases the overall performance of Membrane."
+    },
+    "correct_answer": "B",
+    "explanation": "According to the provided context, for SSB, denormalization levels D2 and D3 are considered equivalent. Therefore, D3 does not introduce any new variation in the evaluation of Membrane's performance, making option B correct. The other options suggest incorrect interpretations of the denormalization level's role or impact.",
+    "path_description": "Path: Membrane --[evaluatedOn]--> SSB --[usesDenormalizationLevel]--> D3 --[type]--> DenormalizationLevel",
+    "context": "Varying the scale factor from 10 to 100, we evaluate Membrane’s performance for denormalization levels D1-3. | For SSB, D2 and D3 happen to be equivalent. | For SSB, D2 and D3 happen to be equivalent.",
+    "paper_id": "743"
+  }
+]

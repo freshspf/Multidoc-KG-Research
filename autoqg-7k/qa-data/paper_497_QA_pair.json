@@ -1,0 +1,260 @@
+[
+  {
+    "section": "definitionsandmodelofcomputation",
+    "path": {
+      "section": "definitionsandmodelofcomputation",
+      "start_entity": "ByzantineReplicas",
+      "end_entity": "BlockchainComponent",
+      "hops": [
+        {
+          "from": "ByzantineReplicas",
+          "relation": "classifiedAs",
+          "to": "ArrangerReplicas",
+          "context": "or Byzantine, which behave arbitrarily",
+          "chunk": "4"
+        },
+        {
+          "from": "ArrangerReplicas",
+          "relation": "acceptsHashesFrom",
+          "to": "SmartContract",
+          "context": "only accepts new hashes from arranger replicas",
+          "chunk": "4"
+        },
+        {
+          "from": "SmartContract",
+          "relation": "type",
+          "to": "BlockchainComponent",
+          "context": "The L1 includes a smart",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In a blockchain system described in the 'definitions and model of computation' section, what type of replicas specifically accept new hashes from smart contracts functioning as blockchain components?",
+    "options": {
+      "A": "Validator replicas that ensure the integrity and order of blockchain transactions.",
+      "B": "Arranger replicas, which are classified under Byzantine replicas that behave arbitrarily.",
+      "C": "Smart contract replicas that directly handle all transactions within the blockchain.",
+      "D": "Storage replicas that are responsible for maintaining historical blockchain data."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A. According to the provided knowledge graph path, Byzantine replicas are classified as Arranger replicas, which are the only type that accepts new hashes specifically from smart contracts, which are a type of Blockchain Component. The other options, while plausible, do not fit the specific path and relationships outlined in the paper.",
+    "path_description": "Path: ByzantineReplicas --[classifiedAs]--> ArrangerReplicas --[acceptsHashesFrom]--> SmartContract --[type]--> BlockchainComponent",
+    "context": "or Byzantine, which behave arbitrarily | only accepts new hashes from arranger replicas | The L1 includes a smart",
+    "paper_id": "1509"
+  },
+  {
+    "section": "definitionsandmodelofcomputation",
+    "path": {
+      "section": "definitionsandmodelofcomputation",
+      "start_entity": "ByzantineReplicas",
+      "end_entity": "Clients",
+      "hops": [
+        {
+          "from": "ByzantineReplicas",
+          "relation": "classifiedAs",
+          "to": "ArrangerReplicas",
+          "context": "or Byzantine, which behave arbitrarily",
+          "chunk": "4"
+        },
+        {
+          "from": "ArrangerReplicas",
+          "relation": "requestedBy",
+          "to": "STFs",
+          "context": "STFs requesting arranger replicas",
+          "chunk": "4"
+        },
+        {
+          "from": "STFs",
+          "relation": "partOf",
+          "to": "Clients",
+          "context": "STFs requesting arranger replicas",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In a distributed computing system described in the 'definitionsandmodelofcomputation' section, how do Byzantine replicas, classified as arranger replicas, interact in the context of STFs and Clients?",
+    "options": {
+      "A": "Clients request Byzantine replicas directly, bypassing the STFs and their role as arrangers.",
+      "B": "Byzantine replicas directly control the actions of clients without any intermediation by STFs.",
+      "C": "STFs act as a buffer between Byzantine replicas and clients, screening out malicious actions.",
+      "D": "Byzantine replicas, as arranger replicas, are requested by STFs to coordinate actions among clients."
+    },
+    "correct_answer": "D",
+    "explanation": "The question is designed to test the understanding of the specific roles and interactions among Byzantine replicas, STFs, and clients. Byzantine replicas, categorized as arranger replicas, are specifically requested by STFs. These STFs, in turn, are part of the client system, suggesting that the arranger replicas coordinate actions among clients. Option A is the only choice that correctly encapsulates this relationship as described in the 'definitionsandmodelofcomputation' section.",
+    "path_description": "Path: ByzantineReplicas --[classifiedAs]--> ArrangerReplicas --[requestedBy]--> STFs --[partOf]--> Clients",
+    "context": "or Byzantine, which behave arbitrarily | STFs requesting arranger replicas | STFs requesting arranger replicas",
+    "paper_id": "1509"
+  },
+  {
+    "section": "arranger1",
+    "path": {
+      "section": "arranger1",
+      "start_entity": "TransactionRequest",
+      "end_entity": "translate_id_h",
+      "hops": [
+        {
+          "from": "TransactionRequest",
+          "relation": "validatedBy",
+          "to": "ArrangerReplicas",
+          "context": "A transaction request is valid when it is properly formed and verified by arranger replicas.",
+          "chunk": "5"
+        },
+        {
+          "from": "ArrangerReplicas",
+          "relation": "provide",
+          "to": "ArrangerAPI",
+          "context": "Arranger replicas provide two end-points: add(tr) and translate(id, h).",
+          "chunk": "5"
+        },
+        {
+          "from": "ArrangerAPI",
+          "relation": "providesEndpoint",
+          "to": "translate_id_h",
+          "context": "Arranger replicas provide two end-points: add(tr) and translate(id, h).",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the process of handling a transaction request in the arranger system, which endpoint provided by the Arranger API is critical for verifying the validity of a transaction request?",
+    "options": {
+      "A": "The add_tr endpoint, used for adding new transaction requests to the system.",
+      "B": "The check_validity endpoint, specifically designed to validate new transactions.",
+      "C": "The manage_requests endpoint, responsible for overseeing all transaction requests.",
+      "D": "The translate_id_h endpoint, essential for converting and verifying transaction identifiers."
+    },
+    "correct_answer": "D",
+    "explanation": "The reasoning path indicates that the ArrangerReplicas, which validate the TransactionRequest, provide the ArrangerAPI with endpoints including translate_id_h. This endpoint is critical for verifying the validity of a transaction request as it handles the translation and verification of transaction identifiers, as suggested by the context provided in the paper.",
+    "path_description": "Path: TransactionRequest --[validatedBy]--> ArrangerReplicas --[provide]--> ArrangerAPI --[providesEndpoint]--> translate_id_h",
+    "context": "A transaction request is valid when it is properly formed and verified by arranger replicas. | Arranger replicas provide two end-points: add(tr) and translate(id, h). | Arranger replicas provide two end-points: add(tr) and translate(id, h).",
+    "paper_id": "1509"
+  },
+  {
+    "section": "arranger2",
+    "path": {
+      "section": "arranger2",
+      "start_entity": "L2User",
+      "end_entity": "Arranger",
+      "hops": [
+        {
+          "from": "L2User",
+          "relation": "adds",
+          "to": "TransactionRequest",
+          "context": "a valid transaction request added by an L2 user.",
+          "chunk": "6"
+        },
+        {
+          "from": "TransactionRequest",
+          "relation": "addedTo",
+          "to": "LegalBatchTag",
+          "context": "a valid transaction request added by an L2 user.",
+          "chunk": "6"
+        },
+        {
+          "from": "LegalBatchTag",
+          "relation": "postedBy",
+          "to": "Arranger",
+          "context": "posted by the arranger is a legal batch tag.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "Which of the following best describes the sequence of responsibility in the creation and posting of a legal batch tag in the system?",
+    "options": {
+      "A": "A legal batch tag is created by an L2 user, which is then filled with transaction requests by the arranger.",
+      "B": "The arranger adds a transaction request directly to the system without the involvement of an L2 user or a legal batch tag.",
+      "C": "An arranger creates a transaction request, which is then verified by an L2 user and added to a legal batch tag.",
+      "D": "An L2 user adds a transaction request, which is added to a legal batch tag, ultimately posted by the arranger."
+    },
+    "correct_answer": "D",
+    "explanation": "According to the knowledge path, an L2 user first adds a transaction request. This request is then included in a legal batch tag, and the responsibility for posting this batch tag falls to the arranger. The correct sequence is thus from the L2 user, through the transaction request, to the legal batch tag, and finally to the arranger.",
+    "path_description": "Path: L2User --[adds]--> TransactionRequest --[addedTo]--> LegalBatchTag --[postedBy]--> Arranger",
+    "context": "a valid transaction request added by an L2 user. | a valid transaction request added by an L2 user. | posted by the arranger is a legal batch tag.",
+    "paper_id": "1509"
+  },
+  {
+    "section": "arranger2fulldecentralization1",
+    "path": {
+      "section": "arranger2fulldecentralization1",
+      "start_entity": "ArrangerReplica",
+      "end_entity": "Technology",
+      "hops": [
+        {
+          "from": "ArrangerReplica",
+          "relation": "partOf",
+          "to": "DecentralizedArranger",
+          "context": "In our fully decentralized arranger, all replicas perform both the roles of sequencers and DAC members",
+          "chunk": "9"
+        },
+        {
+          "from": "DecentralizedArranger",
+          "relation": "uses",
+          "to": "SBC",
+          "context": "Our implementation uses the sets decided by SBC replicas instead of modularly using an SBC",
+          "chunk": "9"
+        },
+        {
+          "from": "SBC",
+          "relation": "type",
+          "to": "Technology",
+          "context": "Our implementation uses the sets decided by SBC replicas instead of modularly using an SBC",
+          "chunk": "9"
+        }
+      ]
+    },
+    "question": "In the context of a fully decentralized arranger system, what role does the technology type of SBC play?",
+    "options": {
+      "A": "SBC serves as a technology type that dictates the use of sets decided by replicas instead of modular application.",
+      "B": "SBC operates primarily to enhance communication between decentralized arrangers and external systems.",
+      "C": "SBC functions as the underlying technology that supports both sequencing and DAC member roles in replicas.",
+      "D": "SBC acts as a technology that allows for modular use of replicas within the decentralized arranger."
+    },
+    "correct_answer": "A",
+    "explanation": "SBC (State-Based Consensus), as mentioned in the context, is used in a way where its sets are directly decided by replicas rather than being used modularly. This indicates that SBC serves as a technology type that dictates the use of sets decided by replicas, supporting the specific operational structure of the decentralized arranger.",
+    "path_description": "Path: ArrangerReplica --[partOf]--> DecentralizedArranger --[uses]--> SBC --[type]--> Technology",
+    "context": "In our fully decentralized arranger, all replicas perform both the roles of sequencers and DAC members | Our implementation uses the sets decided by SBC replicas instead of modularly using an SBC | Our implementation uses the sets decided by SBC replicas instead of modularly using an SBC",
+    "paper_id": "1509"
+  },
+  {
+    "section": "empiricalevaluation1",
+    "path": {
+      "section": "empiricalevaluation1",
+      "start_entity": "ZLB",
+      "end_entity": "Concept",
+      "hops": [
+        {
+          "from": "ZLB",
+          "relation": "relatedTo",
+          "to": "SetConsensus",
+          "context": "ZLB is mentioned as an implementation of SBC.",
+          "chunk": "11"
+        },
+        {
+          "from": "SetConsensus",
+          "relation": "outperforms",
+          "to": "BlockchainScalability",
+          "context": "Set Byzantine Consensus can achieve scalability, suggesting it outperforms general blockchain scalability.",
+          "chunk": "11"
+        },
+        {
+          "from": "BlockchainScalability",
+          "relation": "type",
+          "to": "Concept",
+          "context": "Blockchain Scalability is assessed in the context of Setchain and other implementations.",
+          "chunk": "11"
+        }
+      ]
+    },
+    "question": "In the context of blockchain technology, why is Set Byzantine Consensus considered to outperform other scalability solutions?",
+    "options": {
+      "A": "Due to its reliance on sophisticated cryptographic techniques for achieving consensus faster than traditional methods.",
+      "B": "Because it primarily focuses on increasing the block size to accommodate more transactions per block.",
+      "C": "Since it uses a decentralized ledger technology similar to traditional blockchains but with enhanced transaction speeds.",
+      "D": "Because it is inherently linked to the Zero Latency Blockchain (ZLB) which is an implementation of Set Byzantine Consensus (SBC)."
+    },
+    "correct_answer": "D",
+    "explanation": "Set Byzantine Consensus is noted to outperform general blockchain scalability due to its implementation in the form of Zero Latency Blockchain (ZLB). The direct relationship between SBC and ZLB, where ZLB is an implementation of SBC, highlights why it is particularly effective in scalability compared to other blockchain solutions.",
+    "path_description": "Path: ZLB --[relatedTo]--> SetConsensus --[outperforms]--> BlockchainScalability --[type]--> Concept",
+    "context": "ZLB is mentioned as an implementation of SBC. | Set Byzantine Consensus can achieve scalability, suggesting it outperforms general blockchain scalability. | Blockchain Scalability is assessed in the context of Setchain and other implementations.",
+    "paper_id": "1509"
+  }
+]

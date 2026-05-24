@@ -1,0 +1,217 @@
+[
+  {
+    "section": "iiiisaextension1",
+    "path": {
+      "section": "iiiisaextension1",
+      "start_entity": "VariableLengthInstructions",
+      "end_entity": "PowerConsumption",
+      "hops": [
+        {
+          "from": "VariableLengthInstructions",
+          "relation": "leadsTo",
+          "to": "CodeBloat",
+          "context": "Variable-length instructions offer a potential solution to this problem, but only at the cost of code bloat.",
+          "chunk": "4"
+        },
+        {
+          "from": "CodeBloat",
+          "relation": "increases",
+          "to": "DecodingStage",
+          "context": "Increased complexity of the decoding stage.",
+          "chunk": "4"
+        },
+        {
+          "from": "DecodingStage",
+          "relation": "resultsIn",
+          "to": "PowerConsumption",
+          "context": "Which would result in a significant penalty for what concerns the power consumed by the MCU.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "How does the implementation of variable-length instructions primarily influence power consumption in microcontroller units (MCUs)?",
+    "options": {
+      "A": "Variable-length instructions directly reduce power consumption by minimizing the physical size of the microcontroller unit.",
+      "B": "Variable-length instructions simplify the encoding process, which in turn drastically reduces power consumption.",
+      "C": "Variable-length instructions lead to code bloat, which complicates the decoding stage, thereby increasing power consumption.",
+      "D": "Variable-length instructions enhance the efficiency of the execution stage, indirectly reducing power consumption."
+    },
+    "correct_answer": "C",
+    "explanation": "Variable-length instructions, while solving certain issues, lead to code bloat as indicated in the knowledge path. Code bloat subsequently increases the complexity of the decoding stage within the microcontroller unit (MCU), which ultimately results in higher power consumption due to the additional processing required.",
+    "path_description": "Path: VariableLengthInstructions --[leadsTo]--> CodeBloat --[increases]--> DecodingStage --[resultsIn]--> PowerConsumption",
+    "context": "Variable-length instructions offer a potential solution to this problem, but only at the cost of code bloat. | Increased complexity of the decoding stage. | Which would result in a significant penalty for what concerns the power consumed by the MCU.",
+    "paper_id": "165"
+  },
+  {
+    "section": "iiiisaextension2",
+    "path": {
+      "section": "iiiisaextension2",
+      "start_entity": "ConvolutionalLayersInference",
+      "end_entity": "Technique",
+      "hops": [
+        {
+          "from": "ConvolutionalLayersInference",
+          "relation": "splitInto",
+          "to": "QntPack",
+          "context": "For efficient execution on PULP cores, convolutional layers inference is split into three phases.",
+          "chunk": "5"
+        },
+        {
+          "from": "QntPack",
+          "relation": "uses",
+          "to": "DiscretizationTechniques",
+          "context": "The last phase (QntPack) discretizes the 32-bit outputs of the MatMul to their target precision and pack them into 32-bit variables.",
+          "chunk": "5"
+        },
+        {
+          "from": "DiscretizationTechniques",
+          "relation": "type",
+          "to": "Technique",
+          "context": "For this purpose, different discretization techniques are employed depending on the case: 8-bit output uses scaling and clamping [18], while 4- and 2-bit configurations use thresholds [1], [3].",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the context of optimizing convolutional layers for PULP cores, what type of technique does the QntPack phase employ to discretize 32-bit outputs into 2-bit configurations?",
+    "options": {
+      "A": "The QntPack phase leverages advanced vectorization techniques to optimize the packing of 32-bit outputs into 2-bit formats.",
+      "B": "Scaling and clamping techniques are primarily used by the QntPack phase for converting 32-bit outputs to 2-bit variables.",
+      "C": "Compression and decompression methods are employed by the QntPack phase to handle 2-bit discretization of 32-bit outputs.",
+      "D": "The QntPack phase utilizes threshold-based techniques to discretize and pack 32-bit outputs into 2-bit configurations."
+    },
+    "correct_answer": "D",
+    "explanation": "The QntPack phase uses different discretization techniques depending on the output's bit configuration. For 2-bit configurations, the paper specifies the use of thresholds, which are a type of technique for discretization. Hence, the correct answer is A.",
+    "path_description": "Path: ConvolutionalLayersInference --[splitInto]--> QntPack --[uses]--> DiscretizationTechniques --[type]--> Technique",
+    "context": "For efficient execution on PULP cores, convolutional layers inference is split into three phases. | The last phase (QntPack) discretizes the 32-bit outputs of the MatMul to their target precision and pack them into 32-bit variables. | For this purpose, different discretization techniques are employed depending on the case: 8-bit output uses scaling and clamping [18], while 4- and 2-bit configurations use thresholds [1], [3].",
+    "paper_id": "165"
+  },
+  {
+    "section": "iiiisaextension3",
+    "path": {
+      "section": "iiiisaextension3",
+      "start_entity": "XpulpV2",
+      "end_entity": "True",
+      "hops": [
+        {
+          "from": "XpulpV2",
+          "relation": "hasSubset",
+          "to": "SIMD_FMT",
+          "context": "The instructions are derived from a subset of XpulpV2.",
+          "chunk": "6"
+        },
+        {
+          "from": "SIMD_FMT",
+          "relation": "usedIn",
+          "to": "MPIC_Functions_Call",
+          "context": "SIMD_FMT(M8x4) and SIMD_FMT(M8x2) are used in MPIC Functions Call.",
+          "chunk": "6"
+        },
+        {
+          "from": "MPIC_Functions_Call",
+          "relation": "changesPrecision",
+          "to": "True",
+          "context": "MPIC Functions Call changing precision before executing operations.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the context of using XpulpV2 architecture, which statement correctly describes the role of SIMD_FMT in MPIC Functions Call regarding data precision?",
+    "options": {
+      "A": "SIMD_FMT(M8x4) and SIMD_FMT(M8x2) increase computational precision before MPIC Functions Call executes operations.",
+      "B": "SIMD_FMT is used to maintain constant precision in MPIC Functions Call, ensuring consistent operation execution.",
+      "C": "SIMD_FMT functions are unrelated to data precision and only increase the speed of MPIC Functions Call.",
+      "D": "MPIC Functions Call utilizes SIMD_FMT(M8x4) to decrease computational precision, facilitating faster data processing."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A. SIMD_FMT(M8x4) and SIMD_FMT(M8x2), subsets of XpulpV2, are used in MPIC Functions Call. These functions change the precision to a higher level before operations are executed, as stated in the knowledge path and context from the paper. This ensures that operations are carried out with increased precision.",
+    "path_description": "Path: XpulpV2 --[hasSubset]--> SIMD_FMT --[usedIn]--> MPIC_Functions_Call --[changesPrecision]--> True",
+    "context": "The instructions are derived from a subset of XpulpV2. | SIMD_FMT(M8x4) and SIMD_FMT(M8x2) are used in MPIC Functions Call. | MPIC Functions Call changing precision before executing operations.",
+    "paper_id": "165"
+  },
+  {
+    "section": "iiiisaextension4",
+    "path": {
+      "section": "iiiisaextension4",
+      "start_entity": "slicerAndRouterBlock",
+      "end_entity": "HardwareComponent",
+      "hops": [
+        {
+          "from": "slicerAndRouterBlock",
+          "relation": "uses",
+          "to": "SIMD_FMT",
+          "context": "SIMD_FMT specifies which type of operands to select.",
+          "chunk": "7"
+        },
+        {
+          "from": "SIMD_FMT",
+          "relation": "relatedTo",
+          "to": "CSR",
+          "context": "SIMD_FMT specifies which type of operands to select (taken directly from the CSR).",
+          "chunk": "7"
+        },
+        {
+          "from": "CSR",
+          "relation": "type",
+          "to": "HardwareComponent",
+          "context": "SIMD_FMT specifies which type of operands to select (taken directly from the CSR).",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "In the context of the slicerAndRouterBlock's architecture, how does SIMD_FMT influence the operation of the CSR?",
+    "options": {
+      "A": "SIMD_FMT controls the temperature regulation of the CSR, essential for maintaining system stability.",
+      "B": "SIMD_FMT modifies the power usage of the CSR, thereby affecting the efficiency of the system.",
+      "C": "SIMD_FMT determines the speed at which the CSR processes data, influencing overall system performance.",
+      "D": "SIMD_FMT dictates the type of operands the CSR should select, impacting hardware component interactions."
+    },
+    "correct_answer": "D",
+    "explanation": "SIMD_FMT specifies which type of operands to select as per the CSR, indicating a direct influence on the selection of operands in the hardware component (CSR), thus impacting how these components interact.",
+    "path_description": "Path: slicerAndRouterBlock --[uses]--> SIMD_FMT --[relatedTo]--> CSR --[type]--> HardwareComponent",
+    "context": "SIMD_FMT specifies which type of operands to select. | SIMD_FMT specifies which type of operands to select (taken directly from the CSR). | SIMD_FMT specifies which type of operands to select (taken directly from the CSR).",
+    "paper_id": "165"
+  },
+  {
+    "section": "ivresults1",
+    "path": {
+      "section": "ivresults1",
+      "start_entity": "MPIC",
+      "end_entity": "Technology",
+      "hops": [
+        {
+          "from": "MPIC",
+          "relation": "integratedInto",
+          "to": "PULPissimo_SoC",
+          "context": "The experimental results presented in this section are based on both RI5CY and MPIC cores integrated into the PULPissimo SoC.",
+          "chunk": "8"
+        },
+        {
+          "from": "PULPissimo_SoC",
+          "relation": "synthesizedUsing",
+          "to": "GlobalFoundries_22nm_FDX",
+          "context": "We synthesized the SoC with Synopsys Design Compiler-2016.03 using Global Foundries 22 nm FDX technology.",
+          "chunk": "8"
+        },
+        {
+          "from": "GlobalFoundries_22nm_FDX",
+          "relation": "type",
+          "to": "Technology",
+          "context": "We synthesized the SoC with Synopsys Design Compiler-2016.03 using Global Foundries 22 nm FDX technology.",
+          "chunk": "8"
+        }
+      ]
+    },
+    "question": "Which technology was used to synthesize the PULPissimo SoC that integrates the MPIC core?",
+    "options": {
+      "A": "Samsung 10 nm technology was applied to synthesize the PULPissimo SoC which integrates the MPIC core.",
+      "B": "Intel 14 nm technology was utilized for synthesizing the PULPissimo SoC that includes the MPIC core.",
+      "C": "TSMC 28 nm technology was employed in the synthesis of the PULPissimo SoC that contains the MPIC core.",
+      "D": "GlobalFoundries 22 nm FDX technology was used to synthesize the PULPissimo SoC incorporating the MPIC core."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is GlobalFoundries 22 nm FDX technology, as specified in the context from the paper, where the PULPissimo SoC integrating the MPIC core was synthesized using this specific technology.",
+    "path_description": "Path: MPIC --[integratedInto]--> PULPissimo_SoC --[synthesizedUsing]--> GlobalFoundries_22nm_FDX --[type]--> Technology",
+    "context": "The experimental results presented in this section are based on both RI5CY and MPIC cores integrated into the PULPissimo SoC. | We synthesized the SoC with Synopsys Design Compiler-2016.03 using Global Foundries 22 nm FDX technology. | We synthesized the SoC with Synopsys Design Compiler-2016.03 using Global Foundries 22 nm FDX technology.",
+    "paper_id": "165"
+  }
+]

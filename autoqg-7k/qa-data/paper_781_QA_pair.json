@@ -1,0 +1,260 @@
+[
+  {
+    "section": "preliminaries1",
+    "path": {
+      "section": "preliminaries1",
+      "start_entity": "MultiliftModel",
+      "end_entity": "Rigid-bodyLoad",
+      "hops": [
+        {
+          "from": "MultiliftModel",
+          "relation": "uses",
+          "to": "Quadrotor",
+          "context": "We consider a multilift system with n quadrotors and a rigid-body load.",
+          "chunk": "2"
+        },
+        {
+          "from": "Quadrotor",
+          "relation": "connectedTo",
+          "to": "AttachmentPoint",
+          "context": "Each quadrotor is connected to an attachment point on the load via an elastic cable.",
+          "chunk": "2"
+        },
+        {
+          "from": "AttachmentPoint",
+          "relation": "partOf",
+          "to": "Rigid-bodyLoad",
+          "context": "Each quadrotor is connected to an attachment point on the load via an elastic cable.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In a multilift system described in the preliminaries section, how does the design of the quadrotor specifically support the structure of the rigid-body load?",
+    "options": {
+      "A": "Each quadrotor is designed to connect to the rigid-body load at specific attachment points using elastic cables.",
+      "B": "Quadrotors use a hydraulic attachment system that adjusts the tension automatically based on the load's weight.",
+      "C": "Each quadrotor uses a magnetic attachment system to connect directly to the rigid-body load for increased flexibility.",
+      "D": "Quadrotors are built with rigid cables that directly integrate with the rigid-body load to enhance stability."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A because the paper specifies that each quadrotor is connected to an attachment point on the rigid-body load using an elastic cable. This design ensures flexible yet stable connections necessary for the operation of a multilift system. Options B, C, and D introduce incorrect mechanisms (rigid cables, magnetic, and hydraulic systems) that are not mentioned in the context of the paper.",
+    "path_description": "Path: MultiliftModel --[uses]--> Quadrotor --[connectedTo]--> AttachmentPoint --[partOf]--> Rigid-bodyLoad",
+    "context": "We consider a multilift system with n quadrotors and a rigid-body load. | Each quadrotor is connected to an attachment point on the load via an elastic cable. | Each quadrotor is connected to an attachment point on the load via an elastic cable.",
+    "paper_id": "326"
+  },
+  {
+    "section": "preliminaries1",
+    "path": {
+      "section": "preliminaries1",
+      "start_entity": "Quadrotor",
+      "end_entity": "Component",
+      "hops": [
+        {
+          "from": "Quadrotor",
+          "relation": "connectedTo",
+          "to": "AttachmentPoint",
+          "context": "Each quadrotor is connected to an attachment point on the load via an elastic cable.",
+          "chunk": "2"
+        },
+        {
+          "from": "AttachmentPoint",
+          "relation": "partOf",
+          "to": "Rigid-bodyLoad",
+          "context": "Each quadrotor is connected to an attachment point on the load via an elastic cable.",
+          "chunk": "2"
+        },
+        {
+          "from": "Rigid-bodyLoad",
+          "relation": "type",
+          "to": "Component",
+          "context": "We consider a multilift system with n quadrotors and a rigid-body load.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In a multilift system involving n quadrotors, what role does the attachment point play in relation to the rigid-body load?",
+    "options": {
+      "A": "The attachment point serves as a sensor to monitor the altitude and position of the rigid-body load during flight.",
+      "B": "The attachment point is responsible for independently powering each quadrotor without interaction with the rigid-body load.",
+      "C": "The attachment point functions as a stability enhancer by distributing the weight of the load evenly among the quadrotors.",
+      "D": "The attachment point acts as a flexible connector that links each quadrotor to the rigid-body load using an elastic cable."
+    },
+    "correct_answer": "D",
+    "explanation": "The attachment point serves as a critical intermediary that connects each quadrotor to the rigid-body load using an elastic cable, ensuring flexibility and adaptability in the load management system. This setup allows for effective distribution and management of the load among multiple quadrotors.",
+    "path_description": "Path: Quadrotor --[connectedTo]--> AttachmentPoint --[partOf]--> Rigid-bodyLoad --[type]--> Component",
+    "context": "Each quadrotor is connected to an attachment point on the load via an elastic cable. | Each quadrotor is connected to an attachment point on the load via an elastic cable. | We consider a multilift system with n quadrotors and a rigid-body load.",
+    "paper_id": "326"
+  },
+  {
+    "section": "experiments1",
+    "path": {
+      "section": "experiments1",
+      "start_entity": "Runge-KuttaMethod",
+      "end_entity": "Software",
+      "hops": [
+        {
+          "from": "Runge-KuttaMethod",
+          "relation": "type",
+          "to": "Method",
+          "context": "The actual models (1) and (2) are discretized using the 4th order Runge-Kutta method with a time step ∆t¯ = 0.005 s.",
+          "chunk": "11"
+        },
+        {
+          "from": "Method",
+          "relation": "implementedIn",
+          "to": "Python",
+          "context": "We implement our method in Python and solve the distributed MPC problems described in Algorithm 1 using the ACADOS toolkit [45].",
+          "chunk": "11"
+        },
+        {
+          "from": "Python",
+          "relation": "type",
+          "to": "Software",
+          "context": "We implement our method in Python and solve the distributed MPC problems described in Algorithm 1 using the ACADOS toolkit [45].",
+          "chunk": "11"
+        }
+      ]
+    },
+    "question": "In the context of using the Runge-Kutta method for discretization in the experiments1 section, which software was essential for implementing the method and solving the distributed MPC problems?",
+    "options": {
+      "A": "MATLAB was employed to develop the models and utilized the SUNDIALS package for solving.",
+      "B": "Python was used to implement the method and solve the distributed MPC problems with the ACADOS toolkit.",
+      "C": "Java was utilized for setting up the environment and integrated with Apache Commons Math for computation.",
+      "D": "C++ was the programming language of choice and used the Boost ODE library for numerical solutions."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A since the paper explicitly states that Python was used to implement the method and solve distributed MPC problems using the ACADOS toolkit, following the path from the Runge-Kutta method as a method to Python as the software. Options B, C, and D are incorrect as they mention different programming languages and tools not referenced in the section.",
+    "path_description": "Path: Runge-KuttaMethod --[type]--> Method --[implementedIn]--> Python --[type]--> Software",
+    "context": "The actual models (1) and (2) are discretized using the 4th order Runge-Kutta method with a time step ∆t¯ = 0.005 s. | We implement our method in Python and solve the distributed MPC problems described in Algorithm 1 using the ACADOS toolkit [45]. | We implement our method in Python and solve the distributed MPC problems described in Algorithm 1 using the ACADOS toolkit [45].",
+    "paper_id": "326"
+  },
+  {
+    "section": "experiments3",
+    "path": {
+      "section": "experiments3",
+      "start_entity": "Algorithm1",
+      "end_entity": "Parameter",
+      "hops": [
+        {
+          "from": "Algorithm1",
+          "relation": "appliedTo",
+          "to": "SafePDP",
+          "context": "solve Problem (14) using the Safe-PDP method",
+          "chunk": "13"
+        },
+        {
+          "from": "SafePDP",
+          "relation": "uses",
+          "to": "Nol",
+          "context": "solve Problem (14) using the Safe-PDP method with Nol = 10",
+          "chunk": "13"
+        },
+        {
+          "from": "Nol",
+          "relation": "type",
+          "to": "Parameter",
+          "context": "with Nol = 10",
+          "chunk": "13"
+        }
+      ]
+    },
+    "question": "In the context of the experiment described in 'experiments3' section, how does the parameter Nol, used in the Safe-PDP method, specifically influence the solution of Problem (14)?",
+    "options": {
+      "A": "Nol directly controls the number of operational layers within the algorithm, impacting computational complexity.",
+      "B": "Nol determines the numeric threshold for safety, allowing for the precise adjustment of control parameters.",
+      "C": "Nol sets the number of iterations the Safe-PDP algorithm performs before termination, affecting convergence.",
+      "D": "Nol specifies the number of loop iterations, which influences the accuracy and execution time of the algorithm."
+    },
+    "correct_answer": "D",
+    "explanation": "Nol, as a parameter in the Safe-PDP method, is typically used to define the number of loop iterations in an algorithm, affecting both the accuracy of the solution and the time it takes to compute. This aligns with the description of its use in solving Problem (14) where 'Nol = 10' suggests it's setting loop iterations for the process.",
+    "path_description": "Path: Algorithm1 --[appliedTo]--> SafePDP --[uses]--> Nol --[type]--> Parameter",
+    "context": "solve Problem (14) using the Safe-PDP method | solve Problem (14) using the Safe-PDP method with Nol = 10 | with Nol = 10",
+    "paper_id": "326"
+  },
+  {
+    "section": "experiments4",
+    "path": {
+      "section": "experiments4",
+      "start_entity": "OurMethod",
+      "end_entity": "Equipment",
+      "hops": [
+        {
+          "from": "OurMethod",
+          "relation": "uses",
+          "to": "MultiliftSystem",
+          "context": "multilift system, equipped with six quadrotors and trained using our method in subsection VI-A, is required to pass through a narrow slot.",
+          "chunk": "14"
+        },
+        {
+          "from": "MultiliftSystem",
+          "relation": "equippedWith",
+          "to": "Quadrotors",
+          "context": "multilift system, equipped with six quadrotors and trained using our method in subsection VI-A, is required to pass through a narrow slot.",
+          "chunk": "14"
+        },
+        {
+          "from": "Quadrotors",
+          "relation": "type",
+          "to": "Equipment",
+          "context": "multilift system, equipped with six quadrotors and trained using our method in subsection VI-A, is required to pass through a narrow slot.",
+          "chunk": "14"
+        }
+      ]
+    },
+    "question": "In the context of the multilift system discussed in the 'experiments4' section, which type of equipment's characteristics are critical for successfully passing through a narrow slot?",
+    "options": {
+      "A": "Quadrotors, as they are specifically configured within the system to navigate challenging environments.",
+      "B": "Sensors, as they provide necessary environmental data for navigation.",
+      "C": "Control algorithms, as they dictate the precise movement and coordination of the multilift system.",
+      "D": "Communication modules, which maintain constant data exchange between the quadrotors."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A, as the question paths through 'OurMethod --[uses]--> MultiliftSystem --[equippedWith]--> Quadrotors --[type]--> Equipment', indicating the critical role of quadrotors, equipped within the multilift system, in handling specific tasks like passing through narrow slots. The type of equipment, which are quadrotors in this scenario, are essential for the task described in the paper section.",
+    "path_description": "Path: OurMethod --[uses]--> MultiliftSystem --[equippedWith]--> Quadrotors --[type]--> Equipment",
+    "context": "multilift system, equipped with six quadrotors and trained using our method in subsection VI-A, is required to pass through a narrow slot. | multilift system, equipped with six quadrotors and trained using our method in subsection VI-A, is required to pass through a narrow slot. | multilift system, equipped with six quadrotors and trained using our method in subsection VI-A, is required to pass through a narrow slot.",
+    "paper_id": "326"
+  },
+  {
+    "section": "discussion",
+    "path": {
+      "section": "discussion",
+      "start_entity": "Auto-Multilift",
+      "end_entity": "Component",
+      "hops": [
+        {
+          "from": "Auto-Multilift",
+          "relation": "canBeImproved",
+          "to": "ComputationTime",
+          "context": "On the other hand, Auto-Multilift can be further improved in the following aspects...",
+          "chunk": "16"
+        },
+        {
+          "from": "ComputationTime",
+          "relation": "relatedTo",
+          "to": "DistributedMPCs",
+          "context": "The computation time for the distributed MPCs is relatively long...",
+          "chunk": "16"
+        },
+        {
+          "from": "DistributedMPCs",
+          "relation": "type",
+          "to": "Component",
+          "context": "Auto-Multilift features a distributed and closed-loop learning framework...",
+          "chunk": "16"
+        }
+      ]
+    },
+    "question": "How can the performance of Auto-Multilift in a distributed and closed-loop learning framework be enhanced?",
+    "options": {
+      "A": "By integrating more interactive user interfaces to facilitate real-time control and adjustments.",
+      "B": "By expanding the scale of distributed networks to include more learning nodes and data points.",
+      "C": "By reducing the computation time which is inherently long for its distributed MPC components.",
+      "D": "By increasing the frequency of updating learning algorithms to ensure contemporary relevance."
+    },
+    "correct_answer": "C",
+    "explanation": "The key to enhancing Auto-Multilift's performance in a distributed and closed-loop learning framework lies in addressing the computation time, which is noted as being relatively long for distributed MPCs (Model Predictive Controls), a component type of the system. Reducing this time will directly improve the system's efficiency and effectiveness.",
+    "path_description": "Path: Auto-Multilift --[canBeImproved]--> ComputationTime --[relatedTo]--> DistributedMPCs --[type]--> Component",
+    "context": "On the other hand, Auto-Multilift can be further improved in the following aspects... | The computation time for the distributed MPCs is relatively long... | Auto-Multilift features a distributed and closed-loop learning framework...",
+    "paper_id": "326"
+  }
+]

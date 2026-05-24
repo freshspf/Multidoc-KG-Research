@@ -1,0 +1,88 @@
+[
+  {
+    "section": "motivation2",
+    "path": {
+      "section": "motivation2",
+      "start_entity": "MIL",
+      "end_entity": "Component",
+      "hops": [
+        {
+          "from": "MIL",
+          "relation": "employs",
+          "to": "ABMIL",
+          "context": "As a foundational example, we employed the ABMIL model",
+          "chunk": "3"
+        },
+        {
+          "from": "ABMIL",
+          "relation": "hasComponent",
+          "to": "AttentionNetwork",
+          "context": "we examine the gradient shifts in the attention network",
+          "chunk": "3"
+        },
+        {
+          "from": "AttentionNetwork",
+          "relation": "type",
+          "to": "Component",
+          "context": "we examine the gradient shifts in the attention network",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the context of the ABMIL model as described in 'motivation2', what type of architectural element does the Attention Network represent?",
+    "options": {
+      "A": "The Attention Network is an external tool used for data visualization in models unrelated to MIL.",
+      "B": "The Attention Network is a component designed to analyze gradient shifts within the ABMIL model.",
+      "C": "The Attention Network is a regulatory mechanism that controls input and output in the ABMIL model.",
+      "D": "The Attention Network is a standalone system that operates independently of the ABMIL model."
+    },
+    "correct_answer": "B",
+    "explanation": "The Attention Network, as a part of the ABMIL model, functions as a component focused on analyzing gradient shifts. This architectural element is integral to the model's structure, aligning with the provided knowledge path from MIL through ABMIL to the Attention Network categorized as a component.",
+    "path_description": "Path: MIL --[employs]--> ABMIL --[hasComponent]--> AttentionNetwork --[type]--> Component",
+    "context": "As a foundational example, we employed the ABMIL model | we examine the gradient shifts in the attention network | we examine the gradient shifts in the attention network",
+    "paper_id": "207"
+  },
+  {
+    "section": "methodology",
+    "path": {
+      "section": "methodology",
+      "start_entity": "MemoryPool",
+      "end_entity": "Task",
+      "hops": [
+        {
+          "from": "MemoryPool",
+          "relation": "partOf",
+          "to": "PseudoBagMemoryPool",
+          "context": "Traditional replay-based methods typically store thousands of samples in the memory pool.",
+          "chunk": "4"
+        },
+        {
+          "from": "PseudoBagMemoryPool",
+          "relation": "appliedTo",
+          "to": "WSITasks",
+          "context": "Pseudo-Bag Memory Pool is applied to WSI tasks.",
+          "chunk": "4"
+        },
+        {
+          "from": "WSITasks",
+          "relation": "type",
+          "to": "Task",
+          "context": "However, in WSI tasks, the entire dataset contains only a few hundred images due to the high costs of data collection and patient privacy concerns.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "Why is a Pseudo-Bag Memory Pool particularly suitable for use in Whole Slide Imaging (WSI) tasks?",
+    "options": {
+      "A": "It can store thousands of samples, thus increasing the data availability for extensive training in WSI tasks.",
+      "B": "It enhances the resolution and quality of images, which is essential for the detailed analysis required in WSI tasks.",
+      "C": "It supports real-time data streaming which is a critical requirement for handling large-scale WSI tasks.",
+      "D": "It efficiently manages a limited number of high-cost, privacy-sensitive images typical in WSI tasks."
+    },
+    "correct_answer": "D",
+    "explanation": "The Pseudo-Bag Memory Pool is particularly suitable for WSI tasks because these tasks involve a limited dataset due to high data collection costs and privacy concerns. The Pseudo-Bag design efficiently manages these few but valuable images, unlike traditional memory pools that store thousands of samples and may not be as efficient or necessary for the smaller, sensitive datasets typical of WSI tasks.",
+    "path_description": "Path: MemoryPool --[partOf]--> PseudoBagMemoryPool --[appliedTo]--> WSITasks --[type]--> Task",
+    "context": "Traditional replay-based methods typically store thousands of samples in the memory pool. | Pseudo-Bag Memory Pool is applied to WSI tasks. | However, in WSI tasks, the entire dataset contains only a few hundred images due to the high costs of data collection and patient privacy concerns.",
+    "paper_id": "207"
+  }
+]

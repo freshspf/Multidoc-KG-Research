@@ -1,0 +1,45 @@
+[
+  {
+    "section": "concept1",
+    "path": {
+      "section": "concept1",
+      "start_entity": "ComptonCamera",
+      "end_entity": "IncidentAngle",
+      "hops": [
+        {
+          "from": "ComptonCamera",
+          "relation": "detects",
+          "to": "GammaRays",
+          "context": "The camera consists of column arrays of Compton camera, each column is located with as a small separation allowing incident gamma-rays to enter the region at the infinite distance, and thus the incident gamma-rays arrive nearly uniformly and in parallel.",
+          "chunk": "1"
+        },
+        {
+          "from": "GammaRays",
+          "relation": "generate",
+          "to": "ExcessCount",
+          "context": "These gamma-rays generate an excess count at the edge of the sensor.",
+          "chunk": "1"
+        },
+        {
+          "from": "ExcessCount",
+          "relation": "dependsOn",
+          "to": "IncidentAngle",
+          "context": "The slope of the excess count depends on the incident angle; a flatter slope for a large incident angle.",
+          "chunk": "1"
+        }
+      ]
+    },
+    "question": "How does the incident angle of gamma-rays detected by a Compton Camera influence the observed excess count at the sensor's edge?",
+    "options": {
+      "A": "A larger incident angle results in a flatter slope of the excess count, indicating less variance in count per unit area.",
+      "B": "A smaller incident angle results in a sharper slope of the excess count, indicating a higher concentration of gamma-rays.",
+      "C": "A larger incident angle causes a steeper increase in the excess count, leading to a more pronounced peak at the sensor's edge.",
+      "D": "A smaller incident angle leads to a uniform distribution of excess counts across the sensor, minimizing edge effects."
+    },
+    "correct_answer": "A",
+    "explanation": "The information from the paper states that the slope of the excess count at the edge of the sensor depends on the incident angle, with a flatter slope observed for a larger incident angle. This suggests that a larger incident angle results in less variance in the excess count per unit area, which is best reflected in option A.",
+    "path_description": "Path: ComptonCamera --[detects]--> GammaRays --[generate]--> ExcessCount --[dependsOn]--> IncidentAngle",
+    "context": "The camera consists of column arrays of Compton camera, each column is located with as a small separation allowing incident gamma-rays to enter the region at the infinite distance, and thus the incident gamma-rays arrive nearly uniformly and in parallel. | These gamma-rays generate an excess count at the edge of the sensor. | The slope of the excess count depends on the incident angle; a flatter slope for a large incident angle.",
+    "paper_id": "1305"
+  }
+]

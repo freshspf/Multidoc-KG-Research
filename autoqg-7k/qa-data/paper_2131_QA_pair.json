@@ -1,0 +1,174 @@
+[
+  {
+    "section": "systemoverview",
+    "path": {
+      "section": "systemoverview",
+      "start_entity": "SpecOffload",
+      "end_entity": "TwoPhaseArchitecture",
+      "hops": [
+        {
+          "from": "SpecOffload",
+          "relation": "proposes",
+          "to": "ParaSpecPlanner",
+          "context": "During the online phase, the hardware configuration and batched inputs are provided to the ParaSpec Planner.",
+          "chunk": "3"
+        },
+        {
+          "from": "ParaSpecPlanner",
+          "relation": "usedFor",
+          "to": "OnlineScheduling",
+          "context": "During the online phase, the hardware configuration and batched inputs are provided to the ParaSpec Planner.",
+          "chunk": "3"
+        },
+        {
+          "from": "OnlineScheduling",
+          "relation": "partOf",
+          "to": "TwoPhaseArchitecture",
+          "context": "where offline tensor placement and online scheduling collectively determine a unified pipeline across GPU and CPU.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the TwoPhaseArchitecture discussed in the 'systemoverview' section, what role does the ParaSpec Planner primarily play?",
+    "options": {
+      "A": "It directly handles offline tensor placement to optimize resource allocation across GPU and CPU.",
+      "B": "It manages online scheduling by utilizing pre-determined hardware configurations and batched inputs.",
+      "C": "It integrates both offline tensor placement and online scheduling for unified pipeline operation.",
+      "D": "It proposes the SpecOffload necessary for efficient hardware utilization during the online phase."
+    },
+    "correct_answer": "B",
+    "explanation": "The ParaSpec Planner is used for online scheduling, which involves managing hardware configurations and batched inputs provided during the online phase. Options A, C, and D are incorrect as they misrepresent the role of ParaSpec Planner, either by suggesting it proposes SpecOffload (A), handles offline tensor placement (C), or integrates both phases directly (D).",
+    "path_description": "Path: SpecOffload --[proposes]--> ParaSpecPlanner --[usedFor]--> OnlineScheduling --[partOf]--> TwoPhaseArchitecture",
+    "context": "During the online phase, the hardware configuration and batched inputs are provided to the ParaSpec Planner. | During the online phase, the hardware configuration and batched inputs are provided to the ParaSpec Planner. | where offline tensor placement and online scheduling collectively determine a unified pipeline across GPU and CPU.",
+    "paper_id": "162"
+  },
+  {
+    "section": "method3",
+    "path": {
+      "section": "method3",
+      "start_entity": "DraftGeneration",
+      "end_entity": "Concept",
+      "hops": [
+        {
+          "from": "DraftGeneration",
+          "relation": "taskFor",
+          "to": "OneBatch",
+          "context": "two primary tasks: draft generation for one batch",
+          "chunk": "6"
+        },
+        {
+          "from": "OneBatch",
+          "relation": "type",
+          "to": "Batch",
+          "context": "two primary tasks: draft generation for one batch",
+          "chunk": "6"
+        },
+        {
+          "from": "Batch",
+          "relation": "type",
+          "to": "Concept",
+          "context": "Since bound, its execution time is independent of batch",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the context of the method3 section, which statement best describes the relationship between draft generation and its execution time?",
+    "options": {
+      "A": "Draft generation for one batch is a task where execution time is influenced by the size of the batch.",
+      "B": "Draft generation for one batch is a task whose execution time does not depend on the batch size or type.",
+      "C": "Draft generation for one batch is influenced by the type of concept used in the batch, affecting its execution time.",
+      "D": "Draft generation for one batch requires varying execution times based on the complexity of the batch's draft."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is B because the context specifies that the execution time for the draft generation task is independent of the batch, meaning it does not depend on the batch size or type. The other options incorrectly imply dependency on batch size, type, or complexity.",
+    "path_description": "Path: DraftGeneration --[taskFor]--> OneBatch --[type]--> Batch --[type]--> Concept",
+    "context": "two primary tasks: draft generation for one batch | two primary tasks: draft generation for one batch | Since bound, its execution time is independent of batch",
+    "paper_id": "162"
+  },
+  {
+    "section": "technicalappendicesandsupplementarymaterial1",
+    "path": {
+      "section": "technicalappendicesandsupplementarymaterial1",
+      "start_entity": "Tdecoding",
+      "end_entity": "Prefill",
+      "hops": [
+        {
+          "from": "Tdecoding",
+          "relation": "determinedBy",
+          "to": "Tdraft",
+          "context": "The overall latency of SpecOffload is thus determined by the slower of the two tasks in Equation 16.",
+          "chunk": "11"
+        },
+        {
+          "from": "Tdraft",
+          "relation": "partOf",
+          "to": "SpecOffload",
+          "context": "The draft generation task incurs a latency equal to the time required to execute the draft model inference entirely on the GPU.",
+          "chunk": "11"
+        },
+        {
+          "from": "SpecOffload",
+          "relation": "hasStage",
+          "to": "Prefill",
+          "context": "As SpecOffload exhibits distinct behaviors in the Prefill and decoding stages.",
+          "chunk": "11"
+        }
+      ]
+    },
+    "question": "Which stage in the SpecOffload process is directly influenced by the time required to execute the draft model inference on the GPU?",
+    "options": {
+      "A": "The draft stage, as it directly incurs latency from the draft model inference on the GPU.",
+      "B": "The SpecOffload stage, as it encompasses all tasks including the draft generation.",
+      "C": "The decoding stage, as it is determined by the latency of the draft generation task.",
+      "D": "The Prefill stage, because it is dependent on the outputs of the draft generation task."
+    },
+    "correct_answer": "C",
+    "explanation": "The decoding stage is directly influenced by the draft generation task's latency, which is determined by the time it takes to execute the draft model inference entirely on the GPU. While the draft stage involves the execution of the draft model inference, it is not influenced by it, as it is the source of the latency itself.",
+    "path_description": "Path: Tdecoding --[determinedBy]--> Tdraft --[partOf]--> SpecOffload --[hasStage]--> Prefill",
+    "context": "The overall latency of SpecOffload is thus determined by the slower of the two tasks in Equation 16. | The draft generation task incurs a latency equal to the time required to execute the draft model inference entirely on the GPU. | As SpecOffload exhibits distinct behaviors in the Prefill and decoding stages.",
+    "paper_id": "162"
+  },
+  {
+    "section": "technicalappendicesandsupplementarymaterial5",
+    "path": {
+      "section": "technicalappendicesandsupplementarymaterial5",
+      "start_entity": "DraftModel",
+      "end_entity": "Dataset",
+      "hops": [
+        {
+          "from": "DraftModel",
+          "relation": "allocatedMemoryOn",
+          "to": "GPU_Memory_Usage",
+          "context": "allocate GPU memory to the draft model rather",
+          "chunk": "15"
+        },
+        {
+          "from": "GPU_Memory_Usage",
+          "relation": "monitoredOn",
+          "to": "SummEval",
+          "context": "PU memory usage on the SummEval dataset.",
+          "chunk": "15"
+        },
+        {
+          "from": "SummEval",
+          "relation": "type",
+          "to": "Dataset",
+          "context": "PU memory usage on the SummEval dataset.",
+          "chunk": "15"
+        }
+      ]
+    },
+    "question": "In the development of a draft model as described in the paper, which dataset type is primarily monitored to allocate GPU memory usage efficiently?",
+    "options": {
+      "A": "ImageNet, a large visual dataset often used in computer vision tasks",
+      "B": "SummEval, a dataset specifically designed for summarization evaluation tasks",
+      "C": "COCO, a dataset rich in object segmentation and captioning aimed at scene understanding",
+      "D": "MNIST, a database containing handwritten digits commonly used for optical character recognition"
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is SummEval, as the knowledge graph path indicates that GPU memory usage for the draft model is monitored on the SummEval dataset, which is a type of dataset. This suggests that SummEval's specific purpose is for summarization evaluation, thus making it the primary dataset monitored for allocating GPU memory in the context provided.",
+    "path_description": "Path: DraftModel --[allocatedMemoryOn]--> GPU_Memory_Usage --[monitoredOn]--> SummEval --[type]--> Dataset",
+    "context": "allocate GPU memory to the draft model rather | PU memory usage on the SummEval dataset. | PU memory usage on the SummEval dataset.",
+    "paper_id": "162"
+  }
+]

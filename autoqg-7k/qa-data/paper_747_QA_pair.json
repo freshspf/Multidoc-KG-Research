@@ -1,0 +1,45 @@
+[
+  {
+    "section": "tasks2",
+    "path": {
+      "section": "tasks2",
+      "start_entity": "Robot",
+      "end_entity": "Dark",
+      "hops": [
+        {
+          "from": "Robot",
+          "relation": "equippedWith",
+          "to": "LightSensor",
+          "context": "The robot is equipped with a light sensor...",
+          "chunk": "4"
+        },
+        {
+          "from": "LightSensor",
+          "relation": "hasObservations",
+          "to": "ObservationsY",
+          "context": "The robot is equipped with a light sensor with the set of observations Y = { , , }...",
+          "chunk": "4"
+        },
+        {
+          "from": "ObservationsY",
+          "relation": "includes",
+          "to": "Dark",
+          "context": "it reports (dark) or indeterminate otherwise.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the context of a robot equipped with a light sensor from the 'tasks2' section, what observation would likely trigger an indeterminate report from the sensor?",
+    "options": {
+      "A": "The observation of overly bright conditions where the light intensity is extremely high.",
+      "B": "The observation of complete darkness where no light is detectable by the sensor.",
+      "C": "The observation of moderate lighting conditions where light is partially available.",
+      "D": "The observation of fluctuating light levels that confuse the sensor's calibration."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is B. The robot equipped with a light sensor reports an indeterminate observation unless it detects dark conditions, as stated in the paper. Thus, moderate lighting conditions, which are neither fully dark nor overly bright, would likely lead to an indeterminate report from the sensor.",
+    "path_description": "Path: Robot --[equippedWith]--> LightSensor --[hasObservations]--> ObservationsY --[includes]--> Dark",
+    "context": "The robot is equipped with a light sensor... | The robot is equipped with a light sensor with the set of observations Y = { , , }... | it reports (dark) or indeterminate otherwise.",
+    "paper_id": "1358"
+  }
+]

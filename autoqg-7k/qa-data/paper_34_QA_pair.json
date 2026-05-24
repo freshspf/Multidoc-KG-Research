@@ -1,0 +1,45 @@
+[
+  {
+    "section": "architecture2",
+    "path": {
+      "section": "architecture2",
+      "start_entity": "gophy",
+      "end_entity": "DatabaseBucket",
+      "hops": [
+        {
+          "from": "gophy",
+          "relation": "uses",
+          "to": "bbolt",
+          "context": "a NoSQL key-value database with bucket support called bbolt is used to store block data as key-value pairs.",
+          "chunk": "2"
+        },
+        {
+          "from": "bbolt",
+          "relation": "contains",
+          "to": "StateDbBucket",
+          "context": "Within the bbolt database, separate buckets are used to hold different kinds of data.",
+          "chunk": "2"
+        },
+        {
+          "from": "StateDbBucket",
+          "relation": "type",
+          "to": "DatabaseBucket",
+          "context": "State db bucket (Used to keep track of account token balances).",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the architecture described in the paper, what is the primary purpose of the StateDbBucket within the bbolt database?",
+    "options": {
+      "A": "To keep track of account token balances by categorizing them as separate data types within the database.",
+      "B": "To enhance the security of transactions by segregating sensitive account information.",
+      "C": "To manage user authentication data, ensuring that access control protocols are adhered to.",
+      "D": "To store the block data as key-value pairs for quick retrieval and efficient storage."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is B because the context specifies that the StateDbBucket is used specifically to keep track of account token balances. This implies that its primary role is categorizing and managing this specific type of data within the bbolt database, which supports key-value pairs and uses separate buckets for different data types.",
+    "path_description": "Path: gophy --[uses]--> bbolt --[contains]--> StateDbBucket --[type]--> DatabaseBucket",
+    "context": "a NoSQL key-value database with bucket support called bbolt is used to store block data as key-value pairs. | Within the bbolt database, separate buckets are used to hold different kinds of data. | State db bucket (Used to keep track of account token balances).",
+    "paper_id": "530"
+  }
+]

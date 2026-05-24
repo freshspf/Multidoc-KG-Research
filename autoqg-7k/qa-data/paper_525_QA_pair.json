@@ -1,0 +1,88 @@
+[
+  {
+    "section": "scenarioandusecasedescription",
+    "path": {
+      "section": "scenarioandusecasedescription",
+      "start_entity": "Spain",
+      "end_entity": "HighLevelCommands",
+      "hops": [
+        {
+          "from": "Spain",
+          "relation": "partOf",
+          "to": "NationalLayer",
+          "context": "Here, the national layer involves three allied nations: Spain, Italy, and Portugal.",
+          "chunk": "3"
+        },
+        {
+          "from": "NationalLayer",
+          "relation": "partOf",
+          "to": "CoalitionLayer",
+          "context": "Tier two, or National Layer: in the central section of Fig. 1.",
+          "chunk": "3"
+        },
+        {
+          "from": "CoalitionLayer",
+          "relation": "setsCommands",
+          "to": "HighLevelCommands",
+          "context": "The Coalition layer sets high-level commands.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the context described in 'scenarioandusecasedescription', which nation's operational integration within the National Layer directly contributes to the formulation of High Level Commands in the Coalition Layer?",
+    "options": {
+      "A": "The United States, although not explicitly mentioned, assumes a central role in influencing the Coalition Layer.",
+      "B": "Spain, as a part of the National Layer, contributes to the Coalition Layer that sets High Level Commands.",
+      "C": "Germany, through its unique position in the National Layer, influences the Coalition Layer's High Level Commands.",
+      "D": "Switzerland, known for its neutrality, indirectly affects the Coalition Layer's command structure."
+    },
+    "correct_answer": "B",
+    "explanation": "Following the knowledge graph path, Spain is explicitly mentioned as a part of the National Layer which forms part of the Coalition Layer that sets High Level Commands. Options B, C, and D introduce countries not mentioned in the given path or context, making them incorrect.",
+    "path_description": "Path: Spain --[partOf]--> NationalLayer --[partOf]--> CoalitionLayer --[setsCommands]--> HighLevelCommands",
+    "context": "Here, the national layer involves three allied nations: Spain, Italy, and Portugal. | Tier two, or National Layer: in the central section of Fig. 1. | The Coalition layer sets high-level commands.",
+    "paper_id": "1530"
+  },
+  {
+    "section": "fcnproofofconceptevaluation",
+    "path": {
+      "section": "fcnproofofconceptevaluation",
+      "start_entity": "PKIManagement",
+      "end_entity": "UserRole",
+      "hops": [
+        {
+          "from": "PKIManagement",
+          "relation": "includesFunction",
+          "to": "PublishPublicKey",
+          "context": "Publish public key; this function can be used by any authorized user.",
+          "chunk": "7"
+        },
+        {
+          "from": "PublishPublicKey",
+          "relation": "usableBy",
+          "to": "AuthorizedUser",
+          "context": "this function can be used by any authorized user.",
+          "chunk": "7"
+        },
+        {
+          "from": "AuthorizedUser",
+          "relation": "type",
+          "to": "UserRole",
+          "context": "this function can be called by any authorized user.",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "In the context of PKI Management, which user role is primarily intended to utilize the function 'Publish Public Key' according to its designed usability?",
+    "options": {
+      "A": "Any user role within the organization, regardless of their specific duties or responsibilities",
+      "B": "Only user roles involved in technical support and troubleshooting",
+      "C": "A user role specifically assigned with security administration responsibilities",
+      "D": "User roles that are exclusively part of the software development team"
+    },
+    "correct_answer": "A",
+    "explanation": "The function 'Publish Public Key' is designed to be usable by any authorized user, not limited to specific roles or responsibilities related to security, technical support, or software development. This inclusivity suggests that the function is important across various user roles within the organization.",
+    "path_description": "Path: PKIManagement --[includesFunction]--> PublishPublicKey --[usableBy]--> AuthorizedUser --[type]--> UserRole",
+    "context": "Publish public key; this function can be used by any authorized user. | this function can be used by any authorized user. | this function can be called by any authorized user.",
+    "paper_id": "1530"
+  }
+]

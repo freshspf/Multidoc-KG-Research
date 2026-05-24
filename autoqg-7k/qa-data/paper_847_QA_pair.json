@@ -1,0 +1,174 @@
+[
+  {
+    "section": "quasistaticcontrolframework2",
+    "path": {
+      "section": "quasistaticcontrolframework2",
+      "start_entity": "Algorithm1",
+      "end_entity": "NumericalMethod",
+      "hops": [
+        {
+          "from": "Algorithm1",
+          "relation": "computes",
+          "to": "AnalyticalJacobian",
+          "context": "Algorithm 1: Computation of deflection angle θ(s) and analytical Jacobian J(s) of the MSCR",
+          "chunk": "4"
+        },
+        {
+          "from": "AnalyticalJacobian",
+          "relation": "computedBy",
+          "to": "NewtonInterpolation",
+          "context": "the second derivative ∂σ(s,θ)/∂θ2 used for iteration is estimated through Newton interpolation",
+          "chunk": "4"
+        },
+        {
+          "from": "NewtonInterpolation",
+          "relation": "type",
+          "to": "NumericalMethod",
+          "context": "the second derivative ∂σ(s,θ)/∂θ2 used for iteration is estimated through Newton interpolation",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the context of the quasistatic control framework described in the paper, what is the role of Newton interpolation in computing the analytical Jacobian J(s)?",
+    "options": {
+      "A": "Newton interpolation is applied to linearize the relationship between θ(s) and σ(s,θ) for easier computation of J(s).",
+      "B": "Newton interpolation calculates the integral of the deflection angle over the path s to determine J(s).",
+      "C": "Newton interpolation directly computes the first derivative ∂θ/∂s as a function of the deflection angle θ(s) for J(s).",
+      "D": "Newton interpolation is used to estimate the second derivative ∂σ(s,θ)/∂θ2, which is crucial for iterating to compute J(s)."
+    },
+    "correct_answer": "D",
+    "explanation": "Newton interpolation is specifically used to estimate the second derivative ∂σ(s,θ)/∂θ2 according to the provided context. This estimation is critical for the iteration process in the computation of the analytical Jacobian J(s). The other options incorrectly describe the role or method of computation.",
+    "path_description": "Path: Algorithm1 --[computes]--> AnalyticalJacobian --[computedBy]--> NewtonInterpolation --[type]--> NumericalMethod",
+    "context": "Algorithm 1: Computation of deflection angle θ(s) and analytical Jacobian J(s) of the MSCR | the second derivative ∂σ(s,θ)/∂θ2 used for iteration is estimated through Newton interpolation | the second derivative ∂σ(s,θ)/∂θ2 used for iteration is estimated through Newton interpolation",
+    "paper_id": "439"
+  },
+  {
+    "section": "extensiontopositionalcontrol",
+    "path": {
+      "section": "extensiontopositionalcontrol",
+      "start_entity": "Model",
+      "end_entity": "PhysicalProperty",
+      "hops": [
+        {
+          "from": "Model",
+          "relation": "estimates",
+          "to": "JacobianMatrix",
+          "context": "indicating that the model can reasonably estimate the Jacobian matrix.",
+          "chunk": "7"
+        },
+        {
+          "from": "JacobianMatrix",
+          "relation": "usedFor",
+          "to": "RotationAngle",
+          "context": "The Jacobian we solved for the rotation angle can be conveniently applied to compute this matrix.",
+          "chunk": "7"
+        },
+        {
+          "from": "RotationAngle",
+          "relation": "type",
+          "to": "PhysicalProperty",
+          "context": "The Jacobian we solved for the rotation angle can be conveniently applied to compute this matrix.",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "In the context of positional control, how does the estimated Jacobian matrix specifically contribute to the manipulation of physical properties?",
+    "options": {
+      "A": "It measures the torque necessary for rotational movements within mechanical systems.",
+      "B": "It provides a mathematical framework for calculating rotation angles, thus affecting the physical manipulation of objects.",
+      "C": "It directly computes linear displacements required for positional adjustments in a control system.",
+      "D": "It serves as a computational tool for determining the velocity of rotational elements in a system."
+    },
+    "correct_answer": "B",
+    "explanation": "The Jacobian matrix, as estimated by the model, is used primarily to determine rotation angles which are a type of physical property crucial for the manipulation of objects in positional control systems. This matrix provides the necessary computations to understand how changes in one set of variables (input) affect changes in another (output), particularly in terms of rotational angles, which impact the physical positioning of objects.",
+    "path_description": "Path: Model --[estimates]--> JacobianMatrix --[usedFor]--> RotationAngle --[type]--> PhysicalProperty",
+    "context": "indicating that the model can reasonably estimate the Jacobian matrix. | The Jacobian we solved for the rotation angle can be conveniently applied to compute this matrix. | The Jacobian we solved for the rotation angle can be conveniently applied to compute this matrix.",
+    "paper_id": "439"
+  },
+  {
+    "section": "simulationsandexperiments1",
+    "path": {
+      "section": "simulationsandexperiments1",
+      "start_entity": "QuasiStaticControlFramework",
+      "end_entity": "Platform",
+      "hops": [
+        {
+          "from": "QuasiStaticControlFramework",
+          "relation": "validatedBy",
+          "to": "FastAndPreciseAlgorithm",
+          "context": "This section validates the feasibility of the previously proposed quasi-static control framework.",
+          "chunk": "5"
+        },
+        {
+          "from": "FastAndPreciseAlgorithm",
+          "relation": "deployedOn",
+          "to": "VisualServoingPlatform",
+          "context": "A fast and precise algorithm is developed and deployed on the visual servoing platform to capture the distal rotation angle.",
+          "chunk": "5"
+        },
+        {
+          "from": "VisualServoingPlatform",
+          "relation": "type",
+          "to": "Platform",
+          "context": "A fast and precise algorithm is developed and deployed on the visual servoing platform to capture the distal rotation angle.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "Which of the following best describes the purpose of deploying the fast and precise algorithm on the visual servoing platform?",
+    "options": {
+      "A": "To reduce the computational load on the visual servoing platform by simplifying the control framework.",
+      "B": "To validate the feasibility of the quasi-static control framework by capturing the distal rotation angle.",
+      "C": "To enhance the visual servoing platform's ability to handle multiple algorithms simultaneously.",
+      "D": "To increase the operational speed of the visual servoing platform without concern for accuracy."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A because the context states that the fast and precise algorithm, validated by the quasi-static control framework, was deployed on the visual servoing platform specifically to capture the distal rotation angle. This deployment serves to validate the feasibility of the quasi-static control framework. Options B, C, and D are misleading as they suggest purposes that are not supported by the context provided in the paper section.",
+    "path_description": "Path: QuasiStaticControlFramework --[validatedBy]--> FastAndPreciseAlgorithm --[deployedOn]--> VisualServoingPlatform --[type]--> Platform",
+    "context": "This section validates the feasibility of the previously proposed quasi-static control framework. | A fast and precise algorithm is developed and deployed on the visual servoing platform to capture the distal rotation angle. | A fast and precise algorithm is developed and deployed on the visual servoing platform to capture the distal rotation angle.",
+    "paper_id": "439"
+  },
+  {
+    "section": "conclusions",
+    "path": {
+      "section": "conclusions",
+      "start_entity": "MSCR",
+      "end_entity": "Component",
+      "hops": [
+        {
+          "from": "MSCR",
+          "relation": "utilizes",
+          "to": "PermanentMagnet",
+          "context": "In this study, we achieved closed-loop deflection control of MSCRs by utilizing a single rotatable permanent magnet as the end-effector of the robot arm.",
+          "chunk": "8"
+        },
+        {
+          "from": "PermanentMagnet",
+          "relation": "partOf",
+          "to": "RobotArm",
+          "context": "In this study, we achieved closed-loop deflection control of MSCRs by utilizing a single rotatable permanent magnet as the end-effector of the robot arm.",
+          "chunk": "8"
+        },
+        {
+          "from": "RobotArm",
+          "relation": "type",
+          "to": "Component",
+          "context": "In this study, we achieved closed-loop deflection control of MSCRs by utilizing a single rotatable permanent magnet as the end-effector of the robot arm.",
+          "chunk": "8"
+        }
+      ]
+    },
+    "question": "In the study on closed-loop deflection control of MSCRs, what role does the permanent magnet play within the robot arm system?",
+    "options": {
+      "A": "It is used primarily to enhance the power supply to the robot arm by generating additional electromagnetic force.",
+      "B": "The permanent magnet functions as a structural component to increase the robot arm's mechanical stability.",
+      "C": "It serves as the end-effector that allows the robot arm to manipulate the MSCR’s position.",
+      "D": "It acts as a sensor to detect the deflection angles of the MSCRs during operational procedures."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A because, as per the provided path and context, the permanent magnet is utilized as the end-effector of the robot arm, specifically to manipulate the MSCR’s position, which is essential for achieving closed-loop deflection control.",
+    "path_description": "Path: MSCR --[utilizes]--> PermanentMagnet --[partOf]--> RobotArm --[type]--> Component",
+    "context": "In this study, we achieved closed-loop deflection control of MSCRs by utilizing a single rotatable permanent magnet as the end-effector of the robot arm. | In this study, we achieved closed-loop deflection control of MSCRs by utilizing a single rotatable permanent magnet as the end-effector of the robot arm. | In this study, we achieved closed-loop deflection control of MSCRs by utilizing a single rotatable permanent magnet as the end-effector of the robot arm.",
+    "paper_id": "439"
+  }
+]

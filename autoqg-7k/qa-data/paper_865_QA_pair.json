@@ -1,0 +1,303 @@
+[
+  {
+    "section": "resultsonirradiateddiodes2",
+    "path": {
+      "section": "resultsonirradiateddiodes2",
+      "start_entity": "NeutronIrradiated4HSiCDiode",
+      "end_entity": "MeasurementParameter",
+      "hops": [
+        {
+          "from": "NeutronIrradiated4HSiCDiode",
+          "relation": "hasEnergyDensity",
+          "to": "EnergyDensity2",
+          "context": "175  5×1014 neq/cm2 neutron-irradiated 4H-SiC dio 100% CCE",
+          "chunk": "3"
+        },
+        {
+          "from": "EnergyDensity2",
+          "relation": "hasMeasurementParameter",
+          "to": "LaserRepetitionRate2",
+          "context": "For the highest energy density, an observed at repetition rate of only 100Hz.",
+          "chunk": "3"
+        },
+        {
+          "from": "LaserRepetitionRate2",
+          "relation": "type",
+          "to": "MeasurementParameter",
+          "context": "Laser Rep",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the context of neutron-irradiated 4H-SiC diodes, what does the highest energy density setting imply about the laser's repetition rate?",
+    "options": {
+      "A": "The highest energy density correlates with an intermediate laser repetition rate of 500Hz.",
+      "B": "The highest energy density is observed when the laser repetition rate exceeds 1000Hz.",
+      "C": "The highest energy density occurs when the laser repetition rate is reduced to 10Hz.",
+      "D": "The highest energy density is measured when the laser repetition rate is set to only 100Hz."
+    },
+    "correct_answer": "D",
+    "explanation": "The text indicates that the highest energy density was observed at a laser repetition rate of only 100Hz. This suggests that lower repetition rates are sufficient to achieve high energy densities in this specific context of neutron-irradiated 4H-SiC diodes.",
+    "path_description": "Path: NeutronIrradiated4HSiCDiode --[hasEnergyDensity]--> EnergyDensity2 --[hasMeasurementParameter]--> LaserRepetitionRate2 --[type]--> MeasurementParameter",
+    "context": "175  5×1014 neq/cm2 neutron-irradiated 4H-SiC dio 100% CCE | For the highest energy density, an observed at repetition rate of only 100Hz. | Laser Rep",
+    "paper_id": "916"
+  },
+  {
+    "section": "resultsonirradiateddiodes2",
+    "path": {
+      "section": "resultsonirradiateddiodes2",
+      "start_entity": "MeasurementResults",
+      "end_entity": "EnergyDensity",
+      "hops": [
+        {
+          "from": "MeasurementResults",
+          "relation": "evaluatedOn",
+          "to": "NeutronIrradiated4HSiCDiode",
+          "context": "for previously reported measurement results on h the same measurements conducted on samples",
+          "chunk": "3"
+        },
+        {
+          "from": "NeutronIrradiated4HSiCDiode",
+          "relation": "hasEnergyDensity",
+          "to": "EnergyDensity2",
+          "context": "175  5×1014 neq/cm2 neutron-irradiated 4H-SiC dio 100% CCE",
+          "chunk": "3"
+        },
+        {
+          "from": "EnergyDensity2",
+          "relation": "type",
+          "to": "EnergyDensity",
+          "context": "For the highest energy density, an observed at repetition rate of only 100Hz.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "What is the effect on the Charge Collection Efficiency (CCE) of a 4H-SiC diode when exposed to the highest energy density at a neutron irradiation level of 5×1014 neq/cm2?",
+    "options": {
+      "A": "The Charge Collection Efficiency significantly increases beyond 100% due to the energy overload.",
+      "B": "The Charge Collection Efficiency drops to 50% due to increased leakage currents at high energy densities.",
+      "C": "The diode maintains a 100% Charge Collection Efficiency at a repetition rate of 100Hz.",
+      "D": "There is no observable effect on the Charge Collection Efficiency despite the high energy density."
+    },
+    "correct_answer": "C",
+    "explanation": "According to the paper, for the highest energy density, the 4H-SiC diode irradiated at 5×1014 neq/cm2 maintains a 100% Charge Collection Efficiency at a repetition rate of only 100Hz. The other options are incorrect as they do not align with the reported observations of Charge Collection Efficiency under these specific conditions.",
+    "path_description": "Path: MeasurementResults --[evaluatedOn]--> NeutronIrradiated4HSiCDiode --[hasEnergyDensity]--> EnergyDensity2 --[type]--> EnergyDensity",
+    "context": "for previously reported measurement results on h the same measurements conducted on samples | 175  5×1014 neq/cm2 neutron-irradiated 4H-SiC dio 100% CCE | For the highest energy density, an observed at repetition rate of only 100Hz.",
+    "paper_id": "916"
+  },
+  {
+    "section": "resultsonirradiateddiodes1",
+    "path": {
+      "section": "resultsonirradiateddiodes1",
+      "start_entity": "LaserRepetitionRate",
+      "end_entity": "Instrument",
+      "hops": [
+        {
+          "from": "LaserRepetitionRate",
+          "relation": "affects",
+          "to": "ChargeCollection",
+          "context": "The repetition rate of the laser was changed to assess the influence on charge collection.",
+          "chunk": "2"
+        },
+        {
+          "from": "ChargeCollection",
+          "relation": "uses",
+          "to": "ChargeSensitiveAmplifier",
+          "context": "The charge-sensitive amplifier in this work uses a long shaping time.",
+          "chunk": "2"
+        },
+        {
+          "from": "ChargeSensitiveAmplifier",
+          "relation": "type",
+          "to": "Instrument",
+          "context": "The charge-sensitive amplifier in this work uses a long shaping time.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "How does altering the laser repetition rate in experiments with irradiated diodes potentially influence the performance of the charge-sensitive amplifier?",
+    "options": {
+      "A": "An increased laser repetition rate leads to increased charge collection, enhancing the output signal of the charge-sensitive amplifier.",
+      "B": "A decreased laser repetition rate causes a decrease in thermal noise, which directly improves the fidelity of the charge-sensitive amplifier readings.",
+      "C": "An increased laser repetition rate can overload the charge-sensitive amplifier, leading to a distortion in the measured signals.",
+      "D": "Changing the laser repetition rate does not affect the charge collection, thus the performance of the charge-sensitive amplifier remains constant."
+    },
+    "correct_answer": "A",
+    "explanation": "The question requires understanding that the laser repetition rate affects charge collection efficiency. An increased repetition rate generally enhances charge collection, which is crucial for generating a stronger signal in a charge-sensitive amplifier, particularly when it uses a long shaping time to process these signals accurately.",
+    "path_description": "Path: LaserRepetitionRate --[affects]--> ChargeCollection --[uses]--> ChargeSensitiveAmplifier --[type]--> Instrument",
+    "context": "The repetition rate of the laser was changed to assess the influence on charge collection. | The charge-sensitive amplifier in this work uses a long shaping time. | The charge-sensitive amplifier in this work uses a long shaping time.",
+    "paper_id": "916"
+  },
+  {
+    "section": "resultsonirradiateddiodes2",
+    "path": {
+      "section": "resultsonirradiateddiodes2",
+      "start_entity": "MeasurementResults",
+      "end_entity": "LaserRepetitionRate2",
+      "hops": [
+        {
+          "from": "MeasurementResults",
+          "relation": "evaluatedOn",
+          "to": "NeutronIrradiated4HSiCDiode",
+          "context": "for previously reported measurement results on h the same measurements conducted on samples",
+          "chunk": "3"
+        },
+        {
+          "from": "NeutronIrradiated4HSiCDiode",
+          "relation": "hasEnergyDensity",
+          "to": "EnergyDensity2",
+          "context": "175  5×1014 neq/cm2 neutron-irradiated 4H-SiC dio 100% CCE",
+          "chunk": "3"
+        },
+        {
+          "from": "EnergyDensity2",
+          "relation": "hasMeasurementParameter",
+          "to": "LaserRepetitionRate2",
+          "context": "For the highest energy density, an observed at repetition rate of only 100Hz.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the study of neutron-irradiated 4H-SiC diodes, what was the observed laser repetition rate when evaluating the highest energy density?",
+    "options": {
+      "A": "The laser repetition rate was 500 Hz when the highest energy density was evaluated.",
+      "B": "The laser repetition rate was 1 kHz when the highest energy density was evaluated.",
+      "C": "The laser repetition rate was 100 Hz when the highest energy density was evaluated.",
+      "D": "The laser repetition rate was 10 kHz when the highest energy density was evaluated."
+    },
+    "correct_answer": "C",
+    "explanation": "According to the paper section 'resultsonirradiateddiodes2', the measurement results on neutron-irradiated 4H-SiC diodes indicated that the highest energy density was observed at a laser repetition rate of only 100Hz.",
+    "path_description": "Path: MeasurementResults --[evaluatedOn]--> NeutronIrradiated4HSiCDiode --[hasEnergyDensity]--> EnergyDensity2 --[hasMeasurementParameter]--> LaserRepetitionRate2",
+    "context": "for previously reported measurement results on h the same measurements conducted on samples | 175  5×1014 neq/cm2 neutron-irradiated 4H-SiC dio 100% CCE | For the highest energy density, an observed at repetition rate of only 100Hz.",
+    "paper_id": "916"
+  },
+  {
+    "section": "discussion",
+    "path": {
+      "section": "discussion",
+      "start_entity": "UV-laserTCT",
+      "end_entity": "LaserSetting",
+      "hops": [
+        {
+          "from": "UV-laserTCT",
+          "relation": "usedFor",
+          "to": "ChargeCollectionEfficiency",
+          "context": "The charge collection properties of neutron- been investigated using a UV-laser TCT setup.",
+          "chunk": "4"
+        },
+        {
+          "from": "ChargeCollectionEfficiency",
+          "relation": "affectedBy",
+          "to": "HighlyFocusedLaser",
+          "context": "results are identical for a highly focused and a defocused laser.",
+          "chunk": "4"
+        },
+        {
+          "from": "HighlyFocusedLaser",
+          "relation": "type",
+          "to": "LaserSetting",
+          "context": "results are identical for a highly focused and a defocused laser.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the context of using UV-laser TCT to investigate charge collection properties of neutron-irradiated semiconductor devices, how does the focus of the laser impact the experimental outcome?",
+    "options": {
+      "A": "A defocused laser tends to yield higher charge collection efficiency than a highly focused laser.",
+      "B": "The experimental results are identical whether using a highly focused laser or a defocused laser in the setup.",
+      "C": "The focus of the laser does not affect the charge collection efficiency, which depends solely on the laser's wavelength.",
+      "D": "Using a highly focused laser significantly increases the charge collection efficiency compared to a defocused laser."
+    },
+    "correct_answer": "B",
+    "explanation": "The context provided from the paper's discussion section reveals that the experimental results regarding charge collection efficiency are identical for both a highly focused and a defocused laser. This indicates that the focus setting of the laser, whether highly focused or defocused, does not alter the outcome in this specific experimental setup.",
+    "path_description": "Path: UV-laserTCT --[usedFor]--> ChargeCollectionEfficiency --[affectedBy]--> HighlyFocusedLaser --[type]--> LaserSetting",
+    "context": "The charge collection properties of neutron- been investigated using a UV-laser TCT setup. | results are identical for a highly focused and a defocused laser. | results are identical for a highly focused and a defocused laser.",
+    "paper_id": "916"
+  },
+  {
+    "section": "discussion",
+    "path": {
+      "section": "discussion",
+      "start_entity": "UV-laserTCT",
+      "end_entity": "LaserSetting",
+      "hops": [
+        {
+          "from": "UV-laserTCT",
+          "relation": "usedFor",
+          "to": "ChargeCollectionEfficiency",
+          "context": "The charge collection properties of neutron- been investigated using a UV-laser TCT setup.",
+          "chunk": "4"
+        },
+        {
+          "from": "ChargeCollectionEfficiency",
+          "relation": "affectedBy",
+          "to": "DefocusedLaser",
+          "context": "results are identical for a highly focused and a defocused laser.",
+          "chunk": "4"
+        },
+        {
+          "from": "DefocusedLaser",
+          "relation": "type",
+          "to": "LaserSetting",
+          "context": "results are identical for a highly focused and a defocused laser.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the context of UV-laser TCT setups used for studying charge collection properties of neutron-irradiated materials, how does altering the laser setting from a highly focused to a defocused laser specifically affect the charge collection efficiency?",
+    "options": {
+      "A": "The charge collection efficiency is not affected by changing the laser from a highly focused to a defocused setting.",
+      "B": "The charge collection efficiency is only optimal at intermediate focus settings, not at highly focused or defocused settings.",
+      "C": "The charge collection efficiency decreases when the laser setting is changed from highly focused to defocused.",
+      "D": "The charge collection efficiency increases when using a defocused laser compared to a highly focused one."
+    },
+    "correct_answer": "A",
+    "explanation": "According to the paper, the results of charge collection efficiency are identical whether using a highly focused or a defocused laser. This indicates that the efficiency is not affected by the focus level of the laser in this specific setup.",
+    "path_description": "Path: UV-laserTCT --[usedFor]--> ChargeCollectionEfficiency --[affectedBy]--> DefocusedLaser --[type]--> LaserSetting",
+    "context": "The charge collection properties of neutron- been investigated using a UV-laser TCT setup. | results are identical for a highly focused and a defocused laser. | results are identical for a highly focused and a defocused laser.",
+    "paper_id": "916"
+  },
+  {
+    "section": "discussion",
+    "path": {
+      "section": "discussion",
+      "start_entity": "RadiationHardness",
+      "end_entity": "LaserSetting",
+      "hops": [
+        {
+          "from": "RadiationHardness",
+          "relation": "characterizedBy",
+          "to": "ChargeCollectionEfficiency",
+          "context": "Finally, it needs to be remarked that these effects are crucial when characterizing the radiation hardness of SiC.",
+          "chunk": "4"
+        },
+        {
+          "from": "ChargeCollectionEfficiency",
+          "relation": "affectedBy",
+          "to": "HighlyFocusedLaser",
+          "context": "results are identical for a highly focused and a defocused laser.",
+          "chunk": "4"
+        },
+        {
+          "from": "HighlyFocusedLaser",
+          "relation": "type",
+          "to": "LaserSetting",
+          "context": "results are identical for a highly focused and a defocused laser.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the context of characterizing the radiation hardness of SiC, how does the type of laser setting influence the charge collection efficiency?",
+    "options": {
+      "A": "A defocused laser setting improves the charge collection efficiency by dispersing the laser's energy more evenly.",
+      "B": "Using a highly focused laser setting reduces the charge collection efficiency due to increased localized heating.",
+      "C": "The type of laser setting, whether highly focused or defocused, does not alter the charge collection efficiency outcomes.",
+      "D": "Only a highly focused laser setting significantly enhances the charge collection efficiency compared to other settings."
+    },
+    "correct_answer": "C",
+    "explanation": "According to the context from the paper, the results of tests using a highly focused and a defocused laser on charge collection efficiency are identical. This indicates that the type of laser setting (highly focused or defocused) does not affect the outcome in terms of charge collection efficiency when characterizing the radiation hardness of SiC.",
+    "path_description": "Path: RadiationHardness --[characterizedBy]--> ChargeCollectionEfficiency --[affectedBy]--> HighlyFocusedLaser --[type]--> LaserSetting",
+    "context": "Finally, it needs to be remarked that these effects are crucial when characterizing the radiation hardness of SiC. | results are identical for a highly focused and a defocused laser. | results are identical for a highly focused and a defocused laser.",
+    "paper_id": "916"
+  }
+]

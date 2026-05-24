@@ -1,0 +1,174 @@
+[
+  {
+    "section": "motivatingexample",
+    "path": {
+      "section": "motivatingexample",
+      "start_entity": "Solidity",
+      "end_entity": "Traceability",
+      "hops": [
+        {
+          "from": "Solidity",
+          "relation": "transformsTo",
+          "to": "LLVM_IR",
+          "context": "The zkSolc compilation pipeline introduces multiple transformation stages, including lowering Solidity to LLVM IR...",
+          "chunk": "2"
+        },
+        {
+          "from": "LLVM_IR",
+          "relation": "generates",
+          "to": "zkEVM",
+          "context": "The zkSolc compilation pipeline introduces multiple transformation stages, including... generating zkEVM-compatible bytecode.",
+          "chunk": "2"
+        },
+        {
+          "from": "zkEVM",
+          "relation": "lacks",
+          "to": "Traceability",
+          "context": "This absence of traceability complicates debugging and increases the manual effort required to locate errors.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the process of compiling Solidity code using the zkSolc pipeline, which transformation ultimately leads to the lack of traceability in the resulting zkEVM bytecode?",
+    "options": {
+      "A": "The conversion of LLVM IR to machine-level instructions before generating zkEVM bytecode.",
+      "B": "The transformation of Solidity to LLVM IR, which facilitates the generation of zkEVM bytecode.",
+      "C": "The optimization of Solidity code prior to its translation into LLVM IR.",
+      "D": "The direct translation of Solidity code into zkEVM bytecode without intermediate stages."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A because the question path specifies that Solidity transforms into LLVM IR, which then generates zkEVM bytecode, and this bytecode lacks traceability. The other options do not correctly represent the transformation stages described in the context from the paper.",
+    "path_description": "Path: Solidity --[transformsTo]--> LLVM_IR --[generates]--> zkEVM --[lacks]--> Traceability",
+    "context": "The zkSolc compilation pipeline introduces multiple transformation stages, including lowering Solidity to LLVM IR... | The zkSolc compilation pipeline introduces multiple transformation stages, including... generating zkEVM-compatible bytecode. | This absence of traceability complicates debugging and increases the manual effort required to locate errors.",
+    "paper_id": "630"
+  },
+  {
+    "section": "methodology1",
+    "path": {
+      "section": "methodology1",
+      "start_entity": "SourceMappingFramework",
+      "end_entity": "DebuggingEnvironment",
+      "hops": [
+        {
+          "from": "SourceMappingFramework",
+          "relation": "introduces",
+          "to": "RuntimeQueryAPI",
+          "context": "To enhance usability, a runtime queryAPI is introduced, allowing developers to retrieve source mappings dynamically.",
+          "chunk": "4"
+        },
+        {
+          "from": "RuntimeQueryAPI",
+          "relation": "isCompatibleWith",
+          "to": "Remix",
+          "context": "This API is designed to be compatible with existing debugging environments such as Remix and Hardhat.",
+          "chunk": "4"
+        },
+        {
+          "from": "Remix",
+          "relation": "type",
+          "to": "DebuggingEnvironment",
+          "context": "This API is designed to be compatible with existing debugging environments such as Remix and Hardhat.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the context of the SourceMappingFramework introduced in the methodology1 section, which debugging environment is NOT compatible with the newly introduced RuntimeQueryAPI?",
+    "options": {
+      "A": "Hardhat, known for its comprehensive Ethereum development tools.",
+      "B": "Visual Studio Code, widely used for various programming languages including Solidity.",
+      "C": "Ethereum Studio, specifically designed for smart contract development.",
+      "D": "Remix, which is a popular Ethereum development environment."
+    },
+    "correct_answer": "B",
+    "explanation": "The knowledge path indicates that the RuntimeQueryAPI, introduced by the SourceMappingFramework, is compatible with Remix, which is further specified as a debugging environment. Hardhat is also mentioned in the context as compatible. However, Visual Studio Code, while a popular development tool, is not specified in the paper as being compatible with the RuntimeQueryAPI for this specific use-case.",
+    "path_description": "Path: SourceMappingFramework --[introduces]--> RuntimeQueryAPI --[isCompatibleWith]--> Remix --[type]--> DebuggingEnvironment",
+    "context": "To enhance usability, a runtime queryAPI is introduced, allowing developers to retrieve source mappings dynamically. | This API is designed to be compatible with existing debugging environments such as Remix and Hardhat. | This API is designed to be compatible with existing debugging environments such as Remix and Hardhat.",
+    "paper_id": "630"
+  },
+  {
+    "section": "methodology2",
+    "path": {
+      "section": "methodology2",
+      "start_entity": "ConsistencyValidation",
+      "end_entity": "DebuggingTool",
+      "hops": [
+        {
+          "from": "ConsistencyValidation",
+          "relation": "includes",
+          "to": "StructuralValidation",
+          "context": "This process includes syntactic and structural validation",
+          "chunk": "5"
+        },
+        {
+          "from": "StructuralValidation",
+          "relation": "uses",
+          "to": "RemixIDE",
+          "context": "During evaluation, we performed manual alignment checks between bytecode offsets and source code locations using debugging tools such as Remix IDE",
+          "chunk": "5"
+        },
+        {
+          "from": "RemixIDE",
+          "relation": "type",
+          "to": "DebuggingTool",
+          "context": "using debugging tools such as Remix IDE",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the process of Consistency Validation, which tool is instrumental for structural validation, especially for aligning bytecode offsets with source code locations?",
+    "options": {
+      "A": "Truffle Suite, often used for deploying and testing Ethereum smart contracts.",
+      "B": "Remix IDE, specifically used as a debugging tool to facilitate manual alignment checks.",
+      "C": "Ethereum Virtual Machine, which primarily executes the bytecode of smart contracts.",
+      "D": "Solidity Compiler, responsible for compiling Solidity source code into bytecode."
+    },
+    "correct_answer": "B",
+    "explanation": "Remix IDE is used in the context of Consistency Validation for Structural Validation, where it functions as a Debugging Tool specifically for the purpose of aligning bytecode offsets with source code locations, as stated in the paper.",
+    "path_description": "Path: ConsistencyValidation --[includes]--> StructuralValidation --[uses]--> RemixIDE --[type]--> DebuggingTool",
+    "context": "This process includes syntactic and structural validation | During evaluation, we performed manual alignment checks between bytecode offsets and source code locations using debugging tools such as Remix IDE | using debugging tools such as Remix IDE",
+    "paper_id": "630"
+  },
+  {
+    "section": "experiments2",
+    "path": {
+      "section": "experiments2",
+      "start_entity": "ZKVoting",
+      "end_entity": "CompilerFramework",
+      "hops": [
+        {
+          "from": "ZKVoting",
+          "relation": "uses",
+          "to": "Solidity",
+          "context": "the recorded source location referred to the Solidity statement",
+          "chunk": "7"
+        },
+        {
+          "from": "Solidity",
+          "relation": "optimizedFor",
+          "to": "LLVM",
+          "context": "source constructs were eliminated or transformed during LLVM optimizations",
+          "chunk": "7"
+        },
+        {
+          "from": "LLVM",
+          "relation": "type",
+          "to": "CompilerFramework",
+          "context": "source constructs were eliminated or transformed during LLVM optimizations",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "Which statement best describes the relationship between ZKVoting and LLVM within the context of their use in blockchain technology?",
+    "options": {
+      "A": "ZKVoting directly interfaces with LLVM to bypass typical Solidity constructs, streamlining the voting process on blockchain platforms.",
+      "B": "ZKVoting is a compiler framework similar to LLVM, designed to optimize Solidity for faster execution in voting scenarios.",
+      "C": "ZKVoting utilizes Solidity, which is specifically optimized for LLVM, a widely used compiler framework, enhancing performance and security.",
+      "D": "ZKVoting employs LLVM optimizations to directly compile its source code, avoiding the use of Solidity for smart contracts."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A because ZKVoting uses Solidity, which is then optimized for LLVM, a compiler framework. This path signifies that ZKVoting's implementation in Solidity benefits from the optimizations provided by LLVM to enhance its performance and security in blockchain applications. The other options incorrectly imply direct interactions or alternative functionalities not supported by the given knowledge path.",
+    "path_description": "Path: ZKVoting --[uses]--> Solidity --[optimizedFor]--> LLVM --[type]--> CompilerFramework",
+    "context": "the recorded source location referred to the Solidity statement | source constructs were eliminated or transformed during LLVM optimizations | source constructs were eliminated or transformed during LLVM optimizations",
+    "paper_id": "630"
+  }
+]

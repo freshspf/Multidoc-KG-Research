@@ -1,0 +1,45 @@
+[
+  {
+    "section": "backgroundandproblemformulation",
+    "path": {
+      "section": "backgroundandproblemformulation",
+      "start_entity": "MIL",
+      "end_entity": "Label",
+      "hops": [
+        {
+          "from": "MIL",
+          "relation": "predicts",
+          "to": "WSILabel",
+          "context": "The goal of MIL is to predict the WSI label Yˆ using only ground truth label Y as supervision, without patch-",
+          "chunk": "1"
+        },
+        {
+          "from": "WSILabel",
+          "relation": "basedOn",
+          "to": "GroundTruthLabel",
+          "context": "The goal of MIL is to predict the WSI label Yˆ using only ground truth label Y as supervision, without patch-",
+          "chunk": "1"
+        },
+        {
+          "from": "GroundTruthLabel",
+          "relation": "type",
+          "to": "Label",
+          "context": "The goal of MIL is to predict the WSI label Yˆ using only ground truth label Y as supervision, without patch-",
+          "chunk": "1"
+        }
+      ]
+    },
+    "question": "In the context of Multiple Instance Learning (MIL), how does the system accurately predict a Whole Slide Image (WSI) label?",
+    "options": {
+      "A": "By leveraging ground truth labels as supervision to train the model, thereby predicting WSI labels without needing patch-level details.",
+      "B": "Through the manual inspection of images by experts to determine the WSI label, using the ground truth label as a reference guide.",
+      "C": "By extracting features from each patch in the WSI and then using these features indirectly to guess the WSI label.",
+      "D": "By utilizing computational algorithms to infer the WSI label directly from the image data without any patch-level annotations."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is B. According to the paper, MIL predicts the WSI label (Yˆ) using only the ground truth label (Y) as supervision. This method does not require patch-level details, meaning it does not rely on patch-level annotations or manual inspection of each patch, as suggested by the other options.",
+    "path_description": "Path: MIL --[predicts]--> WSILabel --[basedOn]--> GroundTruthLabel --[type]--> Label",
+    "context": "The goal of MIL is to predict the WSI label Yˆ using only ground truth label Y as supervision, without patch- | The goal of MIL is to predict the WSI label Yˆ using only ground truth label Y as supervision, without patch- | The goal of MIL is to predict the WSI label Yˆ using only ground truth label Y as supervision, without patch-",
+    "paper_id": "616"
+  }
+]

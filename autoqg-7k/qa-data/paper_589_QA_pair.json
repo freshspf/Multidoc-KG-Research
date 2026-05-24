@@ -1,0 +1,88 @@
+[
+  {
+    "section": "proposedmethods1",
+    "path": {
+      "section": "proposedmethods1",
+      "start_entity": "ClassificationLayer",
+      "end_entity": "Layer",
+      "hops": [
+        {
+          "from": "ClassificationLayer",
+          "relation": "feeds",
+          "to": "BiLSTM",
+          "context": "The classification layer of the output embeddings is extracted and fed to the Bi-LSTM layer.",
+          "chunk": "2"
+        },
+        {
+          "from": "BiLSTM",
+          "relation": "attachedTo",
+          "to": "LinearLayer",
+          "context": "A linear layer is attached to Bi-LSTM and they are trained together for classification tasks.",
+          "chunk": "2"
+        },
+        {
+          "from": "LinearLayer",
+          "relation": "type",
+          "to": "Layer",
+          "context": "A linear layer is attached to Bi-LSTM and they are trained together for classification tasks.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the context of neural network architectures for text classification as described, how does the flow of data proceed through the model?",
+    "options": {
+      "A": "Data starts in the linear layer, moves to the classification layer, and the BiLSTM processes the combined outputs for classification.",
+      "B": "Data first passes through a linear layer, which then feeds into a BiLSTM, and finally reaches the classification layer for output.",
+      "C": "The classification layer outputs are fed into a BiLSTM, which is connected to a linear layer used for final classification decisions.",
+      "D": "The BiLSTM processes data initially, which is then passed through a classification layer before being finalized in a linear layer."
+    },
+    "correct_answer": "C",
+    "explanation": "According to the provided information, the sequence begins with the classification layer, which feeds its outputs to a BiLSTM. The BiLSTM is then attached to a linear layer where the final classification is carried out. Options B, C, and D incorrectly describe the data flow within the architecture.",
+    "path_description": "Path: ClassificationLayer --[feeds]--> BiLSTM --[attachedTo]--> LinearLayer --[type]--> Layer",
+    "context": "The classification layer of the output embeddings is extracted and fed to the Bi-LSTM layer. | A linear layer is attached to Bi-LSTM and they are trained together for classification tasks. | A linear layer is attached to Bi-LSTM and they are trained together for classification tasks.",
+    "paper_id": "410"
+  },
+  {
+    "section": "experimentresults1",
+    "path": {
+      "section": "experimentresults1",
+      "start_entity": "GPU_Accelerated_HPC_System",
+      "end_entity": "Organization",
+      "hops": [
+        {
+          "from": "GPU_Accelerated_HPC_System",
+          "relation": "usedForExperiment",
+          "to": "VTE_Datasets",
+          "context": "The experiment was run on a GPU-accelerated high-performance computing (HPC) system.",
+          "chunk": "4"
+        },
+        {
+          "from": "VTE_Datasets",
+          "relation": "sourcedFrom",
+          "to": "University_of_Maryland_Medical_Center",
+          "context": "These datasets were sourced from the University of Maryland Medical Center (UMD).",
+          "chunk": "4"
+        },
+        {
+          "from": "University_of_Maryland_Medical_Center",
+          "relation": "type",
+          "to": "Organization",
+          "context": "These datasets were sourced from the University of Maryland Medical Center (UMD).",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "Which type of organization provided the VTE datasets used in experiments conducted on a GPU-accelerated HPC system?",
+    "options": {
+      "A": "A state university's medical department focusing on general medical research",
+      "B": "A university medical center known for its contributions to medical research",
+      "C": "A private technology company specializing in medical data analysis",
+      "D": "A non-profit medical research institution specializing in venous thromboembolism"
+    },
+    "correct_answer": "B",
+    "explanation": "The VTE datasets, which were used for experiments on a GPU-accelerated HPC system, were sourced from the University of Maryland Medical Center. This identifies the source as a university medical center, which is a type of organization involved in medical research.",
+    "path_description": "Path: GPU_Accelerated_HPC_System --[usedForExperiment]--> VTE_Datasets --[sourcedFrom]--> University_of_Maryland_Medical_Center --[type]--> Organization",
+    "context": "The experiment was run on a GPU-accelerated high-performance computing (HPC) system. | These datasets were sourced from the University of Maryland Medical Center (UMD). | These datasets were sourced from the University of Maryland Medical Center (UMD).",
+    "paper_id": "410"
+  }
+]

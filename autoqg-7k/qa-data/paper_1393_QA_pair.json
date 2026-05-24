@@ -1,0 +1,88 @@
+[
+  {
+    "section": "experiments2",
+    "path": {
+      "section": "experiments2",
+      "start_entity": "BlooDet",
+      "end_entity": "Technique",
+      "hops": [
+        {
+          "from": "BlooDet",
+          "relation": "hasComponent",
+          "to": "EdgeGenerator",
+          "context": "Moreover, our edge generator provides effective edge prompt embedding, which greatly improves the accuracy of bleeding region detection.",
+          "chunk": "8"
+        },
+        {
+          "from": "EdgeGenerator",
+          "relation": "uses",
+          "to": "WaveletLaplacianFilters",
+          "context": "As exhibited in Table 3, the Wavelet Laplacian filters exhibit a strong response to edge features.",
+          "chunk": "8"
+        },
+        {
+          "from": "WaveletLaplacianFilters",
+          "relation": "type",
+          "to": "Technique",
+          "context": "As exhibited in Table 3, the Wavelet Laplacian filters exhibit a strong response to edge features.",
+          "chunk": "8"
+        }
+      ]
+    },
+    "question": "In the BlooDet system, which component's utilization of Wavelet Laplacian filters as a technique enhances the accuracy of bleeding region detection by improving edge feature response?",
+    "options": {
+      "A": "The RegionSegmentor component, which applies Wavelet Laplacian filters to segment bleeding regions more accurately.",
+      "B": "The EdgeGenerator component, which employs Wavelet Laplacian filters to effectively embed edge prompts in detected images.",
+      "C": "The ShapeAnalyzer component, which incorporates Wavelet Laplacian filters to modify shape contours for better visualization.",
+      "D": "The ColorEnhancer component, which uses Wavelet Laplacian filters to enhance color features in bleeding regions."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A, as the EdgeGenerator component specifically uses Wavelet Laplacian filters to enhance edge detection, which in turn improves the accuracy of bleeding region detection by embedding edge prompts more effectively.",
+    "path_description": "Path: BlooDet --[hasComponent]--> EdgeGenerator --[uses]--> WaveletLaplacianFilters --[type]--> Technique",
+    "context": "Moreover, our edge generator provides effective edge prompt embedding, which greatly improves the accuracy of bleeding region detection. | As exhibited in Table 3, the Wavelet Laplacian filters exhibit a strong response to edge features. | As exhibited in Table 3, the Wavelet Laplacian filters exhibit a strong response to edge features.",
+    "paper_id": "1899"
+  },
+  {
+    "section": "experiments1",
+    "path": {
+      "section": "experiments1",
+      "start_entity": "BlooDet",
+      "end_entity": "Model",
+      "hops": [
+        {
+          "from": "BlooDet",
+          "relation": "evaluatedOn",
+          "to": "SurgBlood",
+          "context": "Ablations for key components of BlooDet for bleeding region and point detection on SurgBlood test set.",
+          "chunk": "7"
+        },
+        {
+          "from": "SurgBlood",
+          "relation": "usedForTraining",
+          "to": "BlooDet",
+          "context": "we can only adopt the proposed SurgBlood dataset to train and test our method and related comparative methods.",
+          "chunk": "7"
+        },
+        {
+          "from": "BlooDet",
+          "relation": "type",
+          "to": "Model",
+          "context": "The image encoder of BlooDet is initialized with pre-trained weights from SAM 2 base.",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "In the development and evaluation of the BlooDet model, what was the specific role of the SurgBlood dataset?",
+    "options": {
+      "A": "The SurgBlood dataset was exclusively used to train and test BlooDet and other comparative methods for accuracy.",
+      "B": "SurgBlood was used for initial training of the BlooDet's image encoder before applying it to other datasets.",
+      "C": "The SurgBlood dataset primarily served as a validation set for pre-trained models other than BlooDet.",
+      "D": "SurgBlood dataset was not involved in the training or testing of BlooDet but was used for comparative analysis only."
+    },
+    "correct_answer": "A",
+    "explanation": "The context explicitly states that the SurgBlood dataset was adopted to train and test the BlooDet model and related comparative methods, indicating its exclusive use for both training and testing in this specific application.",
+    "path_description": "Path: BlooDet --[evaluatedOn]--> SurgBlood --[usedForTraining]--> BlooDet --[type]--> Model",
+    "context": "Ablations for key components of BlooDet for bleeding region and point detection on SurgBlood test set. | we can only adopt the proposed SurgBlood dataset to train and test our method and related comparative methods. | The image encoder of BlooDet is initialized with pre-trained weights from SAM 2 base.",
+    "paper_id": "1899"
+  }
+]

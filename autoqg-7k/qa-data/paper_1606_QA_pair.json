@@ -1,0 +1,88 @@
+[
+  {
+    "section": "approach2",
+    "path": {
+      "section": "approach2",
+      "start_entity": "HumanAnnotators",
+      "end_entity": "Dataset",
+      "hops": [
+        {
+          "from": "HumanAnnotators",
+          "relation": "evaluate",
+          "to": "Classifier",
+          "context": "These samples are shown to human annotators ll the responses (6), and train a classifier on the human",
+          "chunk": "4"
+        },
+        {
+          "from": "Classifier",
+          "relation": "trainedOn",
+          "to": "HandwrittenSet",
+          "context": "train a classifier on the human the embeddings of generated responses by LLMs (9).",
+          "chunk": "4"
+        },
+        {
+          "from": "HandwrittenSet",
+          "relation": "type",
+          "to": "Dataset",
+          "context": "we first create a set of handwritten",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the study described in 'approach2', what is the primary purpose of using a classifier trained on a handwritten set in the context of evaluating LLM-generated responses?",
+    "options": {
+      "A": "To enhance the classifier's ability to distinguish between machine-generated and human-generated text.",
+      "B": "To assess the accuracy of human annotators in identifying correct responses within a dataset.",
+      "C": "To improve the classifier's performance by training on a dataset not directly related to LLM-generated text.",
+      "D": "To determine the generalizability of LLMs across different types of datasets unrelated to handwriting."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A because the classifier is trained on a handwritten set to evaluate how well human annotators can identify correct responses, indicating the accuracy of the annotators' judgments within the dataset context.",
+    "path_description": "Path: HumanAnnotators --[evaluate]--> Classifier --[trainedOn]--> HandwrittenSet --[type]--> Dataset",
+    "context": "These samples are shown to human annotators ll the responses (6), and train a classifier on the human | train a classifier on the human the embeddings of generated responses by LLMs (9). | we first create a set of handwritten",
+    "paper_id": "642"
+  },
+  {
+    "section": "conclusion",
+    "path": {
+      "section": "conclusion",
+      "start_entity": "TaxonomyOfHarmfulScenarios",
+      "end_entity": "MalwareRelatedPrompts",
+      "hops": [
+        {
+          "from": "TaxonomyOfHarmfulScenarios",
+          "relation": "partOf",
+          "to": "EvaluationSystem",
+          "context": "Our a taxonomy of harmful scenarios, creating corre evaluation system.",
+          "chunk": "15"
+        },
+        {
+          "from": "EvaluationSystem",
+          "relation": "evaluatedOn",
+          "to": "LLMs",
+          "context": "We evaluated 70 different LL specific models, to assess how well they align with the software engineering domain.",
+          "chunk": "15"
+        },
+        {
+          "from": "LLMs",
+          "relation": "struggleWith",
+          "to": "MalwareRelatedPrompts",
+          "context": "However, the models struggled more with malware-related and unfair/dangerous use case prompts, frequently issuing warnings or potentially harmful responses.",
+          "chunk": "15"
+        }
+      ]
+    },
+    "question": "In the context of the evaluation system described in the paper, which aspect did LLMs notably struggle with when aligned with the software engineering domain?",
+    "options": {
+      "A": "LLMs had issues with understanding user requirements and delivering accurate project estimations.",
+      "B": "LLMs had difficulties primarily with basic programming syntax and general software development principles.",
+      "C": "LLMs showed considerable challenges in handling queries about advanced algorithms and data structures.",
+      "D": "LLMs struggled significantly with prompts related to malware, often issuing warnings or harmful responses."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A. The paper indicates that the LLMs, when evaluated on their alignment with the software engineering domain, particularly struggled with malware-related prompts, often resulting in warnings or potentially harmful responses. This aligns with the knowledge path from the taxonomy of harmful scenarios to the evaluation system and its impact on LLMs' performance with malware-related prompts.",
+    "path_description": "Path: TaxonomyOfHarmfulScenarios --[partOf]--> EvaluationSystem --[evaluatedOn]--> LLMs --[struggleWith]--> MalwareRelatedPrompts",
+    "context": "Our a taxonomy of harmful scenarios, creating corre evaluation system. | We evaluated 70 different LL specific models, to assess how well they align with the software engineering domain. | However, the models struggled more with malware-related and unfair/dangerous use case prompts, frequently issuing warnings or potentially harmful responses.",
+    "paper_id": "642"
+  }
+]

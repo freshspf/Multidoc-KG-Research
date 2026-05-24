@@ -1,0 +1,88 @@
+[
+  {
+    "section": "datasetdescription1",
+    "path": {
+      "section": "datasetdescription1",
+      "start_entity": "SmartElectricityMeterData",
+      "end_entity": "Regulation",
+      "hops": [
+        {
+          "from": "SmartElectricityMeterData",
+          "relation": "type",
+          "to": "Dataset",
+          "context": "Smart ElectricityMeter Data collected between 2018 & 2024; partly with separate heat pump measurements",
+          "chunk": "2"
+        },
+        {
+          "from": "Dataset",
+          "relation": "ensuresComplianceWith",
+          "to": "DataPrivacyRegulations",
+          "context": "To ensure compliance with data privacy regulations, identifiers are randomly assigned integer values.",
+          "chunk": "2"
+        },
+        {
+          "from": "DataPrivacyRegulations",
+          "relation": "type",
+          "to": "Regulation",
+          "context": "To ensure compliance with data privacy regulations, identifiers are randomly assigned integer values, and any information that could reveal a household’s exact location or private details has been removed.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "How does the management of Smart Electricity Meter Data from the dataset comply with Data Privacy Regulations?",
+    "options": {
+      "A": "By using advanced encryption methods to secure the transmission of electricity consumption data.",
+      "B": "By creating a direct link between the data and the identifiable personal details of households.",
+      "C": "By ensuring that all data collected is accessible publicly to promote transparency and open access.",
+      "D": "By randomly assigning integer values to identifiers and removing location-specific or private details from the data."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A because, as stated in the dataset description, to comply with data privacy regulations, identifiers in the Smart Electricity Meter Data are given random integer values, and any potentially identifying information, such as exact locations or private details, is removed. This protects the privacy of the individuals' data represented in the dataset. Options B, C, and D are incorrect as they either contradict the methods described for compliance (B and C) or introduce a security measure that is not mentioned in the context (D).",
+    "path_description": "Path: SmartElectricityMeterData --[type]--> Dataset --[ensuresComplianceWith]--> DataPrivacyRegulations --[type]--> Regulation",
+    "context": "Smart ElectricityMeter Data collected between 2018 & 2024; partly with separate heat pump measurements | To ensure compliance with data privacy regulations, identifiers are randomly assigned integer values. | To ensure compliance with data privacy regulations, identifiers are randomly assigned integer values, and any information that could reveal a household’s exact location or private details has been removed.",
+    "paper_id": "313"
+  },
+  {
+    "section": "descriptiveanalyses",
+    "path": {
+      "section": "descriptiveanalyses",
+      "start_entity": "EnergyConsumptionHeatmap",
+      "end_entity": "Dataset",
+      "hops": [
+        {
+          "from": "EnergyConsumptionHeatmap",
+          "relation": "createdUsing",
+          "to": "HEAPO",
+          "context": "heapo.plot_heatmap(df,'kWh_received_Total',ax=ax[1,0],hour_interval=1,fontsize=14).",
+          "chunk": "4"
+        },
+        {
+          "from": "HEAPO",
+          "relation": "loadsData",
+          "to": "SmartMeterData",
+          "context": "df=heapo.load_smart_meter_data(household_id, resolution='15min').",
+          "chunk": "4"
+        },
+        {
+          "from": "SmartMeterData",
+          "relation": "type",
+          "to": "Dataset",
+          "context": "heapo.load_smart_meter_data(household_id, resolution='15min').",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "Which resolution of smart meter data is essential for creating an energy consumption heatmap using HEAPO in the context described?",
+    "options": {
+      "A": "30-minute interval data provides a balance between detail and readability on the heatmap.",
+      "B": "15-minute interval data is required to accurately plot the kWh received on the heatmap.",
+      "C": "5-minute interval data ensures the most detailed energy consumption analysis using HEAPO.",
+      "D": "1-hour interval data is crucial for a detailed visualization on the energy consumption heatmap."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct resolution for the data as used in the HEAPO tool for creating a heatmap, according to the paper's description, is a 15-minute interval. This is explicitly mentioned in the context where the data is loaded with a resolution of '15min' before being used to plot the heatmap.",
+    "path_description": "Path: EnergyConsumptionHeatmap --[createdUsing]--> HEAPO --[loadsData]--> SmartMeterData --[type]--> Dataset",
+    "context": "heapo.plot_heatmap(df,'kWh_received_Total',ax=ax[1,0],hour_interval=1,fontsize=14). | df=heapo.load_smart_meter_data(household_id, resolution='15min'). | heapo.load_smart_meter_data(household_id, resolution='15min').",
+    "paper_id": "313"
+  }
+]

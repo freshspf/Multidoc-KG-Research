@@ -1,0 +1,131 @@
+[
+  {
+    "section": "platformoverview",
+    "path": {
+      "section": "platformoverview",
+      "start_entity": "HoppingRobot",
+      "end_entity": "Component",
+      "hops": [
+        {
+          "from": "HoppingRobot",
+          "relation": "hasComponent",
+          "to": "MainBody",
+          "context": "The hopping robot features a main body with three balance rods and a 3-RSR parallel leg linkage with a point foot.",
+          "chunk": "1"
+        },
+        {
+          "from": "MainBody",
+          "relation": "hasComponent",
+          "to": "GearedMotorAssembly",
+          "context": "The main body comprises three identical geared motor assemblies, arranged at 120-degree angles relative to one another.",
+          "chunk": "1"
+        },
+        {
+          "from": "GearedMotorAssembly",
+          "relation": "type",
+          "to": "Component",
+          "context": "The main body comprises three identical geared motor assemblies, arranged at 120-degree angles relative to one another.",
+          "chunk": "1"
+        }
+      ]
+    },
+    "question": "In the design of the hopping robot discussed in the 'platformoverview' section, what is the role of the geared motor assemblies within the main body?",
+    "options": {
+      "A": "Each geared motor assembly controls one of the balance rods, facilitating the maintenance of equilibrium.",
+      "B": "The geared motor assemblies provide structural support to enhance the robustness of the main body.",
+      "C": "Arranged at 120-degree angles, they contribute to rotational control and stability of the main body.",
+      "D": "They support the 3-RSR parallel leg linkage by providing necessary movements to the point foot."
+    },
+    "correct_answer": "C",
+    "explanation": "The geared motor assemblies, arranged at 120-degree angles, are crucial for providing rotational control and stability to the main body of the hopping robot. This setup allows the robot to manage its orientation and balance effectively during operation.",
+    "path_description": "Path: HoppingRobot --[hasComponent]--> MainBody --[hasComponent]--> GearedMotorAssembly --[type]--> Component",
+    "context": "The hopping robot features a main body with three balance rods and a 3-RSR parallel leg linkage with a point foot. | The main body comprises three identical geared motor assemblies, arranged at 120-degree angles relative to one another. | The main body comprises three identical geared motor assemblies, arranged at 120-degree angles relative to one another.",
+    "paper_id": "1074"
+  },
+  {
+    "section": "realworldexperiments2",
+    "path": {
+      "section": "realworldexperiments2",
+      "start_entity": "JointTargetMapping",
+      "end_entity": "Process",
+      "hops": [
+        {
+          "from": "JointTargetMapping",
+          "relation": "uses",
+          "to": "KinematicLevelMapping",
+          "context": "Joint target mapping [17]: We directly conduct a remapping between the policy output joint desired position and the real joint desired position using a kinematics conversion.",
+          "chunk": "6"
+        },
+        {
+          "from": "KinematicLevelMapping",
+          "relation": "insufficientFor",
+          "to": "SimToRealConversion",
+          "context": "Kinematic-level mapping is insufficient to capture the complex kino-dynamic difference between the serial and parallel joint configuration.",
+          "chunk": "6"
+        },
+        {
+          "from": "SimToRealConversion",
+          "relation": "type",
+          "to": "Process",
+          "context": "To validate the effectiveness of the proposed sim-to-real conversion methods.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "Why is kinematic-level mapping considered insufficient for effective sim-to-real conversion in joint target mapping processes?",
+    "options": {
+      "A": "Because it relies solely on static mappings that do not adjust to real-time changes in the system dynamics.",
+      "B": "Because it does not incorporate environmental variables like temperature and humidity into the mapping process.",
+      "C": "Because it fails to adequately address the complex kino-dynamic differences between serial and parallel joint configurations.",
+      "D": "Because it only uses linear transformations which are inadequate for non-linear system behaviors."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A because the context from the paper highlights that kinematic-level mapping does not capture the complex kino-dynamic differences between serial and parallel joint configurations, which is crucial for effective sim-to-real conversions.",
+    "path_description": "Path: JointTargetMapping --[uses]--> KinematicLevelMapping --[insufficientFor]--> SimToRealConversion --[type]--> Process",
+    "context": "Joint target mapping [17]: We directly conduct a remapping between the policy output joint desired position and the real joint desired position using a kinematics conversion. | Kinematic-level mapping is insufficient to capture the complex kino-dynamic difference between the serial and parallel joint configuration. | To validate the effectiveness of the proposed sim-to-real conversion methods.",
+    "paper_id": "1074"
+  },
+  {
+    "section": "realworldexperiments2",
+    "path": {
+      "section": "realworldexperiments2",
+      "start_entity": "PDController",
+      "end_entity": "SimToRealConversion",
+      "hops": [
+        {
+          "from": "PDController",
+          "relation": "usedIn",
+          "to": "JointTargetMapping",
+          "context": "Then a PD controller converts the tracking error into the real robot joint torque.",
+          "chunk": "6"
+        },
+        {
+          "from": "JointTargetMapping",
+          "relation": "uses",
+          "to": "KinematicLevelMapping",
+          "context": "Joint target mapping [17]: We directly conduct a remapping between the policy output joint desired position and the real joint desired position using a kinematics conversion.",
+          "chunk": "6"
+        },
+        {
+          "from": "KinematicLevelMapping",
+          "relation": "insufficientFor",
+          "to": "SimToRealConversion",
+          "context": "Kinematic-level mapping is insufficient to capture the complex kino-dynamic difference between the serial and parallel joint configuration.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "Why is kinematic-level mapping considered insufficient for sim-to-real conversion in joint configurations?",
+    "options": {
+      "A": "Because it simplifies the direct remapping between policy output joint desired position and real joint desired position.",
+      "B": "Because it solely relies on kinematic conversions without incorporating any dynamic elements.",
+      "C": "Because it fails to address the complex kino-dynamic differences between serial and parallel joint configurations.",
+      "D": "Because it does not allow for the PD controller to accurately convert tracking error into real robot joint torque."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A because the paper highlights that kinematic-level mapping does not capture the complex kino-dynamic differences between serial and parallel joint configurations, which is essential for effective sim-to-real conversion. Options B, C, and D are misleading as they do not accurately reflect the limitations of kinematic-level mapping highlighted in the context.",
+    "path_description": "Path: PDController --[usedIn]--> JointTargetMapping --[uses]--> KinematicLevelMapping --[insufficientFor]--> SimToRealConversion",
+    "context": "Then a PD controller converts the tracking error into the real robot joint torque. | Joint target mapping [17]: We directly conduct a remapping between the policy output joint desired position and the real joint desired position using a kinematics conversion. | Kinematic-level mapping is insufficient to capture the complex kino-dynamic difference between the serial and parallel joint configuration.",
+    "paper_id": "1074"
+  }
+]

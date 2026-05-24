@@ -1,0 +1,88 @@
+[
+  {
+    "section": "problemdefinition",
+    "path": {
+      "section": "problemdefinition",
+      "start_entity": "ElectroHydraulicActuator",
+      "end_entity": "Variable",
+      "hops": [
+        {
+          "from": "ElectroHydraulicActuator",
+          "relation": "composedOf",
+          "to": "HydraulicCylinder",
+          "context": "An electro-hydraulic actuator is composed of an hydraulic cylinder driven by a directional control valve.",
+          "chunk": "1"
+        },
+        {
+          "from": "HydraulicCylinder",
+          "relation": "hasPart",
+          "to": "EffectiveBulkModulus",
+          "context": "Be,i(pi) the effective bulk modulus of the oil in the i-th component.",
+          "chunk": "1"
+        },
+        {
+          "from": "EffectiveBulkModulus",
+          "relation": "type",
+          "to": "Variable",
+          "context": "Be,i(pi) the effective bulk modulus of the oil in the i-th component.",
+          "chunk": "1"
+        }
+      ]
+    },
+    "question": "In the context of an electro-hydraulic actuator system, what variable property significantly influences the performance of the hydraulic cylinder?",
+    "options": {
+      "A": "The viscosity of the oil within the hydraulic cylinder.",
+      "B": "The pressure of the oil within the hydraulic cylinder.",
+      "C": "The temperature of the oil within the hydraulic cylinder.",
+      "D": "The effective bulk modulus of the oil within the hydraulic cylinder."
+    },
+    "correct_answer": "D",
+    "explanation": "The effective bulk modulus (Be,i(pi)) of the oil in different components of an electro-hydraulic actuator directly influences the hydraulic cylinder's performance by affecting the compression characteristics of the fluid, thus altering the response and efficiency of the actuator.",
+    "path_description": "Path: ElectroHydraulicActuator --[composedOf]--> HydraulicCylinder --[hasPart]--> EffectiveBulkModulus --[type]--> Variable",
+    "context": "An electro-hydraulic actuator is composed of an hydraulic cylinder driven by a directional control valve. | Be,i(pi) the effective bulk modulus of the oil in the i-th component. | Be,i(pi) the effective bulk modulus of the oil in the i-th component.",
+    "paper_id": "660"
+  },
+  {
+    "section": "simulationresults2",
+    "path": {
+      "section": "simulationresults2",
+      "start_entity": "Fig12",
+      "end_entity": "Dynamics",
+      "hops": [
+        {
+          "from": "Fig12",
+          "relation": "shows",
+          "to": "BodePlots",
+          "context": "Fig. 12. Bode plots of valve dynamics and mapping inversion filtering effect",
+          "chunk": "7"
+        },
+        {
+          "from": "BodePlots",
+          "relation": "depicts",
+          "to": "ValveDynamics",
+          "context": "Fig. 12. Bode plots of valve dynamics and mapping inversion filtering effect",
+          "chunk": "7"
+        },
+        {
+          "from": "ValveDynamics",
+          "relation": "type",
+          "to": "Dynamics",
+          "context": "Fig. 12. Bode plots of valve dynamics and mapping inversion filtering effect",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "In the study of valve dynamics as depicted in the Bode plots from Fig. 12, which type of dynamics best describes the behavior of valve operations in response to control signals?",
+    "options": {
+      "A": "The dynamics are described as invariant, showing no significant change with different inputs.",
+      "B": "Valve operations are primarily stochastic, displaying random variations in response.",
+      "C": "Valve dynamics indicate a nonlinear response, heavily dependent on amplitude variations.",
+      "D": "The dynamics are primarily characterized by a linear response to frequency changes."
+    },
+    "correct_answer": "D",
+    "explanation": "The Bode plots typically depict the frequency response of a system and are commonly used to assess linear time-invariant systems. Therefore, the valve dynamics in Fig. 12, which are shown through Bode plots, are best described as having a linear response to frequency changes.",
+    "path_description": "Path: Fig12 --[shows]--> BodePlots --[depicts]--> ValveDynamics --[type]--> Dynamics",
+    "context": "Fig. 12. Bode plots of valve dynamics and mapping inversion filtering effect | Fig. 12. Bode plots of valve dynamics and mapping inversion filtering effect | Fig. 12. Bode plots of valve dynamics and mapping inversion filtering effect",
+    "paper_id": "660"
+  }
+]

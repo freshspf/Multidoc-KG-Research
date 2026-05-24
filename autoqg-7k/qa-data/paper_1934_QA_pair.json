@@ -1,0 +1,88 @@
+[
+  {
+    "section": "datasetconstruction1",
+    "path": {
+      "section": "datasetconstruction1",
+      "start_entity": "SimLabel",
+      "end_entity": "Dataset",
+      "hops": [
+        {
+          "from": "SimLabel",
+          "relation": "appliedTo",
+          "to": "AMER2",
+          "context": "In this paper, we conduct experiments on both datasets, aiming to validate the effectiveness of our method under variable missing rates.",
+          "chunk": "4"
+        },
+        {
+          "from": "AMER2",
+          "relation": "hasHigherMissingRateThan",
+          "to": "AMER",
+          "context": "AMER2 has an overall average missing rate of 79.0%, which is higher than AMER’s overall average missing rate of 69.6%.",
+          "chunk": "4"
+        },
+        {
+          "from": "AMER",
+          "relation": "type",
+          "to": "Dataset",
+          "context": "This paper introduces a new video emotion recognition dataset, AMER2, which is an extended version of the AMER dataset [28].",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "Considering the application of SimLabel to both datasets, AMER and AMER2, and their respective missing rates, which statement best describes the comparative missing rate of AMER2 in the context of validating our method?",
+    "options": {
+      "A": "AMER2 has a lower missing rate than AMER by 9.4%, indicating a more robust dataset for applying SimLabel.",
+      "B": "AMER2, being an extended version of AMER, has a 9.4% higher missing rate, which might affect the effectiveness of SimLabel.",
+      "C": "The missing rate of AMER is slightly higher than AMER2, making it less suitable for the application of SimLabel.",
+      "D": "Both AMER and AMER2 have the same missing rates, thus SimLabel's effectiveness is uniformly testable on both datasets."
+    },
+    "correct_answer": "B",
+    "explanation": "AMER2 has a higher missing rate than AMER (79.0% vs 69.6%), which is crucial for considering the effectiveness of methods like SimLabel. Option A correctly identifies this difference and its potential impact.",
+    "path_description": "Path: SimLabel --[appliedTo]--> AMER2 --[hasHigherMissingRateThan]--> AMER --[type]--> Dataset",
+    "context": "In this paper, we conduct experiments on both datasets, aiming to validate the effectiveness of our method under variable missing rates. | AMER2 has an overall average missing rate of 79.0%, which is higher than AMER’s overall average missing rate of 69.6%. | This paper introduces a new video emotion recognition dataset, AMER2, which is an extended version of the AMER dataset [28].",
+    "paper_id": "136"
+  },
+  {
+    "section": "datasetconstruction2",
+    "path": {
+      "section": "datasetconstruction2",
+      "start_entity": "SimLabel",
+      "end_entity": "A3",
+      "hops": [
+        {
+          "from": "SimLabel",
+          "relation": "appliedTo",
+          "to": "M2",
+          "context": "The total training loss Ltotal for our multi-annotator classification model is defined as: SimLabel 𝑝Ƹsoft.",
+          "chunk": "5"
+        },
+        {
+          "from": "M2",
+          "relation": "trainedOn",
+          "to": "A2",
+          "context": "For annotators (A1 and A2) with labels, we update their respective models (M1 and M2) through supervised learning.",
+          "chunk": "5"
+        },
+        {
+          "from": "A2",
+          "relation": "relatedTo",
+          "to": "A3",
+          "context": "As shown in Figure 2, annotator A1 has higher similarity to A3 compared to A2.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "If the training loss Ltotal for the multi-annotator classification model is minimized using SimLabel, which annotator's model is likely to show increased relevance or similarity to annotator A3 after training?",
+    "options": {
+      "A": "Model M1, trained on annotator A2, who has a lower initial similarity to A3 compared to A1.",
+      "B": "Model M2, trained on annotator A1, who shows higher initial similarity to A3 compared to A2.",
+      "C": "Model M2, trained on annotator A2, who has a lower initial similarity to A3 compared to A1.",
+      "D": "Model M1, trained on annotator A1, who shows higher initial similarity to A3 compared to A2."
+    },
+    "correct_answer": "C",
+    "explanation": "According to the information provided, SimLabel is applied to M2, which is trained on annotator A2. Annotator A2 has a lower initial similarity to A3 as compared to A1, as depicted in Figure 2. Therefore, the application of SimLabel and subsequent training are intended to minimize the total training loss by possibly increasing the similarity between A2 and A3. Hence, model M2, associated with A2, is likely to show an increased relevance or similarity to A3 after training.",
+    "path_description": "Path: SimLabel --[appliedTo]--> M2 --[trainedOn]--> A2 --[relatedTo]--> A3",
+    "context": "The total training loss Ltotal for our multi-annotator classification model is defined as: SimLabel 𝑝Ƹsoft. | For annotators (A1 and A2) with labels, we update their respective models (M1 and M2) through supervised learning. | As shown in Figure 2, annotator A1 has higher similarity to A3 compared to A2.",
+    "paper_id": "136"
+  }
+]

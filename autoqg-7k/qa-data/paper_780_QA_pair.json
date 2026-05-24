@@ -1,0 +1,131 @@
+[
+  {
+    "section": "phasecontrol",
+    "path": {
+      "section": "phasecontrol",
+      "start_entity": "FeedbackControl",
+      "end_entity": "RegimeType",
+      "hops": [
+        {
+          "from": "FeedbackControl",
+          "relation": "enlargesBasinOfAttractionOf",
+          "to": "LargeOscillations",
+          "context": "In this section, we use feedback control to significantly enlarge the basin of attraction of the large oscillations",
+          "chunk": "5"
+        },
+        {
+          "from": "LargeOscillations",
+          "relation": "isFragileIn",
+          "to": "UnderdampedRegime",
+          "context": "the entrainment of large oscillations in the underdamped regime is fragile",
+          "chunk": "5"
+        },
+        {
+          "from": "UnderdampedRegime",
+          "relation": "type",
+          "to": "RegimeType",
+          "context": "the entrainment of large oscillations in the underdamped regime is fragile",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the context of phase control, why is feedback control considered significant in the management of large oscillations in underdamped regimes?",
+    "options": {
+      "A": "Feedback control minimizes the amplitude of large oscillations, making them less susceptible to variations in underdamped regimes.",
+      "B": "Feedback control enlarges the basin of attraction for large oscillations, facilitating better control in underdamped regimes.",
+      "C": "Feedback control increases the frequency of large oscillations, which inherently stabilizes them in underdamped regimes.",
+      "D": "Feedback control directly stabilizes small oscillations, thus indirectly supporting large oscillations in underdamped regimes."
+    },
+    "correct_answer": "B",
+    "explanation": "Feedback control is key in enlarging the basin of attraction for large oscillations, which is crucial for maintaining control in underdamped regimes where the entrainment of these oscillations is otherwise fragile.",
+    "path_description": "Path: FeedbackControl --[enlargesBasinOfAttractionOf]--> LargeOscillations --[isFragileIn]--> UnderdampedRegime --[type]--> RegimeType",
+    "context": "In this section, we use feedback control to significantly enlarge the basin of attraction of the large oscillations | the entrainment of large oscillations in the underdamped regime is fragile | the entrainment of large oscillations in the underdamped regime is fragile",
+    "paper_id": "243"
+  },
+  {
+    "section": "theautomatonofapendulum",
+    "path": {
+      "section": "theautomatonofapendulum",
+      "start_entity": "HighEnergyState",
+      "end_entity": "DimensionlessDamping",
+      "hops": [
+        {
+          "from": "HighEnergyState",
+          "relation": "partOf",
+          "to": "TwoStateAutomaton",
+          "context": "and a 'high energy state' corresponding to large oscillations",
+          "chunk": "1"
+        },
+        {
+          "from": "TwoStateAutomaton",
+          "relation": "describes",
+          "to": "Pendulum",
+          "context": "This discrete distinction leads to the description of the pendulum as a two state automaton",
+          "chunk": "1"
+        },
+        {
+          "from": "Pendulum",
+          "relation": "hasParameter",
+          "to": "DimensionlessDamping",
+          "context": "α is dimensionless damping",
+          "chunk": "1"
+        }
+      ]
+    },
+    "question": "In the context of a pendulum described as a two-state automaton, how does the high energy state impact the dimensionless damping parameter?",
+    "options": {
+      "A": "The high energy state, due to steady oscillations, stabilizes the dimensionless damping parameter.",
+      "B": "The high energy state, resulting from minimal friction, reduces the dimensionless damping parameter.",
+      "C": "The high energy state, characterized by low amplitude, indirectly measures the dimensionless damping parameter.",
+      "D": "The high energy state, indicative of large oscillations, increases the dimensionless damping parameter."
+    },
+    "correct_answer": "D",
+    "explanation": "The high energy state in a pendulum, which corresponds to large oscillations, typically suggests an increase in the dimensionless damping parameter. This is because greater oscillatory energy often leads to higher damping forces exerted by the system to reduce these oscillations.",
+    "path_description": "Path: HighEnergyState --[partOf]--> TwoStateAutomaton --[describes]--> Pendulum --[hasParameter]--> DimensionlessDamping",
+    "context": "and a 'high energy state' corresponding to large oscillations | This discrete distinction leads to the description of the pendulum as a two state automaton | α is dimensionless damping",
+    "paper_id": "243"
+  },
+  {
+    "section": "neuromorphicadaptivecontrol",
+    "path": {
+      "section": "neuromorphicadaptivecontrol",
+      "start_entity": "OnlineAdaptation",
+      "end_entity": "CorrectionParameter",
+      "hops": [
+        {
+          "from": "OnlineAdaptation",
+          "relation": "uses",
+          "to": "gs",
+          "context": "We consider the online adaptation of the two parameters gus and gs, which regulate the neural frequency and burst size respectively.",
+          "chunk": "6"
+        },
+        {
+          "from": "gs",
+          "relation": "regulatedBy",
+          "to": "pA",
+          "context": "If no such event occurs before the next zero crossing, we apply a fixed correction pA to the parameter gs.",
+          "chunk": "6"
+        },
+        {
+          "from": "pA",
+          "relation": "type",
+          "to": "CorrectionParameter",
+          "context": "If no such event occurs before the next zero crossing, we apply a fixed correction pA to the parameter gs.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the context of neuromorphic adaptive control, how is the parameter 'gs' typically adjusted during online adaptation when no event precedes the next zero crossing?",
+    "options": {
+      "A": "A fixed correction parameter 'pA' is applied to 'gs' to regulate neural burst size.",
+      "B": "No adjustments are made to 'gs' unless preceded by a specified event.",
+      "C": "A variable correction parameter derived from 'gus' is applied to 'gs' for burst size adjustment.",
+      "D": "The parameter 'gus' is dynamically adjusted to alter the neural frequency."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A because the context specifies that if no event occurs before the next zero crossing, a fixed correction parameter 'pA' is applied to 'gs'. This path correctly follows the relationship specified in the knowledge graph: OnlineAdaptation --[uses]--> gs --[regulatedBy]--> pA --[type]--> CorrectionParameter.",
+    "path_description": "Path: OnlineAdaptation --[uses]--> gs --[regulatedBy]--> pA --[type]--> CorrectionParameter",
+    "context": "We consider the online adaptation of the two parameters gus and gs, which regulate the neural frequency and burst size respectively. | If no such event occurs before the next zero crossing, we apply a fixed correction pA to the parameter gs. | If no such event occurs before the next zero crossing, we apply a fixed correction pA to the parameter gs.",
+    "paper_id": "243"
+  }
+]

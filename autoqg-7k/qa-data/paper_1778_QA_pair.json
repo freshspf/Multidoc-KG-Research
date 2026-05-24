@@ -1,0 +1,88 @@
+[
+  {
+    "section": "implementation3",
+    "path": {
+      "section": "implementation3",
+      "start_entity": "Jitsu",
+      "end_entity": "DataAttribute",
+      "hops": [
+        {
+          "from": "Jitsu",
+          "relation": "manages",
+          "to": "Metadata",
+          "context": "Jitsu vms...................................metadata for managed VMs",
+          "chunk": "5"
+        },
+        {
+          "from": "Metadata",
+          "relation": "contains",
+          "to": "first-instance-host",
+          "context": "first-instance-host = 'HOSTNAME'",
+          "chunk": "5"
+        },
+        {
+          "from": "first-instance-host",
+          "relation": "type",
+          "to": "DataAttribute",
+          "context": "first-instance-host = 'HOSTNAME'",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the context of Jitsu's management system for virtual machines, what is the type classification of the 'first-instance-host' data within the metadata?",
+    "options": {
+      "A": "It is classified as a MetadataInstance, highlighting its role in instance management.",
+      "B": "It is classified as a DataAttribute, indicating a specific type of data configuration.",
+      "C": "It is classified as a VirtualMachine, reflecting its function in hosting virtual systems.",
+      "D": "It is classified as a NetworkComponent, showing its involvement in network operations."
+    },
+    "correct_answer": "B",
+    "explanation": "The 'first-instance-host' is a specific piece of data contained within the metadata managed by Jitsu for virtual machines. The knowledge graph path indicates that this data is of the type 'DataAttribute', which classifies it as a specific type of data configuration, not as an instance, machine, or network component.",
+    "path_description": "Path: Jitsu --[manages]--> Metadata --[contains]--> first-instance-host --[type]--> DataAttribute",
+    "context": "Jitsu vms...................................metadata for managed VMs | first-instance-host = 'HOSTNAME' | first-instance-host = 'HOSTNAME'",
+    "paper_id": "25"
+  },
+  {
+    "section": "implementation5",
+    "path": {
+      "section": "implementation5",
+      "start_entity": "ReplicaLifecycleManagement",
+      "end_entity": "Software",
+      "hops": [
+        {
+          "from": "ReplicaLifecycleManagement",
+          "relation": "managedBy",
+          "to": "Fractal",
+          "context": "Fractal makes these decisions collaboratively",
+          "chunk": "7"
+        },
+        {
+          "from": "Fractal",
+          "relation": "delegatesTo",
+          "to": "Jitsu",
+          "context": "delegating details of where new replicas should be created to Jitsu",
+          "chunk": "7"
+        },
+        {
+          "from": "Jitsu",
+          "relation": "type",
+          "to": "Software",
+          "context": "delegating details of where new replicas should be created to Jitsu",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "In the context of ReplicaLifecycleManagement, how does Fractal utilize Jitsu to enhance its operational efficiency?",
+    "options": {
+      "A": "Fractal relies on Jitsu for upgrading the replica's hardware components as it is a specialized type of software.",
+      "B": "Fractal employs Jitsu to handle the financial aspects of replica management due to its software capabilities.",
+      "C": "Fractal delegates the specific details of replica creation locations to Jitsu, which is a type of software.",
+      "D": "Fractal uses Jitsu to directly manage all lifecycle operations of replicas as its primary software tool."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is 'A' because Fractal delegates the decision-making regarding the locations of new replica creations to Jitsu, which is identified as a type of software. This delegation is part of the management process within ReplicaLifecycleManagement, enhancing operational efficiency by distributing tasks.",
+    "path_description": "Path: ReplicaLifecycleManagement --[managedBy]--> Fractal --[delegatesTo]--> Jitsu --[type]--> Software",
+    "context": "Fractal makes these decisions collaboratively | delegating details of where new replicas should be created to Jitsu | delegating details of where new replicas should be created to Jitsu",
+    "paper_id": "25"
+  }
+]

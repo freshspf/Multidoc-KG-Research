@@ -1,0 +1,88 @@
+[
+  {
+    "section": "systemdesign3",
+    "path": {
+      "section": "systemdesign3",
+      "start_entity": "RevocationList",
+      "end_entity": "PrivacyAspect",
+      "hops": [
+        {
+          "from": "RevocationList",
+          "relation": "downloadedBy",
+          "to": "Sres",
+          "context": "Sres downloads the revocation list once",
+          "chunk": "4"
+        },
+        {
+          "from": "Sres",
+          "relation": "compromises",
+          "to": "ClientPrivacy",
+          "context": "it can compromise client privacy",
+          "chunk": "4"
+        },
+        {
+          "from": "ClientPrivacy",
+          "relation": "type",
+          "to": "PrivacyAspect",
+          "context": "it can compromise client privacy",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the context of system design concerning client privacy, how does the downloading of the RevocationList by Sres primarily compromise privacy?",
+    "options": {
+      "A": "By utilizing excessive system resources, which leads to a slowdown affecting other privacy-protecting mechanisms.",
+      "B": "By allowing unauthorized access to ClientPrivacy through direct exposure of sensitive data to third parties.",
+      "C": "By increasing the system’s vulnerability to malware, which indirectly affects the PrivacyAspect of ClientPrivacy.",
+      "D": "By exposing specific PrivacyAspect of ClientPrivacy due to the compromised integrity of the downloaded data."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A because the downloading of the RevocationList by Sres compromises ClientPrivacy specifically by affecting the PrivacyAspect, which relates to the integrity of the data being downloaded and used within the system. The other options, while plausible, do not directly relate to the specific type of compromise (integrity) indicated in the provided knowledge path.",
+    "path_description": "Path: RevocationList --[downloadedBy]--> Sres --[compromises]--> ClientPrivacy --[type]--> PrivacyAspect",
+    "context": "Sres downloads the revocation list once | it can compromise client privacy | it can compromise client privacy",
+    "paper_id": "246"
+  },
+  {
+    "section": "systemdesign3",
+    "path": {
+      "section": "systemdesign3",
+      "start_entity": "AccessToken",
+      "end_entity": "PrivacyAspect",
+      "hops": [
+        {
+          "from": "AccessToken",
+          "relation": "verifiedBy",
+          "to": "Sres",
+          "context": "Sres verifies the access token",
+          "chunk": "4"
+        },
+        {
+          "from": "Sres",
+          "relation": "compromises",
+          "to": "ClientPrivacy",
+          "context": "it can compromise client privacy",
+          "chunk": "4"
+        },
+        {
+          "from": "ClientPrivacy",
+          "relation": "type",
+          "to": "PrivacyAspect",
+          "context": "it can compromise client privacy",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the context of system design described in 'systemdesign3', how does the verification of an AccessToken by Sres potentially impact the client?",
+    "options": {
+      "A": "This process enhances the security of client data by using advanced cryptographic techniques.",
+      "B": "The verification of AccessToken by Sres could compromise client privacy by exposing sensitive data.",
+      "C": "The verification process speeds up the client's access to services without privacy implications.",
+      "D": "It does not impact the client as the verification process is secured and isolated."
+    },
+    "correct_answer": "B",
+    "explanation": "According to the knowledge graph path, Sres verifies the AccessToken and this verification can compromise client privacy, specifically affecting a PrivacyAspect. Option B correctly reflects this relationship and potential risk.",
+    "path_description": "Path: AccessToken --[verifiedBy]--> Sres --[compromises]--> ClientPrivacy --[type]--> PrivacyAspect",
+    "context": "Sres verifies the access token | it can compromise client privacy | it can compromise client privacy",
+    "paper_id": "246"
+  }
+]

@@ -1,0 +1,88 @@
+[
+  {
+    "section": "expertuseridentification2",
+    "path": {
+      "section": "expertuseridentification2",
+      "start_entity": "User",
+      "end_entity": "EntityType",
+      "hops": [
+        {
+          "from": "User",
+          "relation": "hasPosts",
+          "to": "Post",
+          "context": "To ensure we identify truly focused experts, we require that a user’s past 20 posts must span at least five different trading.",
+          "chunk": "6"
+        },
+        {
+          "from": "Post",
+          "relation": "spansTradingTypes",
+          "to": "Trading",
+          "context": "To ensure we identify truly focused experts, we require that a user’s past 20 posts must span at least five different trading.",
+          "chunk": "6"
+        },
+        {
+          "from": "Trading",
+          "relation": "type",
+          "to": "EntityType",
+          "context": "To ensure we identify truly focused experts, we require that a user’s past 20 posts must span at least five different trading.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the context of identifying focused experts in trading, what is a requisite condition for a user's posts according to the knowledge graph path?",
+    "options": {
+      "A": "A user's posts must span five different types of trading activities to qualify as a focused expert.",
+      "B": "A user must have at least 20 posts, each discussing different aspects of the same trading entity.",
+      "C": "A user's posts should primarily focus on providing general trading advice without specifying trading types.",
+      "D": "A user's posts must consistently reference the same type of trading activity across all posts."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A because the knowledge graph path emphasizes that to identify a focused expert, a user's last 20 posts must cover at least five different types of trading. This ensures a broad yet focused expertise in trading. Options B, C, and D do not meet the criteria of spanning multiple trading types as required.",
+    "path_description": "Path: User --[hasPosts]--> Post --[spansTradingTypes]--> Trading --[type]--> EntityType",
+    "context": "To ensure we identify truly focused experts, we require that a user’s past 20 posts must span at least five different trading. | To ensure we identify truly focused experts, we require that a user’s past 20 posts must span at least five different trading. | To ensure we identify truly focused experts, we require that a user’s past 20 posts must span at least five different trading.",
+    "paper_id": "952"
+  },
+  {
+    "section": "expertuseridentification2",
+    "path": {
+      "section": "expertuseridentification2",
+      "start_entity": "FocusedExpert",
+      "end_entity": "PostQuantityAndDiversity",
+      "hops": [
+        {
+          "from": "FocusedExpert",
+          "relation": "requires",
+          "to": "Post",
+          "context": "To ensure we identify truly focused experts, we require that a user’s past 20 posts must span at least five different trading.",
+          "chunk": "6"
+        },
+        {
+          "from": "Post",
+          "relation": "meetsCriteriaFor",
+          "to": "FocusedExpertIdentification",
+          "context": "To ensure we identify truly focused experts, we require that a user’s past 20 posts must span at least five different trading.",
+          "chunk": "6"
+        },
+        {
+          "from": "FocusedExpertIdentification",
+          "relation": "basedOn",
+          "to": "PostQuantityAndDiversity",
+          "context": "To ensure we identify truly focused experts, we require that a user’s past 20 posts must span at least five different trading.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the process of identifying focused experts based on their posting behavior, what criterion is essential for a post to contribute towards the focused expert identification?",
+    "options": {
+      "A": "The post must be one among at least twenty spanning five different trading topics.",
+      "B": "The content of each post must be endorsed by at least ten other community members.",
+      "C": "Posts should primarily focus on a single trading strategy to be considered.",
+      "D": "Each post should exhibit a high level of technical trading jargon to qualify."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A because, as per the provided context, for a user to be identified as a focused expert, it is required that their last 20 posts cover at least five different trading topics. This criterion ensures that the posts meet the diversity and quantity needed for focused expert identification, aligning with the 'PostQuantityAndDiversity' concept.",
+    "path_description": "Path: FocusedExpert --[requires]--> Post --[meetsCriteriaFor]--> FocusedExpertIdentification --[basedOn]--> PostQuantityAndDiversity",
+    "context": "To ensure we identify truly focused experts, we require that a user’s past 20 posts must span at least five different trading. | To ensure we identify truly focused experts, we require that a user’s past 20 posts must span at least five different trading. | To ensure we identify truly focused experts, we require that a user’s past 20 posts must span at least five different trading.",
+    "paper_id": "952"
+  }
+]

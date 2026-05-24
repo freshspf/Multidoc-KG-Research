@@ -1,0 +1,88 @@
+[
+  {
+    "section": "background",
+    "path": {
+      "section": "background",
+      "start_entity": "EthereumSmartContracts",
+      "end_entity": "AccountType",
+      "hops": [
+        {
+          "from": "EthereumSmartContracts",
+          "relation": "type",
+          "to": "SmartContracts",
+          "context": "Ethereum is the most widely adopted smart contract platform.",
+          "chunk": "1"
+        },
+        {
+          "from": "SmartContracts",
+          "relation": "deployedUsing",
+          "to": "ExternallyOwnedAccounts",
+          "context": "Smart contracts can be deployed in two primary ways: 1) By Externally Owned Accounts (EOAs).",
+          "chunk": "1"
+        },
+        {
+          "from": "ExternallyOwnedAccounts",
+          "relation": "type",
+          "to": "AccountType",
+          "context": "By Externally Owned Accounts (EOAs).",
+          "chunk": "1"
+        }
+      ]
+    },
+    "question": "Which type of account in Ethereum is primarily responsible for deploying smart contracts via direct interactions?",
+    "options": {
+      "A": "Managed Accounts, which are overseen by centralized entities",
+      "B": "Interface Accounts, which are designed to facilitate user interactions",
+      "C": "Contract Accounts, which are controlled by the code of smart contracts",
+      "D": "Externally Owned Accounts, which are operated by individuals holding private keys"
+    },
+    "correct_answer": "D",
+    "explanation": "Externally Owned Accounts (EOAs) are the primary type of account responsible for deploying smart contracts in Ethereum. They are operated by individuals who possess the necessary private keys to initiate transactions directly, unlike Contract Accounts, which are automated and governed by the code of the smart contracts themselves. Interface and Managed Accounts are not standard account types in Ethereum.",
+    "path_description": "Path: EthereumSmartContracts --[type]--> SmartContracts --[deployedUsing]--> ExternallyOwnedAccounts --[type]--> AccountType",
+    "context": "Ethereum is the most widely adopted smart contract platform. | Smart contracts can be deployed in two primary ways: 1) By Externally Owned Accounts (EOAs). | By Externally Owned Accounts (EOAs).",
+    "paper_id": "307"
+  },
+  {
+    "section": "experimentalresults4",
+    "path": {
+      "section": "experimentalresults4",
+      "start_entity": "UniswapRouter",
+      "end_entity": "Function",
+      "hops": [
+        {
+          "from": "UniswapRouter",
+          "relation": "uses",
+          "to": "WETH",
+          "context": "the Uniswap Router contract used WETH() to return the address of the WETH, enabling accurate price retrieval",
+          "chunk": "7"
+        },
+        {
+          "from": "WETH",
+          "relation": "usedIn",
+          "to": "allowance",
+          "context": "The WETH is heavily used in allowance(address, address)",
+          "chunk": "7"
+        },
+        {
+          "from": "allowance",
+          "relation": "type",
+          "to": "Function",
+          "context": "The WETH is heavily used in allowance(address, address)",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "In the Uniswap Router contract, how does the utilization of WETH specifically contribute to function execution in decentralized finance applications?",
+    "options": {
+      "A": "WETH is used to retrieve accurate price data through its integration with the allowance function for address verification.",
+      "B": "WETH is only used for price retrieval and does not impact the execution of functions such as allowance.",
+      "C": "WETH serves as a primary currency in executing smart contracts, but does not interact with allowance functions.",
+      "D": "WETH directly interacts with smart contract logic to initiate and complete all transaction processes on the blockchain."
+    },
+    "correct_answer": "A",
+    "explanation": "The Uniswap Router utilizes WETH to obtain the address which is pivotal for fetching precise price information. This is crucial as it interacts with the allowance function, which demands address verification to enable specific operations within decentralized finance applications. Options B, C, and D are incorrect as they either overstate the role of WETH or misunderstand its interaction with the allowance function.",
+    "path_description": "Path: UniswapRouter --[uses]--> WETH --[usedIn]--> allowance --[type]--> Function",
+    "context": "the Uniswap Router contract used WETH() to return the address of the WETH, enabling accurate price retrieval | The WETH is heavily used in allowance(address, address) | The WETH is heavily used in allowance(address, address)",
+    "paper_id": "307"
+  }
+]

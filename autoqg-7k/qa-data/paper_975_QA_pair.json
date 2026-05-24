@@ -1,0 +1,88 @@
+[
+  {
+    "section": "problemformulationsolution",
+    "path": {
+      "section": "problemformulationsolution",
+      "start_entity": "DOUser",
+      "end_entity": "DataRate",
+      "hops": [
+        {
+          "from": "DOUser",
+          "relation": "increases",
+          "to": "DepartureRate",
+          "context": "The former can be increased by increasing DO user transmit power.",
+          "chunk": "3"
+        },
+        {
+          "from": "DepartureRate",
+          "relation": "greaterThan",
+          "to": "ArrivalRate",
+          "context": "Strong stability is achieved if the departure rate is greater than the arrival rate.",
+          "chunk": "3"
+        },
+        {
+          "from": "ArrivalRate",
+          "relation": "type",
+          "to": "DataRate",
+          "context": "Strong stability is achieved if the departure rate is greater than the arrival rate.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the context of data transmission, how can strong stability be achieved according to the described relationships?",
+    "options": {
+      "A": "By decreasing the arrival rate until it is less than the departure rate, which is unaffected by DO user transmit power.",
+      "B": "By maintaining equal departure and arrival rates, ensuring neither is influenced by DO user transmit power.",
+      "C": "By increasing the departure rate to surpass the arrival rate, influenced by increasing DO user transmit power.",
+      "D": "By increasing the arrival rate to surpass the departure rate, regardless of the DO user transmit power."
+    },
+    "correct_answer": "C",
+    "explanation": "According to the knowledge path, increasing the DO user transmit power can increase the departure rate. For strong stability, the departure rate needs to be greater than the arrival rate. Therefore, increasing the DO user's transmit power influences the departure rate to surpass the arrival rate, leading to strong stability.",
+    "path_description": "Path: DOUser --[increases]--> DepartureRate --[greaterThan]--> ArrivalRate --[type]--> DataRate",
+    "context": "The former can be increased by increasing DO user transmit power. | Strong stability is achieved if the departure rate is greater than the arrival rate. | Strong stability is achieved if the departure rate is greater than the arrival rate.",
+    "paper_id": "1474"
+  },
+  {
+    "section": "numericalevaluation",
+    "path": {
+      "section": "numericalevaluation",
+      "start_entity": "ExhaustiveSearch",
+      "end_entity": "Policy",
+      "hops": [
+        {
+          "from": "ExhaustiveSearch",
+          "relation": "appliedTo",
+          "to": "DOUserTransmitPower",
+          "context": "the static policy requires an exhaustive search over the set of DO user transmit power, after statistical parameters are explored.",
+          "chunk": "4"
+        },
+        {
+          "from": "DOUserTransmitPower",
+          "relation": "partOf",
+          "to": "StaticPolicy",
+          "context": "the static policy requires an exhaustive search over the set of DO user transmit power, after statistical parameters are explored.",
+          "chunk": "4"
+        },
+        {
+          "from": "StaticPolicy",
+          "relation": "type",
+          "to": "Policy",
+          "context": "performance compared to a static policy (fixed DO transmit power and inference model)",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the context of evaluating DO user transmit power policies, what does the 'static policy' primarily require to optimize its performance?",
+    "options": {
+      "A": "Periodic updates to the DO user transmit power based on predictive modeling techniques.",
+      "B": "An exhaustive search of DO user transmit powers after exploring statistical parameters.",
+      "C": "A single set value of DO user transmit power without further exploration or adjustment.",
+      "D": "A dynamic adjustment of DO user transmit powers based on real-time data analysis."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A because, according to the paper, the static policy necessitates an exhaustive search over the set of DO user transmit power after statistical parameters have been explored, which is part of its optimization process.",
+    "path_description": "Path: ExhaustiveSearch --[appliedTo]--> DOUserTransmitPower --[partOf]--> StaticPolicy --[type]--> Policy",
+    "context": "the static policy requires an exhaustive search over the set of DO user transmit power, after statistical parameters are explored. | the static policy requires an exhaustive search over the set of DO user transmit power, after statistical parameters are explored. | performance compared to a static policy (fixed DO transmit power and inference model)",
+    "paper_id": "1474"
+  }
+]

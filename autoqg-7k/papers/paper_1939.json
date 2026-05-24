@@ -1,0 +1,72 @@
+[
+  {
+    "id": "introduction",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Introduction",
+      "page_start": 1,
+      "page_end": 1
+    },
+    "text": "Managing software dependencies is an increasingly impor-\ntant task due to its growing complexity. Inadequate software\ndependency management has resulted in delayed responses\nto vulnerabilities hidden within dependent  libraries [1],  [7],"
+  },
+  {
+    "id": "datasetrequirementsandsbomformat",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Dataset Requirements and SBOM Format",
+      "page_start": 1,
+      "page_end": 1
+    },
+    "text": "There are  two major SBOM formats: SPDX [11]  and\nCycloneDX [9]. Code. 1 shows an excerpt of an SBOM written\nin the SPDX format. This example describes information about\na widely used Java  library,  log4j-core version 2.10.0. For\ninstance,  the library name (name ﬁeld,  line 1),  its version\n(versionInfo ﬁeld,  line 8), and its license (licenseConcluded"
+  },
+  {
+    "id": "methodology1",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Methodology",
+      "page_start": 2,
+      "page_end": 3
+    },
+    "text": "Figure 1 shows the overview of  the dataset construction\nprocess. As the target programming language, we selected Java\nbecause it is widely used in various software projects and many\nprojects are available on GitHub. The dataset construction\nprocess  is divided into four steps:  Java project collection,\nSBOM production with sbom-tool, automatic correction, and\nmanual correction. First, we search Java projects on GitHub\nand clone their repositories. Next, we analyze the source code\nof the projects with an open-source SBOM generation tool:\nsbom-tool [8], and create initial SBOMs. After getting initial\nSBOMs, we correct missing  information in  the following\nsteps. We automatically correct the SBOMs to ﬁll in the es-\nsential ﬁelds with the information in the conﬁguration ﬁles for\nMaven (pom.xml). Finally, we manually correct the SBOMs\nand create the SBOMs that follow the SPDX Lite proﬁle.\nA. Java Project Collection\nWe collected Java projects from GitHub. We obtained an\ninitial list of Java projects using the GitHub API, by searching\n\nfor repositories that met the following conditions: (1) whose\nprimary language is Java; (2) that have at least 1000 stars; (3)\nthe repository is not archived. These conditions were chosen\nto ensure that the projects are active and popular.\nWe obtained 3,271 GitHub repositories matching  these\nconditions. We cloned these projects to analyze the source\ncode of the projects in the next SBOM production step. 3,254\nprojects were successfully cloned and 17 projects failed due to\nsome errors such as the path length limitation on the Windows\nenvironment.\nB. SBOM Production with sbom-tool\nWe produced initial SBOMs for the cloned projects with\nsbom-tool [8], an open-source SBOM generation tool. This\npopular and actively maintained tool supports the generation\nof SBOMs for Java projects using Maven as a build tool.\nFirst, we selected Java projects that use Maven as a build\ntool from the cloned projects. This is because sbom-tool does\nnot support SBOM generation for Java projects using other\nbuild tools than Maven. We consider that a project uses Maven\nif it contains at least one pom.xml ﬁle, a conﬁguration ﬁle for\nMaven. We gained 798 projects using Maven.\nFor these projects, we created SBOMs with sbom-tool. We\nused version 2.9.9 of sbom-tool, and ran it with the following\ncommand:\nsbom-tool generate -b output-dir -bc src-dir -pn name -pv\nversion -ps supplier\noutput-dir  directory path for the output SBOM.\nsrc-dir  project root directory path.\nname  project name (value: repository name).\nversion  project version (value: latest commit hash).\nsupplier  project supplier (value: repository owner name).\nThe primary language used in the collected projects is Java,\nbut some projects contain code written in other languages. It\nmeans that they may have dependencies that are not managed\nby Maven. Sbom-tool can detect a package manager used in a\nproject, so we checked the log output and excluded a project\nfrom the SBOM production candidates if sbom-tool detects\npackage managers other than Maven.\nC. Automatic Correction\nSBOMs produced by sbom-tool do not contain values of\nsome ﬁelds. Table I shows the essential ﬁelds about a package\n(e.g. library) in the SPDX Lite proﬁle. The ﬁrst column shows\nthe essential SPDX ﬁelds, and the next two columns indicate\nwhether information can be retrieved with SBOM production\nwith sbom-tool and automatic correction steps respectively. In\nthis table, “+” means that the ﬁeld is ﬁlled in for all projects,\nwhile “o” means that the ﬁeld is ﬁlled in for some projects\nbecause the data source is optional. As the column labeled\n“sbom-tool” shows, only the following ﬁelds are ﬁlled with\nsbom-tool: Package Name, Package SPDX Identiﬁer, Package\nVersion, Files Analyzed, and External Reference. Therefore,\nwe need to ﬁll in the other ﬁelds to create SBOMs that comply\nwith the SPDX Lite proﬁle.\n\nGitHub\nsbom-too\nREST API\nGitHub  Java\nProjects\nFig. 1. Overview of the da\nTABLE I\nESSENTIAL FIELDS ABOUT PACKAGE\nSPDX Field name  sbom-tool  Automatic\nCorrection\nPackage Name  +\nPackage SPDX Identiﬁer  +\nPackage Version  +\nPackage File Name  +\nPackage Supplier  o\nPackage Download Location  +\nFiles Analyzed  +\nPackage Home Page  o\nConcluded License  o\nDeclared License  o\nComments on License\nCopyright Text\nPackage Comment\nExternal Reference  +\nMost of the Java components are published on the Maven\n1  2\nCentral Repository . It provides a REST API , and it enables\nus to obtain the information to ﬁll  some of  the remaining\nﬁelds. Table II shows the correspondence between ﬁelds and\ninformation that can be obtained using the API. We can get\nthe ﬁle name of the jar ﬁle of a component (for the Package\nFile Name ﬁeld), and the URL to its jar ﬁle (for the Package\nDownload Location ﬁeld)  through the API. The API also\nprovides  the URL to the conﬁguration ﬁle of  the compo-\nnent (pom.xml), which contains some additional information\nabout the component."
+  },
+  {
+    "id": "methodology2",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Methodology",
+      "page_start": 2,
+      "page_end": 3
+    },
+    "text": "Using the information available on the\nMaven Central Repository, we can populate six ﬁelds for a\ncomponent: Package File Name, Package Supplier, Package\nDownload Location, Package Home Page, Concluded License,\nand Declared License. We wrote a script to obtain information\nfrom the API and ﬁll in the ﬁelds. In this step, we automati-\ncally corrected the SBOMs by running the script.\nIn  the Maven ecosystem,  component  names  are  case-\nsensitive. However, sbom-tool does not handle case sensitivity\ncorrectly, which occasionally causes the script  to fail when\nattempting to fetch information, even if the component is avail-\nable on the Maven Central Repository. Additionally, the script\ncannot retrieve information for components not published on\nthe Maven Central Repository. To address these limitations, we\nexcluded projects with such dependencies from the candidates\nfor SBOM production. As a result, we successfully generated\n46 SBOMs during the automatic correction step.\n1) Package File Name & Package Download Location: The\nAPI provides the name of the jar ﬁle of a component and the\n1\nhttps://central.sonatype.com/\n2\nhttps://central.sonatype.org/search/rest-api-guide/\n\nAutomatic\nl\nCorrection\nManual\nSBOM  Correction  SBOM\n(SPDX Lite)\ntaset construction process\nTABLE II\nINFORMATION AVAILABLE FROM MAVEN CENTRAL FOR AUTOMATIC\nCORRECTION\nSPDX Field name  Information on Maven Central\nPackage File Name  Name of the jar ﬁle\nPackage Supplier  Organization or Developers (pom.xml)\nPackage Download Location  URL of the jar ﬁle\nPackage Home Page  URL of the homepage (pom.xml)\nConcluded License  Licenses (pom.xml)\nDeclared License  Licenses (pom.xml)\nURL to its jar ﬁle. We can use these two pieces of information\nas the values of the Package File Name ﬁeld and the Package\nDownload Location ﬁeld, respectively.\n2) Package Supplier: A developer can optionally include\nthe organization to which a project belongs or the developer\ninformation of the component in the pom.xml. If the organiza-\ntion information is included in the pom.xml, we use it as the\nvalue of the Package Supplier ﬁeld; otherwise, if a developer\nis included instead,  the Package Supplier ﬁeld is populated\nwith that information. If multiple developers are included, we\ncannot automatically determine which developer to use as the\nvalue of the Package Supplier ﬁeld, so the ﬁeld is left blank.\n3) Package Home Page: A developer can optionally include\nthe URL to the project’s homepage in pom.xml. If the infor-\nmation is included in pom.xml, we use it as the value of the\nPackage Home Page ﬁeld.\n4) Concluded License & Declared License: A developer\ncan optionally include the license information of the project\nitself in pom.xml. The license of the project is described using\nthe name of the license and the URL of the license in pom.xml.\nIn SPDX format, well-known licenses are represented by their\nSPDX License Identiﬁers (e.g. Apache License Version 2.0 is\nrepresented by Apache-2.0). If the name of the license or the\nURL of the license in pom.xml exactly matches that of a well-\nknown license, use its SPDX License Identiﬁer as the value of\nthe Concluded License ﬁeld and the Declared License ﬁeld.\nThere are some variations in the spelling of  license names\nand URLs, the license information in pom.xml does not often\nmatch the well-known licenses exactly. In these cases, we use\nthe information in pom.xml as is for  the value of  the two\nﬁelds, and manually check and ﬁx them in the next Manual\nCorrection step.\nD. Manual Correction\nAfter  the automatic correction step,  there are still  some\nﬁelds whose values are empty or incorrect. During the manual\ncorrection step, we reviewed and corrected these ﬁelds  to."
+  },
+  {
+    "id": "datasetstructure",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Dataset Structure",
+      "page_start": 4,
+      "page_end": 4
+    },
+    "text": "The structure of  the dataset  is shown in Table III. The\ndataset  contains  repositories.json, which  is a  list  of  Java\nprojects. The list  includes the project  ID,  the name of  the\nproject, the project URL, the Git commit hash used to generate\nthe SBOM,  the number of dependencies of the project, and\nthe number of stars on GitHub. For each project, we created\na directory named “[ID] [Name (/  is replaced with +)]”. It\ncontains an SBOM ﬁle (sbom.spdx.json) and a ﬁle describing\nthe data sources of the SBOM (sbom.data-sources.json).\nThe users of the dataset can select SBOM ﬁles based on\nthe information in repositories.json and utilize them as input\nfor SBOM consumption tools to evaluate their functionality.\nAdditionally, detailed information about the data sources used\nto generate an SBOM is available in sbom.data-sources.json.\nThe ﬁle includes the type of the source for each ﬁeld value\n(auto or manual), the name of the source, and any associated\nURL. These details help users understand the process of\nSBOM creation and ensure transparency within the dataset.\n3\nhttp://web.archive.org/\n4\nhttps://tools.spdx.org/app/validate/\n\nTABLE III\nSTRUCTURE OF THE DATASET\npath  description\n/repositories.json  The list of Java projects in the dataset\n/[id]  [name]/  The directory for each Java project\n|– sbom.spdx.json  The SBOM ﬁle for the project\n|– sbom.data-sources.json  The ﬁle describing the data sources of\nthe SBOM"
+  },
+  {
+    "id": "limitations",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Limitations",
+      "page_start": 4,
+      "page_end": 4
+    },
+    "text": "In the automatic correction step, we relied on information\nobtained from the component’s pom.xml ﬁle to populate cer-\ntain ﬁelds. However, during manual correction, we found that\nthe pom.xml ﬁle occasionally contains inaccurate information.\nFor example, if a project is a fork of another and its pom.xml\nﬁle has not been updated,  it may include incorrect details.\nConsequently,  some values populated during the automatic\ncorrection step may contain errors.\nCurrently,  the dataset comprises 46 SBOMs, which may\nbe  insufﬁcient  for  a comprehensive evaluation of SBOM\nconsumption tools. Nonetheless,  the projects included in the\ndataset have complex dependency relationships, making it\nvaluable for certain evaluation scenarios. In future work, we\naim to expand the dataset by incorporating additional SBOMs\nfor Java projects and extending it  to SBOMs for projects\nwritten in other programming languages."
+  },
+  {
+    "id": "conclusion",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Conclusion",
+      "page_start": 4,
+      "page_end": 5
+    },
+    "text": "This paper presents a dataset of SBOMs  for evaluating\nSBOM consumption tools. It comprises 46 SBOMs generated\nfrom real-world Java projects collected from GitHub. The\nSBOMs were created using an open-source SBOM genera-\ntion tool and reﬁned through manual corrections to ensure\naccuracy. This dataset has room for improvement in terms of\nboth its quality and quantity, so we plan to reﬁne the data and\nexpand it to include a broader range of projects across various\nprogramming languages.\nThrough the dataset  construction process, we  identiﬁed\nseveral  issues with the SBOM generation tools. Sbom-tool\ndoes not properly handle case sensitivity in component names,\npotentially leading to false negatives in vulnerability detec-\ntion by SBOM consumption tools. Additionally, creating an\nSBOM with all  the necessary information currently requires\nsigniﬁcant manual effort. To facilitate effective dependency\nmanagement using SBOMs,  it  is crucial  to address  these\nlimitations and minimize the manual work needed to produce\naccurate and comprehensive SBOMs.\nAcknowledgements\nThis work was supported by JSPS KAKENHI Grant Num-\nbers JP24H00692, JP21K18302, JP21H04877, JP23K24823,\nJP22K11985,  JP24K14895,  JP21K02862,  JP23K28065, and\nNanzan University Pache Research Subsidy I-A-2 for the 2024\nacademic year.\n\n"
+  }
+]

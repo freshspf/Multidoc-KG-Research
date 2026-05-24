@@ -1,0 +1,88 @@
+[
+  {
+    "section": "threatstovalidity",
+    "path": {
+      "section": "threatstovalidity",
+      "start_entity": "WohlinEtAl",
+      "end_entity": "ExternalValidity",
+      "hops": [
+        {
+          "from": "WohlinEtAl",
+          "relation": "developedBy",
+          "to": "ValiditySchema",
+          "context": "based on the validity schema by Wohlin et al. [21].",
+          "chunk": "5"
+        },
+        {
+          "from": "ValiditySchema",
+          "relation": "usedIn",
+          "to": "ThisStudy",
+          "context": "based on the validity schema by Wohlin et al. [21].",
+          "chunk": "5"
+        },
+        {
+          "from": "ThisStudy",
+          "relation": "addresses",
+          "to": "ExternalValidity",
+          "context": "External Validity. The most important threat to this kind of validity is that our study is limited to: (i) open-source projects hosted on GitHub and (ii) SBOM generation tools owned by CycloneDX.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "According to the validity schema developed by Wohlin et al., which aspect of external validity does the study specifically address?",
+    "options": {
+      "A": "The study addresses external validity by examining both private and public software development projects.",
+      "B": "The study addresses external validity by including SBOM generation tools owned by organizations other than CycloneDX.",
+      "C": "The study addresses external validity by focusing solely on open-source projects hosted on GitHub.",
+      "D": "The study addresses external validity by encompassing a wide variety of software types and development platforms."
+    },
+    "correct_answer": "C",
+    "explanation": "The study explicitly mentions that it is limited to open-source projects hosted on GitHub, which directly addresses its scope of external validity within the context of the validity schema developed by Wohlin et al.",
+    "path_description": "Path: WohlinEtAl --[developedBy]--> ValiditySchema --[usedIn]--> ThisStudy --[addresses]--> ExternalValidity",
+    "context": "based on the validity schema by Wohlin et al. [21]. | based on the validity schema by Wohlin et al. [21]. | External Validity. The most important threat to this kind of validity is that our study is limited to: (i) open-source projects hosted on GitHub and (ii) SBOM generation tools owned by CycloneDX.",
+    "paper_id": "225"
+  },
+  {
+    "section": "conclusionandfuturework",
+    "path": {
+      "section": "conclusionandfuturework",
+      "start_entity": "ProjectOwners",
+      "end_entity": "MaintenanceRequirement",
+      "hops": [
+        {
+          "from": "ProjectOwners",
+          "relation": "provideFeedbackOn",
+          "to": "SBOM",
+          "context": "the feedback of the projects’ owners suggests the usefulness of the suggested SBOM augmentation",
+          "chunk": "6"
+        },
+        {
+          "from": "SBOM",
+          "relation": "rejectedDueTo",
+          "to": "ContinuousUpdateRequirement",
+          "context": "In most cases, our augmented SBOMs were not directly accepted because developers required a continuous SBOM update",
+          "chunk": "6"
+        },
+        {
+          "from": "ContinuousUpdateRequirement",
+          "relation": "type",
+          "to": "MaintenanceRequirement",
+          "context": "In most cases, our augmented SBOMs were not directly accepted because developers required a continuous SBOM update",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "Why were the augmented SBOMs initially rejected by developers according to the feedback provided by project owners?",
+    "options": {
+      "A": "Project owners disapproved of the SBOM formats provided, necessitating a redesign.",
+      "B": "The SBOMs did not meet the security requirements specified by the project owners at the outset.",
+      "C": "Developers required the SBOMs to be updated on an ongoing basis, aligning with a maintenance requirement.",
+      "D": "Developers found the SBOMs too complex to integrate into their existing systems."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A because according to the knowledge path, the SBOMs were rejected due to the requirement for continuous updates, which is a type of maintenance requirement. The other options are plausible but do not directly connect to the cause of rejection as described.",
+    "path_description": "Path: ProjectOwners --[provideFeedbackOn]--> SBOM --[rejectedDueTo]--> ContinuousUpdateRequirement --[type]--> MaintenanceRequirement",
+    "context": "the feedback of the projects’ owners suggests the usefulness of the suggested SBOM augmentation | In most cases, our augmented SBOMs were not directly accepted because developers required a continuous SBOM update | In most cases, our augmented SBOMs were not directly accepted because developers required a continuous SBOM update",
+    "paper_id": "225"
+  }
+]

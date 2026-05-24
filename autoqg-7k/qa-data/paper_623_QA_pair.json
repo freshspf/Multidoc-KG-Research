@@ -1,0 +1,45 @@
+[
+  {
+    "section": "performanceanalysis2",
+    "path": {
+      "section": "performanceanalysis2",
+      "start_entity": "SDPGateway",
+      "end_entity": "Entity",
+      "hops": [
+        {
+          "from": "SDPGateway",
+          "relation": "establishesConnectionWith",
+          "to": "UAV",
+          "context": "Only after the UAV is authenticated, the SDP gateway establishes a connection with the UAV.",
+          "chunk": "10"
+        },
+        {
+          "from": "UAV",
+          "relation": "authenticatedBy",
+          "to": "AuthenticationDevice",
+          "context": "In Feng et al.’s [46] scheme, the UAV sends ciphertext to the authentication device.",
+          "chunk": "10"
+        },
+        {
+          "from": "AuthenticationDevice",
+          "relation": "type",
+          "to": "Entity",
+          "context": "In Feng et al.’s [46] scheme, the UAV sends ciphertext to the authentication device.",
+          "chunk": "10"
+        }
+      ]
+    },
+    "question": "In the scenario described by Feng et al., what type of entity typically authenticates the UAV before an SDP gateway can establish a connection?",
+    "options": {
+      "A": "An internet-based software platform managing digital certificates",
+      "B": "A human operator stationed at a remote control center",
+      "C": "An automated system that only verifies UAV's mechanical components",
+      "D": "A physical security device designed specifically for network access control"
+    },
+    "correct_answer": "D",
+    "explanation": "In the described scheme, the UAV sends ciphertext to an authentication device, which is typically a specialized physical security device. This device is responsible for network security, making it the correct type of entity to authenticate the UAV before the SDP gateway establishes a connection.",
+    "path_description": "Path: SDPGateway --[establishesConnectionWith]--> UAV --[authenticatedBy]--> AuthenticationDevice --[type]--> Entity",
+    "context": "Only after the UAV is authenticated, the SDP gateway establishes a connection with the UAV. | In Feng et al.’s [46] scheme, the UAV sends ciphertext to the authentication device. | In Feng et al.’s [46] scheme, the UAV sends ciphertext to the authentication device.",
+    "paper_id": "755"
+  }
+]

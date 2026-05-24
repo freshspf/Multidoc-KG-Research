@@ -1,0 +1,88 @@
+[
+  {
+    "section": "quantumconsortiumblockchainbasedonqpnv1",
+    "path": {
+      "section": "quantumconsortiumblockchainbasedonqpnv1",
+      "start_entity": "Voter",
+      "end_entity": "Entity",
+      "hops": [
+        {
+          "from": "Voter",
+          "relation": "votesOn",
+          "to": "BallotMatrix",
+          "context": "rx,k, voter Vk votes to vk ∈ {0, 1} by adding vk to rx,k",
+          "chunk": "6"
+        },
+        {
+          "from": "BallotMatrix",
+          "relation": "summedByRow",
+          "to": "VotingItem",
+          "context": "By summing r by row, the number of votes received by the l-th voting item can be calculated",
+          "chunk": "6"
+        },
+        {
+          "from": "VotingItem",
+          "relation": "type",
+          "to": "Entity",
+          "context": "By summing r by row, the number of votes received by the l-th voting item can be calculated",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In a quantum consortium blockchain-based voting system, how is the type of entity determined that a specific Voting Item represents?",
+    "options": {
+      "A": "By analyzing the summed votes in each row of the Ballot Matrix and associating them with the corresponding Entity type.",
+      "B": "Through the individual voter's identification process that links each vote to a specific Entity type immediately.",
+      "C": "By summing the columns of the Ballot Matrix to determine the majority Entity type desired by voters.",
+      "D": "By the direct vote input from each voter, which is then matched directly to an Entity type without summing."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A because, according to the described voting mechanism, each voter's vote (Vk) is added to a matrix (rx,k), which is then summed by rows to determine the number of votes each Voting Item has received. The type of entity that the Voting Item represents is determined by associating these summed results with specific Entity types.",
+    "path_description": "Path: Voter --[votesOn]--> BallotMatrix --[summedByRow]--> VotingItem --[type]--> Entity",
+    "context": "rx,k, voter Vk votes to vk ∈ {0, 1} by adding vk to rx,k | By summing r by row, the number of votes received by the l-th voting item can be calculated | By summing r by row, the number of votes received by the l-th voting item can be calculated",
+    "paper_id": "1247"
+  },
+  {
+    "section": "quantumconsortiumblockchainbasedonqpnv2",
+    "path": {
+      "section": "quantumconsortiumblockchainbasedonqpnv2",
+      "start_entity": "RotatingBookkeeper",
+      "end_entity": "QuantumPrinciple",
+      "hops": [
+        {
+          "from": "RotatingBookkeeper",
+          "relation": "knows",
+          "to": "Qubit",
+          "context": "Since the rotating bookkeeper knows the qubit information precisely, it is feasible to prepare identical copies of the qubit without violating the no-cloning theorem.",
+          "chunk": "7"
+        },
+        {
+          "from": "Qubit",
+          "relation": "notViolate",
+          "to": "NoCloningTheorem",
+          "context": "Since the rotating bookkeeper knows the qubit information precisely, it is feasible to prepare identical copies of the qubit without violating the no-cloning theorem.",
+          "chunk": "7"
+        },
+        {
+          "from": "NoCloningTheorem",
+          "relation": "type",
+          "to": "QuantumPrinciple",
+          "context": "Since the rotating bookkeeper knows the qubit information precisely, it is feasible to prepare identical copies of the qubit without violating the no-cloning theorem.",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "How does the knowledge of the rotating bookkeeper about a qubit enable adherence to quantum principles, specifically the no-cloning theorem?",
+    "options": {
+      "A": "Though the bookkeeper knows the qubit, making identical copies is prohibited under the no-cloning theorem and quantum principles.",
+      "B": "The rotating bookkeeper's knowledge enables violation of the no-cloning theorem by replicating the qubit's quantum state.",
+      "C": "By understanding the qubit's properties, the rotating bookkeeper can clone the qubit, thus adhering to classical but not quantum principles.",
+      "D": "The precise knowledge allows the rotating bookkeeper to prepare identical qubit copies without violating the no-cloning theorem."
+    },
+    "correct_answer": "D",
+    "explanation": "The precise knowledge of the qubit by the rotating bookkeeper enables the preparation of its identical copies without violating the no-cloning theorem, which states that it is impossible to create an identical copy of an arbitrary unknown quantum state.",
+    "path_description": "Path: RotatingBookkeeper --[knows]--> Qubit --[notViolate]--> NoCloningTheorem --[type]--> QuantumPrinciple",
+    "context": "Since the rotating bookkeeper knows the qubit information precisely, it is feasible to prepare identical copies of the qubit without violating the no-cloning theorem. | Since the rotating bookkeeper knows the qubit information precisely, it is feasible to prepare identical copies of the qubit without violating the no-cloning theorem. | Since the rotating bookkeeper knows the qubit information precisely, it is feasible to prepare identical copies of the qubit without violating the no-cloning theorem.",
+    "paper_id": "1247"
+  }
+]

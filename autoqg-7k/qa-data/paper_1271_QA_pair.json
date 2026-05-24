@@ -1,0 +1,174 @@
+[
+  {
+    "section": "resultsanddiscussion2",
+    "path": {
+      "section": "resultsanddiscussion2",
+      "start_entity": "PANDORA",
+      "end_entity": "Robot",
+      "hops": [
+        {
+          "from": "PANDORA",
+          "relation": "controlledVia",
+          "to": "DOB",
+          "context": "The pendulum experiment demonstrates the DOB's robust ability to handle significant additional dynamics to maintain proper tracking objectives.",
+          "chunk": "11"
+        },
+        {
+          "from": "DOB",
+          "relation": "handlesDynamics",
+          "to": "PANDORA",
+          "context": "The pendulum experiment demonstrates the DOB's robust ability to handle significant additional dynamics to maintain proper tracking objectives.",
+          "chunk": "11"
+        },
+        {
+          "from": "PANDORA",
+          "relation": "type",
+          "to": "Robot",
+          "context": "In this experiment, PANDORA's 12 DoF lower body is controlled via the linear actuators.",
+          "chunk": "11"
+        }
+      ]
+    },
+    "question": "In the pendulum experiment discussed in the 'resultsanddiscussion2' section, how is the control of PANDORA's lower body achieved to manage additional dynamics?",
+    "options": {
+      "A": "PANDORA's lower body is manipulated manually by researchers to test its dynamic response capabilities.",
+      "B": "PANDORA's lower body utilizes hydraulic systems to adapt to the pendulum's movement and maintain balance.",
+      "C": "PANDORA relies on pre-set algorithms without any physical adjustments to handle the dynamics in the experiment.",
+      "D": "PANDORA's lower body is controlled using linear actuators to manage the dynamics introduced in the experiment."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A, as the paper explicitly mentions that PANDORA's 12 degrees of freedom (DoF) lower body is controlled via linear actuators in the pendulum experiment. This setup was crucial for handling the additional dynamics to maintain proper tracking objectives. The other options, while related to robotics control, do not accurately describe the control mechanism used in this specific experiment.",
+    "path_description": "Path: PANDORA --[controlledVia]--> DOB --[handlesDynamics]--> PANDORA --[type]--> Robot",
+    "context": "The pendulum experiment demonstrates the DOB's robust ability to handle significant additional dynamics to maintain proper tracking objectives. | The pendulum experiment demonstrates the DOB's robust ability to handle significant additional dynamics to maintain proper tracking objectives. | In this experiment, PANDORA's 12 DoF lower body is controlled via the linear actuators.",
+    "paper_id": "796"
+  },
+  {
+    "section": "resultsanddiscussion2",
+    "path": {
+      "section": "resultsanddiscussion2",
+      "start_entity": "DOB",
+      "end_entity": "FullOrderModel",
+      "hops": [
+        {
+          "from": "DOB",
+          "relation": "handlesDynamics",
+          "to": "PANDORA",
+          "context": "The pendulum experiment demonstrates the DOB's robust ability to handle significant additional dynamics to maintain proper tracking objectives.",
+          "chunk": "11"
+        },
+        {
+          "from": "PANDORA",
+          "relation": "controlledVia",
+          "to": "WBC",
+          "context": "For executing balancing and walking behaviors, the full-order model is controlled using the WBC.",
+          "chunk": "11"
+        },
+        {
+          "from": "WBC",
+          "relation": "requires",
+          "to": "FullOrderModel",
+          "context": "For executing balancing and walking behaviors, the full-order model is controlled using the WBC.",
+          "chunk": "11"
+        }
+      ]
+    },
+    "question": "In the context of the pendulum experiment as described in the 'resultsanddiscussion2' section, how is the DOB's ability to handle dynamics related to the control of the full-order model?",
+    "options": {
+      "A": "The full-order model uses the WBC to control the DOB indirectly, which then handles additional dynamics in the pendulum experiment.",
+      "B": "The DOB directly influences the full-order model by adjusting its parameters to improve the control of dynamics in walking behaviors.",
+      "C": "The DOB handles dynamics through PANDORA which is controlled via WBC, requiring a full-order model for balancing and walking behaviors.",
+      "D": "PANDORA uses the WBC to modify the DOB's settings, thereby adjusting the full-order model's response to dynamics in the experiment."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A because the knowledge path shows that the DOB is linked to handling dynamics via PANDORA, which is controlled by the WBC. The WBC requires a full-order model to execute balancing and walking behaviors, as stated in the context.",
+    "path_description": "Path: DOB --[handlesDynamics]--> PANDORA --[controlledVia]--> WBC --[requires]--> FullOrderModel",
+    "context": "The pendulum experiment demonstrates the DOB's robust ability to handle significant additional dynamics to maintain proper tracking objectives. | For executing balancing and walking behaviors, the full-order model is controlled using the WBC. | For executing balancing and walking behaviors, the full-order model is controlled using the WBC.",
+    "paper_id": "796"
+  },
+  {
+    "section": "jointspacecontrol3",
+    "path": {
+      "section": "jointspacecontrol3",
+      "start_entity": "ForceController",
+      "end_entity": "SystemComponent",
+      "hops": [
+        {
+          "from": "ForceController",
+          "relation": "combines",
+          "to": "PID_FF_Controller",
+          "context": "The force controller is a combination of the DOB and PID + FF controller.",
+          "chunk": "7"
+        },
+        {
+          "from": "PID_FF_Controller",
+          "relation": "includes",
+          "to": "FF",
+          "context": "In addition, the FF term is critical because the system generally needs to provide an input to maintain a stable output.",
+          "chunk": "7"
+        },
+        {
+          "from": "FF",
+          "relation": "type",
+          "to": "SystemComponent",
+          "context": "In addition, the FF term is critical because the system generally needs to provide an input to maintain a stable output.",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "In the context of the force controller described in the 'jointspacecontrol3' section, how does the Feed-Forward (FF) component mainly contribute to the system's performance?",
+    "options": {
+      "A": "The FF component is critical for maintaining system stability by providing necessary input adjustments.",
+      "B": "The FF component enhances the system's ability to rapidly adjust to changes in the external environment.",
+      "C": "The FF component mainly functions to store data for future reference and improves learning capabilities.",
+      "D": "The FF component primarily reduces the computational load on the system by simplifying control algorithms."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A because the FF term, as part of the PID + FF controller in a force controller system, is critical for maintaining the stability of the system. It does so by providing the necessary inputs to maintain a stable output, as indicated in the context provided from the paper.",
+    "path_description": "Path: ForceController --[combines]--> PID_FF_Controller --[includes]--> FF --[type]--> SystemComponent",
+    "context": "The force controller is a combination of the DOB and PID + FF controller. | In addition, the FF term is critical because the system generally needs to provide an input to maintain a stable output. | In addition, the FF term is critical because the system generally needs to provide an input to maintain a stable output.",
+    "paper_id": "796"
+  },
+  {
+    "section": "resultsanddiscussion4",
+    "path": {
+      "section": "resultsanddiscussion4",
+      "start_entity": "HighImpedanceGains",
+      "end_entity": "PoorCableConnection",
+      "hops": [
+        {
+          "from": "HighImpedanceGains",
+          "relation": "leadTo",
+          "to": "Instability",
+          "context": "During early testing, higher impedance gains more often led to instability in the actuators.",
+          "chunk": "13"
+        },
+        {
+          "from": "Instability",
+          "relation": "causedBy",
+          "to": "CommunicationFrameDrop",
+          "context": "This instability did not come from the relative magnitude of tracking error, but from communication frame drop.",
+          "chunk": "13"
+        },
+        {
+          "from": "CommunicationFrameDrop",
+          "relation": "occursDueTo",
+          "to": "PoorCableConnection",
+          "context": "During testing, communication frames drops occured between the LLC and high-level PC from missed control/communication loop deadlines, poor cable connection",
+          "chunk": "13"
+        }
+      ]
+    },
+    "question": "In the context of actuator testing, how does an increase in impedance gains primarily lead to actuator instability?",
+    "options": {
+      "A": "Impedance gains heighten instability through thermal overload of actuator components, leading to failure.",
+      "B": "An increase in impedance gains contributes to instability by enhancing electrical noise in communication systems.",
+      "C": "Higher impedance gains directly cause instability by increasing the tracking error magnitude in actuators.",
+      "D": "Increased impedance gains lead to instability by causing communication frame drops due to poor cable connections."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A. The paper specifies that higher impedance gains lead to instability through communication frame drops, which occur due to poor cable connections. Options B, C, and D introduce incorrect causes such as tracking error magnitude, electrical noise, and thermal overload, which are not supported by the given context from the paper.",
+    "path_description": "Path: HighImpedanceGains --[leadTo]--> Instability --[causedBy]--> CommunicationFrameDrop --[occursDueTo]--> PoorCableConnection",
+    "context": "During early testing, higher impedance gains more often led to instability in the actuators. | This instability did not come from the relative magnitude of tracking error, but from communication frame drop. | During testing, communication frames drops occured between the LLC and high-level PC from missed control/communication loop deadlines, poor cable connection",
+    "paper_id": "796"
+  }
+]

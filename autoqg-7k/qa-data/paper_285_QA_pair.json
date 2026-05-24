@@ -1,0 +1,88 @@
+[
+  {
+    "section": "proposedmodel1",
+    "path": {
+      "section": "proposedmodel1",
+      "start_entity": "EnrollmentCenter",
+      "end_entity": "EncryptionMethod",
+      "hops": [
+        {
+          "from": "EnrollmentCenter",
+          "relation": "registers",
+          "to": "BiometricTemplate",
+          "context": "Each EC is responsible for the enrollment of new users by registering their biometric templates.",
+          "chunk": "3"
+        },
+        {
+          "from": "BiometricTemplate",
+          "relation": "encryptedUsing",
+          "to": "FuzzyHashing",
+          "context": "encrypted domain, through fuzzy hashing.",
+          "chunk": "3"
+        },
+        {
+          "from": "FuzzyHashing",
+          "relation": "type",
+          "to": "EncryptionMethod",
+          "context": "encrypted domain, through fuzzy hashing.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the context of the proposed model for secure user enrollment, how is a Biometric Template secured after registration at the Enrollment Center?",
+    "options": {
+      "A": "It is stored in plaintext within the database managed by the Enrollment Center.",
+      "B": "It is encrypted using a specific type of Encryption Method known as Fuzzy Hashing.",
+      "C": "It is sent directly to the user for confirmation without any form of encryption.",
+      "D": "It is hashed using standard cryptographic hash functions before storage."
+    },
+    "correct_answer": "B",
+    "explanation": "According to the given knowledge path, the Biometric Template registered at the Enrollment Center is encrypted using Fuzzy Hashing, which is identified as a type of Encryption Method. This ensures the security of the template in the encrypted domain.",
+    "path_description": "Path: EnrollmentCenter --[registers]--> BiometricTemplate --[encryptedUsing]--> FuzzyHashing --[type]--> EncryptionMethod",
+    "context": "Each EC is responsible for the enrollment of new users by registering their biometric templates. | encrypted domain, through fuzzy hashing. | encrypted domain, through fuzzy hashing.",
+    "paper_id": "989"
+  },
+  {
+    "section": "proposedmodel2",
+    "path": {
+      "section": "proposedmodel2",
+      "start_entity": "EC",
+      "end_entity": "Node",
+      "hops": [
+        {
+          "from": "EC",
+          "relation": "registers",
+          "to": "AC",
+          "context": "invoking the smart contract, an existing EC is responsible for storing onto the blockchain the addresses and the data of new ACs.",
+          "chunk": "4"
+        },
+        {
+          "from": "AC",
+          "relation": "canBeElevatedTo",
+          "to": "EC",
+          "context": "In this case, the AC is elevated to the same hierarchical level of the EC, thus becoming a fully-fledged EC.",
+          "chunk": "4"
+        },
+        {
+          "from": "EC",
+          "relation": "type",
+          "to": "Node",
+          "context": "The registration stage allows new ACs, and new ECs as a special case, to be incorporated into the system.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the context of the blockchain system described in 'proposedmodel2', how does the registration of an AC typically influence its hierarchical status in relation to an EC?",
+    "options": {
+      "A": "Registering an AC reduces its hierarchical level compared to an EC, making it dependent on the EC for all operations.",
+      "B": "The registration process elevates an AC to the same hierarchical level as an EC, effectively making it a new EC.",
+      "C": "The registration of an AC has no impact on its hierarchical status, as it remains completely independent of the EC.",
+      "D": "Upon registration, an AC becomes a subordinate module within the EC, assisting the EC without elevating its status."
+    },
+    "correct_answer": "B",
+    "explanation": "According to the provided context, when an AC is registered, it is elevated to the same hierarchical level as an EC, thereby becoming a new EC itself. This process is described as AC being elevated to a fully-fledged EC following registration.",
+    "path_description": "Path: EC --[registers]--> AC --[canBeElevatedTo]--> EC --[type]--> Node",
+    "context": "invoking the smart contract, an existing EC is responsible for storing onto the blockchain the addresses and the data of new ACs. | In this case, the AC is elevated to the same hierarchical level of the EC, thus becoming a fully-fledged EC. | The registration stage allows new ACs, and new ECs as a special case, to be incorporated into the system.",
+    "paper_id": "989"
+  }
+]

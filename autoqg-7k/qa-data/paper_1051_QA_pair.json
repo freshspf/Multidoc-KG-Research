@@ -1,0 +1,88 @@
+[
+  {
+    "section": "results",
+    "path": {
+      "section": "results",
+      "start_entity": "SidewindingGait",
+      "end_entity": "Angle",
+      "hops": [
+        {
+          "from": "SidewindingGait",
+          "relation": "uses",
+          "to": "SinusoidalInputSignal",
+          "context": "A sidewinding gait created by supplying a sinusoidal input signal to each of the joints is used as a standard input with varying parameters to change the behavior of the robot.",
+          "chunk": "3"
+        },
+        {
+          "from": "SinusoidalInputSignal",
+          "relation": "parameterizedBy",
+          "to": "Ayawing",
+          "context": "The input signal is given by a sine-wave according to Eq. 2 with some phase difference for each joint, as follows: Ayawing = 60",
+          "chunk": "3"
+        },
+        {
+          "from": "Ayawing",
+          "relation": "type",
+          "to": "Angle",
+          "context": "Ayawing = 60",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the context of robotic locomotion, when implementing a sidewinding gait by supplying a sinusoidal input signal to each joint, what type of parameter is Ayawing?",
+    "options": {
+      "A": "Ayawing is a frequency parameter that adjusts the speed of the sinusoidal wave applied to each joint.",
+      "B": "Ayawing represents the amplitude of the sinusoidal input, affecting the height of each wave.",
+      "C": "Ayawing is an angle parameter that determines the phase difference in the sinusoidal input for each joint.",
+      "D": "Ayawing is a duration parameter that controls how long each joint follows the sinusoidal input."
+    },
+    "correct_answer": "C",
+    "explanation": "Ayawing, as described in the paper, is parameterized as an angle that sets the phase difference for the sinusoidal input signals among the joints in a sidewinding gait, thereby influencing the robot's motion pattern.",
+    "path_description": "Path: SidewindingGait --[uses]--> SinusoidalInputSignal --[parameterizedBy]--> Ayawing --[type]--> Angle",
+    "context": "A sidewinding gait created by supplying a sinusoidal input signal to each of the joints is used as a standard input with varying parameters to change the behavior of the robot. | The input signal is given by a sine-wave according to Eq. 2 with some phase difference for each joint, as follows: Ayawing = 60 | Ayawing = 60",
+    "paper_id": "348"
+  },
+  {
+    "section": "introduction",
+    "path": {
+      "section": "introduction",
+      "start_entity": "SimToRealProblem",
+      "end_entity": "LocomotionType",
+      "hops": [
+        {
+          "from": "SimToRealProblem",
+          "relation": "encounteredIn",
+          "to": "COBRASnakeRobot",
+          "context": "This paper addresses the 'sim-to-real problem' encountered in the COBRA snake robot",
+          "chunk": "0"
+        },
+        {
+          "from": "COBRASnakeRobot",
+          "relation": "forms",
+          "to": "LoopShapeConfiguration",
+          "context": "or forming a loop-shape configuration for tumbling",
+          "chunk": "0"
+        },
+        {
+          "from": "LoopShapeConfiguration",
+          "relation": "type",
+          "to": "LocomotionType",
+          "context": "or forming a loop-shape configuration for tumbling",
+          "chunk": "0"
+        }
+      ]
+    },
+    "question": "In addressing the 'sim-to-real problem' with the COBRA snake robot, which type of locomotion is primarily associated with its loop-shape configuration?",
+    "options": {
+      "A": "The loop-shape configuration mainly supports slithering locomotion similar to natural snakes.",
+      "B": "The loop-shape configuration enhances the rolling locomotion on rugged terrains.",
+      "C": "The loop-shape configuration is critical for aerial maneuverability and gliding.",
+      "D": "The loop-shape configuration is primarily associated with tumbling locomotion."
+    },
+    "correct_answer": "D",
+    "explanation": "The paper specifically mentions that the COBRA snake robot forms a loop-shape configuration for tumbling, which implies that the locomotion type associated with this configuration is primarily tumbling. Other options, although plausible sounding, are not supported by the information in the paper.",
+    "path_description": "Path: SimToRealProblem --[encounteredIn]--> COBRASnakeRobot --[forms]--> LoopShapeConfiguration --[type]--> LocomotionType",
+    "context": "This paper addresses the 'sim-to-real problem' encountered in the COBRA snake robot | or forming a loop-shape configuration for tumbling | or forming a loop-shape configuration for tumbling",
+    "paper_id": "348"
+  }
+]

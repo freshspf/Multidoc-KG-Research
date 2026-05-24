@@ -1,0 +1,88 @@
+[
+  {
+    "section": "mainresults1",
+    "path": {
+      "section": "mainresults1",
+      "start_entity": "ClosedLoopSystem",
+      "end_entity": "Function",
+      "hops": [
+        {
+          "from": "ClosedLoopSystem",
+          "relation": "uses",
+          "to": "ControllerU",
+          "context": "The closed-loop system uses the controller U(t) = K¯Z(t).",
+          "chunk": "3"
+        },
+        {
+          "from": "ControllerU",
+          "relation": "basedOn",
+          "to": "FunctionZ",
+          "context": "The controller U(t) is based on the function Z(t).",
+          "chunk": "3"
+        },
+        {
+          "from": "FunctionZ",
+          "relation": "type",
+          "to": "Function",
+          "context": "Z(t) = ϑ(t) + ∫ g(y)u(y, t)dy.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the context of the closed-loop system discussed in 'mainresults1', which statement best describes the role and composition of the controller U(t)?",
+    "options": {
+      "A": "The controller U(t) = K¯Z(t) relies solely on the constant K and does not incorporate any integral or summation operations.",
+      "B": "The controller U(t) functions independently of the function Z(t) and primarily manages the output through constant adjustments.",
+      "C": "The controller U(t) = K¯Z(t) integrates the function Z(t), which includes a sum and an integral component based on variable y.",
+      "D": "The controller U(t) dynamically adjusts K without reference to Z(t), focusing on external inputs rather than internal functions."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A because U(t) = K¯Z(t) indicates that the controller U(t) directly uses the function Z(t) in its formulation. Z(t) itself is defined as ϑ(t) + ∫ g(y)u(y, t)dy, which includes both a sum (ϑ(t)) and an integral component over g(y) and u(y, t), as given in the paper's description.",
+    "path_description": "Path: ClosedLoopSystem --[uses]--> ControllerU --[basedOn]--> FunctionZ --[type]--> Function",
+    "context": "The closed-loop system uses the controller U(t) = K¯Z(t). | The controller U(t) is based on the function Z(t). | Z(t) = ϑ(t) + ∫ g(y)u(y, t)dy.",
+    "paper_id": "319"
+  },
+  {
+    "section": "mainresults1",
+    "path": {
+      "section": "mainresults1",
+      "start_entity": "ControllerU",
+      "end_entity": "Function",
+      "hops": [
+        {
+          "from": "ControllerU",
+          "relation": "basedOn",
+          "to": "FunctionZ",
+          "context": "The controller U(t) is based on the function Z(t).",
+          "chunk": "3"
+        },
+        {
+          "from": "FunctionZ",
+          "relation": "uses",
+          "to": "FunctionG",
+          "context": "Z(t) uses the function g in its definition.",
+          "chunk": "3"
+        },
+        {
+          "from": "FunctionG",
+          "relation": "type",
+          "to": "Function",
+          "context": "g(x) = (L/2) x^2.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "Which statement accurately describes the relationship and functionality of the controller U(t) in the context of its mathematical dependencies?",
+    "options": {
+      "A": "The controller U(t) directly utilizes the linear function g(x) = Lx, which influences the behavior of Z(t) through its derivative properties.",
+      "B": "The controller U(t) relies on the inverse function g(x) = 1/(Lx), which is essential for calculating the integral properties of Z(t).",
+      "C": "The controller U(t) is based on function Z(t), which incorporates the quadratic function g(x) = (L/2) x^2 in its formulation.",
+      "D": "The controller U(t) modifies its behavior based on the exponential function g(x) = e^(Lx), which is a fundamental part of Z(t)'s calculation."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A because the controller U(t) is based on the function Z(t), which uses the specific function g(x) = (L/2) x^2 as stated in the paper. This quadratic function is integral to the definition of Z(t), and thus influences U(t). The other options incorrectly describe the mathematical form and role of g(x) within Z(t).",
+    "path_description": "Path: ControllerU --[basedOn]--> FunctionZ --[uses]--> FunctionG --[type]--> Function",
+    "context": "The controller U(t) is based on the function Z(t). | Z(t) uses the function g in its definition. | g(x) = (L/2) x^2.",
+    "paper_id": "319"
+  }
+]

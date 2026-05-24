@@ -1,0 +1,131 @@
+[
+  {
+    "section": "backgroundandmotivation3",
+    "path": {
+      "section": "backgroundandmotivation3",
+      "start_entity": "zkVC",
+      "end_entity": "GeLU",
+      "hops": [
+        {
+          "from": "zkVC",
+          "relation": "verifies",
+          "to": "SoftMax",
+          "context": "To verify the correctness of computation in transformers, we need to verify the non-linear functions like SoftMax",
+          "chunk": "3"
+        },
+        {
+          "from": "SoftMax",
+          "relation": "verifiedBy",
+          "to": "zkVC",
+          "context": "Based on this idea, we show how the SoftMax function is verified in our design as follows",
+          "chunk": "3"
+        },
+        {
+          "from": "zkVC",
+          "relation": "verifies",
+          "to": "GeLU",
+          "context": "To verify the correctness of computation in transformers, we need to verify the non-linear functions like GeLU",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the process described for verifying computation correctness in transformers, what is verified immediately after the SoftMax function?",
+    "options": {
+      "A": "The Attention mechanism is verified to assess the distribution of focus across input features.",
+      "B": "The ReLU function is verified to ensure the linear activation phases are correct.",
+      "C": "The Layer Normalization is verified to ensure consistent computation across different layers.",
+      "D": "The GeLU function is verified as it is another non-linear function crucial in transformer computations."
+    },
+    "correct_answer": "D",
+    "explanation": "The question follows the knowledge path where zkVC first verifies the SoftMax function and subsequently verifies the GeLU function. Thus, immediately after verifying SoftMax, the GeLU function is verified, as indicated in the path and context.",
+    "path_description": "Path: zkVC --[verifies]--> SoftMax --[verifiedBy]--> zkVC --[verifies]--> GeLU",
+    "context": "To verify the correctness of computation in transformers, we need to verify the non-linear functions like SoftMax | Based on this idea, we show how the SoftMax function is verified in our design as follows | To verify the correctness of computation in transformers, we need to verify the non-linear functions like GeLU",
+    "paper_id": "1649"
+  },
+  {
+    "section": "backgroundandmotivation3",
+    "path": {
+      "section": "backgroundandmotivation3",
+      "start_entity": "SoftMax",
+      "end_entity": "NonLinearFunction",
+      "hops": [
+        {
+          "from": "SoftMax",
+          "relation": "verifiedBy",
+          "to": "zkVC",
+          "context": "Based on this idea, we show how the SoftMax function is verified in our design as follows",
+          "chunk": "3"
+        },
+        {
+          "from": "zkVC",
+          "relation": "verifies",
+          "to": "GeLU",
+          "context": "To verify the correctness of computation in transformers, we need to verify the non-linear functions like GeLU",
+          "chunk": "3"
+        },
+        {
+          "from": "GeLU",
+          "relation": "type",
+          "to": "NonLinearFunction",
+          "context": "To verify the correctness of computation in transformers, we need to verify the non-linear functions like GeLU",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the context of verifying the correctness of computation in transformers, which verification tool is used to confirm the behavior of the GeLU function as a type of non-linear function?",
+    "options": {
+      "A": "The zkVC tool verifies the SoftMax function first, which is not directly related to the GeLU function's verification.",
+      "B": "The zkVC tool is used to confirm the SoftMax function, which indirectly verifies the GeLU function.",
+      "C": "The zkVC tool is instrumental in verifying the SoftMax function, which then supports the verification of the GeLU function.",
+      "D": "A direct application of the GeLU function is verified using the zkVC tool without involvement of other functions."
+    },
+    "correct_answer": "C",
+    "explanation": "The question requires understanding the sequence of verifications where the zkVC tool first verifies the SoftMax function, which is then used to verify the GeLU function, identified as a type of NonLinearFunction. This path shows a cascading verification process where one function's validation supports the validation of another.",
+    "path_description": "Path: SoftMax --[verifiedBy]--> zkVC --[verifies]--> GeLU --[type]--> NonLinearFunction",
+    "context": "Based on this idea, we show how the SoftMax function is verified in our design as follows | To verify the correctness of computation in transformers, we need to verify the non-linear functions like GeLU | To verify the correctness of computation in transformers, we need to verify the non-linear functions like GeLU",
+    "paper_id": "1649"
+  },
+  {
+    "section": "experimentalmethodology",
+    "path": {
+      "section": "experimentalmethodology",
+      "start_entity": "groth16",
+      "end_entity": "Hardware",
+      "hops": [
+        {
+          "from": "groth16",
+          "relation": "usedIn",
+          "to": "zkVC-S",
+          "context": "In our experiments, we utilized groth16 from libsnark [37] and Spartan [13] for the ZKP backend, referred to as zkVC-G and zkVC-S, respectively.",
+          "chunk": "4"
+        },
+        {
+          "from": "zkVC-S",
+          "relation": "implementedOn",
+          "to": "AMD_Ryzen_Threadripper_PRO_3955WX",
+          "context": "These cryptographic tests were conducted on AMD Ryzen Threadripper PRO 3955WX 16-Core CPU systems with 128GB RAM, running Ubuntu 22.04.1.",
+          "chunk": "4"
+        },
+        {
+          "from": "AMD_Ryzen_Threadripper_PRO_3955WX",
+          "relation": "type",
+          "to": "Hardware",
+          "context": "These cryptographic tests were conducted on AMD Ryzen Threadripper PRO 3955WX 16-Core CPU systems with 128GB RAM, running Ubuntu 22.04.1.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the experimental methodology detailed, what specific type of computational platform was the zkVC-S implementation using groth16 tested on?",
+    "options": {
+      "A": "Intel Core i7-10700K, a hardware platform commonly used for high-performance computing tasks.",
+      "B": "AMD Ryzen Threadripper PRO 3955WX, a hardware platform with 16-Core CPU and 128GB RAM.",
+      "C": "NVIDIA GeForce RTX 3080, primarily a graphics processing unit used in gaming and AI training.",
+      "D": "AMD Ryzen 5 3600, a general-purpose processor with 6 cores suited for multipurpose tasks."
+    },
+    "correct_answer": "B",
+    "explanation": "According to the knowledge graph path and the context provided, zkVC-S, which uses groth16, was implemented on an AMD Ryzen Threadripper PRO 3955WX. This selection is explicitly mentioned as the hardware used in the experimental methodology section of the paper.",
+    "path_description": "Path: groth16 --[usedIn]--> zkVC-S --[implementedOn]--> AMD_Ryzen_Threadripper_PRO_3955WX --[type]--> Hardware",
+    "context": "In our experiments, we utilized groth16 from libsnark [37] and Spartan [13] for the ZKP backend, referred to as zkVC-G and zkVC-S, respectively. | These cryptographic tests were conducted on AMD Ryzen Threadripper PRO 3955WX 16-Core CPU systems with 128GB RAM, running Ubuntu 22.04.1. | These cryptographic tests were conducted on AMD Ryzen Threadripper PRO 3955WX 16-Core CPU systems with 128GB RAM, running Ubuntu 22.04.1.",
+    "paper_id": "1649"
+  }
+]

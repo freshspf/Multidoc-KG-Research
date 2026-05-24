@@ -1,0 +1,217 @@
+[
+  {
+    "section": "pathfindingandrouteselection",
+    "path": {
+      "section": "pathfindingandrouteselection",
+      "start_entity": "SourceNode",
+      "end_entity": "Algorithm",
+      "hops": [
+        {
+          "from": "SourceNode",
+          "relation": "selectsPathUsing",
+          "to": "PathfindingStrategies",
+          "context": "When the payment is initiated, the source node needs to select a path to the receiver node using pathfinding strategies on the LN graph.",
+          "chunk": "2"
+        },
+        {
+          "from": "PathfindingStrategies",
+          "relation": "include",
+          "to": "DijkstrasAlgorithm",
+          "context": "Existing LN clients employ instantiations of shortest path algorithms, such as Dijkstra’s algorithm.",
+          "chunk": "2"
+        },
+        {
+          "from": "DijkstrasAlgorithm",
+          "relation": "type",
+          "to": "Algorithm",
+          "context": "Existing LN clients employ instantiations of shortest path algorithms, such as Dijkstra’s algorithm.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the context of Lightning Network (LN) payment routing, what type of algorithm is typically utilized by LN clients to select the most efficient path?",
+    "options": {
+      "A": "Genetic algorithms, which simulate natural evolutionary processes, are predominantly used for routing.",
+      "B": "Monte Carlo methods, which rely on repeated random sampling to obtain results, are generally employed.",
+      "C": "A heuristic algorithm, which generally provides approximate solutions quickly, is the primary choice.",
+      "D": "Dijkstra's Algorithm, a widely recognized shortest path algorithm, is commonly used for this purpose."
+    },
+    "correct_answer": "D",
+    "explanation": "According to the paper, existing LN clients employ shortest path algorithms like Dijkstra's Algorithm for pathfinding from the source node to the receiver node in the Lightning Network graph. This makes Dijkstra's Algorithm the correct answer, as it is specifically mentioned as being used in this context.",
+    "path_description": "Path: SourceNode --[selectsPathUsing]--> PathfindingStrategies --[include]--> DijkstrasAlgorithm --[type]--> Algorithm",
+    "context": "When the payment is initiated, the source node needs to select a path to the receiver node using pathfinding strategies on the LN graph. | Existing LN clients employ instantiations of shortest path algorithms, such as Dijkstra’s algorithm. | Existing LN clients employ instantiations of shortest path algorithms, such as Dijkstra’s algorithm.",
+    "paper_id": "1088"
+  },
+  {
+    "section": "weightfunctiondesignelements2",
+    "path": {
+      "section": "weightfunctiondesignelements2",
+      "start_entity": "SuccessProbability",
+      "end_entity": "Concept",
+      "hops": [
+        {
+          "from": "SuccessProbability",
+          "relation": "addresses",
+          "to": "PathSuccessProbability",
+          "context": "Success Probability addresses the Path Success Probability in the context of payment paths.",
+          "chunk": "4"
+        },
+        {
+          "from": "PathSuccessProbability",
+          "relation": "usedIn",
+          "to": "TotalPathCost",
+          "context": "Path Success Probability is used in calculating the Total Path Cost.",
+          "chunk": "4"
+        },
+        {
+          "from": "TotalPathCost",
+          "relation": "type",
+          "to": "Concept",
+          "context": "Total path cost incorporates the path success probability estimate into its calculation.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the design of payment path algorithms, how is the concept of Path Success Probability fundamentally utilized?",
+    "options": {
+      "A": "Path Success Probability is a measure of network reliability and is used primarily for route selection.",
+      "B": "Path Success Probability is applied to estimate the Total Path Cost by incorporating its value into the cost calculation.",
+      "C": "Path Success Probability serves as a metric for encryption strength in securing payment path data.",
+      "D": "Path Success Probability quantifies the transaction speed, directly determining the throughput of the payment path."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A because, according to the provided context, Path Success Probability is specifically used in calculating the Total Path Cost by incorporating the probability estimate into the cost calculation. This indicates that the success probability affects the financial evaluation of a payment path, not aspects like transaction speed, network reliability, or encryption strength as suggested in the other options.",
+    "path_description": "Path: SuccessProbability --[addresses]--> PathSuccessProbability --[usedIn]--> TotalPathCost --[type]--> Concept",
+    "context": "Success Probability addresses the Path Success Probability in the context of payment paths. | Path Success Probability is used in calculating the Total Path Cost. | Total path cost incorporates the path success probability estimate into its calculation.",
+    "paper_id": "1088"
+  },
+  {
+    "section": "pathfindingalgorithms1",
+    "path": {
+      "section": "pathfindingalgorithms1",
+      "start_entity": "DijkstrasAlgorithm",
+      "end_entity": "Entity",
+      "hops": [
+        {
+          "from": "DijkstrasAlgorithm",
+          "relation": "usedIn",
+          "to": "LightningNetworkGraph",
+          "context": "Given the Lightning Network graph G = (V, E), many LN clients use Dijkstra’s algorithm DIJKSTRA(G, weighta, s).",
+          "chunk": "8"
+        },
+        {
+          "from": "LightningNetworkGraph",
+          "relation": "hasNodes",
+          "to": "Vertex",
+          "context": "Given the Lightning Network graph G = (V, E).",
+          "chunk": "8"
+        },
+        {
+          "from": "Vertex",
+          "relation": "type",
+          "to": "Entity",
+          "context": "Within the algorithms, distances and predecessors for each vertex u ∈ V are first initialized.",
+          "chunk": "8"
+        }
+      ]
+    },
+    "question": "In the context of the Lightning Network, utilizing Dijkstra's algorithm for pathfinding, what is the primary type of node involved in constructing the graph?",
+    "options": {
+      "A": "Each node in the Lightning Network graph is primarily considered a data point for network analysis.",
+      "B": "Each node in the Lightning Network graph is primarily considered an edge for connectivity purposes.",
+      "C": "Each node in the Lightning Network graph is primarily considered a channel for transaction facilitation.",
+      "D": "Each node in the Lightning Network graph is primarily considered an entity for algorithmic processes."
+    },
+    "correct_answer": "D",
+    "explanation": "The knowledge path indicates that in the Lightning Network graph, a vertex (node) is a type of entity. Dijkstra's algorithm uses these entities (vertices) to compute the shortest paths, initializing distances and predecessors for each vertex. Hence, within the context of the algorithm's application, nodes are treated as entities.",
+    "path_description": "Path: DijkstrasAlgorithm --[usedIn]--> LightningNetworkGraph --[hasNodes]--> Vertex --[type]--> Entity",
+    "context": "Given the Lightning Network graph G = (V, E), many LN clients use Dijkstra’s algorithm DIJKSTRA(G, weighta, s). | Given the Lightning Network graph G = (V, E). | Within the algorithms, distances and predecessors for each vertex u ∈ V are first initialized.",
+    "paper_id": "1088"
+  },
+  {
+    "section": "implementationofpathfindinginlightningnodeclients4",
+    "path": {
+      "section": "implementationofpathfindinginlightningnodeclients4",
+      "start_entity": "Eclair",
+      "end_entity": "Parameter",
+      "hops": [
+        {
+          "from": "Eclair",
+          "relation": "implements",
+          "to": "HeuristicsRatios",
+          "context": "1) Case 1: Heuristics ratios: In this case, weight of an edge is based on the design elements including fee, channel age, CLTV delta, capacity and a virtual hop cost.",
+          "chunk": "13"
+        },
+        {
+          "from": "HeuristicsRatios",
+          "relation": "uses",
+          "to": "BaseFactor",
+          "context": "Eclair utilizes default ratios 0.35, 0, 0.5 and 0.15 for agefactor, basefactor, capfactor and CLTVfactor respectively.",
+          "chunk": "13"
+        },
+        {
+          "from": "BaseFactor",
+          "relation": "type",
+          "to": "Parameter",
+          "context": "Eclair utilizes default ratios 0.35, 0, 0.5 and 0.15 for agefactor, basefactor, capfactor and CLTVfactor respectively.",
+          "chunk": "13"
+        }
+      ]
+    },
+    "question": "In the context of Eclair's pathfinding algorithm for Lightning node clients, how is the basefactor parameter utilized?",
+    "options": {
+      "A": "The basefactor parameter, set at 0.35 by default, primarily influences the weight according to the age of the channel.",
+      "B": "The basefactor parameter, having a default value of 0, influences the weighting of channel characteristics without direct impact.",
+      "C": "The basefactor parameter, with a default value of 0.5, heavily influences the weight based on the monetary capacity of the channel.",
+      "D": "The basefactor parameter, with a default ratio of 0.15, adjusts the weight considering the CLTV delta of the channel."
+    },
+    "correct_answer": "B",
+    "explanation": "According to the knowledge graph and the paper section, the basefactor in Eclair's implementation of pathfinding is set to 0 by default. This means it does not have a direct, active impact on the weighting of channel characteristics compared to other factors like capfactor or agefactor.",
+    "path_description": "Path: Eclair --[implements]--> HeuristicsRatios --[uses]--> BaseFactor --[type]--> Parameter",
+    "context": "1) Case 1: Heuristics ratios: In this case, weight of an edge is based on the design elements including fee, channel age, CLTV delta, capacity and a virtual hop cost. | Eclair utilizes default ratios 0.35, 0, 0.5 and 0.15 for agefactor, basefactor, capfactor and CLTVfactor respectively. | Eclair utilizes default ratios 0.35, 0, 0.5 and 0.15 for agefactor, basefactor, capfactor and CLTVfactor respectively.",
+    "paper_id": "1088"
+  },
+  {
+    "section": "pathfindingalgorithms2",
+    "path": {
+      "section": "pathfindingalgorithms2",
+      "start_entity": "MODDIJKSTRA",
+      "end_entity": "ConventionalShortestPathProblem",
+      "hops": [
+        {
+          "from": "MODDIJKSTRA",
+          "relation": "isModifiedVersionOf",
+          "to": "DijkstraAlgorithm",
+          "context": "In order to find paths p that minimize such a cost c(p), LND uses a modified Dijkstra-style algorithm, which we outline in Algorithm 2.",
+          "chunk": "9"
+        },
+        {
+          "from": "DijkstraAlgorithm",
+          "relation": "isBasedOn",
+          "to": "Algorithm1",
+          "context": "The constraint-adhering version DIJKSTRA(G, weighta, y, alpha, s) of Algorithm 1 can be interpreted as a greedy algorithm for solving the so-called constrained shortest-path problem.",
+          "chunk": "9"
+        },
+        {
+          "from": "Algorithm1",
+          "relation": "solvesInLinearTime",
+          "to": "ConventionalShortestPathProblem",
+          "context": "While the conventional shortest path problem can be solved, e.g., by Algorithm 1 in a time that is essentially linear in |E|.",
+          "chunk": "9"
+        }
+      ]
+    },
+    "question": "Which of the following is an accurate description of the relationship between MODDIJKSTRA and the problem it addresses in the context of the provided knowledge graph path?",
+    "options": {
+      "A": "MODDIJKSTRA is a modified version of DijkstraAlgorithm, specifically tailored to solve the conventional shortest path problem in linear time.",
+      "B": "MODDIJKSTRA extends DijkstraAlgorithm to handle multi-dimensional pathfinding problems, using non-linear computational strategies.",
+      "C": "While based on DijkstraAlgorithm, MODDIJKSTRA is designed for quadratic time complexity problems, differing significantly in its application.",
+      "D": "MODDIJKSTRA, being a variation of DijkstraAlgorithm, mainly focuses on non-linear optimization problems beyond traditional pathfinding."
+    },
+    "correct_answer": "A",
+    "explanation": "MODDIJKSTRA, as a modified version of DijkstraAlgorithm which is based on Algorithm 1 that solves the conventional shortest path problem in essentially linear time, accurately describes MODDIJKSTRA's adaptation to address this problem efficiently.",
+    "path_description": "Path: MODDIJKSTRA --[isModifiedVersionOf]--> DijkstraAlgorithm --[isBasedOn]--> Algorithm1 --[solvesInLinearTime]--> ConventionalShortestPathProblem",
+    "context": "In order to find paths p that minimize such a cost c(p), LND uses a modified Dijkstra-style algorithm, which we outline in Algorithm 2. | The constraint-adhering version DIJKSTRA(G, weighta, y, alpha, s) of Algorithm 1 can be interpreted as a greedy algorithm for solving the so-called constrained shortest-path problem. | While the conventional shortest path problem can be solved, e.g., by Algorithm 1 in a time that is essentially linear in |E|.",
+    "paper_id": "1088"
+  }
+]

@@ -1,0 +1,174 @@
+[
+  {
+    "section": "motivatingexample",
+    "path": {
+      "section": "motivatingexample",
+      "start_entity": "Solidity",
+      "end_entity": "Bytecode",
+      "hops": [
+        {
+          "from": "Solidity",
+          "relation": "loweredTo",
+          "to": "LLVM_IR",
+          "context": "The zkSolc compilation pipeline introduces multiple transformation stages, including lowering Solidity to LLVM IR...",
+          "chunk": "2"
+        },
+        {
+          "from": "LLVM_IR",
+          "relation": "generates",
+          "to": "zkEVM",
+          "context": "The zkSolc compilation pipeline introduces multiple transformation stages, including... generating zkEVM-compatible bytecode.",
+          "chunk": "2"
+        },
+        {
+          "from": "zkEVM",
+          "relation": "type",
+          "to": "Bytecode",
+          "context": "A miscompilation or instruction reordering in the LLVM IR to zkEVM bytecode translation.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the zkSolc compilation pipeline, what transformation process immediately follows the conversion of Solidity code into LLVM IR?",
+    "options": {
+      "A": "It includes optimizing LLVM IR for better runtime performance and reducing computational overhead.",
+      "B": "It entails translating LLVM IR directly into machine-specific assembly language for enhanced execution.",
+      "C": "It requires a verification step to ensure that the LLVM IR maintains the logical integrity of the original Solidity code.",
+      "D": "It involves generating zkEVM-compatible bytecode that complies with Ethereum's virtual machine standards."
+    },
+    "correct_answer": "D",
+    "explanation": "According to the knowledge graph path, after Solidity code is lowered to LLVM IR in the zkSolc compilation pipeline, it specifically generates zkEVM, which is then classified as zkEVM-compatible bytecode. This directly links the LLVM IR transformation to the production of zkEVM-compatible bytecode, aligning with Ethereum's virtual machine standards.",
+    "path_description": "Path: Solidity --[loweredTo]--> LLVM_IR --[generates]--> zkEVM --[type]--> Bytecode",
+    "context": "The zkSolc compilation pipeline introduces multiple transformation stages, including lowering Solidity to LLVM IR... | The zkSolc compilation pipeline introduces multiple transformation stages, including... generating zkEVM-compatible bytecode. | A miscompilation or instruction reordering in the LLVM IR to zkEVM bytecode translation.",
+    "paper_id": "629"
+  },
+  {
+    "section": "methodology",
+    "path": {
+      "section": "methodology",
+      "start_entity": "SourceMappingFramework",
+      "end_entity": "Transformation_LoopUnrolling",
+      "hops": [
+        {
+          "from": "SourceMappingFramework",
+          "relation": "introduces",
+          "to": "MappingLayer_LLVM_zkEVM",
+          "context": "It introduces two primary mapping layers: one from Solidity to LLVM IR and another from LLVM IR to zkEVM bytecode.",
+          "chunk": "4"
+        },
+        {
+          "from": "MappingLayer_LLVM_zkEVM",
+          "relation": "tracks",
+          "to": "LLVM_IR",
+          "context": "The second layer tracks how backend transformations affect these representations.",
+          "chunk": "4"
+        },
+        {
+          "from": "LLVM_IR",
+          "relation": "undergoes",
+          "to": "Transformation_LoopUnrolling",
+          "context": "As IR instructions undergo transformations such as inlining, loop unrolling, and arithmetic simplification, corresponding bytecode offsets are dynamically recorded.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the SourceMappingFramework's methodology for mapping from Solidity to zkEVM bytecode, which transformation of LLVM IR is specifically monitored for changes in the corresponding bytecode offsets?",
+    "options": {
+      "A": "The transformation of constant folding in LLVM IR is monitored for changes in bytecode offsets.",
+      "B": "The transformation of variable renaming in LLVM IR is monitored for changes in bytecode offsets.",
+      "C": "The transformation of function overloading in LLVM IR is monitored for changes in bytecode offsets.",
+      "D": "The transformation of loop unrolling in LLVM IR is monitored for changes in bytecode offsets."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A, as the paper explicitly mentions that transformations such as inlining, loop unrolling, and arithmetic simplification in LLVM IR are tracked to see how they affect corresponding bytecode offsets. Options B, C, and D mention transformations (variable renaming, function overloading, and constant folding) that are not referenced in the provided context from the paper.",
+    "path_description": "Path: SourceMappingFramework --[introduces]--> MappingLayer_LLVM_zkEVM --[tracks]--> LLVM_IR --[undergoes]--> Transformation_LoopUnrolling",
+    "context": "It introduces two primary mapping layers: one from Solidity to LLVM IR and another from LLVM IR to zkEVM bytecode. | The second layer tracks how backend transformations affect these representations. | As IR instructions undergo transformations such as inlining, loop unrolling, and arithmetic simplification, corresponding bytecode offsets are dynamically recorded.",
+    "paper_id": "629"
+  },
+  {
+    "section": "methodology",
+    "path": {
+      "section": "methodology",
+      "start_entity": "SourceMappingFramework",
+      "end_entity": "IntermediateRepresentation",
+      "hops": [
+        {
+          "from": "SourceMappingFramework",
+          "relation": "introduces",
+          "to": "MappingLayer_LLVM_zkEVM",
+          "context": "It introduces two primary mapping layers: one from Solidity to LLVM IR and another from LLVM IR to zkEVM bytecode.",
+          "chunk": "4"
+        },
+        {
+          "from": "MappingLayer_LLVM_zkEVM",
+          "relation": "tracks",
+          "to": "LLVM_IR",
+          "context": "The second layer tracks how backend transformations affect these representations.",
+          "chunk": "4"
+        },
+        {
+          "from": "LLVM_IR",
+          "relation": "type",
+          "to": "IntermediateRepresentation",
+          "context": "traceability between Solidity source code, LLVM IR, and zkEVM bytecode",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the methodology of mapping Solidity to zkEVM bytecode, how does the MappingLayer_LLVM_zkEVM primarily interact with LLVM IR?",
+    "options": {
+      "A": "It serves as a secondary layer that tracks backend transformations affecting the LLVM IR.",
+      "B": "It enhances the optimization of Solidity code before it is mapped to LLVM IR.",
+      "C": "It is primarily involved in converting LLVM IR directly into zkEVM bytecode.",
+      "D": "It directly converts Solidity source code into LLVM IR without backend tracking."
+    },
+    "correct_answer": "A",
+    "explanation": "The MappingLayer_LLVM_zkEVM, as the second layer in the mapping framework, is responsible for tracking how backend transformations affect the LLVM IR, which is an Intermediate Representation. This is crucial for maintaining traceability between the Solidity source code, LLVM IR, and zkEVM bytecode.",
+    "path_description": "Path: SourceMappingFramework --[introduces]--> MappingLayer_LLVM_zkEVM --[tracks]--> LLVM_IR --[type]--> IntermediateRepresentation",
+    "context": "It introduces two primary mapping layers: one from Solidity to LLVM IR and another from LLVM IR to zkEVM bytecode. | The second layer tracks how backend transformations affect these representations. | traceability between Solidity source code, LLVM IR, and zkEVM bytecode",
+    "paper_id": "629"
+  },
+  {
+    "section": "experiments",
+    "path": {
+      "section": "experiments",
+      "start_entity": "SourceMappingFramework",
+      "end_entity": "Dataset",
+      "hops": [
+        {
+          "from": "SourceMappingFramework",
+          "relation": "appliedTo",
+          "to": "zkSolc",
+          "context": "Our evaluation focuses on the proposed source mapping framework for zkSolc.",
+          "chunk": "5"
+        },
+        {
+          "from": "zkSolc",
+          "relation": "evaluatedOn",
+          "to": "BenchmarkDataset",
+          "context": "We used two datasets for evaluation: Benchmark Dataset.",
+          "chunk": "5"
+        },
+        {
+          "from": "BenchmarkDataset",
+          "relation": "type",
+          "to": "Dataset",
+          "context": "We used two datasets for evaluation: Benchmark Dataset: A set of 50 manually selected Solidity contracts.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "What type of dataset was primarily used in the evaluation of the Source Mapping Framework when applied to zkSolc?",
+    "options": {
+      "A": "A randomized dataset of 100 various blockchain contracts assessed for general performance.",
+      "B": "A collection of over 200 Solidity contracts randomly selected from public repositories.",
+      "C": "A benchmark dataset containing a variety of programming languages used in blockchain development.",
+      "D": "A dataset comprising 50 manually selected Solidity contracts designed to test specific features."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A because the context specifies that the Benchmark Dataset used in the evaluation consisted of 50 manually selected Solidity contracts, which points directly to it being a specialized set designed to test specific features of the Source Mapping Framework applied to zkSolc.",
+    "path_description": "Path: SourceMappingFramework --[appliedTo]--> zkSolc --[evaluatedOn]--> BenchmarkDataset --[type]--> Dataset",
+    "context": "Our evaluation focuses on the proposed source mapping framework for zkSolc. | We used two datasets for evaluation: Benchmark Dataset. | We used two datasets for evaluation: Benchmark Dataset: A set of 50 manually selected Solidity contracts.",
+    "paper_id": "629"
+  }
+]

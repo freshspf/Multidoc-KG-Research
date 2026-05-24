@@ -1,0 +1,174 @@
+[
+  {
+    "section": "informationretrievalpipelinesandexperimentsinpyterrier1",
+    "path": {
+      "section": "informationretrievalpipelinesandexperimentsinpyterrier1",
+      "start_entity": "RA",
+      "end_entity": "RelationType",
+      "hops": [
+        {
+          "from": "RA",
+          "relation": "derivedFrom",
+          "to": "R",
+          "context": "Relevance assessments 𝑅𝐴(𝑞𝑖𝑑, 𝑑𝑜𝑐𝑛𝑜, 𝑙𝑎𝑏𝑒𝑙).",
+          "chunk": "1"
+        },
+        {
+          "from": "R",
+          "relation": "derivedFrom",
+          "to": "Q",
+          "context": "From these principle types, we can derive types such as 𝑅(𝑞𝑖𝑑, 𝑑𝑜𝑐𝑛𝑜, 𝑠𝑐𝑜𝑟𝑒, 𝑟𝑎𝑛𝑘, ...).",
+          "chunk": "1"
+        },
+        {
+          "from": "Q",
+          "relation": "type",
+          "to": "RelationType",
+          "context": "Firstly, let 𝑄(𝑞𝑖𝑑, query) be a relation type for a set of queries.",
+          "chunk": "1"
+        }
+      ]
+    },
+    "question": "In the context of information retrieval experiments as discussed in PyTerrier, how is a relevance assessment related to query types?",
+    "options": {
+      "A": "Relevance assessments are unrelated to query types but are influenced by external factors such as user feedback.",
+      "B": "Relevance assessments directly determine the type of query based on the document scores and labels associated with them.",
+      "C": "Relevance assessments form the basis for defining document scores which in turn define query types.",
+      "D": "A relevance assessment is derived from a query type through an intermediate relation incorporating document numbers and ranks."
+    },
+    "correct_answer": "D",
+    "explanation": "The relevance assessment 𝑅𝐴 is derived from a relation 𝑅, which includes parameters like document number and score. This relation 𝑅 is then derived from a query type 𝑄, indicating a multi-hop path from relevance assessments to query types via relations that include document-specific metrics.",
+    "path_description": "Path: RA --[derivedFrom]--> R --[derivedFrom]--> Q --[type]--> RelationType",
+    "context": "Relevance assessments 𝑅𝐴(𝑞𝑖𝑑, 𝑑𝑜𝑐𝑛𝑜, 𝑙𝑎𝑏𝑒𝑙). | From these principle types, we can derive types such as 𝑅(𝑞𝑖𝑑, 𝑑𝑜𝑐𝑛𝑜, 𝑠𝑐𝑜𝑟𝑒, 𝑟𝑎𝑛𝑘, ...). | Firstly, let 𝑄(𝑞𝑖𝑑, query) be a relation type for a set of queries.",
+    "paper_id": "941"
+  },
+  {
+    "section": "prefixprecomputationincomparativeexperiments",
+    "path": {
+      "section": "prefixprecomputationincomparativeexperiments",
+      "start_entity": "LCP",
+      "end_entity": "Model",
+      "hops": [
+        {
+          "from": "LCP",
+          "relation": "optimizes",
+          "to": "PipelineAtoC",
+          "context": "Using 𝐿𝐶𝑃(𝑃), we can identify the remainder pipelines",
+          "chunk": "4"
+        },
+        {
+          "from": "PipelineAtoC",
+          "relation": "uses",
+          "to": "DuoT5",
+          "context": "experiment involving two pipelines 𝐴 ≫ 𝐵 and 𝐴 ≫ 𝐶.",
+          "chunk": "4"
+        },
+        {
+          "from": "DuoT5",
+          "relation": "type",
+          "to": "Model",
+          "context": "[bm25 % k >> MonoT5() % 10 >> DuoT5()]",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the context of the paper section 'prefixprecomputationincomparativeexperiments,' how does the LCP optimize the experimental pipeline from A to C?",
+    "options": {
+      "A": "LCP optimizes PipelineAtoC by employing DuoT5, a model that enhances comparative analysis between two pipelines.",
+      "B": "LCP reduces the computational load on PipelineAtoC by substituting DuoT5 with a more efficient algorithm.",
+      "C": "LCP directly manipulates the output of PipelineAtoC, excluding the use of any model such as DuoT5 or MonoT5.",
+      "D": "LCP affects the data flow in PipelineAtoC by integrating MonoT5 instead of DuoT5."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A because the knowledge graph path indicates that LCP optimizes PipelineAtoC through the use of the DuoT5 model, which is specifically designed to enhance comparative experiments between two pipelines, as described in the context.",
+    "path_description": "Path: LCP --[optimizes]--> PipelineAtoC --[uses]--> DuoT5 --[type]--> Model",
+    "context": "Using 𝐿𝐶𝑃(𝑃), we can identify the remainder pipelines | experiment involving two pipelines 𝐴 ≫ 𝐵 and 𝐴 ≫ 𝐶. | [bm25 % k >> MonoT5() % 10 >> DuoT5()]",
+    "paper_id": "941"
+  },
+  {
+    "section": "prefixprecomputationincomparativeexperiments",
+    "path": {
+      "section": "prefixprecomputationincomparativeexperiments",
+      "start_entity": "LCP",
+      "end_entity": "Retriever",
+      "hops": [
+        {
+          "from": "LCP",
+          "relation": "optimizes",
+          "to": "PipelineAtoB",
+          "context": "Using 𝐿𝐶𝑃(𝑃), we can identify the remainder pipelines",
+          "chunk": "4"
+        },
+        {
+          "from": "PipelineAtoB",
+          "relation": "uses",
+          "to": "MonoT5",
+          "context": "experiment involving two pipelines 𝐴 ≫ 𝐵 and 𝐴 ≫ 𝐶.",
+          "chunk": "4"
+        },
+        {
+          "from": "MonoT5",
+          "relation": "appliedTo",
+          "to": "Retriever",
+          "context": "experiment involving two pipelines 𝐴 ≫ 𝐵 and 𝐴 ≫ 𝐶.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "How does the LCP methodology optimize the comparative experiments between two pipelines in the paper 'prefixprecomputationincomparativeexperiments'?",
+    "options": {
+      "A": "LCP optimizes Pipeline A to B by using the MonoT5 model, which is then applied to improve the Retriever's performance.",
+      "B": "LCP enhances the comparative analysis by reducing the redundant computations between Pipeline A to B and A to C.",
+      "C": "LCP reduces the setup time for Pipeline A to B and A to C by precomputing necessary components using the Retriever.",
+      "D": "LCP directly improves the performance of Pipeline A to C by enhancing the computational efficiency of the MonoT5 model."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A because the LCP methodology optimizes the Pipeline A to B by utilizing the MonoT5 model, which is specifically applied to enhance the performance of the Retriever, as indicated by the knowledge graph path. This process optimizes comparative experiments by improving the efficiency and effectiveness of the Retriever in the context set by the comparative experiment between two pipelines.",
+    "path_description": "Path: LCP --[optimizes]--> PipelineAtoB --[uses]--> MonoT5 --[appliedTo]--> Retriever",
+    "context": "Using 𝐿𝐶𝑃(𝑃), we can identify the remainder pipelines | experiment involving two pipelines 𝐴 ≫ 𝐵 and 𝐴 ≫ 𝐶. | experiment involving two pipelines 𝐴 ≫ 𝐵 and 𝐴 ≫ 𝐶.",
+    "paper_id": "941"
+  },
+  {
+    "section": "demonstrationexperiments",
+    "path": {
+      "section": "demonstrationexperiments",
+      "start_entity": "PyTerrier",
+      "end_entity": "Model",
+      "hops": [
+        {
+          "from": "PyTerrier",
+          "relation": "demonstratesBenefit",
+          "to": "MonoT5",
+          "context": "To demonstrate the benefit of the PyTerrier technique",
+          "chunk": "7"
+        },
+        {
+          "from": "MonoT5",
+          "relation": "comparedWith",
+          "to": "DuoT5",
+          "context": "impact on MonoT5 and DuoT5",
+          "chunk": "7"
+        },
+        {
+          "from": "DuoT5",
+          "relation": "type",
+          "to": "Model",
+          "context": "impact on MonoT5 and DuoT5",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "In the context of the PyTerrier demonstration experiments, how does the PyTerrier's impact on MonoT5 compare with its impact on DuoT5, considering both are types of models?",
+    "options": {
+      "A": "While PyTerrier improves MonoT5 significantly, it does not have any impact on DuoT5 since DuoT5 is not a retrieval model.",
+      "B": "PyTerrier demonstrates benefits on MonoT5, which are similar when compared with DuoT5 because both are types of retrieval models.",
+      "C": "Both MonoT5 and DuoT5 are unaffected by PyTerrier, as they operate independently of the techniques used in PyTerrier.",
+      "D": "PyTerrier affects DuoT5 more significantly than MonoT5 as DuoT5 is a more complex type of model compared to MonoT5."
+    },
+    "correct_answer": "B",
+    "explanation": "The question requires understanding the impact of PyTerrier on both MonoT5 and DuoT5, and the fact that both are models. Since PyTerrier demonstrates benefits on MonoT5 and MonoT5 is being compared with DuoT5, which is also a model, the correct answer is that PyTerrier's benefits on MonoT5 are similar when compared with DuoT5.",
+    "path_description": "Path: PyTerrier --[demonstratesBenefit]--> MonoT5 --[comparedWith]--> DuoT5 --[type]--> Model",
+    "context": "To demonstrate the benefit of the PyTerrier technique | impact on MonoT5 and DuoT5 | impact on MonoT5 and DuoT5",
+    "paper_id": "941"
+  }
+]

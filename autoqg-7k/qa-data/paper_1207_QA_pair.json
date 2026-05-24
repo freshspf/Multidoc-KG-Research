@@ -1,0 +1,303 @@
+[
+  {
+    "section": "preliminaries1",
+    "path": {
+      "section": "preliminaries1",
+      "start_entity": "x86Decode",
+      "end_entity": "CentaurTechnology",
+      "hops": [
+        {
+          "from": "x86Decode",
+          "relation": "partOf",
+          "to": "x86ModelStep",
+          "context": "decode takes the fetched bytes and current configuration",
+          "chunk": "1"
+        },
+        {
+          "from": "x86ModelStep",
+          "relation": "partOf",
+          "to": "x86",
+          "context": "The x86isa update function x86-model-step",
+          "chunk": "1"
+        },
+        {
+          "from": "x86",
+          "relation": "usedIn",
+          "to": "CentaurTechnology",
+          "context": "processors is compliance with the x86 instruction set architecture",
+          "chunk": "1"
+        }
+      ]
+    },
+    "question": "Which company's processor technology utilizes the x86 model step function, which includes the x86Decode as part of its architecture?",
+    "options": {
+      "A": "AMD, incorporating x86 model step function to maintain compatibility with modified x86 instruction set architecture",
+      "B": "Intel Corporation, utilizing ARM model step function for enhanced x64 instruction set architecture",
+      "C": "Centaur Technology, leveraging x86 model step function to ensure compliance with the x86 instruction set architecture",
+      "D": "NVIDIA, using x86 model step function for graphics processors adhering to x86 instruction set architecture"
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is Centaur Technology. The reasoning path indicates that the x86Decode forms a part of x86ModelStep, which itself is part of the x86 used in Centaur Technology. The other options incorrectly associate the x86 model step function with different companies or incorrect processor technologies.",
+    "path_description": "Path: x86Decode --[partOf]--> x86ModelStep --[partOf]--> x86 --[usedIn]--> CentaurTechnology",
+    "context": "decode takes the fetched bytes and current configuration | The x86isa update function x86-model-step | processors is compliance with the x86 instruction set architecture",
+    "paper_id": "141"
+  },
+  {
+    "section": "overview1",
+    "path": {
+      "section": "overview1",
+      "start_entity": "map-exec",
+      "end_entity": "Function",
+      "hops": [
+        {
+          "from": "map-exec",
+          "relation": "usedIn",
+          "to": "exec-correctness",
+          "context": "The mapping functions map-decode and map-exec.",
+          "chunk": "5"
+        },
+        {
+          "from": "exec-correctness",
+          "relation": "evaluates",
+          "to": "SV-EXEC",
+          "context": "theorem exec-correctness is...",
+          "chunk": "5"
+        },
+        {
+          "from": "SV-EXEC",
+          "relation": "type",
+          "to": "Function",
+          "context": "the SV design functions and the corresponding x86.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the context of SV design and x86 mapping, what does the theorem 'exec-correctness' primarily evaluate?",
+    "options": {
+      "A": "The ability of the map-decode function to correctly interpret x86 instructions",
+      "B": "The accuracy of x86 execution as compared to original SV design specifications",
+      "C": "The efficiency of SV design functions in mapping to corresponding x86 architecture",
+      "D": "The effectiveness of the map-exec function in accurately executing the SV-EXEC type Function"
+    },
+    "correct_answer": "D",
+    "explanation": "The theorem 'exec-correctness' evaluates the effectiveness of the map-exec function. According to the knowledge path, this function is used in executing SV-EXEC of type Function, impacting how well the function's execution adheres to intended designs and outputs.",
+    "path_description": "Path: map-exec --[usedIn]--> exec-correctness --[evaluates]--> SV-EXEC --[type]--> Function",
+    "context": "The mapping functions map-decode and map-exec. | theorem exec-correctness is... | the SV design functions and the corresponding x86.",
+    "paper_id": "141"
+  },
+  {
+    "section": "overview2",
+    "path": {
+      "section": "overview2",
+      "start_entity": "run-xlate-ucode-RTL",
+      "end_entity": "Function",
+      "hops": [
+        {
+          "from": "run-xlate-ucode-RTL",
+          "relation": "replaces",
+          "to": "run-xlate-ucode",
+          "context": "The function run-xlate/ucode-RTL exec is replaced with the RTL equivalent get-results.",
+          "chunk": "6"
+        },
+        {
+          "from": "run-xlate-ucode",
+          "relation": "calls",
+          "to": "run-ucode-model",
+          "context": "run-xlate/ucode first transfers from specification objects to design signals and then calls run-ucode-model.",
+          "chunk": "6"
+        },
+        {
+          "from": "run-ucode-model",
+          "relation": "type",
+          "to": "Function",
+          "context": "then calls run-ucode-model, which executes ucode.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the process of translating specification objects to design signals, which subsequent function replaces the function run-xlate/ucode-RTL and what is its primary purpose?",
+    "options": {
+      "A": "The function get-results replaces run-xlate/ucode-RTL and primarily executes ucode.",
+      "B": "The function run-ucode-model replaces run-xlate/ucode-RTL and focuses on transferring specifications to signals.",
+      "C": "The function run-ucode-model replaces run-xlate/ucode and primarily handles the execution of ucode.",
+      "D": "The function get-results replaces run-xlate/ucode and is used for verifying the final design."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A since the function get-results replaces run-xlate/ucode-RTL as indicated in the context. It primarily executes ucode, following the path from run-xlate/ucode, which transfers specification objects to design signals, and then calls run-ucode-model that executes ucode. Options B, C, and D are incorrect as they either misidentify the function that replaces run-xlate/ucode-RTL or misstate the primary purpose.",
+    "path_description": "Path: run-xlate-ucode-RTL --[replaces]--> run-xlate-ucode --[calls]--> run-ucode-model --[type]--> Function",
+    "context": "The function run-xlate/ucode-RTL exec is replaced with the RTL equivalent get-results. | run-xlate/ucode first transfers from specification objects to design signals and then calls run-ucode-model. | then calls run-ucode-model, which executes ucode.",
+    "paper_id": "141"
+  },
+  {
+    "section": "avx512exampleverifyingvpshrdq1",
+    "path": {
+      "section": "avx512exampleverifyingvpshrdq1",
+      "start_entity": "AVX512",
+      "end_entity": "Register",
+      "hops": [
+        {
+          "from": "AVX512",
+          "relation": "isTypeOf",
+          "to": "VPSHRDQ",
+          "context": "Intel’s AVX512 instructions are their most recent SIMD instructions",
+          "chunk": "11"
+        },
+        {
+          "from": "VPSHRDQ",
+          "relation": "takesOperands",
+          "to": "ZMM2",
+          "context": "The VPSHRDQ instruction takes four operands: VPSHRDQ <destination>[<Opmsk>][<MaskingMode>], <source1>, <source2>, <ShiftAmt>",
+          "chunk": "11"
+        },
+        {
+          "from": "ZMM2",
+          "relation": "type",
+          "to": "Register",
+          "context": "variant: VPSHRDQ ZMM1<OpmskReg><MaskingMode>, ZMM2, ZMM3, <imm8>",
+          "chunk": "11"
+        }
+      ]
+    },
+    "question": "In the context of Intel's AVX512 SIMD instructions, what role does ZMM2 play in the VPSHRDQ instruction?",
+    "options": {
+      "A": "ZMM2 serves as the source register providing one of the input operands for the VPSHRDQ instruction.",
+      "B": "ZMM2 functions as the immediate value specifying the amount by which to shift data in the operation.",
+      "C": "ZMM2 is used as the mask register determining which elements of the source are processed.",
+      "D": "ZMM2 acts as the destination register where the result of the VPSHRDQ operation is stored."
+    },
+    "correct_answer": "A",
+    "explanation": "According to the specified knowledge graph path and the context provided in the paper, ZMM2 is explicitly mentioned as an operand in the VPSHRDQ instruction, specifically as one of the source registers providing input data. The other options, while related to aspects of AVX512 operations, do not accurately represent the role of ZMM2 in this specific instruction.",
+    "path_description": "Path: AVX512 --[isTypeOf]--> VPSHRDQ --[takesOperands]--> ZMM2 --[type]--> Register",
+    "context": "Intel’s AVX512 instructions are their most recent SIMD instructions | The VPSHRDQ instruction takes four operands: VPSHRDQ <destination>[<Opmsk>][<MaskingMode>], <source1>, <source2>, <ShiftAmt> | variant: VPSHRDQ ZMM1<OpmskReg><MaskingMode>, ZMM2, ZMM3, <imm8>",
+    "paper_id": "141"
+  },
+  {
+    "section": "avx512exampleverifyingvpshrdq2",
+    "path": {
+      "section": "avx512exampleverifyingvpshrdq2",
+      "start_entity": "VPSHRDQ",
+      "end_entity": "VerificationTool",
+      "hops": [
+        {
+          "from": "VPSHRDQ",
+          "relation": "hasProofType",
+          "to": "Decode-Correctness_Proof",
+          "context": "The decode-correctness proof for VPSHRDQ is again the incoming bytes and the exceptions thrown.",
+          "chunk": "12"
+        },
+        {
+          "from": "Decode-Correctness_Proof",
+          "relation": "usesTool",
+          "to": "SAT",
+          "context": "The resulting lemma proofs in GL and SAT are still quickly proven per case within a few seconds.",
+          "chunk": "12"
+        },
+        {
+          "from": "SAT",
+          "relation": "type",
+          "to": "VerificationTool",
+          "context": "The resulting lemma proofs in GL and SAT are still quickly proven per case within a few seconds.",
+          "chunk": "12"
+        }
+      ]
+    },
+    "question": "Which verification tool, as used in the decode-correctness proof for the VPSHRDQ operation in the paper section 'avx512exampleverifyingvpshrdq2', leverages a method type that expedites lemma proofs within seconds?",
+    "options": {
+      "A": "GL, a graphical layout tool used for visualizing data structures during code verification.",
+      "B": "HOL, a higher-order logic verification tool that processes through theorem proving.",
+      "C": "SAT, a verification tool type that uses Boolean satisfiability to verify proofs.",
+      "D": "SMT, a symbolic model checker that focuses on state exploration to verify proofs."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is SAT, as indicated in the knowledge path. The path shows that VPSHRDQ utilizes a Decode-Correctness Proof, which uses SAT as the tool. SAT is identified as a type of VerificationTool that leverages Boolean satisfiability, capable of quickly proving lemmas case by case within a few seconds, as stated in the section context.",
+    "path_description": "Path: VPSHRDQ --[hasProofType]--> Decode-Correctness_Proof --[usesTool]--> SAT --[type]--> VerificationTool",
+    "context": "The decode-correctness proof for VPSHRDQ is again the incoming bytes and the exceptions thrown. | The resulting lemma proofs in GL and SAT are still quickly proven per case within a few seconds. | The resulting lemma proofs in GL and SAT are still quickly proven per case within a few seconds.",
+    "paper_id": "141"
+  },
+  {
+    "section": "conclusions",
+    "path": {
+      "section": "conclusions",
+      "start_entity": "CentaurTechnology",
+      "end_entity": "Scheduler",
+      "hops": [
+        {
+          "from": "CentaurTechnology",
+          "relation": "aimsFor",
+          "to": "CompleteX86ProcessorVerification",
+          "context": "In this paper, we presented our progress towards comprehensive formal verification of x86 processors designed at Centaur Technology.",
+          "chunk": "15"
+        },
+        {
+          "from": "CompleteX86ProcessorVerification",
+          "relation": "includes",
+          "to": "InstructionImplementationVerification",
+          "context": "composed all these critical pieces together to prove instruction implementations correct.",
+          "chunk": "15"
+        },
+        {
+          "from": "InstructionImplementationVerification",
+          "relation": "focusesOn",
+          "to": "Scheduler",
+          "context": "We are also planning to extend our verification scope by focusing on other parts of the processor, like the memory system and scheduler.",
+          "chunk": "15"
+        }
+      ]
+    },
+    "question": "In the context of Centaur Technology's aim to achieve complete x86 processor verification, which component's verification is critical in assuring the correctness of instruction implementations?",
+    "options": {
+      "A": "The scheduler, as it is a core component that allocates processor resources to various tasks.",
+      "B": "The cache system, because it is responsible for speeding up the access to the frequently used data.",
+      "C": "The arithmetic logic unit (ALU), since it performs all the arithmetic and logical operations within the CPU.",
+      "D": "The memory management unit (MMU), which handles virtual and physical address translations."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A, the scheduler. As per the knowledge graph path, the aim of complete x86 processor verification at Centaur Technology includes verifying instruction implementations, which specifically focuses on the scheduler. This component is critical as it manages processor resources effectively to execute tasks, directly impacting the correctness of instruction implementations.",
+    "path_description": "Path: CentaurTechnology --[aimsFor]--> CompleteX86ProcessorVerification --[includes]--> InstructionImplementationVerification --[focusesOn]--> Scheduler",
+    "context": "In this paper, we presented our progress towards comprehensive formal verification of x86 processors designed at Centaur Technology. | composed all these critical pieces together to prove instruction implementations correct. | We are also planning to extend our verification scope by focusing on other parts of the processor, like the memory system and scheduler.",
+    "paper_id": "141"
+  },
+  {
+    "section": "conclusions",
+    "path": {
+      "section": "conclusions",
+      "start_entity": "DECODE",
+      "end_entity": "Scheduler",
+      "hops": [
+        {
+          "from": "DECODE",
+          "relation": "partOf",
+          "to": "VerificationFramework",
+          "context": "developed a framework to verify the DECODE, XLATE/UCODE, and EXEC blocks.",
+          "chunk": "15"
+        },
+        {
+          "from": "VerificationFramework",
+          "relation": "usedFor",
+          "to": "InstructionImplementationVerification",
+          "context": "composed all these critical pieces together to prove instruction implementations correct.",
+          "chunk": "15"
+        },
+        {
+          "from": "InstructionImplementationVerification",
+          "relation": "focusesOn",
+          "to": "Scheduler",
+          "context": "We are also planning to extend our verification scope by focusing on other parts of the processor, like the memory system and scheduler.",
+          "chunk": "15"
+        }
+      ]
+    },
+    "question": "In the Verification Framework developed for ensuring the correctness of instruction implementations, which component of the processor is the framework planned to be extended to focus on next?",
+    "options": {
+      "A": "Following the initial verification, the framework will focus on the arithmetic logic unit for enhancing computational accuracy.",
+      "B": "They plan to extend the framework to better handle the instruction cache to improve instruction fetch efficiency.",
+      "C": "Next, the framework intends to concentrate on the scheduler to optimize process scheduling and resource allocation.",
+      "D": "The framework is planned to be extended to focus next on the memory system, which includes memory allocation and management."
+    },
+    "correct_answer": "C",
+    "explanation": "The question follows the knowledge path from the DECODE block as part of the Verification Framework, which is used for Instruction Implementation Verification focusing on the Scheduler. According to the paper, the framework, after verifying DECODE, XLATE/UCODE, and EXEC blocks, plans to extend the verification scope to other parts of the processor like the scheduler. Therefore, option C is correct as it directly aligns with the future focus on the scheduler as stated in the paper.",
+    "path_description": "Path: DECODE --[partOf]--> VerificationFramework --[usedFor]--> InstructionImplementationVerification --[focusesOn]--> Scheduler",
+    "context": "developed a framework to verify the DECODE, XLATE/UCODE, and EXEC blocks. | composed all these critical pieces together to prove instruction implementations correct. | We are also planning to extend our verification scope by focusing on other parts of the processor, like the memory system and scheduler.",
+    "paper_id": "141"
+  }
+]

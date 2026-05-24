@@ -1,0 +1,82 @@
+[
+  {
+    "id": "introduction",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Introduction",
+      "page_start": 1,
+      "page_end": 1
+    },
+    "text": "i\nX Learning the pronunciation of a foreign or second language\nr\n(L2) requires a lot of practice and accurate feedback. Mo-\na\nbile apps and online systems that  integrate the automatic\npronunciation assessment (APA) technology enable learners\nto practise pronunciation at their own time, place, and pace\nhave gained popularity over the past few years [1], [2]. How-\never, these apps and services require an accurate APA model\nin their backend, which can assess recordings based on the\nspeaker’s pronunciation. To build such models, high-quality\nannotated data and extra care are needed in selecting the right\ntechnique and training the models properly.\nCompounding on the previously mentioned problems is\nthe fact  that children’s speech data is way more rare than\nadult corpora. Most available corpora are for the English Lan-\nguage: CMUKids [3], CSLUKids [4], My Science Tutor [5];\nwhile some other languages also have some resources like the\n\nECH ASSESSMENT CHALLENGE (NOCASA)\nGiampiero Salvi\nDepartment of Electronic Systems,\nNTNU, Norway\nDutch corpus introduced in [6]; the Mandarin one [7] and the\nGerman dataset [8], the Norwegian language lacked any such\npublic data until very recently. An additional problem is that\nmost datasets contain only native speakers’ recordings and\nlack proper L2 speech, which is needed for both the devel-\nopment and testing of APA systems. Fortunately, during the\n1\ninternational TEFLON project  , we were able to collect, an-\nnotate and make publicly available a sizeable corpus of chil-\ndren learning the Norwegian language [9]. The data contains\nsingle-word pronunciations, along with expert ratings, which\nmakes it a prime candidate for training APA solutions and\nbenchmarking.\nIn this paper, we introduce a data competition ”Non-\nnative Children’s Automatic Speech Assessment”  (NO-\nCASA), designed to advance automatic pronunciation as-\nsessment for young second language (L2) learners of Norwe-\ngian, based on the dataset presented in [9]. The competition\nprovides a standardized benchmark to evaluate and com-\npare systems for assessing L2 children’s pronunciation from\nsingle-word speech utterances.\nThe NOCASA competition challenges teams to develop\nautomatic speech assessment systems and use them to predict\nthe score of each utterance in the test data. It can be summa-\nrized as an unbalanced audio classification problem, although\nit can also be converted into a regression task.  Participants\nare tasked with developing solutions that can assign a class\nlabel (number of stars) to each audio sample uttered by young\nchildren. To ensure a comprehensive evaluation, we employ\nmultiple evaluation metrics, including Unweighted Average\nRecall (UAR), Accuracy, and Mean Absolute Error (MAE).\nIn addition to the official evaluation metrics, we offer some\nadditional considerations, such as model inference speed and\nexplainability, as insights to support further analysis and sys-\ntem development."
+  },
+  {
+    "id": "goalofthechallenge",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Goal of the Challenge",
+      "page_start": 1,
+      "page_end": 1
+    },
+    "text": "Developing and implementing such APA models has several\nchallenges. First and worst is the lack of speech data for L2\nlearners that would be annotated for pronunciation accuracy.\n1https://teflon aalto fi/\n.  ."
+  },
+  {
+    "id": "rulesofthechallenge",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Rules of the Challenge",
+      "page_start": 2,
+      "page_end": 2
+    },
+    "text": "Participants must adhere to the predefined training and test"
+  },
+  {
+    "id": "data",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Data",
+      "page_start": 2,
+      "page_end": 2
+    },
+    "text": "ph  occ  ph  occ  ph  occ  ph  occ  ph  occ\nr  83  ú  24  g  17  O  11  o:  4\n@  79  ï  22  y:  15  u:  10  E  4\nl  61  ø:  20  A:  15  i:  9  ç  3\ns  51  p  20  v  15  œ  9  æI  2\nk  50  f  19  m  15  h  6  ï  1\nt  43  I  18  Y  14  æ  6  ù  1\nA  26  æ:  18  0  13  N  5  E0  1\nn  26  S  18  d  13  U  5  n  1\n\"\nb  25  0:  17  j  11  e:  4  œY  1\nTable 1. Phonetic inventory with number of occurrences over\npronunciations.\nThis is particularly the case of children and learners of low-\nresource target languages.  Second, if such data were avail-\nable, they were usually heavily unbalanced for different skill\nlevels, and the provided reference scores suffer from noise\nand inter-annotator disagreement. Finally, to make a useful\napp, the scoring has to happen quickly to provide real-time\nfeedback with minimal delay to encourage re-tries and keep\nthe users engaged.\n3. RULES OF THE CHALLENGE\nParticipants must adhere to the predefined training and test\nsplits as given. Additional training data can be used, but only\nif it is clearly mentioned in the report and the data are pub-\nlicly available. The developed solutions could be tested via\na maximum of five trials by uploading the model predictions\nto the test set, the labels of which are unknown to the partici-\npants. Each participation has to be accompanied by an article\npresenting the results that undergoes a standard double-blind\npeer-review process, and only authors of accepted papers will\nbe added to the final leaderboard.\nContributors are encouraged to find their own features and\nuse their own machine learning algorithms. However, to en-\nable faster development, a standard feature set for traditional\nML models (SVM) and a state-of-the-art end-to-end solution\n(wav2vec 2.0) is provided (see section 5).\nThe organisers reserve the right to re-evaluate the find-\nings but will not participate in the Challenge themselves. We\nencourage contributions aiming at the highest performance,"
+  },
+  {
+    "id": "baselines",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Baselines",
+      "page_start": 2,
+      "page_end": 2
+    },
+    "text": "new and interesting insights with respect to the shared data.\n4. DATA\nThe released corpus contains recordings of children of 5 –\n12 years repeating one out of 205 words in Norwegian that\nwere played to them. The children included L1 speakers, be-\nginner learners of L2 Norwegian, and children without pre-\nvious exposure to Norwegian.  For each word in the train-\ning set, we provide orthographic transcription and a speech\n\naccuracy assessment score in the range 1–5 given by human\nexperts. For the test set, we only provide speech and ortho-\ngraphic transcriptions. The words were chosen to be famil-\niar to Norwegian children, but also to give good coverage of\nthe phonetic inventory. Table 1 shows a list of IPA phonetic\nsymbols that occur in the canonical pronunciation of the 205\nunique words, ordered by their frequency of occurrence. For\nmore general details about data collection, and the assessment\ncriteria, see [9].\nThe partitioning of the data between training and test set\nwas performed using a controlled randomization procedure.\nThe goal was to maintain a similar distribution of speech as-\nsessment scores, genders, ages, and language backgrounds.\nThis goal could only be approximated given the relatively low\nnumber of speakers. The training set consists of 44 speakers\nand 10,334 utterances, the test set consists of 8 speakers and\n1,930 utterances. Both for the training and test set included\nthe same list of 205 words. All recordings were between 5\nand 8 seconds long and there was no noticeable difference in\nlength between the training and test set recordings. Figure 1\ncompares the distributions of the relevant speaker characteris-\ntics between the training and test set. It is worth to note that,\ngiven the relatively low number of speakers in the test set,\nonly the most common linguistic backgrounds were included,\ncompared to the training set.\nAs part of the challenge, the file names were randomized\nto hide the speaker identity.  Although the speaker charac-\nteristics were not included in the dataset, we will make this\ninformation available when the challenge is completed at the\n2\nNorwegian Language Bank .\n5. BASELINES\n3\nWe provide an official challenge repository  for reproducing\nour baseline systems. The repository includes scripts for data\npreprocessing, model training, and evaluation.\nWe present two official baseline systems. First, we imple-\nment a traditional pipeline approach of a Support Vector Ma-\nchine (SVM) classifier [10] trained with the standard Com-\nParE 16 feature set (6,373 OpenSMILE features) [11]. The\ntask was to choose one of the five possible labels, so we opted\nfor the one-vs-rest classifier strategy during training. To ac-\ncount for the highly unbalanced class distribution, we uti-\nlized the class-weighting technique [12] to ensure high per-\nformance even for underrepresented classes. As the challenge\ndata did not contain any development sets, we used the default\nparameters for SVM training, which means that hyperparam-\neter tuning with a cross-validation setup could easily lead to\nimproved systems. This baseline system, by design, is inter-\npretable; thus, the final decisions of the model can be easily\nexplained. Using the SVMweights, we conducted a thorough\n2https://www nb no/sprakbanken/ressurskatalog/\n.  .\noai-nb-no-sbr-94/\n3https://github com/aalto-speech/nocasa-baselines\n."
+  },
+  {
+    "id": "discussion",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Discussion",
+      "page_start": 3,
+      "page_end": 3
+    },
+    "text": "While high performance is necessary for the usability of SLA\nsystems, it is not the only measure that should be considered.\nFor usability, one should also ensure that the overall system’s\nlatency is not too high, otherwise the users, especially young\nchildren, would abandon the game, utilising it. To adhere to"
+  },
+  {
+    "id": "conclusions",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Conclusions",
+      "page_start": 4,
+      "page_end": 4
+    },
+    "text": "In this paper, we introduced the ”Non-native Children’s Auto-\nmatic Speech Assessment” (NOCASA) competition, aiming\nto offer a common benchmark for APA solutions. Along with\nthe training data, we have released two baseline solutions: a\ntraditional pipeline of acoustic feature extractions combined\nwith an SVM model and an end-to-end wav2vec 2.0 system.\nThe best official baseline system achieved 36.37% UAR on\nthe test data, leaving plenty of room for improvement. We\nexpect participants to obtain better results by changing the\nmodel architecture or by using various training strategies de-\nsigned for unbalanced data, optimising their hyperparameters,\nand exploiting the extra information (expected word to be pro-\nnounced) in different ways compared to our baseline. We\nstrongly encourage our participants to consider and balance\ntheir solutions’ latency and performance across the official\nevaluation metrics."
+  },
+  {
+    "id": "acknowledgements",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Acknowledgements",
+      "page_start": 5,
+      "page_end": 5
+    },
+    "text": "This work was supported by NordForsk through funding to\ntechnology-enhanced foreign and second-language learning\nof Nordic languages (TEFLON) under Project 103893. The\ncomputational resources were provided by Aalto ScienceIT."
+  }
+]

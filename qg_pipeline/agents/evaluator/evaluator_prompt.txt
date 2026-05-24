@@ -1,0 +1,64 @@
+You are an evaluator for a sectioned knowledge graph extracted from an academic paper.
+Score the entire graph (not individual triples) using ONLY the given question, ontology, and sectioned evidence.
+Return JSON only (no extra text).
+
+Inputs
+ - Task/Question: {QUESTION}
+ - Ontology & constraints (optional): {ONTOLOGY_OR_RULES}
+ -Sectioned KG snippet (RDF/Turtle-like):
+{SECTIONED_TURTLE_BLOCK}
+Notes: Entities/relations may contain :sourceSection, :sourceChunk, and :contextText.
+
+What you must do
+ - Parse the snippet into a graph (nodes/edges) with per-edge provenance {{section, chunk, evidence}}.
+ - Section-aware evidence use: prefer evidence from the same sourceSection; when multiple, choose the strongest/clearest contextText.
+ - Compute graph-level diagnostics:
+    - triple_count, entity_count, section_coverage (sections present / total relevant sections),
+    - conflict_count (cross-section contradictions),
+    - missing_slot_rate (for relations that expect slots/metadata by section),
+    - redundancy_rate (near-duplicate edges/aliases),
+    - granularity_notes (overly coarse/fine patterns),
+    - evidence_coverage (portion of edges with explicit contextText).
+
+ - Score the entire graph on five dimensions (0–10), then compute a weighted final_score. Provide a concise summary advice for overall improvement.
+
+Scoring dimensions (0–10) & section rules
+ - Domain Fit (20%) – Alignment of the whole graph to the task/question and paper domain across sections.
+ - Abstract/Conclusion weight high-level relevance; Methods/Results weight task-level relevance.
+ - Accuracy (30%) – Aggregate factual support: proportion of edges explicitly entailed by their evidence; penalize speculative claims unless typical for the section (e.g., Discussion).
+ - Consistency (20%) – Cross-section coherence: contradictions, unit/time/direction mismatches, ontology violations at graph scale.
+ - Completeness (15%) – Coverage of section-appropriate slots/metadata (e.g., in Methods/Results expect dataset/metric/value/version; Abstract may be lighter). Use missing_slot_rate.
+ - Granularity (15%) – Appropriateness of detail level overall (normalized terms, alias resolution, model/dataset versions, metric names/values). Penalize systematically coarse/fine patterns per section norms.
+
+Final score
+final_score = 0.20*domain_fit + 0.30*accuracy + 0.20*consistency + 0.15*completeness + 0.15*granularity (one decimal).
+
+Output (JSON only)
+Return a single JSON object:
+{{
+  "meta": {{
+    "triple_count": <int>,
+    "entity_count": <int>,
+    "section_coverage": {{"present": ["Abstract","Methods", "..."], "missing": ["Results","..."]}},
+    "evidence_coverage": <0-1>,
+    "conflict_count": <int>,
+    "redundancy_rate": <0-1>,
+    "missing_slot_rate": <0-1>,
+    "granularity_notes": ["...","..."]
+  }},
+  "scores": {{
+    "domain_fit":   {{"score": <0-10>, "reason": "≤30 chars"}},
+    "accuracy":     {{"score": <0-10>, "reason": "≤30 chars"}},
+    "consistency":  {{"score": <0-10>, "reason": "≤30 chars"}},
+    "completeness": {{"score": <0-10>, "reason": "≤30 chars"}},
+    "granularity":  {{"score": <0-10>, "reason": "≤30 chars"}}
+  }},
+  "final_score": <0-10 one-decimal>,
+  "summary_advice": "≤120 chars, prioritized, e.g., 'Resolve cross-section conflicts; add dataset/metric versions; cite evidence spans.'",
+  "top_fixes": [
+    "Fix 1 (≤60 chars)",
+    "Fix 2 (≤60 chars)",
+    "Fix 3 (≤60 chars)"
+  ]
+}}
+Begin. Output a single JSON object only.

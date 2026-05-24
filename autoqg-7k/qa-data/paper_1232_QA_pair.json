@@ -1,0 +1,88 @@
+[
+  {
+    "section": "preliminariesof3dgaussians2",
+    "path": {
+      "section": "preliminariesof3dgaussians2",
+      "start_entity": "Fragment",
+      "end_entity": "TruncationThreshold",
+      "hops": [
+        {
+          "from": "Fragment",
+          "relation": "usedIn",
+          "to": "AlphaBlending",
+          "context": "Subsequently, the ❸-2 α-blending process blends the fragments overlapping the same pixel from all 2D Gaussians",
+          "chunk": "2"
+        },
+        {
+          "from": "AlphaBlending",
+          "relation": "partOf",
+          "to": "GaussianSplatting",
+          "context": "and ❸-2 α-blending, which blends the colors of all Gaussians overlapping a pixel, weighted by their opacity at that pixel",
+          "chunk": "2"
+        },
+        {
+          "from": "GaussianSplatting",
+          "relation": "uses",
+          "to": "TruncationThreshold",
+          "context": "the implementation of 3D Gaussian Splatting truncates the 2D Gaussian function in Eq. 2 at a predetermined threshold",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the context of 3D Gaussian Splatting, what is the primary role of the truncation threshold in the AlphaBlending process?",
+    "options": {
+      "A": "It sets the upper limit on the number of fragments that can overlap a single pixel.",
+      "B": "It specifies the minimum opacity required for a Gaussian to be included in the blending process.",
+      "C": "It determines the maximum extent to which a Gaussian can influence the blending of pixel colors.",
+      "D": "It adjusts the color intensity of each fragment before blending based on their distance from the pixel center."
+    },
+    "correct_answer": "C",
+    "explanation": "The truncation threshold in the context of 3D Gaussian Splatting is used to truncate the 2D Gaussian function, effectively determining how far out from the center of the Gaussian the influence extends. This, in turn, influences how the Gaussians blend colors at a pixel, as it restricts the spatial influence of each Gaussian, aligning with the alpha blending process where colors are blended based on their opacity and overlap.",
+    "path_description": "Path: Fragment --[usedIn]--> AlphaBlending --[partOf]--> GaussianSplatting --[uses]--> TruncationThreshold",
+    "context": "Subsequently, the ❸-2 α-blending process blends the fragments overlapping the same pixel from all 2D Gaussians | and ❸-2 α-blending, which blends the colors of all Gaussians overlapping a pixel, weighted by their opacity at that pixel | the implementation of 3D Gaussian Splatting truncates the 2D Gaussian function in Eq. 2 at a predetermined threshold",
+    "paper_id": "2006"
+  },
+  {
+    "section": "preliminariesof3dgaussians2",
+    "path": {
+      "section": "preliminariesof3dgaussians2",
+      "start_entity": "Fragment",
+      "end_entity": "ComputationalFeasibility",
+      "hops": [
+        {
+          "from": "Fragment",
+          "relation": "usedIn",
+          "to": "AlphaBlending",
+          "context": "Subsequently, the ❸-2 α-blending process blends the fragments overlapping the same pixel from all 2D Gaussians",
+          "chunk": "2"
+        },
+        {
+          "from": "AlphaBlending",
+          "relation": "partOf",
+          "to": "GaussianSplatting",
+          "context": "and ❸-2 α-blending, which blends the colors of all Gaussians overlapping a pixel, weighted by their opacity at that pixel",
+          "chunk": "2"
+        },
+        {
+          "from": "GaussianSplatting",
+          "relation": "optimizesFor",
+          "to": "ComputationalFeasibility",
+          "context": "It is computationally infeasible to exhaustively compute and blend the contribution of each Gaussian to every pixel in the entire image",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the context of rendering techniques, why is Gaussian Splatting considered an optimization for computational feasibility?",
+    "options": {
+      "A": "Gaussian Splatting uses a simple linear interpolation instead of blending, which simplifies the computations for every pixel.",
+      "B": "Gaussian Splatting directly calculates the exact contribution of each Gaussian to every pixel, ensuring computational accuracy.",
+      "C": "Gaussian Splatting increases the resolution of 2D Gaussians for a more detailed image output, enhancing computational complexity.",
+      "D": "Gaussian Splatting utilizes Alpha Blending to selectively blend fragments, reducing the computational load of pixel-wise blending."
+    },
+    "correct_answer": "D",
+    "explanation": "Gaussian Splatting optimizes for computational feasibility through the use of Alpha Blending, which blends overlapping fragments based on their opacity, rather than calculating and blending each Gaussian's contribution to every pixel exhaustively. This selective blending reduces the overall computational load compared to more exhaustive methods.",
+    "path_description": "Path: Fragment --[usedIn]--> AlphaBlending --[partOf]--> GaussianSplatting --[optimizesFor]--> ComputationalFeasibility",
+    "context": "Subsequently, the ❸-2 α-blending process blends the fragments overlapping the same pixel from all 2D Gaussians | and ❸-2 α-blending, which blends the colors of all Gaussians overlapping a pixel, weighted by their opacity at that pixel | It is computationally infeasible to exhaustively compute and blend the contribution of each Gaussian to every pixel in the entire image",
+    "paper_id": "2006"
+  }
+]

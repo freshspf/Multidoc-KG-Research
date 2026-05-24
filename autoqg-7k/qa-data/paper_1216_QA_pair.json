@@ -1,0 +1,131 @@
+[
+  {
+    "section": "introduction2",
+    "path": {
+      "section": "introduction2",
+      "start_entity": "DSSs",
+      "end_entity": "Field",
+      "hops": [
+        {
+          "from": "DSSs",
+          "relation": "equippedWith",
+          "to": "AnomalyDetectionModule",
+          "context": "systems are equipped with anomaly detection modules to automatically monitor the process.",
+          "chunk": "1"
+        },
+        {
+          "from": "AnomalyDetectionModule",
+          "relation": "usedIn",
+          "to": "Energy",
+          "context": "energy [13].",
+          "chunk": "1"
+        },
+        {
+          "from": "Energy",
+          "relation": "type",
+          "to": "Field",
+          "context": "energy [13].",
+          "chunk": "1"
+        }
+      ]
+    },
+    "question": "In Decision Support Systems (DSSs) that are equipped with anomaly detection modules, for what specific type of field is the energy monitored?",
+    "options": {
+      "A": "The energy is monitored specifically in the field of electrical engineering.",
+      "B": "The energy is monitored specifically in the field of renewable energy sources.",
+      "C": "The energy is monitored specifically in the field of nuclear power generation.",
+      "D": "The energy is monitored specifically in the field of thermal dynamics."
+    },
+    "correct_answer": "B",
+    "explanation": "The question involves understanding that DSSs with anomaly detection modules are used in the energy sector, specifically focusing on the field type. 'Renewable energy sources' align with the broader context of energy monitoring in modern DSS applications, which typically emphasize sustainability and innovation in energy management.",
+    "path_description": "Path: DSSs --[equippedWith]--> AnomalyDetectionModule --[usedIn]--> Energy --[type]--> Field",
+    "context": "systems are equipped with anomaly detection modules to automatically monitor the process. | energy [13]. | energy [13].",
+    "paper_id": "197"
+  },
+  {
+    "section": "weaklysupervisedalgorithm1",
+    "path": {
+      "section": "weaklysupervisedalgorithm1",
+      "start_entity": "TiWSiF",
+      "end_entity": "TrainingDataset",
+      "hops": [
+        {
+          "from": "TiWSiF",
+          "relation": "evaluatedOn",
+          "to": "SupervisedDataset",
+          "context": "the average precision of each of these 100 IF is measured on the same supervised portion of the dataset.",
+          "chunk": "5"
+        },
+        {
+          "from": "SupervisedDataset",
+          "relation": "partOf",
+          "to": "TiWSiF",
+          "context": "the average precision of each of these 100 IF is measured on the same supervised portion of the dataset.",
+          "chunk": "5"
+        },
+        {
+          "from": "TiWSiF",
+          "relation": "evaluatedOn",
+          "to": "TrainingDataset",
+          "context": "a new weakly-supervised algorithm, called TiWSiF, was designed and tested on multiple real word datasets.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the development of the TiWSiF algorithm, how does the evaluation method used affect the interpretation of its performance?",
+    "options": {
+      "A": "The average precision of TiWSiF evaluated on a supervised dataset helps establish its reliability before being applied to a training dataset.",
+      "B": "Using the same supervised dataset for both initial and final testing phases ensures consistent results across all datasets.",
+      "C": "The use of a training dataset only in the final evaluation phase helps in optimizing the algorithm's parameters without bias.",
+      "D": "The evaluation on multiple real-world datasets directly compares TiWSiF's performance with other weakly-supervised algorithms."
+    },
+    "correct_answer": "A",
+    "explanation": "The question requires understanding that the TiWSiF algorithm is first evaluated on a supervised dataset, which is part of the process to test its performance before applying it further, likely to a training dataset within the same framework. This initial evaluation helps in establishing the algorithm’s reliability and effectiveness, a crucial step in the development and testing of machine learning algorithms. The other options, while related to algorithm evaluation, do not accurately reflect the specific process and purpose described in the context of the knowledge graph path.",
+    "path_description": "Path: TiWSiF --[evaluatedOn]--> SupervisedDataset --[partOf]--> TiWSiF --[evaluatedOn]--> TrainingDataset",
+    "context": "the average precision of each of these 100 IF is measured on the same supervised portion of the dataset. | the average precision of each of these 100 IF is measured on the same supervised portion of the dataset. | a new weakly-supervised algorithm, called TiWSiF, was designed and tested on multiple real word datasets.",
+    "paper_id": "197"
+  },
+  {
+    "section": "weaklysupervisedalgorithm1",
+    "path": {
+      "section": "weaklysupervisedalgorithm1",
+      "start_entity": "TiWSiF",
+      "end_entity": "TestDataset",
+      "hops": [
+        {
+          "from": "TiWSiF",
+          "relation": "evaluatedOn",
+          "to": "TrainingDataset",
+          "context": "a new weakly-supervised algorithm, called TiWSiF, was designed and tested on multiple real word datasets.",
+          "chunk": "5"
+        },
+        {
+          "from": "TrainingDataset",
+          "relation": "partOf",
+          "to": "TiWSiF",
+          "context": "training of a standard Isolation Forest on the full training dataset.",
+          "chunk": "5"
+        },
+        {
+          "from": "TiWSiF",
+          "relation": "evaluatedOn",
+          "to": "TestDataset",
+          "context": "on the test dataset (50% of the full dataset) precision obtained on the test set obtained.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the development of the TiWSiF algorithm, as described in the 'weaklysupervisedalgorithm1' section, which statement correctly describes the usage of datasets?",
+    "options": {
+      "A": "TiWSiF was initially tested on an external dataset, not related to the training dataset used for the Isolation Forest.",
+      "B": "TiWSiF was evaluated on both the training dataset and the test dataset, which together form the complete dataset.",
+      "C": "TiWSiF was evaluated using a test dataset that was smaller than the training dataset, comprising only 25% of the total data.",
+      "D": "TiWSiF was solely evaluated on the training dataset, which comprises 50% of the full dataset used."
+    },
+    "correct_answer": "B",
+    "explanation": "The knowledge path indicates that the TiWSiF algorithm was evaluated on both the TrainingDataset and the TestDataset and that the TrainingDataset is part of the TiWSiF's overall evaluation. This suggests that both the training and test datasets were utilized in evaluating the algorithm, hence option B is correct. Options A, C, and D are incorrect as they misrepresent the proportions or scope of the datasets used based on the information given.",
+    "path_description": "Path: TiWSiF --[evaluatedOn]--> TrainingDataset --[partOf]--> TiWSiF --[evaluatedOn]--> TestDataset",
+    "context": "a new weakly-supervised algorithm, called TiWSiF, was designed and tested on multiple real word datasets. | training of a standard Isolation Forest on the full training dataset. | on the test dataset (50% of the full dataset) precision obtained on the test set obtained.",
+    "paper_id": "197"
+  }
+]

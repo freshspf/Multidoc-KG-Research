@@ -1,0 +1,174 @@
+[
+  {
+    "section": "background",
+    "path": {
+      "section": "background",
+      "start_entity": "CKKS",
+      "end_entity": "ButterflyOperations",
+      "hops": [
+        {
+          "from": "CKKS",
+          "relation": "uses",
+          "to": "NTT",
+          "context": "computational pattern of the polynomial-level operators in CKKS",
+          "chunk": "1"
+        },
+        {
+          "from": "NTT",
+          "relation": "follows",
+          "to": "StageByStageProcess",
+          "context": "Both NTT and INTT follow a stage-by-stage computational process",
+          "chunk": "1"
+        },
+        {
+          "from": "StageByStageProcess",
+          "relation": "uses",
+          "to": "ButterflyOperations",
+          "context": "At each stage, butterfly operations are applied to all pairs of coefficients",
+          "chunk": "1"
+        }
+      ]
+    },
+    "question": "In the context of CKKS encryption scheme, how does the use of Number Theoretic Transform (NTT) influence the computational efficiency of polynomial-level operations?",
+    "options": {
+      "A": "NTT increases the computational time by applying butterfly operations sequentially rather than in stages.",
+      "B": "NTT reduces the computational complexity by directly applying butterfly operations to the coefficients without staging.",
+      "C": "NTT eliminates the need for butterfly operations by transforming polynomial operations into linear algebra problems.",
+      "D": "NTT organizes computations in a stage-by-stage process where butterfly operations optimize coefficient pairing efficiency."
+    },
+    "correct_answer": "D",
+    "explanation": "The CKKS encryption scheme utilizes NTT to efficiently handle polynomial-level operations. NTT follows a stage-by-stage computational process, which is crucial for managing complexity. At each stage, butterfly operations are applied to all pairs of coefficients, significantly enhancing the pairing efficiency and thus optimizing the overall computational process.",
+    "path_description": "Path: CKKS --[uses]--> NTT --[follows]--> StageByStageProcess --[uses]--> ButterflyOperations",
+    "context": "computational pattern of the polynomial-level operators in CKKS | Both NTT and INTT follow a stage-by-stage computational process | At each stage, butterfly operations are applied to all pairs of coefficients",
+    "paper_id": "1997"
+  },
+  {
+    "section": "dataflowmanagement2",
+    "path": {
+      "section": "dataflowmanagement2",
+      "start_entity": "CKKS",
+      "end_entity": "HardwareComponent",
+      "hops": [
+        {
+          "from": "CKKS",
+          "relation": "uses",
+          "to": "Remapping",
+          "context": "the remapping is highly efficient in CKKS applications",
+          "chunk": "5"
+        },
+        {
+          "from": "Remapping",
+          "relation": "conductedThrough",
+          "to": "PEChains",
+          "context": "Remapping is conducted primarily through PE chains",
+          "chunk": "5"
+        },
+        {
+          "from": "PEChains",
+          "relation": "type",
+          "to": "HardwareComponent",
+          "context": "Remapping is conducted primarily through PE chains",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the context of CKKS applications, which type of hardware component is primarily utilized to conduct remapping through PE chains?",
+    "options": {
+      "A": "Application-specific integrated circuits (ASICs) are typically used for remapping in CKKS applications.",
+      "B": "Central processing units (CPUs) are mainly used for remapping in CKKS applications.",
+      "C": "General-purpose graphics processing units (GPGPUs) are primarily employed for remapping in CKKS applications.",
+      "D": "Field-programmable gate arrays (FPGAs) are predominantly used for remapping in CKKS applications."
+    },
+    "correct_answer": "D",
+    "explanation": "The knowledge graph path suggests that remapping in CKKS applications is conducted through PE chains which are identified as a type of hardware component. Among the provided options, Field-programmable gate arrays (FPGAs) are most suitable for PE chains, as they offer flexible and efficient handling of parallelizable tasks like remapping, which is a key operation in CKKS applications.",
+    "path_description": "Path: CKKS --[uses]--> Remapping --[conductedThrough]--> PEChains --[type]--> HardwareComponent",
+    "context": "the remapping is highly efficient in CKKS applications | Remapping is conducted primarily through PE chains | Remapping is conducted primarily through PE chains",
+    "paper_id": "1997"
+  },
+  {
+    "section": "evaluation",
+    "path": {
+      "section": "evaluation",
+      "start_entity": "TFHENN",
+      "end_entity": "HardwareComponent",
+      "hops": [
+        {
+          "from": "TFHENN",
+          "relation": "evaluatedOn",
+          "to": "HardwareConfiguration",
+          "context": "For CKKS, TFHE NN, and hybrid scheme benchmarks, to make a fair comparison, we adopt 2 DIMMs each with 4 DRAM chips.",
+          "chunk": "6"
+        },
+        {
+          "from": "HardwareConfiguration",
+          "relation": "basedOn",
+          "to": "DRAM",
+          "context": "Our design is based on a DRAM with configurations in Table I.",
+          "chunk": "6"
+        },
+        {
+          "from": "DRAM",
+          "relation": "type",
+          "to": "HardwareComponent",
+          "context": "Our design is based on a DRAM with configurations in Table I.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the evaluation of TFHE Neural Networks (TFHE NN), how does the underlying hardware component type influence the benchmark configuration?",
+    "options": {
+      "A": "The benchmarks deploy SSD storage to enhance data retrieval speeds, thereby improving neural network performance in TFHE NN.",
+      "B": "The benchmarks rely on GPU acceleration to provide parallel processing capabilities, which is crucial for handling complex neural network computations.",
+      "C": "The benchmarks utilize a CPU-based architecture, enhancing the processing power and computational speed for neural network calculations.",
+      "D": "The benchmarks are based on a DRAM hardware configuration, which is a crucial type of hardware component for memory capacity and speed."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A because the question path indicates that the TFHE NN evaluation uses a HardwareConfiguration based on DRAM, which is specifically identified as a type of HardwareComponent. DRAMs are essential for their memory capacity and speed, both critical for the performance of neural networks in such benchmarks.",
+    "path_description": "Path: TFHENN --[evaluatedOn]--> HardwareConfiguration --[basedOn]--> DRAM --[type]--> HardwareComponent",
+    "context": "For CKKS, TFHE NN, and hybrid scheme benchmarks, to make a fair comparison, we adopt 2 DIMMs each with 4 DRAM chips. | Our design is based on a DRAM with configurations in Table I. | Our design is based on a DRAM with configurations in Table I.",
+    "paper_id": "1997"
+  },
+  {
+    "section": "evaluation",
+    "path": {
+      "section": "evaluation",
+      "start_entity": "CycleAccurateSimulator",
+      "end_entity": "Configuration",
+      "hops": [
+        {
+          "from": "CycleAccurateSimulator",
+          "relation": "testedWith",
+          "to": "CKKS",
+          "context": "To evaluate the performance, we develop a cycle-accurate simulator and test it with CKKS, TFHE, and hybrid FHE scheme applications.",
+          "chunk": "6"
+        },
+        {
+          "from": "CKKS",
+          "relation": "evaluatedOn",
+          "to": "HardwareConfiguration",
+          "context": "For CKKS, TFHE NN, and hybrid scheme benchmarks, to make a fair comparison, we adopt 2 DIMMs each with 4 DRAM chips.",
+          "chunk": "6"
+        },
+        {
+          "from": "HardwareConfiguration",
+          "relation": "type",
+          "to": "Configuration",
+          "context": "Our design is based on a DRAM with configurations in Table I.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the evaluation of the cycle-accurate simulator tailored for CKKS performance, what specific type of hardware configuration was predominantly used?",
+    "options": {
+      "A": "A network configuration utilizing high-speed Ethernet to ensure rapid data transfer for CKKS",
+      "B": "An advanced GPU-based system designed to accelerate the CKKS encryption processes",
+      "C": "A setup involving multiple SSDs to enhance the processing speed of the CKKS scheme",
+      "D": "A hardware configuration comprising 2 DIMMs each equipped with 4 DRAM chips"
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is option A because, as stated in the context, for CKKS and other benchmarks, the hardware configuration used includes 2 DIMMs each with 4 DRAM chips to ensure fairness in comparison. This configuration is directly linked to the evaluation of the CKKS scheme tested with the cycle-accurate simulator.",
+    "path_description": "Path: CycleAccurateSimulator --[testedWith]--> CKKS --[evaluatedOn]--> HardwareConfiguration --[type]--> Configuration",
+    "context": "To evaluate the performance, we develop a cycle-accurate simulator and test it with CKKS, TFHE, and hybrid FHE scheme applications. | For CKKS, TFHE NN, and hybrid scheme benchmarks, to make a fair comparison, we adopt 2 DIMMs each with 4 DRAM chips. | Our design is based on a DRAM with configurations in Table I.",
+    "paper_id": "1997"
+  }
+]

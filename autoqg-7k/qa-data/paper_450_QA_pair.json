@@ -1,0 +1,45 @@
+[
+  {
+    "section": "proposedmethodology3",
+    "path": {
+      "section": "proposedmethodology3",
+      "start_entity": "ReceivedHash",
+      "end_entity": "CryptographyKey",
+      "hops": [
+        {
+          "from": "ReceivedHash",
+          "relation": "comparedWith",
+          "to": "MessageHash",
+          "context": "If the hash values from both steps match, the received message has been correctly delivered to the recipient, and the sender is authenticated.",
+          "chunk": "4"
+        },
+        {
+          "from": "MessageHash",
+          "relation": "signedWith",
+          "to": "PrivateKey",
+          "context": "signing the computed hash with the private key for authentication.",
+          "chunk": "4"
+        },
+        {
+          "from": "PrivateKey",
+          "relation": "type",
+          "to": "CryptographyKey",
+          "context": "signing the computed hash with the private key for authentication.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the context of secure message transmission, what is the primary purpose of using a private key to sign a message hash?",
+    "options": {
+      "A": "To increase the complexity of the hash function, making it more resistant to cryptographic attacks.",
+      "B": "To publicly verify the sender's identity without requiring a direct exchange of private data.",
+      "C": "To ensure that the hash values match, proving that the message has not been altered in transit.",
+      "D": "To encrypt the entire message rather than just the hash, providing a higher level of security."
+    },
+    "correct_answer": "C",
+    "explanation": "The use of a private key to sign a message hash ensures that the integrity of the message is maintained (the message has not been altered during transmission) and authenticates the sender. When the hash of the received message is compared with the signed hash and they match, it confirms both the message's integrity and the sender's identity.",
+    "path_description": "Path: ReceivedHash --[comparedWith]--> MessageHash --[signedWith]--> PrivateKey --[type]--> CryptographyKey",
+    "context": "If the hash values from both steps match, the received message has been correctly delivered to the recipient, and the sender is authenticated. | signing the computed hash with the private key for authentication. | signing the computed hash with the private key for authentication.",
+    "paper_id": "936"
+  }
+]

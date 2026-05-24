@@ -1,0 +1,131 @@
+[
+  {
+    "section": "results1",
+    "path": {
+      "section": "results1",
+      "start_entity": "HOPER",
+      "end_entity": "Dataset",
+      "hops": [
+        {
+          "from": "HOPER",
+          "relation": "evaluatedOn",
+          "to": "PROBE",
+          "context": "We utilised our previously constructed benchmarking framework, PROBE, for PFP performance evaluation and comparison",
+          "chunk": "2"
+        },
+        {
+          "from": "PROBE",
+          "relation": "includes",
+          "to": "MF_GO_Terms",
+          "context": "the benchmark dataset referred to as 'MF_Low_Shallow' includes 5 MF GO terms that are closer to the root of the GO MF tree",
+          "chunk": "2"
+        },
+        {
+          "from": "MF_GO_Terms",
+          "relation": "type",
+          "to": "Dataset",
+          "context": "the benchmark dataset referred to as 'MF_Low_Shallow' includes 5 MF GO terms that are closer to the root of the GO MF tree",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "What is the primary characteristic of the 'MF_Low_Shallow' dataset in the PROBE benchmarking framework used for PFP performance evaluation?",
+    "options": {
+      "A": "The dataset contains a diverse range of Gene Ontology (GO) terms from Molecular Function, Cellular Component, and Biological Process branches.",
+      "B": "The dataset includes 5 Molecular Function (MF) Gene Ontology (GO) terms that are closer to the root of the GO MF tree.",
+      "C": "The dataset includes 5 Molecular Function (MF) Gene Ontology (GO) terms primarily from the lower branches of the GO MF tree.",
+      "D": "The dataset primarily includes Cellular Component (CC) Gene Ontology (GO) terms rather than Molecular Function (MF) terms."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A as the dataset 'MF_Low_Shallow' specifically includes 5 MF GO terms that are closer to the root of the GO MF tree. Option B is misleading as it suggests the terms are from the lower branches, which is the opposite of the actual information. Option C is incorrect as it focuses on Cellular Component terms, not Molecular Function. Option D is also incorrect as it incorrectly states that the dataset contains a diverse range of GO terms.",
+    "path_description": "Path: HOPER --[evaluatedOn]--> PROBE --[includes]--> MF_GO_Terms --[type]--> Dataset",
+    "context": "We utilised our previously constructed benchmarking framework, PROBE, for PFP performance evaluation and comparison | the benchmark dataset referred to as 'MF_Low_Shallow' includes 5 MF GO terms that are closer to the root of the GO MF tree | the benchmark dataset referred to as 'MF_Low_Shallow' includes 5 MF GO terms that are closer to the root of the GO MF tree",
+    "paper_id": "1255"
+  },
+  {
+    "section": "results3",
+    "path": {
+      "section": "results3",
+      "start_entity": "Simple_AE",
+      "end_entity": "Method",
+      "hops": [
+        {
+          "from": "Simple_AE",
+          "relation": "uses",
+          "to": "TF-IDF_PCA",
+          "context": "simple autoencoder model as the protein function predictor",
+          "chunk": "4"
+        },
+        {
+          "from": "TF-IDF_PCA",
+          "relation": "uses",
+          "to": "TF-IDF",
+          "context": "We called this method TF-IDF_PCA",
+          "chunk": "4"
+        },
+        {
+          "from": "TF-IDF",
+          "relation": "type",
+          "to": "Method",
+          "context": "the term frequency–inverse document",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the context of predicting protein functions using a simple autoencoder model, which method correctly describes the transformation applied before data input to the model?",
+    "options": {
+      "A": "A method that uses a simple autoencoder model without any data transformation or reduction.",
+      "B": "A method that utilizes term frequency–inverse document frequency followed by principal component analysis.",
+      "C": "A method applying term frequency with subsequent normalization techniques.",
+      "D": "A method that directly applies principal component analysis without prior data transformation."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A because the knowledge path indicates that the simple autoencoder model uses TF-IDF_PCA, which in turn uses TF-IDF. TF-IDF is a method that relates to term frequency–inverse document frequency, and PCA (principal component analysis) is used thereafter.",
+    "path_description": "Path: Simple_AE --[uses]--> TF-IDF_PCA --[uses]--> TF-IDF --[type]--> Method",
+    "context": "simple autoencoder model as the protein function predictor | We called this method TF-IDF_PCA | the term frequency–inverse document",
+    "paper_id": "1255"
+  },
+  {
+    "section": "discussion2",
+    "path": {
+      "section": "discussion2",
+      "start_entity": "PCA",
+      "end_entity": "Model",
+      "hops": [
+        {
+          "from": "PCA",
+          "relation": "usedWith",
+          "to": "TF-IDF",
+          "context": "PCA performed",
+          "chunk": "8"
+        },
+        {
+          "from": "TF-IDF",
+          "relation": "outperforms",
+          "to": "BERT",
+          "context": "performance of the TF-IDF is better",
+          "chunk": "8"
+        },
+        {
+          "from": "BERT",
+          "relation": "type",
+          "to": "Model",
+          "context": "BERT for long texts and multi-label",
+          "chunk": "8"
+        }
+      ]
+    },
+    "question": "In the context of text analysis, considering the comparative performance outlined in the study, which model is indicated for optimal handling of long texts and multi-label scenarios?",
+    "options": {
+      "A": "TF-IDF, due to its superior performance over PCA and its effectiveness compared to BERT in specific scenarios.",
+      "B": "BERT, as it has been specifically outperformed by TF-IDF in scenarios involving long texts and multiple labels.",
+      "C": "PCA, as it is the foundational technique used with TF-IDF, proving effective in varied text length scenarios.",
+      "D": "Linear Regression Model, since it generally handles numerical data predictions, not text analysis."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is C, BERT. According to the knowledge path, PCA is used with TF-IDF, and TF-IDF outperforms BERT. However, the context specifies that BERT is specifically mentioned for long texts and multi-label scenarios, implying that despite TF-IDF's general superiority, BERT is more suited for these particular types of challenges.",
+    "path_description": "Path: PCA --[usedWith]--> TF-IDF --[outperforms]--> BERT --[type]--> Model",
+    "context": "PCA performed | performance of the TF-IDF is better | BERT for long texts and multi-label",
+    "paper_id": "1255"
+  }
+]

@@ -1,0 +1,88 @@
+[
+  {
+    "section": "proposeddaomodel2",
+    "path": {
+      "section": "proposeddaomodel2",
+      "start_entity": "Vote",
+      "end_entity": "Participant",
+      "hops": [
+        {
+          "from": "Vote",
+          "relation": "determines",
+          "to": "RemoveMember",
+          "context": "If the number of votes in favor of the proposal reaches or exceeds the quorum threshold Q by the deadline T, the proposal is considered approved.",
+          "chunk": "5"
+        },
+        {
+          "from": "RemoveMember",
+          "relation": "revokesAccess",
+          "to": "Ui",
+          "context": "Upon successful removal, the participant’s NFTauth token is burned, revoking their access rights and privileges within the DAO.",
+          "chunk": "5"
+        },
+        {
+          "from": "Ui",
+          "relation": "type",
+          "to": "Participant",
+          "context": "Once a participant Ui successfully completes the DKYC process...",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the context of a decentralized autonomous organization (DAO) model, how does the voting process directly impact a participant's access within the system?",
+    "options": {
+      "A": "Voting results in an increase in the number of NFTauth tokens a participant holds, thereby granting them additional rights within the DAO.",
+      "B": "The voting process is only symbolic and has no real effect on participants' access rights or privileges within the DAO.",
+      "C": "A favorable vote leads to the removal of a participant, which results in the burning of their NFTauth token and the revocation of their access rights.",
+      "D": "Votes are used to grant participants new access rights upon the approval of proposals, increasing their influence within the DAO."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A because the knowledge path illustrates that a vote determines whether a member is removed, which directly revokes their access by burning their NFTauth token. This sequence shows how a decision made through voting can lead to the removal of a participant and the subsequent loss of their access and privileges in the DAO.",
+    "path_description": "Path: Vote --[determines]--> RemoveMember --[revokesAccess]--> Ui --[type]--> Participant",
+    "context": "If the number of votes in favor of the proposal reaches or exceeds the quorum threshold Q by the deadline T, the proposal is considered approved. | Upon successful removal, the participant’s NFTauth token is burned, revoking their access rights and privileges within the DAO. | Once a participant Ui successfully completes the DKYC process...",
+    "paper_id": "657"
+  },
+  {
+    "section": "evaluationandfuturework",
+    "path": {
+      "section": "evaluationandfuturework",
+      "start_entity": "PnRMonitoringService",
+      "end_entity": "Paradigm",
+      "hops": [
+        {
+          "from": "PnRMonitoringService",
+          "relation": "monitors",
+          "to": "DAOModel",
+          "context": "The PnR monitoring service plays a critical role in maintaining the integrity of the DAO",
+          "chunk": "7"
+        },
+        {
+          "from": "DAOModel",
+          "relation": "evaluatedBasedOn",
+          "to": "PnRParadigm",
+          "context": "we evaluate the proposed DAO model based on the Punishment not Reward (PnR) paradigm",
+          "chunk": "7"
+        },
+        {
+          "from": "PnRParadigm",
+          "relation": "type",
+          "to": "Paradigm",
+          "context": "we evaluate the proposed DAO model based on the Punishment not Reward (PnR) paradigm",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "In the context of the DAO model evaluation, how does the PnR Monitoring Service indirectly contribute to the DAO model's integrity?",
+    "options": {
+      "A": "By providing real-time data analysis that supports reward systems within the DAO model under the PnR paradigm.",
+      "B": "By implementing a reward system that encourages adherence to the PnR paradigm within the DAO model's framework.",
+      "C": "By monitoring the DAO model, which is evaluated based on the PnR paradigm, emphasizing punitive measures over rewards.",
+      "D": "By directly adjusting the parameters of the DAO model to better align with the PnR paradigm's reward-focused strategies."
+    },
+    "correct_answer": "C",
+    "explanation": "The PnR Monitoring Service monitors the DAO model, which is evaluated based on the PnR (Punishment not Reward) paradigm. This paradigm emphasizes punitive measures rather than rewards, which indirectly contributes to the model’s integrity by ensuring compliance and deterring deviations, thus maintaining the model's operational standards.",
+    "path_description": "Path: PnRMonitoringService --[monitors]--> DAOModel --[evaluatedBasedOn]--> PnRParadigm --[type]--> Paradigm",
+    "context": "The PnR monitoring service plays a critical role in maintaining the integrity of the DAO | we evaluate the proposed DAO model based on the Punishment not Reward (PnR) paradigm | we evaluate the proposed DAO model based on the Punishment not Reward (PnR) paradigm",
+    "paper_id": "657"
+  }
+]

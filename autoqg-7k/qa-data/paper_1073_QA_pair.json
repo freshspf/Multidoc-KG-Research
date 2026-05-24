@@ -1,0 +1,260 @@
+[
+  {
+    "section": "unstrained2hge1",
+    "path": {
+      "section": "unstrained2hge1",
+      "start_entity": "SpontaneousEmissionRate",
+      "end_entity": "Material",
+      "hops": [
+        {
+          "from": "SpontaneousEmissionRate",
+          "relation": "comparedWith",
+          "to": "Photoluminescence",
+          "context": "Compute the spontaneous emission rate, which we compare to measured PL spectra.",
+          "chunk": "1"
+        },
+        {
+          "from": "Photoluminescence",
+          "relation": "measuredIn",
+          "to": "InAs",
+          "context": "Measured photoluminescence corresponds to direct-gap emissions in 2H-Ge, orders of magnitude lower than in InAs.",
+          "chunk": "1"
+        },
+        {
+          "from": "InAs",
+          "relation": "type",
+          "to": "Material",
+          "context": "Photoluminescence in 2H-Ge is orders of magnitude lower than in InAs.",
+          "chunk": "1"
+        }
+      ]
+    },
+    "question": "Why does InAs exhibit higher photoluminescence intensity compared to 2H-Ge?",
+    "options": {
+      "A": "InAs has a higher spontaneous emission rate due to its material properties compared to 2H-Ge.",
+      "B": "2H-Ge absorbs more light which leads to reduced photoluminescence emission as compared to InAs.",
+      "C": "Photoluminescence in InAs is enhanced by external stimuli which are absent in 2H-Ge.",
+      "D": "InAs has a lower band gap energy, which facilitates more electron-hole recombination than in 2H-Ge."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A because, according to the provided context, the spontaneous emission rate in InAs is much higher than in 2H-Ge, which results in a higher photoluminescence intensity. Option B is incorrect because higher light absorption would generally increase, not decrease, photoluminescence. Option C is misleading as it falsely attributes differences in photoluminescence to band gap energies without evidence from the context. Option D is incorrect as there is no mention of external stimuli affecting photoluminescence in the paper.",
+    "path_description": "Path: SpontaneousEmissionRate --[comparedWith]--> Photoluminescence --[measuredIn]--> InAs --[type]--> Material",
+    "context": "Compute the spontaneous emission rate, which we compare to measured PL spectra. | Measured photoluminescence corresponds to direct-gap emissions in 2H-Ge, orders of magnitude lower than in InAs. | Photoluminescence in 2H-Ge is orders of magnitude lower than in InAs.",
+    "paper_id": "928"
+  },
+  {
+    "section": "unstrained2hge4",
+    "path": {
+      "section": "unstrained2hge4",
+      "start_entity": "tauRad",
+      "end_entity": "RadiativeLifetime",
+      "hops": [
+        {
+          "from": "tauRad",
+          "relation": "increasesWith",
+          "to": "T",
+          "context": "The strong increase of τrad with increasing T arises in our analysis due to the decrease (increase) in electron (hole) quasi-Fermi level.",
+          "chunk": "4"
+        },
+        {
+          "from": "T",
+          "relation": "increases",
+          "to": "tauRad",
+          "context": "As T increases, our calculated non-degenerate τrad increases strongly, reaching 135 ms at T = 300 K.",
+          "chunk": "4"
+        },
+        {
+          "from": "tauRad",
+          "relation": "type",
+          "to": "RadiativeLifetime",
+          "context": "As T increases, our calculated non-degenerate τrad increases strongly, reaching 135 ms at T = 300 K.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the context of the study described, how does the increase in temperature (T) affect the radiative lifetime (τrad) of a non-degenerate state, according to the 'unstrained2hge4' section?",
+    "options": {
+      "A": "As temperature increases, τrad decreases due to the reduction of both electron and hole quasi-Fermi levels.",
+      "B": "As temperature increases, τrad increases due to the opposing shifts in electron and hole quasi-Fermi levels.",
+      "C": "As temperature increases, τrad remains constant despite shifts in electron and hole quasi-Fermi levels.",
+      "D": "As temperature increases, τrad decreases due to the simultaneous rise in both electron and hole quasi-Fermi levels."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A. According to the paper, as temperature increases, τrad (radiative lifetime) increases strongly due to the decrease in electron quasi-Fermi level and increase in hole quasi-Fermi level. This suggests that the opposing shifts in these levels contribute to an increase in τrad, consistent with option A.",
+    "path_description": "Path: tauRad --[increasesWith]--> T --[increases]--> tauRad --[type]--> RadiativeLifetime",
+    "context": "The strong increase of τrad with increasing T arises in our analysis due to the decrease (increase) in electron (hole) quasi-Fermi level. | As T increases, our calculated non-degenerate τrad increases strongly, reaching 135 ms at T = 300 K. | As T increases, our calculated non-degenerate τrad increases strongly, reaching 135 ms at T = 300 K.",
+    "paper_id": "928"
+  },
+  {
+    "section": "unstrained2hge4",
+    "path": {
+      "section": "unstrained2hge4",
+      "start_entity": "tauRad",
+      "end_entity": "Measured2HGeCarrierLifetime",
+      "hops": [
+        {
+          "from": "tauRad",
+          "relation": "proportionalTo",
+          "to": "T",
+          "context": "with τrad ∝ T^2.18 at fixed n in 2H-Ge.",
+          "chunk": "4"
+        },
+        {
+          "from": "T",
+          "relation": "increases",
+          "to": "tauRad",
+          "context": "As T increases, our calculated non-degenerate τrad increases strongly, reaching 135 ms at T = 300 K.",
+          "chunk": "4"
+        },
+        {
+          "from": "tauRad",
+          "relation": "exceeds",
+          "to": "Measured2HGeCarrierLifetime",
+          "context": "We note that these calculated radiative lifetimes exceed the measured 2H-Ge carrier lifetime, τ = 0.98 (0.46) ns at T = 4 (300) K, by approximately four orders of magnitude.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "How does the increase in temperature affect the calculated radiative lifetime in unstrained 2H-Ge, and how does it compare to the measured carrier lifetime?",
+    "options": {
+      "A": "As temperature rises, the calculated radiative lifetime remains constant and is almost equivalent to the measured carrier lifetime at higher temperatures.",
+      "B": "With temperature increase, the calculated radiative lifetime decreases, becoming shorter than the measured carrier lifetime by approximately four orders of magnitude.",
+      "C": "Temperature increase leads to a moderate increase in calculated radiative lifetime, which remains just slightly above the measured carrier lifetime at all temperatures.",
+      "D": "As temperature increases, the calculated radiative lifetime increases sharply, far exceeding the measured carrier lifetime by about four orders of magnitude."
+    },
+    "correct_answer": "D",
+    "explanation": "The question requires understanding that as temperature (T) increases, the calculated radiative lifetime (tauRad) also increases, which is evident from tauRad being proportional to T^2.18. Furthermore, it's important to note that these increased values of tauRad greatly exceed the measured 2H-Ge carrier lifetime, by about four orders of magnitude, highlighting a significant difference in scale between calculated and measured lifetimes.",
+    "path_description": "Path: tauRad --[proportionalTo]--> T --[increases]--> tauRad --[exceeds]--> Measured2HGeCarrierLifetime",
+    "context": "with τrad ∝ T^2.18 at fixed n in 2H-Ge. | As T increases, our calculated non-degenerate τrad increases strongly, reaching 135 ms at T = 300 K. | We note that these calculated radiative lifetimes exceed the measured 2H-Ge carrier lifetime, τ = 0.98 (0.46) ns at T = 4 (300) K, by approximately four orders of magnitude.",
+    "paper_id": "928"
+  },
+  {
+    "section": "strained2hge",
+    "path": {
+      "section": "strained2hge",
+      "start_entity": "StrainEngineering",
+      "end_entity": "OpticallyBrightBandGap",
+      "hops": [
+        {
+          "from": "StrainEngineering",
+          "relation": "appliedTo",
+          "to": "2H-Ge",
+          "context": "Suckert et al. predicted theoretically that application of [0001] uniaxial tension to 2H-Ge shifts the pseudo-direct Γ8c-Γ9v (direct Γ7c-Γ9v) band gap upwards (downwards) in energy.",
+          "chunk": "5"
+        },
+        {
+          "from": "2H-Ge",
+          "relation": "undergoes",
+          "to": "GapTransition",
+          "context": "This produces a pseudo-direct- to direct-gap transition for tensile c-axis strain ϵzz close to 2%.",
+          "chunk": "5"
+        },
+        {
+          "from": "GapTransition",
+          "relation": "resultsIn",
+          "to": "OpticallyBrightBandGap",
+          "context": "This produces a pseudo-direct- to direct-gap transition for tensile c-axis strain ϵzz close to 2%, such that the fundamental band gap becomes optically bright.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "What is the impact of applying uniaxial tension along the [0001] direction to 2H-Ge in terms of electronic band structure?",
+    "options": {
+      "A": "It has no significant effect on the electronic band structure, and the optical properties remain unchanged.",
+      "B": "It leads to a reduction in both the pseudo-direct Γ8c-Γ9v and direct Γ7c-Γ9v band gaps, resulting in an optically dimmer fundamental band gap.",
+      "C": "It causes a shift in the pseudo-direct Γ8c-Γ9v band gap upwards and the direct Γ7c-Γ9v band gap downwards, leading to an optically bright fundamental band gap.",
+      "D": "It increases the energy of both the pseudo-direct Γ8c-Γ9v and direct Γ7c-Γ9v band gaps, resulting in decreased optical absorption."
+    },
+    "correct_answer": "C",
+    "explanation": "According to the paper, applying uniaxial tension along the [0001] direction to 2H-Ge causes the pseudo-direct Γ8c-Γ9v band gap to shift upwards and the direct Γ7c-Γ9v band gap to shift downwards. This shift facilitates a transition from a pseudo-direct to a direct band gap at a tensile strain close to 2%, resulting in the fundamental band gap becoming optically bright, hence option A is correct.",
+    "path_description": "Path: StrainEngineering --[appliedTo]--> 2H-Ge --[undergoes]--> GapTransition --[resultsIn]--> OpticallyBrightBandGap",
+    "context": "Suckert et al. predicted theoretically that application of [0001] uniaxial tension to 2H-Ge shifts the pseudo-direct Γ8c-Γ9v (direct Γ7c-Γ9v) band gap upwards (downwards) in energy. | This produces a pseudo-direct- to direct-gap transition for tensile c-axis strain ϵzz close to 2%. | This produces a pseudo-direct- to direct-gap transition for tensile c-axis strain ϵzz close to 2%, such that the fundamental band gap becomes optically bright.",
+    "paper_id": "928"
+  },
+  {
+    "section": "conclusions",
+    "path": {
+      "section": "conclusions",
+      "start_entity": "LonsdaleiteGe",
+      "end_entity": "PhysicalCondition",
+      "hops": [
+        {
+          "from": "LonsdaleiteGe",
+          "relation": "hasProperty",
+          "to": "Bcoefficient",
+          "context": "we analyzed radiative recombination in lonsdaleite Ge from first principles, including the B coefficient",
+          "chunk": "6"
+        },
+        {
+          "from": "Bcoefficient",
+          "relation": "dependsOn",
+          "to": "Temperature",
+          "context": "including the B coefficient and its dependence on temperature, carrier density and strain",
+          "chunk": "6"
+        },
+        {
+          "from": "Temperature",
+          "relation": "type",
+          "to": "PhysicalCondition",
+          "context": "including the B coefficient and its dependence on temperature, carrier density and strain",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the study of radiative recombination in lonsdaleite Ge, how does the B coefficient, a key property, primarily change with varying physical conditions?",
+    "options": {
+      "A": "The B coefficient increases significantly with an increase in temperature due to enhanced carrier mobility.",
+      "B": "The B coefficient remains constant regardless of changes in temperature, maintaining a stable property in all physical conditions.",
+      "C": "The B coefficient decreases as temperature rises, mainly due to reduced carrier density and increased recombination.",
+      "D": "The B coefficient varies inversely with strain, showing decrease as strain increases, independent of temperature changes."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A because the B coefficient in lonsdaleite Ge depends on temperature as a type of physical condition. As temperature increases, typically, the carrier mobility increases, which enhances the B coefficient, supporting more effective radiative recombination.",
+    "path_description": "Path: LonsdaleiteGe --[hasProperty]--> Bcoefficient --[dependsOn]--> Temperature --[type]--> PhysicalCondition",
+    "context": "we analyzed radiative recombination in lonsdaleite Ge from first principles, including the B coefficient | including the B coefficient and its dependence on temperature, carrier density and strain | including the B coefficient and its dependence on temperature, carrier density and strain",
+    "paper_id": "928"
+  },
+  {
+    "section": "dataaccessstatement",
+    "path": {
+      "section": "dataaccessstatement",
+      "start_entity": "Data",
+      "end_entity": "AuthorRole",
+      "hops": [
+        {
+          "from": "Data",
+          "relation": "supports",
+          "to": "Findings",
+          "context": "The data that support the findings of this study are available from the corresponding author upon reasonable request.",
+          "chunk": "10"
+        },
+        {
+          "from": "Findings",
+          "relation": "availableFrom",
+          "to": "CorrespondingAuthor",
+          "context": "The data that support the findings of this study are available from the corresponding author upon reasonable request.",
+          "chunk": "10"
+        },
+        {
+          "from": "CorrespondingAuthor",
+          "relation": "type",
+          "to": "AuthorRole",
+          "context": "The data that support the findings of this study are available from the corresponding author upon reasonable request.",
+          "chunk": "10"
+        }
+      ]
+    },
+    "question": "What role must an individual fulfill to provide data supporting the findings in the described study upon reasonable request?",
+    "options": {
+      "A": "The individual should be a co-author who has contributed significantly to the research but not necessarily the corresponding author.",
+      "B": "The individual must be an author with a role specifically designated as the corresponding author.",
+      "C": "The individual should be any author listed on the paper, irrespective of their specific role.",
+      "D": "The individual needs to be a senior author who oversees the project and its findings."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A because the knowledge path indicates that the data supporting the findings are available from the 'corresponding author', which is a specific author role responsible for communication about the research.",
+    "path_description": "Path: Data --[supports]--> Findings --[availableFrom]--> CorrespondingAuthor --[type]--> AuthorRole",
+    "context": "The data that support the findings of this study are available from the corresponding author upon reasonable request. | The data that support the findings of this study are available from the corresponding author upon reasonable request. | The data that support the findings of this study are available from the corresponding author upon reasonable request.",
+    "paper_id": "928"
+  }
+]

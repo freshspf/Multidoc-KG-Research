@@ -1,0 +1,45 @@
+[
+  {
+    "section": "onlinecedpipelineoverview",
+    "path": {
+      "section": "onlinecedpipelineoverview",
+      "start_entity": "PretrainedFeatureEncoder",
+      "end_entity": "HighDimensionalData",
+      "hops": [
+        {
+          "from": "PretrainedFeatureEncoder",
+          "relation": "encodes",
+          "to": "DataSegment",
+          "context": "This module encodes each segment 𝑠𝑡 into a high-dimensional embedding vector 𝑣𝑡, producing a sequence of embedding vectors.",
+          "chunk": "4"
+        },
+        {
+          "from": "DataSegment",
+          "relation": "transformedInto",
+          "to": "EmbeddingVector",
+          "context": "This module encodes each segment 𝑠𝑡 into a high-dimensional embedding vector 𝑣𝑡, producing a sequence of embedding vectors.",
+          "chunk": "4"
+        },
+        {
+          "from": "EmbeddingVector",
+          "relation": "isTypeOf",
+          "to": "HighDimensionalData",
+          "context": "This module encodes each segment 𝑠𝑡 into a high-dimensional embedding vector 𝑣𝑡, producing a sequence of embedding vectors.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the context of an online CED pipeline, how does the Pretrained Feature Encoder contribute to handling high-dimensional data?",
+    "options": {
+      "A": "It compresses high-dimensional data segments into lower-dimensional embedding vectors for easier processing.",
+      "B": "It encodes each data segment into an embedding vector, which is a type of high-dimensional data.",
+      "C": "It transforms raw data segments directly into a sequence of simple numerical values for immediate analysis.",
+      "D": "It categorizes each data segment into predefined bins before converting them into embedding vectors."
+    },
+    "correct_answer": "B",
+    "explanation": "The Pretrained Feature Encoder encodes each data segment into a high-dimensional embedding vector according to the knowledge path. This embedding vector is then classified as a type of high-dimensional data, which aligns with option A. Options B, C, and D are incorrect as they propose processes not described in the path such as compression, direct transformation into numerical values, and categorization before encoding.",
+    "path_description": "Path: PretrainedFeatureEncoder --[encodes]--> DataSegment --[transformedInto]--> EmbeddingVector --[isTypeOf]--> HighDimensionalData",
+    "context": "This module encodes each segment 𝑠𝑡 into a high-dimensional embedding vector 𝑣𝑡, producing a sequence of embedding vectors. | This module encodes each segment 𝑠𝑡 into a high-dimensional embedding vector 𝑣𝑡, producing a sequence of embedding vectors. | This module encodes each segment 𝑠𝑡 into a high-dimensional embedding vector 𝑣𝑡, producing a sequence of embedding vectors.",
+    "paper_id": "1494"
+  }
+]

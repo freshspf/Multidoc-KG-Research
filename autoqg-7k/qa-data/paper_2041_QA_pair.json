@@ -1,0 +1,88 @@
+[
+  {
+    "section": "casestudyenergyforecastingwithfedccl",
+    "path": {
+      "section": "casestudyenergyforecastingwithfedccl",
+      "start_entity": "FedCCL",
+      "end_entity": "EntityGroup",
+      "hops": [
+        {
+          "from": "FedCCL",
+          "relation": "evaluatedOn",
+          "to": "SolarProductionForecasting",
+          "context": "Our case study implements and evaluates FedCCL using a real-world scenario for solar production forecasting.",
+          "chunk": "4"
+        },
+        {
+          "from": "SolarProductionForecasting",
+          "relation": "appliedTo",
+          "to": "Households",
+          "context": "solar production forecasting of individual households and commercial & industrial (C&I) installations across central Europe.",
+          "chunk": "4"
+        },
+        {
+          "from": "Households",
+          "relation": "type",
+          "to": "EntityGroup",
+          "context": "solar production forecasting of individual households and commercial & industrial (C&I) installations across central Europe.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the context of FedCCL being evaluated for its application in solar production forecasting, which group is specifically targeted as an entity group in the study?",
+    "options": {
+      "A": "Solar panel manufacturers are considered the key entity group for evaluating FedCCL's forecasting capabilities.",
+      "B": "Individual households are specifically targeted as an entity group for FedCCL's solar production forecasting.",
+      "C": "Utility companies are the main entity group targeted for applying FedCCL in the case study.",
+      "D": "Commercial & Industrial installations are the primary focus as an entity group for FedCCL's solar production forecasting."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A because the knowledge graph path connects FedCCL's evaluation on solar production forecasting applied specifically to households, classifying them as the 'EntityGroup' in the study context.",
+    "path_description": "Path: FedCCL --[evaluatedOn]--> SolarProductionForecasting --[appliedTo]--> Households --[type]--> EntityGroup",
+    "context": "Our case study implements and evaluates FedCCL using a real-world scenario for solar production forecasting. | solar production forecasting of individual households and commercial & industrial (C&I) installations across central Europe. | solar production forecasting of individual households and commercial & industrial (C&I) installations across central Europe.",
+    "paper_id": "26"
+  },
+  {
+    "section": "evaluation",
+    "path": {
+      "section": "evaluation",
+      "start_entity": "OrientationBasedClustering",
+      "end_entity": "Model",
+      "hops": [
+        {
+          "from": "OrientationBasedClustering",
+          "relation": "outperforms",
+          "to": "FederatedGlobal",
+          "context": "The Orientation-based clustering model shows slightly diminished performance with a mean error power of 6.54% (±0.09%)",
+          "chunk": "5"
+        },
+        {
+          "from": "FederatedGlobal",
+          "relation": "outperforms",
+          "to": "CentralizedContinual",
+          "context": "The Federated Global model achieves a mean error power of 6.59% (±0.24%), positioning its performance between the two centralized baselines",
+          "chunk": "5"
+        },
+        {
+          "from": "CentralizedContinual",
+          "relation": "type",
+          "to": "Model",
+          "context": "CentralizedContinual with progressive data availability",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "Which model demonstrates the most effective performance in terms of mean error power based on the evaluation section's comparison?",
+    "options": {
+      "A": "The Federated Global model, positioned between two centralized baselines with a mean error power of 6.59% (±0.24%).",
+      "B": "A model not explicitly detailed in the evaluations, assumed to perform better than all listed options.",
+      "C": "The Orientation-based clustering model, with a slightly diminished mean error power of 6.54% (±0.09%) compared to others.",
+      "D": "The CentralizedContinual model, which operates under progressive data availability scenarios."
+    },
+    "correct_answer": "C",
+    "explanation": "The question leverages the knowledge path showing the performance comparison among different models. The Orientation-based clustering model outperforms the Federated Global and CentralizedContinual models in terms of mean error power, which is the lowest among the stated values, thus indicating it has the most effective performance.",
+    "path_description": "Path: OrientationBasedClustering --[outperforms]--> FederatedGlobal --[outperforms]--> CentralizedContinual --[type]--> Model",
+    "context": "The Orientation-based clustering model shows slightly diminished performance with a mean error power of 6.54% (±0.09%) | The Federated Global model achieves a mean error power of 6.59% (±0.24%), positioning its performance between the two centralized baselines | CentralizedContinual with progressive data availability",
+    "paper_id": "26"
+  }
+]

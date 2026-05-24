@@ -1,0 +1,174 @@
+[
+  {
+    "section": "systemdesign1",
+    "path": {
+      "section": "systemdesign1",
+      "start_entity": "PWR_Board",
+      "end_entity": "Chip",
+      "hops": [
+        {
+          "from": "PWR_Board",
+          "relation": "partOf",
+          "to": "NeuralAidsHardware",
+          "context": "PWR: A 2-layer flex board that houses components for power management, battery charging, and monitoring.",
+          "chunk": "3"
+        },
+        {
+          "from": "NeuralAidsHardware",
+          "relation": "includes",
+          "to": "AI_Accelerator",
+          "context": "The hardware has a low-power BLE SoC that controls a tiny AI accelerator to process incoming audio in real-time.",
+          "chunk": "3"
+        },
+        {
+          "from": "AI_Accelerator",
+          "relation": "type",
+          "to": "Chip",
+          "context": "The hardware has a low-power BLE SoC that controls a tiny AI accelerator to process incoming audio in real-time.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the design of the NeuralAidsHardware, which component is directly responsible for facilitating the real-time processing of incoming audio?",
+    "options": {
+      "A": "The PWR_Board, which includes power management and battery charging components.",
+      "B": "The AI_Accelerator, specifically designed as a chip to enhance audio processing capabilities.",
+      "C": "The NeuralAidsHardware’s main processor, which independently handles all audio data.",
+      "D": "The low-power BLE SoC, which controls the tiny AI accelerator for audio processing."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is B because the low-power BLE SoC controls the AI accelerator, which is crucial for the real-time processing of incoming audio, according to the provided context in the paper.",
+    "path_description": "Path: PWR_Board --[partOf]--> NeuralAidsHardware --[includes]--> AI_Accelerator --[type]--> Chip",
+    "context": "PWR: A 2-layer flex board that houses components for power management, battery charging, and monitoring. | The hardware has a low-power BLE SoC that controls a tiny AI accelerator to process incoming audio in real-time. | The hardware has a low-power BLE SoC that controls a tiny AI accelerator to process incoming audio in real-time.",
+    "paper_id": "373"
+  },
+  {
+    "section": "systemdesign3",
+    "path": {
+      "section": "systemdesign3",
+      "start_entity": "LSTM",
+      "end_entity": "Model",
+      "hops": [
+        {
+          "from": "LSTM",
+          "relation": "outperforms",
+          "to": "GRU",
+          "context": "GRU offers lower computational cost while maintaining similar performance compared to LSTM.",
+          "chunk": "5"
+        },
+        {
+          "from": "GRU",
+          "relation": "replaces",
+          "to": "LSTM",
+          "context": "GRU module replaces the LSTM module to optimize runtime.",
+          "chunk": "5"
+        },
+        {
+          "from": "LSTM",
+          "relation": "type",
+          "to": "Model",
+          "context": "LSTM mentioned as part of the spectral stage in TF-GridNet.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the context of optimizing runtime in neural network architectures, how does the GRU module improve upon the LSTM module according to the systemdesign3 section?",
+    "options": {
+      "A": "GRU leverages a larger set of parameters than LSTM to achieve a higher accuracy, albeit at a slightly increased computational cost.",
+      "B": "GRU enhances data processing speeds by employing a more complex algorithm than LSTM, thus providing faster outputs.",
+      "C": "GRU significantly increases computational efficiency by simplifying the underlying mathematical operations compared to LSTM.",
+      "D": "GRU reduces computational costs while delivering performance comparable to LSTM, leading to its use as a replacement in certain models."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A, as it directly reflects the information given in the context: GRU offers lower computational costs while maintaining similar performance to LSTM, leading to its deployment as a replacement in models to optimize runtime. Options B, C, and D introduce incorrect details not supported by the provided context.",
+    "path_description": "Path: LSTM --[outperforms]--> GRU --[replaces]--> LSTM --[type]--> Model",
+    "context": "GRU offers lower computational cost while maintaining similar performance compared to LSTM. | GRU module replaces the LSTM module to optimize runtime. | LSTM mentioned as part of the spectral stage in TF-GridNet.",
+    "paper_id": "373"
+  },
+  {
+    "section": "limitationsanddiscussion",
+    "path": {
+      "section": "limitationsanddiscussion",
+      "start_entity": "Arm_Ethos_U85",
+      "end_entity": "Metric",
+      "hops": [
+        {
+          "from": "Arm_Ethos_U85",
+          "relation": "type",
+          "to": "AI_Accelerator",
+          "context": "Arm Ethos U-55 and U-85.",
+          "chunk": "13"
+        },
+        {
+          "from": "AI_Accelerator",
+          "relation": "usedIn",
+          "to": "PowerConsumption",
+          "context": "The power consumption figures reported in this paper assume that the AI accelerator is continuously active, processing audio at all times.",
+          "chunk": "13"
+        },
+        {
+          "from": "PowerConsumption",
+          "relation": "type",
+          "to": "Metric",
+          "context": "The power consumption figures reported in this paper assume that the AI accelerator is continuously active, processing audio at all times.",
+          "chunk": "13"
+        }
+      ]
+    },
+    "question": "In the context of evaluating the performance of the Arm Ethos U-85 as an AI accelerator, why is the metric of power consumption critical?",
+    "options": {
+      "A": "Because the power consumption impacts the speed and accuracy with which the AI accelerator can process audio.",
+      "B": "Because the power consumption metric directly reflects the efficiency of the AI accelerator when operating under continuous audio processing.",
+      "C": "Because the power consumption is crucial for calculating the overall cost-effectiveness of the AI accelerator over its operational lifespan.",
+      "D": "Because the power consumption helps determine the physical size and weight of the AI accelerator in large-scale deployments."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A because the context specifies that the power consumption figures assume the AI accelerator (Arm Ethos U-85) is continuously active, processing audio at all times, thus directly impacting its efficiency in continuous operation scenarios. The other options, while related to general considerations of an AI accelerator, do not directly relate to the specific scenario of continuous audio processing described in the context.",
+    "path_description": "Path: Arm_Ethos_U85 --[type]--> AI_Accelerator --[usedIn]--> PowerConsumption --[type]--> Metric",
+    "context": "Arm Ethos U-55 and U-85. | The power consumption figures reported in this paper assume that the AI accelerator is continuously active, processing audio at all times. | The power consumption figures reported in this paper assume that the AI accelerator is continuously active, processing audio at all times.",
+    "paper_id": "373"
+  },
+  {
+    "section": "limitationsanddiscussion",
+    "path": {
+      "section": "limitationsanddiscussion",
+      "start_entity": "Kendryte_K510",
+      "end_entity": "Metric",
+      "hops": [
+        {
+          "from": "Kendryte_K510",
+          "relation": "type",
+          "to": "AI_Accelerator",
+          "context": "Kendryte K210, K230, and K510.",
+          "chunk": "13"
+        },
+        {
+          "from": "AI_Accelerator",
+          "relation": "usedIn",
+          "to": "PowerConsumption",
+          "context": "The power consumption figures reported in this paper assume that the AI accelerator is continuously active, processing audio at all times.",
+          "chunk": "13"
+        },
+        {
+          "from": "PowerConsumption",
+          "relation": "type",
+          "to": "Metric",
+          "context": "The power consumption figures reported in this paper assume that the AI accelerator is continuously active, processing audio at all times.",
+          "chunk": "13"
+        }
+      ]
+    },
+    "question": "Considering the Kendryte K510 AI Accelerator as discussed in the paper, which metric would be most appropriate to evaluate its performance when continuously processing audio?",
+    "options": {
+      "A": "The power consumption figures when the accelerator is continuously active.",
+      "B": "The speed at which the accelerator processes individual audio files.",
+      "C": "The total number of audio files processed over a set period.",
+      "D": "The temperature stability of the accelerator during operation."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is B, 'The power consumption figures when the accelerator is continuously active,' because the paper specifically discusses the power consumption of the Kendryte K510 when it is continuously processing audio, making this the most relevant metric for evaluating its performance in this context.",
+    "path_description": "Path: Kendryte_K510 --[type]--> AI_Accelerator --[usedIn]--> PowerConsumption --[type]--> Metric",
+    "context": "Kendryte K210, K230, and K510. | The power consumption figures reported in this paper assume that the AI accelerator is continuously active, processing audio at all times. | The power consumption figures reported in this paper assume that the AI accelerator is continuously active, processing audio at all times.",
+    "paper_id": "373"
+  }
+]

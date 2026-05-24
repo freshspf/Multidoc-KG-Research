@@ -1,0 +1,45 @@
+[
+  {
+    "section": "materialsandmethods1",
+    "path": {
+      "section": "materialsandmethods1",
+      "start_entity": "IC50",
+      "end_entity": "Entity",
+      "hops": [
+        {
+          "from": "IC50",
+          "relation": "measuredBy",
+          "to": "BindingDB",
+          "context": "BindingDB includes several affinity metrics (Ki, Kd, IC50, EC50)",
+          "chunk": "2"
+        },
+        {
+          "from": "BindingDB",
+          "relation": "contains",
+          "to": "ProteinLigandInteractions",
+          "context": "Protein-ligand interactions filtered from BindingDB",
+          "chunk": "2"
+        },
+        {
+          "from": "ProteinLigandInteractions",
+          "relation": "type",
+          "to": "Entity",
+          "context": "Protein-ligand interactions filtered from BindingDB",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the context of evaluating drug effectiveness via BindingDB, which type of data would directly measure the potency of a ligand binding to its protein receptor?",
+    "options": {
+      "A": "Kd values, which calculate the dissociation rate of the ligand from its receptor",
+      "B": "EC50 values, which determine the effective concentration for 50% of the maximal effect",
+      "C": "Ki values, which measure the binding affinity of the ligand to a receptor",
+      "D": "IC50 values, which quantify the concentration needed to inhibit a target by 50%"
+    },
+    "correct_answer": "D",
+    "explanation": "IC50 values are used to measure the concentration of a ligand required to inhibit a particular biological or biochemical function of a protein (its target) by 50%, making it a direct measure of the potency of a ligand's interaction with its protein receptor.",
+    "path_description": "Path: IC50 --[measuredBy]--> BindingDB --[contains]--> ProteinLigandInteractions --[type]--> Entity",
+    "context": "BindingDB includes several affinity metrics (Ki, Kd, IC50, EC50) | Protein-ligand interactions filtered from BindingDB | Protein-ligand interactions filtered from BindingDB",
+    "paper_id": "246"
+  }
+]

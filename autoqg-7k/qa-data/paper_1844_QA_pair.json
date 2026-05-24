@@ -1,0 +1,88 @@
+[
+  {
+    "section": "methods2",
+    "path": {
+      "section": "methods2",
+      "start_entity": "Qdrant",
+      "end_entity": "ComputingRelevance",
+      "hops": [
+        {
+          "from": "Qdrant",
+          "relation": "hosts",
+          "to": "VectorKeys",
+          "context": "Each entry in the Qdrant",
+          "chunk": "4"
+        },
+        {
+          "from": "VectorKeys",
+          "relation": "computedBy",
+          "to": "Text-Embedding-3-Small",
+          "context": "The vector key for each entry is an embedding computed using OpenAI’s text-embedding-3-small embedding",
+          "chunk": "4"
+        },
+        {
+          "from": "Text-Embedding-3-Small",
+          "relation": "usedFor",
+          "to": "ComputingRelevance",
+          "context": "we use text-embedding-3-small to compute the single most relevant calculator metadata",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "What is the primary purpose of utilizing OpenAI's Text-Embedding-3-Small in the Qdrant database according to the paper?",
+    "options": {
+      "A": "To categorize each entry into predefined categories based on their content similarity.",
+      "B": "To increase the speed of data retrieval from the database by compressing the data entries.",
+      "C": "To enhance the overall security of the database by encrypting each entry with unique embeddings.",
+      "D": "To generate vector keys for each database entry, facilitating the computation of relevant calculator metadata."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A because, according to the knowledge path, Qdrant uses VectorKeys, which are computed by Text-Embedding-3-Small, specifically for computing relevance, indicating its primary use is to generate vector keys that assist in computing relevant calculator metadata.",
+    "path_description": "Path: Qdrant --[hosts]--> VectorKeys --[computedBy]--> Text-Embedding-3-Small --[usedFor]--> ComputingRelevance",
+    "context": "Each entry in the Qdrant | The vector key for each entry is an embedding computed using OpenAI’s text-embedding-3-small embedding | we use text-embedding-3-small to compute the single most relevant calculator metadata",
+    "paper_id": "239"
+  },
+  {
+    "section": "results2",
+    "path": {
+      "section": "results2",
+      "start_entity": "UnassistedLLM",
+      "end_entity": "FailureMode",
+      "hops": [
+        {
+          "from": "UnassistedLLM",
+          "relation": "comparedWith",
+          "to": "OurChatbot",
+          "context": "Unassisted LLM compared with Our Chatbot in various scenarios.",
+          "chunk": "6"
+        },
+        {
+          "from": "OurChatbot",
+          "relation": "hasFailureMode",
+          "to": "StopsPromptingUser",
+          "context": "Our Chatbot stops prompting user to provide remaining parameters after they provide some.",
+          "chunk": "6"
+        },
+        {
+          "from": "StopsPromptingUser",
+          "relation": "type",
+          "to": "FailureMode",
+          "context": "Stops prompting user to provide remaining parameters after they provide some.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the study comparing Unassisted LLM and Our Chatbot, what was identified as a specific failure mode of Our Chatbot?",
+    "options": {
+      "A": "Our Chatbot ceases to prompt the user for additional parameters once some are provided.",
+      "B": "Our Chatbot redirects user queries to unrelated topics instead of seeking further parameters.",
+      "C": "Our Chatbot continuously requests parameters even after sufficient input has been received.",
+      "D": "Our Chatbot provides incorrect responses to user inputs without seeking further clarification."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A because the knowledge graph indicates that a failure mode for 'Our Chatbot' was identified as it stopping the process of prompting the user for additional parameters once some parameters are already provided. This directly aligns with option A, whereas the other options describe different behaviors not mentioned as failure modes in this context.",
+    "path_description": "Path: UnassistedLLM --[comparedWith]--> OurChatbot --[hasFailureMode]--> StopsPromptingUser --[type]--> FailureMode",
+    "context": "Unassisted LLM compared with Our Chatbot in various scenarios. | Our Chatbot stops prompting user to provide remaining parameters after they provide some. | Stops prompting user to provide remaining parameters after they provide some.",
+    "paper_id": "239"
+  }
+]

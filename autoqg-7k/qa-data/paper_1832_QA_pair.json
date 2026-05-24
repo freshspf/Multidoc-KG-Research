@@ -1,0 +1,131 @@
+[
+  {
+    "section": "coresoftware3",
+    "path": {
+      "section": "coresoftware3",
+      "start_entity": "PierreAugerObservatory",
+      "end_entity": "Database",
+      "hops": [
+        {
+          "from": "PierreAugerObservatory",
+          "relation": "uses",
+          "to": "Event",
+          "context": "Similarly to Event, the data structure is used to store information.",
+          "chunk": "3"
+        },
+        {
+          "from": "Event",
+          "relation": "storesInformationIn",
+          "to": "SQLite",
+          "context": "Calibration data is stored in MySQL and SQLite databases.",
+          "chunk": "3"
+        },
+        {
+          "from": "SQLite",
+          "relation": "type",
+          "to": "Database",
+          "context": "Calibration data is stored in SQLite databases.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the context of data storage at the Pierre Auger Observatory, which statement correctly describes the flow of information storage?",
+    "options": {
+      "A": "Pierre Auger Observatory uses personal data assistants to first store event data before transferring to SQLite databases.",
+      "B": "Events recorded at the Pierre Auger Observatory are directly input into MySQL databases, bypassing any use of SQLite.",
+      "C": "Data from the Pierre Auger Observatory is initially processed in SQLite, then transferred to non-relational databases for long-term storage.",
+      "D": "Events detected by the Pierre Auger Observatory are stored in SQLite, which is a type of database specifically designed for such data."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct path of data storage at the Pierre Auger Observatory begins with an Event, which is stored in SQLite. SQLite is described as a type of Database in the given path, making option A the correct choice. Options B, C, and D introduce incorrect storage methods or database types not supported by the provided knowledge graph.",
+    "path_description": "Path: PierreAugerObservatory --[uses]--> Event --[storesInformationIn]--> SQLite --[type]--> Database",
+    "context": "Similarly to Event, the data structure is used to store information. | Calibration data is stored in MySQL and SQLite databases. | Calibration data is stored in SQLite databases.",
+    "paper_id": "440"
+  },
+  {
+    "section": "coresoftware2",
+    "path": {
+      "section": "coresoftware2",
+      "start_entity": "SpecialModules",
+      "end_entity": "FileType",
+      "hops": [
+        {
+          "from": "SpecialModules",
+          "relation": "handleOperationsFor",
+          "to": "IOlayer",
+          "context": "operations are handled by special modules, which (I/O) layer.",
+          "chunk": "2"
+        },
+        {
+          "from": "IOlayer",
+          "relation": "involvesProcessing",
+          "to": "ProcessedFiles",
+          "context": "(I/O) layer. The names of the files to be processed",
+          "chunk": "2"
+        },
+        {
+          "from": "ProcessedFiles",
+          "relation": "type",
+          "to": "FileType",
+          "context": "The names of the files to be processed",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the context of a software system described in 'coresoftware2', which file type would most likely be processed by an I/O layer managed by special modules?",
+    "options": {
+      "A": "Image files that are used primarily for storing digital photos and graphics",
+      "B": "Executable files that often contain binary code suitable for direct execution",
+      "C": "Audio files that store sound and are played back by media players",
+      "D": "Text files that primarily contain human-readable characters and are used for documentation"
+    },
+    "correct_answer": "B",
+    "explanation": "The 'coresoftware2' section suggests a multi-tier handling where 'SpecialModules' control the 'IOlayer' which processes files. Given the context of core software operations, 'Executable files' which contain binary code for execution, are most aligned with the operations typically handled at this level, as they are key to software functionality and would require specialized modules for processing.",
+    "path_description": "Path: SpecialModules --[handleOperationsFor]--> IOlayer --[involvesProcessing]--> ProcessedFiles --[type]--> FileType",
+    "context": "operations are handled by special modules, which (I/O) layer. | (I/O) layer. The names of the files to be processed | The names of the files to be processed",
+    "paper_id": "440"
+  },
+  {
+    "section": "coresoftware3",
+    "path": {
+      "section": "coresoftware3",
+      "start_entity": "EvaSantos",
+      "end_entity": "Framework",
+      "hops": [
+        {
+          "from": "EvaSantos",
+          "relation": "associatedWith",
+          "to": "PierreAugerObservatory",
+          "context": "Eva Santos, associated with the Pierre Auger Observatory.",
+          "chunk": "3"
+        },
+        {
+          "from": "PierreAugerObservatory",
+          "relation": "implements",
+          "to": "OpenNeuralNetworkExchange",
+          "context": "Implementing a connection between the Open Neural Network Exchange.",
+          "chunk": "3"
+        },
+        {
+          "from": "OpenNeuralNetworkExchange",
+          "relation": "type",
+          "to": "Framework",
+          "context": "Implementing a connection between the Open Neural Network Exchange.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "What type of software framework is associated with Eva Santos through her work at the Pierre Auger Observatory?",
+    "options": {
+      "A": "A framework developed for enhancing graphical processing unit (GPU) performance",
+      "B": "A framework that focuses on real-time data processing in observational astronomy",
+      "C": "A framework primarily used for statistical analysis in astrophysics research",
+      "D": "A framework designed for facilitating open-source contributions to neural networks"
+    },
+    "correct_answer": "D",
+    "explanation": "Eva Santos is associated with the Pierre Auger Observatory, which implements the Open Neural Network Exchange (ONNX). ONNX is a framework designed to make neural networks open-source and easily shareable, thus option A is correct. The other options, while plausible and related to typical uses of frameworks in scientific contexts, do not directly relate to the specific type of framework described in the knowledge path.",
+    "path_description": "Path: EvaSantos --[associatedWith]--> PierreAugerObservatory --[implements]--> OpenNeuralNetworkExchange --[type]--> Framework",
+    "context": "Eva Santos, associated with the Pierre Auger Observatory. | Implementing a connection between the Open Neural Network Exchange. | Implementing a connection between the Open Neural Network Exchange.",
+    "paper_id": "440"
+  }
+]

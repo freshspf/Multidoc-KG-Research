@@ -1,0 +1,88 @@
+[
+  {
+    "section": "collaborativepullpush2",
+    "path": {
+      "section": "collaborativepullpush2",
+      "start_entity": "FullyConnectedLayers",
+      "end_entity": "Model",
+      "hops": [
+        {
+          "from": "FullyConnectedLayers",
+          "relation": "partOf",
+          "to": "GraphTemporalNetwork",
+          "context": "We also applied dropout (p = 0.3) after the 3rd GTN and finished with 2 fully connected layers.",
+          "chunk": "3"
+        },
+        {
+          "from": "GraphTemporalNetwork",
+          "relation": "partOf",
+          "to": "DGNN",
+          "context": "For the best fit, we used a network of 3 graph temporal networks (GTN) of 32, 64, and 64 channels, respectively.",
+          "chunk": "3"
+        },
+        {
+          "from": "DGNN",
+          "relation": "type",
+          "to": "Model",
+          "context": "We adopt the DGNN method [8], a state-of-the art action recognition method.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the context of the DGNN model described, which component arrangement correctly reflects the hierarchical structure used for action recognition?",
+    "options": {
+      "A": "Fully connected layers form part of the Graph Temporal Network, which is a type of DGNN Model.",
+      "B": "Graph Temporal Network acts as an independent model that connects to the DGNN Model without involving fully connected layers.",
+      "C": "DGNN Model consists of fully connected layers that include several Graph Temporal Networks for action recognition.",
+      "D": "Graph Temporal Networks form part of the fully connected layers and are used in the DGNN Model for action recognition."
+    },
+    "correct_answer": "A",
+    "explanation": "The DGNN model includes Graph Temporal Networks, which, in turn, incorporate fully connected layers. This hierarchical structure is essential for the function of the DGNN as an action recognition model. Options B, C, and D incorrectly describe the relationship among these components.",
+    "path_description": "Path: FullyConnectedLayers --[partOf]--> GraphTemporalNetwork --[partOf]--> DGNN --[type]--> Model",
+    "context": "We also applied dropout (p = 0.3) after the 3rd GTN and finished with 2 fully connected layers. | For the best fit, we used a network of 3 graph temporal networks (GTN) of 32, 64, and 64 channels, respectively. | We adopt the DGNN method [8], a state-of-the art action recognition method.",
+    "paper_id": "118"
+  },
+  {
+    "section": "collaborativepullpush2",
+    "path": {
+      "section": "collaborativepullpush2",
+      "start_entity": "PredictionOffset",
+      "end_entity": "Data",
+      "hops": [
+        {
+          "from": "PredictionOffset",
+          "relation": "parameterOf",
+          "to": "IntentionPrediction",
+          "context": "In this work, we set the window size and prediction offset as 0.5 s and 0.25 s.",
+          "chunk": "3"
+        },
+        {
+          "from": "IntentionPrediction",
+          "relation": "uses",
+          "to": "InputFeatures",
+          "context": "We formulate the intention prediction problem as computing the output class given a time window of input features.",
+          "chunk": "3"
+        },
+        {
+          "from": "InputFeatures",
+          "relation": "type",
+          "to": "Data",
+          "context": "We formulate the intention prediction problem as computing the output class given a time window of input features (blue: 3D joint and bone data).",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the context of the study detailed in 'collaborativepullpush2', which type of data serves as input features for intention prediction with a prediction offset of 0.25 seconds?",
+    "options": {
+      "A": "Data collected from 3D joint and bone measurements over a 0.5 second window.",
+      "B": "Audio recordings processed to represent spatial sound information over a 0.25 second window.",
+      "C": "Visual data from 2D images captured continuously over a 0.25 second window.",
+      "D": "Textual data from user inputs accumulated over a 0.5 second window."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A, as the paper specifies that the input features for intention prediction are based on a 0.5-second window of 'blue: 3D joint and bone data.' The other options, although related to possible data types, do not align with the specific features used in this study.",
+    "path_description": "Path: PredictionOffset --[parameterOf]--> IntentionPrediction --[uses]--> InputFeatures --[type]--> Data",
+    "context": "In this work, we set the window size and prediction offset as 0.5 s and 0.25 s. | We formulate the intention prediction problem as computing the output class given a time window of input features. | We formulate the intention prediction problem as computing the output class given a time window of input features (blue: 3D joint and bone data).",
+    "paper_id": "118"
+  }
+]

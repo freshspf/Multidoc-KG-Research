@@ -1,0 +1,88 @@
+[
+  {
+    "section": "egomotionestimationbasedonlineincidence3",
+    "path": {
+      "section": "egomotionestimationbasedonlineincidence3",
+      "start_entity": "BearingVectors",
+      "end_entity": "UnknownQuantity",
+      "hops": [
+        {
+          "from": "BearingVectors",
+          "relation": "preRotatedBy",
+          "to": "KnownRotations",
+          "context": "If rotational parameters are known, the bearing vectors {fj}j can be pre-rotated using known rotations.",
+          "chunk": "4"
+        },
+        {
+          "from": "KnownRotations",
+          "relation": "leaves",
+          "to": "FiveUnknowns",
+          "context": "If rotational parameters are known, the bearing vectors {fj}j can be pre-rotated using known rotations, leaving only five unknowns in the resulting problem.",
+          "chunk": "4"
+        },
+        {
+          "from": "FiveUnknowns",
+          "relation": "type",
+          "to": "UnknownQuantity",
+          "context": "If rotational parameters are known, the bearing vectors {fj}j can be pre-rotated using known rotations, leaving only five unknowns in the resulting problem.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the context of egomotion estimation, when bearing vectors are pre-rotated using known rotations, what does this process specifically simplify in the subsequent problem?",
+    "options": {
+      "A": "It allows for the direct calculation of all unknown quantities without further transformations.",
+      "B": "It eliminates the need for any further rotational adjustments, thus focusing solely on translational motion.",
+      "C": "It simplifies the data collection process by automatically aligning sensors to a global reference frame.",
+      "D": "It simplifies the computation by reducing the problem to only five unknown rotational parameters."
+    },
+    "correct_answer": "D",
+    "explanation": "The pre-rotation of bearing vectors using known rotations simplifies the problem by leaving only five unknowns, specifically focusing on reducing the complexity of determining rotational parameters. This aids in easier computation and problem-solving in the field of egomotion estimation.",
+    "path_description": "Path: BearingVectors --[preRotatedBy]--> KnownRotations --[leaves]--> FiveUnknowns --[type]--> UnknownQuantity",
+    "context": "If rotational parameters are known, the bearing vectors {fj}j can be pre-rotated using known rotations. | If rotational parameters are known, the bearing vectors {fj}j can be pre-rotated using known rotations, leaving only five unknowns in the resulting problem. | If rotational parameters are known, the bearing vectors {fj}j can be pre-rotated using known rotations, leaving only five unknowns in the resulting problem.",
+    "paper_id": "1306"
+  },
+  {
+    "section": "conclusion",
+    "path": {
+      "section": "conclusion",
+      "start_entity": "SparseGeometricSolvers",
+      "end_entity": "Method",
+      "hops": [
+        {
+          "from": "SparseGeometricSolvers",
+          "relation": "uses",
+          "to": "EventManifoldsFromLineSegments",
+          "context": "Our method uses event manifolds from line segments",
+          "chunk": "8"
+        },
+        {
+          "from": "EventManifoldsFromLineSegments",
+          "relation": "uses",
+          "to": "IncidenceRelations",
+          "context": "employing incidence relations",
+          "chunk": "8"
+        },
+        {
+          "from": "IncidenceRelations",
+          "relation": "type",
+          "to": "Method",
+          "context": "employing incidence relations",
+          "chunk": "8"
+        }
+      ]
+    },
+    "question": "In the context of the Sparse Geometric Solvers method discussed in the conclusion of the paper, what is the role of incidence relations in relation to event manifolds from line segments?",
+    "options": {
+      "A": "Incidence relations serve as a database indexing method for storing event manifolds from line segments.",
+      "B": "Incidence relations are used to calculate the geometric properties of event manifolds derived from line segments.",
+      "C": "Incidence relations are utilized to reduce the computational complexity of algorithms in Sparse Geometric Solvers.",
+      "D": "Incidence relations facilitate the graphical representation of Sparse Geometric Solvers for educational purposes."
+    },
+    "correct_answer": "B",
+    "explanation": "Incidence relations are used to calculate the geometric properties of event manifolds. In the paper, it is noted that Sparse Geometric Solvers use event manifolds from line segments, which employ incidence relations to handle their geometric relationships. This helps in understanding and manipulating the geometric data processed by the solvers.",
+    "path_description": "Path: SparseGeometricSolvers --[uses]--> EventManifoldsFromLineSegments --[uses]--> IncidenceRelations --[type]--> Method",
+    "context": "Our method uses event manifolds from line segments | employing incidence relations | employing incidence relations",
+    "paper_id": "1306"
+  }
+]

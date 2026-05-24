@@ -1,0 +1,131 @@
+[
+  {
+    "section": "methodology3",
+    "path": {
+      "section": "methodology3",
+      "start_entity": "Omar",
+      "end_entity": "Parameter",
+      "hops": [
+        {
+          "from": "Omar",
+          "relation": "addresses",
+          "to": "GuidanceBallisticCoefficients",
+          "context": "Omar [27] addresses this by only using a portion of the feasible range of 𝐶𝑏 when generating the guidance",
+          "chunk": "6"
+        },
+        {
+          "from": "GuidanceBallisticCoefficients",
+          "relation": "partOf",
+          "to": "BallisticCoefficient",
+          "context": "guidance ballistic coefficients toward the bottom of the feasible range",
+          "chunk": "6"
+        },
+        {
+          "from": "BallisticCoefficient",
+          "relation": "type",
+          "to": "Parameter",
+          "context": "feasible range of ballistic coefficients",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the context of ballistic coefficient calculations, what specific aspect does Omar address regarding the use of guidance ballistic coefficients?",
+    "options": {
+      "A": "Omar addresses the challenge by using only the upper portion of the feasible range of guidance ballistic coefficients.",
+      "B": "Omar focuses on utilizing the entire feasible range of guidance ballistic coefficients to enhance accuracy.",
+      "C": "Omar enhances the guidance by randomly selecting values from the feasible range of ballistic coefficients.",
+      "D": "Omar addresses using only a portion of the feasible range, specifically the lower end of guidance ballistic coefficients."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is C. According to the provided context, Omar addresses the challenge by limiting the use of guidance ballistic coefficients to the lower end of their feasible range, rather than using the entire range or the upper portion specifically. This is indicated by the mention of 'guidance ballistic coefficients toward the bottom of the feasible range'. Options A, B, and D are incorrect as they suggest using different or random parts of the feasible range, which contradicts the specific strategy described in the text.",
+    "path_description": "Path: Omar --[addresses]--> GuidanceBallisticCoefficients --[partOf]--> BallisticCoefficient --[type]--> Parameter",
+    "context": "Omar [27] addresses this by only using a portion of the feasible range of 𝐶𝑏 when generating the guidance | guidance ballistic coefficients toward the bottom of the feasible range | feasible range of ballistic coefficients",
+    "paper_id": "418"
+  },
+  {
+    "section": "simulations2",
+    "path": {
+      "section": "simulations2",
+      "start_entity": "DARE",
+      "end_entity": "DataPresentation",
+      "hops": [
+        {
+          "from": "DARE",
+          "relation": "usedFor",
+          "to": "MPC",
+          "context": "The terminal cost is computed using the discrete-time algebraic Riccati equation (DARE).",
+          "chunk": "12"
+        },
+        {
+          "from": "MPC",
+          "relation": "uses",
+          "to": "Table3",
+          "context": "Table 3 Controller parameters.",
+          "chunk": "12"
+        },
+        {
+          "from": "Table3",
+          "relation": "type",
+          "to": "DataPresentation",
+          "context": "Table 3 Controller parameters.",
+          "chunk": "12"
+        }
+      ]
+    },
+    "question": "In the context of using the discrete-time algebraic Riccati equation (DARE) for terminal cost computation, what is the primary purpose of Model Predictive Control (MPC) as demonstrated through Table 3 in the 'simulations2' section?",
+    "options": {
+      "A": "MPC is used to test the robustness of the terminal costs against variable operational conditions.",
+      "B": "MPC is utilized mainly for the theoretical analysis of control systems without practical application.",
+      "C": "MPC primarily focuses on the optimization of system resources to enhance computational speed.",
+      "D": "MPC is primarily used for presenting data on how controller parameters impact system performance."
+    },
+    "correct_answer": "D",
+    "explanation": "The question tests the understanding of the application of MPC in the context of the discrete-time algebraic Riccati equation (DARE) for terminal cost computation as presented in Table 3. Option A is correct because it aligns with the usage of MPC in data presentation about controller parameters as evidenced by the 'usedFor' relationship from DARE to MPC and the 'uses' relationship from MPC to Table 3 in the knowledge graph. The other options, while plausible, do not directly relate to the data presentation purpose attributed to MPC in this context.",
+    "path_description": "Path: DARE --[usedFor]--> MPC --[uses]--> Table3 --[type]--> DataPresentation",
+    "context": "The terminal cost is computed using the discrete-time algebraic Riccati equation (DARE). | Table 3 Controller parameters. | Table 3 Controller parameters.",
+    "paper_id": "418"
+  },
+  {
+    "section": "simulations3",
+    "path": {
+      "section": "simulations3",
+      "start_entity": "DeltaTime",
+      "end_entity": "BallisticCoefficients",
+      "hops": [
+        {
+          "from": "DeltaTime",
+          "relation": "partOf",
+          "to": "EKF",
+          "context": "Δ𝑇 ≈ 600 s which corresponds to a new state estimate approximately every 10 minutes or 9 times per orbit.",
+          "chunk": "13"
+        },
+        {
+          "from": "EKF",
+          "relation": "appliedTo",
+          "to": "GuidanceTrajectory",
+          "context": "The EKF is run using the parameters listed in Table 3.",
+          "chunk": "13"
+        },
+        {
+          "from": "GuidanceTrajectory",
+          "relation": "enabledBy",
+          "to": "BallisticCoefficients",
+          "context": "The ballistic coefficients that produce each guidance trajectory are shown in Fig. 5b.",
+          "chunk": "13"
+        }
+      ]
+    },
+    "question": "In the context of the Extended Kalman Filter (EKF) being applied to guidance trajectory simulations, how does the Delta Time influence the estimation process?",
+    "options": {
+      "A": "DeltaTime affects the graphical representation of ballistic coefficients in Fig. 5b, refining their presentation but not their computational value.",
+      "B": "DeltaTime increases the computational load of the EKF by requiring constant updates, thus reducing the efficiency of guidance trajectory modeling.",
+      "C": "DeltaTime, being part of the EKF, allows it to update the state estimation every 10 minutes, enabling precise calculation of ballistic coefficients.",
+      "D": "By fluctuating around 600 s, DeltaTime indirectly adjusts the frequency of trajectory recalculations, impacting the orbital mechanics."
+    },
+    "correct_answer": "C",
+    "explanation": "DeltaTime, as part of the EKF, is crucial for periodically updating the state estimation, which is approximately every 10 minutes. This frequent updating is essential for enabling the EKF to precisely compute the ballistic coefficients that produce each guidance trajectory, as shown in Fig. 5b. The other options either misrepresent the influence of DeltaTime or incorrectly describe its impact on the system's efficiency and graphical output.",
+    "path_description": "Path: DeltaTime --[partOf]--> EKF --[appliedTo]--> GuidanceTrajectory --[enabledBy]--> BallisticCoefficients",
+    "context": "Δ𝑇 ≈ 600 s which corresponds to a new state estimate approximately every 10 minutes or 9 times per orbit. | The EKF is run using the parameters listed in Table 3. | The ballistic coefficients that produce each guidance trajectory are shown in Fig. 5b.",
+    "paper_id": "418"
+  }
+]

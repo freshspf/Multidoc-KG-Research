@@ -1,0 +1,131 @@
+[
+  {
+    "section": "conclusion",
+    "path": {
+      "section": "conclusion",
+      "start_entity": "NoiseTest",
+      "end_entity": "Parameter",
+      "hops": [
+        {
+          "from": "NoiseTest",
+          "relation": "uses",
+          "to": "DepolarizationChannel",
+          "context": "In our shot-based simulation, we introduce a depolarization channel after each unitary of the form.",
+          "chunk": "5"
+        },
+        {
+          "from": "DepolarizationChannel",
+          "relation": "parameterizedBy",
+          "to": "Lambda",
+          "context": "We set lambda to 0.04, which corresponds geometrically to a uniform Bloch sphere reduction of 4%.",
+          "chunk": "5"
+        },
+        {
+          "from": "Lambda",
+          "relation": "type",
+          "to": "Parameter",
+          "context": "We set lambda to 0.04, which corresponds geometrically to a uniform Bloch sphere reduction of 4%.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In a shot-based quantum simulation using a depolarization channel, if lambda is set to 0.04, what is the geometric interpretation of this parameter?",
+    "options": {
+      "A": "It corresponds to a uniform reduction of 4% in the quantum state's representation on the Bloch sphere.",
+      "B": "It suggests a 4% increase in the entropy associated with the quantum state.",
+      "C": "It indicates a 96% fidelity in the quantum state's representation on the Bloch sphere.",
+      "D": "It implies a 4% error rate in quantum state measurements."
+    },
+    "correct_answer": "A",
+    "explanation": "Lambda parameterizes the depolarization channel and, as set to 0.04, geometrically corresponds to a uniform Bloch sphere reduction of 4%. This means that the representation of the quantum state on the Bloch sphere is uniformly scaled down by 4%, not affecting fidelity directly, increasing entropy, or indicating an error rate.",
+    "path_description": "Path: NoiseTest --[uses]--> DepolarizationChannel --[parameterizedBy]--> Lambda --[type]--> Parameter",
+    "context": "In our shot-based simulation, we introduce a depolarization channel after each unitary of the form. | We set lambda to 0.04, which corresponds geometrically to a uniform Bloch sphere reduction of 4%. | We set lambda to 0.04, which corresponds geometrically to a uniform Bloch sphere reduction of 4%.",
+    "paper_id": "1907"
+  },
+  {
+    "section": "appendixanoisetest",
+    "path": {
+      "section": "appendixanoisetest",
+      "start_entity": "NoiseTest",
+      "end_entity": "Probability",
+      "hops": [
+        {
+          "from": "NoiseTest",
+          "relation": "uses",
+          "to": "DepolarizationChannel",
+          "context": "In our shot-based simulation, we introduce a depolarization channel after each unitary.",
+          "chunk": "6"
+        },
+        {
+          "from": "DepolarizationChannel",
+          "relation": "parameterizedBy",
+          "to": "Lambda",
+          "context": "We set lambda to 0.04, which corresponds geometrically to a uniform Bloch sphere reduction of 4%.",
+          "chunk": "6"
+        },
+        {
+          "from": "Lambda",
+          "relation": "type",
+          "to": "Probability",
+          "context": "We set lambda to 0.04, which corresponds geometrically to a uniform Bloch sphere reduction of 4%.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the context of quantum computing simulations described in the section 'appendixanoisetest', what is the significance of setting the parameter lambda to 0.04 in the depolarization channel?",
+    "options": {
+      "A": "It ensures a 4% increase in the fidelity of the quantum state post-operation.",
+      "B": "It corresponds to a geometric reduction by 4% in the uniformity of the Bloch sphere.",
+      "C": "It represents a 4% error rate in the quantum gates due to noise effects.",
+      "D": "It indicates a 96% probability of maintaining the original quantum state in each operation."
+    },
+    "correct_answer": "B",
+    "explanation": "The setting of lambda to 0.04 in the depolarization channel corresponds to a uniform reduction of 4% on the Bloch sphere, which is a way to geometrically represent the effect of noise in a quantum system. This reduction describes how the quantum states are uniformly less distinct or 'spread out' due to the noise introduced by the depolarization.",
+    "path_description": "Path: NoiseTest --[uses]--> DepolarizationChannel --[parameterizedBy]--> Lambda --[type]--> Probability",
+    "context": "In our shot-based simulation, we introduce a depolarization channel after each unitary. | We set lambda to 0.04, which corresponds geometrically to a uniform Bloch sphere reduction of 4%. | We set lambda to 0.04, which corresponds geometrically to a uniform Bloch sphere reduction of 4%.",
+    "paper_id": "1907"
+  },
+  {
+    "section": "appendixanoisetest",
+    "path": {
+      "section": "appendixanoisetest",
+      "start_entity": "IsingChain",
+      "end_entity": "Lambda",
+      "hops": [
+        {
+          "from": "IsingChain",
+          "relation": "evaluatedOn",
+          "to": "NoiseTest",
+          "context": "The predictive capabilities shown in Fig. 6 on the Ising chain demonstrate that our model is robust to some amount of depolarizing noise.",
+          "chunk": "6"
+        },
+        {
+          "from": "NoiseTest",
+          "relation": "uses",
+          "to": "DepolarizationChannel",
+          "context": "In our shot-based simulation, we introduce a depolarization channel after each unitary.",
+          "chunk": "6"
+        },
+        {
+          "from": "DepolarizationChannel",
+          "relation": "parameterizedBy",
+          "to": "Lambda",
+          "context": "We set lambda to 0.04, which corresponds geometrically to a uniform Bloch sphere reduction of 4%.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the context of the Ising chain evaluated in the NoiseTest, what does a lambda value of 0.04 in the depolarization channel indicate?",
+    "options": {
+      "A": "It denotes a 40% error rate introduced to the quantum state during each iteration of the simulation.",
+      "B": "It signifies a 96% survival rate of the original quantum state's information after the noise is applied.",
+      "C": "It represents a 4% increase in the quantum state's fidelity compared to its initial state.",
+      "D": "It indicates a 4% reduction uniformly across the Bloch sphere, affecting the quantum state's purity."
+    },
+    "correct_answer": "D",
+    "explanation": "Lambda in the context of a depolarization channel describes the strength of noise impacting the quantum state. Specifically, a lambda of 0.04 translates to a uniform reduction by 4% across all axes of the Bloch sphere, which directly correlates with a decrease in the state's purity.",
+    "path_description": "Path: IsingChain --[evaluatedOn]--> NoiseTest --[uses]--> DepolarizationChannel --[parameterizedBy]--> Lambda",
+    "context": "The predictive capabilities shown in Fig. 6 on the Ising chain demonstrate that our model is robust to some amount of depolarizing noise. | In our shot-based simulation, we introduce a depolarization channel after each unitary. | We set lambda to 0.04, which corresponds geometrically to a uniform Bloch sphere reduction of 4%.",
+    "paper_id": "1907"
+  }
+]

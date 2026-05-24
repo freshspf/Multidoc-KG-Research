@@ -1,0 +1,45 @@
+[
+  {
+    "section": "cibuilddigitaltwincbdt",
+    "path": {
+      "section": "cibuilddigitaltwincbdt",
+      "start_entity": "Build_Pulse",
+      "end_entity": "System",
+      "hops": [
+        {
+          "from": "Build_Pulse",
+          "relation": "collectsDataFrom",
+          "to": "CI_Build_Process",
+          "context": "First, data collection tools (in Build Pulse) continuously observe the AT via webhook events.",
+          "chunk": "2"
+        },
+        {
+          "from": "CI_Build_Process",
+          "relation": "includes",
+          "to": "Version_Control_System",
+          "context": "In organizations, this AT mainly encompasses the Version Control System (VCS) and the associated CI Platform.",
+          "chunk": "2"
+        },
+        {
+          "from": "Version_Control_System",
+          "relation": "type",
+          "to": "System",
+          "context": "In organizations, this AT mainly encompasses the Version Control System (VCS) and the associated CI Platform.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the context of building a digital twin for continuous integration (CI) environments, how does the Build Pulse tool directly enhance the management of the CI build process?",
+    "options": {
+      "A": "By providing real-time updates to the CI platform, independent of the Version Control System.",
+      "B": "By implementing changes directly into the Version Control System to improve build efficiency.",
+      "C": "By collecting data from the CI build process, specifically focusing on interactions with the Version Control System.",
+      "D": "By monitoring the output of the Version Control System to predict future build failures."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A because Build Pulse collects data from the CI build process, which includes interactions with the Version Control System, thus enhancing management by providing data-driven insights.",
+    "path_description": "Path: Build_Pulse --[collectsDataFrom]--> CI_Build_Process --[includes]--> Version_Control_System --[type]--> System",
+    "context": "First, data collection tools (in Build Pulse) continuously observe the AT via webhook events. | In organizations, this AT mainly encompasses the Version Control System (VCS) and the associated CI Platform. | In organizations, this AT mainly encompasses the Version Control System (VCS) and the associated CI Platform.",
+    "paper_id": "301"
+  }
+]

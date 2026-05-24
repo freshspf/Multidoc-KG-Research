@@ -1,0 +1,88 @@
+[
+  {
+    "section": "methods2",
+    "path": {
+      "section": "methods2",
+      "start_entity": "Itinerario",
+      "end_entity": "StorageSystem",
+      "hops": [
+        {
+          "from": "Itinerario",
+          "relation": "partOf",
+          "to": "UnderlandscapeProject",
+          "context": "Itinerario—a MultiLineString feature defining a recommended route for exploring the area, intended for tourism and valorization purposes.",
+          "chunk": "2"
+        },
+        {
+          "from": "UnderlandscapeProject",
+          "relation": "uses",
+          "to": "GitRepository",
+          "context": "All datasets generated within the Underlandscape project are stored in a single Git repository hosted on GitHub.",
+          "chunk": "2"
+        },
+        {
+          "from": "GitRepository",
+          "relation": "type",
+          "to": "StorageSystem",
+          "context": "All datasets generated within the Underlandscape project are stored in a single Git repository hosted on GitHub.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "What type of storage system is utilized by the Underlandscape Project to manage and store the Itinerario data, a MultiLineString feature recommended for tourism?",
+    "options": {
+      "A": "Cloud-based storage services such as Google Drive or Dropbox, shared publicly",
+      "B": "A proprietary software specific to the Underlandscape Project for data storage",
+      "C": "A local server system that directly connects to the tourism department's database",
+      "D": "A Git repository hosted on GitHub, designed for managing and storing diverse datasets"
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A because the Itinerario, which is part of the Underlandscape Project, is stored in a Git repository hosted on GitHub, as indicated by the knowledge graph path. This repository acts as a Storage System for the project's datasets, including the Itinerario.",
+    "path_description": "Path: Itinerario --[partOf]--> UnderlandscapeProject --[uses]--> GitRepository --[type]--> StorageSystem",
+    "context": "Itinerario—a MultiLineString feature defining a recommended route for exploring the area, intended for tourism and valorization purposes. | All datasets generated within the Underlandscape project are stored in a single Git repository hosted on GitHub. | All datasets generated within the Underlandscape project are stored in a single Git repository hosted on GitHub.",
+    "paper_id": "283"
+  },
+  {
+    "section": "methods1",
+    "path": {
+      "section": "methods1",
+      "start_entity": "UnderlandscapeProject",
+      "end_entity": "GeoJSONFeature",
+      "hops": [
+        {
+          "from": "UnderlandscapeProject",
+          "relation": "produces",
+          "to": "UnderlandscapeDataset",
+          "context": "Each file—referred to as an Underlandscape dataset—contains a single GeoJSON FeatureCollection.",
+          "chunk": "1"
+        },
+        {
+          "from": "UnderlandscapeDataset",
+          "relation": "contains",
+          "to": "FeatureCollection",
+          "context": "Each file—referred to as an Underlandscape dataset—contains a single GeoJSON FeatureCollection.",
+          "chunk": "1"
+        },
+        {
+          "from": "FeatureCollection",
+          "relation": "contains",
+          "to": "GeoJSONFeature",
+          "context": "By definition, a FeatureCollection contains an array of GeoJSON features.",
+          "chunk": "1"
+        }
+      ]
+    },
+    "question": "In the context of the Underlandscape Project described in 'methods1', what is the correct hierarchical relationship of data formats and entities involved?",
+    "options": {
+      "A": "The Underlandscape Project develops a FeatureCollection directly that comprises several Underlandscape Datasets each described as a GeoJSON Feature.",
+      "B": "The Underlandscape Project produces an Underlandscape Dataset, which contains a FeatureCollection of multiple GeoJSON Features.",
+      "C": "The Underlandscape Project outputs multiple Underlandscape Datasets, each containing separate FeatureCollections integrated into a single GeoJSON Feature.",
+      "D": "The Underlandscape Project produces an Underlandscape Dataset, which contains a FeatureCollection composed of a single GeoJSON Feature."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct hierarchy as per the 'methods1' section and the knowledge graph path is: The Underlandscape Project produces an Underlandscape Dataset, within which there is a FeatureCollection that in turn contains a single GeoJSON Feature, not multiple. Options A, B, and C are incorrect as they misrepresent the number of GeoJSON features or the relationship between the entities.",
+    "path_description": "Path: UnderlandscapeProject --[produces]--> UnderlandscapeDataset --[contains]--> FeatureCollection --[contains]--> GeoJSONFeature",
+    "context": "Each file—referred to as an Underlandscape dataset—contains a single GeoJSON FeatureCollection. | Each file—referred to as an Underlandscape dataset—contains a single GeoJSON FeatureCollection. | By definition, a FeatureCollection contains an array of GeoJSON features.",
+    "paper_id": "283"
+  }
+]

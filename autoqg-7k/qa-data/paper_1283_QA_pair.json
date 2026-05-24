@@ -1,0 +1,303 @@
+[
+  {
+    "section": "introduction2",
+    "path": {
+      "section": "introduction2",
+      "start_entity": "OffloadingRate",
+      "end_entity": "ComputationalPhase",
+      "hops": [
+        {
+          "from": "OffloadingRate",
+          "relation": "controlledBy",
+          "to": "Adrenaline",
+          "context": "the offloading strategy needs to be flexible",
+          "chunk": "2"
+        },
+        {
+          "from": "Adrenaline",
+          "relation": "offloadsTasksFrom",
+          "to": "DecodingPhase",
+          "context": "Adrenaline disaggregates and offloads part of attention computation in the decoding phase",
+          "chunk": "2"
+        },
+        {
+          "from": "DecodingPhase",
+          "relation": "type",
+          "to": "ComputationalPhase",
+          "context": "offloads part of attention computation in the decoding phase",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the process of task offloading strategy described, what primarily controls the rate at which tasks are offloaded from the decoding phase of attention computation?",
+    "options": {
+      "A": "The flexibility of the offloading strategy, adjusting to different computational phases automatically.",
+      "B": "The type of computational tasks being handled in the decoding phase, influencing offloading necessity.",
+      "C": "The level of adrenaline, which disaggregates and manages the offloading of computational tasks.",
+      "D": "The complexity of the decoding phase, determining the volume and type of tasks to be offloaded."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A because the knowledge path indicates that the 'OffloadingRate' is controlled by 'Adrenaline,' which in turn offloads tasks from the 'DecodingPhase' that is a type of 'ComputationalPhase.' This implies that adrenaline plays a key role in regulating how tasks are offloaded in this specific phase of computation.",
+    "path_description": "Path: OffloadingRate --[controlledBy]--> Adrenaline --[offloadsTasksFrom]--> DecodingPhase --[type]--> ComputationalPhase",
+    "context": "the offloading strategy needs to be flexible | Adrenaline disaggregates and offloads part of attention computation in the decoding phase | offloads part of attention computation in the decoding phase",
+    "paper_id": "1813"
+  },
+  {
+    "section": "introduction2",
+    "path": {
+      "section": "introduction2",
+      "start_entity": "OffloadingRate",
+      "end_entity": "AttentionStall",
+      "hops": [
+        {
+          "from": "OffloadingRate",
+          "relation": "controlledBy",
+          "to": "Adrenaline",
+          "context": "the offloading strategy needs to be flexible",
+          "chunk": "2"
+        },
+        {
+          "from": "Adrenaline",
+          "relation": "posesChallenges",
+          "to": "AttentionSynchronization",
+          "context": "However, several challenges arise in achieving attention disaggregation and offloading",
+          "chunk": "2"
+        },
+        {
+          "from": "AttentionSynchronization",
+          "relation": "causes",
+          "to": "AttentionStall",
+          "context": "Any delay in this synchronization can lead to attention stall in each transformer layer",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the context of attention disaggregation and offloading strategies, which factor is primarily responsible for controlling the rate of offloading that consequently poses challenges in attention synchronization leading to attention stalls?",
+    "options": {
+      "A": "The inherent complexity of transformer layers in neural networks",
+      "B": "The efficiency of parallel processing in handling large data sets",
+      "C": "The flexibility of the offloading strategy to adapt to various computational needs",
+      "D": "The speed of data transmission between different network layers"
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A because the paper highlights that the offloading strategy needs to be flexible to effectively manage the synchronization of attention, which is controlled by adrenaline levels. Any delay or inefficiency in this process can lead to attention stalls, as mentioned in the knowledge path.",
+    "path_description": "Path: OffloadingRate --[controlledBy]--> Adrenaline --[posesChallenges]--> AttentionSynchronization --[causes]--> AttentionStall",
+    "context": "the offloading strategy needs to be flexible | However, several challenges arise in achieving attention disaggregation and offloading | Any delay in this synchronization can lead to attention stall in each transformer layer",
+    "paper_id": "1813"
+  },
+  {
+    "section": "backgroundandmotivation1",
+    "path": {
+      "section": "backgroundandmotivation1",
+      "start_entity": "Adrenaline",
+      "end_entity": "InferencePhase",
+      "hops": [
+        {
+          "from": "Adrenaline",
+          "relation": "comparedWith",
+          "to": "PDDisaggregation",
+          "context": "Comparison of original PD disaggregation and Adrenaline (decoding batch size: 𝑀 v.s. 𝑀 + 𝑁).",
+          "chunk": "3"
+        },
+        {
+          "from": "PDDisaggregation",
+          "relation": "improves",
+          "to": "PrefillPhase",
+          "context": "PD disaggregation effectively eliminates the performance interference of the two phases and enables flexible scaling of GPU resources for each phase on demand.",
+          "chunk": "3"
+        },
+        {
+          "from": "PrefillPhase",
+          "relation": "type",
+          "to": "InferencePhase",
+          "context": "LLM inference proceeds through two sequential phases: the prefill and decoding phases.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the context of LLM inference, how does the comparison of original PD disaggregation and Adrenaline influence the Prefill Phase?",
+    "options": {
+      "A": "Adrenaline increases the decoding capacity during the Prefill Phase, unlike PD disaggregation.",
+      "B": "Adrenaline, compared with PD disaggregation, significantly reduces the computational load during the Prefill Phase.",
+      "C": "Adrenaline enables the elimination of the Prefill Phase entirely, compared to traditional PD disaggregation.",
+      "D": "Adrenaline, compared with PD disaggregation, allows for flexible GPU resource scaling specifically in the Prefill Phase."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A. The paper describes how PD disaggregation effectively eliminates performance interference between phases and allows for flexible scaling of GPU resources on demand. The comparison with Adrenaline suggests that this flexibility specifically benefits the Prefill Phase, enabling better resource allocation during this phase.",
+    "path_description": "Path: Adrenaline --[comparedWith]--> PDDisaggregation --[improves]--> PrefillPhase --[type]--> InferencePhase",
+    "context": "Comparison of original PD disaggregation and Adrenaline (decoding batch size: 𝑀 v.s. 𝑀 + 𝑁). | PD disaggregation effectively eliminates the performance interference of the two phases and enables flexible scaling of GPU resources for each phase on demand. | LLM inference proceeds through two sequential phases: the prefill and decoding phases.",
+    "paper_id": "1813"
+  },
+  {
+    "section": "theadrenalinedesign3",
+    "path": {
+      "section": "theadrenalinedesign3",
+      "start_entity": "Adrenaline",
+      "end_entity": "PerformanceMetric",
+      "hops": [
+        {
+          "from": "Adrenaline",
+          "relation": "partitions",
+          "to": "SMs",
+          "context": "The key idea is to partition SMs according to the TTFT SLO.",
+          "chunk": "7"
+        },
+        {
+          "from": "SMs",
+          "relation": "affects",
+          "to": "Prefill_Latency",
+          "context": "With the decrease of used SMs, the prefill latency increases at a sub-linear level.",
+          "chunk": "7"
+        },
+        {
+          "from": "Prefill_Latency",
+          "relation": "type",
+          "to": "PerformanceMetric",
+          "context": "We constrain the SM cores and evaluate the prefill latency with the Llama-2 7B mode.",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "In the context of the adrenaline design, how does the partitioning of SMs according to the TTFT SLO influence system performance?",
+    "options": {
+      "A": "It increases the prefill latency at a sub-linear level, potentially degrading the performance metric.",
+      "B": "It decreases the prefill latency linearly, thus enhancing the overall system performance.",
+      "C": "It directly improves the prefill latency, leading to a better performance metric.",
+      "D": "It has no significant impact on prefill latency or the performance of the system."
+    },
+    "correct_answer": "A",
+    "explanation": "The paper specifies that partitioning SMs according to the TTFT SLO leads to an increase in prefill latency at a sub-linear level. This increasing latency, as a type of performance metric, suggests a potential degradation in system performance, aligning with option B.",
+    "path_description": "Path: Adrenaline --[partitions]--> SMs --[affects]--> Prefill_Latency --[type]--> PerformanceMetric",
+    "context": "The key idea is to partition SMs according to the TTFT SLO. | With the decrease of used SMs, the prefill latency increases at a sub-linear level. | We constrain the SM cores and evaluate the prefill latency with the Llama-2 7B mode.",
+    "paper_id": "1813"
+  },
+  {
+    "section": "theadrenalinedesign4",
+    "path": {
+      "section": "theadrenalinedesign4",
+      "start_entity": "LoadAwareOffloadingSchedulingAlgorithm",
+      "end_entity": "ResourceType",
+      "hops": [
+        {
+          "from": "LoadAwareOffloadingSchedulingAlgorithm",
+          "relation": "usedFor",
+          "to": "OffloadingRatio",
+          "context": "Algorithm 1 Load-aware Offloading Scheduling Algorithm...",
+          "chunk": "8"
+        },
+        {
+          "from": "OffloadingRatio",
+          "relation": "hasUpperBound",
+          "to": "ComputeResources",
+          "context": "The upper bound of the offloading ratio in terms of compute resources can be calculated as...",
+          "chunk": "8"
+        },
+        {
+          "from": "ComputeResources",
+          "relation": "type",
+          "to": "ResourceType",
+          "context": "The upper bound of the offloading ratio in terms of compute resources can be calculated as...",
+          "chunk": "8"
+        }
+      ]
+    },
+    "question": "In the context of a Load-aware Offloading Scheduling Algorithm, which resource type is typically considered as the upper bound for the offloading ratio calculation?",
+    "options": {
+      "A": "Network bandwidth availability, as it directly impacts the data transmission rates",
+      "B": "CPU processing power, as it directly correlates with the ability to handle computational tasks",
+      "C": "Storage capacity, as it determines the amount of data that can be temporarily held",
+      "D": "GPU acceleration capabilities, as it enhances the processing speed of offloaded tasks"
+    },
+    "correct_answer": "B",
+    "explanation": "The question requires understanding the role of compute resources in the Load-aware Offloading Scheduling Algorithm. The offloading ratio's upper bound is primarily influenced by the CPU's processing power, as it is crucial for handling computational tasks in offloading scenarios.",
+    "path_description": "Path: LoadAwareOffloadingSchedulingAlgorithm --[usedFor]--> OffloadingRatio --[hasUpperBound]--> ComputeResources --[type]--> ResourceType",
+    "context": "Algorithm 1 Load-aware Offloading Scheduling Algorithm... | The upper bound of the offloading ratio in terms of compute resources can be calculated as... | The upper bound of the offloading ratio in terms of compute resources can be calculated as...",
+    "paper_id": "1813"
+  },
+  {
+    "section": "theadrenalinedesign4",
+    "path": {
+      "section": "theadrenalinedesign4",
+      "start_entity": "LoadAwareOffloadingSchedulingAlgorithm",
+      "end_entity": "ResourceType",
+      "hops": [
+        {
+          "from": "LoadAwareOffloadingSchedulingAlgorithm",
+          "relation": "usedFor",
+          "to": "OffloadingRatio",
+          "context": "Algorithm 1 Load-aware Offloading Scheduling Algorithm...",
+          "chunk": "8"
+        },
+        {
+          "from": "OffloadingRatio",
+          "relation": "hasUpperBound",
+          "to": "MemoryResources",
+          "context": "The upper bound of the offloading ratio in terms of memory resources...",
+          "chunk": "8"
+        },
+        {
+          "from": "MemoryResources",
+          "relation": "type",
+          "to": "ResourceType",
+          "context": "The upper bound of the offloading ratio in terms of memory resources...",
+          "chunk": "8"
+        }
+      ]
+    },
+    "question": "In the context of the Load-aware Offloading Scheduling Algorithm, why is the offloading ratio's upper bound essential in determining the type of resource most impacted?",
+    "options": {
+      "A": "It controls the network bandwidth utilization to avoid congestion, targeting network resources.",
+      "B": "It caps the data storage capacities, directly affecting the storage resources available on cloud services.",
+      "C": "It limits the processing power usage to ensure energy efficiency, primarily focusing on CPU resources.",
+      "D": "It identifies the maximum extent to which tasks can be offloaded based on available memory resources, which are critical in computational environments."
+    },
+    "correct_answer": "D",
+    "explanation": "The question hinges on understanding that the upper bound of the offloading ratio specifically pertains to memory resources (as per the knowledge path). This implies that the type of resource most impacted by this upper bound is memory resources, essential in computational tasks offloading, rather than processing power, network bandwidth, or storage capacities.",
+    "path_description": "Path: LoadAwareOffloadingSchedulingAlgorithm --[usedFor]--> OffloadingRatio --[hasUpperBound]--> MemoryResources --[type]--> ResourceType",
+    "context": "Algorithm 1 Load-aware Offloading Scheduling Algorithm... | The upper bound of the offloading ratio in terms of memory resources... | The upper bound of the offloading ratio in terms of memory resources...",
+    "paper_id": "1813"
+  },
+  {
+    "section": "evaluation1",
+    "path": {
+      "section": "evaluation1",
+      "start_entity": "Adrenaline",
+      "end_entity": "Metric",
+      "hops": [
+        {
+          "from": "Adrenaline",
+          "relation": "basedOn",
+          "to": "vLLM",
+          "context": "Adrenaline is implemented based on vLLM, which is a widely used open-source LLM inference framework.",
+          "chunk": "10"
+        },
+        {
+          "from": "vLLM",
+          "relation": "uses",
+          "to": "TTFT",
+          "context": "Note that the TTFT in the PD disaggregation version of vLLM includes the time to transfer the KV cache from the prefill to the decoding instance.",
+          "chunk": "10"
+        },
+        {
+          "from": "TTFT",
+          "relation": "type",
+          "to": "Metric",
+          "context": "In the evaluation, TTFT and TPOT are respectively used to measure the prefill and decoding latency.",
+          "chunk": "10"
+        }
+      ]
+    },
+    "question": "In the context of evaluating the performance of the Adrenaline system, which was based on the vLLM framework, what does the metric TTFT primarily measure?",
+    "options": {
+      "A": "TTFT measures the total time taken for the Adrenaline system to fully reboot and reset its parameters.",
+      "B": "TTFT measures the latency from the initial query input to the final output generation in the Adrenaline system.",
+      "C": "TTFT measures the time required to transfer the KV cache from the prefill to the decoding instance in the PD disaggregation version of vLLM.",
+      "D": "TTFT measures the total computational time taken by the vLLM framework to process a single task in the Adrenaline system."
+    },
+    "correct_answer": "C",
+    "explanation": "TTFT in the PD disaggregation version of vLLM specifically measures the time to transfer the KV cache from the prefill to the decoding instance, as indicated in the context provided. Options B, C, and D are not supported by the given context and do not accurately describe the function of TTFT in this specific implementation.",
+    "path_description": "Path: Adrenaline --[basedOn]--> vLLM --[uses]--> TTFT --[type]--> Metric",
+    "context": "Adrenaline is implemented based on vLLM, which is a widely used open-source LLM inference framework. | Note that the TTFT in the PD disaggregation version of vLLM includes the time to transfer the KV cache from the prefill to the decoding instance. | In the evaluation, TTFT and TPOT are respectively used to measure the prefill and decoding latency.",
+    "paper_id": "1813"
+  }
+]

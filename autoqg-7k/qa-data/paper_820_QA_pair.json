@@ -1,0 +1,45 @@
+[
+  {
+    "section": "modelevaluation",
+    "path": {
+      "section": "modelevaluation",
+      "start_entity": "AnomalyDetectionModels",
+      "end_entity": "DataPoint",
+      "hops": [
+        {
+          "from": "AnomalyDetectionModels",
+          "relation": "evaluatedOn",
+          "to": "MissionTelemetry",
+          "context": "The models are applied on mission telemetry from Sol 3815 to Sol 3934.",
+          "chunk": "4"
+        },
+        {
+          "from": "MissionTelemetry",
+          "relation": "partOf",
+          "to": "Sol3934",
+          "context": "The models are applied on mission telemetry from Sol 3815 to Sol 3934.",
+          "chunk": "4"
+        },
+        {
+          "from": "Sol3934",
+          "relation": "type",
+          "to": "DataPoint",
+          "context": "The models are applied on mission telemetry from Sol 3815 to Sol 3934.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "Which type of data was used to evaluate anomaly detection models in the 'modelevaluation' section of the paper?",
+    "options": {
+      "A": "Real-time data feeds from mission operations beyond Sol 3934",
+      "B": "Summary statistics derived from Sol 3815 to Sol 3934 mission data",
+      "C": "Data points from mission telemetry specific to Sol 3934",
+      "D": "General telemetry data collected throughout the entire mission duration"
+    },
+    "correct_answer": "C",
+    "explanation": "The anomaly detection models were evaluated on mission telemetry that was part of Sol 3934, specifically classified as a data point in this context. Options B, C, and D either generalize beyond the specific Sol or incorrectly specify the type or time frame of the data used.",
+    "path_description": "Path: AnomalyDetectionModels --[evaluatedOn]--> MissionTelemetry --[partOf]--> Sol3934 --[type]--> DataPoint",
+    "context": "The models are applied on mission telemetry from Sol 3815 to Sol 3934. | The models are applied on mission telemetry from Sol 3815 to Sol 3934. | The models are applied on mission telemetry from Sol 3815 to Sol 3934.",
+    "paper_id": "283"
+  }
+]

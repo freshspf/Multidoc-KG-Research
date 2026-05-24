@@ -1,0 +1,131 @@
+[
+  {
+    "section": "proposedmethod",
+    "path": {
+      "section": "proposedmethod",
+      "start_entity": "L_UpdateStep",
+      "end_entity": "MathematicalFunction",
+      "hops": [
+        {
+          "from": "L_UpdateStep",
+          "relation": "partOf",
+          "to": "ADMM",
+          "context": "Here, we have 3 update steps corresponding to the primal variables L, B, and A, and one update step for the dual variable Y.",
+          "chunk": "2"
+        },
+        {
+          "from": "ADMM",
+          "relation": "appliedTo",
+          "to": "LagrangianFunction",
+          "context": "Now, we use a variant of the ADMM method to solve problem (3) by alternating minimization of the augmented Lagrangian function.",
+          "chunk": "2"
+        },
+        {
+          "from": "LagrangianFunction",
+          "relation": "type",
+          "to": "MathematicalFunction",
+          "context": "By relaxing the constraint L = ⊤ ⊤, the augmented Lagrangian function yields as...",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the context of the ADMM method applied to the augmented Lagrangian function, what type of mathematical function does the Lagrangian represent after relaxing the constraint L = ⊤ ⊤?",
+    "options": {
+      "A": "A function that minimizes the primal and dual variables through an iterative process",
+      "B": "A function that provides a scalar value representing the status of variable optimization",
+      "C": "A function that maximizes the constraints applied to the primal and dual variables",
+      "D": "A function that linearly combines the primal and dual variables for optimization"
+    },
+    "correct_answer": "A",
+    "explanation": "The augmented Lagrangian function in ADMM, especially after relaxing constraints like L = ⊤ ⊤, acts as a mathematical function that minimizes both primal and dual variables iteratively. This is characteristic of how ADMM leverages the Lagrangian to iteratively update variables for optimization, aiming to minimize the overall objective function.",
+    "path_description": "Path: L_UpdateStep --[partOf]--> ADMM --[appliedTo]--> LagrangianFunction --[type]--> MathematicalFunction",
+    "context": "Here, we have 3 update steps corresponding to the primal variables L, B, and A, and one update step for the dual variable Y. | Now, we use a variant of the ADMM method to solve problem (3) by alternating minimization of the augmented Lagrangian function. | By relaxing the constraint L = ⊤ ⊤, the augmented Lagrangian function yields as...",
+    "paper_id": "298"
+  },
+  {
+    "section": "appendixaproofoflemma",
+    "path": {
+      "section": "appendixaproofoflemma",
+      "start_entity": "mk",
+      "end_entity": "Matrix",
+      "hops": [
+        {
+          "from": "mk",
+          "relation": "isSubvectorOf",
+          "to": "m",
+          "context": "and mk = mr+1:p",
+          "chunk": "5"
+        },
+        {
+          "from": "m",
+          "relation": "isDiagonalOf",
+          "to": "M",
+          "context": "m = diag(M)",
+          "chunk": "5"
+        },
+        {
+          "from": "M",
+          "relation": "type",
+          "to": "Matrix",
+          "context": "Let M= L+ ρY",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the context of matrix operations as described in the section 'appendixaproofoflemma', what is the relationship between mk and M?",
+    "options": {
+      "A": "mk is the result of a matrix multiplication between the matrix M and a vector m.",
+      "B": "mk is a scalar multiple of the matrix M, particularly involving the diagonal vector m.",
+      "C": "mk is a matrix that results from adding the diagonal entries of M to the matrix L.",
+      "D": "mk is a subvector derived from a diagonal vector m, which itself is derived from the matrix M."
+    },
+    "correct_answer": "D",
+    "explanation": "The relationship starts with mk being a subvector of m, where m is defined as the diagonal vector (diag(M)) of the matrix M. Thus, mk is indirectly derived from the diagonal elements of the matrix M, making option A the correct answer. Options B, C, and D suggest incorrect relationships between mk, m, and M.",
+    "path_description": "Path: mk --[isSubvectorOf]--> m --[isDiagonalOf]--> M --[type]--> Matrix",
+    "context": "and mk = mr+1:p | m = diag(M) | Let M= L+ ρY",
+    "paper_id": "298"
+  },
+  {
+    "section": "appendixbsimplexprojectionoperator",
+    "path": {
+      "section": "appendixbsimplexprojectionoperator",
+      "start_entity": "matrixH",
+      "end_entity": "fBFunction",
+      "hops": [
+        {
+          "from": "matrixH",
+          "relation": "composedOf",
+          "to": "matrixP0",
+          "context": "where H = P0 + R",
+          "chunk": "6"
+        },
+        {
+          "from": "matrixP0",
+          "relation": "partOf",
+          "to": "majorizationFunction",
+          "context": "where P0 = p + n ν (cid:88) hi + tr(G B0 i (G Ai) (A)) + ν",
+          "chunk": "6"
+        },
+        {
+          "from": "majorizationFunction",
+          "relation": "proposedFor",
+          "to": "fBFunction",
+          "context": "Thus, we may propose a majorization function for fB(B)",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the process of proposing a majorization function for the fB function, what component of matrixH is directly involved in constructing the majorization function?",
+    "options": {
+      "A": "The component R, which represents the residual values not captured by matrixP0.",
+      "B": "The component p + n ν (cid:88) hi + tr(G B0 i (G Ai) (A)) + ν, which is actually matrixP0.",
+      "C": "The component tr(G B0 i (G Ai) (A)) alone, which focuses on the trace operations within matrixP0.",
+      "D": "The component ν, a scalar multiplication factor within matrixP0."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is B because matrixP0 is explicitly mentioned in the context as a sum of several terms, including p, n ν (cid:88) hi, and tr(G B0 i (G Ai) (A)) + ν. MatrixP0 is then used as a part of the majorization function proposed for the fB function, as indicated by the path: matrixH --[composedOf]--> matrixP0 --[partOf]--> majorizationFunction --[proposedFor]--> fBFunction. Hence, the entirety of matrixP0 contributes directly to the construction of the majorization function.",
+    "path_description": "Path: matrixH --[composedOf]--> matrixP0 --[partOf]--> majorizationFunction --[proposedFor]--> fBFunction",
+    "context": "where H = P0 + R | where P0 = p + n ν (cid:88) hi + tr(G B0 i (G Ai) (A)) + ν | Thus, we may propose a majorization function for fB(B)",
+    "paper_id": "298"
+  }
+]

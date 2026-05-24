@@ -1,0 +1,88 @@
+[
+  {
+    "section": "mereoverview1",
+    "path": {
+      "section": "mereoverview1",
+      "start_entity": "JieyuJiang",
+      "end_entity": "Zhihang",
+      "hops": [
+        {
+          "from": "JieyuJiang",
+          "relation": "coAuthoredWith",
+          "to": "XiaoxuanWang",
+          "context": "Dean You, Jieyu Jiang, Xiaoxuan Wang, Yushu Du, Zhihang.",
+          "chunk": "6"
+        },
+        {
+          "from": "XiaoxuanWang",
+          "relation": "coAuthoredWith",
+          "to": "YushuDu",
+          "context": "Dean You, Jieyu Jiang, Xiaoxuan Wang, Yushu Du, Zhihang.",
+          "chunk": "6"
+        },
+        {
+          "from": "YushuDu",
+          "relation": "coAuthoredWith",
+          "to": "Zhihang",
+          "context": "Dean You, Jieyu Jiang, Xiaoxuan Wang, Yushu Du, Zhihang.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the collaborative network described, which individual is NOT directly connected to Jieyu Jiang through a single co-authorship?",
+    "options": {
+      "A": "Yushu Du, who co-authored with Xiaoxuan Wang, who in turn co-authored with Jieyu Jiang",
+      "B": "Dean You, who frequently collaborates with Xiaoxuan Wang and Zhihang but not directly with Jieyu Jiang",
+      "C": "Zhihang, who is directly linked to Yushu Du, another direct co-author of Jieyu Jiang",
+      "D": "Xiaoxuan Wang, who has a direct co-authorship link with Jieyu Jiang"
+    },
+    "correct_answer": "B",
+    "explanation": "Following the knowledge graph path, it shows that Jieyu Jiang is directly connected to Xiaoxuan Wang, who is directly connected to Yushu Du, and Yushu Du is directly connected to Zhihang. Dean You, despite being mentioned in the context, does not have a direct co-authorship link with Jieyu Jiang in this path, making him the correct answer.",
+    "path_description": "Path: JieyuJiang --[coAuthoredWith]--> XiaoxuanWang --[coAuthoredWith]--> YushuDu --[coAuthoredWith]--> Zhihang",
+    "context": "Dean You, Jieyu Jiang, Xiaoxuan Wang, Yushu Du, Zhihang. | Dean You, Jieyu Jiang, Xiaoxuan Wang, Yushu Du, Zhihang. | Dean You, Jieyu Jiang, Xiaoxuan Wang, Yushu Du, Zhihang.",
+    "paper_id": "529"
+  },
+  {
+    "section": "enhancingrunaheadinmerewithadaptiverunahead3",
+    "path": {
+      "section": "enhancingrunaheadinmerewithadaptiverunahead3",
+      "start_entity": "Gamma",
+      "end_entity": "CacheStatus",
+      "hops": [
+        {
+          "from": "Gamma",
+          "relation": "contains",
+          "to": "Tau_i",
+          "context": "A sequence of memory accesses required by a given program.",
+          "chunk": "14"
+        },
+        {
+          "from": "Tau_i",
+          "relation": "hasStatus",
+          "to": "Theta_i",
+          "context": "Cache status (i.e., L1HIT, L2HIT, or L2MISS) of Tau_i with runahead.",
+          "chunk": "14"
+        },
+        {
+          "from": "Theta_i",
+          "relation": "type",
+          "to": "CacheStatus",
+          "context": "Cache status (i.e., L1HIT, L2HIT, or L2MISS) of Tau_i with runahead.",
+          "chunk": "14"
+        }
+      ]
+    },
+    "question": "In the context of enhancing runahead in memory execution using adaptive strategies, when a memory access sequence Gamma contains Tau_i that has a status Theta_i, what type of cache status would Theta_i most likely have with runahead?",
+    "options": {
+      "A": "Theta_i would most likely have a cache status of L1MISS, indicating a first-level cache miss.",
+      "B": "Theta_i would most likely have a cache status of L1HIT, indicating a first-level cache hit.",
+      "C": "Theta_i would most likely have a cache status of L2HIT, indicating a second-level cache hit.",
+      "D": "Theta_i would most likely have a cache status of L2MISS, indicating a second-level cache miss."
+    },
+    "correct_answer": "C",
+    "explanation": "Based on the knowledge graph and the context from the paper section, the cache status of Tau_i with runahead would typically show improved cache hits at higher levels due to adaptive runahead strategies. Hence, Theta_i would most likely have a cache status of L2HIT, indicating a second-level cache hit, which is a common result of effective runahead execution strategies that aim to prefetch data before it is needed by the processor.",
+    "path_description": "Path: Gamma --[contains]--> Tau_i --[hasStatus]--> Theta_i --[type]--> CacheStatus",
+    "context": "A sequence of memory accesses required by a given program. | Cache status (i.e., L1HIT, L2HIT, or L2MISS) of Tau_i with runahead. | Cache status (i.e., L1HIT, L2HIT, or L2MISS) of Tau_i with runahead.",
+    "paper_id": "529"
+  }
+]

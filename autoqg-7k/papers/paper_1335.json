@@ -1,0 +1,92 @@
+[
+  {
+    "id": "abstract",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Abstract",
+      "page_start": 1,
+      "page_end": 1
+    },
+    "text": "0\nComplex events (CEs) play a crucial role in CPS-IoT applications,\n2\n  enabling high-level decision-making in domains such as smart mon-\nr\nitoring and autonomous systems. However, most existing models\np\nfocus on short-span perception tasks, lacking the long-term reason-\nA  ing required for CE detection. CEs consist of sequences of short-\n \n5  time atomic events (AEs) governed by spatiotemporal dependencies.\n2 Detecting them is difficult due to long, noisy sensor data and the\n \n  challenge of filtering out irrelevant AEs while capturing meaning-\n]\nful patterns. This work explores CE detection as a case study for\nG CPS-IoT foundation models capable of long-term reasoning. We\nL evaluate three approaches: (1) leveraging large language models\n.\ns  (LLMs), (2) employing various neural architectures that learn CE\nc rules from data, and (3) adopting a neurosymbolic approach that\n[\n   integrates neural models with symbolic engines embedding human\n \nknowledge. Our results show that the state-space model, Mamba,\n2\nwhich belongs to the second category, outperforms all methods in\nv\naccuracy and generalization to longer, unseen sensor traces. These\n2\n8 findings suggest that state-space models could be a strong backbone\n2  for CPS-IoT foundation models for long-span reasoning tasks.\n2\n1 CCS Concepts\n.\n3  • Computingmethodologies→Machine learning; • Computer\n0 systems organization → Embedded and cyber-physical sys-\n5  tems; • Artificial intelligence →Knowledge representation\n2 and reasoning; Hybrid symbolic-numeric methods.\n:\nv\ni Keywords\nX CPS-IoT, Foundation Models, Complex Event Reasoning, LLMs,\nr\nState-space Models, Mamba, Neurosymbolic AI\na"
+  },
+  {
+    "id": "introduction",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Introduction",
+      "page_start": 1,
+      "page_end": 1
+    },
+    "text": "Current CPS-IoT applications excel in short-span perception tasks\nlike human activity recognition and object detection, which require\nonly a few seconds of sensor data. However, real-world scenarios\noften demand high-level contextual understanding over long peri-\nods for complex decision-making, a capability largely overlooked.\nFor instance, an elderly person wearing a smartwatch for continu-\nous health monitoring generates IMU data over hours. An 8-hour\nrecording at 100 Hz produces 2.88 million data points, making it cru-\ncial to efficiently compress and retain key information to identify\nlong-term, meaningful patterns related to health conditions.\nTo effectively capture these long-term patterns, it is useful to rep-\nresent them as Complex Events (CEs), which consist of sequences\nof short-time Atomic Events (AEs) governed by spatiotemporal\ndependencies. They are crucial for decision-making in CPS-IoT\napplications such as smart monitoring and autonomous systems\nthat require long-term contextual understanding, as illustrated in\nFig. 1(a) and (b). Detecting CEs is challenging for three reasons.\nFirst, themodel must identify relevant AEs while ignoring irrelevant\nones, increasing sequence-matching complexity. For instance, a san-\nitary protocol can be represented as “Use restroom→X→Wash\nhands→X→Eat,” where “X” includes irrelevant AEs like “walking”\nor “sitting,” complicating detection. Second, CEs involve long-term\ndependencies with varying temporal gaps, making it difficult to\nmodel temporal and logical rules accurately. Third, many CPS-IoT\napplications require online detection for real-time responses to\nsafety-critical events, necessitating efficient and accurate inference.\nTwo main approaches exist for CE detection. Data-driven meth-\nods use neural networks to learn patterns from data but struggle\nwith long-term dependencies due to fixed context windows or inef-\nficient memory mechanisms. For example, Recurrent Neural Net-\nworks (RNNs) and Transformers capture context through sequential\nprocessing and attention mechanisms but face memory fading and\ncomputational inefficiency over long durations. Recent advances in\nstate-space models (SSMs), such as Mamba [4, 8, 9], show promise\nby modeling event progression and capturing temporal dependen-\ncies. However, their effectiveness in noisy, high-dimensional sensor\ndata for CE detection remains unexplored.\nNeurosymbolic frameworks, as the second approach, combine\nneural networks with symbolic reasoning to leverage predefined\nrules for CE patterns, reducing the need for extensive labeled data."
+  },
+  {
+    "id": "relatedworks",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Related Works",
+      "page_start": 2,
+      "page_end": 2
+    },
+    "text": "Complex Event Detection (CED) has been extensively studied in\ntraditional stream processing for structured databases. Early works\n[3, 6, 18] employed event engines such as Finite State Machines\n(FSMs) to identify complex events based on predefined patterns.\nMore recently, research has shifted towards CED over unstruc-\ntured, high-dimensional data. Approaches such as [17, 21] integrate\nneural detectors with symbolic rule-based systems, enabling back-\npropagation through logical rules. However, these methods suf-\nfer from computational scalability issues. Moreover, most existing\napproaches focus on complex activities within short time spans\n[7, 10, 11], limiting their applicability to longer sensor traces with\nextended temporal dependencies.\nState-Space Models (SSMs) capture long-span temporal depen-\ndencies through state transitions, maintaining state representations\nthat implicitly encode temporal progression. Recent advances, such\n2\n\nHan et al.\nplace hygiene and alerts users of potential violations. (b) In a\ns, such as unusual parcel hand-offs, using distributed cameras.\nssing and CE labeling.\nas Mamba [4, 8, 9], show superior performance in long-term con-\ntextual understanding by using selection mechanisms to process\nsequences more efficiently and adaptively model different tempo-\nral dependencies. However, SSMs remain underexplored in noisy,\nhigh-dimensional sensor environments, particularly for long-span\ntemporal events in CPS-IoT applications."
+  },
+  {
+    "id": "onlinecomplexeventdetection",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Online Complex Event Detection",
+      "page_start": 2,
+      "page_end": 2
+    },
+    "text": "3.1  Complex Event Definitions\nDefinition 3.1. Atomic events (AEs) are short-duration, low-level\nevents that serve as building blocks for complex events. They occur\ninstantaneously or within a small time window and are directly\ndetectable by models like image classification, object detection, or\nactivity recognition.\nDefinition 3.2. Complex events (CEs) are high-level events defined\nas sequences or patterns of atomic events (AEs) occurring in specific\ntemporal or logical relationships.\nLet 𝐴 = 𝑎1, 𝑎2, . . . , 𝑎𝑛 be the set of all AEs, where each 𝑎𝑖 has a\nstart and end time. Similarly, let 𝐸 = 𝑒1, 𝑒2, . . . , 𝑒𝑘 be the set of all\nCEs of interest.\nEach complex event (CE) 𝑒𝑖 ∈ 𝐸 is defined as:\n1  2  𝑛𝑖\n𝑒𝑖 = 𝑅𝑖 (𝐴𝑖 ) = 𝑅𝑖 (𝑎𝑖 , 𝑎𝑖 , . . . , 𝑎  ),\n𝑖\nwhere 𝐴𝑖 ⊆ 𝐴 is the subset of AEs relevant to 𝑒𝑖 , 𝑅𝑖  is a pattern\nfunction defining the temporal or logical relationship among the\nAEs in 𝐴𝑖 , and 𝑛𝑖 = |𝐴𝑖 | is the number of AEs involved in defining\n𝑒𝑖 . Each 𝑒𝑖 has a time 𝑡𝑒𝑖 , which is the moment (or interval) when\nthe pattern 𝑅𝑖 is satisfied, indicating the occurrence of 𝑒𝑖 .\nPattern Function (𝑅𝑖 ) maps 𝐴𝑖 to 𝑒𝑖 by defining patterns among\nthe AEs. We consider four main categories, some of which include\nsubcategories:\n(1) Sequential Patterns: Relaxed Order – Key AEs must occur in\norder but may include unrelated AEs in between.\n(2) Temporal Patterns: (a) Duration Based – Measuring the dura-\ntion of specific AEs; (b) Timing Relationship – Capturing relative\ntiming constraints, such as min and max delays between AEs.\n(3) Repetition Patterns: (a) Frequency Based – Counting occur-\nrences of AEs over a time window; (b) Contextual Count – Count-\ning AEs relative to other AEs’ timing."
+  },
+  {
+    "id": "onlinecedpipelineoverview",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Online CED Pipeline Overview",
+      "page_start": 3,
+      "page_end": 3
+    },
+    "text": "We propose a two-module online processing system as shown in\nFig. 2. The system uses a non-overlapping sliding window of size\n𝑊 (5 seconds) to segment raw sensor streams into data segments\n𝑇\n{𝑠𝑡 }  , which are then processed by the following modules.\n𝑡=1\n4.1  Pretrained Feature Encoder\nThis module encodes each segment 𝑠𝑡  into a high-dimensional\nembedding vector 𝑣𝑡 , producing a sequence of embedding vec-\n𝑇\ntors {𝑣𝑡 }  . The encoder is pretrained to extract latent features\n𝑡=1"
+  },
+  {
+    "id": "exploringllmsascedetectors",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Exploring LLMs as CE Detectors",
+      "page_start": 4,
+      "page_end": 4
+    },
+    "text": "5.1  Simplified Task\nWe evaluate LLMs as the complex event detector 𝑔 using ground\ntruthAE sequences as inputs, replacing the encoder𝑚with a perfect\nAE classifier. This simplifies the CED task by hiding sensor noise\nto focus solely on CE reasoning. We further simplify by using only\nthree CE (𝑒1, 𝑒2, and 𝑒3). Each AE label represents the activity in\na 5-second window (e.g., [𝑤𝑎𝑙𝑘”,𝑤𝑎𝑙𝑘”, “𝑠𝑖𝑡”] means walking for\n10 seconds and then sitting). These events occur over 5-minute\nintervals, yielding 60 AE labels per example. LLMs also receive the\nCED task context and CE definitions from Table 1, and predict a CE\n1\nlabel every 5-second window. We evaluate 2,000 examples.\n5.2  Evaluation\n5.2.1  Metrics. We evaluate LLM performance using three metrics:\n• Length Accuracy: Measures the match rate between the length of\nthe predicted CE labels and input AE sequences in the “n-to-n\"\nsequence prediction task required for the Online CED task.\n• Conditional 𝐹1 Score: Calculates element-wise 𝐹1 score for com-\nplex event labels, assessing both event type and timing accuracy,\n1Prompts available: /r/LLM-CED-Prompts-CD6C/\n4\n\nHan et al.\nTable 2: Evaluation results of LLMs.\n𝐶𝑜𝑎𝑟𝑠𝑒 𝐹1  𝐶𝑜𝑛𝑑𝑖𝑡𝑖𝑜𝑛𝑎𝑙 𝐹1\n𝐿𝑒𝑛𝑔𝑡ℎ\n𝐴𝑐𝑐.  𝑒1  𝑒2  𝑒3  Avg.  𝑒1  𝑒2  𝑒3  Avg.\nZero-shot\nQwen2.5-14B  0.12  0.60 0.66 0.57 0.61  0.14 0.15 0.04 0.11\nGPT-4o-mini  0.04  0.0  0.0 0.64 0.21  0.0  0.0  0.0  0.0\nGPT-4o  0.12  0.87 0.78 0.80 0.82  0.14 0.59 0.03 0.25\no1-mini  0.13  0.78 0.84 0.80 0.80  0.0 0.72 0.02 0.25\no3-mini  0.33  0.90 0.85 0.88 0.87  0.05 0.78 0.24 0.35\nFew-shot (𝑘 = 3)\nQwen2.5-14B  0.14  0.62 0.66 0.60 0.63  0.13 0.13 0.03 0.10\nGPT-4o-mini  0.03  0.0  0.0 0.58 0.19  0.0  0.0  0.0  0.0\nGPT-4o  0.16  0.87 0.81 0.81 0.83  0.13 0.63 0.14 0.30\no1-mini  0.25  0.81 0.84 0.82 0.82  0.0 0.71 0.17 0.29\no3-mini  0.44  0.94 0.86 0.88 0.89  0.33 0.84 0.35 0.50\nconditioned on sequences with the correct length𝑇 and averaged\nover timestamps 1 to 𝑇 .\n• Coarse 𝐹1 Score: Evaluates CE labeling at a high level by checking\nif the correct event type is recognized within a 5-minute sample,\nwithout requiring a precise timestamp match.\nWe test LLMs on both zero-shot and few-shot tasks, with three input-\noutput examples included in the prompt for few-shot experiments.\n5.2.2  Results. We evaluated five SOTA LLM models on complex\nevents 1, 2, and 3, as shown in Table 2. All models performed poorly,\neven on the simplified CED task. The low length accuracy suggests\nhallucination in long-chain reasoning, as LLMs often generated se-\nquences between 55 and 65 labels instead of the required 60. Since\nthe 𝐹1 score cannot be computed when sequence lengths mismatch,\nwe calculated the conditional 𝐹1 score only for outputs with the cor-\nrect length. Among zero-shot models, o3-mini performed slightly\nbetter but remained unsatisfactory. We also computed the coarse\n𝐹1 score, which only evaluates whether a CE occurred within a\n5-minute window without requiring exact timing. In this relaxed\nsetting, LLMs showed significant improvement, suggesting they\ncan partially recognize CE patterns but struggle with precise timing.\nFew-shot examples improved performance for stronger reasoning\nmodels like o3-mini but had little effect on others, indicating that\no3-mini better utilizes CE examples for self-checking its understand-\ning. Although we did not evaluate o1 and o3 models, which may\nhave stronger reasoning abilities, their high cost and inference time\nmake them impractical for online CED, which requires frequent,\nlow-latency API requests. In summary, while LLMs show potential\nfor online CED, they suffer from hallucinations, poor long-chain\nreasoning, and high latency due to their transformer-based archi-\ntecture, leading to delays in real-time inference for longer sensor\ntraces."
+  },
+  {
+    "id": "neuralandneurosymbolicmethods",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Neural and Neurosymbolic Methods",
+      "page_start": 4,
+      "page_end": 4
+    },
+    "text": "Given the limitations of LLMs, we design and train various neural\nand neurosymbolic architectures as alternatives for the complex\nevent detector 𝑔 following some requirements."
+  },
+  {
+    "id": "conclusion",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Conclusion",
+      "page_start": 5,
+      "page_end": 5
+    },
+    "text": "We formalized the online CED task and developed a dataset in\na CPS-IoT scenario to evaluate various methods. Although LLMs\nshowed potential, they failed on the simplified CED task due to poor\nprecise reasoning over long temporal patterns. We then explored\nneural and neurosymbolic alternatives as CE detectors. The end-to-\nend Mamba model outperformed all others, demonstrating smaller"
+  },
+  {
+    "id": "acknowledgments",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Acknowledgments",
+      "page_start": 6,
+      "page_end": 6
+    },
+    "text": "This research was sponsored in part by the DEVCOM ARL (award\n# W911NF1720196), the AFOSR (awards # FA95502210193 and #\nFA95502310559), the NIH (award # 1P41EB028242), the NSF (award\n# 2325956), and the EOARD (award # FA8655-22-1-7017)."
+  }
+]

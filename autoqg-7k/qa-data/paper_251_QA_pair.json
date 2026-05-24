@@ -1,0 +1,88 @@
+[
+  {
+    "section": "method2",
+    "path": {
+      "section": "method2",
+      "start_entity": "T0",
+      "end_entity": "Module",
+      "hops": [
+        {
+          "from": "T0",
+          "relation": "resultOfSubtraction",
+          "to": "Bmin",
+          "context": "The final bounding box (T0) is given by: T0 = Bmax − Bmin.",
+          "chunk": "2"
+        },
+        {
+          "from": "Bmin",
+          "relation": "partOf",
+          "to": "WeakBoxModule",
+          "context": "Minimum Boundary Box (Bmin): Bmin = BoundingBox(dh, dw) ∈ [0, 1].",
+          "chunk": "2"
+        },
+        {
+          "from": "WeakBoxModule",
+          "relation": "type",
+          "to": "Module",
+          "context": "Technical details of the WeakBox Module.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the context of the WeakBox Module described in method2, how is the final bounding box T0 computed?",
+    "options": {
+      "A": "T0 is directly equal to the Minimum Boundary Box (Bmin), as it fits within the dimensional constraints of [0, 1].",
+      "B": "T0 is the average of the dimensions of the Minimum Boundary Box (Bmin) and the Maximum Boundary Box (Bmax).",
+      "C": "T0 is the result of subtracting the Minimum Boundary Box (Bmin) from the Maximum Boundary Box (Bmax).",
+      "D": "T0 is computed by adding the dimensions of the Minimum Boundary Box (Bmin) to those of the Maximum Boundary Box (Bmax)."
+    },
+    "correct_answer": "C",
+    "explanation": "The final bounding box T0 is computed by subtracting the minimum boundary box (Bmin) from the maximum boundary box (Bmax). This corresponds to the given formula T0 = Bmax - Bmin. The other options are incorrect as they suggest addition, equality, or averaging, which do not align with the subtraction method described.",
+    "path_description": "Path: T0 --[resultOfSubtraction]--> Bmin --[partOf]--> WeakBoxModule --[type]--> Module",
+    "context": "The final bounding box (T0) is given by: T0 = Bmax − Bmin. | Minimum Boundary Box (Bmin): Bmin = BoundingBox(dh, dw) ∈ [0, 1]. | Technical details of the WeakBox Module.",
+    "paper_id": "1592"
+  },
+  {
+    "section": "method3",
+    "path": {
+      "section": "method3",
+      "start_entity": "MM2B",
+      "end_entity": "I1",
+      "hops": [
+        {
+          "from": "MM2B",
+          "relation": "uses",
+          "to": "SC_loss",
+          "context": "To address prediction non-uniqueness in MM2B’s sparse supervision, we apply the SC loss.",
+          "chunk": "3"
+        },
+        {
+          "from": "SC_loss",
+          "relation": "appliedTo",
+          "to": "P1",
+          "context": "Here, P1 corresponds to the segmentation prediction from input I1.",
+          "chunk": "3"
+        },
+        {
+          "from": "P1",
+          "relation": "obtainedFrom",
+          "to": "I1",
+          "context": "Here, P1 corresponds to the segmentation prediction from input I1.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the context of addressing prediction non-uniqueness in MM2B's sparse supervision, which statement accurately describes the role of SC_loss?",
+    "options": {
+      "A": "SC_loss is utilized to enhance the accuracy of segmentation predictions derived from input I1 in MM2B.",
+      "B": "SC_loss is primarily used to reduce the computational complexity of MM2B when processing input I1.",
+      "C": "SC_loss functions as a regularization term to prevent overfitting on dataset P1 in MM2B.",
+      "D": "SC_loss serves as a method for increasing the feature extraction speed from input I1 in MM2B."
+    },
+    "correct_answer": "A",
+    "explanation": "SC_loss is applied to address the issue of prediction non-uniqueness by specifically enhancing the segmentation prediction (P1) obtained from input I1 in the context of MM2B's sparse supervision. The other options incorrectly attribute the function of SC_loss to computational complexity, regularization, or feature extraction speed.",
+    "path_description": "Path: MM2B --[uses]--> SC_loss --[appliedTo]--> P1 --[obtainedFrom]--> I1",
+    "context": "To address prediction non-uniqueness in MM2B’s sparse supervision, we apply the SC loss. | Here, P1 corresponds to the segmentation prediction from input I1. | Here, P1 corresponds to the segmentation prediction from input I1.",
+    "paper_id": "1592"
+  }
+]

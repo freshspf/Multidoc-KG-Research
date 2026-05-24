@@ -1,0 +1,88 @@
+[
+  {
+    "section": "robotenergyconsumptionprofiling1",
+    "path": {
+      "section": "robotenergyconsumptionprofiling1",
+      "start_entity": "RobotLaptop",
+      "end_entity": "Battery",
+      "hops": [
+        {
+          "from": "RobotLaptop",
+          "relation": "connects",
+          "to": "RobotMobileBase",
+          "context": "Each robot is equipped with a laptop that connects the robot mobile base.",
+          "chunk": "8"
+        },
+        {
+          "from": "RobotMobileBase",
+          "relation": "poweredBy",
+          "to": "RobotBattery",
+          "context": "The robot base is powered independently by an embedded battery, referred to as the robot battery.",
+          "chunk": "8"
+        },
+        {
+          "from": "RobotBattery",
+          "relation": "type",
+          "to": "Battery",
+          "context": "The robot base is powered independently by an embedded battery, referred to as the robot battery.",
+          "chunk": "8"
+        }
+      ]
+    },
+    "question": "In the context of robot systems, which type of connection allows a robot laptop to indirectly influence the energy consumption of the robot?",
+    "options": {
+      "A": "The laptop and the robot mobile base operate independently without any power interdependence.",
+      "B": "The laptop uses a wireless connection to control the robot mobile base's external power source.",
+      "C": "The laptop connects to the robot mobile base, which is powered by an embedded battery.",
+      "D": "The laptop directly powers the robot mobile base through its own internal battery."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A because the laptop connects to the robot mobile base, which in turn is powered by an embedded battery, referred to as the robot battery. This connection allows the laptop indirectly to influence the energy consumption through the mobile base's operations powered by the battery.",
+    "path_description": "Path: RobotLaptop --[connects]--> RobotMobileBase --[poweredBy]--> RobotBattery --[type]--> Battery",
+    "context": "Each robot is equipped with a laptop that connects the robot mobile base. | The robot base is powered independently by an embedded battery, referred to as the robot battery. | The robot base is powered independently by an embedded battery, referred to as the robot battery.",
+    "paper_id": "1764"
+  },
+  {
+    "section": "fieldtestvalidation1",
+    "path": {
+      "section": "fieldtestvalidation1",
+      "start_entity": "StateOfTheArt",
+      "end_entity": "5TONIC",
+      "hops": [
+        {
+          "from": "StateOfTheArt",
+          "relation": "comparedWith",
+          "to": "OROS",
+          "context": "To evaluate the performance of our solution and its impact on the robot KPIs like CPU and energy consumption, we consider the following benchmark, dubbed as State-of-the-Art (SOA).",
+          "chunk": "11"
+        },
+        {
+          "from": "OROS",
+          "relation": "uses",
+          "to": "5GInfrastructure",
+          "context": "using the 5G infrastructure provided by 5TONIC.",
+          "chunk": "11"
+        },
+        {
+          "from": "5GInfrastructure",
+          "relation": "providedBy",
+          "to": "5TONIC",
+          "context": "using the 5G infrastructure provided by 5TONIC.",
+          "chunk": "11"
+        }
+      ]
+    },
+    "question": "In the context of evaluating a solution's impact on robot KPIs, how does the State-of-the-Art benchmark utilize 5G technology?",
+    "options": {
+      "A": "The State-of-the-Art benchmark evaluates 5G infrastructure through 5TONIC to enhance robot mobility and agility.",
+      "B": "The State-of-the-Art benchmark uses 5G technology provided by 5TONIC to improve the communication speed with the cloud.",
+      "C": "The State-of-the-Art benchmark relies on 5TONIC to provide 5G infrastructure that increases data storage capabilities.",
+      "D": "The State-of-the-Art benchmark utilizes 5G infrastructure provided by 5TONIC to assess CPU and energy consumption."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A, as it accurately reflects the use of 5G infrastructure provided by 5TONIC specifically to assess crucial robot KPIs such as CPU and energy consumption, aligning with the paper's focus on performance evaluation of solutions using State-of-the-Art (SOA) benchmarks.",
+    "path_description": "Path: StateOfTheArt --[comparedWith]--> OROS --[uses]--> 5GInfrastructure --[providedBy]--> 5TONIC",
+    "context": "To evaluate the performance of our solution and its impact on the robot KPIs like CPU and energy consumption, we consider the following benchmark, dubbed as State-of-the-Art (SOA). | using the 5G infrastructure provided by 5TONIC. | using the 5G infrastructure provided by 5TONIC.",
+    "paper_id": "1764"
+  }
+]

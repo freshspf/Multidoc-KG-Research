@@ -1,0 +1,45 @@
+[
+  {
+    "section": "proposedhardwarearchitectureanddataflow2",
+    "path": {
+      "section": "proposedhardwarearchitectureanddataflow2",
+      "start_entity": "Row-wiseConvolutionDataflow",
+      "end_entity": "DataStructure",
+      "hops": [
+        {
+          "from": "Row-wiseConvolutionDataflow",
+          "relation": "partOf",
+          "to": "CIMConvolutionInstruction",
+          "context": "Row-wise Convolution Dataflow: CIM Layer Fusion and Pipeline with Convolution and Max Pooling",
+          "chunk": "2"
+        },
+        {
+          "from": "CIMConvolutionInstruction",
+          "relation": "uses",
+          "to": "CNNWeights",
+          "context": "flattening the CNN weights into macro BLs by output channel.",
+          "chunk": "2"
+        },
+        {
+          "from": "CNNWeights",
+          "relation": "type",
+          "to": "DataStructure",
+          "context": "flattening the CNN weights into macro BLs by output channel.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the context of a proposed hardware architecture for convolutional neural networks, how does the CIM convolution instruction utilize CNN weights?",
+    "options": {
+      "A": "CNN weights are utilized as a linear array that bypasses the row-wise convolution dataflow.",
+      "B": "CNN weights are stored separately and are not influenced by the CIM convolution instruction.",
+      "C": "It directly integrates CNN weights into its pipeline without any specific data structure form.",
+      "D": "It uses CNN weights as a data structure after transforming them through row-wise convolution dataflow."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A because the CIM convolution instruction uses CNN weights that have been organized into a specific data structure format, which is done through the row-wise convolution dataflow. This dataflow involves flattening the CNN weights into macro BLs by output channel, indicating a transformation of data structure that supports the operation of CIM convolution.",
+    "path_description": "Path: Row-wiseConvolutionDataflow --[partOf]--> CIMConvolutionInstruction --[uses]--> CNNWeights --[type]--> DataStructure",
+    "context": "Row-wise Convolution Dataflow: CIM Layer Fusion and Pipeline with Convolution and Max Pooling | flattening the CNN weights into macro BLs by output channel. | flattening the CNN weights into macro BLs by output channel.",
+    "paper_id": "1894"
+  }
+]

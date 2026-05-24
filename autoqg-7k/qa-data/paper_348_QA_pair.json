@@ -1,0 +1,174 @@
+[
+  {
+    "section": "iintroductionandrelatedwork1",
+    "path": {
+      "section": "iintroductionandrelatedwork1",
+      "start_entity": "ThisWork",
+      "end_entity": "Dataset",
+      "hops": [
+        {
+          "from": "ThisWork",
+          "relation": "proposes",
+          "to": "UnifiedFramework",
+          "context": "This work proposes a unified framework to leverage biological information in network propagation-based gene prioritization algorithms.",
+          "chunk": "0"
+        },
+        {
+          "from": "UnifiedFramework",
+          "relation": "appliedTo",
+          "to": "BreastCancerData",
+          "context": "Preliminary results on breast cancer data show significant improvements over state-of-the-art baselines.",
+          "chunk": "0"
+        },
+        {
+          "from": "BreastCancerData",
+          "relation": "type",
+          "to": "Dataset",
+          "context": "Preliminary results on breast cancer data",
+          "chunk": "0"
+        }
+      ]
+    },
+    "question": "What type of data was primarily utilized in the unified framework proposed in this work for enhancing gene prioritization algorithms?",
+    "options": {
+      "A": "Clinical trial data for chemotherapy efficacy, to validate gene prioritization outcomes.",
+      "B": "Genomic data from multiple cancer types, to broadly test the application of the new framework.",
+      "C": "Public health records data, to assess the epidemiological impact of the new algorithms.",
+      "D": "Breast cancer data, specifically used to test the improvements in gene prioritization techniques."
+    },
+    "correct_answer": "D",
+    "explanation": "The question focuses on the specific type of data applied in the unified framework as mentioned in the knowledge graph path. According to the path, the unified framework was applied to breast cancer data, which is also supported by the context in the paper stating 'Preliminary results on breast cancer data show significant improvements over state-of-the-art baselines.' This indicates that breast cancer data was specifically used for testing the gene prioritization improvements, making option A correct. Options B, C, and D introduce other types of data that are not mentioned in the given context and are thus incorrect.",
+    "path_description": "Path: ThisWork --[proposes]--> UnifiedFramework --[appliedTo]--> BreastCancerData --[type]--> Dataset",
+    "context": "This work proposes a unified framework to leverage biological information in network propagation-based gene prioritization algorithms. | Preliminary results on breast cancer data show significant improvements over state-of-the-art baselines. | Preliminary results on breast cancer data",
+    "paper_id": "45"
+  },
+  {
+    "section": "iintroductionandrelatedwork2",
+    "path": {
+      "section": "iintroductionandrelatedwork2",
+      "start_entity": "Algorithms",
+      "end_entity": "BiologicalEntity",
+      "hops": [
+        {
+          "from": "Algorithms",
+          "relation": "developedFor",
+          "to": "DiseaseGenes",
+          "context": "motivated the development of a number of algorithms for predicting disease genes and modules...",
+          "chunk": "1"
+        },
+        {
+          "from": "DiseaseGenes",
+          "relation": "impairedBy",
+          "to": "EnvironmentalAgents",
+          "context": "Moreover, identification of specific disease genes is often impaired by the influence of a plethora of environmental agents...",
+          "chunk": "1"
+        },
+        {
+          "from": "EnvironmentalAgents",
+          "relation": "type",
+          "to": "BiologicalEntity",
+          "context": "Moreover, identification of specific disease genes is often impaired by the influence of a plethora of environmental agents...",
+          "chunk": "1"
+        }
+      ]
+    },
+    "question": "Which of the following best describes the role of environmental agents in the context of disease gene prediction algorithms?",
+    "options": {
+      "A": "Environmental agents directly alter the structure of algorithms used for predicting disease genes.",
+      "B": "Environmental agents are biological entities that can impair the identification of specific disease genes.",
+      "C": "Environmental agents are irrelevant to the development and functioning of disease gene prediction algorithms.",
+      "D": "Environmental agents are utilized to enhance the accuracy of algorithms in predicting disease genes."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A because, as per the knowledge path and the provided context, environmental agents, which are a type of biological entity, impair the process of identifying specific disease genes. This impairment specifically challenges the development of algorithms aimed at predicting these genes.",
+    "path_description": "Path: Algorithms --[developedFor]--> DiseaseGenes --[impairedBy]--> EnvironmentalAgents --[type]--> BiologicalEntity",
+    "context": "motivated the development of a number of algorithms for predicting disease genes and modules... | Moreover, identification of specific disease genes is often impaired by the influence of a plethora of environmental agents... | Moreover, identification of specific disease genes is often impaired by the influence of a plethora of environmental agents...",
+    "paper_id": "45"
+  },
+  {
+    "section": "iiimaterialsandmethods4",
+    "path": {
+      "section": "iiimaterialsandmethods4",
+      "start_entity": "NodeScoringFunction",
+      "end_entity": "Method",
+      "hops": [
+        {
+          "from": "NodeScoringFunction",
+          "relation": "uses",
+          "to": "RankDependentScoringFunction",
+          "context": "We further considered node scoring functions that depend on the rank of PPI nodes.",
+          "chunk": "8"
+        },
+        {
+          "from": "RankDependentScoringFunction",
+          "relation": "uses",
+          "to": "LinearRankingFunction",
+          "context": "Linear: Given the rank ri of node i and the total number N of nodes/proteins in the PPI, the linear ranking function is defined as f(ri) = (N-ri+1)/N.",
+          "chunk": "8"
+        },
+        {
+          "from": "LinearRankingFunction",
+          "relation": "type",
+          "to": "Method",
+          "context": "Linear: Given the rank ri of node i and the total number N of nodes/proteins in the PPI, the linear ranking function is defined as f(ri) = (N-ri+1)/N.",
+          "chunk": "8"
+        }
+      ]
+    },
+    "question": "In the context of protein-protein interaction (PPI) networks, how does the linear ranking function formula f(ri) = (N-ri+1)/N influence the scoring of nodes based on their rank?",
+    "options": {
+      "A": "Each node receives a score based on its actual interaction count, independent of its rank.",
+      "B": "Nodes ranked lower in the interaction hierarchy get higher scores, promoting less influential proteins.",
+      "C": "The score of each node decreases linearly with the increase in the total number of interactions.",
+      "D": "Nodes ranked higher get lower scores, which helps in identifying more influential proteins more easily."
+    },
+    "correct_answer": "B",
+    "explanation": "The formula f(ri) = (N-ri+1)/N assigns higher scores to nodes as their rank number increases (i.e., as they are lower in rank). This means nodes ranked lower (less influential based on rank) in the PPI network get higher scores.",
+    "path_description": "Path: NodeScoringFunction --[uses]--> RankDependentScoringFunction --[uses]--> LinearRankingFunction --[type]--> Method",
+    "context": "We further considered node scoring functions that depend on the rank of PPI nodes. | Linear: Given the rank ri of node i and the total number N of nodes/proteins in the PPI, the linear ranking function is defined as f(ri) = (N-ri+1)/N. | Linear: Given the rank ri of node i and the total number N of nodes/proteins in the PPI, the linear ranking function is defined as f(ri) = (N-ri+1)/N.",
+    "paper_id": "45"
+  },
+  {
+    "section": "iiimaterialsandmethods2",
+    "path": {
+      "section": "iiimaterialsandmethods2",
+      "start_entity": "MINT",
+      "end_entity": "Dataset",
+      "hops": [
+        {
+          "from": "MINT",
+          "relation": "providesDataFor",
+          "to": "PPI_Network",
+          "context": "IntAct [4], MINT [9], BioGRID [14] and HPRD [13]: these databases list physical PPI interactions, typically identified by low throughput experiments and manually curated by experts.",
+          "chunk": "6"
+        },
+        {
+          "from": "PPI_Network",
+          "relation": "usedIn",
+          "to": "GeneDiseaseAssociations",
+          "context": "The experiments discussed in Section II were conducted on the same PPI network as [16] for the sake of comparison.",
+          "chunk": "6"
+        },
+        {
+          "from": "GeneDiseaseAssociations",
+          "relation": "type",
+          "to": "Dataset",
+          "context": "Gene-Disease Associations: The experiments discussed in Section II were conducted on the same PPI network as [16] for the sake of comparison.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "Which database provides data that supports the construction of a PPI network used to derive a dataset for gene-disease associations?",
+    "options": {
+      "A": "HPRD database, exclusively dedicated to human protein reference data",
+      "B": "BioGRID database, primarily focused on high throughput screening of genetic interactions",
+      "C": "IntAct database, which curates only biochemical interactions involving enzymes",
+      "D": "MINT database, known for listing physical PPI interactions identified through low throughput experiments"
+    },
+    "correct_answer": "D",
+    "explanation": "The provided context indicates that MINT, among the listed databases, provides data for a PPI network which is then used in studies of gene-disease associations. While other databases also list PPI interactions, the context specifically highlights MINT's role in this particular pathway.",
+    "path_description": "Path: MINT --[providesDataFor]--> PPI_Network --[usedIn]--> GeneDiseaseAssociations --[type]--> Dataset",
+    "context": "IntAct [4], MINT [9], BioGRID [14] and HPRD [13]: these databases list physical PPI interactions, typically identified by low throughput experiments and manually curated by experts. | The experiments discussed in Section II were conducted on the same PPI network as [16] for the sake of comparison. | Gene-Disease Associations: The experiments discussed in Section II were conducted on the same PPI network as [16] for the sake of comparison.",
+    "paper_id": "45"
+  }
+]

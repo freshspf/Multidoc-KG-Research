@@ -1,0 +1,303 @@
+[
+  {
+    "section": "systemoverview1",
+    "path": {
+      "section": "systemoverview1",
+      "start_entity": "AndroidCompanionApplication",
+      "end_entity": "Database",
+      "hops": [
+        {
+          "from": "AndroidCompanionApplication",
+          "relation": "communicatesWith",
+          "to": "PythonFlaskServer",
+          "context": "establishing communication through a Python Flask server running on a Raspberry Pi 4 system on a chip (SOC) board.",
+          "chunk": "2"
+        },
+        {
+          "from": "PythonFlaskServer",
+          "relation": "storesDataIn",
+          "to": "SQLiteDatabase",
+          "context": "The server stores all received sensors values in an SQLite database, with a timestamp for each event.",
+          "chunk": "2"
+        },
+        {
+          "from": "SQLiteDatabase",
+          "relation": "type",
+          "to": "Database",
+          "context": "The server stores all received sensors values in an SQLite database, with a timestamp for each event.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the system described in the 'systemoverview1' section, how does the Android Companion Application ensure data consistency and temporal tracking of sensor events?",
+    "options": {
+      "A": "By using an internal SQLite database within the Android application to timestamp and log sensor values immediately upon detection.",
+      "B": "By directly storing the sensor values with timestamps in the local Android storage system for future synchronization.",
+      "C": "By sending data to a cloud server which then timestamps and stores the information in a NoSQL database for asynchronous access.",
+      "D": "By communicating with a Python Flask server that logs each event with a timestamp in an SQLite database on a Raspberry Pi."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A as it reflects the actual system configuration where the Android Companion Application communicates with the Python Flask server, which then logs each sensor event with a timestamp in an SQLite database hosted on a Raspberry Pi. Options B, C, and D introduce incorrect storage methods and locations not supported by the description in the system overview section.",
+    "path_description": "Path: AndroidCompanionApplication --[communicatesWith]--> PythonFlaskServer --[storesDataIn]--> SQLiteDatabase --[type]--> Database",
+    "context": "establishing communication through a Python Flask server running on a Raspberry Pi 4 system on a chip (SOC) board. | The server stores all received sensors values in an SQLite database, with a timestamp for each event. | The server stores all received sensors values in an SQLite database, with a timestamp for each event.",
+    "paper_id": "2038"
+  },
+  {
+    "section": "introduction",
+    "path": {
+      "section": "introduction",
+      "start_entity": "CBT",
+      "end_entity": "Children",
+      "hops": [
+        {
+          "from": "CBT",
+          "relation": "treats",
+          "to": "AnxietyDisorders",
+          "context": "Cognitive behavior therapy (CBT) is a widely used treatment for anxiety disorders across this age span.",
+          "chunk": "0"
+        },
+        {
+          "from": "AnxietyDisorders",
+          "relation": "cause",
+          "to": "AvoidanceOfActivities",
+          "context": "Anxiety disorders cause children as young as 6 years old to avoid activities of daily living.",
+          "chunk": "0"
+        },
+        {
+          "from": "AvoidanceOfActivities",
+          "relation": "affects",
+          "to": "Children",
+          "context": "Anxiety disorders cause children as young as 6 years old to avoid activities of daily living.",
+          "chunk": "0"
+        }
+      ]
+    },
+    "question": "How does Cognitive Behavioral Therapy (CBT) indirectly influence the daily activities of children?",
+    "options": {
+      "A": "CBT modifies parental attitudes, indirectly causing children to participate more in daily activities.",
+      "B": "CBT provides educational support that helps children to engage more in school-related activities.",
+      "C": "CBT treats anxiety disorders, which in turn cause children to avoid daily activities due to fear.",
+      "D": "CBT directly engages children in daily activities to reduce their avoidance behaviors."
+    },
+    "correct_answer": "C",
+    "explanation": "CBT is a treatment for anxiety disorders, which are known to cause children to avoid daily activities. Thus, by treating anxiety disorders, CBT indirectly reduces the avoidance of activities in children.",
+    "path_description": "Path: CBT --[treats]--> AnxietyDisorders --[cause]--> AvoidanceOfActivities --[affects]--> Children",
+    "context": "Cognitive behavior therapy (CBT) is a widely used treatment for anxiety disorders across this age span. | Anxiety disorders cause children as young as 6 years old to avoid activities of daily living. | Anxiety disorders cause children as young as 6 years old to avoid activities of daily living.",
+    "paper_id": "2038"
+  },
+  {
+    "section": "systemoverview2",
+    "path": {
+      "section": "systemoverview2",
+      "start_entity": "Backpack",
+      "end_entity": "Method",
+      "hops": [
+        {
+          "from": "Backpack",
+          "relation": "partOf",
+          "to": "Robot",
+          "context": "The backpack was included to reflect an astronauts suit, but also for housing the batteries for powering the robot.",
+          "chunk": "3"
+        },
+        {
+          "from": "Robot",
+          "relation": "uses",
+          "to": "ParticipatoryDesignMethod",
+          "context": "This cycle was repeated three times to refine the robot’s design, using the participatory design method to maintain a focus on user-centered development.",
+          "chunk": "3"
+        },
+        {
+          "from": "ParticipatoryDesignMethod",
+          "relation": "type",
+          "to": "Method",
+          "context": "This cycle was repeated three times to refine the robot’s design, using the participatory design method to maintain a focus on user-centered development.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the context of the described robot development, how does the backpack primarily contribute to the participatory design method?",
+    "options": {
+      "A": "The backpack acts as a decorative element to simulate the astronaut's suit, making the design more appealing to users.",
+      "B": "The backpack is used to store extra components and tools needed during the participatory design sessions for quick modifications.",
+      "C": "The backpack is equipped with sensors that gather data on user interaction, which informs the participatory design process.",
+      "D": "The backpack houses batteries that power the robot, which is essential for testing and refining the robot's design through user feedback."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A because, as per the context provided, the backpack's primary function is to house the batteries that power the robot. This is crucial for the participatory design method which involves repeated cycles of testing and refining the robot's design based on user feedback. The ability of the robot to function (powered by the batteries in the backpack) is essential in this iterative user-centric design process. Options B, C, and D, while plausible, do not directly relate to the essential role of powering the robot as described in the context.",
+    "path_description": "Path: Backpack --[partOf]--> Robot --[uses]--> ParticipatoryDesignMethod --[type]--> Method",
+    "context": "The backpack was included to reflect an astronauts suit, but also for housing the batteries for powering the robot. | This cycle was repeated three times to refine the robot’s design, using the participatory design method to maintain a focus on user-centered development. | This cycle was repeated three times to refine the robot’s design, using the participatory design method to maintain a focus on user-centered development.",
+    "paper_id": "2038"
+  },
+  {
+    "section": "pilotstudyresults",
+    "path": {
+      "section": "pilotstudyresults",
+      "start_entity": "Children",
+      "end_entity": "Figure",
+      "hops": [
+        {
+          "from": "Children",
+          "relation": "demonstrated",
+          "to": "SkillProgress",
+          "context": "Although the difficulty increased with each phase, as shown in Figure 3, the children demonstrated similar skill level progress measured as the number of attempts needed to complete each presented pattern.",
+          "chunk": "5"
+        },
+        {
+          "from": "SkillProgress",
+          "relation": "measuredBy",
+          "to": "Figure3",
+          "context": "The results can be seen in Figure 3; the figure indicates progress made by the children as they increased their skill level in matching a generated rhythmic pattern.",
+          "chunk": "5"
+        },
+        {
+          "from": "Figure3",
+          "relation": "type",
+          "to": "Figure",
+          "context": "The results can be seen in Figure 3; the figure indicates progress made by the children as they increased their skill level in matching a generated rhythmic pattern.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "According to the results presented in Figure 3 of the pilot study, what best describes the method used to measure children's skill progress in matching rhythmic patterns?",
+    "options": {
+      "A": "The speed at which children completed each rhythmic pattern was measured.",
+      "B": "The children's ability to remember rhythmic patterns was evaluated.",
+      "C": "The accuracy of children's responses to rhythmic patterns was assessed.",
+      "D": "The number of attempts children needed to complete each rhythmic pattern was recorded."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A because the paper specifically mentions that the children's skill progress was measured by the number of attempts needed to complete each presented pattern, as depicted in Figure 3.",
+    "path_description": "Path: Children --[demonstrated]--> SkillProgress --[measuredBy]--> Figure3 --[type]--> Figure",
+    "context": "Although the difficulty increased with each phase, as shown in Figure 3, the children demonstrated similar skill level progress measured as the number of attempts needed to complete each presented pattern. | The results can be seen in Figure 3; the figure indicates progress made by the children as they increased their skill level in matching a generated rhythmic pattern. | The results can be seen in Figure 3; the figure indicates progress made by the children as they increased their skill level in matching a generated rhythmic pattern.",
+    "paper_id": "2038"
+  },
+  {
+    "section": "systemoverview2",
+    "path": {
+      "section": "systemoverview2",
+      "start_entity": "AndroidApplication",
+      "end_entity": "Database",
+      "hops": [
+        {
+          "from": "AndroidApplication",
+          "relation": "connectsTo",
+          "to": "RESTServer",
+          "context": "The application connects to a REST server running on a Raspberry Pi 4.",
+          "chunk": "3"
+        },
+        {
+          "from": "RESTServer",
+          "relation": "storesDataIn",
+          "to": "SQliteDatabase",
+          "context": "The server stores all values in an SQlite database.",
+          "chunk": "3"
+        },
+        {
+          "from": "SQliteDatabase",
+          "relation": "type",
+          "to": "Database",
+          "context": "The server stores all values in an SQlite database.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the system described in section 'systemoverview2', how does the Android application maintain persistent storage of its data?",
+    "options": {
+      "A": "The Android application stores data temporarily in memory before passing it through to a dedicated cloud server.",
+      "B": "The Android application directly connects to an SQLite database embedded within its own architecture.",
+      "C": "The Android application uses a REST server as a proxy to connect to a NoSQL database for data storage.",
+      "D": "The Android application utilizes an SQlite database indirectly through connections to a REST server on a Raspberry Pi 4."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A because the Android application connects to a REST server running on a Raspberry Pi 4, which in turn stores all values in an SQLite database. This setup indicates that the application uses the SQLite database indirectly, facilitated by the REST server, as outlined in the knowledge graph path.",
+    "path_description": "Path: AndroidApplication --[connectsTo]--> RESTServer --[storesDataIn]--> SQliteDatabase --[type]--> Database",
+    "context": "The application connects to a REST server running on a Raspberry Pi 4. | The server stores all values in an SQlite database. | The server stores all values in an SQlite database.",
+    "paper_id": "2038"
+  },
+  {
+    "section": "mainstudy",
+    "path": {
+      "section": "mainstudy",
+      "start_entity": "MainStudy",
+      "end_entity": "EducationalGroup",
+      "hops": [
+        {
+          "from": "MainStudy",
+          "relation": "involves",
+          "to": "Children",
+          "context": "This study involved 18 children recruited from a first-grade class at a local school.",
+          "chunk": "6"
+        },
+        {
+          "from": "Children",
+          "relation": "recruitedFrom",
+          "to": "FirstGradeClass",
+          "context": "This study involved 18 children recruited from a first-grade class at a local school.",
+          "chunk": "6"
+        },
+        {
+          "from": "FirstGradeClass",
+          "relation": "type",
+          "to": "EducationalGroup",
+          "context": "This study involved 18 children recruited from a first-grade class at a local school.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the context of the study described, where were the children recruited from and what was the nature of the group?",
+    "options": {
+      "A": "Children were recruited from a secondary school class, which is recognized as an academic group.",
+      "B": "Children were recruited from a first-grade class, which is classified as an educational group.",
+      "C": "Children were recruited from a community center, which primarily functions as a recreational group.",
+      "D": "Children were recruited from a local daycare, which is identified as a developmental group."
+    },
+    "correct_answer": "B",
+    "explanation": "The question requires understanding the recruitment source and classification of the group from which children were recruited for the study. According to the knowledge graph, the children were recruited from a first-grade class, which is a type of Educational group, making option A correct. Options B, C, and D introduce incorrect sources and group classifications that are not supported by the studied data.",
+    "path_description": "Path: MainStudy --[involves]--> Children --[recruitedFrom]--> FirstGradeClass --[type]--> EducationalGroup",
+    "context": "This study involved 18 children recruited from a first-grade class at a local school. | This study involved 18 children recruited from a first-grade class at a local school. | This study involved 18 children recruited from a first-grade class at a local school.",
+    "paper_id": "2038"
+  },
+  {
+    "section": "mainstudy",
+    "path": {
+      "section": "mainstudy",
+      "start_entity": "MainStudy",
+      "end_entity": "LocalSchool",
+      "hops": [
+        {
+          "from": "MainStudy",
+          "relation": "involves",
+          "to": "Children",
+          "context": "This study involved 18 children recruited from a first-grade class at a local school.",
+          "chunk": "6"
+        },
+        {
+          "from": "Children",
+          "relation": "recruitedFrom",
+          "to": "FirstGradeClass",
+          "context": "This study involved 18 children recruited from a first-grade class at a local school.",
+          "chunk": "6"
+        },
+        {
+          "from": "FirstGradeClass",
+          "relation": "partOf",
+          "to": "LocalSchool",
+          "context": "This study involved 18 children recruited from a first-grade class at a local school.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the study detailed in the 'mainstudy' section, which of the following best describes the population sample used for the research?",
+    "options": {
+      "A": "18 children from a local school's first-grade class specifically designed for this study",
+      "B": "18 children from various first-grade classes across multiple local schools",
+      "C": "18 children recruited from a first-grade class that is a part of a local school",
+      "D": "18 adults who volunteered from a community education program"
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is C, as the knowledge graph path indicates that the children were specifically recruited from one first-grade class which is part of a local school. Option A is incorrect because it implies the class was designed for the study. Option B is incorrect as it suggests multiple schools were involved. Option D is incorrect as it involves adults, not children.",
+    "path_description": "Path: MainStudy --[involves]--> Children --[recruitedFrom]--> FirstGradeClass --[partOf]--> LocalSchool",
+    "context": "This study involved 18 children recruited from a first-grade class at a local school. | This study involved 18 children recruited from a first-grade class at a local school. | This study involved 18 children recruited from a first-grade class at a local school.",
+    "paper_id": "2038"
+  }
+]

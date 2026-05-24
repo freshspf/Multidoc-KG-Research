@@ -1,0 +1,174 @@
+[
+  {
+    "section": "introduction2",
+    "path": {
+      "section": "introduction2",
+      "start_entity": "PowerBoard",
+      "end_entity": "DroneComponent",
+      "hops": [
+        {
+          "from": "PowerBoard",
+          "relation": "partOf",
+          "to": "FlyingSquirrelDrone",
+          "context": "Power board",
+          "chunk": "1"
+        },
+        {
+          "from": "FlyingSquirrelDrone",
+          "relation": "hasComponent",
+          "to": "Quadrotors",
+          "context": "Quadrotors with fully folded and unfolded wings",
+          "chunk": "1"
+        },
+        {
+          "from": "Quadrotors",
+          "relation": "type",
+          "to": "DroneComponent",
+          "context": "Quadrotors with fully folded and unfolded wings",
+          "chunk": "1"
+        }
+      ]
+    },
+    "question": "Which component of the Flying Squirrel Drone enables it to function both with fully folded and unfolded wings?",
+    "options": {
+      "A": "The Wing Adjustment Mechanism that allows for physical changes in the drone's wing structure.",
+      "B": "The Battery Unit, which provides power to the drone but does not affect wing configuration.",
+      "C": "The Remote Control System, which operates the drone's flight but not its structural configuration.",
+      "D": "The PowerBoard, which is part of the Flying Squirrel Drone and supports the functionality of quadrotors."
+    },
+    "correct_answer": "D",
+    "explanation": "The PowerBoard is essential for the Flying Squirrel Drone's functionality, specifically enabling the quadrotors to operate effectively whether the wings are fully folded or unfolded. This is based on the knowledge graph which identifies the PowerBoard as a part of the Flying Squirrel Drone that directly interacts with its quadrotors, classified under DroneComponent.",
+    "path_description": "Path: PowerBoard --[partOf]--> FlyingSquirrelDrone --[hasComponent]--> Quadrotors --[type]--> DroneComponent",
+    "context": "Power board | Quadrotors with fully folded and unfolded wings | Quadrotors with fully folded and unfolded wings",
+    "paper_id": "885"
+  },
+  {
+    "section": "modellingofrobot",
+    "path": {
+      "section": "modellingofrobot",
+      "start_entity": "IMU",
+      "end_entity": "ManufacturingProcess",
+      "hops": [
+        {
+          "from": "IMU",
+          "relation": "partOf",
+          "to": "FlyingSquirrelQuadrotor",
+          "context": "and an inertial measurement unit(IMU).",
+          "chunk": "2"
+        },
+        {
+          "from": "FlyingSquirrelQuadrotor",
+          "relation": "uses",
+          "to": "SiliconeMembraneFabricationProcess",
+          "context": "Starting from hardware design we introduce silicon membrane fabrication process and finally wing folding mechanism.",
+          "chunk": "2"
+        },
+        {
+          "from": "SiliconeMembraneFabricationProcess",
+          "relation": "type",
+          "to": "ManufacturingProcess",
+          "context": "Starting from hardware design we introduce silicon membrane fabrication process and finally wing folding mechanism.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "How does the inertial measurement unit (IMU) incorporated in the Flying Squirrel Quadrotor contribute to its manufacturing process?",
+    "options": {
+      "A": "The IMU is used to test the aerodynamic efficiency of the Flying Squirrel Quadrotor after the manufacturing process.",
+      "B": "The IMU provides feedback for adjusting the physical attributes of the quadrotor during the final assembly stage.",
+      "C": "The IMU is a crucial component that informs the design parameters in the silicone membrane fabrication process.",
+      "D": "The IMU directly controls the silicone membrane fabrication process, ensuring precision in the manufacturing of the Flying Squirrel Quadrotor."
+    },
+    "correct_answer": "C",
+    "explanation": "The IMU, as a part of the Flying Squirrel Quadrotor, contributes indirectly to the manufacturing process by providing necessary design parameters for the silicone membrane fabrication process, which is a type of manufacturing process. This is inferred as the IMU being part of the quadrotor which utilizes the silicone membrane fabrication process. The other options, although plausible, do not correctly capture the role of the IMU in the manufacturing process as described in the context.",
+    "path_description": "Path: IMU --[partOf]--> FlyingSquirrelQuadrotor --[uses]--> SiliconeMembraneFabricationProcess --[type]--> ManufacturingProcess",
+    "context": "and an inertial measurement unit(IMU). | Starting from hardware design we introduce silicon membrane fabrication process and finally wing folding mechanism. | Starting from hardware design we introduce silicon membrane fabrication process and finally wing folding mechanism.",
+    "paper_id": "885"
+  },
+  {
+    "section": "controllerdesign",
+    "path": {
+      "section": "controllerdesign",
+      "start_entity": "ResidualReinforcementLearning",
+      "end_entity": "LearningMethod",
+      "hops": [
+        {
+          "from": "ResidualReinforcementLearning",
+          "relation": "basedOn",
+          "to": "TransformerVAE",
+          "context": "Next we train with simulator using pretrained policy as base controller and learn the auxiliary policy for stable and fast learning performance.",
+          "chunk": "3"
+        },
+        {
+          "from": "TransformerVAE",
+          "relation": "usedFor",
+          "to": "OfflineSupervisedLearning",
+          "context": "First we pretrained our policy using supervised learning using Transformer-Variational Auto Encoder(VAE).",
+          "chunk": "3"
+        },
+        {
+          "from": "OfflineSupervisedLearning",
+          "relation": "type",
+          "to": "LearningMethod",
+          "context": "We first obtain offline dataset to be pretrained using supervised learning from human demonstrated data.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "What is the primary learning method utilized in the controller design sequence utilizing a Transformer Variational Auto Encoder (VAE) in the context of pretraining policies?",
+    "options": {
+      "A": "Unsupervised Learning Techniques, where Transformer VAE helps in clustering and pattern discovery.",
+      "B": "Online Supervised Learning, directly applying Transformer VAE in live experimental setups.",
+      "C": "Deep Neural Networks, which use Transformer VAE for real-time supervised learning applications.",
+      "D": "Residual Reinforcement Learning, which builds upon Transformer VAE for enhancing offline supervised learning."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is 'A' because the sequence in the controller design uses a Transformer VAE first for pretraining policies via supervised learning from an offline dataset. This setup is then used as the basis for Residual Reinforcement Learning, which is an advanced type of Learning Method used specifically in the context described.",
+    "path_description": "Path: ResidualReinforcementLearning --[basedOn]--> TransformerVAE --[usedFor]--> OfflineSupervisedLearning --[type]--> LearningMethod",
+    "context": "Next we train with simulator using pretrained policy as base controller and learn the auxiliary policy for stable and fast learning performance. | First we pretrained our policy using supervised learning using Transformer-Variational Auto Encoder(VAE). | We first obtain offline dataset to be pretrained using supervised learning from human demonstrated data.",
+    "paper_id": "885"
+  },
+  {
+    "section": "experiments2",
+    "path": {
+      "section": "experiments2",
+      "start_entity": "ResidualProposed",
+      "end_entity": "Technology",
+      "hops": [
+        {
+          "from": "ResidualProposed",
+          "relation": "outperforms",
+          "to": "NominalQuadrotor",
+          "context": "Residual (Proposed) model outperforms Nominal quadrotor in terms of velocity reduction during deceleration.",
+          "chunk": "5"
+        },
+        {
+          "from": "NominalQuadrotor",
+          "relation": "uses",
+          "to": "NominalController",
+          "context": "Nominal quadrotor uses Nominal Controller.",
+          "chunk": "5"
+        },
+        {
+          "from": "NominalController",
+          "relation": "type",
+          "to": "Technology",
+          "context": "Nominal controller is mentioned as part of the nominal system.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "Why does the Residual (Proposed) model outperform the Nominal quadrotor in terms of velocity reduction during deceleration?",
+    "options": {
+      "A": "The Residual model has a lighter frame which naturally allows quicker deceleration than the Nominal quadrotor.",
+      "B": "The Residual model applies advanced aerodynamic principles not present in the Nominal Controller.",
+      "C": "The Nominal quadrotor's Nominal Controller uses less advanced technology than the Residual model's system.",
+      "D": "The Residual model uses a more efficient battery technology than what is used in the Nominal quadrotor."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is C because it directly relates to the mentioned Nominal Controller's technology in comparison to the Residual model. The paper states that the Residual Model outperforms the Nominal Quadrotor, which uses the Nominal Controller, indicating that the technology used in the Nominal Controller is less advanced than that used in the Residual Model. Options A, B, and D are incorrect as they introduce external elements (aerodynamic principles, battery technology, frame weight) not supported by the given context.",
+    "path_description": "Path: ResidualProposed --[outperforms]--> NominalQuadrotor --[uses]--> NominalController --[type]--> Technology",
+    "context": "Residual (Proposed) model outperforms Nominal quadrotor in terms of velocity reduction during deceleration. | Nominal quadrotor uses Nominal Controller. | Nominal controller is mentioned as part of the nominal system.",
+    "paper_id": "885"
+  }
+]

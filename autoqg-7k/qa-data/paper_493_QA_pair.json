@@ -1,0 +1,217 @@
+[
+  {
+    "section": "designofsimilargpt2",
+    "path": {
+      "section": "designofsimilargpt2",
+      "start_entity": "FunctionA",
+      "end_entity": "Function",
+      "hops": [
+        {
+          "from": "FunctionA",
+          "relation": "dependsOn",
+          "to": "FunctionB",
+          "context": "Function A is called function B, and A depends on B.",
+          "chunk": "3"
+        },
+        {
+          "from": "FunctionB",
+          "relation": "detectedBefore",
+          "to": "FunctionA",
+          "context": "So, at the time of detection, B was detected first.",
+          "chunk": "3"
+        },
+        {
+          "from": "FunctionA",
+          "relation": "type",
+          "to": "Function",
+          "context": "Function A is called function B, and A depends on B.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the design of a system similar to GPT-2 as described in the 'designofsimilargpt2' section, what is the correct relationship and sequence between Function A and Function B?",
+    "options": {
+      "A": "Function A is dependent on Function B, which was detected first, and both are classified as types of Function.",
+      "B": "Function A operates independently but after Function B, which is not dependent on Function A or classified under Function.",
+      "C": "Function B depends on Function A, and Function A was detected first, although neither are considered functions.",
+      "D": "Both Function A and Function B operate independently, with no detection sequence or dependency relationship."
+    },
+    "correct_answer": "A",
+    "explanation": "From the given information, Function A relies on Function B, which implies a dependency. Additionally, Function B was detected first, leading to the detection of Function A. Both functions are classified under the general type 'Function'. Therefore, option A correctly describes the relationship and sequence as stated in the provided context.",
+    "path_description": "Path: FunctionA --[dependsOn]--> FunctionB --[detectedBefore]--> FunctionA --[type]--> Function",
+    "context": "Function A is called function B, and A depends on B. | So, at the time of detection, B was detected first. | Function A is called function B, and A depends on B.",
+    "paper_id": "1289"
+  },
+  {
+    "section": "designofsimilargpt2",
+    "path": {
+      "section": "designofsimilargpt2",
+      "start_entity": "FunctionB",
+      "end_entity": "FunctionC",
+      "hops": [
+        {
+          "from": "FunctionB",
+          "relation": "detectedBefore",
+          "to": "FunctionA",
+          "context": "So, at the time of detection, B was detected first.",
+          "chunk": "3"
+        },
+        {
+          "from": "FunctionA",
+          "relation": "dependsOn",
+          "to": "FunctionB",
+          "context": "Function A is called function B, and A depends on B.",
+          "chunk": "3"
+        },
+        {
+          "from": "FunctionB",
+          "relation": "calls",
+          "to": "FunctionC",
+          "context": "In the same way, if function B calls function C, then we test function C first.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the sequence of function testing based on the dependency and calling structure described, which function should be tested last?",
+    "options": {
+      "A": "Function C should be tested last as it is the final function in the call sequence starting from Function B.",
+      "B": "Function C should be tested last because it is called by Function B, which is dependent on Function A.",
+      "C": "Function B should be tested last as it is the initial function detected and does not depend on any other functions.",
+      "D": "Function A should be tested last since it is dependent on Function B which in turn calls Function C."
+    },
+    "correct_answer": "A",
+    "explanation": "Following the dependency and calling relationships, Function B, which depends on Function A, calls Function C. Thus, Function C, being the last in this chain, should be tested last.",
+    "path_description": "Path: FunctionB --[detectedBefore]--> FunctionA --[dependsOn]--> FunctionB --[calls]--> FunctionC",
+    "context": "So, at the time of detection, B was detected first. | Function A is called function B, and A depends on B. | In the same way, if function B calls function C, then we test function C first.",
+    "paper_id": "1289"
+  },
+  {
+    "section": "designofsimilargpt3",
+    "path": {
+      "section": "designofsimilargpt3",
+      "start_entity": "GzipPackage",
+      "end_entity": "Hash",
+      "hops": [
+        {
+          "from": "GzipPackage",
+          "relation": "contains",
+          "to": "SolFile",
+          "context": "We collect all of the .sol files in those gzip packages",
+          "chunk": "4"
+        },
+        {
+          "from": "SolFile",
+          "relation": "contains",
+          "to": "Function",
+          "context": "Moreover, we extract each function in the file",
+          "chunk": "4"
+        },
+        {
+          "from": "Function",
+          "relation": "hasHash",
+          "to": "Hash",
+          "context": "Moreover, we extract each function in the file and calculate its hash",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the context of analyzing Solidity (.sol) files for security, what is the final step in processing these files as extracted from gzip packages?",
+    "options": {
+      "A": "The final step is calculating the hash of each function within the .sol files.",
+      "B": "The final step is uploading the .sol files to a central database for further analysis.",
+      "C": "The final step is performing a peer review of the .sol files to ensure coding standards.",
+      "D": "The final step is compiling the .sol files to check for syntax errors and vulnerabilities."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A because, according to the provided knowledge path, after extracting .sol files from gzip packages and identifying functions within these files, the process culminates in calculating the hash of each function. This step is essential for verifying the integrity and uniqueness of functions in Solidity files.",
+    "path_description": "Path: GzipPackage --[contains]--> SolFile --[contains]--> Function --[hasHash]--> Hash",
+    "context": "We collect all of the .sol files in those gzip packages | Moreover, we extract each function in the file | Moreover, we extract each function in the file and calculate its hash",
+    "paper_id": "1289"
+  },
+  {
+    "section": "evaluation1",
+    "path": {
+      "section": "evaluation1",
+      "start_entity": "SimilarGPT",
+      "end_entity": "Organization",
+      "hops": [
+        {
+          "from": "SimilarGPT",
+          "relation": "uses",
+          "to": "GPT-4-turbo",
+          "context": "We use the GPT-4-turbo model from OpenAI for SimilarGPT.",
+          "chunk": "5"
+        },
+        {
+          "from": "GPT-4-turbo",
+          "relation": "developedBy",
+          "to": "OpenAI",
+          "context": "We use the GPT-4-turbo model from OpenAI for SimilarGPT.",
+          "chunk": "5"
+        },
+        {
+          "from": "OpenAI",
+          "relation": "type",
+          "to": "Organization",
+          "context": "We use the GPT-4-turbo model from OpenAI for SimilarGPT.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "Which statement correctly describes the relationship between SimilarGPT, GPT-4-turbo, and OpenAI?",
+    "options": {
+      "A": "GPT-4-turbo and SimilarGPT are competing models both developed independently by different organizations.",
+      "B": "GPT-4-turbo is a foundational model used by SimilarGPT, which is a separate entity developed by OpenAI.",
+      "C": "OpenAI uses SimilarGPT as the primary framework to develop enhancements for the GPT-4-turbo model.",
+      "D": "SimilarGPT is a model developed by OpenAI that utilizes the underlying architecture of GPT-4-turbo."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct relationship is that SimilarGPT uses the GPT-4-turbo model, which is developed by OpenAI. Hence, GPT-4-turbo is foundational for SimilarGPT, and both are under the umbrella of OpenAI, an organization.",
+    "path_description": "Path: SimilarGPT --[uses]--> GPT-4-turbo --[developedBy]--> OpenAI --[type]--> Organization",
+    "context": "We use the GPT-4-turbo model from OpenAI for SimilarGPT. | We use the GPT-4-turbo model from OpenAI for SimilarGPT. | We use the GPT-4-turbo model from OpenAI for SimilarGPT.",
+    "paper_id": "1289"
+  },
+  {
+    "section": "evaluation1",
+    "path": {
+      "section": "evaluation1",
+      "start_entity": "SimilarGPT",
+      "end_entity": "Tool",
+      "hops": [
+        {
+          "from": "SimilarGPT",
+          "relation": "outperforms",
+          "to": "Gptlens",
+          "context": "Table I shows that SimilarGPT outperforms all the tools, with SimilarGPT detecting 8 out of 13 vulnerabilities.",
+          "chunk": "5"
+        },
+        {
+          "from": "Gptlens",
+          "relation": "outperforms",
+          "to": "Slither",
+          "context": "Table I shows that SimilarGPT outperforms all the tools, with Gptlens detecting 4 vulnerabilities.",
+          "chunk": "5"
+        },
+        {
+          "from": "Slither",
+          "relation": "type",
+          "to": "Tool",
+          "context": "SimilarGPT is compared to Slither [6], a popular static analysis tool for detecting vulnerabilities.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "Which statement best describes the hierarchical performance of tools in vulnerability detection as shown in Table I?",
+    "options": {
+      "A": "Slither outperforms SimilarGPT and Gptlens in detecting vulnerabilities, as it is a static analysis tool.",
+      "B": "SimilarGPT and Gptlens have the same effectiveness in detecting vulnerabilities, both outperforming Slither.",
+      "C": "Gptlens detects more vulnerabilities than SimilarGPT but is less effective than Slither, a dynamic analysis tool.",
+      "D": "SimilarGPT outperforms Gptlens, which in turn outperforms Slither, classified as a static analysis tool."
+    },
+    "correct_answer": "D",
+    "explanation": "From the knowledge graph path and the context provided, SimilarGPT outperforms Gptlens, which in turn outperforms Slither. The classification of Slither as a static analysis tool suggests its role but does not imply superiority in performance over the other tools mentioned.",
+    "path_description": "Path: SimilarGPT --[outperforms]--> Gptlens --[outperforms]--> Slither --[type]--> Tool",
+    "context": "Table I shows that SimilarGPT outperforms all the tools, with SimilarGPT detecting 8 out of 13 vulnerabilities. | Table I shows that SimilarGPT outperforms all the tools, with Gptlens detecting 4 vulnerabilities. | SimilarGPT is compared to Slither [6], a popular static analysis tool for detecting vulnerabilities.",
+    "paper_id": "1289"
+  }
+]

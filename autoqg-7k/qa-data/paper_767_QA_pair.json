@@ -1,0 +1,88 @@
+[
+  {
+    "section": "channelmodelandproblemformulation",
+    "path": {
+      "section": "channelmodelandproblemformulation",
+      "start_entity": "UserEquipment",
+      "end_entity": "SystemComponent",
+      "hops": [
+        {
+          "from": "UserEquipment",
+          "relation": "communicatesWith",
+          "to": "BaseStation",
+          "context": "We consider a mobile User Equipment (UE) possessing an Nue-element Uniform Linear Array (ULA) that wishes to communicate in the uplink direction with a Base Station (BS).",
+          "chunk": "1"
+        },
+        {
+          "from": "BaseStation",
+          "relation": "detects",
+          "to": "RIS",
+          "context": "whose presence the BS intends to efficiently detect, e.g., for security purposes.",
+          "chunk": "1"
+        },
+        {
+          "from": "RIS",
+          "relation": "type",
+          "to": "SystemComponent",
+          "context": "there might exist RISs that have not been deployed by the targeted uplink communication system.",
+          "chunk": "1"
+        }
+      ]
+    },
+    "question": "In the scenario described, why is the detection of RIS by the Base Station critical in uplink communications?",
+    "options": {
+      "A": "To reduce the cost of transmission by minimizing the energy used in signal transmission",
+      "B": "To ensure the security by identifying unauthorized RIS potentially interfering with the communication",
+      "C": "To enhance the signal quality by using RIS to amplify the signals from the User Equipment",
+      "D": "To increase the bandwidth availability by deploying additional RIS across the communication network"
+    },
+    "correct_answer": "B",
+    "explanation": "The detection of RIS by the Base Station is crucial for security purposes as mentioned in the context. Unauthorized RIS might interfere with the system's intended communications, making it necessary to identify and manage them efficiently.",
+    "path_description": "Path: UserEquipment --[communicatesWith]--> BaseStation --[detects]--> RIS --[type]--> SystemComponent",
+    "context": "We consider a mobile User Equipment (UE) possessing an Nue-element Uniform Linear Array (ULA) that wishes to communicate in the uplink direction with a Base Station (BS). | whose presence the BS intends to efficiently detect, e.g., for security purposes. | there might exist RISs that have not been deployed by the targeted uplink communication system.",
+    "paper_id": "730"
+  },
+  {
+    "section": "conclusion",
+    "path": {
+      "section": "conclusion",
+      "start_entity": "dSVDD-scan_B",
+      "end_entity": "CommunicationSystem",
+      "hops": [
+        {
+          "from": "dSVDD-scan_B",
+          "relation": "appliedTo",
+          "to": "RIS",
+          "context": "Our dSVDD-scan B test was applied to detect non-cooperative activity from one or more RISs...",
+          "chunk": "5"
+        },
+        {
+          "from": "RIS",
+          "relation": "impacts",
+          "to": "MIMO_OFDM",
+          "context": "from one or more RISs with unknown characteristics impacting a point-to-point MIMO OFDM communication system.",
+          "chunk": "5"
+        },
+        {
+          "from": "MIMO_OFDM",
+          "relation": "type",
+          "to": "CommunicationSystem",
+          "context": "impacting a point-to-point MIMO OFDM communication system.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "How does the application of dSVDD-scan B to RISs specifically affect point-to-point MIMO OFDM communication systems?",
+    "options": {
+      "A": "It identifies optimal placement of RIS panels to maximize communication coverage in these systems.",
+      "B": "It reduces the energy consumption of the communication system by optimizing RIS configurations.",
+      "C": "It enhances the signal processing capabilities to improve data throughput efficiency in these systems.",
+      "D": "It detects non-cooperative activities that degrade the integrity of data transmission in these systems."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A, as the dSVDD-scan B test is applied to detect non-cooperative activity from one or more RISs, which would impact the integrity and reliability of data transmission in a point-to-point MIMO OFDM communication system. Options B, C, and D are misleading because they suggest positive enhancements or optimizations brought by the dSVDD-scan B, which is inconsistent with its purpose of detecting non-cooperative activities.",
+    "path_description": "Path: dSVDD-scan_B --[appliedTo]--> RIS --[impacts]--> MIMO_OFDM --[type]--> CommunicationSystem",
+    "context": "Our dSVDD-scan B test was applied to detect non-cooperative activity from one or more RISs... | from one or more RISs with unknown characteristics impacting a point-to-point MIMO OFDM communication system. | impacting a point-to-point MIMO OFDM communication system.",
+    "paper_id": "730"
+  }
+]

@@ -1,0 +1,174 @@
+[
+  {
+    "section": "bottomupfuzzing4",
+    "path": {
+      "section": "bottomupfuzzing4",
+      "start_entity": "ChiGenGenerate",
+      "end_entity": "Wire",
+      "hops": [
+        {
+          "from": "ChiGenGenerate",
+          "relation": "generates",
+          "to": "Module_1",
+          "context": "The Verilog program that ChiGen generates contains at least one module, but usually many more.",
+          "chunk": "5"
+        },
+        {
+          "from": "Module_1",
+          "relation": "manipulates",
+          "to": "WireId_3",
+          "context": "In part (b), module module_1 instantiates module_0 and directly manipulates its internal wire id_3 via hierarchical assignment (assign id_7.id_3 = 1).",
+          "chunk": "5"
+        },
+        {
+          "from": "WireId_3",
+          "relation": "type",
+          "to": "Wire",
+          "context": "In part (b), module module_1 instantiates module_0 and directly manipulates its internal wire id_3 via hierarchical assignment (assign id_7.id_3 = 1).",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the context of the ChiGen-generated Verilog program as described in 'bottomupfuzzing4', how does module_1 interact with wire id_3 in module_0?",
+    "options": {
+      "A": "Module_1 creates a new instance of wire id_3 in module_0 and sets its initial value.",
+      "B": "Module_1 modifies wire id_3 in module_0 using hierarchical assignment to set its value to 1.",
+      "C": "Module_1 reads the value of wire id_3 in module_0 and uses it to set the value of wire id_7.",
+      "D": "Module_1 deletes wire id_3 in module_0 as part of an optimization step in the Verilog code."
+    },
+    "correct_answer": "B",
+    "explanation": "According to the paper section 'bottomupfuzzing4', module_1 manipulates the internal wire id_3 of module_0 by directly assigning a value to it (assign id_7.id_3 = 1), which indicates hierarchical assignment. Thus, option A correctly describes this interaction, while the other options inaccurately represent the manipulation or relationship between module_1 and wire id_3.",
+    "path_description": "Path: ChiGenGenerate --[generates]--> Module_1 --[manipulates]--> WireId_3 --[type]--> Wire",
+    "context": "The Verilog program that ChiGen generates contains at least one module, but usually many more. | In part (b), module module_1 instantiates module_0 and directly manipulates its internal wire id_3 via hierarchical assignment (assign id_7.id_3 = 1). | In part (b), module module_1 instantiates module_0 and directly manipulates its internal wire id_3 via hierarchical assignment (assign id_7.id_3 = 1).",
+    "paper_id": "728"
+  },
+  {
+    "section": "bottomupfuzzing4",
+    "path": {
+      "section": "bottomupfuzzing4",
+      "start_entity": "InjectModule",
+      "end_entity": "Module",
+      "hops": [
+        {
+          "from": "InjectModule",
+          "relation": "insertsSyntax",
+          "to": "Module_1",
+          "context": "Notice that the inject_module function inserts new syntax into an existing module.",
+          "chunk": "5"
+        },
+        {
+          "from": "Module_1",
+          "relation": "instantiates",
+          "to": "Module_0",
+          "context": "In part (b), module module_1 instantiates module_0.",
+          "chunk": "5"
+        },
+        {
+          "from": "Module_0",
+          "relation": "type",
+          "to": "Module",
+          "context": "In part (b), module module_1 instantiates module_0.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the process outlined in the 'bottomupfuzzing4' section, what is the role of the inject_module function in relation to Module_0?",
+    "options": {
+      "A": "It removes existing syntax from Module_0, simplifying its structure for easier instantiation.",
+      "B": "It inserts new syntax into Module_1, which then instantiates Module_0, indirectly affecting it.",
+      "C": "It serves as the primary instantiation mechanism for Module_0, bypassing Module_1.",
+      "D": "It directly modifies the internal structure of Module_0 by altering its syntax."
+    },
+    "correct_answer": "B",
+    "explanation": "The inject_module function inserts new syntax into Module_1. Following the knowledge path, Module_1 then instantiates Module_0. This means the alterations made by the inject_module function to Module_1 indirectly influence Module_0 through the instantiation process, rather than directly modifying Module_0 itself.",
+    "path_description": "Path: InjectModule --[insertsSyntax]--> Module_1 --[instantiates]--> Module_0 --[type]--> Module",
+    "context": "Notice that the inject_module function inserts new syntax into an existing module. | In part (b), module module_1 instantiates module_0. | In part (b), module module_1 instantiates module_0.",
+    "paper_id": "728"
+  },
+  {
+    "section": "chibenchthetrainingset",
+    "path": {
+      "section": "chibenchthetrainingset",
+      "start_entity": "ChiGen",
+      "end_entity": "Software",
+      "hops": [
+        {
+          "from": "ChiGen",
+          "relation": "trainedOn",
+          "to": "ChiBench",
+          "context": "The probabilistic grammar used in the open-source distribution of ChiGen was trained on a dataset of 10,000 designs selected from ChiBench.",
+          "chunk": "6"
+        },
+        {
+          "from": "ChiBench",
+          "relation": "filteredBy",
+          "to": "JasperHDLAnalyzer",
+          "context": "Once we remove any syntactically invalid designs, we use Jasper’s HDL semantic analyzer to filter out any semantically invalid designs.",
+          "chunk": "6"
+        },
+        {
+          "from": "JasperHDLAnalyzer",
+          "relation": "type",
+          "to": "Software",
+          "context": "Once we remove any syntactically invalid designs, we use Jasper’s HDL semantic analyzer to filter out any semantically invalid designs.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the development process of ChiGen, which component is directly responsible for ensuring the semantic validity of hardware designs from the ChiBench dataset?",
+    "options": {
+      "A": "JasperHDLAnalyzer, a software tool, filters out semantically invalid designs after initial syntactic checks.",
+      "B": "ChiBench, as the source dataset, inherently includes only semantically valid hardware designs.",
+      "C": "ChiGen itself, by integrating advanced probabilistic grammars, ensures both syntactic and semantic validity.",
+      "D": "The probabilistic grammar in ChiGen automatically filters out semantically invalid designs without additional tools."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A, as the context clarifies that JasperHDLAnalyzer, categorized as software, is used specifically to filter out semantically invalid designs after ChiGen has used syntactic checks on the dataset from ChiBench.",
+    "path_description": "Path: ChiGen --[trainedOn]--> ChiBench --[filteredBy]--> JasperHDLAnalyzer --[type]--> Software",
+    "context": "The probabilistic grammar used in the open-source distribution of ChiGen was trained on a dataset of 10,000 designs selected from ChiBench. | Once we remove any syntactically invalid designs, we use Jasper’s HDL semantic analyzer to filter out any semantically invalid designs. | Once we remove any syntactically invalid designs, we use Jasper’s HDL semantic analyzer to filter out any semantically invalid designs.",
+    "paper_id": "728"
+  },
+  {
+    "section": "bottomupfuzzing4",
+    "path": {
+      "section": "bottomupfuzzing4",
+      "start_entity": "ChiGenGenerate",
+      "end_entity": "Module",
+      "hops": [
+        {
+          "from": "ChiGenGenerate",
+          "relation": "generates",
+          "to": "Module_1",
+          "context": "The Verilog program that ChiGen generates contains at least one module, but usually many more.",
+          "chunk": "5"
+        },
+        {
+          "from": "Module_1",
+          "relation": "instantiates",
+          "to": "Module_0",
+          "context": "In part (b), module module_1 instantiates module_0.",
+          "chunk": "5"
+        },
+        {
+          "from": "Module_0",
+          "relation": "type",
+          "to": "Module",
+          "context": "In part (b), module module_1 instantiates module_0.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the context of the Verilog program generated by ChiGen, which statement best describes the hierarchical relationship between Module_1 and Module_0?",
+    "options": {
+      "A": "Module_1 is instantiated within Module_0, making Module_1 a higher hierarchical module.",
+      "B": "Module_0 is instantiated within Module_1, thereby making Module_0 a lower hierarchical module.",
+      "C": "Module_1 and Module_0 are instantiated within each other simultaneously, indicating a peer relationship.",
+      "D": "Module_0 and Module_1 do not instantiate any modules, suggesting they are at the top of the hierarchy."
+    },
+    "correct_answer": "B",
+    "explanation": "According to the described knowledge path and paper's context, ChiGen generates a Verilog program where Module_1 instantiates Module_0. This indicates that Module_1 is a higher-level module in the hierarchy, and Module_0 is a lower-level module instantiated by Module_1.",
+    "path_description": "Path: ChiGenGenerate --[generates]--> Module_1 --[instantiates]--> Module_0 --[type]--> Module",
+    "context": "The Verilog program that ChiGen generates contains at least one module, but usually many more. | In part (b), module module_1 instantiates module_0. | In part (b), module module_1 instantiates module_0.",
+    "paper_id": "728"
+  }
+]

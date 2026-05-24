@@ -1,0 +1,260 @@
+[
+  {
+    "section": "overviewoflegilimens1",
+    "path": {
+      "section": "overviewoflegilimens1",
+      "start_entity": "ResNet18",
+      "end_entity": "Metric",
+      "hops": [
+        {
+          "from": "ResNet18",
+          "relation": "optimizedFor",
+          "to": "SceneEmbeddings",
+          "context": "Scene embeddings converge over time.",
+          "chunk": "3"
+        },
+        {
+          "from": "SceneEmbeddings",
+          "relation": "measures",
+          "to": "EuclideanDistance",
+          "context": "For each scene, we compute a centroid vector from the penultimate-layer embeddings (across all detected objects).",
+          "chunk": "3"
+        },
+        {
+          "from": "EuclideanDistance",
+          "relation": "type",
+          "to": "Metric",
+          "context": "we measure the Euclidean distance in embedding space between its trained model and two initialization points",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the context of optimizing ResNet18 for scene embeddings, which metric type is utilized to measure the distance in embedding space between a trained model and its initialization points?",
+    "options": {
+      "A": "Euclidean distance is employed as the metric type to compute distances in the embedding space.",
+      "B": "Manhattan distance is utilized to evaluate the proximity between different scene embeddings.",
+      "C": "Pearson correlation coefficient measures the linear correlation between model training stages.",
+      "D": "Cosine similarity is used to ascertain the alignment between the trained model and its initialization points."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A, as the knowledge path indicates that ResNet18 is optimized for scene embeddings, where Euclidean distance is specifically mentioned as the metric type used to measure distances in the embedding space. Other options mention different metrics which are not specified in this context.",
+    "path_description": "Path: ResNet18 --[optimizedFor]--> SceneEmbeddings --[measures]--> EuclideanDistance --[type]--> Metric",
+    "context": "Scene embeddings converge over time. | For each scene, we compute a centroid vector from the penultimate-layer embeddings (across all detected objects). | we measure the Euclidean distance in embedding space between its trained model and two initialization points",
+    "paper_id": "76"
+  },
+  {
+    "section": "introduction2",
+    "path": {
+      "section": "introduction2",
+      "start_entity": "Legilimens",
+      "end_entity": "GPUModel",
+      "hops": [
+        {
+          "from": "Legilimens",
+          "relation": "outperforms",
+          "to": "Ekya",
+          "context": "Compared to state-of-the-art baselines (Ekya [16], RECL [43]), Legilimens improves median accuracy by 18.1-45.1%.",
+          "chunk": "1"
+        },
+        {
+          "from": "Ekya",
+          "relation": "evaluatedOn",
+          "to": "V100GPU",
+          "context": "We study this approach using Ekya [16] on all three platforms.",
+          "chunk": "1"
+        },
+        {
+          "from": "V100GPU",
+          "relation": "type",
+          "to": "GPUModel",
+          "context": "and a full-capacity V100 GPU [12].",
+          "chunk": "1"
+        }
+      ]
+    },
+    "question": "Which of the following best describes the technological relationship and hierarchical classification in the context of the research paper?",
+    "options": {
+      "A": "Ekya, when compared to Legilimens, shows better results on a V100 GPU which is a type of CPU model.",
+      "B": "Legilimens evaluates the performance of RECL using a V100 GPU, which is not classified under GPU models.",
+      "C": "Ekya outperforms Legilimens, which was tested using a V100 GPU classified as a type of general processing unit.",
+      "D": "Legilimens outperforms Ekya, which was evaluated on a V100 GPU classified as a type of GPU Model."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A. The paper states that Legilimens outperforms Ekya, which was evaluated using a V100 GPU. The V100 GPU is further classified as a type of GPU Model. Options B, C, and D incorrectly describe the relationships and classifications mentioned in the paper.",
+    "path_description": "Path: Legilimens --[outperforms]--> Ekya --[evaluatedOn]--> V100GPU --[type]--> GPUModel",
+    "context": "Compared to state-of-the-art baselines (Ekya [16], RECL [43]), Legilimens improves median accuracy by 18.1-45.1%. | We study this approach using Ekya [16] on all three platforms. | and a full-capacity V100 GPU [12].",
+    "paper_id": "76"
+  },
+  {
+    "section": "introduction2",
+    "path": {
+      "section": "introduction2",
+      "start_entity": "Legilimens",
+      "end_entity": "GPUModel",
+      "hops": [
+        {
+          "from": "Legilimens",
+          "relation": "outperforms",
+          "to": "Ekya",
+          "context": "Compared to state-of-the-art baselines (Ekya [16], RECL [43]), Legilimens improves median accuracy by 18.1-45.1%.",
+          "chunk": "1"
+        },
+        {
+          "from": "Ekya",
+          "relation": "evaluatedOn",
+          "to": "JetsonNanoGPU",
+          "context": "We study this approach using Ekya [16] on all three platforms.",
+          "chunk": "1"
+        },
+        {
+          "from": "JetsonNanoGPU",
+          "relation": "type",
+          "to": "GPUModel",
+          "context": "we ran experiments on both a Jetson Nano GPU [8].",
+          "chunk": "1"
+        }
+      ]
+    },
+    "question": "In the context of evaluating performance improvements, which GPU model was used to assess the Legilimens approach against Ekya?",
+    "options": {
+      "A": "Radeon RX 6000, a model of GPU, was instrumental in assessing the comparative benefits of Legilimens over Ekya.",
+      "B": "Tesla V100, a model of GPU, was specifically utilized to test the Legilimens' enhancements over Ekya.",
+      "C": "GeForce RTX 2080, a high-performance GPU model, was used in the evaluation of Legilimens compared to Ekya.",
+      "D": "Jetson Nano, a model of GPU, was used to evaluate the Legilimens' performance against Ekya."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is Jetson Nano GPU. The paper mentions that experiments were conducted on a Jetson Nano GPU to evaluate the improvements of Legilimens compared to Ekya, fitting within the 3-hop knowledge path from Legilimens to GPU Model via Ekya and JetsonNanoGPU.",
+    "path_description": "Path: Legilimens --[outperforms]--> Ekya --[evaluatedOn]--> JetsonNanoGPU --[type]--> GPUModel",
+    "context": "Compared to state-of-the-art baselines (Ekya [16], RECL [43]), Legilimens improves median accuracy by 18.1-45.1%. | We study this approach using Ekya [16] on all three platforms. | we ran experiments on both a Jetson Nano GPU [8].",
+    "paper_id": "76"
+  },
+  {
+    "section": "design3",
+    "path": {
+      "section": "design3",
+      "start_entity": "Legilimens",
+      "end_entity": "Process",
+      "hops": [
+        {
+          "from": "Legilimens",
+          "relation": "avoidsCost",
+          "to": "SecondForwardPass",
+          "context": "Legilimens avoids this cost by leveraging a structural property of meta-learned models.",
+          "chunk": "7"
+        },
+        {
+          "from": "SecondForwardPass",
+          "relation": "incursCost",
+          "to": "Retraining",
+          "context": "But this incurs a second forward pass per datapoint — adding 1.3× overhead to the retraining.",
+          "chunk": "7"
+        },
+        {
+          "from": "Retraining",
+          "relation": "type",
+          "to": "Process",
+          "context": "adding 1.3× overhead to the retraining.",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "In the context of meta-learned models in 'design3', how does the Legilimens approach impact the retraining process?",
+    "options": {
+      "A": "Legilimens reduces the overhead by avoiding a second forward pass, effectively reducing retraining costs by 1.3x.",
+      "B": "Legilimens avoids additional costs by using a structural property, but this results in a second forward pass adding 1.3x overhead.",
+      "C": "By leveraging structural properties, Legilimens eliminates the need for retraining, thereby avoiding any additional overhead.",
+      "D": "Legilimens increases the efficiency of the retraining process by significantly reducing the number of required forward passes."
+    },
+    "correct_answer": "B",
+    "explanation": "According to the paper, Legilimens uses a structural property of meta-learned models to avoid certain costs, but this specifically incurs a second forward pass for each data point, which adds a 1.3x overhead to the retraining process. Options B, C, and D are incorrect as they either misstate the effect on overhead or misunderstand the structural role of Legilimens.",
+    "path_description": "Path: Legilimens --[avoidsCost]--> SecondForwardPass --[incursCost]--> Retraining --[type]--> Process",
+    "context": "Legilimens avoids this cost by leveraging a structural property of meta-learned models. | But this incurs a second forward pass per datapoint — adding 1.3× overhead to the retraining. | adding 1.3× overhead to the retraining.",
+    "paper_id": "76"
+  },
+  {
+    "section": "design5",
+    "path": {
+      "section": "design5",
+      "start_entity": "Legilimens",
+      "end_entity": "Model",
+      "hops": [
+        {
+          "from": "Legilimens",
+          "relation": "makesFit",
+          "to": "Reptile",
+          "context": "While this can reduce fidelity in general, Legilimens’s setting makes Reptile a natural fit",
+          "chunk": "9"
+        },
+        {
+          "from": "Reptile",
+          "relation": "approximates",
+          "to": "MAML",
+          "context": "Reptile approximates the behavior of gradient-based meta-learning (e.g., MAML)",
+          "chunk": "9"
+        },
+        {
+          "from": "MAML",
+          "relation": "type",
+          "to": "Model",
+          "context": "Reptile approximates the behavior of gradient-based meta-learning (e.g., MAML)",
+          "chunk": "9"
+        }
+      ]
+    },
+    "question": "In the context of the 'design5' section, why is the Legilimens tool considered a natural fit for use with the Reptile algorithm?",
+    "options": {
+      "A": "Because Legilimens requires a non-gradient-based learning method, and Reptile offers this through a unique fitting procedure.",
+      "B": "Because Reptile uses an entirely different approach from MAML, offering more precise control, which is required by Legilimens for effective operation.",
+      "C": "Because Reptile simplifies the implementation of gradient-based meta-learning models, similar to MAML, which matches the needs of Legilimens.",
+      "D": "Because the computing power required by Legilimens is considerably reduced when integrating with algorithms like Reptile, not necessarily MAML."
+    },
+    "correct_answer": "C",
+    "explanation": "Reptile is described as a natural fit for Legilimens because it approximates the behavior of MAML, a model known for its gradient-based meta-learning. This suggests that Reptile simplifies the similar processes in a way that is compatible with the requirements of Legilimens, making it a suitable tool in this context.",
+    "path_description": "Path: Legilimens --[makesFit]--> Reptile --[approximates]--> MAML --[type]--> Model",
+    "context": "While this can reduce fidelity in general, Legilimens’s setting makes Reptile a natural fit | Reptile approximates the behavior of gradient-based meta-learning (e.g., MAML) | Reptile approximates the behavior of gradient-based meta-learning (e.g., MAML)",
+    "paper_id": "76"
+  },
+  {
+    "section": "design5",
+    "path": {
+      "section": "design5",
+      "start_entity": "Legilimens",
+      "end_entity": "QualityMetric",
+      "hops": [
+        {
+          "from": "Legilimens",
+          "relation": "makesFit",
+          "to": "Reptile",
+          "context": "While this can reduce fidelity in general, Legilimens’s setting makes Reptile a natural fit",
+          "chunk": "9"
+        },
+        {
+          "from": "Reptile",
+          "relation": "reduces",
+          "to": "Fidelity",
+          "context": "While this can reduce fidelity in general, Legilimens’s setting makes Reptile a natural fit",
+          "chunk": "9"
+        },
+        {
+          "from": "Fidelity",
+          "relation": "type",
+          "to": "QualityMetric",
+          "context": "While this can reduce fidelity in general, Legilimens’s setting makes Reptile a natural fit",
+          "chunk": "9"
+        }
+      ]
+    },
+    "question": "In the context of the 'Legilimens' system, how does the integration of the 'Reptile' algorithm impact the performance as measured by a specific quality metric?",
+    "options": {
+      "A": "It optimizes the energy efficiency of the system, indirectly improving the fidelity.",
+      "B": "It enhances the system's overall performance by improving the fidelity, a key quality metric.",
+      "C": "It reduces the fidelity, thus negatively impacting a critical quality metric in the system.",
+      "D": "It increases the computational complexity without any effect on quality metrics like fidelity."
+    },
+    "correct_answer": "C",
+    "explanation": "The knowledge path indicates that the integration of 'Reptile' into the 'Legilimens' system reduces 'Fidelity', which is a type of 'QualityMetric'. Thus, option B is correct as it mentions that fidelity, a critical quality metric, is negatively impacted.",
+    "path_description": "Path: Legilimens --[makesFit]--> Reptile --[reduces]--> Fidelity --[type]--> QualityMetric",
+    "context": "While this can reduce fidelity in general, Legilimens’s setting makes Reptile a natural fit | While this can reduce fidelity in general, Legilimens’s setting makes Reptile a natural fit | While this can reduce fidelity in general, Legilimens’s setting makes Reptile a natural fit",
+    "paper_id": "76"
+  }
+]

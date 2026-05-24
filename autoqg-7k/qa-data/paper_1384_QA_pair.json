@@ -1,0 +1,174 @@
+[
+  {
+    "section": "theory2",
+    "path": {
+      "section": "theory2",
+      "start_entity": "GaussianEmbeddings",
+      "end_entity": "Algorithm",
+      "hops": [
+        {
+          "from": "GaussianEmbeddings",
+          "relation": "usedIn",
+          "to": "RandomizedKrylov",
+          "context": "it requires the usage of sparse Gaussian embeddings",
+          "chunk": "2"
+        },
+        {
+          "from": "RandomizedKrylov",
+          "relation": "basedOn",
+          "to": "GramSchmidtProcess",
+          "context": "This observation serves as the foundation for the Randomized Gram-Schmidt (RGS) process",
+          "chunk": "2"
+        },
+        {
+          "from": "GramSchmidtProcess",
+          "relation": "type",
+          "to": "Algorithm",
+          "context": "This observation serves as the foundation for the Randomized Gram-Schmidt (RGS) process",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "Which of the following best describes the role of Gaussian Embeddings in the development of the Randomized Krylov method, particularly in relation to the Gram-Schmidt process?",
+    "options": {
+      "A": "Gaussian Embeddings are utilized to enhance the efficiency and stability of the Randomized Krylov method through sparse representations.",
+      "B": "Gaussian Embeddings primarily function to decrease computational overhead by simplifying the Randomized Krylov algorithm structure.",
+      "C": "Gaussian Embeddings provide a method for error checking in the results produced by the Randomized Krylov method.",
+      "D": "Gaussian Embeddings are used to randomly initialize vectors in the Gram-Schmidt process within the Randomized Krylov method."
+    },
+    "correct_answer": "A",
+    "explanation": "Gaussian Embeddings are used in the Randomized Krylov method to provide sparse representations, which enhance both the efficiency and stability of the method. This is foundational to the Randomized Gram-Schmidt process, a type of algorithm used within the method for orthogonalization.",
+    "path_description": "Path: GaussianEmbeddings --[usedIn]--> RandomizedKrylov --[basedOn]--> GramSchmidtProcess --[type]--> Algorithm",
+    "context": "it requires the usage of sparse Gaussian embeddings | This observation serves as the foundation for the Randomized Gram-Schmidt (RGS) process | This observation serves as the foundation for the Randomized Gram-Schmidt (RGS) process",
+    "paper_id": "1923"
+  },
+  {
+    "section": "relatedworks1",
+    "path": {
+      "section": "relatedworks1",
+      "start_entity": "SketchAndPreconditionApproach",
+      "end_entity": "MathematicalTechnique",
+      "hops": [
+        {
+          "from": "SketchAndPreconditionApproach",
+          "relation": "appliedTo",
+          "to": "KrylovMethods",
+          "context": "to use the sketch-and-precondition approach.",
+          "chunk": "3"
+        },
+        {
+          "from": "KrylovMethods",
+          "relation": "uses",
+          "to": "BasisWhitening",
+          "context": "orthogonalize W working only with the sketch of the basis ('basis whitening').",
+          "chunk": "3"
+        },
+        {
+          "from": "BasisWhitening",
+          "relation": "type",
+          "to": "MathematicalTechnique",
+          "context": "orthogonalize W working only with the sketch of the basis ('basis whitening').",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the context of Krylov methods, how does the sketch-and-precondition approach specifically utilize the concept of basis whitening?",
+    "options": {
+      "A": "It uses basis whitening to reduce the computational complexity of matrix W by simplifying data dimensions.",
+      "B": "It employs basis whitening to orthogonalize a matrix W, focusing solely on the basis' sketch.",
+      "C": "It applies basis whitening to enhance the accuracy of matrix W by adjusting the underlying data distribution.",
+      "D": "It integrates basis whitening to increase the storage efficiency of matrix W by compressing the original data."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A because the sketch-and-precondition approach uses basis whitening specifically to orthogonalize the matrix W by working only with the sketch of the basis, as mentioned in the provided context. The other options, although related to possible uses of basis whitening, do not accurately describe its application within the sketch-and-precondition approach as used in Krylov methods.",
+    "path_description": "Path: SketchAndPreconditionApproach --[appliedTo]--> KrylovMethods --[uses]--> BasisWhitening --[type]--> MathematicalTechnique",
+    "context": "to use the sketch-and-precondition approach. | orthogonalize W working only with the sketch of the basis ('basis whitening'). | orthogonalize W working only with the sketch of the basis ('basis whitening').",
+    "paper_id": "1923"
+  },
+  {
+    "section": "restartedrandomizedkrylov",
+    "path": {
+      "section": "restartedrandomizedkrylov",
+      "start_entity": "RandomizedRestartedKrylov",
+      "end_entity": "Matrix_R",
+      "hops": [
+        {
+          "from": "RandomizedRestartedKrylov",
+          "relation": "returns",
+          "to": "KrylovApproximation",
+          "context": "returnˆf(k)",
+          "chunk": "5"
+        },
+        {
+          "from": "KrylovApproximation",
+          "relation": "updatedBy",
+          "to": "Matrix_F",
+          "context": "Therefore, as long as we can compute F, we can update the Krylov approximationˆf without needing to store the basis from the previous cycle.",
+          "chunk": "5"
+        },
+        {
+          "from": "Matrix_F",
+          "relation": "computedFrom",
+          "to": "Matrix_R",
+          "context": "For the method to be numerically stable, the matrix F is taken directly from bottom left block of f(R).",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the context of the 'restartedrandomizedkrylov' method, which statement best describes the role of matrix F in updating the Krylov approximation?",
+    "options": {
+      "A": "Matrix F is calculated using the entire matrix R, which allows for the expansion of the basis used in the Krylov approximation.",
+      "B": "Matrix F, derived from the top right block of matrix R, plays a crucial role in resetting the basis in each cycle of the Krylov approximation.",
+      "C": "Matrix F is derived from the bottom left block of matrix R, ensuring numerical stability while updating the Krylov approximation without storing the previous basis.",
+      "D": "Matrix F is periodically recalculated from the diagonal elements of matrix R to adjust the scale of the Krylov approximation."
+    },
+    "correct_answer": "C",
+    "explanation": "According to the paper's context, matrix F is taken from the bottom left block of matrix R. This specific selection is crucial for ensuring numerical stability and allows the Krylov approximation to be updated without the need to store the basis from the previous cycle, aligning with option A.",
+    "path_description": "Path: RandomizedRestartedKrylov --[returns]--> KrylovApproximation --[updatedBy]--> Matrix_F --[computedFrom]--> Matrix_R",
+    "context": "returnˆf(k) | Therefore, as long as we can compute F, we can update the Krylov approximationˆf without needing to store the basis from the previous cycle. | For the method to be numerically stable, the matrix F is taken directly from bottom left block of f(R).",
+    "paper_id": "1923"
+  },
+  {
+    "section": "numericalexperiments3",
+    "path": {
+      "section": "numericalexperiments3",
+      "start_entity": "RestartRandMethod",
+      "end_entity": "Algorithm",
+      "hops": [
+        {
+          "from": "RestartRandMethod",
+          "relation": "optimizedFor",
+          "to": "ConvectionDiffusionProblem",
+          "context": "(c) restart-rand (ζ = 1)",
+          "chunk": "8"
+        },
+        {
+          "from": "ConvectionDiffusionProblem",
+          "relation": "evaluatedOn",
+          "to": "RestartMethod",
+          "context": "The Ritz values for the convection-diffusion pr",
+          "chunk": "8"
+        },
+        {
+          "from": "RestartMethod",
+          "relation": "type",
+          "to": "Algorithm",
+          "context": "faster than standard restart",
+          "chunk": "8"
+        }
+      ]
+    },
+    "question": "Which of the following best describes the role of the RestartRandMethod in the context of solving the ConvectionDiffusionProblem as discussed in the 'numericalexperiments3' section?",
+    "options": {
+      "A": "It is an algorithm optimized to handle the unique challenges posed by the convection-diffusion equations, facilitating faster computations than standard methods.",
+      "B": "It is a data collection tool that gathers initial conditions necessary for the convection-diffusion problem evaluation.",
+      "C": "It is primarily used to verify the accuracy of solutions obtained through other convection-diffusion problem-solving techniques.",
+      "D": "It serves as a preliminary testing method before applying more complex algorithms to solve the convection-diffusion equations efficiently."
+    },
+    "correct_answer": "A",
+    "explanation": "The RestartRandMethod is described as being optimized for the ConvectionDiffusionProblem, indicating it has been tailored to address specific challenges of these equations, thereby speeding up the process compared to standard restart methods.",
+    "path_description": "Path: RestartRandMethod --[optimizedFor]--> ConvectionDiffusionProblem --[evaluatedOn]--> RestartMethod --[type]--> Algorithm",
+    "context": "(c) restart-rand (ζ = 1) | The Ritz values for the convection-diffusion pr | faster than standard restart",
+    "paper_id": "1923"
+  }
+]

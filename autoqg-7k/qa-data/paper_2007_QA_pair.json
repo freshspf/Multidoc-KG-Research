@@ -1,0 +1,88 @@
+[
+  {
+    "section": "methods1",
+    "path": {
+      "section": "methods1",
+      "start_entity": "UniBiomed",
+      "end_entity": "Component",
+      "hops": [
+        {
+          "from": "UniBiomed",
+          "relation": "uses",
+          "to": "SAM",
+          "context": "The framework of UniBiomed is shown in...",
+          "chunk": "11"
+        },
+        {
+          "from": "SAM",
+          "relation": "includes",
+          "to": "VisionEncoder",
+          "context": "task, which comprises a vision encoder...",
+          "chunk": "11"
+        },
+        {
+          "from": "VisionEncoder",
+          "relation": "type",
+          "to": "Component",
+          "context": "task, which comprises a vision encoder...",
+          "chunk": "11"
+        }
+      ]
+    },
+    "question": "In the UniBiomed framework, which component is included in SAM and is specifically categorized as a type of component?",
+    "options": {
+      "A": "The DataProcessor is included in SAM and is categorized as a type of data handling component.",
+      "B": "The TextExtractor is included in SAM and is categorized as a type of text processing component.",
+      "C": "The VisionEncoder is included in SAM and is categorized as a type of visual processing component.",
+      "D": "The ImageAnalyzer is included in SAM and is categorized as a type of image enhancement component."
+    },
+    "correct_answer": "C",
+    "explanation": "Following the 3-hop path from the knowledge graph, UniBiomed uses SAM, which includes VisionEncoder. The VisionEncoder is specifically classified as a type of component within the SAM system, focusing on visual processing tasks.",
+    "path_description": "Path: UniBiomed --[uses]--> SAM --[includes]--> VisionEncoder --[type]--> Component",
+    "context": "The framework of UniBiomed is shown in... | task, which comprises a vision encoder... | task, which comprises a vision encoder...",
+    "paper_id": "264"
+  },
+  {
+    "section": "methods2",
+    "path": {
+      "section": "methods2",
+      "start_entity": "MedTrinity",
+      "end_entity": "Dataset",
+      "hops": [
+        {
+          "from": "MedTrinity",
+          "relation": "evaluatedOn",
+          "to": "nnUNet",
+          "context": "We report the results on the MedTrinity dataset.",
+          "chunk": "12"
+        },
+        {
+          "from": "nnUNet",
+          "relation": "trainedOn",
+          "to": "MedTrinity",
+          "context": "we train 46 nnUNet models on 46 internal datasets for comparisons.",
+          "chunk": "12"
+        },
+        {
+          "from": "MedTrinity",
+          "relation": "type",
+          "to": "Dataset",
+          "context": "We report the results on the MedTrinity dataset.",
+          "chunk": "12"
+        }
+      ]
+    },
+    "question": "In the context of the study described in the 'methods2' section, how is the MedTrinity dataset primarily utilized in conjunction with nnUNet models?",
+    "options": {
+      "A": "MedTrinity functions as a secondary source of data for enhancing the nnUNet models' capability in handling varied datasets.",
+      "B": "MedTrinity is one of the 46 internal datasets on which nnUNet models are randomly tested but not trained.",
+      "C": "MedTrinity serves strictly as an external validation dataset for nnUNet models that were trained on unrelated datasets.",
+      "D": "MedTrinity is used as the primary dataset on which all nnUNet models are trained and evaluated for performance."
+    },
+    "correct_answer": "D",
+    "explanation": "The knowledge path indicates that MedTrinity is both the dataset on which nnUNet models are trained ('trainedOn') and the dataset used for their evaluation ('evaluatedOn'). Thus, it serves as the primary dataset for training and evaluating the performance of all nnUNet models in this study.",
+    "path_description": "Path: MedTrinity --[evaluatedOn]--> nnUNet --[trainedOn]--> MedTrinity --[type]--> Dataset",
+    "context": "We report the results on the MedTrinity dataset. | we train 46 nnUNet models on 46 internal datasets for comparisons. | We report the results on the MedTrinity dataset.",
+    "paper_id": "264"
+  }
+]

@@ -1,0 +1,174 @@
+[
+  {
+    "section": "ivresults2",
+    "path": {
+      "section": "ivresults2",
+      "start_entity": "GBDTRegression",
+      "end_entity": "Metric",
+      "hops": [
+        {
+          "from": "GBDTRegression",
+          "relation": "evaluatedOn",
+          "to": "Dataset1",
+          "context": "GBDT regression (regression)",
+          "chunk": "6"
+        },
+        {
+          "from": "Dataset1",
+          "relation": "uses",
+          "to": "NEDCG",
+          "context": "As in Dataset 1, it is essential to consider how much the prediction of a new target has improved from a random prediction, and NEDCG is available for this assessment.",
+          "chunk": "6"
+        },
+        {
+          "from": "NEDCG",
+          "relation": "type",
+          "to": "Metric",
+          "context": "As in Dataset 1, it is essential to consider how much the prediction of a new target has improved from a random prediction, and NEDCG is available for this assessment.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "What metric is used in Dataset 1 to evaluate the improvement of GBDT regression prediction over a random prediction?",
+    "options": {
+      "A": "Normalized Discounted Cumulative Gain (NEDCG) measures the improvement over random prediction.",
+      "B": "Mean Squared Error (MSE) calculates the average of the squares of the errors.",
+      "C": "Area Under the ROC Curve (AUC) indicates the ability to differentiate classes.",
+      "D": "Accuracy Percentage measures the total number of correct predictions."
+    },
+    "correct_answer": "A",
+    "explanation": "The question follows the knowledge path where GBDTRegression is evaluated on Dataset1 using the NEDCG metric to assess the improvement of predictions over random. NEDCG, being specifically designed to measure ranking performance, is correct for evaluating improvements in a regression context over a random baseline, as stated in the context.",
+    "path_description": "Path: GBDTRegression --[evaluatedOn]--> Dataset1 --[uses]--> NEDCG --[type]--> Metric",
+    "context": "GBDT regression (regression) | As in Dataset 1, it is essential to consider how much the prediction of a new target has improved from a random prediction, and NEDCG is available for this assessment. | As in Dataset 1, it is essential to consider how much the prediction of a new target has improved from a random prediction, and NEDCG is available for this assessment.",
+    "paper_id": "198"
+  },
+  {
+    "section": "viconclusion1",
+    "path": {
+      "section": "viconclusion1",
+      "start_entity": "Dataset2",
+      "end_entity": "NDCG",
+      "hops": [
+        {
+          "from": "Dataset2",
+          "relation": "evaluatedOn",
+          "to": "NEDCG",
+          "context": "Dataset 2 (top 10, K = 10)  0.342  0.340  0.",
+          "chunk": "9"
+        },
+        {
+          "from": "NEDCG",
+          "relation": "appliedTo",
+          "to": "Dataset1",
+          "context": "The proposed metric, NEDCG, is effective for complicated tasks such as Dataset 1.",
+          "chunk": "9"
+        },
+        {
+          "from": "Dataset1",
+          "relation": "evaluatedOn",
+          "to": "NDCG",
+          "context": "Dataset 1 (top 10, K = 10)  0.593  0.286  0.",
+          "chunk": "9"
+        }
+      ]
+    },
+    "question": "What would be an accurate statement about the evaluation of NEDCG on Dataset 1 using the performance scores from Dataset 2?",
+    "options": {
+      "A": "NEDCG, when applied to Dataset 1, shows significant improvement in effectiveness over Dataset 2.",
+      "B": "NEDCG had no measurable effect on the outcomes when comparing Dataset 1 with Dataset 2.",
+      "C": "Dataset 2, when evaluated with NEDCG, performed similarly to other datasets evaluated with traditional metrics.",
+      "D": "The application of NEDCG to Dataset 1 demonstrated lower performance compared to its application on Dataset 2."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer can be inferred through the provided scores and the effectiveness of NEDCG on Dataset 1. The score for Dataset 1 (0.593) is significantly higher than the scores provided for Dataset 2 (around 0.340), suggesting a substantial improvement when NEDCG is applied to Dataset 1.",
+    "path_description": "Path: Dataset2 --[evaluatedOn]--> NEDCG --[appliedTo]--> Dataset1 --[evaluatedOn]--> NDCG",
+    "context": "Dataset 2 (top 10, K = 10)  0.342  0.340  0. | The proposed metric, NEDCG, is effective for complicated tasks such as Dataset 1. | Dataset 1 (top 10, K = 10)  0.593  0.286  0.",
+    "paper_id": "198"
+  },
+  {
+    "section": "viconclusion1",
+    "path": {
+      "section": "viconclusion1",
+      "start_entity": "GBDT",
+      "end_entity": "Metric",
+      "hops": [
+        {
+          "from": "GBDT",
+          "relation": "trainedOn",
+          "to": "Dataset1",
+          "context": "The validation data in Dataset 1 consists of assay data for target proteins that the training data does not contain.",
+          "chunk": "9"
+        },
+        {
+          "from": "Dataset1",
+          "relation": "evaluatedOn",
+          "to": "NDCG",
+          "context": "Dataset 1 (top 10, K = 10)  0.593  0.286  0.",
+          "chunk": "9"
+        },
+        {
+          "from": "NDCG",
+          "relation": "type",
+          "to": "Metric",
+          "context": "TABLE III: NDCG and NEDCG scores of the top 10 and top 10%",
+          "chunk": "9"
+        }
+      ]
+    },
+    "question": "What does the evaluation of Gradient Boosted Decision Trees (GBDT) on Dataset 1 using NDCG as a metric imply about the model's performance?",
+    "options": {
+      "A": "The model performed uniformly across all metrics evaluated, including both NDCG and NEDCG.",
+      "B": "The model failed to predict any relevant outcomes due to improper training data.",
+      "C": "The model accurately predicted assay data for target proteins not present in the training data.",
+      "D": "The model showed poor generalization on new, unseen datasets other than Dataset 1."
+    },
+    "correct_answer": "C",
+    "explanation": "The use of NDCG (Normalized Discounted Cumulative Gain) as a metric to evaluate GBDT on Dataset 1, particularly where the dataset includes unseen target proteins, indicates that the model was able to effectively predict new, relevant data not included during training. The score of 0.593 for top 10 in Dataset 1 suggests a reasonable level of accuracy in these predictions. Options B, C, and D are incorrect as they either misinterpret the performance assessment or the scope of the evaluation based on the provided context.",
+    "path_description": "Path: GBDT --[trainedOn]--> Dataset1 --[evaluatedOn]--> NDCG --[type]--> Metric",
+    "context": "The validation data in Dataset 1 consists of assay data for target proteins that the training data does not contain. | Dataset 1 (top 10, K = 10)  0.593  0.286  0. | TABLE III: NDCG and NEDCG scores of the top 10 and top 10%",
+    "paper_id": "198"
+  },
+  {
+    "section": "viconclusion2",
+    "path": {
+      "section": "viconclusion2",
+      "start_entity": "GBDT",
+      "end_entity": "Task",
+      "hops": [
+        {
+          "from": "GBDT",
+          "relation": "uses",
+          "to": "LearningToRank",
+          "context": "We focused on the GBDT method using learning-to-rank.",
+          "chunk": "10"
+        },
+        {
+          "from": "LearningToRank",
+          "relation": "appliedTo",
+          "to": "ADMET",
+          "context": "learning-to-rank may apply to other tasks in chemoinformatics besides affinity prediction, such as ADMET...",
+          "chunk": "10"
+        },
+        {
+          "from": "ADMET",
+          "relation": "type",
+          "to": "Task",
+          "context": "learning-to-rank may apply to other tasks in chemoinformatics besides affinity prediction, such as ADMET...",
+          "chunk": "10"
+        }
+      ]
+    },
+    "question": "In chemoinformatics, how does the application of the GBDT method using learning-to-rank specifically contribute to ADMET tasks?",
+    "options": {
+      "A": "It enhances the accuracy of toxicity predictions which are essential in the early stages of drug development.",
+      "B": "It aids in the prioritization of compounds based on their pharmacokinetic properties.",
+      "C": "It focuses on predicting molecular interactions which are crucial for drug discovery and development.",
+      "D": "It improves the reliability of drug absorption and metabolism predictions, central to ADMET studies."
+    },
+    "correct_answer": "D",
+    "explanation": "The GBDT method, when applied using learning-to-rank to ADMET, is involved in improving the predictions related to drug absorption and metabolism. This is integral to ADMET, which concerns absorption, distribution, metabolism, excretion, and toxicity of drugs.",
+    "path_description": "Path: GBDT --[uses]--> LearningToRank --[appliedTo]--> ADMET --[type]--> Task",
+    "context": "We focused on the GBDT method using learning-to-rank. | learning-to-rank may apply to other tasks in chemoinformatics besides affinity prediction, such as ADMET... | learning-to-rank may apply to other tasks in chemoinformatics besides affinity prediction, such as ADMET...",
+    "paper_id": "198"
+  }
+]

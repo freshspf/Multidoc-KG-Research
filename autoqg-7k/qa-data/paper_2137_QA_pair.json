@@ -1,0 +1,303 @@
+[
+  {
+    "section": "approachanddesignofexperiments3",
+    "path": {
+      "section": "approachanddesignofexperiments3",
+      "start_entity": "Throughput",
+      "end_entity": "CalculationMethod",
+      "hops": [
+        {
+          "from": "Throughput",
+          "relation": "measuredBy",
+          "to": "HourlyInterval",
+          "context": "hourly throughput by the tardiness",
+          "chunk": "7"
+        },
+        {
+          "from": "HourlyInterval",
+          "relation": "relatedTo",
+          "to": "RollingMean",
+          "context": "mean is recalculated every hour over the",
+          "chunk": "7"
+        },
+        {
+          "from": "RollingMean",
+          "relation": "type",
+          "to": "CalculationMethod",
+          "context": "based on the rolling mean of the same",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "In the context of assessing hourly throughput by tardiness, which calculation method is used to update the hourly mean based on the gathered data?",
+    "options": {
+      "A": "The hourly mean is recalculated every hour using a rolling mean calculation method based on the previous hour's data.",
+      "B": "A static mean calculation method that averages the data points at the end of each day is utilized to determine the hourly mean.",
+      "C": "The hourly mean is updated using a cumulative mean calculation method, integrating data from the start of the measurement period.",
+      "D": "An exponential moving average is applied to update the hourly mean, emphasizing more recent data points."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A because the knowledge graph indicates that the hourly throughput is recalculated using a rolling mean, which is a type of calculation method that updates the mean based on the most recent hourly interval data.",
+    "path_description": "Path: Throughput --[measuredBy]--> HourlyInterval --[relatedTo]--> RollingMean --[type]--> CalculationMethod",
+    "context": "hourly throughput by the tardiness | mean is recalculated every hour over the | based on the rolling mean of the same",
+    "paper_id": "888"
+  },
+  {
+    "section": "results2",
+    "path": {
+      "section": "results2",
+      "start_entity": "PPO",
+      "end_entity": "Model",
+      "hops": [
+        {
+          "from": "PPO",
+          "relation": "outperforms",
+          "to": "CMA-ES",
+          "context": "leads to better training results than PPO but Figure 8 displays training results for the MiniFab.",
+          "chunk": "9"
+        },
+        {
+          "from": "CMA-ES",
+          "relation": "evaluatedOn",
+          "to": "MiniFab",
+          "context": "Experiments with ES Algorithm, results for the CMA-ES training progress are shown.",
+          "chunk": "9"
+        },
+        {
+          "from": "MiniFab",
+          "relation": "type",
+          "to": "Model",
+          "context": "MiniFab, as the size of the collected larger models.",
+          "chunk": "9"
+        }
+      ]
+    },
+    "question": "Considering the performance comparisons made in the paper, which model type was primarily evaluated to demonstrate the superior training results of PPO over CMA-ES?",
+    "options": {
+      "A": "MiniFab, a software development kit, was primarily used for assessing training results.",
+      "B": "MiniFab, a model type involving larger collected models, was primarily evaluated.",
+      "C": "MiniFab, a smaller scale model, was utilized predominantly for evaluation.",
+      "D": "MiniFab, a digital simulation tool, was the main focus for performance evaluation."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A because the knowledge path and the paper context indicate that MiniFab is a type of model which was evaluated to compare the training results of PPO and CMA-ES. The context specifies that MiniFab involves the size of larger collected models, and it directly relates to the performance evaluation of these algorithms.",
+    "path_description": "Path: PPO --[outperforms]--> CMA-ES --[evaluatedOn]--> MiniFab --[type]--> Model",
+    "context": "leads to better training results than PPO but Figure 8 displays training results for the MiniFab. | Experiments with ES Algorithm, results for the CMA-ES training progress are shown. | MiniFab, as the size of the collected larger models.",
+    "paper_id": "888"
+  },
+  {
+    "section": "results2",
+    "path": {
+      "section": "results2",
+      "start_entity": "PPO",
+      "end_entity": "MiniFab",
+      "hops": [
+        {
+          "from": "PPO",
+          "relation": "outperforms",
+          "to": "CMA-ES",
+          "context": "leads to better training results than PPO but Figure 8 displays training results for the MiniFab.",
+          "chunk": "9"
+        },
+        {
+          "from": "CMA-ES",
+          "relation": "outperforms",
+          "to": "PPO",
+          "context": "leads to better training results than PPO but Figure 8 displays training results for the MiniFab.",
+          "chunk": "9"
+        },
+        {
+          "from": "PPO",
+          "relation": "evaluatedOn",
+          "to": "MiniFab",
+          "context": "Results for the PPO experiment different simulation models with truncation.",
+          "chunk": "9"
+        }
+      ]
+    },
+    "question": "In the context of the results shown in Figure 8 from 'results2', which statement correctly describes the performance hierarchy of the algorithms when evaluated on MiniFab?",
+    "options": {
+      "A": "PPO outperforms CMA-ES, and MiniFab shows superior results compared to other simulation models evaluated.",
+      "B": "CMA-ES outperforms PPO, which in turn shows better performance than the simulation models using truncation on MiniFab.",
+      "C": "CMA-ES outperforms PPO, and PPO shows better results compared to MiniFab.",
+      "D": "PPO outperforms CMA-ES, which in turn shows superior performance compared to the original PPO configuration evaluated."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is C. The reasoning path in the knowledge graph indicates that CMA-ES outperforms PPO. The path also suggests that PPO is evaluated on MiniFab specifically with a configuration that utilizes truncation in simulation models, which is inferred to perform better than other configurations.",
+    "path_description": "Path: PPO --[outperforms]--> CMA-ES --[outperforms]--> PPO --[evaluatedOn]--> MiniFab",
+    "context": "leads to better training results than PPO but Figure 8 displays training results for the MiniFab. | leads to better training results than PPO but Figure 8 displays training results for the MiniFab. | Results for the PPO experiment different simulation models with truncation.",
+    "paper_id": "888"
+  },
+  {
+    "section": "results2",
+    "path": {
+      "section": "results2",
+      "start_entity": "CMA-ES",
+      "end_entity": "MiniFab",
+      "hops": [
+        {
+          "from": "CMA-ES",
+          "relation": "outperforms",
+          "to": "PPO",
+          "context": "leads to better training results than PPO but Figure 8 displays training results for the MiniFab.",
+          "chunk": "9"
+        },
+        {
+          "from": "PPO",
+          "relation": "outperforms",
+          "to": "CMA-ES",
+          "context": "leads to better training results than PPO but Figure 8 displays training results for the MiniFab.",
+          "chunk": "9"
+        },
+        {
+          "from": "CMA-ES",
+          "relation": "evaluatedOn",
+          "to": "MiniFab",
+          "context": "Experiments with ES Algorithm, results for the CMA-ES training progress are shown.",
+          "chunk": "9"
+        }
+      ]
+    },
+    "question": "In the context of the training results displayed in Figure 8 of the paper, which statement accurately reflects the comparative performance of CMA-ES and PPO on the MiniFab task?",
+    "options": {
+      "A": "CMA-ES initially outperforms PPO, but later evaluations show PPO surpassing CMA-ES on the MiniFab task.",
+      "B": "CMA-ES shows better training results than PPO, as highlighted in the results for the MiniFab task in Figure 8.",
+      "C": "PPO consistently outperforms CMA-ES throughout the training and evaluation phases on the MiniFab task.",
+      "D": "Neither CMA-ES nor PPO shows distinct superiority, as their performance on the MiniFab task is nearly identical."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is C based on the knowledge graph path indicating that CMA-ES outperforms PPO and the context stating that CMA-ES leads to better training results than PPO as depicted in the results for the MiniFab task in Figure 8. Options A, B, and D provide plausible scenarios but do not accurately reflect the relationships and performance outcomes detailed in the paper and its graphs.",
+    "path_description": "Path: CMA-ES --[outperforms]--> PPO --[outperforms]--> CMA-ES --[evaluatedOn]--> MiniFab",
+    "context": "leads to better training results than PPO but Figure 8 displays training results for the MiniFab. | leads to better training results than PPO but Figure 8 displays training results for the MiniFab. | Experiments with ES Algorithm, results for the CMA-ES training progress are shown.",
+    "paper_id": "888"
+  },
+  {
+    "section": "results3",
+    "path": {
+      "section": "results3",
+      "start_entity": "CMA-ES",
+      "end_entity": "Model",
+      "hops": [
+        {
+          "from": "CMA-ES",
+          "relation": "outperforms",
+          "to": "PPO",
+          "context": "For PPO, the red crosses the last episode as it is only executing random seeds for the simulation.",
+          "chunk": "10"
+        },
+        {
+          "from": "PPO",
+          "relation": "appliedTo",
+          "to": "MiniFab",
+          "context": "as well as the PPO experiment indicate the result of the best parameter for CMA-ES.",
+          "chunk": "10"
+        },
+        {
+          "from": "MiniFab",
+          "relation": "type",
+          "to": "Model",
+          "context": "tools for the Minifab model.",
+          "chunk": "10"
+        }
+      ]
+    },
+    "question": "In the context of optimization algorithms applied to simulation models, how does CMA-ES compare to PPO when utilized in the MiniFab model?",
+    "options": {
+      "A": "CMA-ES and PPO perform equally well when optimizing the production costs in the MiniFab model.",
+      "B": "PPO outperforms CMA-ES by achieving faster convergence rates in the MiniFab model simulations.",
+      "C": "CMA-ES outperforms PPO by finding better parameters for the MiniFab model simulations.",
+      "D": "CMA-ES is less effective than PPO in optimizing the processing time for MiniFab model simulations."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is 'A' as the knowledge path indicates that CMA-ES outperforms PPO (first hop), and PPO is applied to MiniFab (second and third hops). The context also suggests that CMA-ES finds the best parameters for the simulations, which is a crucial aspect in outperforming PPO in this scenario.",
+    "path_description": "Path: CMA-ES --[outperforms]--> PPO --[appliedTo]--> MiniFab --[type]--> Model",
+    "context": "For PPO, the red crosses the last episode as it is only executing random seeds for the simulation. | as well as the PPO experiment indicate the result of the best parameter for CMA-ES. | tools for the Minifab model.",
+    "paper_id": "888"
+  },
+  {
+    "section": "results4",
+    "path": {
+      "section": "results4",
+      "start_entity": "CMA-ES",
+      "end_entity": "Dataset",
+      "hops": [
+        {
+          "from": "CMA-ES",
+          "relation": "outperforms",
+          "to": "PPO",
+          "context": "However, the training and testing results is worse than for the CMA-ES approach",
+          "chunk": "11"
+        },
+        {
+          "from": "PPO",
+          "relation": "trainedOn",
+          "to": "SMT2020",
+          "context": "For PPO, we already train on many",
+          "chunk": "11"
+        },
+        {
+          "from": "SMT2020",
+          "relation": "type",
+          "to": "Dataset",
+          "context": "This issue is only present in the SMT2020 and industry models",
+          "chunk": "11"
+        }
+      ]
+    },
+    "question": "Which statement best describes the performance comparison and specific training context of PPO and CMA-ES based on the dataset used?",
+    "options": {
+      "A": "PPO was trained on the SMT2020 dataset, but it performed worse than CMA-ES which excels in the same context.",
+      "B": "CMA-ES was trained extensively on the SMT2020 dataset, outperforming PPO in industry-standard models.",
+      "C": "Both PPO and CMA-ES showed similar performance when trained on the industry models, different from SMT2020.",
+      "D": "PPO outperformed CMA-ES on the SMT2020 dataset, which is commonly used in industry benchmarks."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A because it accurately ties together the performance relationship where CMA-ES outperforms PPO, and the specific context where PPO trained on the SMT2020 dataset, which is mentioned in the context as showing worse performance for PPO compared to CMA-ES. Options B, C, and D introduce incorrect statements either about the training dataset or the comparative performance.",
+    "path_description": "Path: CMA-ES --[outperforms]--> PPO --[trainedOn]--> SMT2020 --[type]--> Dataset",
+    "context": "However, the training and testing results is worse than for the CMA-ES approach | For PPO, we already train on many | This issue is only present in the SMT2020 and industry models",
+    "paper_id": "888"
+  },
+  {
+    "section": "approachanddesignofexperiments3",
+    "path": {
+      "section": "approachanddesignofexperiments3",
+      "start_entity": "HourlyInterval",
+      "end_entity": "Metric",
+      "hops": [
+        {
+          "from": "HourlyInterval",
+          "relation": "relatedTo",
+          "to": "RollingMean",
+          "context": "mean is recalculated every hour over the",
+          "chunk": "7"
+        },
+        {
+          "from": "RollingMean",
+          "relation": "measures",
+          "to": "Throughput",
+          "context": "based on the rolling mean of the same",
+          "chunk": "7"
+        },
+        {
+          "from": "Throughput",
+          "relation": "type",
+          "to": "Metric",
+          "context": "maintain or even improve the throughput",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "In the context of system performance analysis, how is the metric 'Throughput' typically recalculated to maintain or improve system efficiency?",
+    "options": {
+      "A": "Throughput is recalculated every week based on a cumulative average to smooth out any anomalies.",
+      "B": "Throughput is updated every minute by using instantaneous data points rather than aggregated measures.",
+      "C": "Throughput is calculated every hour based on the rolling mean of previously collected data within the same timeframe.",
+      "D": "Throughput is recalculated at the end of each day using the fixed mean from the start of the day to ensure consistency."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A because the context describes that the mean, specifically the rolling mean, is recalculated every hour to maintain or improve throughput. This implies a continuous evaluation of performance using recent data collected in hourly intervals. Options B, C, and D introduce different time frames and methods that do not align with the use of hourly rolling mean data for throughput calculation.",
+    "path_description": "Path: HourlyInterval --[relatedTo]--> RollingMean --[measures]--> Throughput --[type]--> Metric",
+    "context": "mean is recalculated every hour over the | based on the rolling mean of the same | maintain or even improve the throughput",
+    "paper_id": "888"
+  }
+]

@@ -1,0 +1,131 @@
+[
+  {
+    "section": "preliminaries1",
+    "path": {
+      "section": "preliminaries1",
+      "start_entity": "PhysicalStateVariable",
+      "end_entity": "Device",
+      "hops": [
+        {
+          "from": "PhysicalStateVariable",
+          "relation": "measuredBy",
+          "to": "DataSources",
+          "context": "Nodes in the system measure a physical state variable τ and aim to agree on a value representative of τ.",
+          "chunk": "1"
+        },
+        {
+          "from": "DataSources",
+          "relation": "include",
+          "to": "Cameras",
+          "context": "cameras indicating the position of an object.",
+          "chunk": "1"
+        },
+        {
+          "from": "Cameras",
+          "relation": "type",
+          "to": "Device",
+          "context": "cameras indicating the position of an object.",
+          "chunk": "1"
+        }
+      ]
+    },
+    "question": "In a system designed to measure and achieve consensus on a physical state variable τ, which type of device is involved in providing data as specified by the knowledge graph?",
+    "options": {
+      "A": "Thermometers that provide temperature readings crucial for system operations.",
+      "B": "Pressure sensors that measure atmospheric conditions affecting τ.",
+      "C": "Accelerometers that detect and record the system's speed and motion.",
+      "D": "Cameras that provide visual data indicating the position of an object."
+    },
+    "correct_answer": "D",
+    "explanation": "The knowledge graph outlines a path from the physical state variable τ, measured by data sources, which include cameras. Cameras are classified as devices that provide data by visually indicating the position of an object, making option A the correct choice.",
+    "path_description": "Path: PhysicalStateVariable --[measuredBy]--> DataSources --[include]--> Cameras --[type]--> Device",
+    "context": "Nodes in the system measure a physical state variable τ and aim to agree on a value representative of τ. | cameras indicating the position of an object. | cameras indicating the position of an object.",
+    "paper_id": "595"
+  },
+  {
+    "section": "design1",
+    "path": {
+      "section": "design1",
+      "start_entity": "DELPHI",
+      "end_entity": "CommunicationEfficiency",
+      "hops": [
+        {
+          "from": "DELPHI",
+          "relation": "uses",
+          "to": "BINAA",
+          "context": "DELPHI uses a novel approach based on checkpoints and Binary Approximate Agreement.",
+          "chunk": "3"
+        },
+        {
+          "from": "BINAA",
+          "relation": "partOf",
+          "to": "DELPHI",
+          "context": "DELPHI uses a novel approach based on checkpoints and Binary Approximate Agreement.",
+          "chunk": "3"
+        },
+        {
+          "from": "DELPHI",
+          "relation": "optimizesFor",
+          "to": "CommunicationEfficiency",
+          "context": "achieves communication efficiency by trading off a relaxation in the Validity condition.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "How does DELPHI achieve communication efficiency in its novel approach using Binary Approximate Agreement (BINAA)?",
+    "options": {
+      "A": "Through the introduction of additional computational layers that enhance the speed of agreement.",
+      "B": "By optimizing the use of checkpoints and Binary Approximate Agreement to minimize message size.",
+      "C": "By trading off a relaxation in the Validity condition, DELPHI enhances its communication efficiency.",
+      "D": "By increasing the complexity of Binary Approximate Agreement to ensure higher data integrity."
+    },
+    "correct_answer": "C",
+    "explanation": "DELPHI achieves communication efficiency by specifically trading off a relaxation in the Validity condition, as noted in the paper. This trade-off is a strategic choice to enhance communication efficiency using the Binary Approximate Agreement (BINAA) protocol.",
+    "path_description": "Path: DELPHI --[uses]--> BINAA --[partOf]--> DELPHI --[optimizesFor]--> CommunicationEfficiency",
+    "context": "DELPHI uses a novel approach based on checkpoints and Binary Approximate Agreement. | DELPHI uses a novel approach based on checkpoints and Binary Approximate Agreement. | achieves communication efficiency by trading off a relaxation in the Validity condition.",
+    "paper_id": "595"
+  },
+  {
+    "section": "analysis2",
+    "path": {
+      "section": "analysis2",
+      "start_entity": "mu_k",
+      "end_entity": "Variable",
+      "hops": [
+        {
+          "from": "mu_k",
+          "relation": "isUsedIn",
+          "to": "O1_l_i",
+          "context": "We refer to these intervals using the terms ωk,i and µk.",
+          "chunk": "6"
+        },
+        {
+          "from": "O1_l_i",
+          "relation": "isContributionOf",
+          "to": "O1",
+          "context": "We analyze level l’s contribution in O1 denoted by O1,l,i = wl,i|Vl,i−Vl,j|.",
+          "chunk": "6"
+        },
+        {
+          "from": "O1",
+          "relation": "type",
+          "to": "Variable",
+          "context": "We split the above sum into two different terms: O1 = wl,i|Vl,i − Vl,j|.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the context of the variable O1, how is the term μk utilized in the analysis provided in the 'analysis2' section of the paper?",
+    "options": {
+      "A": "μk represents an external variable that affects the calculation of wl,i|Vl,i − Vl,j|.",
+      "B": "μk is a constant used to normalize the intervals ωk,i in the overall analysis of O1.",
+      "C": "μk is a placeholder for any generic variable within the equation wl,i|Vl,i − Vl,j|.",
+      "D": "μk is used as a statistical measure to quantify the level l's contribution in the variable O1."
+    },
+    "correct_answer": "D",
+    "explanation": "μk is referred to in the context of analysis where it is used to quantify the contribution of level l in the variable O1. This can be deduced from the paper's explanation of terms and their specific usage in defining the contributions within the variable O1. The other options, although plausible, do not accurately reflect the role of μk as described in the context of the paper.",
+    "path_description": "Path: mu_k --[isUsedIn]--> O1_l_i --[isContributionOf]--> O1 --[type]--> Variable",
+    "context": "We refer to these intervals using the terms ωk,i and µk. | We analyze level l’s contribution in O1 denoted by O1,l,i = wl,i|Vl,i−Vl,j|. | We split the above sum into two different terms: O1 = wl,i|Vl,i − Vl,j|.",
+    "paper_id": "595"
+  }
+]

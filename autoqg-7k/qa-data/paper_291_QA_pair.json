@@ -1,0 +1,174 @@
+[
+  {
+    "section": "preliminaries2",
+    "path": {
+      "section": "preliminaries2",
+      "start_entity": "PedersenCommitment",
+      "end_entity": "Protocol",
+      "hops": [
+        {
+          "from": "PedersenCommitment",
+          "relation": "supports",
+          "to": "Multiplication",
+          "context": "Then, Pedersen commitment supports the following homomorphic arithmetic operations.",
+          "chunk": "2"
+        },
+        {
+          "from": "Multiplication",
+          "relation": "enabledBy",
+          "to": "InteractiveProtocol",
+          "context": "it can achieve the homomorphic multiplication through a more complex interactive protocol.",
+          "chunk": "2"
+        },
+        {
+          "from": "InteractiveProtocol",
+          "relation": "type",
+          "to": "Protocol",
+          "context": "it can achieve the homomorphic multiplication through a more complex interactive protocol.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the context of cryptographic protocols, how does the Pedersen commitment enable the performance of homomorphic multiplication?",
+    "options": {
+      "A": "By directly performing multiplication on the commitments without any additional protocols or mechanisms.",
+      "B": "Through a non-interactive system that simplifies the process of multiplication without external validations.",
+      "C": "Using a one-way function that inherently supports multiplication operations without interactive protocols.",
+      "D": "By utilizing an interactive protocol that allows multiplication operations to be performed securely between multiple parties."
+    },
+    "correct_answer": "D",
+    "explanation": "The Pedersen commitment allows for homomorphic multiplication through a more complex interactive protocol, which involves multiple parties interacting to securely perform the multiplication operations. This is distinct from non-interactive or direct methods.",
+    "path_description": "Path: PedersenCommitment --[supports]--> Multiplication --[enabledBy]--> InteractiveProtocol --[type]--> Protocol",
+    "context": "Then, Pedersen commitment supports the following homomorphic arithmetic operations. | it can achieve the homomorphic multiplication through a more complex interactive protocol. | it can achieve the homomorphic multiplication through a more complex interactive protocol.",
+    "paper_id": "1014"
+  },
+  {
+    "section": "biozeroprotocoldesign2",
+    "path": {
+      "section": "biozeroprotocoldesign2",
+      "start_entity": "Prover",
+      "end_entity": "PrivacyAspect",
+      "hops": [
+        {
+          "from": "Prover",
+          "relation": "prepares",
+          "to": "PedersenCommitment",
+          "context": "Prover: The prover is the party that prepares the Pedersen commitments of biometric data vectors.",
+          "chunk": "4"
+        },
+        {
+          "from": "PedersenCommitment",
+          "relation": "protects",
+          "to": "BiometricPrivacy",
+          "context": "this Pedersen commitment based homomorphic encryption for biometric authentication can protect users’ biometric privacy.",
+          "chunk": "4"
+        },
+        {
+          "from": "BiometricPrivacy",
+          "relation": "type",
+          "to": "PrivacyAspect",
+          "context": "this Pedersen commitment based homomorphic encryption for biometric authentication can protect users’ biometric privacy.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the context of biometric authentication, how does the utilization of Pedersen commitments by the prover specifically contribute to privacy?",
+    "options": {
+      "A": "Pedersen commitments prepare biometric data vectors which are encrypted to protect biometric privacy as a specific type of privacy aspect.",
+      "B": "Pedersen commitments are used to store biometric data in a decentralized database to prevent unauthorized access.",
+      "C": "Pedersen commitments help in verifying the user's biometric data without preparing or encrypting the biometric vectors.",
+      "D": "Pedersen commitments directly encrypt the communication channel between the prover and the verifier, enhancing overall data security."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A because the knowledge path outlines that the prover prepares Pedersen commitments which are a form of homomorphic encryption specifically used here to protect biometric privacy, indicating a focus on privacy aspects related to biometric data.",
+    "path_description": "Path: Prover --[prepares]--> PedersenCommitment --[protects]--> BiometricPrivacy --[type]--> PrivacyAspect",
+    "context": "Prover: The prover is the party that prepares the Pedersen commitments of biometric data vectors. | this Pedersen commitment based homomorphic encryption for biometric authentication can protect users’ biometric privacy. | this Pedersen commitment based homomorphic encryption for biometric authentication can protect users’ biometric privacy.",
+    "paper_id": "1014"
+  },
+  {
+    "section": "preliminaries2",
+    "path": {
+      "section": "preliminaries2",
+      "start_entity": "Prover",
+      "end_entity": "InteractiveProtocol",
+      "hops": [
+        {
+          "from": "Prover",
+          "relation": "provides",
+          "to": "Verifier",
+          "context": "The prover then provides the verifier with the commitments α, β and γ.",
+          "chunk": "2"
+        },
+        {
+          "from": "Verifier",
+          "relation": "verifies",
+          "to": "Multiplication",
+          "context": "To enable any a third party that acts as the verifier to check that this mapping relationship is valid for the given three Pedersen commitments.",
+          "chunk": "2"
+        },
+        {
+          "from": "Multiplication",
+          "relation": "enabledBy",
+          "to": "InteractiveProtocol",
+          "context": "it can achieve the homomorphic multiplication through a more complex interactive protocol.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the context of cryptographic protocols, how does the verifier ensure the accuracy of homomorphic multiplication using the commitments provided by the prover?",
+    "options": {
+      "A": "The verifier independently recalculates the Pedersen commitments using publicly available algorithms.",
+      "B": "The verifier relies on non-interactive zero-knowledge proofs submitted along with the commitments.",
+      "C": "The verifier utilizes an interactive protocol to check the validity of the mapping relationship among the commitments α, β, and γ.",
+      "D": "The verifier compares the provided commitments with a pre-established database of valid commitments."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A because the verifier uses an interactive protocol, as mentioned in the context, to verify the mapping relationship valid among the commitments α, β, and γ. This interaction allows the verifier to ensure the accuracy of the homomorphic multiplication enabled by the commitments. Options B, C, and D are incorrect as they do not match the process described in the paper, which specifically highlights the use of an interactive protocol.",
+    "path_description": "Path: Prover --[provides]--> Verifier --[verifies]--> Multiplication --[enabledBy]--> InteractiveProtocol",
+    "context": "The prover then provides the verifier with the commitments α, β and γ. | To enable any a third party that acts as the verifier to check that this mapping relationship is valid for the given three Pedersen commitments. | it can achieve the homomorphic multiplication through a more complex interactive protocol.",
+    "paper_id": "1014"
+  },
+  {
+    "section": "systemperformance3",
+    "path": {
+      "section": "systemperformance3",
+      "start_entity": "BioZero",
+      "end_entity": "BlockchainPlatform",
+      "hops": [
+        {
+          "from": "BioZero",
+          "relation": "comparedWith",
+          "to": "VanillaZKBio",
+          "context": "We evaluate the performances of BioZero and Vanilla ZKBio.",
+          "chunk": "9"
+        },
+        {
+          "from": "VanillaZKBio",
+          "relation": "evaluatedOn",
+          "to": "EthereumPrivateBlockchain",
+          "context": "We constructed a test platform using the Ethereum private blockchain.",
+          "chunk": "9"
+        },
+        {
+          "from": "EthereumPrivateBlockchain",
+          "relation": "type",
+          "to": "BlockchainPlatform",
+          "context": "We constructed a test platform using the Ethereum private blockchain.",
+          "chunk": "9"
+        }
+      ]
+    },
+    "question": "In the evaluation of BioZero and Vanilla ZKBio's performances, which type of platform was primarily used for testing and what is its classification?",
+    "options": {
+      "A": "Ethereum private blockchain, classified as a decentralized computing platform",
+      "B": "Ethereum public blockchain, classified as a decentralized computing platform",
+      "C": "Ethereum public blockchain, classified as a centralized computing platform",
+      "D": "Ethereum private blockchain, classified as a centralized computing platform"
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A because the paper mentions that an Ethereum private blockchain was used as the test platform. Ethereum, whether public or private, is classified as a decentralized computing platform, which is a type of blockchain platform.",
+    "path_description": "Path: BioZero --[comparedWith]--> VanillaZKBio --[evaluatedOn]--> EthereumPrivateBlockchain --[type]--> BlockchainPlatform",
+    "context": "We evaluate the performances of BioZero and Vanilla ZKBio. | We constructed a test platform using the Ethereum private blockchain. | We constructed a test platform using the Ethereum private blockchain.",
+    "paper_id": "1014"
+  }
+]

@@ -1,0 +1,131 @@
+[
+  {
+    "section": "introduction",
+    "path": {
+      "section": "introduction",
+      "start_entity": "Cancer",
+      "end_entity": "BiologicalLevel",
+      "hops": [
+        {
+          "from": "Cancer",
+          "relation": "manifestsThrough",
+          "to": "ComplexMolecularAlterations",
+          "context": "Cancer is a heterogeneous disease that manifests through complex molecular alterations across different biological levels",
+          "chunk": "0"
+        },
+        {
+          "from": "ComplexMolecularAlterations",
+          "relation": "occursAt",
+          "to": "Epigenomics",
+          "context": "Cancer is a heterogeneous disease that manifests through complex molecular alterations across different biological levels, including epigenomics",
+          "chunk": "0"
+        },
+        {
+          "from": "Epigenomics",
+          "relation": "type",
+          "to": "BiologicalLevel",
+          "context": "including genomics, epigenomics, and transcriptomics",
+          "chunk": "0"
+        }
+      ]
+    },
+    "question": "In the context of cancer biology, which biological level specifically involves alterations that are directly tied to the complexities observed in cancer's molecular behavior?",
+    "options": {
+      "A": "Transcriptomics, which studies the RNA transcripts produced by the genome",
+      "B": "Genomics, which involves the direct sequencing and analysis of an organism's DNA",
+      "C": "Proteomics, which focuses on the entire set of proteins expressed by a genome",
+      "D": "Epigenomics, which deals with changes in gene expression without altering the DNA sequence"
+    },
+    "correct_answer": "D",
+    "explanation": "The question follows a 3-hop path from the knowledge graph, where cancer manifests through complex molecular alterations at the biological level of epigenomics. Epigenomics specifically relates to changes in gene expression that do not alter the DNA sequence itself, tying back to the molecular complexities of cancer without changing the genetic code.",
+    "path_description": "Path: Cancer --[manifestsThrough]--> ComplexMolecularAlterations --[occursAt]--> Epigenomics --[type]--> BiologicalLevel",
+    "context": "Cancer is a heterogeneous disease that manifests through complex molecular alterations across different biological levels | Cancer is a heterogeneous disease that manifests through complex molecular alterations across different biological levels, including epigenomics | including genomics, epigenomics, and transcriptomics",
+    "paper_id": "216"
+  },
+  {
+    "section": "methodology",
+    "path": {
+      "section": "methodology",
+      "start_entity": "ProjectionHead",
+      "end_entity": "Parameter",
+      "hops": [
+        {
+          "from": "ProjectionHead",
+          "relation": "mapsTo",
+          "to": "LatentSpace",
+          "context": "followed by a projection head that maps features to a latent space",
+          "chunk": "2"
+        },
+        {
+          "from": "LatentSpace",
+          "relation": "hasDimension",
+          "to": "EmbeddingDimension",
+          "context": "space, where d is the embedding dimension",
+          "chunk": "2"
+        },
+        {
+          "from": "EmbeddingDimension",
+          "relation": "type",
+          "to": "Parameter",
+          "context": "space, where d is the embedding dimension",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the context of neural network architectures, how does the embedding dimension relate to the projection head and latent space?",
+    "options": {
+      "A": "Latent space dimensions are independent of the projection head but influence the embedding's parameter settings.",
+      "B": "Projection head directly modifies the embedding dimension, altering the latent space's overall structure.",
+      "C": "The projection head uses the latent space to identify the embedding dimension essential for the network's performance.",
+      "D": "The embedding dimension specifies the type of parameters used to define the latent space structured by the projection head."
+    },
+    "correct_answer": "D",
+    "explanation": "The projection head maps features to a latent space where 'd' or the embedding dimension defines the type of parameters (dimensionality). Thus, the embedding dimension is a parameter type that specifies how the latent space is structured by the projection head.",
+    "path_description": "Path: ProjectionHead --[mapsTo]--> LatentSpace --[hasDimension]--> EmbeddingDimension --[type]--> Parameter",
+    "context": "followed by a projection head that maps features to a latent space | space, where d is the embedding dimension | space, where d is the embedding dimension",
+    "paper_id": "216"
+  },
+  {
+    "section": "methodology",
+    "path": {
+      "section": "methodology",
+      "start_entity": "OmicsCL",
+      "end_entity": "NumberOfPatients",
+      "hops": [
+        {
+          "from": "OmicsCL",
+          "relation": "learnsRepresentations",
+          "to": "OmicsDataset",
+          "context": "As a modular contrastive learning framework, OmicsCL learns view-specific and joint representations across omics modalities",
+          "chunk": "2"
+        },
+        {
+          "from": "OmicsDataset",
+          "relation": "hasPatients",
+          "to": "N",
+          "context": "Let D = {(xi, xi, xi, ti, ei)}i=1, represent a multi-omics dataset consisting of N patients",
+          "chunk": "2"
+        },
+        {
+          "from": "N",
+          "relation": "type",
+          "to": "NumberOfPatients",
+          "context": "Let D = {(xi, xi, xi, ti, ei)}i=1, represent a multi-omics dataset consisting of N patients",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the context of the OmicsCL framework, when learning representations from a multi-omics dataset, what does 'N' specifically refer to?",
+    "options": {
+      "A": "N refers to the number of contrastive learning models utilized.",
+      "B": "N refers to the number of datasets combined to form the multi-omics dataset.",
+      "C": "N refers to the number of patients included in the multi-omics dataset.",
+      "D": "N refers to the number of different omics modalities used in the dataset."
+    },
+    "correct_answer": "C",
+    "explanation": "In the given knowledge graph path, OmicsCL learns representations from an OmicsDataset, which involves N patients. 'N' specifically refers to the number of patients included in the multi-omics dataset, as indicated in the methodology section of the paper.",
+    "path_description": "Path: OmicsCL --[learnsRepresentations]--> OmicsDataset --[hasPatients]--> N --[type]--> NumberOfPatients",
+    "context": "As a modular contrastive learning framework, OmicsCL learns view-specific and joint representations across omics modalities | Let D = {(xi, xi, xi, ti, ei)}i=1, represent a multi-omics dataset consisting of N patients | Let D = {(xi, xi, xi, ti, ei)}i=1, represent a multi-omics dataset consisting of N patients",
+    "paper_id": "216"
+  }
+]

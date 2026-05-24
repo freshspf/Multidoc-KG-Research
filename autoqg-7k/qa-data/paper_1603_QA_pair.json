@@ -1,0 +1,346 @@
+[
+  {
+    "section": "themethod1",
+    "path": {
+      "section": "themethod1",
+      "start_entity": "CodeList",
+      "end_entity": "ODE",
+      "hops": [
+        {
+          "from": "CodeList",
+          "relation": "implements",
+          "to": "SubODEs",
+          "context": "A code-list for the ODE is a sequence of assignments that, starting from input-values of x1, ..., xn, t, set intermediate variables xn+2, ..., xN.",
+          "chunk": "2"
+        },
+        {
+          "from": "SubODEs",
+          "relation": "simplifies",
+          "to": "TaylorSeriesSolution",
+          "context": "Sub-ODEs simplify Taylor series algorithm.",
+          "chunk": "2"
+        },
+        {
+          "from": "TaylorSeriesSolution",
+          "relation": "appliedTo",
+          "to": "ODE",
+          "context": "Taylor series solution for an ODE x = f.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "How does the implementation of a code list in the solution of an ordinary differential equation (ODE) contribute to the simplification of solving it?",
+    "options": {
+      "A": "By reducing the complexity of the ODE to a series of algebraic equations, thereby eliminating the use of Taylor series solutions.",
+      "B": "By directly solving the ODE using a Taylor series expansion without the need for intermediate variables or sub-ODEs.",
+      "C": "By creating a non-linear mapping of input-values to the solution space, thus bypassing the need for Taylor series solutions.",
+      "D": "By establishing a sequence of assignments that integrate intermediate variables, which simplifies the Taylor series algorithm used in solving ODEs."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A because the knowledge path indicates that the code list implements SubODEs, which simplify the Taylor series algorithm. This algorithm is then applied to solve the ODE. The sequence of assignments in the code list helps set up intermediate variables, which facilitates the simplification of the Taylor series solution, making the overall process of solving the ODE more efficient.",
+    "path_description": "Path: CodeList --[implements]--> SubODEs --[simplifies]--> TaylorSeriesSolution --[appliedTo]--> ODE",
+    "context": "A code-list for the ODE is a sequence of assignments that, starting from input-values of x1, ..., xn, t, set intermediate variables xn+2, ..., xN. | Sub-ODEs simplify Taylor series algorithm. | Taylor series solution for an ODE x = f.",
+    "paper_id": "450"
+  },
+  {
+    "section": "themethod1",
+    "path": {
+      "section": "themethod1",
+      "start_entity": "Matlab",
+      "end_entity": "ODE",
+      "hops": [
+        {
+          "from": "Matlab",
+          "relation": "implements",
+          "to": "SubODEs",
+          "context": "our Matlab solver, comparing ODE suite’s solvers.",
+          "chunk": "2"
+        },
+        {
+          "from": "SubODEs",
+          "relation": "simplifies",
+          "to": "TaylorSeriesSolution",
+          "context": "Sub-ODEs simplify Taylor series algorithm.",
+          "chunk": "2"
+        },
+        {
+          "from": "TaylorSeriesSolution",
+          "relation": "appliedTo",
+          "to": "ODE",
+          "context": "Taylor series solution for an ODE x = f.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the context of solving ordinary differential equations (ODEs) using Matlab, how does the implementation of SubODEs contribute to the solution process?",
+    "options": {
+      "A": "SubODEs provide a graphical interface in Matlab for visually interpreting the solutions of ODEs through Taylor series.",
+      "B": "SubODEs implement a simplification method in Matlab that aids in decomposing a Taylor series solution for effective application to ODEs.",
+      "C": "SubODEs act as a secondary checking mechanism in Matlab to verify the accuracy of solutions derived from Taylor series.",
+      "D": "SubODEs enhance the computational speed of Matlab by parallel processing multiple ODEs simultaneously without using Taylor series."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A because the knowledge path indicates that SubODEs implemented in Matlab simplify the Taylor series algorithm, which is then applied to solve ODEs. This simplification aids in decomposing the Taylor series solution, making it an effective approach for solving ODEs. The other options, while related to Matlab or ODEs, do not correctly represent the role of SubODEs in the context provided.",
+    "path_description": "Path: Matlab --[implements]--> SubODEs --[simplifies]--> TaylorSeriesSolution --[appliedTo]--> ODE",
+    "context": "our Matlab solver, comparing ODE suite’s solvers. | Sub-ODEs simplify Taylor series algorithm. | Taylor series solution for an ODE x = f.",
+    "paper_id": "450"
+  },
+  {
+    "section": "subodesfromadaeviewpoint1",
+    "path": {
+      "section": "subodesfromadaeviewpoint1",
+      "start_entity": "Sub-ODE",
+      "end_entity": "Property",
+      "hops": [
+        {
+          "from": "Sub-ODE",
+          "relation": "converts",
+          "to": "DAE",
+          "context": "Using a sub-ODE converts an ODE to a DAE.",
+          "chunk": "5"
+        },
+        {
+          "from": "DAE",
+          "relation": "hasProperty",
+          "to": "S-Amenable",
+          "context": "DAEs are shown to be always S-amenable when recast by a sub-ODE.",
+          "chunk": "5"
+        },
+        {
+          "from": "S-Amenable",
+          "relation": "type",
+          "to": "Property",
+          "context": "Subsections 3.2, 3.3, 3.4 show each of stages (1)–(3) preserves S-amenability.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "What property is consistently preserved when a sub-ODE is used to convert an ODE into a DAE, according to the stages outlined in subsections 3.2, 3.3, and 3.4?",
+    "options": {
+      "A": "The property of spatial homogeneity is preserved, meaning the system's characteristics are uniform across different locations.",
+      "B": "The property of structural stability is preserved, ensuring the system remains unchanged under small perturbations.",
+      "C": "The property of temporal consistency is maintained, ensuring the system's behavior over time aligns with initial conditions.",
+      "D": "The property preserved is S-amenable, which implies a particular kind of solvability and robustness."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A because the paper states that when a sub-ODE converts an ODE to a DAE, the resultant DAE is always S-amenable, as shown in the mentioned subsections. This property relates to solvability and robustness, not to the other properties listed in the options, which are misleading by addressing other types of system characteristics.",
+    "path_description": "Path: Sub-ODE --[converts]--> DAE --[hasProperty]--> S-Amenable --[type]--> Property",
+    "context": "Using a sub-ODE converts an ODE to a DAE. | DAEs are shown to be always S-amenable when recast by a sub-ODE. | Subsections 3.2, 3.3, 3.4 show each of stages (1)–(3) preserves S-amenability.",
+    "paper_id": "450"
+  },
+  {
+    "section": "subodesfromadaeviewpoint4",
+    "path": {
+      "section": "subodesfromadaeviewpoint4",
+      "start_entity": "F",
+      "end_entity": "Function",
+      "hops": [
+        {
+          "from": "F",
+          "relation": "hasSameJacobian",
+          "to": "F",
+          "context": "(c*, d*) gives the same Jacobian for F as does (c, d).",
+          "chunk": "8"
+        },
+        {
+          "from": "F",
+          "relation": "hasNormalizedValidOffsetPair",
+          "to": "F",
+          "context": "(c*, d*) = (c, d) is a normalized, valid offset pair for F.",
+          "chunk": "8"
+        },
+        {
+          "from": "F",
+          "relation": "type",
+          "to": "Function",
+          "context": "Let F be S-amenable with signature matrix Σ for some multi-index k.",
+          "chunk": "8"
+        }
+      ]
+    },
+    "question": "In the context of the function F described as S-amenable with a specific signature matrix Σ, which statement correctly describes the attributes and relationships of the offset pairs (c*, d*) and (c, d)?",
+    "options": {
+      "A": "Although (c*, d*) and (c, d) are a normalized, valid offset pair, they have distinct Jacobians for the function F.",
+      "B": "(c*, d*) and (c, d) not only share the same Jacobian but also represent a normalized, valid offset pair for function F.",
+      "C": "(c*, d*) and (c, d) share the same Jacobian but (c*, d*) is not a normalized, valid offset pair for F.",
+      "D": "(c*, d*) and (c, d) have different Jacobians and (c*, d*) does not form a normalized, valid offset pair for F."
+    },
+    "correct_answer": "B",
+    "explanation": "The information from the paper confirms that (c*, d*) gives the same Jacobian for F as does (c, d) and that (c*, d*) = (c, d), which is a normalized, valid offset pair for F. Hence, both conditions being true fits only option A.",
+    "path_description": "Path: F --[hasSameJacobian]--> F --[hasNormalizedValidOffsetPair]--> F --[type]--> Function",
+    "context": "(c*, d*) gives the same Jacobian for F as does (c, d). | (c*, d*) = (c, d) is a normalized, valid offset pair for F. | Let F be S-amenable with signature matrix Σ for some multi-index k.",
+    "paper_id": "450"
+  },
+  {
+    "section": "numericalresults2",
+    "path": {
+      "section": "numericalresults2",
+      "start_entity": "Brusselator",
+      "end_entity": "Algorithm",
+      "hops": [
+        {
+          "from": "Brusselator",
+          "relation": "uses",
+          "to": "ode15s",
+          "context": "example code [9] uses ode15s",
+          "chunk": "13"
+        },
+        {
+          "from": "ode15s",
+          "relation": "outperforms",
+          "to": "odets",
+          "context": "Remarkably, the integration list time, outperforms ode15s when N=20, and partially when N=40.",
+          "chunk": "13"
+        },
+        {
+          "from": "odets",
+          "relation": "type",
+          "to": "Algorithm",
+          "context": "odets",
+          "chunk": "13"
+        }
+      ]
+    },
+    "question": "In the context of the Brusselator model's numerical results, which statement best describes the performance of ode15s compared to odets when handling integration list time?",
+    "options": {
+      "A": "Ode15s and odets perform identically, regardless of the parameter N's value.",
+      "B": "Odets consistently underperforms compared to ode15s across various values of N.",
+      "C": "Ode15s significantly outperforms odets, especially when the parameter N is set to 20.",
+      "D": "Odets outperforms ode15s when the parameter N is set to 20, but only partially when N is 40."
+    },
+    "correct_answer": "D",
+    "explanation": "According to the context provided, odets outperforms ode15s when N=20 and only partially when N=40. This indicates that odets has a better performance under specific conditions (N=20) compared to ode15s, but this advantage diminishes as N increases to 40.",
+    "path_description": "Path: Brusselator --[uses]--> ode15s --[outperforms]--> odets --[type]--> Algorithm",
+    "context": "example code [9] uses ode15s | Remarkably, the integration list time, outperforms ode15s when N=20, and partially when N=40. | odets",
+    "paper_id": "450"
+  },
+  {
+    "section": "numericalresults2",
+    "path": {
+      "section": "numericalresults2",
+      "start_entity": "ode15s",
+      "end_entity": "Algorithm",
+      "hops": [
+        {
+          "from": "ode15s",
+          "relation": "outperforms",
+          "to": "odets",
+          "context": "Remarkably, the integration list time, outperforms ode15s when N=20, and partially when N=40.",
+          "chunk": "13"
+        },
+        {
+          "from": "odets",
+          "relation": "comparedWith",
+          "to": "ode15s",
+          "context": "We augment brussode.m by adding a call to odets, and compare both solvers.",
+          "chunk": "13"
+        },
+        {
+          "from": "ode15s",
+          "relation": "type",
+          "to": "Algorithm",
+          "context": "ode15s",
+          "chunk": "13"
+        }
+      ]
+    },
+    "question": "In the comparison of numerical solvers in 'numericalresults2', how does odets perform against ode15s when augmented in brussode.m, specifically considering its type?",
+    "options": {
+      "A": "odets underperforms compared to ode15s at both N=20 and N=40, making it an inferior Algorithm.",
+      "B": "odets and ode15s perform identically at all tested values of N, categorizing both as equally capable Algorithms.",
+      "C": "odets outperforms ode15s at N=20 and matches its performance partially at N=40, identifying it as an efficient Algorithm.",
+      "D": "odets demonstrates superior performance only at N=40, making it a less preferable Algorithm in most scenarios."
+    },
+    "correct_answer": "C",
+    "explanation": "According to the context given, odets outperforms ode15s at N=20 and matches it partially at N=40, indicating its efficiency and capability as an algorithm. The question required understanding the performance comparison and the nature of odets as a numerical solver.",
+    "path_description": "Path: ode15s --[outperforms]--> odets --[comparedWith]--> ode15s --[type]--> Algorithm",
+    "context": "Remarkably, the integration list time, outperforms ode15s when N=20, and partially when N=40. | We augment brussode.m by adding a call to odets, and compare both solvers. | ode15s",
+    "paper_id": "450"
+  },
+  {
+    "section": "appendixastructuralamenabilityandthesignaturemethod",
+    "path": {
+      "section": "appendixastructuralamenabilityandthesignaturemethod",
+      "start_entity": "DAE",
+      "end_entity": "Model",
+      "hops": [
+        {
+          "from": "DAE",
+          "relation": "evaluatedUsing",
+          "to": "SigmaMethod",
+          "context": "The Σ-method applies to a DAE following steps and basic ideas.",
+          "chunk": "15"
+        },
+        {
+          "from": "SigmaMethod",
+          "relation": "appliesTo",
+          "to": "DAE",
+          "context": "The Σ-method applies to a DAE following steps and basic ideas.",
+          "chunk": "15"
+        },
+        {
+          "from": "DAE",
+          "relation": "type",
+          "to": "Model",
+          "context": "a DAE is S-amenable if structural analysis (SA) tells you how to solve the DAE numerically.",
+          "chunk": "15"
+        }
+      ]
+    },
+    "question": "Which statement best describes the relationship between the Sigma Method and a DAE in the context of structural amenability?",
+    "options": {
+      "A": "The Sigma Method first transforms a DAE into a simpler model before it can be evaluated for structural amenability.",
+      "B": "The Sigma Method simplifies a DAE by reducing its complexity before applying any numerical analysis techniques.",
+      "C": "The Sigma Method directly converts a DAE into a different type of model without any intermediate steps.",
+      "D": "The Sigma Method evaluates a DAE by applying structural analysis to determine its numerical solvability."
+    },
+    "correct_answer": "D",
+    "explanation": "The Sigma Method evaluates a DAE specifically by using structural analysis to understand how the DAE can be solved numerically, which is a direct application of the method to the DAE in determining its structural amenability.",
+    "path_description": "Path: DAE --[evaluatedUsing]--> SigmaMethod --[appliesTo]--> DAE --[type]--> Model",
+    "context": "The Σ-method applies to a DAE following steps and basic ideas. | The Σ-method applies to a DAE following steps and basic ideas. | a DAE is S-amenable if structural analysis (SA) tells you how to solve the DAE numerically.",
+    "paper_id": "450"
+  },
+  {
+    "section": "appendixastructuralamenabilityandthesignaturemethod",
+    "path": {
+      "section": "appendixastructuralamenabilityandthesignaturemethod",
+      "start_entity": "DAE",
+      "end_entity": "DataStructure",
+      "hops": [
+        {
+          "from": "DAE",
+          "relation": "evaluatedUsing",
+          "to": "SigmaMethod",
+          "context": "The Σ-method applies to a DAE following steps and basic ideas.",
+          "chunk": "15"
+        },
+        {
+          "from": "SigmaMethod",
+          "relation": "defines",
+          "to": "Transversal",
+          "context": "A transversal T is a set of n positions (i, j) in Σ with exactly one in each row and each column.",
+          "chunk": "15"
+        },
+        {
+          "from": "Transversal",
+          "relation": "type",
+          "to": "DataStructure",
+          "context": "A transversal T is a set of n positions (i, j) in Σ with exactly one in each row and each column.",
+          "chunk": "15"
+        }
+      ]
+    },
+    "question": "In the context of the SigmaMethod applied to a Differential Algebraic Equation (DAE), what type of data structure does the transversal T represent?",
+    "options": {
+      "A": "A graph data structure where nodes represent positions and edges connect consecutive positions.",
+      "B": "A queue data structure that processes positions (i, j) based on their appearances in rows and columns.",
+      "C": "A linked list data structure that sequentially connects positions (i, j) without repetition.",
+      "D": "A matrix data structure where each row and column contains exactly one selected position (i, j)."
+    },
+    "correct_answer": "D",
+    "explanation": "A transversal T in the SigmaMethod, when applied to a DAE, is defined as a set of n positions (i, j) in matrix Σ, with exactly one in each row and each column. This definition matches closely with a matrix data structure where each position is uniquely determined by its row and column indices.",
+    "path_description": "Path: DAE --[evaluatedUsing]--> SigmaMethod --[defines]--> Transversal --[type]--> DataStructure",
+    "context": "The Σ-method applies to a DAE following steps and basic ideas. | A transversal T is a set of n positions (i, j) in Σ with exactly one in each row and each column. | A transversal T is a set of n positions (i, j) in Σ with exactly one in each row and each column.",
+    "paper_id": "450"
+  }
+]

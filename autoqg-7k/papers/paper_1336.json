@@ -1,0 +1,72 @@
+[
+  {
+    "id": "introduction",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Introduction",
+      "page_start": 1,
+      "page_end": 1
+    },
+    "text": ".\ns\nGame Theory has  emerged as  a powerful  analytical\nc\n[  framework for modeling rational decision-making in com-\n \n  plex multi-agent systems, particularly when interactions are\n1\nstrategic, and agents’ decisions significantly influence one\nv\nanother  [1],  [2]. Such strategic interactions often involve\n0\n0 conflicting or adversarial objectives, necessitating the de-\n2 velopment of solution concepts to characterize optimality.\n9 Among various solution concepts, Nash equilibrium stands\n1\n. out as a well-established notion, defining the equilibrium\n3 as strategy sets from which no participant can unilaterally\n0 deviate for an enhanced outcome [3].\n5\nDue to its solid theoretical foundation and capacity to char-\n2\n: acterize strategic interactions, Nash equilibrium has been ex-\nv\ni  tensively studied across various engineering domains, includ-\ning robotics [4], traffic management [5], and sensor networks\nX\nr  [6]. Furthermore,  it has demonstrated significant potential\na\nin energy management systems [7], [8], autonomous vehicle\nnavigation [9], [10], [11], and human-robot interactions [12].\nHowever, despite its widespread adoption, practical  im-\nplementation of Nash strategies faces significant challenges,\nparticularly in real-world engineering applications due  to\ninherent uncertainties, environmental disturbances, time de-\nlays, and implementation imperfections [13], [14], [15]. To\naddress these challenges, researchers have explored various\nextensions,  including the concept of ε-equilibrium which\ngeneralizes Nash equilibrium by allowing slight deviations\nfrom optimal strategies under bounded perturbations [16].\n*This work was not supported by any organization.\n1\nMahdis Rabbani, Navid Mojahed,  and Shima Nazari  are with  the\nMechanical and Aerospace Engineering, University of California, Davis,\n1 Shields Ave., Davis, 95616 CA, USA {mrabbani, nmojahed,\nsnazari}@ucdavis.edu\n\ngies in LQ Games under Control\nections\n1  1\njahed , and Shima Nazari\nThis  refinement has enabled numerical  approximation of\nNash [17], [18] and advanced its sensitivity and robustness\nanalysis [13], [14], [19], [20], [21].\nThe robustness of Nash equilibrium under various sources\nof uncertainty has been widely explored in previous stud-\nies. For  instance, dynamic model uncertainties have been\nthoroughly investigated in [13],  [14],  [21]  for differential\ngames.  In particular, Broek et al. have designed a closed-\nloop feedback Nash in finite-horizon Linear Quadratic (LQ)\ngames [13], while Amato et al. extended the scope to both\nfinite- and infinite-horizon differential games [14]. Hernan-\ndez et al. further generalized these approaches by relaxing the\nLQ constraint with a weaker convexity condition, designing\na controller robust  to model uncertainties [21]. In parallel,\nJimenez et al.  investigated measurement noise as another\nsource of uncertainty, proposing an adaptive control strategy\nto mitigate its effects in differential games [19]. In addition,\nTan et al. focused on discrete-time dynamic games, perform-\ning a sensitivity analysis for changes in the cost  function\nparameters [20].\nDespite these advances, sensitivity analysis of Nash equi-\nlibrium to player-specific control  deviation,  arising from\nimplementation imperfections,  remains  largely unexplored\nto the best of our knowledge. Such deviations, originating\nfrom implementation inadequacies  like actuator errors or\ntime delays, are frequent in engineering systems and directly\ndegrade overall  system performance. Moreover,  relatively\nlittle attention has been given to the sensitivity analysis of\nNash equilibrium in discrete-time dynamic games (difference\ngames). This paper addresses these research gaps by ana-\nlytically investigating how such deviations affect the game’s\ntrajectory and associated player costs in the difference games.\nBeyond this, we propose a modified feedback policy that\nnot only mitigates  the effect of  these deviations but also\ntakes advantage of  the deviation  to preserve optimality.\nWhile prior literature proposed adaptive approaches in multi-\nagent settings,  they fail  to explicitly consider  the targeted\ncompensation of player-specific control imperfections during\nexecution [22], [23].\nThis paper specifically targets finite-horizon, discrete-time\nLQ games when players’ strategies deviate due to execution\nimperfections. We consider a two-player nonzero-sum sce-\nnario, exploring the direct impact of small deviations by one\nplayer on the game’s joint trajectory and the other player’s\ncost  function.  In summary,  the main contributions of  this\npaper are as follows.\n• We extend the existing works and perform sensitivity\nanalysis to difference games and derive analytical ex-"
+  },
+  {
+    "id": "preliminariesbackground",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Preliminaries & Background",
+      "page_start": 2,
+      "page_end": 2
+    },
+    "text": "This section provides foundational definitions and estab-\nlishes the necessary background for the subsequent sensitiv-\nity analysis and policy design. We focus on finite-horizon LQ\ngames, a class of dynamic games characterized by linear state\ntransition equations and quadratic objective functions [24].\nThe discrete-time system dynamics are given by:\nxk+1 = Axk +B1u1,k +B2u2,k,  (1)\nfor each time step k ∈ K = {0, 1, . . . , N − 1} ⊂ Z, where\n(cid:2) T  T (cid:3)T  (n +n )\nR  1  2\n• xk = x1,k  x2,k  ∈  is the joint state vector\nof the game, obtained by concatenating the state vectors\nRni\nxi,k ∈  of Player i (i ∈ {1, 2}).\nRm1  Rm2\n• u1,k ∈  and u2,k ∈  are control inputs (actions)\nof Player 1 and Player 2, respectively.\nR(n1+n2)×(n1+n2)\n• A ∈  is  the  joint  state  transition\nmatrix.\nR(n1+n2)×m1  R(n1+n2)×m2\n• B1 ∈  and B2 ∈  are the\ncontrol matrices for Player 1 and Player 2, respectively.\nSuppose Player i (i ∈ {1, 2}) seeks to minimize its cost\nfunction Ji  over N-step horizon by selecting its control\ninputs at each step. The sequence of these control  inputs,\nN−1\ndenoted by Ui = {ui,k}k=0 ,  is referred to as Player i’s\nstrategy. The quadratic cost function for Player i is defined\nas:\nN−1\n(cid:88) (cid:0) ⊤  ⊤  (cid:1)  ⊤\nJi =  xk Qixk + ui,kRiui,k + xNQi,NxN,  (2)\nk=0\n\nwhere Qi, Qi,N ⪰ 0 are the stage and terminal weighting\nmatrices, respectively, and Ri ≻ 0 denotes Player i’s control\nweighting matrix. Let Ui denote Player i’s strategy and U−i\nrepresent that of the opposing one.\n∗  ∗\nDefinition 1 (Nash Equilibrium). A strategy set {Ui , U−i}\nconstitutes a Nash equilibrium solution of the game (2) under\nthe dynamics given by (1) if\n∗  (cid:0)  ∗  ∗ (cid:1)  (cid:0)  ∗ (cid:1)\nJi = Ji  x(0), Ui , U−i ≤ Ji  x(0), Ui, U−i  ,\n∗\nholds for all admissible {Ui, U−i} [3].\nRemark 1 (Existance and Uniqueness Conditions). Consider\nthe following conditions:\n1) The state weighting matrices must be positive semi-\ndefinite and the control weighting matrices must be\npositive definite; that is, Qi, Qi,N ⪰ 0 and Ri ≻ 0.\n¯  (cid:2)  (cid:3)\n2) Let  the joint control matrix be B = B1  B2 . The\npair (A, B¯) must be controllable, meaning that  the\n(cid:2) ¯  ¯  n−1 ¯(cid:3)\ncontrollability matrix C = B AB  . . .  A  B ,\nwhere n = n1 + n2, is full rank.\n3) Define the matrix Mk as:\n  \nI  S1  S2\nMk = P1,k  −I  0  ,\nP2,k  0  −I\n−1  ⊤\nwhere Si = BiRi  Bi  , for i = {1, 2}. The matrix Mk\nmust be invertible at each time step k.\nIf all three conditions are satisfied, a unique Nash equi-\nlibrium exists for the game, which is the case considered\nin this paper. These are sufficient conditions, with detailed\nproofs accessible in [25].\nUsing Dynamic Programming principle, it can be demon-\nstrated that Player i’s feedback Nash strategy is given as\nfollows [26],\n∗  ∗\nui,k = −Ki,kxk,  (3)\n∗\nif and only if  there exist  stabilizing feedback gains Ki,k\nand corresponding symmetric positive semi-definite matrices\n∗  ∗⊤\nPi = Pi  ⪰ 0, satisfying arising coupled Riccati equations.\nSubstituting the feedback Nash strategy (3) into the joint\ndynamics (1), and defining the time-varying closed-loop state\n∗  ∗\ntransition matrix Acl = A−B1K1,k −B2K2,k simplifies the\nclosed-loop dynamics to:\n∗  ∗\nxk+1 = Aclxk.  (4)"
+  },
+  {
+    "id": "sensitivityanalysisonnashequilibrium",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Sensitivity Analysis on Nash Equilibrium",
+      "page_start": 2,
+      "page_end": 2
+    },
+    "text": "Consider a deviation ∆u2,k  in Player 2’s control  input\nfrom its Nash strategy. Applying this deviation to the feed-\nback Nash strategy (3) results in,\n∗  ∗\nu2,k = u2,k +∆u2,k = −K2xk +∆u2,k.  (5)\n∗  ∗\nTheorem 1. Let {U1 , U2 } be the feedback Nash equilibrium\nof  the game  (2) with  the system dynamics  (1) and  the\nfeedback Nash policy (3). Suppose that Player 2 deviates\nfrom its  feedback Nash strategy according to (5). Then,\nfor small control deviation,  the effects of ∆u2,k propagate"
+  },
+  {
+    "id": "controlpolicydesign",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Control Policy Design",
+      "page_start": 3,
+      "page_end": 3
+    },
+    "text": "The sensitivity analysis revealed that small deviations in\nPlayer 2’s strategy influence both the state trajectory and\nPlayer 1’s cost  function. Moreover,  deviations  from the\nNash strategy lead to a sub-optimal outcome, creating an\nopportunity for the other player to strategically adjust their\nresponse and potentially improve their performance.\nInspired by this, we propose a modified feedback policy\nthat  incorporates a feedforward compensation term based\non Player 2’s control deviation. This modification not only\nmitigates the adverse effects of the deviation but also allows\nPlayer 1 to leverage the deviation to preserve or even enhance\nits optimal outcome.\nTheorem 2. Consider the game defined in Theorem 1 and\nsuppose Player 2 slightly deviates from its feedback Nash\nstrategy. Assume Player 1 can measure or estimate  the\ndeviation ∆u2,k at each time step k. Then, Player 1 can op-\ntimally compensate for this deviation while maintaining the\nperformance or even improving it by adopting the following\nmodified feedback strategy:\n∗  ∗\nu1,k = −K1,k xk − Lk B2 ∆u2,k,  (12)\n∗  ∗\nwhere the optimal gain matrices K1,k and Lk are given by:\n∗  (cid:0)  ⊤  (cid:1)−1  ⊤\nLk = R1 +B1 Pk+1B1  B1 Pk+1,  (13)\n∗  (cid:0)  ⊤  (cid:1)−1  ⊤\nK1,k = R1 +B1 Pk+1B1  B1 Pk+1Aeff,  (14)\nwith:\n∗\nAeff = A−B2K2,k,  (15)\nwhere  the matrix Pk+1  satisfies  the  following Difference\n. Riccati Equation (DRE):\n⊤\nPk = Q1 +AeffPk+1Aeff\n⊤  (cid:0)  ⊤  (cid:1)−1  ⊤\n−AeffPk+1B1 R1 +B1 Pk+1B1  B1 Pk+1Aeff,\n(16)\nwith terminal condition PN = Q1,N.\nProof. Let the effect of Player 2’s deviation be modeled as\nwk := B2∆u2,k. Substituting it  into the system dynamics\n(1) gives:\nxk+1 = Aeffxk +B1u1,k +wk,"
+  },
+  {
+    "id": "numericalexample",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Numerical Example",
+      "page_start": 4,
+      "page_end": 4
+    },
+    "text": "the practical utility of Theorems 1 and 2.\nV. NUMERICAL EXAMPLE\nThe example problem is adopted from [28]. We consider\na two-player LQ game over a 10-step horizon. The game\ndynamics, given by (1), is characterized by a discretization\nstep of ∆T = 0.4 s and an initial condition of x0 = 1.0.\nIn the scalar setting, all dynamic matrices are reduced to\nreal-valued scalars. These parameters of scalar dynamics are\nA = 1.0, B1 = 1.5, and B2 = −1.0.\nThe weighting scalars in the cost functions given by (2)\nare chosen as Q1 = Q1,N = 0.1, R1 = 0.04 for Player 1\nand Q2 = Q2,N = 0.2 for Player 2.\nTo illustrate the results of Theorems 1 and 2, we numeri-\ncally analyze and compare three scenarios below.\n• Scenario I: Both players execute their feedback Nash\nstrategies perfectly."
+  },
+  {
+    "id": "conclusion",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Conclusion",
+      "page_start": 5,
+      "page_end": 5
+    },
+    "text": "nificantly reduced deviation in ScenarioIII, compared to the\nunadjusted Scenario II, further confirms the robustness and In this letter, we analyzed the impact of control im-\nimproved performance resulting from the proposed policy. plementation errors in finite-horizon, two-player nonzero-\nIt is noteworthy that the proposed policy can effectively sum LQ games. Our analysis focused on how deviations\nleverage Player 2’s deviation from Nash equilibrium, result- from the Nash equilibrium influence system stability and\ning in outcomes superior to the original Nash solution. In performance. We quantified the deviation of the system\nadditional experiments with smaller deviations, the modified trajectoryfromtheNashtrajectoryandassessedtheincrease\npolicy achieved improvements of up to 0.59% compared to inthecostfunctionwhenoneplayerfailstofollowtheexact"
+  },
+  {
+    "id": "acknowledgment",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Acknowledgment",
+      "page_start": 6,
+      "page_end": 6
+    },
+    "text": "The authors acknowledge the use of OpenAI’s ChatGPT\nfor  structuring content,  refining language,  and improving\nclarity. All technical contributions, derivations, and original\ninsights remain the authors’ own work."
+  }
+]

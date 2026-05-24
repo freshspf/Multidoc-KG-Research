@@ -1,0 +1,82 @@
+[
+  {
+    "id": "introduction",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Introduction",
+      "page_start": 1,
+      "page_end": 1
+    },
+    "text": "9\n2  Phishing attacks, which deceive users into providing sen-\n \n  sitive information by impersonating legitimate entities, con-\n]\ntinue to be one of the most prevalent forms of cybercrime.\nR\nAccording  to recent  reports,  phishing attacks account  for\nC\n. a substantial portion of cybersecurity incidents worldwide,\ns with millions of users falling victim annually [1]. Traditional\nc\n[ phishing detection methods, including rule-based and heuristic\n \n  approaches, are increasingly ineffective as attackers employ\n1\nmore sophisticated techniques. This paper aims to enhance\nv\nphishing URL detection by introducing a deep learning model\n9\n4 that leverages a Bi-LSTM architecture. This approach targets\n0 not only phishing URLs but also includes defacement and mal-\n1 ware URLs, expanding the scope of detection and providing\n2 a more robust solution for real-world applications.\n.\n4\n0\n5\n2\n:\nv\ni\nX\nr\na\nFig. 1.  Phishing attack process"
+  },
+  {
+    "id": "datasetandpreprocessing",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Dataset and Preprocessing",
+      "page_start": 1,
+      "page_end": 1
+    },
+    "text": "The dataset used for this project  is sourced from Kaggle,\nwhich contains a diverse set of URLs classified into four\ncategories: benign, phishing, defacement, and malware. The\nbenign URLs represent  safe and legitimate web addresses,\nwhile phishing URLs are  those designed to deceive users\nand steal sensitive data. Defacement URLs correspond to sites\n\ntion using Bi-LSTM\naskota\nexas Permian Basin\nthat have been altered by attackers, often displaying malicious\ncontent. Malware URLs host harmful software,  intended to\ninfect user systems.\nThe data set includes over 650,000 URLs, with a distribution\nof 428,103 benign URLs,  94,110 phishing URLs,  96,456\ndefacement URLs, and 32,520 malware URLs. Preprocess-\ning steps involved tokenizing the URLs into characters and\npadding them to a fixed length, ensuring compatibility with\nthe Bi-LSTM model.  In addition, URLs were encoded into\nnumerical representations and categorical labels were assigned\nto each URL based on its classification."
+  },
+  {
+    "id": "literaturereview",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Literature Review",
+      "page_start": 1,
+      "page_end": 1
+    },
+    "text": "Phishing detection has been an area of significant research\nin cybersecurity, with various approaches being proposed over\nthe years. The early methods relied on manual  feature ex-\ntraction and rule-based classifiers. However, these techniques\nstruggled to handle  large-scale data sets and the evolving\nnature of phishing tactics. Recent advancements have incor-\nporated machine learning algorithms, such as decision trees,\nsupport vector machines (SVMs), and random forests, which\nimprove detection rates by learning patterns from historical\ndata [2].\nDeep learning models,  particularly recurrent neural net-\nworks (RNNs) and convolutional neural networks (CNNs),\nhave recently gained popularity for phishing detection tasks\ndue to their ability to capture complex patterns in sequential\ndata [3]. Bi-LSTM networks, a variant of RNNs, have shown\ngreat promise  in sequential data analysis,  as  they capture\npast and future context in a given sequence [4]. Furthermore,\nattention mechanisms have been  integrated  into Bi-LSTM\nmodels to enhance their ability to focus on important features\nin input data [5].\nSeveral studies have applied these techniques to phishing\ndetection with varying levels of success. For example, Newaz\net al. proposed a combination of feature selection, greedy algo-\nrithm, cross-validation, and deep learning methods to construct\na sophisticated stacking ensemble classifier [6]. However, their\napproach focused primarily on binary classification (benign vs.\nphishing). In contrast, my work extends this by incorporating\nmulticlass classification,  including defacement and malware\ncategories, providing a more comprehensive solution. Nanda\net al. proposed a model that integrates the highway network\ninto the BiLSTM-CNN architecture, which enables the capture\nof significant features with rapid convergence [7].\nFajar et al. explored phishing URL detection using ma-\nchine  learning models,  emphasizing the  impact of  feature\nselection and model interpretability [8]. Their study employed"
+  },
+  {
+    "id": "modelarchitecture",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Model Architecture",
+      "page_start": 2,
+      "page_end": 2
+    },
+    "text": "The core of our phishing URL detection system is built\nupon a Bidirectional Long Short-Term Memory (Bi-LSTM)\nneural network. This architecture is well-suited for sequence\nmodeling tasks, especially those involving textual or character-\nlevel data such as URLs.\nA.  Input Layer\nThe input to our model consists of tokenized URLs. Each\nURL is treated as a sequence of individual characters. These\ncharacters are first tokenized and then converted into integer\nindices, allowing the model to process them numerically. To\nensure uniformity across all input samples, each sequence is\npadded to a fixed maximum length.\nB. Embedding Layer\nThe first  learnable layer of the network is an embedding\nlayer, which transforms each character  index into a dense\nvector of fixed size. This allows the model to learn distributed\nrepresentations of characters, capturing semantic similarities\nand contextual patterns. For example, characters  like ’/’,\n’?’, and ’.’, which often occur in specific URL structures,\nmay be embedded in similar regions of the vector space.\nC. Bi-LSTM Layer\nFollowing the embedding layer, a Bidirectional LSTM (Bi-\nLSTM) processes the sequence. Unlike a traditional LSTM\nthat reads the sequence in a single direction, a Bi-LSTM reads\nthe input both forward and backward, and then concatenates\nthe two outputs. This allows the model  to learn contextual\ninformation from both past and future characters, which is\ncrucial to detect complex phishing patterns.\n\nThe LSTM component  itself is capable of learning long-\nterm dependencies in sequential data, helping the model un-\nderstand patterns such as suspicious domain names, common\nphishing prefixes or suffixes, and malformed URL structures.\nD. Dropout Layer\nTo prevent overfitting and enhance generalization, a dropout\nlayer is applied after the Bi-LSTM layer. This randomly drops\na fraction of the connections during training, ensuring that the\nmodel does not rely too heavily on any particular pathway and\nmemorizes the patterns instead of learning the patterns.\nE. Dense Layer and Output\nThe final stage includes one or more fully connected (dense)\nlayers. The last dense layer uses a softmax activation function\nto output a probability distribution over the predefined URL\ncategories: benign, phishing, defacement, and malware. The\nmodel  is trained to minimize categorical cross-entropy loss,\nwhich encourages the predicted probability to be high for the\ncorrect class."
+  },
+  {
+    "id": "flaskbackendanduserinterface",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Flask Backend and User Interface",
+      "page_start": 2,
+      "page_end": 2
+    },
+    "text": "To make the phishing URL detection model accessible and\nuser-friendly, I developed a web-based application using the\nFlask framework for the backend and a modern,  interactive\nuser  interface (UI)  for  the front end. This section outlines\nthe steps involved in setting up the backend with Flask and\ndesigning the UI to visualize the detection results.\nA. Flask Backend\nThe backend of  the application is powered by Flask,  a\nlightweight Python web framework. Flask allows for the seam-\nless integration of the trained Bi-LSTM model  into a web-\nbased application. The backend processes incoming requests\nfrom the frontend,  runs the phishing URL detection model,\nand returns the classification results to the frontend.\n1) Model Loading and Prediction: At the core of the Flask\nbackend is the trained Bi-LSTM model, which is loaded using\nthe Keras API. Upon receiving a URL to classify, the backend\ntokenizes and preprocesses  the URL similarly to how the\nmodel was  trained. The preprocessed URL is  then passed\nthrough the model  to obtain predictions. The results, which\ninclude the predicted class (e.g., benign, phishing, defacement,\nor malware) and the confidence score, are sent back to the\nfrontend for display.\n2) Flask API Endpoint: A RESTful API endpoint was cre-\nated using Flask’s routing mechanism. This endpoint accepts\nPOST requests containing the URLs  to classify, processes\nthe data,  and returns  the classification results. Below is a\nsample code snippet that illustrates the API endpoint for URL\nclassification:\n@app.route(’/predict’, methods=[’POST’])\ndef predict():\nurl = request.form[’url’]\n# Preprocess the URL and predict\nprediction =\nmodel.predict(process_url(url))"
+  },
+  {
+    "id": "resultsandevaluation",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Results and Evaluation",
+      "page_start": 3,
+      "page_end": 3
+    },
+    "text": "The model was evaluated using several performance metrics,\nincluding accuracy, precision, recall, and F1-score,  to assess\nits ability  to correctly classify URLs. Table  I  shows  the\nclassification report for the model’s performance on the test\nset.\nClass  Precision  Recall  F1-Score\nBenign  0.98  0.99  0.99\nPhishing  0.96  0.90  0.93\nDefacement  0.99  1.00  0.99\nMalware  0.98  0.96  0.97\nAccuracy  0.98\nTABLE I\nCLASSIFICATION REPORT\nThe model  achieved an overall  accuracy of 98%, with\nthe highest performance in detecting benign and defacement\n\nURLs. The relatively lower recall for phishing URLs suggests\nthat further optimization is needed, particularly in the detection\nof phishing sites that closely resemble legitimate URLs.\nFig. 2.  Confusion Matrix of the Classification Model\nRows represent the actual class labels, and columns repre-\nsent the predicted class labels. The matrix can be interpreted\nas follows:\n- True Positives (TP): The number of correctly classified\ninstances for each class. - False Positives (FP): The number of\nincorrectly classified instances that were predicted as a given\nclass but actually belong to another class. - False Negatives\n(FN): The number of incorrectly classified instances that were\npredicted as not belonging to a given class but actually belong\nto that class. - True Negatives (TN): The number of correctly\nclassified instances that do not belong to a given class.\nFor each class, the confusion matrix provides:\n• Benign:\n– True Positives (TP) = 85,228 (Correctly classified as\nbenign)\n– False Positives  (FP) = 471 (Incorrectly classified\nphishing URLs as benign)\n– False Negatives  (FN) = 54 (Incorrectly classified\ndefacement URLs as benign)\n– True Negatives (TN) = 25 (Correctly classified mal-\nware URLs as not benign)\n• Phishing:\n– True Positives (TP) = 16,975 (Correctly classified as\nphishing)\n– False Positives (FP) = 1,610 (Incorrectly classified\nbenign URLs as phishing)\n– False Negatives (FN) = 173 (Incorrectly classified\ndefacement URLs as phishing)\n– True Negatives (TN) = 78 (Correctly classified mal-\nware URLs as not phishing)\n• Defacement:\n– True Positives (TP) = 19,029 (Correctly classified as\ndefacement)\n– False Positives  (FP) = 46  (Incorrectly classified\nphishing URLs as defacement)"
+  },
+  {
+    "id": "analysis",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Analysis",
+      "page_start": 4,
+      "page_end": 4
+    },
+    "text": "There are existing models for phishing URL detection, but\nthis project introduces some new contributions that can make\nthe system more lightweight and accessible. The use of Bi-\nLSTM enables the model to learn both forward and backward\ndependencies in URL structures, resulting in a high detection\naccuracy of approximately 97%, outperforming many baseline\nmethods. The project also emphasizes real world deployment\nthrough a lightweight Flask API and a user-friendly interface.\nThe interface also provides confidence scores for the predic-\ntions which is a new contribution to the existing models."
+  },
+  {
+    "id": "conclusionandfuturework",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Conclusion and Future Work",
+      "page_start": 4,
+      "page_end": 4
+    },
+    "text": "In this paper,  I proposed a deep learning-based approach\nfor phishing URL detection using a Bi-LSTM model. This\napproach effectively classifies URLs  into  four  categories:\nbenign, phishing, defacement, and malware, and outperforms\ntraditional methods in terms of accuracy and robustness.\nFuture work will focus on further improving the detection\nof phishing URLs by incorporating additional features, such as\ndomain age, SSL certification, and user behavior. The model\nalso needs to work on optimizing the accuracy and train in a\nway that it can accurately predict unseen URLs. Additionally,\nthe model can be extended to detect other forms of malicious\nURLs, such as those associated with spyware and ransomware."
+  }
+]

@@ -1,0 +1,174 @@
+[
+  {
+    "section": "performanceevaluation2",
+    "path": {
+      "section": "performanceevaluation2",
+      "start_entity": "SF_Distribution",
+      "end_entity": "Metric",
+      "hops": [
+        {
+          "from": "SF_Distribution",
+          "relation": "losesOrthogonality",
+          "to": "RL",
+          "context": "for a higher number of RLs, the SF distribution is no longer orthogonal.",
+          "chunk": "6"
+        },
+        {
+          "from": "RL",
+          "relation": "achievesEnhancement",
+          "to": "NetworkThroughput",
+          "context": "employing just two RLs when N > 100 is sufficient to achieve an enhancement in network throughput.",
+          "chunk": "6"
+        },
+        {
+          "from": "NetworkThroughput",
+          "relation": "type",
+          "to": "Metric",
+          "context": "employing just two RLs when N > 100 is sufficient to achieve an enhancement in network throughput.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the context of network performance, how does employing just two Resource Layers (RLs) affect the network throughput when the number of nodes (N) exceeds 100?",
+    "options": {
+      "A": "It has no effect on network throughput as the SF distribution remains unaffected.",
+      "B": "It suffices to enhance network throughput despite the SF distribution losing its orthogonality.",
+      "C": "It significantly reduces network throughput due to the SF distribution maintaining orthogonality.",
+      "D": "It causes a sharp decline in network throughput due to overloaded RLs."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A. The paper indicates that when the number of nodes exceeds 100, using just two RLs is still effective in enhancing network throughput. This enhancement occurs despite the SF distribution losing its orthogonality, which typically would hinder performance. Thus, A is the correct choice, stating that this setup suffices to enhance network throughput while the SF distribution loses its orthogonality.",
+    "path_description": "Path: SF_Distribution --[losesOrthogonality]--> RL --[achievesEnhancement]--> NetworkThroughput --[type]--> Metric",
+    "context": "for a higher number of RLs, the SF distribution is no longer orthogonal. | employing just two RLs when N > 100 is sufficient to achieve an enhancement in network throughput. | employing just two RLs when N > 100 is sufficient to achieve an enhancement in network throughput.",
+    "paper_id": "2115"
+  },
+  {
+    "section": "performanceevaluation2",
+    "path": {
+      "section": "performanceevaluation2",
+      "start_entity": "Fig5",
+      "end_entity": "Distribution",
+      "hops": [
+        {
+          "from": "Fig5",
+          "relation": "analyzes",
+          "to": "RL",
+          "context": "The impact of the number of RLs is also analyzed in Fig. 5.",
+          "chunk": "6"
+        },
+        {
+          "from": "RL",
+          "relation": "increases",
+          "to": "SF_Distribution",
+          "context": "for a higher number of RLs, the SF distribution is no longer orthogonal.",
+          "chunk": "6"
+        },
+        {
+          "from": "SF_Distribution",
+          "relation": "type",
+          "to": "Distribution",
+          "context": "for a higher number of RLs, the SF distribution is no longer orthogonal.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the study presented in Fig. 5 of the section 'performanceevaluation2', how does increasing the number of RLs affect the SF distribution?",
+    "options": {
+      "A": "Increasing the number of RLs decreases the overall variability of the SF distribution, making it more predictable.",
+      "B": "Increasing the number of RLs has no significant effect on the characteristics of the SF distribution.",
+      "C": "Increasing the number of RLs makes the SF distribution non-orthogonal, impacting its uniformity.",
+      "D": "Increasing the number of RLs enhances the orthogonality of the SF distribution, improving its efficiency."
+    },
+    "correct_answer": "C",
+    "explanation": "According to the context provided from 'performanceevaluation2', it is stated that with a higher number of RLs, the SF distribution becomes non-orthogonal. This indicates that the distribution's uniformity is affected when the number of RLs is increased. Option A is correct as it directly reflects this change.",
+    "path_description": "Path: Fig5 --[analyzes]--> RL --[increases]--> SF_Distribution --[type]--> Distribution",
+    "context": "The impact of the number of RLs is also analyzed in Fig. 5. | for a higher number of RLs, the SF distribution is no longer orthogonal. | for a higher number of RLs, the SF distribution is no longer orthogonal.",
+    "paper_id": "2115"
+  },
+  {
+    "section": "conclusions",
+    "path": {
+      "section": "conclusions",
+      "start_entity": "HybridArchitecture",
+      "end_entity": "DataFormat",
+      "hops": [
+        {
+          "from": "HybridArchitecture",
+          "relation": "introduces",
+          "to": "RLs",
+          "context": "but it introduces RLs that are capable of receiving LoRa frames.",
+          "chunk": "7"
+        },
+        {
+          "from": "RLs",
+          "relation": "forward",
+          "to": "LoRaFrames",
+          "context": "from 2.4 GHz EDs and forwarding them to sub-GHz GWs.",
+          "chunk": "7"
+        },
+        {
+          "from": "LoRaFrames",
+          "relation": "type",
+          "to": "DataFormat",
+          "context": "but it introduces RLs that are capable of receiving LoRa frames.",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "In the context of a hybrid architecture discussed in the conclusions section, what is the primary role of RLs concerning LoRa frames?",
+    "options": {
+      "A": "RLs enhance the security of LoRa frames before they are transmitted to 2.4 GHz EDs.",
+      "B": "RLs are responsible for receiving LoRa frames from 2.4 GHz EDs and forwarding them to sub-GHz GWs.",
+      "C": "RLs primarily store LoRa frames received from sub-GHz GWs for later processing.",
+      "D": "RLs convert LoRa frames into a different data format before sending them to 2.4 GHz EDs."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A, as it accurately reflects the information from the knowledge graph path: HybridArchitecture introduces RLs that forward LoRaFrames to sub-GHz GWs from 2.4 GHz EDs, maintaining the original data format. Options B, C, and D introduce roles and actions not mentioned in the knowledge graph or the paper's context.",
+    "path_description": "Path: HybridArchitecture --[introduces]--> RLs --[forward]--> LoRaFrames --[type]--> DataFormat",
+    "context": "but it introduces RLs that are capable of receiving LoRa frames. | from 2.4 GHz EDs and forwarding them to sub-GHz GWs. | but it introduces RLs that are capable of receiving LoRa frames.",
+    "paper_id": "2115"
+  },
+  {
+    "section": "performanceevaluation2",
+    "path": {
+      "section": "performanceevaluation2",
+      "start_entity": "RL",
+      "end_entity": "Model",
+      "hops": [
+        {
+          "from": "RL",
+          "relation": "increases",
+          "to": "SF_Distribution",
+          "context": "for a higher number of RLs, the SF distribution is no longer orthogonal.",
+          "chunk": "6"
+        },
+        {
+          "from": "SF_Distribution",
+          "relation": "losesOrthogonality",
+          "to": "RL",
+          "context": "for a higher number of RLs, the SF distribution is no longer orthogonal.",
+          "chunk": "6"
+        },
+        {
+          "from": "RL",
+          "relation": "type",
+          "to": "Model",
+          "context": "employing just two RLs when N > 100 is sufficient to achieve an enhancement in network throughput.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the context of network performance evaluation, how does increasing the number of RLs affect the SF distribution and its impact on the RL model type?",
+    "options": {
+      "A": "Increasing the number of RLs has no significant effect on the SF distribution's orthogonality or the RL model's functionality.",
+      "B": "Increasing the number of RLs enhances the SF distribution's orthogonality, improving the RL model's accuracy in data processing.",
+      "C": "Increasing the number of RLs decreases the SF distribution's spread, which simplifies the computational model of RL.",
+      "D": "Increasing the number of RLs causes the SF distribution to lose orthogonality, which is detrimental to the RL model's performance."
+    },
+    "correct_answer": "D",
+    "explanation": "The increase in the number of RLs results in the SF distribution losing its orthogonality, as indicated in the paper. This loss of orthogonality negatively affects the model type of RL, aligning with the description within the knowledge graph path that links these concepts.",
+    "path_description": "Path: RL --[increases]--> SF_Distribution --[losesOrthogonality]--> RL --[type]--> Model",
+    "context": "for a higher number of RLs, the SF distribution is no longer orthogonal. | for a higher number of RLs, the SF distribution is no longer orthogonal. | employing just two RLs when N > 100 is sufficient to achieve an enhancement in network throughput.",
+    "paper_id": "2115"
+  }
+]

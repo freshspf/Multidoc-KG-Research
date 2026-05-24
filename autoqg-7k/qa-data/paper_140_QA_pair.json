@@ -1,0 +1,303 @@
+[
+  {
+    "section": "evaluationanddiscussion2",
+    "path": {
+      "section": "evaluationanddiscussion2",
+      "start_entity": "PMCEmbedding",
+      "end_entity": "Dataset",
+      "hops": [
+        {
+          "from": "PMCEmbedding",
+          "relation": "causedLossIn",
+          "to": "SNN",
+          "context": "the parser training had very little but negative influence: ≈ 0.5% loss in performance was observed with the PubMed and 2% with the PMC embeddings.",
+          "chunk": "3"
+        },
+        {
+          "from": "SNN",
+          "relation": "trainedOn",
+          "to": "Craft",
+          "context": "Training SNN on Craft brought only 2% improvement...",
+          "chunk": "3"
+        },
+        {
+          "from": "Craft",
+          "relation": "type",
+          "to": "Dataset",
+          "context": "Training SNN on Craft brought only 2% improvement...",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the context of neural networks, why did using PMC embeddings result in a performance loss when training a Semantic Neural Network (SNN) on the Craft dataset?",
+    "options": {
+      "A": "PMC embeddings caused a 0.5% loss in performance due to the misalignment with the Craft dataset's structure.",
+      "B": "The PMC embeddings were not compatible with the SNN's architecture, causing a fundamental training issue.",
+      "C": "PMC embeddings are specifically optimized for biomedical literature, not suitable for the Craft dataset's domain.",
+      "D": "PMC embeddings introduced slight inaccuracies in data interpretation, leading to a 2% performance loss."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is D because the context specifies that the use of PMC embeddings resulted in a ≈ 0.5% loss in performance, indicating a direct impact on the SNN's effectiveness when trained on the Craft dataset. This indicates a misalignment or incompatibility issue between the PMC embeddings and the Craft dataset's structure.",
+    "path_description": "Path: PMCEmbedding --[causedLossIn]--> SNN --[trainedOn]--> Craft --[type]--> Dataset",
+    "context": "the parser training had very little but negative influence: ≈ 0.5% loss in performance was observed with the PubMed and 2% with the PMC embeddings. | Training SNN on Craft brought only 2% improvement... | Training SNN on Craft brought only 2% improvement...",
+    "paper_id": "132"
+  },
+  {
+    "section": "evaluationanddiscussion2",
+    "path": {
+      "section": "evaluationanddiscussion2",
+      "start_entity": "Word2Vec",
+      "end_entity": "ParserModel",
+      "hops": [
+        {
+          "from": "Word2Vec",
+          "relation": "usedFor",
+          "to": "PMCEmbedding",
+          "context": "Pyysalo et. al. suspect that it might be affected by either high proportion of noisy data in the training corpus, or aggressive trimming of the rare words performed by the word2vec implementation used to create the vector (Chiu et al., 2016).",
+          "chunk": "3"
+        },
+        {
+          "from": "PMCEmbedding",
+          "relation": "causedLossIn",
+          "to": "SNN",
+          "context": "the parser training had very little but negative influence: ≈ 0.5% loss in performance was observed with the PubMed and 2% with the PMC embeddings.",
+          "chunk": "3"
+        },
+        {
+          "from": "SNN",
+          "relation": "type",
+          "to": "ParserModel",
+          "context": "Training SNN on Craft brought only 2% improvement...",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "How does the usage of Word2Vec for creating PMC embeddings influence the performance of a Parser Model based on a Spiking Neural Network?",
+    "options": {
+      "A": "The PMC embeddings improve the parser model's performance by a substantial margin, increasing by more than 5%.",
+      "B": "The PMC embeddings lead to a significant degradation in performance, losing about 2% when transitioning from PubMed to PMC.",
+      "C": "The PMC embeddings cause a significant increase in accuracy, improving performance by approximately 0.5% overall.",
+      "D": "The PMC embeddings have no notable impact, maintaining similar performance levels despite the transition."
+    },
+    "correct_answer": "B",
+    "explanation": "The question integrates the knowledge graph path and the context provided in the paper. Word2Vec is used for generating PMC embeddings, which in turn affect the SNN, a type of Parser Model. The correct answer is reflected in the context where PMC embeddings result in a performance loss of approximately 2% as compared to PubMed embeddings, as mentioned in the paper.",
+    "path_description": "Path: Word2Vec --[usedFor]--> PMCEmbedding --[causedLossIn]--> SNN --[type]--> ParserModel",
+    "context": "Pyysalo et. al. suspect that it might be affected by either high proportion of noisy data in the training corpus, or aggressive trimming of the rare words performed by the word2vec implementation used to create the vector (Chiu et al., 2016). | the parser training had very little but negative influence: ≈ 0.5% loss in performance was observed with the PubMed and 2% with the PMC embeddings. | Training SNN on Craft brought only 2% improvement...",
+    "paper_id": "132"
+  },
+  {
+    "section": "evaluationanddiscussion7",
+    "path": {
+      "section": "evaluationanddiscussion7",
+      "start_entity": "ModelTree",
+      "end_entity": "Model",
+      "hops": [
+        {
+          "from": "ModelTree",
+          "relation": "uses",
+          "to": "BLLIP",
+          "context": "Figure 13: Alternative dependency labels: advcl (Model tree, SNN) or xcomp (BLLIP, Mate).",
+          "chunk": "8"
+        },
+        {
+          "from": "BLLIP",
+          "relation": "uses",
+          "to": "MateGeniaModel",
+          "context": "Figure 14: Attachment of a prepositional phrase; serial scheme. (Model tree, Bllip, Mate+Genia model.)",
+          "chunk": "8"
+        },
+        {
+          "from": "MateGeniaModel",
+          "relation": "type",
+          "to": "Model",
+          "context": "Figure 14: Attachment of a prepositional phrase; serial scheme. (Model tree, Bllip, Mate+Genia model.)",
+          "chunk": "8"
+        }
+      ]
+    },
+    "question": "In the context of natural language processing models discussed in the paper, how does the BLLIP parser utilize the MateGenia Model?",
+    "options": {
+      "A": "BLLIP integrates MateGenia Model for determining the underlying syntactic structure of sentences in its datasets.",
+      "B": "BLLIP employs MateGenia Model to enhance its parsing accuracy through a serial scheme attachment of prepositional phrases.",
+      "C": "BLLIP uses MateGenia Model to classify its output into different model types based on dependency labels.",
+      "D": "BLLIP applies MateGenia Model to improve its semantic analysis capabilities by identifying alternative dependency labels."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is B, as described in the paper, BLLIP uses the MateGenia Model for a specific function in parsing, which includes the attachment of prepositional phrases in a serial scheme, enhancing parsing accuracy.",
+    "path_description": "Path: ModelTree --[uses]--> BLLIP --[uses]--> MateGeniaModel --[type]--> Model",
+    "context": "Figure 13: Alternative dependency labels: advcl (Model tree, SNN) or xcomp (BLLIP, Mate). | Figure 14: Attachment of a prepositional phrase; serial scheme. (Model tree, Bllip, Mate+Genia model.) | Figure 14: Attachment of a prepositional phrase; serial scheme. (Model tree, Bllip, Mate+Genia model.)",
+    "paper_id": "132"
+  },
+  {
+    "section": "finalnotesparsingtimeandrecommendations",
+    "path": {
+      "section": "finalnotesparsingtimeandrecommendations",
+      "start_entity": "SNN",
+      "end_entity": "CRAFTBig",
+      "hops": [
+        {
+          "from": "SNN",
+          "relation": "outperforms",
+          "to": "BLLIP",
+          "context": "As one can see, SNN is by far the fastest one, BLLIP - the slowest.",
+          "chunk": "9"
+        },
+        {
+          "from": "BLLIP",
+          "relation": "comparedWith",
+          "to": "Google",
+          "context": "If the choice is to be made between off-the-shelf parsers, BLLIP was more accurate in detection of most of the main event-related dependencies but had serious disadvantage in labeling 'compounds'.",
+          "chunk": "9"
+        },
+        {
+          "from": "Google",
+          "relation": "evaluatedOn",
+          "to": "CRAFTBig",
+          "context": "In our experiments, Google performs a little better in identification of main event-related dependencies.",
+          "chunk": "9"
+        }
+      ]
+    },
+    "question": "Which parser would be the most suitable choice for a scenario prioritizing speed and accuracy in identifying main event-related dependencies?",
+    "options": {
+      "A": "Google, primarily due to its superior speed, making it the best option for time-sensitive parsing tasks.",
+      "B": "Google, as it has been evaluated to perform slightly better than BLLIP in identifying main event-related dependencies.",
+      "C": "SNN, as it not only outperforms BLLIP in speed but also performs comparably in accuracy to Google.",
+      "D": "BLLIP, despite its slower performance, as it excels in the detection accuracy of main event-related dependencies."
+    },
+    "correct_answer": "B",
+    "explanation": "From the provided context, SNN is noted for its speed but not specifically for accuracy in identifying main event-related dependencies. BLLIP, while accurate in detecting dependencies, is the slowest and has issues with labeling compounds. Google is noted to perform a little better than BLLIP in identifying main event-related dependencies, making it suitable for scenarios where both speed and accuracy in this area are prioritized. Thus, option C is correct.",
+    "path_description": "Path: SNN --[outperforms]--> BLLIP --[comparedWith]--> Google --[evaluatedOn]--> CRAFTBig",
+    "context": "As one can see, SNN is by far the fastest one, BLLIP - the slowest. | If the choice is to be made between off-the-shelf parsers, BLLIP was more accurate in detection of most of the main event-related dependencies but had serious disadvantage in labeling 'compounds'. | In our experiments, Google performs a little better in identification of main event-related dependencies.",
+    "paper_id": "132"
+  },
+  {
+    "section": "finalnotesparsingtimeandrecommendations",
+    "path": {
+      "section": "finalnotesparsingtimeandrecommendations",
+      "start_entity": "BLLIP",
+      "end_entity": "Model",
+      "hops": [
+        {
+          "from": "BLLIP",
+          "relation": "comparedWith",
+          "to": "Google",
+          "context": "If the choice is to be made between off-the-shelf parsers, BLLIP was more accurate in detection of most of the main event-related dependencies but had serious disadvantage in labeling 'compounds'.",
+          "chunk": "9"
+        },
+        {
+          "from": "Google",
+          "relation": "uses",
+          "to": "GeniaModel",
+          "context": "Google with Genia model provides a respectable alternative for detecting main and context-related dependencies.",
+          "chunk": "9"
+        },
+        {
+          "from": "GeniaModel",
+          "relation": "type",
+          "to": "Model",
+          "context": "Google with Genia model provides a respectable alternative for detecting main and context-related dependencies.",
+          "chunk": "9"
+        }
+      ]
+    },
+    "question": "In the context of natural language processing, when comparing the BLLIP parser with Google's use of the Genia model, what type of dependencies does Google's approach more effectively address?",
+    "options": {
+      "A": "Google's Genia model provides a respectable alternative for detecting both main and context-related dependencies.",
+      "B": "Google's Genia model is more effective in detecting main event-related dependencies than BLLIP.",
+      "C": "Google's Genia model is less accurate in detecting main event-related dependencies but better at context-related ones.",
+      "D": "Google's Genia model primarily enhances the labeling of 'compounds' compared to BLLIP."
+    },
+    "correct_answer": "A",
+    "explanation": "Based on the given context, Google's use of the Genia model is noted as a respectable alternative for detecting both main and context-related dependencies, making option B the correct answer. Option A is incorrect as it specifies only main event-related dependencies, while option C is misleading because it highlights 'compounds' which is a disadvantage of BLLIP not an advantage of Google's model. Option D incorrectly states that Google's model is less accurate for main event-related dependencies and implies an incorrect specialization in context-related dependencies.",
+    "path_description": "Path: BLLIP --[comparedWith]--> Google --[uses]--> GeniaModel --[type]--> Model",
+    "context": "If the choice is to be made between off-the-shelf parsers, BLLIP was more accurate in detection of most of the main event-related dependencies but had serious disadvantage in labeling 'compounds'. | Google with Genia model provides a respectable alternative for detecting main and context-related dependencies. | Google with Genia model provides a respectable alternative for detecting main and context-related dependencies.",
+    "paper_id": "132"
+  },
+  {
+    "section": "finalnotesparsingtimeandrecommendations",
+    "path": {
+      "section": "finalnotesparsingtimeandrecommendations",
+      "start_entity": "BLLIP",
+      "end_entity": "Parser",
+      "hops": [
+        {
+          "from": "BLLIP",
+          "relation": "comparedWith",
+          "to": "Google",
+          "context": "If the choice is to be made between off-the-shelf parsers, BLLIP was more accurate in detection of most of the main event-related dependencies but had serious disadvantage in labeling 'compounds'.",
+          "chunk": "9"
+        },
+        {
+          "from": "Google",
+          "relation": "outperforms",
+          "to": "Mate",
+          "context": "Google and Mate are in the middle, with Google being three times faster than Mate.",
+          "chunk": "9"
+        },
+        {
+          "from": "Mate",
+          "relation": "type",
+          "to": "Parser",
+          "context": "Google and Mate are in the middle, with Google being three times faster than Mate.",
+          "chunk": "9"
+        }
+      ]
+    },
+    "question": "Considering the parsing speed and accuracy in labeling event-related dependencies, which parser would be the best choice for a scenario prioritizing both speed and accuracy?",
+    "options": {
+      "A": "None of the parsers as they all have significant drawbacks in either speed or accuracy that cannot be overlooked.",
+      "B": "Google, due to its balance between speed, being three times faster than Mate, and moderate accuracy.",
+      "C": "Mate, although slower, might provide better results than Google in scenarios where speed is not critical.",
+      "D": "BLLIP, despite its high accuracy in detecting event-related dependencies, has shortcomings in labeling compounds."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is B, Google. The question requires understanding the balance between speed and accuracy. BLLIP, while accurate, has disadvantages in labeling compounds. Mate is slower compared to Google, which is specifically highlighted as being three times faster. Thus, Google represents the best choice among the given options for scenarios where both speed and accuracy are important.",
+    "path_description": "Path: BLLIP --[comparedWith]--> Google --[outperforms]--> Mate --[type]--> Parser",
+    "context": "If the choice is to be made between off-the-shelf parsers, BLLIP was more accurate in detection of most of the main event-related dependencies but had serious disadvantage in labeling 'compounds'. | Google and Mate are in the middle, with Google being three times faster than Mate. | Google and Mate are in the middle, with Google being three times faster than Mate.",
+    "paper_id": "132"
+  },
+  {
+    "section": "conclusions",
+    "path": {
+      "section": "conclusions",
+      "start_entity": "FourBestPerformingParsers",
+      "end_entity": "Dataset",
+      "hops": [
+        {
+          "from": "FourBestPerformingParsers",
+          "relation": "partOf",
+          "to": "StatisticalSyntacticParsers",
+          "context": "We evaluated the parsers from the point of view of the overall accuracy and identified four best performing ones.",
+          "chunk": "10"
+        },
+        {
+          "from": "StatisticalSyntacticParsers",
+          "relation": "evaluatedOn",
+          "to": "BiomedicalTexts",
+          "context": "In this paper we have studied performance of seven statistical syntactic parsers on biomedical texts.",
+          "chunk": "10"
+        },
+        {
+          "from": "BiomedicalTexts",
+          "relation": "type",
+          "to": "Dataset",
+          "context": "In this paper we have studied performance of seven statistical syntactic parsers on biomedical texts.",
+          "chunk": "10"
+        }
+      ]
+    },
+    "question": "Which type of dataset was primarily used to evaluate the performance of the four best performing statistical syntactic parsers?",
+    "options": {
+      "A": "Datasets including historical documents and literature",
+      "B": "Datasets containing generic scientific articles from various disciplines",
+      "C": "Datasets primarily composed of web-based news articles",
+      "D": "Datasets specifically consisting of biomedical texts"
+    },
+    "correct_answer": "D",
+    "explanation": "The question tests the understanding of the specific domain of texts used to evaluate the parsers. According to the knowledge path, the statistical syntactic parsers were evaluated on biomedical texts, which indicates that the primary dataset type used was specifically consisting of biomedical texts.",
+    "path_description": "Path: FourBestPerformingParsers --[partOf]--> StatisticalSyntacticParsers --[evaluatedOn]--> BiomedicalTexts --[type]--> Dataset",
+    "context": "We evaluated the parsers from the point of view of the overall accuracy and identified four best performing ones. | In this paper we have studied performance of seven statistical syntactic parsers on biomedical texts. | In this paper we have studied performance of seven statistical syntactic parsers on biomedical texts.",
+    "paper_id": "132"
+  }
+]

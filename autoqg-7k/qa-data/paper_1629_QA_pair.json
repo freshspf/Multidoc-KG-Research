@@ -1,0 +1,174 @@
+[
+  {
+    "section": "abstract",
+    "path": {
+      "section": "abstract",
+      "start_entity": "SecurityIssuesCount",
+      "end_entity": "Entity",
+      "hops": [
+        {
+          "from": "SecurityIssuesCount",
+          "relation": "identifiedBy",
+          "to": "GHAST",
+          "context": "The experimental results are worrisome as they allowed identifying a total of 24,905 security issues.",
+          "chunk": "0"
+        },
+        {
+          "from": "GHAST",
+          "relation": "appliedTo",
+          "to": "OpenSourceProjects",
+          "context": "We implemented the methodology in a tool (GHAST) and applied it on 50 open-source projects.",
+          "chunk": "0"
+        },
+        {
+          "from": "OpenSourceProjects",
+          "relation": "type",
+          "to": "Entity",
+          "context": "We implemented the methodology in a tool (GHAST) and applied it on 50 open-source projects.",
+          "chunk": "0"
+        }
+      ]
+    },
+    "question": "When the GHAST tool was applied to 50 open-source projects, what was the primary type of entity that the identified security issues were associated with?",
+    "options": {
+      "A": "The primary entities were the individual software components within the projects.",
+      "B": "The primary entities were the security protocols used in the projects.",
+      "C": "The primary entities were the external libraries imported into the projects.",
+      "D": "The primary entities were the entire projects themselves."
+    },
+    "correct_answer": "D",
+    "explanation": "GHAST was applied to open-source projects as a whole, identifying security issues across the entire scope of each project, hence the issues were associated with the projects themselves, not specific components, protocols, or imported libraries.",
+    "path_description": "Path: SecurityIssuesCount --[identifiedBy]--> GHAST --[appliedTo]--> OpenSourceProjects --[type]--> Entity",
+    "context": "The experimental results are worrisome as they allowed identifying a total of 24,905 security issues. | We implemented the methodology in a tool (GHAST) and applied it on 50 open-source projects. | We implemented the methodology in a tool (GHAST) and applied it on 50 open-source projects.",
+    "paper_id": "129"
+  },
+  {
+    "section": "prototypeimplementation",
+    "path": {
+      "section": "prototypeimplementation",
+      "start_entity": "SecurityReport",
+      "end_entity": "SSCBuilder",
+      "hops": [
+        {
+          "from": "SecurityReport",
+          "relation": "contains",
+          "to": "SecurityIssues",
+          "context": "The output of the evaluation is a security report in JSON format that contains - for each repository (and workflow) of the SSC - the set of security issues identified by the tool.",
+          "chunk": "7"
+        },
+        {
+          "from": "SecurityIssues",
+          "relation": "identifiedBy",
+          "to": "GitHubActionsSecurityTester",
+          "context": "The output of the evaluation is a security report in JSON format that contains - for each repository (and workflow) of the SSC - the set of security issues identified by the tool.",
+          "chunk": "7"
+        },
+        {
+          "from": "GitHubActionsSecurityTester",
+          "relation": "composedOf",
+          "to": "SSCBuilder",
+          "context": "The GitHub Actions Security Tester (GHAST) - composed of three modules, as depicted in Figure 3.",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "In the prototype implementation described, how does the GitHub Actions Security Tester (GHAST) identify security issues in SSC workflows?",
+    "options": {
+      "A": "GHAST uses its SSCBuilder module to construct security reports based on identified issues in repositories and workflows.",
+      "B": "GHAST directly modifies security settings in each repository to ensure compliance before generating a security report.",
+      "C": "GHAST scans each repository and workflow, and the SSCBuilder module helps in constructing the final security report.",
+      "D": "GHAST relies on an external database of common security vulnerabilities to match potential issues in workflows."
+    },
+    "correct_answer": "A",
+    "explanation": "The GitHub Actions Security Tester (GHAST) includes a module named SSCBuilder, which is involved in constructing security reports. This process includes identifying security issues in repositories and workflows of the Secure Software Composition (SSC) and then using these findings to build comprehensive security reports. Options B and C suggest incorrect functionalities and external dependencies not supported by the information in the paper, and option D misinterprets the role of the SSCBuilder module.",
+    "path_description": "Path: SecurityReport --[contains]--> SecurityIssues --[identifiedBy]--> GitHubActionsSecurityTester --[composedOf]--> SSCBuilder",
+    "context": "The output of the evaluation is a security report in JSON format that contains - for each repository (and workflow) of the SSC - the set of security issues identified by the tool. | The output of the evaluation is a security report in JSON format that contains - for each repository (and workflow) of the SSC - the set of security issues identified by the tool. | The GitHub Actions Security Tester (GHAST) - composed of three modules, as depicted in Figure 3.",
+    "paper_id": "129"
+  },
+  {
+    "section": "conclusion",
+    "path": {
+      "section": "conclusion",
+      "start_entity": "SecurityVulnerabilities",
+      "end_entity": "AnalysisSubject",
+      "hops": [
+        {
+          "from": "SecurityVulnerabilities",
+          "relation": "identifiedBy",
+          "to": "GHAST",
+          "context": "We identified and manually revisioned the security vulnerabilities discovered through GHAST.",
+          "chunk": "12"
+        },
+        {
+          "from": "GHAST",
+          "relation": "analyzes",
+          "to": "GitHubActionsWorkflows",
+          "context": "Then, it extracts and analyzes the GitHub Actions workflows applying the security checks designed in the methodology.",
+          "chunk": "12"
+        },
+        {
+          "from": "GitHubActionsWorkflows",
+          "relation": "type",
+          "to": "AnalysisSubject",
+          "context": "Then, it extracts and analyzes the GitHub Actions workflows applying the security checks designed in the methodology.",
+          "chunk": "12"
+        }
+      ]
+    },
+    "question": "What type of entity does GHAST primarily analyze as part of its methodology to identify security vulnerabilities?",
+    "options": {
+      "A": "GHAST analyzes GitHub Actions workflows as a primary subject for applying security checks.",
+      "B": "GHAST analyzes manual revision protocols to ensure the integrity of security vulnerability identifications.",
+      "C": "GHAST analyzes the security protocols used by cloud computing platforms.",
+      "D": "GHAST analyzes security vulnerabilities directly within software development environments."
+    },
+    "correct_answer": "A",
+    "explanation": "The knowledge graph path indicates that GHAST identifies security vulnerabilities by analyzing GitHub Actions workflows, which are the type of Analysis Subject according to the path. Options B, C, and D mention other analyses or environments, which are not supported by the given path in the knowledge graph.",
+    "path_description": "Path: SecurityVulnerabilities --[identifiedBy]--> GHAST --[analyzes]--> GitHubActionsWorkflows --[type]--> AnalysisSubject",
+    "context": "We identified and manually revisioned the security vulnerabilities discovered through GHAST. | Then, it extracts and analyzes the GitHub Actions workflows applying the security checks designed in the methodology. | Then, it extracts and analyzes the GitHub Actions workflows applying the security checks designed in the methodology.",
+    "paper_id": "129"
+  },
+  {
+    "section": "experimentalevaluation1",
+    "path": {
+      "section": "experimentalevaluation1",
+      "start_entity": "GHAST",
+      "end_entity": "Metric",
+      "hops": [
+        {
+          "from": "GHAST",
+          "relation": "evaluatedOn",
+          "to": "PythonProjects",
+          "context": "We ran the tool against 50 public repositories randomly taken from the top 100 Python-based projects on GitHub in July 2022.",
+          "chunk": "8"
+        },
+        {
+          "from": "PythonProjects",
+          "relation": "measures",
+          "to": "Forks",
+          "context": "Table 2 details the dataset’s characteristics regarding the number of stargazers, forks, contributors, open issues, and commits.",
+          "chunk": "8"
+        },
+        {
+          "from": "Forks",
+          "relation": "type",
+          "to": "Metric",
+          "context": "Table 2 details the dataset’s characteristics regarding the number of stargazers, forks, contributors, open issues, and commits.",
+          "chunk": "8"
+        }
+      ]
+    },
+    "question": "In the evaluation of GHAST on Python projects, which metric type was explicitly measured and detailed in Table 2?",
+    "options": {
+      "A": "The primary metric evaluated was the number of open issues, reflecting ongoing project challenges.",
+      "B": "Measurement centered on the number of stargazers, representing the popularity and approval of the project.",
+      "C": "The focus was on the number of commits, showcasing the frequency of project updates and modifications.",
+      "D": "The metric of interest was the number of forks, which indicates the extent of project duplication."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A because the knowledge path indicates that 'Forks' were measured as a 'Metric' type in the evaluation of GHAST on Python projects. This is explicitly detailed in Table 2 of the paper section, linking forks to the assessment results of Python projects.",
+    "path_description": "Path: GHAST --[evaluatedOn]--> PythonProjects --[measures]--> Forks --[type]--> Metric",
+    "context": "We ran the tool against 50 public repositories randomly taken from the top 100 Python-based projects on GitHub in July 2022. | Table 2 details the dataset’s characteristics regarding the number of stargazers, forks, contributors, open issues, and commits. | Table 2 details the dataset’s characteristics regarding the number of stargazers, forks, contributors, open issues, and commits.",
+    "paper_id": "129"
+  }
+]

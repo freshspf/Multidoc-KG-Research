@@ -1,0 +1,475 @@
+[
+  {
+    "section": "background",
+    "path": {
+      "section": "background",
+      "start_entity": "BloomFilter",
+      "end_entity": "Parameter",
+      "hops": [
+        {
+          "from": "BloomFilter",
+          "relation": "hasFalsePositiveRate",
+          "to": "FalsePositiveRate",
+          "context": "In that case, its FPR increases beyond the desired value.",
+          "chunk": "2"
+        },
+        {
+          "from": "FalsePositiveRate",
+          "relation": "affectedBy",
+          "to": "OverloadingFactor",
+          "context": "showing the smooth dependence of the FPR on the overloading factor γ.",
+          "chunk": "2"
+        },
+        {
+          "from": "OverloadingFactor",
+          "relation": "type",
+          "to": "Parameter",
+          "context": "showing the smooth dependence of the FPR on the overloading factor γ.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the context of using a Bloom Filter, what parameter type directly influences the false positive rate due to its smooth dependence on the overloading factor?",
+    "options": {
+      "A": "Parameter related to the overloading factor which measures the level of data saturation",
+      "B": "Parameter concerning the memory allocation size for storing elements in the filter",
+      "C": "Parameter linked to the number of hash functions implemented in the Bloom Filter",
+      "D": "Parameter related to the hashing function used to distribute items within the Bloom Filter"
+    },
+    "correct_answer": "A",
+    "explanation": "The overloading factor, denoted as γ, is a parameter indicating the level of data saturation within the Bloom Filter. As per the knowledge graph path, the false positive rate (FPR) of a Bloom Filter is affected by the overloading factor, which is classified as a type of parameter. This parameter type directly influences the FPR by showing a smooth dependence, leading to an increase in FPR as the overloading factor increases.",
+    "path_description": "Path: BloomFilter --[hasFalsePositiveRate]--> FalsePositiveRate --[affectedBy]--> OverloadingFactor --[type]--> Parameter",
+    "context": "In that case, its FPR increases beyond the desired value. | showing the smooth dependence of the FPR on the overloading factor γ. | showing the smooth dependence of the FPR on the overloading factor γ.",
+    "paper_id": "1414"
+  },
+  {
+    "section": "blockedbloomfilterwithchoices3",
+    "path": {
+      "section": "blockedbloomfilterwithchoices3",
+      "start_entity": "LinearHashFunctions",
+      "end_entity": "HashFunction",
+      "hops": [
+        {
+          "from": "LinearHashFunctions",
+          "relation": "usedFor",
+          "to": "UnsignedIntegerKeys",
+          "context": "and use linear hash functions of the form x 7→ (ax) mod b.",
+          "chunk": "5"
+        },
+        {
+          "from": "UnsignedIntegerKeys",
+          "relation": "usedIn",
+          "to": "HashFunctionsGeneral",
+          "context": "our implementation, we expect u-bit unsigned integer keys x with u ≤ 64.",
+          "chunk": "5"
+        },
+        {
+          "from": "HashFunctionsGeneral",
+          "relation": "type",
+          "to": "HashFunction",
+          "context": "The hash functions for addressing the sub-array, the blocks or the bits do not need to satisfy particularly strong independence properties.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the context of implementing a blocked Bloom filter as described under the section 'blockedbloomfilterwithchoices3', which statement best explains the role and constraints of the hash function used?",
+    "options": {
+      "A": "The hash function must be non-linear to ensure the distribution across sub-arrays, requiring keys larger than 64 bits.",
+      "B": "The hash function relies on strong independence properties to distribute keys randomly across an unlimited key size range.",
+      "C": "The hash function is a linear type where keys are mapped using the formula (ax) mod b, handling keys up to 64 bits in size.",
+      "D": "The hash function uses a quadratic form to ensure collision resistance, primarily for keys exactly 64 bits in size."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A because it directly reflects the described use of linear hash functions of the form x 7→ (ax) mod b and the constraint of handling u-bit unsigned integer keys with u ≤ 64, as mentioned in the provided context. The other options introduce incorrect formulations or properties (non-linear, strong independence, quadratic form) that are not supported by the given information in the section 'blockedbloomfilterwithchoices3'.",
+    "path_description": "Path: LinearHashFunctions --[usedFor]--> UnsignedIntegerKeys --[usedIn]--> HashFunctionsGeneral --[type]--> HashFunction",
+    "context": "and use linear hash functions of the form x 7→ (ax) mod b. | our implementation, we expect u-bit unsigned integer keys x with u ≤ 64. | The hash functions for addressing the sub-array, the blocks or the bits do not need to satisfy particularly strong independence properties.",
+    "paper_id": "1414"
+  },
+  {
+    "section": "evaluation1",
+    "path": {
+      "section": "evaluation1",
+      "start_entity": "Blow2Choc",
+      "end_entity": "BlockedBloomFilter3Choices",
+      "hops": [
+        {
+          "from": "Blow2Choc",
+          "relation": "outperforms",
+          "to": "StandardBloomFilter",
+          "context": "For k = 10, standard Bloom filters and Blow2Choc are comparable in terms of FPR...",
+          "chunk": "6"
+        },
+        {
+          "from": "StandardBloomFilter",
+          "relation": "comparedWith",
+          "to": "BlockedBloomFilter2Choices",
+          "context": "We compare the standard Bloom filter, the Blocked Bloom filters with 2 and 3 choices...",
+          "chunk": "6"
+        },
+        {
+          "from": "BlockedBloomFilter2Choices",
+          "relation": "comparedWith",
+          "to": "BlockedBloomFilter3Choices",
+          "context": "We compare the standard Bloom filter, the Blocked Bloom filters with 2 and 3 choices...",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "Which Bloom filter variant demonstrated an improvement over the Standard Bloom Filter but was outperformed by the Blow2Choc filter in terms of false positive rate (FPR) when evaluated with 10 hash functions?",
+    "options": {
+      "A": "Standard Bloom Filter, which was found to be superior in terms of FPR compared to all other variants tested.",
+      "B": "Blocked Bloom Filter with 2 choices, showing a better performance than Standard Bloom Filter but worse than Blow2Choc.",
+      "C": "Blocked Bloom Filter with 4 choices, which was not explicitly compared in the paper but theoretically offers better FPR.",
+      "D": "Blocked Bloom Filter with 3 choices, showing a better performance than Standard Bloom Filter but worse than Blow2Choc."
+    },
+    "correct_answer": "B",
+    "explanation": "The knowledge graph path indicates that Blow2Choc outperforms the Standard Bloom Filter. Further, the Standard Bloom Filter is compared with both the Blocked Bloom Filter with 2 choices and 3 choices. Since Blow2Choc is better than the Standard Bloom Filter, and Blocked Bloom Filter with 2 choices is compared next, it implies that it was less effective than Blow2Choc but better than the Standard Bloom Filter in terms of FPR.",
+    "path_description": "Path: Blow2Choc --[outperforms]--> StandardBloomFilter --[comparedWith]--> BlockedBloomFilter2Choices --[comparedWith]--> BlockedBloomFilter3Choices",
+    "context": "For k = 10, standard Bloom filters and Blow2Choc are comparable in terms of FPR... | We compare the standard Bloom filter, the Blocked Bloom filters with 2 and 3 choices... | We compare the standard Bloom filter, the Blocked Bloom filters with 2 and 3 choices...",
+    "paper_id": "1414"
+  },
+  {
+    "section": "evaluation1",
+    "path": {
+      "section": "evaluation1",
+      "start_entity": "Blow2Choc",
+      "end_entity": "BlockedBloomFilter3Choices",
+      "hops": [
+        {
+          "from": "Blow2Choc",
+          "relation": "comparedWith",
+          "to": "Blow3Choc",
+          "context": "the newly introduced Blocked Bloom filter and the newly introduced Blow2Choc and Blow3Choc respectively...",
+          "chunk": "6"
+        },
+        {
+          "from": "Blow3Choc",
+          "relation": "outperforms",
+          "to": "StandardBloomFilter",
+          "context": "For k = 10, standard Bloom filters and Blow3Choc are comparable in terms of FPR...",
+          "chunk": "6"
+        },
+        {
+          "from": "StandardBloomFilter",
+          "relation": "comparedWith",
+          "to": "BlockedBloomFilter3Choices",
+          "context": "We compare the standard Bloom filter, the Blocked Bloom filters with 2 and 3 choices...",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the context of comparing filtering techniques with a focus on false positive rates (FPR), how does Blow3Choc's performance against Standard Bloom Filters relate to its subsequent comparison with Blocked Bloom Filter3Choices?",
+    "options": {
+      "A": "Blow3Choc, having a higher FPR than Standard Bloom Filters, significantly outperforms Blocked Bloom Filter3Choices.",
+      "B": "Blow3Choc, while outperforming Standard Bloom Filters in terms of FPR, is comparable to Blocked Bloom Filter3Choices.",
+      "C": "Blow3Choc, comparable to Standard Bloom Filters in terms of FPR, generally outperforms Blocked Bloom Filter3Choices.",
+      "D": "Blow3Choc, outperforming Standard Bloom Filters in terms of FPR, is less effective than Blocked Bloom Filter3Choices."
+    },
+    "correct_answer": "B",
+    "explanation": "The question requires understanding the relationships between Blow2Choc, Blow3Choc, Standard Bloom Filters, and Blocked Bloom Filter3Choices. As indicated in the context, Blow3Choc and Standard Bloom Filters are comparable in terms of FPR. The path indicates that Blow3Choc outperforms Standard Bloom Filter, which then is compared with Blocked Bloom Filter3Choices. The correct answer is that Blow3Choc, after outperforming Standard Bloom Filters, is comparable to Blocked Bloom Filter3Choices in performance.",
+    "path_description": "Path: Blow2Choc --[comparedWith]--> Blow3Choc --[outperforms]--> StandardBloomFilter --[comparedWith]--> BlockedBloomFilter3Choices",
+    "context": "the newly introduced Blocked Bloom filter and the newly introduced Blow2Choc and Blow3Choc respectively... | For k = 10, standard Bloom filters and Blow3Choc are comparable in terms of FPR... | We compare the standard Bloom filter, the Blocked Bloom filters with 2 and 3 choices...",
+    "paper_id": "1414"
+  },
+  {
+    "section": "evaluation1",
+    "path": {
+      "section": "evaluation1",
+      "start_entity": "Blow2Choc",
+      "end_entity": "BlockedBloomFilter2Choices",
+      "hops": [
+        {
+          "from": "Blow2Choc",
+          "relation": "comparedWith",
+          "to": "Blow3Choc",
+          "context": "the newly introduced Blocked Bloom filter and the newly introduced Blow2Choc and Blow3Choc respectively...",
+          "chunk": "6"
+        },
+        {
+          "from": "Blow3Choc",
+          "relation": "outperforms",
+          "to": "StandardBloomFilter",
+          "context": "For k = 10, standard Bloom filters and Blow3Choc are comparable in terms of FPR...",
+          "chunk": "6"
+        },
+        {
+          "from": "StandardBloomFilter",
+          "relation": "comparedWith",
+          "to": "BlockedBloomFilter2Choices",
+          "context": "We compare the standard Bloom filter, the Blocked Bloom filters with 2 and 3 choices...",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "When evaluating different Bloom filter configurations regarding false positive rates (FPR), which statement correctly summarizes the performance relationship?",
+    "options": {
+      "A": "Blow2Choc and Blow3Choc both demonstrate superior performance compared to the standard Bloom filter and the Blocked Bloom Filter with 2 choices.",
+      "B": "Blow3Choc and the standard Bloom filter are comparable in performance for k = 10, with no direct comparison to the Blocked Bloom Filter with 2 choices.",
+      "C": "Blow3Choc outperforms the standard Bloom filter, which in turn is comparable in performance to the Blocked Bloom Filter with 2 choices.",
+      "D": "Blow3Choc outperforms the standard Bloom filter but is comparable in performance to the Blocked Bloom Filter with 2 choices."
+    },
+    "correct_answer": "B",
+    "explanation": "Based on the provided knowledge graph path and context, Blow3Choc is compared with and outperforms the standard Bloom filter in terms of false positive rates when k=10, and while both are mentioned in comparisons with Blocked Bloom Filter configurations, the direct comparison between Blow3Choc and the Blocked Bloom Filter with 2 choices is not explicitly stated as being comparable.",
+    "path_description": "Path: Blow2Choc --[comparedWith]--> Blow3Choc --[outperforms]--> StandardBloomFilter --[comparedWith]--> BlockedBloomFilter2Choices",
+    "context": "the newly introduced Blocked Bloom filter and the newly introduced Blow2Choc and Blow3Choc respectively... | For k = 10, standard Bloom filters and Blow3Choc are comparable in terms of FPR... | We compare the standard Bloom filter, the Blocked Bloom filters with 2 and 3 choices...",
+    "paper_id": "1414"
+  },
+  {
+    "section": "evaluation1",
+    "path": {
+      "section": "evaluation1",
+      "start_entity": "Blow2Choc",
+      "end_entity": "ModelVariant",
+      "hops": [
+        {
+          "from": "Blow2Choc",
+          "relation": "outperforms",
+          "to": "StandardBloomFilter",
+          "context": "For k = 10, standard Bloom filters and Blow2Choc are comparable in terms of FPR...",
+          "chunk": "6"
+        },
+        {
+          "from": "StandardBloomFilter",
+          "relation": "comparedWith",
+          "to": "BlockedBloomFilter2Choices",
+          "context": "We compare the standard Bloom filter, the Blocked Bloom filters with 2 and 3 choices...",
+          "chunk": "6"
+        },
+        {
+          "from": "BlockedBloomFilter2Choices",
+          "relation": "type",
+          "to": "ModelVariant",
+          "context": "Blocked Bloom filters with 2 choices...",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the context of evaluating filter models, how does the Blow2Choc model's false positive rate (FPR) for k=10 compare to that of the Blocked Bloom Filter with 2 choices?",
+    "options": {
+      "A": "Blow2Choc and the Blocked Bloom Filter with 2 choices do not have a comparable false positive rate for k=10.",
+      "B": "Blow2Choc's false positive rate is significantly higher than that of the Blocked Bloom Filter with 2 choices for k=10.",
+      "C": "Blow2Choc's false positive rate is significantly lower than that of the Blocked Bloom Filter with 2 choices for k=10.",
+      "D": "Blow2Choc's false positive rate is comparable to that of the Blocked Bloom Filter with 2 choices for k=10."
+    },
+    "correct_answer": "D",
+    "explanation": "According to the provided context, it is stated that for k=10, the Blow2Choc and standard Bloom filters are comparable in terms of FPR. The knowledge path mentions that Blow2Choc outperforms the standard Bloom filter, and the standard is compared with the Blocked Bloom Filter with 2 choices, which itself is a Model Variant. Therefore, we can infer that Blow2Choc's FPR is comparable to that of the Blocked Bloom Filter with 2 choices for k=10.",
+    "path_description": "Path: Blow2Choc --[outperforms]--> StandardBloomFilter --[comparedWith]--> BlockedBloomFilter2Choices --[type]--> ModelVariant",
+    "context": "For k = 10, standard Bloom filters and Blow2Choc are comparable in terms of FPR... | We compare the standard Bloom filter, the Blocked Bloom filters with 2 and 3 choices... | Blocked Bloom filters with 2 choices...",
+    "paper_id": "1414"
+  },
+  {
+    "section": "evaluation3",
+    "path": {
+      "section": "evaluation3",
+      "start_entity": "BlockedBloomFilter",
+      "end_entity": "Low",
+      "hops": [
+        {
+          "from": "BlockedBloomFilter",
+          "relation": "outperforms",
+          "to": "BlowChocFilter",
+          "context": "Blocked Bloom filter has higher throughput than BlowChoc filters.",
+          "chunk": "8"
+        },
+        {
+          "from": "BlowChocFilter",
+          "relation": "outperforms",
+          "to": "StandardBloomFilter",
+          "context": "BlowChoc filters still outperform standard Bloom filters for successful lookups.",
+          "chunk": "8"
+        },
+        {
+          "from": "StandardBloomFilter",
+          "relation": "hasThroughput",
+          "to": "Low",
+          "context": "Standard Bloom filters have lower throughput compared to Blocked and BlowChoc filters.",
+          "chunk": "8"
+        }
+      ]
+    },
+    "question": "Which of the following statements accurately represents the comparative performance and characteristics of different Bloom filter configurations?",
+    "options": {
+      "A": "Standard Bloom filters outperform Blocked Bloom filters and BlowChoc filters in terms of successful lookups and throughput.",
+      "B": "BlowChoc filters have a higher throughput than Blocked Bloom filters, but both outperform Standard Bloom filters in successful lookups.",
+      "C": "BlowChoc filters and Standard Bloom filters have similar throughput, but BlowChoc filters have better performance in successful lookups.",
+      "D": "Blocked Bloom filters outperform BlowChoc filters in terms of throughput, and both have higher throughput compared to Standard Bloom filters."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A, as it correctly states that Blocked Bloom filters have higher throughput compared to BlowChoc filters, and both Blocked Bloom filters and BlowChoc filters have higher throughput compared to Standard Bloom filters. This matches the information provided in the knowledge path and the context from the paper.",
+    "path_description": "Path: BlockedBloomFilter --[outperforms]--> BlowChocFilter --[outperforms]--> StandardBloomFilter --[hasThroughput]--> Low",
+    "context": "Blocked Bloom filter has higher throughput than BlowChoc filters. | BlowChoc filters still outperform standard Bloom filters for successful lookups. | Standard Bloom filters have lower throughput compared to Blocked and BlowChoc filters.",
+    "paper_id": "1414"
+  },
+  {
+    "section": "evaluation1",
+    "path": {
+      "section": "evaluation1",
+      "start_entity": "Blow2Choc",
+      "end_entity": "Model",
+      "hops": [
+        {
+          "from": "Blow2Choc",
+          "relation": "comparedWith",
+          "to": "Blow3Choc",
+          "context": "the newly introduced Blocked Bloom filter and the newly introduced Blow2Choc and Blow3Choc respectively...",
+          "chunk": "6"
+        },
+        {
+          "from": "Blow3Choc",
+          "relation": "outperforms",
+          "to": "StandardBloomFilter",
+          "context": "For k = 10, standard Bloom filters and Blow3Choc are comparable in terms of FPR...",
+          "chunk": "6"
+        },
+        {
+          "from": "StandardBloomFilter",
+          "relation": "type",
+          "to": "Model",
+          "context": "We compare the standard Bloom filter...",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "In the context of evaluating Bloom filters for a specific model, how does Blow3Choc compare to standard Bloom filters when k equals 10?",
+    "options": {
+      "A": "Blow3Choc and standard Bloom filters have comparable false positive rates when k equals 10.",
+      "B": "Blow3Choc and standard Bloom filters show significant difference in memory usage when k equals 10.",
+      "C": "Blow3Choc increases the computational efficiency compared to standard Bloom filters when k equals 10.",
+      "D": "Blow3Choc significantly reduces the false positive rate compared to standard Bloom filters when k equals 10."
+    },
+    "correct_answer": "A",
+    "explanation": "As per the provided context, for k = 10, Blow3Choc and standard Bloom filters are directly compared and mentioned to be comparable in terms of false positive rates (FPR), indicating that their performance in this metric is similar.",
+    "path_description": "Path: Blow2Choc --[comparedWith]--> Blow3Choc --[outperforms]--> StandardBloomFilter --[type]--> Model",
+    "context": "the newly introduced Blocked Bloom filter and the newly introduced Blow2Choc and Blow3Choc respectively... | For k = 10, standard Bloom filters and Blow3Choc are comparable in terms of FPR... | We compare the standard Bloom filter...",
+    "paper_id": "1414"
+  },
+  {
+    "section": "acostfunctionsforinsertion",
+    "path": {
+      "section": "acostfunctionsforinsertion",
+      "start_entity": "MixedCostFunction",
+      "end_entity": "Method",
+      "hops": [
+        {
+          "from": "MixedCostFunction",
+          "relation": "type",
+          "to": "CostFunction",
+          "context": "Mixed cost based on FPR.",
+          "chunk": "10"
+        },
+        {
+          "from": "CostFunction",
+          "relation": "basedOn",
+          "to": "PopulationCountOperations",
+          "context": "Both values can be computed by simulating population count (popcount) operations on the 512 bits before and after insertion.",
+          "chunk": "10"
+        },
+        {
+          "from": "PopulationCountOperations",
+          "relation": "type",
+          "to": "Method",
+          "context": "Both values can be computed by simulating population count (popcount) operations on the 512 bits before and after insertion.",
+          "chunk": "10"
+        }
+      ]
+    },
+    "question": "What methodological approach does the Mixed Cost Function, as mentioned in the paper section on cost functions for insertion, primarily rely on?",
+    "options": {
+      "A": "It is based on simulating population count operations on 512-bit structures before and after insertion events.",
+      "B": "It utilizes a statistical analysis of average bit changes in data structures post-insertion.",
+      "C": "It applies a differential cost analysis comparing pre-insertion and post-insertion memory usage.",
+      "D": "It derives its calculations from the total number of insertion operations performed during a session."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A, as it directly utilizes the method mentioned in the description, which is simulating population count operations (popcount) on 512 bits before and after insertion, as per the knowledge graph path from MixedCostFunction to Method through CostFunction and PopulationCountOperations.",
+    "path_description": "Path: MixedCostFunction --[type]--> CostFunction --[basedOn]--> PopulationCountOperations --[type]--> Method",
+    "context": "Mixed cost based on FPR. | Both values can be computed by simulating population count (popcount) operations on the 512 bits before and after insertion. | Both values can be computed by simulating population count (popcount) operations on the 512 bits before and after insertion.",
+    "paper_id": "1414"
+  },
+  {
+    "section": "bcomputingdistinctbitaddresses",
+    "path": {
+      "section": "bcomputingdistinctbitaddresses",
+      "start_entity": "BlockedBloomFilter",
+      "end_entity": "Model",
+      "hops": [
+        {
+          "from": "BlockedBloomFilter",
+          "relation": "comparedWith",
+          "to": "BlowChocFilter",
+          "context": "However, the FPR of a Blocked Bloom filter (without choices) is worse.",
+          "chunk": "11"
+        },
+        {
+          "from": "BlowChocFilter",
+          "relation": "outperforms",
+          "to": "BlockedBloomFilter",
+          "context": "This effect is compensated by a lower overall average load and additionally by better load balancing, i.e. a smaller variance of the load.",
+          "chunk": "11"
+        },
+        {
+          "from": "BlockedBloomFilter",
+          "relation": "type",
+          "to": "Model",
+          "context": "However, the FPR of a Blocked Bloom filter (without choices) is worse.",
+          "chunk": "11"
+        }
+      ]
+    },
+    "question": "Why might a Blocked Bloom filter be considered less effective compared to the BlowChoc filter in certain applications?",
+    "options": {
+      "A": "Because the Blocked Bloom filter uses more memory resources, leading to slower access times and reduced performance efficiency.",
+      "B": "Because the Blocked Bloom filter exhibits a higher False Positive Rate (FPR), despite having better load balancing and lower average load.",
+      "C": "Because the Blocked Bloom filter is less adaptable to changes in data patterns, making it less effective in dynamic environments.",
+      "D": "Because the Blocked Bloom filter requires more computational power for handling distinct bit addresses, increasing operational costs."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A because, according to the knowledge path, the BlowChoc filter outperforms the Blocked Bloom filter primarily due to the latter's higher False Positive Rate (FPR). Despite the advantages of better load balancing and a lower overall average load mentioned in the Blocked Bloom filter, the critical disadvantage of a higher FPR makes it less effective compared to the BlowChoc filter in scenarios where minimizing false positives is crucial.",
+    "path_description": "Path: BlockedBloomFilter --[comparedWith]--> BlowChocFilter --[outperforms]--> BlockedBloomFilter --[type]--> Model",
+    "context": "However, the FPR of a Blocked Bloom filter (without choices) is worse. | This effect is compensated by a lower overall average load and additionally by better load balancing, i.e. a smaller variance of the load. | However, the FPR of a Blocked Bloom filter (without choices) is worse.",
+    "paper_id": "1414"
+  },
+  {
+    "section": "cevaluationofcostfunctions2",
+    "path": {
+      "section": "cevaluationofcostfunctions2",
+      "start_entity": "StandardBloomFilterFPR",
+      "end_entity": "Parameter",
+      "hops": [
+        {
+          "from": "StandardBloomFilterFPR",
+          "relation": "comparedWith",
+          "to": "CostType",
+          "context": "Standard Bloom Filter FPRs mentioned as a comparison baseline against different cost types.",
+          "chunk": "13"
+        },
+        {
+          "from": "CostType",
+          "relation": "evaluatedWith",
+          "to": "HashFunctionNumber",
+          "context": "Evaluation involves three different cost types with different numbers of hash functions k.",
+          "chunk": "13"
+        },
+        {
+          "from": "HashFunctionNumber",
+          "relation": "type",
+          "to": "Parameter",
+          "context": "Number of hash functions k mentioned.",
+          "chunk": "13"
+        }
+      ]
+    },
+    "question": "In the context of evaluating cost types for Standard Bloom Filters, how does the number of hash functions (k) influence the false positive rate (FPR)?",
+    "options": {
+      "A": "Increasing the number of hash functions increases the FPR, as more hashes lead to quicker saturation of the filter.",
+      "B": "The number of hash functions has no impact on the FPR, as it is determined solely by the size of the bit array.",
+      "C": "Decreasing the number of hash functions increases energy efficiency but has no effect on the FPR.",
+      "D": "Increasing the number of hash functions decreases the FPR, as more hashes improve the filter's accuracy."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A. In Standard Bloom Filters, the false positive rate (FPR) is inversely related to the number of hash functions used. Increasing the number of hash functions generally improves the accuracy of the Bloom filter by distributing the elements more evenly across the bit array, thus reducing the likelihood of collisions and hence, decreasing the FPR.",
+    "path_description": "Path: StandardBloomFilterFPR --[comparedWith]--> CostType --[evaluatedWith]--> HashFunctionNumber --[type]--> Parameter",
+    "context": "Standard Bloom Filter FPRs mentioned as a comparison baseline against different cost types. | Evaluation involves three different cost types with different numbers of hash functions k. | Number of hash functions k mentioned.",
+    "paper_id": "1414"
+  }
+]

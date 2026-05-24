@@ -1,0 +1,217 @@
+[
+  {
+    "section": "model1",
+    "path": {
+      "section": "model1",
+      "start_entity": "OurApproach",
+      "end_entity": "Measurement",
+      "hops": [
+        {
+          "from": "OurApproach",
+          "relation": "outperforms",
+          "to": "LightClientSublinearStorage",
+          "context": "experimental results show that our approach effectively verifies and computes the query using approximately 15 MB, while a light client that uses a sublinear amount of space in storage also requires around 1 GB.",
+          "chunk": "5"
+        },
+        {
+          "from": "LightClientSublinearStorage",
+          "relation": "uses",
+          "to": "DataSize",
+          "context": "while computing it with a light client that uses a sublinear amount of space in storage to keep track of the blocks also requires around 1 GB.",
+          "chunk": "5"
+        },
+        {
+          "from": "DataSize",
+          "relation": "type",
+          "to": "Measurement",
+          "context": "experimental results show that our approach effectively verifies and computes the query using approximately 15 MB.",
+          "chunk": "5"
+        }
+      ]
+    },
+    "question": "In the context of blockchain storage requirements, how does the data size required by 'Our Approach' compare to that of a light client using sublinear storage for block tracking?",
+    "options": {
+      "A": "Our Approach requires more data, around 1 GB, while the light client manages with significantly less, about 15 MB.",
+      "B": "Both Our Approach and the light client require approximately the same amount of data, around 15 MB.",
+      "C": "The data requirements for both methods are not significantly different, as both require around 1 GB.",
+      "D": "Our Approach requires significantly less data, approximately 15 MB, compared to 1 GB required by the light client."
+    },
+    "correct_answer": "D",
+    "explanation": "The knowledge graph indicates that 'Our Approach' outperforms 'LightClientSublinearStorage' in terms of data size used ('DataSize'). The context specifies that Our Approach uses approximately 15 MB while the light client requires about 1 GB. Therefore, Our Approach is more efficient in terms of the amount of data it requires.",
+    "path_description": "Path: OurApproach --[outperforms]--> LightClientSublinearStorage --[uses]--> DataSize --[type]--> Measurement",
+    "context": "experimental results show that our approach effectively verifies and computes the query using approximately 15 MB, while a light client that uses a sublinear amount of space in storage also requires around 1 GB. | while computing it with a light client that uses a sublinear amount of space in storage to keep track of the blocks also requires around 1 GB. | experimental results show that our approach effectively verifies and computes the query using approximately 15 MB.",
+    "paper_id": "1520"
+  },
+  {
+    "section": "introduction1",
+    "path": {
+      "section": "introduction1",
+      "start_entity": "Blockchain",
+      "end_entity": "BlockchainComponent",
+      "hops": [
+        {
+          "from": "Blockchain",
+          "relation": "partOf",
+          "to": "SuperlightClients",
+          "context": "Following superlight clients (i.e., clients that do not store the blockchain)...",
+          "chunk": "0"
+        },
+        {
+          "from": "SuperlightClients",
+          "relation": "enabledBy",
+          "to": "SmartContracts",
+          "context": "Following superlight clients (i.e., clients that do not store the blockchain) to outsource the computation of a query and receive a trustworthy answer. Our architecture relies on smart contracts to compute by using data obtained from full nodes.",
+          "chunk": "0"
+        },
+        {
+          "from": "SmartContracts",
+          "relation": "type",
+          "to": "BlockchainComponent",
+          "context": "Leveraging the existence of smart contracts.",
+          "chunk": "0"
+        }
+      ]
+    },
+    "question": "How do superlight clients in blockchain technology ensure the trustworthiness of query computations?",
+    "options": {
+      "A": "By outsourcing the computation of queries to smart contracts that interact with full nodes.",
+      "B": "Through the utilization of traditional cryptographic methods that prevent tampering with the data.",
+      "C": "By independently verifying each transaction without the need for external computation resources.",
+      "D": "By relying on full nodes to store the blockchain, thus enabling superlight clients to outsource computations."
+    },
+    "correct_answer": "A",
+    "explanation": "Superlight clients do not store the blockchain themselves and rely on smart contracts to compute queries using data from full nodes, ensuring trustworthy results without storing the blockchain themselves.",
+    "path_description": "Path: Blockchain --[partOf]--> SuperlightClients --[enabledBy]--> SmartContracts --[type]--> BlockchainComponent",
+    "context": "Following superlight clients (i.e., clients that do not store the blockchain)... | Following superlight clients (i.e., clients that do not store the blockchain) to outsource the computation of a query and receive a trustworthy answer. Our architecture relies on smart contracts to compute by using data obtained from full nodes. | Leveraging the existence of smart contracts.",
+    "paper_id": "1520"
+  },
+  {
+    "section": "model3",
+    "path": {
+      "section": "model3",
+      "start_entity": "OracleServer",
+      "end_entity": "Blockchain",
+      "hops": [
+        {
+          "from": "OracleServer",
+          "relation": "extendsFunctionalitiesOf",
+          "to": "FullNode",
+          "context": "An oracle server, referred to as an Oracle, extends the functionalities of a full node and exposes map-reduce queries that are not available in the other full nodes.",
+          "chunk": "7"
+        },
+        {
+          "from": "FullNode",
+          "relation": "queries",
+          "to": "BlockchainB",
+          "context": "Full nodes can autonomously query the chain, and execute transactions and smart contracts functions.",
+          "chunk": "7"
+        },
+        {
+          "from": "BlockchainB",
+          "relation": "type",
+          "to": "Blockchain",
+          "context": "A full node is a blockchain node that maintains the full history of the chain B including the blocks, and their updated states.",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "What unique capability does an Oracle server provide in the context of interacting with Blockchain B, compared to other full nodes?",
+    "options": {
+      "A": "An Oracle server can execute transactions and smart contracts more efficiently than other full nodes.",
+      "B": "An Oracle server offers enhanced data querying capabilities through map-reduce queries not available in other full nodes.",
+      "C": "An Oracle server reduces the need for maintaining the full history of blocks and their updated states in Blockchain B.",
+      "D": "An Oracle server maintains a more comprehensive history of Blockchain B than other full nodes."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A because the context specifies that the Oracle server extends the functionalities of a full node by offering map-reduce queries, which are not available in other full nodes. This facilitates enhanced data querying capabilities specific to the Oracle server. Options B, C, and D are misleading as they suggest efficiencies or functionalities that are not supported by the provided context.",
+    "path_description": "Path: OracleServer --[extendsFunctionalitiesOf]--> FullNode --[queries]--> BlockchainB --[type]--> Blockchain",
+    "context": "An oracle server, referred to as an Oracle, extends the functionalities of a full node and exposes map-reduce queries that are not available in the other full nodes. | Full nodes can autonomously query the chain, and execute transactions and smart contracts functions. | A full node is a blockchain node that maintains the full history of the chain B including the blocks, and their updated states.",
+    "paper_id": "1520"
+  },
+  {
+    "section": "statelesssuperlightclients3",
+    "path": {
+      "section": "statelesssuperlightclients3",
+      "start_entity": "OracleServer",
+      "end_entity": "ComputationalResources",
+      "hops": [
+        {
+          "from": "OracleServer",
+          "relation": "produces",
+          "to": "SNARKProof",
+          "context": "The oracle server also produces a SNARK proof",
+          "chunk": "11"
+        },
+        {
+          "from": "SNARKProof",
+          "relation": "generatedBy",
+          "to": "OracleServer",
+          "context": "is able to generate a SNARK proof π˜ when x",
+          "chunk": "11"
+        },
+        {
+          "from": "OracleServer",
+          "relation": "requires",
+          "to": "ComputationalResources",
+          "context": "mous computational resources for the oracle server",
+          "chunk": "11"
+        }
+      ]
+    },
+    "question": "What is a necessary requirement for an Oracle Server to generate a SNARK proof in the context of stateless super light clients?",
+    "options": {
+      "A": "SNARK proofs require the Oracle Server to operate in a decentralized network environment.",
+      "B": "SNARK proofs require the Oracle Server to maintain a minimal amount of data storage.",
+      "C": "SNARK proofs require the Oracle Server to use cryptographic hash functions exclusively.",
+      "D": "SNARK proofs require the Oracle Server to have access to substantial computational resources."
+    },
+    "correct_answer": "D",
+    "explanation": "The question requires understanding the relationship where the Oracle Server 'produces' a SNARK proof, which is 'generated by' the Oracle Server and 'requires' computational resources. The correct answer is A because the provided context explicitly states that generating a SNARK proof necessitates 'enormous computational resources' for the Oracle Server.",
+    "path_description": "Path: OracleServer --[produces]--> SNARKProof --[generatedBy]--> OracleServer --[requires]--> ComputationalResources",
+    "context": "The oracle server also produces a SNARK proof | is able to generate a SNARK proof π˜ when x | mous computational resources for the oracle server",
+    "paper_id": "1520"
+  },
+  {
+    "section": "usecaseanalysisofsslcprotocol1",
+    "path": {
+      "section": "usecaseanalysisofsslcprotocol1",
+      "start_entity": "BlockchainCom",
+      "end_entity": "BlockchainExplorer",
+      "hops": [
+        {
+          "from": "BlockchainCom",
+          "relation": "agreesWith",
+          "to": "MempoolSpace",
+          "context": "Three blockchain explorers, namely blockchain.com, mempool.space, and bitaps.com, agree that at block number 881358, Satoshi’s address has been involved in 42381 transactions",
+          "chunk": "14"
+        },
+        {
+          "from": "MempoolSpace",
+          "relation": "agreesWith",
+          "to": "BitapsCom",
+          "context": "Three blockchain explorers, namely blockchain.com, mempool.space, and bitaps.com, agree that at block number 881358, Satoshi’s address has been involved in 42381 transactions",
+          "chunk": "14"
+        },
+        {
+          "from": "BitapsCom",
+          "relation": "type",
+          "to": "BlockchainExplorer",
+          "context": "bitaps.com",
+          "chunk": "14"
+        }
+      ]
+    },
+    "question": "Which of the following statements is true about the agreement among blockchain explorers regarding Satoshi's address at block number 881358?",
+    "options": {
+      "A": "Blockchain.com, Mempool.space, and Bitaps.com all confirm that Satoshi's address participated in exactly 42381 transactions.",
+      "B": "Only Blockchain.com and Mempool.space recorded transactions for Satoshi's address, while Bitaps.com did not report any.",
+      "C": "Blockchain.com, Mempool.space, and Bitaps.com have discrepancies in the transaction count for Satoshi's address at block number 881358.",
+      "D": "Bitaps.com reported a different block number for Satoshi's address transactions compared to Blockchain.com and Mempool.space."
+    },
+    "correct_answer": "A",
+    "explanation": "According to the context from the paper, all three blockchain explorers, namely blockchain.com, mempool.space, and bitaps.com, agree that at block number 881358, Satoshi's address was involved in exactly 42381 transactions. This eliminates any discrepancies or differences in reporting among the sites.",
+    "path_description": "Path: BlockchainCom --[agreesWith]--> MempoolSpace --[agreesWith]--> BitapsCom --[type]--> BlockchainExplorer",
+    "context": "Three blockchain explorers, namely blockchain.com, mempool.space, and bitaps.com, agree that at block number 881358, Satoshi’s address has been involved in 42381 transactions | Three blockchain explorers, namely blockchain.com, mempool.space, and bitaps.com, agree that at block number 881358, Satoshi’s address has been involved in 42381 transactions | bitaps.com",
+    "paper_id": "1520"
+  }
+]

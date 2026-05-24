@@ -1,0 +1,131 @@
+[
+  {
+    "section": "datasetstructure",
+    "path": {
+      "section": "datasetstructure",
+      "start_entity": "SBOMFile",
+      "end_entity": "SourceURL",
+      "hops": [
+        {
+          "from": "SBOMFile",
+          "relation": "describedBy",
+          "to": "DataSourcesFile",
+          "context": "It contains an SBOM file (sbom.spdx.json) and a file describing the data sources of the SBOM (sbom.data-sources.json).",
+          "chunk": "4"
+        },
+        {
+          "from": "DataSourcesFile",
+          "relation": "providesInformationAbout",
+          "to": "DataSources",
+          "context": "Additionally, detailed information about the data sources used to generate an SBOM is available in sbom.data-sources.json.",
+          "chunk": "4"
+        },
+        {
+          "from": "DataSources",
+          "relation": "includes",
+          "to": "SourceURL",
+          "context": "The file includes the type of the source for each field value (auto or manual), the name of the source, and any associated URL.",
+          "chunk": "4"
+        }
+      ]
+    },
+    "question": "In the context of the dataset structure described, which statement correctly identifies the type of content found in the SourceURL as linked through the DataSourcesFile?",
+    "options": {
+      "A": "The SourceURL is used exclusively for documenting the software components' licenses and compliance data.",
+      "B": "The SourceURL provides links to additional metadata about the software components described in the SBOM.",
+      "C": "The SourceURL contains the automatic or manual designation of data extraction and corresponding source names.",
+      "D": "The SourceURL includes links to the external websites where the source data can be manually verified."
+    },
+    "correct_answer": "C",
+    "explanation": "The correct answer is A because the SourceURL, as explained in the 'sbom.data-sources.json' file, contains URLs associated with each data source named, which detail whether the data extraction was automatic or manual. Options B and C are incorrect as they imply content not specified in the provided details about the SourceURL. Option D is misleading because it suggests an external verification function that is not described in the context.",
+    "path_description": "Path: SBOMFile --[describedBy]--> DataSourcesFile --[providesInformationAbout]--> DataSources --[includes]--> SourceURL",
+    "context": "It contains an SBOM file (sbom.spdx.json) and a file describing the data sources of the SBOM (sbom.data-sources.json). | Additionally, detailed information about the data sources used to generate an SBOM is available in sbom.data-sources.json. | The file includes the type of the source for each field value (auto or manual), the name of the source, and any associated URL.",
+    "paper_id": "764"
+  },
+  {
+    "section": "conclusion",
+    "path": {
+      "section": "conclusion",
+      "start_entity": "ThisPaper",
+      "end_entity": "CaseSensitivityHandling",
+      "hops": [
+        {
+          "from": "ThisPaper",
+          "relation": "presents",
+          "to": "SBOMs",
+          "context": "This paper presents a dataset of SBOMs for evaluating SBOM consumption tools.",
+          "chunk": "6"
+        },
+        {
+          "from": "SBOMs",
+          "relation": "hasIssues",
+          "to": "SbomTool",
+          "context": "Through the dataset construction process, we identified several issues with the SBOM generation tools.",
+          "chunk": "6"
+        },
+        {
+          "from": "SbomTool",
+          "relation": "hasLimitation",
+          "to": "CaseSensitivityHandling",
+          "context": "Sbom-tool does not properly handle case sensitivity in component names, potentially leading to false negatives in vulnerability detection by SBOM consumption tools.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "Based on the issues identified with SBOM generation tools in this paper, what is a specific limitation of the SbomTool that could affect the accuracy of vulnerability detection?",
+    "options": {
+      "A": "SbomTool incorrectly identifies the licenses of components, compromising legal compliance checks.",
+      "B": "SbomTool does not handle case sensitivity in component names, which may result in overlooking some vulnerabilities.",
+      "C": "SbomTool inaccurately records the version numbers of components, leading to mismatches in vulnerability databases.",
+      "D": "SbomTool fails to include all necessary metadata for components, weakening the overall security assessment."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is B because the paper specifically mentions that SbomTool does not properly handle case sensitivity in component names. This issue can lead to false negatives in vulnerability detection, as identical components with different case formats may not be recognized as the same, thus potentially missing some vulnerabilities.",
+    "path_description": "Path: ThisPaper --[presents]--> SBOMs --[hasIssues]--> SbomTool --[hasLimitation]--> CaseSensitivityHandling",
+    "context": "This paper presents a dataset of SBOMs for evaluating SBOM consumption tools. | Through the dataset construction process, we identified several issues with the SBOM generation tools. | Sbom-tool does not properly handle case sensitivity in component names, potentially leading to false negatives in vulnerability detection by SBOM consumption tools.",
+    "paper_id": "764"
+  },
+  {
+    "section": "conclusion",
+    "path": {
+      "section": "conclusion",
+      "start_entity": "ThisPaper",
+      "end_entity": "Tool",
+      "hops": [
+        {
+          "from": "ThisPaper",
+          "relation": "presents",
+          "to": "SBOMs",
+          "context": "This paper presents a dataset of SBOMs for evaluating SBOM consumption tools.",
+          "chunk": "6"
+        },
+        {
+          "from": "SBOMs",
+          "relation": "hasIssues",
+          "to": "SbomTool",
+          "context": "Through the dataset construction process, we identified several issues with the SBOM generation tools.",
+          "chunk": "6"
+        },
+        {
+          "from": "SbomTool",
+          "relation": "type",
+          "to": "Tool",
+          "context": "Sbom-tool does not properly handle case sensitivity in component names, potentially leading to false negatives in vulnerability detection by SBOM consumption tools.",
+          "chunk": "6"
+        }
+      ]
+    },
+    "question": "What is a potential issue identified in SBOM generation tools that could affect the accuracy of vulnerability detection in SBOM consumption tools?",
+    "options": {
+      "A": "The SBOM consumption tools do not support multiple formats, limiting interoperability.",
+      "B": "The SBOM generation tools do not properly handle case sensitivity in component names.",
+      "C": "The SBOM generation tools incorrectly identify the software version, leading to false positives.",
+      "D": "The SBOM generation tools fail to recognize unique software identifiers, causing duplication errors."
+    },
+    "correct_answer": "B",
+    "explanation": "According to the paper, one of the issues identified with SBOM generation tools is their failure to properly handle case sensitivity in component names. This could lead to false negatives in vulnerability detection by SBOM consumption tools.",
+    "path_description": "Path: ThisPaper --[presents]--> SBOMs --[hasIssues]--> SbomTool --[type]--> Tool",
+    "context": "This paper presents a dataset of SBOMs for evaluating SBOM consumption tools. | Through the dataset construction process, we identified several issues with the SBOM generation tools. | Sbom-tool does not properly handle case sensitivity in component names, potentially leading to false negatives in vulnerability detection by SBOM consumption tools.",
+    "paper_id": "764"
+  }
+]

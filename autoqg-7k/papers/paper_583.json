@@ -1,0 +1,82 @@
+[
+  {
+    "id": "abstract",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Abstract",
+      "page_start": 1,
+      "page_end": 1
+    },
+    "text": "Memecoins, driven by social media engagement and cultural nar-\n5 ratives, have rapidly grown within the Web3 ecosystem. Unlike\n2  traditional cryptocurrencies, they are shaped by humor, memes,\n0 and community sentiment. This paper introduces the Coin-Meme\n2 dataset, an open-source collection of visual, textual, community, and\n \nb financial data from the Pump.fun platformon the Solana blockchain.\ne We also propose a multimodal framework to analyze memecoins,\nF uncovering patterns in cultural themes, community interaction,\n \nand financial behavior. Through clustering, sentiment analysis, and\n1\nword cloud visualizations, we identify distinct thematic groups\n2\n  centered on humor, animals, and political satire. Additionally, we\n \n] provide financial insights by analyzing metrics such as Market\nC Entry Time and Market Capitalization, offering a comprehensive\nview of memecoins as both cultural artifacts and financial instru-\nH\n. ments within Web3. The Coin-Meme dataset is publicly available\ns\nat https://github.com/hwlongCUHK/Coin-Meme.git.\nc\n[\n \n  CCS Concepts\n3\n• Information systems→WorldWideWeb; •Human-centered\nv\ncomputing → Empirical studies in collaborative and social\n3\ncomputing.\n1\n9\n4 Keywords\n0 Memecoin, Web3, Multimodal Analysis, Blockchain\n."
+  },
+  {
+    "id": "introduction",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Introduction",
+      "page_start": 1,
+      "page_end": 1
+    },
+    "text": "a\nThe memecoin phenomenon represents a rapidly expanding seg-\nment within the Web3 ecosystem, where internet culture and de-\ncentralized finance intersect. Unlike Bitcoin [6], which was pur-\nposefully designed as a decentralized digital currency, memecoins\nare primarily fueled by social media engagement, humor, and cul-\ntural narratives, often driven by community sentiment rather than\nintrinsic utility [7]. Memecoins such as Dogecoin, Shiba Inu, and\nPepe Coin epitomize this trend, with Dogecoin reaching an $80\nThis work is licensed under a Creative Commons Attribution 4.0 International License.\nWWW Companion ’25, April 28-May 2, 2025, Sydney, NSW, Australia\n© 2025 Copyright held by the owner/author(s).\nACM ISBN 979-8-4007-1331-6/25/04\nhttps://doi.org/10.1145/3701716.3715561\n\ne: A Multimodal Analysis of\nWeb3 Ecosystem\nn Wong  Wei Cai\ns.eduhk.hk  weicaics@uw.edu\nity of Hong Kong  University of Washington\nng Kong  Tacoma, Washington, USA\nbillion Market Capitalization in 2021, propelled by viral trends and\ncelebrity endorsements. Platforms like Pump.fun have further de-\nmocratized the creation of memecoins, enabling users to launch\ntokens without requiring technical expertise, while also empow-\nering decentralized community-driven governance. By September\n2024, Pump.fun had facilitated over 1 million token launches, gener-\nating $100 million in revenue and dominating daily token creation\non the Solana blockchain.\nUnlikememes, which are primarily cultural and humorous, meme-\ncoins introduce a financial dimension that connects internet culture\nto finance. Despite their significant impact on both cultural and fi-\nnancial spheres, memecoins have been understudied. Most research\nfocuses on their financial aspects, such as market dynamics and\nprice fluctuations, while overlooking the cultural and community-\ndriven forces behind their creation and growth [2, 3, 7]. Meanwhile,\nresearch on memes only examines their cultural attributes, since\nmemes were initially viewed as non-commercial cultural artifacts,\nwithout any inherent financial dimension [5]. This paper aims to\nbridge both gaps by analyzing memecoins through their cultural\nand financial dimensions, offering a comprehensive view of their\nrole in the Web3 ecosystem.\nThis paper makes the following contributions: (i) Open-Source\nMultimodal Dataset: We introduce Coin-Meme, the first open-\nsource dataset for studying memecoins in the Web3 space, com-\nbining visual (logos), textual (descriptions), community (user com-\nments), and financial (Market Capitalization, Market Entry Time)\ndata to explore the intersection of culture, community, and decen-\ntralized finance. (ii) Multimodal Analytical Framework: We\npropose a framework to analyze memecoins across their visual,\ntextual, community, and financial dimensions, providing a holistic\nview of how cultural narratives, community engagement, andWeb3\ntechnologies influence memecoin adoption and market behavior.\n(iii) Cultural and Community Insights: Applying our frame-\nwork to Coin-Meme, we uncover patterns in memecoin adoption,\ncommunity sentiment, and thematic trends, offering insights into\nhow decentralized communities and culture shape the financial\ndynamics of memecoins in Web3.\nThe paper is structured as follows: Section 2 introduces Pump.fun\nand reviews related meme analysis. Section 3 describes the Coin-\nMeme dataset. Section 4 presents the analysis framework. Section 5\ndiscusses the results, including clustering, sentiment, and financial\nmetrics. Section 6 concludes the paper."
+  },
+  {
+    "id": "pumpfunmemecoinsandrelatedwork",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Pump.fun Memecoins and Related Work",
+      "page_start": 1,
+      "page_end": 1
+    },
+    "text": "Pump.fun is a decentralized platform on the Solana blockchain that\nsimplifies memecoin creation through an intuitive interface. Users\ncan create memecoins by specifying attributes like name, symbol,"
+  },
+  {
+    "id": "datasetdescription",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Dataset Description",
+      "page_start": 2,
+      "page_end": 2
+    },
+    "text": "The Coin-Meme dataset consists of four modalities: Textual De-\nscriptions, Visual Content, Community Interactions, and Financial\nData. Textual Descriptions are the narratives associated with each\nmemecoin. Visual Content includes the logo image of memecoin.\nCommunity Interactions encompass user comments. Financial Data\nconsists of market-related metrics, including Market Capitalization\nand the Market Entry Time, which quantifies the speed at which\na token gains liquidity and market presence on decentralized ex-\nchanges. The dataset includes all 3,751memecoins that were created\nbetween January 2024 and November 2024 and subsequently moved\nto Raydium, providing a comprehensive overview of the memecoin\necosystem.\n3.1  Data Acquisition\nData acquisition began by extracting tokenmetadata fromDune.com\n1\nusing Pump.fun’s program address  including token addresses, cre-\nation times, names, and creators. Token-specific URLs were gen-\n2\nerated by appending token addresses to the base URL . A web\nscraping pipeline built with Selenium and Pandas automated the\nextraction of textual descriptions, token images, user comments,\nand financial data.\n3.2  Data Cleansing\nFollowing data acquisition, the dataset was cleaned to ensure ac-\ncuracy and consistency. Text data (token descriptions and user\ncomments) were preprocessed by converting text to lowercase,\n16EF8rrecthR5Dkzon8Nwu78hRvfCKubJ14M5uBEwF6P\n2https://pump.fun/\n\nHou-Wan Long, Nga-Man Wong, and Wei Cai\nremoving non-alphabetic characters (e.g., URLs), eliminating stop-\nwords, and applying tokenization and lemmatization. Entries with\nmissing descriptions or comments were excluded. Images were\nresized to 224x224 pixels to match ResNet50 input size, non-RGB\nimages were converted to RGB, and corrupted or missing images\nwere replaced with zero vectors. The time difference between to-\nken launch and being moved to Raydium was calculated as Market\nEntry Time."
+  },
+  {
+    "id": "multimodalanalysisframework",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Multimodal Analysis Framework",
+      "page_start": 2,
+      "page_end": 2
+    },
+    "text": "The multimodal analysis framework presented in this study inte-\ngrates visual, textual, community interaction and financial data to\nanalyze the cultural and financial dynamics of memecoins.\n4.1  Feature Representation\nTo enable a multimodal representation, textual, visual and financial\nfeatures were combined into a unified feature space: Textual Fea-\ntures: Latent Dirichlet Allocation (LDA) was applied to tokenize\nand model topics within the textual descriptions. Each memecoin\nwas represented by a vector of topic distributions, capturing its the-\nmatic essence. Visual Features: High-dimensional image vectors\nextracted using ResNet50 encapsulated visual patterns, including\ncolor schemes, shapes, and design motifs. Financial Features: The\ntime difference between the creation and the time used to move the\ntoken to Raydium was calculated. Additionally, the Market Capital-\nization (mcap) of each token was included as a feature, capturing its\nmarket value and investment potential. Both quantities were scaled\nto reflect their relative impact on token adoption and liquidity.\nTextual features, visual features and the financial features were\nconcatenated to form a single high-dimensional representation for\neach token, effectively capturing its narrative, visual, and financial\ndynamics.\n4.2  Clustering\nK-Means clustering was used to group memecoins based on their\nmultimodal features due to its efficiency, simplicity, and ability to\nhandle large datasets. The optimal number of clusters was deter-\nmined using the silhouette score, which evaluates cluster cohesion\nand separation. K-Means is particularly effective when the number\nof clusters is predefined, as it minimizes within-cluster variance,\nmaking results easy to interpret. To enhance interpretability and\nreduce dimensionality, Principal Component Analysis (PCA) was\napplied before clustering.\n4.3  Analysis\nAfter clustering, Word Cloud Analysis was conducted on the meme-\ncoin descriptions to visualize the frequency of words. Prominent\nwords appear larger in the cloud, helping to identify the domi-\nnant themes and keywords associated with each group. This tech-\nnique uncovers the central narratives and cultural motifs within\nthe memecoin ecosystem. For instance, certain clusters empha-\nsized playful, irreverent themes, while others reflected lighthearted,\nanimal-centric content or politically charged, satirical discourse."
+  },
+  {
+    "id": "analysisresultsoncoinmemedataset",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Analysis Results on Coin-Meme Dataset",
+      "page_start": 3,
+      "page_end": 3
+    },
+    "text": "This section presents the results of applying the proposed multi-\nmodal analysis framework on the Coin-Meme dataset. The cluster-\ning process identified three distinct memecoin groups as shown in\nFigure 1: Cluster 0 (1,127 memecoins), Cluster 1 (1,535 memecoins),\nand Cluster 2 (1,089 memecoins).\n5.1 Word Cloud Analysis Results\nCluster 0 focuses on humor, parody, and internet niche culture. The\nword cloud (Figure 2) highlights terms like \"meme\" and \"pepe,\" re-\nflecting the irreverent and playful nature of this group. Bold visuals,\nsuch as caricatures and fantastical creatures, cater to an audience\nthat values creativity and humor. This cluster exemplifies the hu-\nmorous and internet culture-driven side of memecoin creation.\nCluster 1 revolves around animal themes and whimsical designs.\nThe word cloud (Figure 2) reveals keywords like \"cat,\" \"dog,\" and\n\"cutest,\" reflecting the lighthearted and relatable nature of the to-\nkens. Descriptions often feature humorous and endearing animal\nscenarios, while visuals showcase animals like tigers, red pandas,\nand popular meme animals like Grumpy Cat. The use of words such\n\ntem  WWW Companion ’25, April 28-May 2, 2025, Sydney, NSW, Australia\nned textual, visual, and financial feature, with representative\nries\nFigure 2: Word Cloud and Representative Images for Each\nCluster\nas \"friend\" and \"fun\" underscores the cluster’s appeal to users who\nenjoy playful, emotional content with a whimsical brand identity.\nCluster 2 is characterized by political satire and references to\niconic cultural figures, particularly Donald Trump. Descriptions\nfrequently include terms like \"Trump,\" while visuals often feature\nexaggerated caricatures and hyperbolic portrayals of authority. The\nword cloud (Figure 2) highlights terms such as \"trump,\" \"crypto,\"\nand \"world,\" emphasizing the cluster’s political and engagement-\ndriven nature. This cluster’s provocative humor fosters active, often\npolarizing discussions, making it one of the most controversial and\nengaging groups in the memecoin space.\nDespite the distinct themes of each cluster, several common\nterms appear across all three, reflecting the shared strategies used\nby memecoin creators to capture attention. \"world\" is often used in"
+  },
+  {
+    "id": "conclusion",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Conclusion",
+      "page_start": 4,
+      "page_end": 4
+    },
+    "text": "This study introduces the Coin-Meme dataset and a novel multi-\nmodal analytical framework to explore the dynamics of memecoins\nwithin the Web3 ecosystem. By integrating visual, textual, com-\nmunity interaction, and financial data, we offer a comprehensive\nunderstanding of how memecoins evolve through cultural narra-\ntives, community engagement, and market forces in decentralized\nenvironments. Our analysis highlights the diversity of memecoin\nthemes, from humorous and playful to politically charged, and\nuncovers key patterns in user sentiment, community interaction,\nand potential bot-driven behaviors. Financial implications are also\nprovided. These insights underscore the importance of studying\nmemecoins as both cultural and financial phenomena, bridging\ninternet culture and DeFi. This research not only sheds light on\ntheir role within the cryptocurrency market but also offers implica-\ntions for the future of Web3 communities and governance. Future\nwork could further investigate the impact of social media platforms,\nsentiment manipulation, and the broader role of memecoins in the\nevolving Web3 landscape, particularly in relation to DeFi and Web3\ngovernance mechanisms."
+  },
+  {
+    "id": "acknowledgments",
+    "metadata": {
+      "lang": "en",
+      "section_title": "Acknowledgments",
+      "page_start": 4,
+      "page_end": 4
+    },
+    "text": "This research is supported by Department of Statistics and New\nAsia College of The Chinese University of Hong Kong."
+  }
+]

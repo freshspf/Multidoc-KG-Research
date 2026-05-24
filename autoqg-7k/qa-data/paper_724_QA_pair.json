@@ -1,0 +1,174 @@
+[
+  {
+    "section": "riscvrv32imccore",
+    "path": {
+      "section": "riscvrv32imccore",
+      "start_entity": "STRV-R1",
+      "end_entity": "Core",
+      "hops": [
+        {
+          "from": "STRV-R1",
+          "relation": "contains",
+          "to": "RISC-V",
+          "context": "domain incorporates the RISC-V core",
+          "chunk": "1"
+        },
+        {
+          "from": "RISC-V",
+          "relation": "basedOn",
+          "to": "FraunhoferAIRISC",
+          "context": "The specific RISC-V based on the Fraunhofer AIRISC core",
+          "chunk": "1"
+        },
+        {
+          "from": "FraunhoferAIRISC",
+          "relation": "type",
+          "to": "Core",
+          "context": "based on the Fraunhofer AIRISC core",
+          "chunk": "1"
+        }
+      ]
+    },
+    "question": "Which of the following best describes the relationship between STRV-R1 and the Fraunhofer AIRISC in the context of microprocessor architecture?",
+    "options": {
+      "A": "STRV-R1 and the Fraunhofer AIRISC are parallel developments, sharing no direct architectural relationship.",
+      "B": "STRV-R1 is a platform that includes the RISC-V core, which is specifically based on the Fraunhofer AIRISC core.",
+      "C": "STRV-R1 directly incorporates the Fraunhofer AIRISC core without any mediation through the RISC-V architecture.",
+      "D": "STRV-R1 utilizes the Fraunhofer AIRISC core as a secondary processing unit independent of its primary RISC-V core."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct relationship is that STRV-R1 contains the RISC-V core, which in turn is based on the Fraunhofer AIRISC core. The question follows the knowledge path by demonstrating the containment and foundational relationships between STRV-R1, RISC-V, and the Fraunhofer AIRISC core.",
+    "path_description": "Path: STRV-R1 --[contains]--> RISC-V --[basedOn]--> FraunhoferAIRISC --[type]--> Core",
+    "context": "domain incorporates the RISC-V core | The specific RISC-V based on the Fraunhofer AIRISC core | based on the Fraunhofer AIRISC core",
+    "paper_id": "222"
+  },
+  {
+    "section": "measurementresults",
+    "path": {
+      "section": "measurementresults",
+      "start_entity": "XRayIrradiation",
+      "end_entity": "SRAM",
+      "hops": [
+        {
+          "from": "XRayIrradiation",
+          "relation": "testedOn",
+          "to": "R1",
+          "context": "To verify the hardness of the STRV-R1 against acc",
+          "chunk": "3"
+        },
+        {
+          "from": "R1",
+          "relation": "uses",
+          "to": "TMR",
+          "context": "R1 is protected by applying TMR to the memory.",
+          "chunk": "3"
+        },
+        {
+          "from": "TMR",
+          "relation": "appliedTo",
+          "to": "SRAM",
+          "context": "R1 is protected by applying TMR to the memory.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the experiment described in the 'measurementresults' section, what is the primary reason for applying TMR to the memory of the STRV-R1?",
+    "options": {
+      "A": "To reduce the physical size of the STRV-R1 memory modules for better integration.",
+      "B": "To improve the energy efficiency of the STRV-R1 by reducing power consumption in SRAM.",
+      "C": "To enhance the processing speed of the STRV-R1 by optimizing memory usage.",
+      "D": "To verify the hardness of the STRV-R1 against accidental data corruption in SRAM."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is based on the 3-hop path from the knowledge graph. The TMR (Triple Modular Redundancy) is applied to the memory of R1 (STRV-R1) to verify its hardness against external disturbances, such as X-ray irradiation, which could otherwise corrupt data stored in SRAM. The other options, while plausible, do not directly relate to the application of TMR as described in the context of the paper.",
+    "path_description": "Path: XRayIrradiation --[testedOn]--> R1 --[uses]--> TMR --[appliedTo]--> SRAM",
+    "context": "To verify the hardness of the STRV-R1 against acc | R1 is protected by applying TMR to the memory. | R1 is protected by applying TMR to the memory.",
+    "paper_id": "222"
+  },
+  {
+    "section": "radiationhardening",
+    "path": {
+      "section": "radiationhardening",
+      "start_entity": "Memory_bridge",
+      "end_entity": "RV32I_ISA",
+      "hops": [
+        {
+          "from": "Memory_bridge",
+          "relation": "connects",
+          "to": "SRAM",
+          "context": "Amemory bridge connects the instruction bus, it’s DMEM data bus and the SRAM.",
+          "chunk": "2"
+        },
+        {
+          "from": "SRAM",
+          "relation": "partOf",
+          "to": "IRISC_core",
+          "context": "stored within the same 32 kB SRAM.",
+          "chunk": "2"
+        },
+        {
+          "from": "IRISC_core",
+          "relation": "implements",
+          "to": "RV32I_ISA",
+          "context": "IRISC core features the RV32I ISA variant.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the context of radiation-hardened microprocessor design, how does the architecture ensure robust communication and data integrity?",
+    "options": {
+      "A": "The RV32I ISA directly manages the data and instruction buses without the need for a memory bridge or an integrated SRAM.",
+      "B": "Data integrity is ensured through redundant SRAM modules that are managed independently of the IRISC core's memory bridge.",
+      "C": "An external memory management unit (MMU) directly interfaces with the IRISC core to manage data flow between the CPU and the SRAM.",
+      "D": "A memory bridge facilitates connection between the instruction and data buses, linking them to the SRAM in the IRISC core implementing the RV32I ISA."
+    },
+    "correct_answer": "D",
+    "explanation": "The correct answer is A. The memory bridge is crucial in connecting the instruction bus and data bus (DMEM) to the SRAM, which is part of the IRISC core that implements the RV32I ISA. This arrangement not only simplifies the architecture but also enhances data integrity in radiation-prone environments by centralizing memory access and control.",
+    "path_description": "Path: Memory_bridge --[connects]--> SRAM --[partOf]--> IRISC_core --[implements]--> RV32I_ISA",
+    "context": "Amemory bridge connects the instruction bus, it’s DMEM data bus and the SRAM. | stored within the same 32 kB SRAM. | IRISC core features the RV32I ISA variant.",
+    "paper_id": "222"
+  },
+  {
+    "section": "measurementresults",
+    "path": {
+      "section": "measurementresults",
+      "start_entity": "XRayIrradiation",
+      "end_entity": "Technology",
+      "hops": [
+        {
+          "from": "XRayIrradiation",
+          "relation": "testedOn",
+          "to": "R1",
+          "context": "To verify the hardness of the STRV-R1 against acc",
+          "chunk": "3"
+        },
+        {
+          "from": "R1",
+          "relation": "uses",
+          "to": "TMR",
+          "context": "R1 is protected by applying TMR to the memory.",
+          "chunk": "3"
+        },
+        {
+          "from": "TMR",
+          "relation": "type",
+          "to": "Technology",
+          "context": "R1 is protected by applying TMR to the memory.",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "In the context of verifying the hardness of the STRV-R1 against certain environmental factors, which technology was used specifically to protect its memory?",
+    "options": {
+      "A": "Error Correcting Code (ECC) memory was used to automatically correct data errors.",
+      "B": "Dynamic Random Access Memory (DRAM) was implemented to increase processing speed.",
+      "C": "Triple Modular Redundancy (TMR) technology was employed to enhance memory protection.",
+      "D": "Single Event Upset Suppression technology was utilized to protect the overall system."
+    },
+    "correct_answer": "C",
+    "explanation": "The context specifies that TMR (Triple Modular Redundancy) was applied to protect the memory of the STRV-R1. This is a technology used to enhance the reliability of the system by replicating the memory modules, which is relevant to ensuring the system's hardness against environmental factors like radiation.",
+    "path_description": "Path: XRayIrradiation --[testedOn]--> R1 --[uses]--> TMR --[type]--> Technology",
+    "context": "To verify the hardness of the STRV-R1 against acc | R1 is protected by applying TMR to the memory. | R1 is protected by applying TMR to the memory.",
+    "paper_id": "222"
+  }
+]

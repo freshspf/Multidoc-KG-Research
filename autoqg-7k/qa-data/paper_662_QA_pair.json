@@ -1,0 +1,88 @@
+[
+  {
+    "section": "formationflyingsimulationresults",
+    "path": {
+      "section": "formationflyingsimulationresults",
+      "start_entity": "ControlParameters",
+      "end_entity": "Parameter",
+      "hops": [
+        {
+          "from": "ControlParameters",
+          "relation": "controls",
+          "to": "SatelliteSystem",
+          "context": "We let a = 0.7, σ = 3, ρ = 10, α0 = α1 = αv = 5, α = 0.02, and γ = 10^40.",
+          "chunk": "7"
+        },
+        {
+          "from": "SatelliteSystem",
+          "relation": "hasInteractionFrequencies",
+          "to": "InteractionFrequencies",
+          "context": "The interaction frequencies are ω12 = 200π rad/s, ω13 = 400π rad/s, and ω23 = 600π rad/s.",
+          "chunk": "7"
+        },
+        {
+          "from": "InteractionFrequencies",
+          "relation": "type",
+          "to": "Parameter",
+          "context": "The interaction frequencies are ω12 = 200π rad/s, ω13 = 400π rad/s, and ω23 = 600π rad/s.",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "In a satellite system simulation, if the control parameters are set to adjust the system's dynamics, which parameter most directly influences the interaction frequencies between satellites?",
+    "options": {
+      "A": "The damping coefficient γ, despite its high value of 10^40, does not influence interaction frequencies.",
+      "B": "The frequency parameters ω13 and ω23, set to 400π rad/s and 600π rad/s respectively, are indirectly affected by ρ.",
+      "C": "The control parameters, through specific settings like α0, α1, and αv, each set to 5, govern interaction frequencies.",
+      "D": "The interaction frequency ω12, which is set to 200π rad/s, directly corresponds to the control parameters."
+    },
+    "correct_answer": "C",
+    "explanation": "The control parameters, especially constants like α0, α1, and αv which are set to the same value of 5, are designed to directly influence the dynamics of the satellite system, which includes the interaction frequencies. These settings determine how satellites interact and therefore directly influence interaction frequencies ω12, ω13, and ω23.",
+    "path_description": "Path: ControlParameters --[controls]--> SatelliteSystem --[hasInteractionFrequencies]--> InteractionFrequencies --[type]--> Parameter",
+    "context": "We let a = 0.7, σ = 3, ρ = 10, α0 = α1 = αv = 5, α = 0.02, and γ = 10^40. | The interaction frequencies are ω12 = 200π rad/s, ω13 = 400π rad/s, and ω23 = 600π rad/s. | The interaction frequencies are ω12 = 200π rad/s, ω13 = 400π rad/s, and ω23 = 600π rad/s.",
+    "paper_id": "836"
+  },
+  {
+    "section": "formationflyingsimulationresults",
+    "path": {
+      "section": "formationflyingsimulationresults",
+      "start_entity": "InitialConditions",
+      "end_entity": "Parameter",
+      "hops": [
+        {
+          "from": "InitialConditions",
+          "relation": "specifiesInitialVelocity",
+          "to": "SatelliteSystem",
+          "context": "The initial conditions are v1(0) = v2(0) = v3(0) = 0 m/s.",
+          "chunk": "7"
+        },
+        {
+          "from": "SatelliteSystem",
+          "relation": "hasInteractionFrequencies",
+          "to": "InteractionFrequencies",
+          "context": "The interaction frequencies are ω12 = 200π rad/s, ω13 = 400π rad/s, and ω23 = 600π rad/s.",
+          "chunk": "7"
+        },
+        {
+          "from": "InteractionFrequencies",
+          "relation": "type",
+          "to": "Parameter",
+          "context": "The interaction frequencies are ω12 = 200π rad/s, ω13 = 400π rad/s, and ω23 = 600π rad/s.",
+          "chunk": "7"
+        }
+      ]
+    },
+    "question": "In the context of satellite system formation flying simulations, if the initial velocity conditions are set to zero, how is the parameter that defines the interaction frequency between the first and third satellites expressed?",
+    "options": {
+      "A": "The interaction frequency parameter for the first and third satellites is expressed as 400π rad/s.",
+      "B": "The interaction frequency parameter for the first and third satellites is expressed as 200π rad/s.",
+      "C": "The interaction frequency parameter for the first and third satellites is expressed as 0 m/s.",
+      "D": "The interaction frequency parameter for the first and third satellites is expressed as 600π rad/s."
+    },
+    "correct_answer": "A",
+    "explanation": "The paper specifies that the interaction frequency ω13, which is the frequency for interactions between the first and third satellites, is given as 400π rad/s. The other options either misstate the correct frequency or incorrectly describe the parameter in terms of velocity.",
+    "path_description": "Path: InitialConditions --[specifiesInitialVelocity]--> SatelliteSystem --[hasInteractionFrequencies]--> InteractionFrequencies --[type]--> Parameter",
+    "context": "The initial conditions are v1(0) = v2(0) = v3(0) = 0 m/s. | The interaction frequencies are ω12 = 200π rad/s, ω13 = 400π rad/s, and ω23 = 600π rad/s. | The interaction frequencies are ω12 = 200π rad/s, ω13 = 400π rad/s, and ω23 = 600π rad/s.",
+    "paper_id": "836"
+  }
+]

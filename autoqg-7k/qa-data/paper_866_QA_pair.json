@@ -1,0 +1,45 @@
+[
+  {
+    "section": "controllerdesign",
+    "path": {
+      "section": "controllerdesign",
+      "start_entity": "SaturatedRobustControl",
+      "end_entity": "ControlInput",
+      "hops": [
+        {
+          "from": "SaturatedRobustControl",
+          "relation": "appliedTo",
+          "to": "ControlInputV",
+          "context": "Considering system dynamics (5) and the control input v, we aim to design a controller that satisfies the following conditions...",
+          "chunk": "2"
+        },
+        {
+          "from": "ControlInputV",
+          "relation": "definedAs",
+          "to": "NewControlInput",
+          "context": "Next, we define a new control input v = u - um that satisfies -v ≤ v ≤ v where um = (u + u)/2 and v = (u - u)/2.",
+          "chunk": "2"
+        },
+        {
+          "from": "NewControlInput",
+          "relation": "type",
+          "to": "ControlInput",
+          "context": "As done in [13], if a new control input µ = G(q)Av exists whose symmetric bound µ > 0 satisfies A⁻¹ G(q)⁻¹ µ ≤ v for all q, then the same control law in the previous papers can be utilized with the newly defined control input µ.",
+          "chunk": "2"
+        }
+      ]
+    },
+    "question": "In the context of the controller design described in the paper, how is the new control input 'v' mathematically related to the original control variables 'u' and 'um'?",
+    "options": {
+      "A": "The new control input 'v' is the sum of the original control input 'u' and the midpoint of 'u's range, expressed as v = u + um.",
+      "B": "The new control input 'v' is determined by dividing the original control input 'u' by the average value of 'u', represented as v = u / um.",
+      "C": "The new control input 'v' is derived by multiplying the original control input 'u' with the mean of maximum and minimum 'u', resulting in v = u * um.",
+      "D": "The new control input 'v' is defined as the difference between 'u' and the average of maximum and minimum 'u', expressed as v = u - um."
+    },
+    "correct_answer": "D",
+    "explanation": "According to the paper, the new control input 'v' is defined as v = u - um, where um is calculated as (u + u)/2. This implies that 'v' is the difference between 'u' and its mean value, emphasizing a deviation-based control strategy.",
+    "path_description": "Path: SaturatedRobustControl --[appliedTo]--> ControlInputV --[definedAs]--> NewControlInput --[type]--> ControlInput",
+    "context": "Considering system dynamics (5) and the control input v, we aim to design a controller that satisfies the following conditions... | Next, we define a new control input v = u - um that satisfies -v ≤ v ≤ v where um = (u + u)/2 and v = (u - u)/2. | As done in [13], if a new control input µ = G(q)Av exists whose symmetric bound µ > 0 satisfies A⁻¹ G(q)⁻¹ µ ≤ v for all q, then the same control law in the previous papers can be utilized with the newly defined control input µ.",
+    "paper_id": "262"
+  }
+]

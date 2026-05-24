@@ -1,0 +1,131 @@
+[
+  {
+    "section": "mathematicalmodel",
+    "path": {
+      "section": "mathematicalmodel",
+      "start_entity": "OCS",
+      "end_entity": "RigidBody",
+      "hops": [
+        {
+          "from": "OCS",
+          "relation": "isRightCartesianFrame",
+          "to": "Oxyz",
+          "context": "consider the orbit coordinate system (OCS) as the right Cartesian frame.",
+          "chunk": "1"
+        },
+        {
+          "from": "Oxyz",
+          "relation": "hasUnitVectors",
+          "to": "Satellite",
+          "context": "Oxyz (body coordinate system – BCS) with unit vectors satellite.",
+          "chunk": "1"
+        },
+        {
+          "from": "Satellite",
+          "relation": "movesAs",
+          "to": "RigidBody",
+          "context": "Consider a satellite which moves as a rigid body in a circular orbit.",
+          "chunk": "1"
+        }
+      ]
+    },
+    "question": "In the context of a satellite's motion in a circular orbit, how do the properties of the orbit coordinate system (OCS) influence the satellite's movement?",
+    "options": {
+      "A": "The OCS, being a right Cartesian frame, provides a stable reference that aligns with the satellite's rigid body dynamics.",
+      "B": "The OCS, due to its non-inertial nature, directly imparts additional rotational forces on the satellite, altering its trajectory.",
+      "C": "The OCS serves to absorb external shocks, thus maintaining the satellite's position within its designated orbit.",
+      "D": "The OCS primarily functions to measure the gravitational pull on the satellite, thereby affecting its speed and position."
+    },
+    "correct_answer": "A",
+    "explanation": "The correct answer is A because the OCS (Orbit Coordinate System), which is specified as a right Cartesian frame, provides a stable and appropriate reference framework that aligns with the dynamics of the satellite viewed as a rigid body. This alignment is crucial for accurate modeling and analysis of the satellite's motion in space, especially in a circular orbit. Options B, C, and D introduce misleading concepts not supported by the context of the satellite's movement as described in the paper.",
+    "path_description": "Path: OCS --[isRightCartesianFrame]--> Oxyz --[hasUnitVectors]--> Satellite --[movesAs]--> RigidBody",
+    "context": "consider the orbit coordinate system (OCS) as the right Cartesian frame. | Oxyz (body coordinate system – BCS) with unit vectors satellite. | Consider a satellite which moves as a rigid body in a circular orbit.",
+    "paper_id": "430"
+  },
+  {
+    "section": "introduction",
+    "path": {
+      "section": "introduction",
+      "start_entity": "ControlAffineSystem",
+      "end_entity": "State",
+      "hops": [
+        {
+          "from": "ControlAffineSystem",
+          "relation": "describes",
+          "to": "RigidBody",
+          "context": "local controllability of a control-affine system that describes the",
+          "chunk": "0"
+        },
+        {
+          "from": "RigidBody",
+          "relation": "hasState",
+          "to": "RelativeEquilibrium",
+          "context": "local-time local controllability around the relative equilibrium",
+          "chunk": "0"
+        },
+        {
+          "from": "RelativeEquilibrium",
+          "relation": "type",
+          "to": "State",
+          "context": "local-time local controllability around the relative equilibrium",
+          "chunk": "0"
+        }
+      ]
+    },
+    "question": "In the context of control-affine systems as described in the introduction, what is the type of state that embodies the local-time local controllability around a rigid body's relative equilibrium?",
+    "options": {
+      "A": "The state refers to the rigid body's ability to resist external forces through inherent design.",
+      "B": "The state is a representation of the dynamic stability characteristics of the rigid body.",
+      "C": "The state indicates the rigid body's capacity to perform work or energy transfer.",
+      "D": "The state is primarily concerned with the rigid body's geometric configuration in space."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is A because the question refers to the type of state related to the 'local-time local controllability' around a rigid body's relative equilibrium. This state is a representation of the dynamic stability characteristics, which is crucial for understanding how the system behaves under control inputs near that equilibrium, aligning with the concepts described in the knowledge path.",
+    "path_description": "Path: ControlAffineSystem --[describes]--> RigidBody --[hasState]--> RelativeEquilibrium --[type]--> State",
+    "context": "local controllability of a control-affine system that describes the | local-time local controllability around the relative equilibrium | local-time local controllability around the relative equilibrium",
+    "paper_id": "430"
+  },
+  {
+    "section": "smalltimelocalcontrollabilityproofoftheorem1",
+    "path": {
+      "section": "smalltimelocalcontrollabilityproofoftheorem1",
+      "start_entity": "LieAlgebraL",
+      "end_entity": "MathematicalConcept",
+      "hops": [
+        {
+          "from": "LieAlgebraL",
+          "relation": "generatedBy",
+          "to": "FamilyOfVectorFieldsF",
+          "context": "The Lie algebra of vector fields generated by F will be denoted by L(F)...",
+          "chunk": "3"
+        },
+        {
+          "from": "FamilyOfVectorFieldsF",
+          "relation": "includes",
+          "to": "VectorFieldF2",
+          "context": "We denote the above family of vector fields by F = {f0, f1, ..., fm}, m = 3.",
+          "chunk": "3"
+        },
+        {
+          "from": "VectorFieldF2",
+          "relation": "type",
+          "to": "MathematicalConcept",
+          "context": "f1(x) =  I3  , f2(x) = ...",
+          "chunk": "3"
+        }
+      ]
+    },
+    "question": "Considering the knowledge graph path from 'Lie Algebra L' to 'Mathematical Concept' via 'Family of Vector Fields F' and 'Vector Field F2', what is the primary mathematical concept applied to define the Vector Field F2?",
+    "options": {
+      "A": "Vector Field F2 relies on the fundamental theorem of calculus to establish its properties.",
+      "B": "Vector Field F2 is primarily defined using the concept of linear transformations in vector calculus.",
+      "C": "Vector Field F2 utilizes principles from abstract algebra to describe its characteristics.",
+      "D": "Vector Field F2 is defined through the application of differential equations solving techniques."
+    },
+    "correct_answer": "B",
+    "explanation": "The correct answer is 'A' because Vector Field F2, from the context given in the knowledge graph and paper section, is described through the application of linear transformations, which are a core concept in vector calculus. The other options, while plausible in the context of mathematical concepts applied to vector fields, do not directly relate to how Vector Field F2 is defined in the provided path and context.",
+    "path_description": "Path: LieAlgebraL --[generatedBy]--> FamilyOfVectorFieldsF --[includes]--> VectorFieldF2 --[type]--> MathematicalConcept",
+    "context": "The Lie algebra of vector fields generated by F will be denoted by L(F)... | We denote the above family of vector fields by F = {f0, f1, ..., fm}, m = 3. | f1(x) =  I3  , f2(x) = ...",
+    "paper_id": "430"
+  }
+]
